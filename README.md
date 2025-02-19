@@ -1,2 +1,3 @@
-# public-catalog
-Collection of manifests composing Mia-Platform public catalog
+# Mia-Platform Public Catalog
+
+Collection of manifests composing Mia-Platform public catalog.
