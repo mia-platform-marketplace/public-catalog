@@ -1,0 +1,24 @@
+# dependencies
+node_modules/
+.yarn/*
+!.yarn/releases
+!.yarn/versions
+.yarn/cache
+.yarn/install-state.gz
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# production
+dist/
+build/
+
+# testing
+coverage/
+
+# misc
+.DS_Store
+.env*
+!.env.example
+.idea
+.history

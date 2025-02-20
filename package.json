@@ -1,0 +1,36 @@
+{
+  "name": "public-catalog",
+  "description": "Collection of manifests composing Mia-Platform public catalog.",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "packageManager": "yarn@4.6.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Mia Platform Core Team <core@mia-platform.eu>",
+  "scripts": {
+    "check-types": "tsc --noEmit --skipLibCheck",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@mia-platform/console-types": "^0.30.0",
+    "@stylistic/eslint-plugin-js": "^4.0.1",
+    "@stylistic/eslint-plugin-ts": "^4.0.1",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.13.4",
+    "eslint": "^9.20.1",
+    "eslint-config-esnext": "^4.1.0",
+    "eslint-import-resolver-typescript": "^3.8.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^17.15.1",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "eslint-plugin-typescript-sort-keys": "^3.3.0",
+    "eslint-visitor-keys": "^4.2.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.1"
+  },
+  "engines": {
+    "node": ">=v23"
+  }
+}
