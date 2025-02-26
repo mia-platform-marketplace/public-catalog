@@ -34,6 +34,7 @@
     "eslint-plugin-typescript-sort-keys": "^3.3.0",
     "eslint-visitor-keys": "^4.2.0",
     "json-schema-to-ts": "^3.1.1",
+    "listr2": "^8.2.5",
     "lodash-es": "^4.17.21",
     "node-color-log": "^12.0.1",
     "ora": "^8.2.0",

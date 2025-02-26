@@ -25,6 +25,8 @@ import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 import { Command } from 'commander'
 import type { JSONSchema } from 'json-schema-to-ts'
+import type { DefaultRenderer, ListrTaskWrapper } from 'listr2'
+import { Listr } from 'listr2'
 import semver from 'semver'
 
 import supporters from '../assets/supporters.json' with { type: 'json' }
@@ -32,9 +34,14 @@ import supporters from '../assets/supporters.json' with { type: 'json' }
 import logger from './logger'
 import type { ItemTypeData, ItemTypeModule, Manifest } from './utils'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Task = ListrTaskWrapper<any, typeof DefaultRenderer, any>
+
 const ajv = new Ajv({ addUsedSchema: false, allErrors: true })
 addFormats(ajv)
 
+
+/** @throws Error */
 const computePathsToCheck = async (itemIds: string[] = ['*']): Promise<string[]> => {
   const patterns = new Set(itemIds)
   const foundItemIds = new Set<string>()
@@ -66,6 +73,84 @@ const computePathsToCheck = async (itemIds: string[] = ['*']): Promise<string[]>
   return paths
 }
 
+/** @throws Error */
+const validateManifest = (manifest: unknown, schema: JSONSchema) => {
+  const validate = ajv.compile(schema)
+
+  const valid = validate(manifest)
+  if (valid) { return }
+
+  const error = validate.errors?.at(0)
+
+  throw new Error(`Error validating manifest against schema${error ? `: ${JSON.stringify(error)}` : ''}`)
+
+  // if (!validate.errors) {
+  //   return ['Error validating manifest against schema: AJV did not return any error']
+  // }
+
+  // return validate.errors.map((error) => `Error validating manifest against schema: ${JSON.stringify(error)}`)
+}
+
+/** @throws Error */
+const assertValidImageFile = async (manifest: Manifest, manifestPath: string) => {
+  const imageAbsPath = path.resolve(manifestPath, manifest.image.localPath)
+  try {
+    await fs.access(imageAbsPath)
+  } catch {
+    throw new Error(`Invalid "image" property: file does not exist`)
+  }
+}
+
+/** @throws Error */
+const assertValidSupportedByImageFile = async (manifest: Manifest, manifestPath: string) => {
+  const imageAbsPath = path.resolve(manifestPath, manifest.supportedByImage.localPath)
+  try {
+    await fs.access(imageAbsPath)
+  } catch {
+    throw new Error(`Invalid "supportedByImage" property: file does not exist`)
+  }
+
+  const filename = path.basename(imageAbsPath)
+  const supporterImages = supporters.supporters.find(({ label }) => label === manifest.supportedBy)?.images ?? []
+
+  if (!supporterImages.includes(filename)) {
+    throw new Error(`Invalid "supportedByImage" property: expected one of [${supporterImages.join(', ')}], found "${filename}"`)
+  }
+}
+
+/** @throws Error */
+const assertVersionValid = async (manifestPath: string, typeData: ItemTypeData) => {
+  const manifestModule = await import(manifestPath, { with: { type: 'json' } }) as { default: Manifest }
+  const manifest = manifestModule.default
+
+  validateManifest(manifest, typeData.schema)
+
+  const itemFolderName = manifestPath.split('/').at(-3)
+  if (manifest.itemId !== itemFolderName) {
+    throw new Error(`Property "itemId" has wrong value: expected "${itemFolderName}", found "${manifest.itemId}"`)
+  }
+
+  const filename = path.basename(manifestPath, '.json')
+
+  if (filename === NA_VERSION) {
+    if (manifest.version) {
+      throw new Error(`Manifests for "NA" versions must not have property "version"`)
+    }
+
+    if (manifest.releaseStage !== CatalogReleaseStage.DEPRECATED) {
+      throw new Error(`Manifests for "NA" versions must have "releaseStage" set to "deprecated"`)
+    }
+  }
+
+  if (filename !== NA_VERSION && filename !== manifest.version?.name) {
+    throw new Error(`Property "version.name" must be equal to filename: expected "${filename}", found "${manifest.version?.name}"`)
+  }
+
+  await assertValidImageFile(manifest, manifestPath)
+  await assertValidSupportedByImageFile(manifest, manifestPath)
+}
+
+/** @throws Error */
 const computeAndValidateReleaseFilesPaths = async (itemDirPath: string, typeData: ItemTypeData): Promise<string[]> => {
   const versionsDirPath = path.resolve(itemDirPath, 'versions')
 
@@ -127,112 +212,27 @@ const computeAndValidateReleaseFilesPaths = async (itemDirPath: string, typeData
   return paths
 }
 
-const validateManifest = (manifest: unknown, schema: JSONSchema): string[] | undefined => {
-  const validate = ajv.compile(schema)
-
-  const valid = validate(manifest)
-  if (valid) { return }
-
-  if (!validate.errors) {
-    return ['Error validating manifest against schema: AJV did not return any error']
-  }
-
-  return validate.errors.map((error) => `Error validating manifest against schema: ${JSON.stringify(error)}`)
-}
-
-const assertValidImageFile = async (manifest: Manifest, manifestPath: string): Promise<string[] | undefined> => {
-  const imageAbsPath = path.resolve(manifestPath, manifest.image.localPath)
-  try {
-    await fs.access(imageAbsPath)
-  } catch {
-    return [`Invalid "image" property: file does not exist`]
-  }
-}
-
-const assertValidSupportedByImageFile = async (manifest: Manifest, manifestPath: string): Promise<string[] | undefined> => {
-  const imageAbsPath = path.resolve(manifestPath, manifest.supportedByImage.localPath)
-  try {
-    await fs.access(imageAbsPath)
-  } catch {
-    return [`Invalid "supportedByImage" property: file does not exist`]
-  }
-
-  const filename = path.basename(imageAbsPath)
-  const supporterImages = supporters.supporters.find(({ label }) => label === manifest.supportedBy)?.images ?? []
-
-  if (!supporterImages.includes(filename)) {
-    return [`Invalid "supportedByImage" property: expected one of [${supporterImages.join(', ')}], found "${filename}"`]
-  }
-}
-
-const assertVersionValid = async (manifestPath: string, typeData: ItemTypeData): Promise<string[] | undefined> => {
-  let manifest: Manifest
-  try {
-    const manifestModule = await import(manifestPath, { with: { type: 'json' } }) as { default: Manifest }
-    manifest = manifestModule.default
-  } catch (error) {
-    return [`Could not load manifest${error instanceof Error ? `: ${error.message}` : ''}`]
-  }
-
-  const errors: string[] = []
-
-  const validationErrors = validateManifest(manifest, typeData.schema)
-  errors.push(...validationErrors ?? [])
-
-  const itemFolderName = manifestPath.split('/').at(-3)
-  if (manifest.itemId !== itemFolderName) {
-    errors.push(`Property "itemId" has wrong value: expected "${itemFolderName}", found "${manifest.itemId}"`)
-  }
-
-  const filename = path.basename(manifestPath, '.json')
-
-  if (filename === NA_VERSION) {
-    if (manifest.version) {
-      errors.push(`Manifests for "NA" versions must not have property "version"`)
-    }
-
-    if (manifest.releaseStage !== CatalogReleaseStage.DEPRECATED) {
-      errors.push(`Manifests for "NA" versions must have "releaseStage" set to "deprecated"`)
-    }
-  }
-
-  if (filename !== NA_VERSION && filename !== manifest.version?.name) {
-    errors.push(`Property "version.name" must be equal to filename: expected "${filename}", found "${manifest.version?.name}"`)
-  }
-
-  const imageValidationErrors = await assertValidImageFile(manifest, manifestPath)
-  errors.push(...imageValidationErrors ?? [])
-
-  const supportedByImageValidationErrors = await assertValidSupportedByImageFile(manifest, manifestPath)
-  errors.push(...supportedByImageValidationErrors ?? [])
-}
-
-const assertItemValid = async (itemDirPath: string): Promise<string[] | undefined> => {
+/** @throws Error */
+const assertItemValid = async (task: Task, itemDirPath: string): Promise<Listr> => {
   const typeDir = path.dirname(itemDirPath)
 
-  let typeData: ItemTypeData
-  try {
-    const typeDataModule = await import(typeDir) as ItemTypeModule
-    typeData = typeDataModule.default
-  } catch (error) {
-    return [`Could not load type-related data${error instanceof Error ? `: ${error.message}` : ''}`]
-  }
+  const typeDataModule = await import(typeDir) as ItemTypeModule
+  const typeData = typeDataModule.default
 
-  let manifestPaths: string[]
-  try {
-    manifestPaths = await computeAndValidateReleaseFilesPaths(itemDirPath, typeData)
-  } catch (error) {
-    return [error instanceof Error ? error.message : 'Could not retrieve manifests']
-  }
+  const manifestPaths = await computeAndValidateReleaseFilesPaths(itemDirPath, typeData)
+
+  const subTask = task.newListr([])
 
   for (const manifestPath of manifestPaths) {
-    logger.info(`Checking "${path.basename(manifestPath)}"...`)
+    const versionName = path.basename(manifestPath, '.json')
 
-    const errors = await assertVersionValid(manifestPath, typeData)
-    if (errors?.length) {
-      errors.forEach((error) => { logger.error(error) })
-    }
+    subTask.add({
+      task: async () => { await assertVersionValid(manifestPath, typeData) },
+      title: `Checking version "${versionName}" validity`,
+    })
   }
+
+  return subTask
 }
 
 // TODO: check that services, endpoints, and collections have `name` equal to `key`
@@ -246,25 +246,22 @@ const main = async () => {
 
   const paths = await computePathsToCheck(options.items)
 
+  const tasks = new Listr([], {
+    concurrent: true,
+    exitOnError: false,
+    rendererOptions: { collapseErrors: false, collapseSubtasks: false, showSubtasks: true },
+  })
+
   for (const itemDirPath of paths) {
     const itemId = itemDirPath.split('/').at(-1)
-    logger.info(`Checking "${itemId}"`)
-    // const spinner = logger.spin(`Checking "${itemId}"`)
 
-    const errors = await assertItemValid(itemDirPath)
-    if (errors?.length) {
-      errors.forEach((error) => { logger.error(error) })
-    }
-
-    // if (!errors?.length) {
-    //   spinner.succeed()
-    // } else {
-    //   spinner.fail()
-    //   errors.forEach((error) => { logger.error(error) })
-    // }
-
-    logger.newLine()
+    tasks.add({
+      task: async (_, task) => assertItemValid(task, itemDirPath),
+      title: `Checking "${itemId}" validity`,
+    })
   }
+
+  await tasks.run()
 }
 
 main()
