@@ -20,81 +20,60 @@ import type { Dirent } from 'node:fs'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import { catalogWellKnownItemsCustomResourceDefinitions, NA_VERSION } from '@mia-platform/console-types'
+import { CatalogReleaseStage, catalogWellKnownItemsCustomResourceDefinitions, NA_VERSION } from '@mia-platform/console-types'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
+import { Command } from 'commander'
 import type { JSONSchema } from 'json-schema-to-ts'
 import semver from 'semver'
 
 import supporters from '../assets/supporters.json' with { type: 'json' }
 
+import logger from './logger'
 import type { ItemTypeData, ItemTypeModule, Manifest } from './utils'
-import { logger } from './utils'
 
 const ajv = new Ajv({ addUsedSchema: false, allErrors: true })
 addFormats(ajv)
 
-const assertUniqueItemDirectories = async () => {
-  const permittedFiles = ['index.ts', 'manifest.schema.json']
+const computePathsToCheck = async (itemIds: string[] = ['*']): Promise<string[]> => {
+  const patterns = new Set(itemIds)
+  const foundItemIds = new Set<string>()
 
-  const itemDirsSet = new Set<string>()
+  const paths: string[] = []
 
-  const typeDirs = await fs.readdir(path.resolve(process.cwd(), 'items'), { withFileTypes: true })
+  for (const pattern of patterns) {
+    let hasMatch = false
 
-  for (const typeDirent of typeDirs) {
-    if (!typeDirent.isDirectory()) {
-      throw new Error(`Fund unexpected file 'items/${typeDirent.name}'`)
-    }
+    for await (const dirent of fs.glob(`items/*/${pattern}`, { withFileTypes: true })) {
+      if (!dirent.isDirectory()) { continue }
 
-    const itemDirs = await fs.readdir(path.resolve(typeDirent.parentPath, typeDirent.name), { withFileTypes: true })
-    for (const itemDirent of itemDirs) {
-      if (!itemDirent.isDirectory()) {
-        if (permittedFiles.includes(itemDirent.name)) { continue }
-        throw new Error(`Fund unexpected file 'items/${typeDirent.name}/${itemDirent.name}'`)
+      if (foundItemIds.has(dirent.name)) {
+        throw new Error(`Found multiple directories for item with id "${dirent.name}"`)
       }
 
-      if (itemDirsSet.has(itemDirent.name)) {
-        throw new Error(`Item directory '${itemDirent.name}' found multiple times`)
-      }
+      foundItemIds.add(dirent.name)
+      hasMatch = true
 
-      itemDirsSet.add(itemDirent.name)
-    }
-  }
-}
-
-const computePathsToCheck = async (): Promise<string[]> => {
-  const args = process.argv.slice(2)
-  if (args.length === 0) { args.push('**') }
-
-  const paths = new Set<string>()
-
-  for (const arg of args) {
-    let foundPath = false
-
-    for await (const entry of fs.glob(`items/**/${arg}/**/versions`)) {
-      foundPath = true
-      const itemAbsPath = path.dirname(path.resolve(process.cwd(), entry))
-      paths.add(itemAbsPath)
+      const itemPath = path.resolve(dirent.parentPath, dirent.name)
+      paths.push(itemPath)
     }
 
-    if (foundPath === false) { logger.warn(`No matching items found for arg '${arg}'`) }
+    if (hasMatch === false) {
+      throw new Error(pattern === '*' ? 'No items found' : `No items found for id "${pattern}"`)
+    }
   }
 
-  return Array.from(paths)
+  return paths
 }
 
-const getItemFilesPaths = async (itemDirPath: string, typeData: ItemTypeData): Promise<string[]> => {
+const computeAndValidateReleaseFilesPaths = async (itemDirPath: string, typeData: ItemTypeData): Promise<string[]> => {
   const versionsDirPath = path.resolve(itemDirPath, 'versions')
 
   let versionsDirent: Dirent[]
   try {
     versionsDirent = await fs.readdir(versionsDirPath, { withFileTypes: true })
-  } catch (err) {
-    if ((err as NodeJS.ErrnoException).code === 'ENOENT') {
-      throw new Error('Missing "versions" directory')
-    }
-
-    throw err
+  } catch (error) {
+    throw (error as NodeJS.ErrnoException).code === 'ENOENT' ? new Error('Missing "versions" directory') : error
   }
 
   const paths: string[] = []
@@ -104,14 +83,14 @@ const getItemFilesPaths = async (itemDirPath: string, typeData: ItemTypeData): P
 
   for (const versionDirent of versionsDirent) {
     if (!versionDirent.isFile) {
-      throw new Error(`Found unexpected directory 'versions/${versionDirent.name}'`)
+      throw new Error(`Found unexpected directory "versions/${versionDirent.name}"`)
     }
 
     const fileAbsPath = path.resolve(versionDirent.parentPath, versionDirent.name)
     const parsedFilename = path.parse(versionDirent.name)
 
     if (parsedFilename.ext !== '.json') {
-      throw new Error(`Found unexpected non-json file 'versions/${versionDirent.name}'`)
+      throw new Error(`Found unexpected non-json file "versions/${versionDirent.name}"`)
     }
 
     if (parsedFilename.name === NA_VERSION) {
@@ -121,7 +100,7 @@ const getItemFilesPaths = async (itemDirPath: string, typeData: ItemTypeData): P
     }
 
     if (semver.valid(parsedFilename.name) === null) {
-      throw new Error(`File 'versions/${versionDirent.name}' has an unsupported name: must be a valid semver or 'NA'`)
+      throw new Error(`File "versions/${versionDirent.name}" has an unsupported name: must be a valid semver or "NA"`)
     }
 
     paths.push(fileAbsPath)
@@ -129,121 +108,162 @@ const getItemFilesPaths = async (itemDirPath: string, typeData: ItemTypeData): P
   }
 
   if (paths.length === 0) {
-    throw new Error(`Directory 'versions' is empty`)
+    throw new Error(`Unexpected empty directory "versions"`)
   }
 
   const crd = catalogWellKnownItemsCustomResourceDefinitions[typeData.type]
   if (!crd) {
-    throw new Error(`Could not found a Custom Resource Definition for the item's type '${typeData.type}'`)
+    throw new Error(`Could not find a Custom Resource Definition for the item's type "${typeData.type}"`)
   }
 
   if (!crd.isVersioningSupported && (hasSemver || !hasNa)) {
-    throw new Error(`Items of type '${typeData.type}' must have only a single 'NA.json' file`)
+    throw new Error(`Items of type "${typeData.type}" must have only a single "NA.json" file`)
   }
 
   if (crd.isVersioningSupported && !hasSemver) {
-    throw new Error(`Items of type '${typeData.type}' must have at least one semver version file`)
+    throw new Error(`Items of type "${typeData.type}" must have at least one versioned manifest`)
   }
 
   return paths
 }
 
-// eslint-disable-next-line func-style
-function assertManifestCompliant(manifest: unknown, schema: JSONSchema): asserts manifest is Manifest {
+const validateManifest = (manifest: unknown, schema: JSONSchema): string[] | undefined => {
   const validate = ajv.compile(schema)
 
   const valid = validate(manifest)
   if (valid) { return }
 
   if (!validate.errors) {
-    throw new Error('Error validating manifest against schema: AJV did not return any error')
+    return ['Error validating manifest against schema: AJV did not return any error']
   }
 
-  validate.errors.forEach((error) => logger.error(`Error validating manifest against schema: ${JSON.stringify(error)}`))
-  throw new Error('Manifest not valid')
+  return validate.errors.map((error) => `Error validating manifest against schema: ${JSON.stringify(error)}`)
 }
 
-const assertValidImageFile = async (manifest: Manifest, manifestPath: string) => {
+const assertValidImageFile = async (manifest: Manifest, manifestPath: string): Promise<string[] | undefined> => {
   const imageAbsPath = path.resolve(manifestPath, manifest.image.localPath)
   try {
     await fs.access(imageAbsPath)
   } catch {
-    throw new Error(`Invalid 'image' property: file does not exist`)
+    return [`Invalid "image" property: file does not exist`]
   }
 }
 
-const assertValidSupportedByImageFile = async (manifest: Manifest, manifestPath: string) => {
+const assertValidSupportedByImageFile = async (manifest: Manifest, manifestPath: string): Promise<string[] | undefined> => {
   const imageAbsPath = path.resolve(manifestPath, manifest.supportedByImage.localPath)
   try {
     await fs.access(imageAbsPath)
   } catch {
-    throw new Error(`Invalid 'supportedByImage' property: file does not exist`)
+    return [`Invalid "supportedByImage" property: file does not exist`]
   }
 
   const filename = path.basename(imageAbsPath)
   const supporterImages = supporters.supporters.find(({ label }) => label === manifest.supportedBy)?.images ?? []
 
   if (!supporterImages.includes(filename)) {
-    throw new Error(`Invalid 'supportedByImage' property: expected one of [${supporterImages.join(', ')}], found '${filename}'`)
+    return [`Invalid "supportedByImage" property: expected one of [${supporterImages.join(', ')}], found "${filename}"`]
   }
 }
 
-const assertVersionValid = async (manifestPath: string, typeData: ItemTypeData) => {
-  const manifestModule = await import(manifestPath, { with: { type: 'json' } }) as { default: unknown }
-  const manifest = manifestModule.default
+const assertVersionValid = async (manifestPath: string, typeData: ItemTypeData): Promise<string[] | undefined> => {
+  let manifest: Manifest
+  try {
+    const manifestModule = await import(manifestPath, { with: { type: 'json' } }) as { default: Manifest }
+    manifest = manifestModule.default
+  } catch (error) {
+    return [`Could not load manifest${error instanceof Error ? `: ${error.message}` : ''}`]
+  }
 
-  assertManifestCompliant(manifest, typeData.schema)
+  const errors: string[] = []
+
+  const validationErrors = validateManifest(manifest, typeData.schema)
+  errors.push(...validationErrors ?? [])
 
   const itemFolderName = manifestPath.split('/').at(-3)
   if (manifest.itemId !== itemFolderName) {
-    throw new Error(`Property 'itemId' has wrong value: expected '${itemFolderName}', found '${manifest.itemId}'`)
+    errors.push(`Property "itemId" has wrong value: expected "${itemFolderName}", found "${manifest.itemId}"`)
   }
 
   const filename = path.basename(manifestPath, '.json')
-  if (filename === NA_VERSION && manifest.version) {
-    throw new Error(`Manifests for 'NA' versions must not have property 'version'`)
+
+  if (filename === NA_VERSION) {
+    if (manifest.version) {
+      errors.push(`Manifests for "NA" versions must not have property "version"`)
+    }
+
+    if (manifest.releaseStage !== CatalogReleaseStage.DEPRECATED) {
+      errors.push(`Manifests for "NA" versions must have "releaseStage" set to "deprecated"`)
+    }
   }
 
   if (filename !== NA_VERSION && filename !== manifest.version?.name) {
-    throw new Error(`Property 'version.name' must be equal to filename: expected '${filename}', found '${manifest.version?.name}'`)
+    errors.push(`Property "version.name" must be equal to filename: expected "${filename}", found "${manifest.version?.name}"`)
   }
 
-  await assertValidImageFile(manifest, manifestPath)
-  await assertValidSupportedByImageFile(manifest, manifestPath)
+  const imageValidationErrors = await assertValidImageFile(manifest, manifestPath)
+  errors.push(...imageValidationErrors ?? [])
+
+  const supportedByImageValidationErrors = await assertValidSupportedByImageFile(manifest, manifestPath)
+  errors.push(...supportedByImageValidationErrors ?? [])
 }
 
-const assertItemValid = async (itemDirPath: string) => {
-  const itemId = itemDirPath.split('/').at(-1)
-  logger.info(`Checking '${itemId}'...`)
+const assertItemValid = async (itemDirPath: string): Promise<string[] | undefined> => {
+  const typeDir = path.dirname(itemDirPath)
 
+  let typeData: ItemTypeData
   try {
-    const typeDir = path.dirname(itemDirPath)
     const typeDataModule = await import(typeDir) as ItemTypeModule
-    const typeData = typeDataModule.default
+    typeData = typeDataModule.default
+  } catch (error) {
+    return [`Could not load type-related data${error instanceof Error ? `: ${error.message}` : ''}`]
+  }
 
-    const manifestPaths = await getItemFilesPaths(itemDirPath, typeData)
+  let manifestPaths: string[]
+  try {
+    manifestPaths = await computeAndValidateReleaseFilesPaths(itemDirPath, typeData)
+  } catch (error) {
+    return [error instanceof Error ? error.message : 'Could not retrieve manifests']
+  }
 
-    for (const manifestPath of manifestPaths) {
-      logger.info(`Checking ${path.basename(manifestPath)}...`)
+  for (const manifestPath of manifestPaths) {
+    logger.info(`Checking "${path.basename(manifestPath)}"...`)
 
-      try {
-        await assertVersionValid(manifestPath, typeData)
-      } catch (err) {
-        logger.error({ err }, err instanceof Error ? err.message : 'Unexpected error checking item version validity')
-      }
+    const errors = await assertVersionValid(manifestPath, typeData)
+    if (errors?.length) {
+      errors.forEach((error) => { logger.error(error) })
     }
-  } catch (err) {
-    logger.error({ err }, err instanceof Error ? err.message : 'Unexpected error checking item validity')
   }
 }
 
+// TODO: check that services, endpoints, and collections have `name` equal to `key`
 const main = async () => {
-  await assertUniqueItemDirectories()
+  const program = new Command()
 
-  const paths = await computePathsToCheck()
+  program.option('-i, --items <value...>', 'ids of the items to check')
+  program.parse()
+
+  const options = program.opts<{ items?: string[] }>()
+
+  const paths = await computePathsToCheck(options.items)
 
   for (const itemDirPath of paths) {
-    await assertItemValid(itemDirPath)
+    const itemId = itemDirPath.split('/').at(-1)
+    logger.info(`Checking "${itemId}"`)
+    // const spinner = logger.spin(`Checking "${itemId}"`)
+
+    const errors = await assertItemValid(itemDirPath)
+    if (errors?.length) {
+      errors.forEach((error) => { logger.error(error) })
+    }
+
+    // if (!errors?.length) {
+    //   spinner.succeed()
+    // } else {
+    //   spinner.fail()
+    //   errors.forEach((error) => { logger.error(error) })
+    // }
+
+    logger.newLine()
   }
 }
 

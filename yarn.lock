@@ -1198,7 +1198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^5.3.0":
+"chalk@npm:^5.3.0, chalk@npm:^5.4.1":
   version: 5.4.1
   resolution: "chalk@npm:5.4.1"
   checksum: 10/29df3ffcdf25656fed6e95962e2ef86d14dfe03cd50e7074b06bad9ffbbf6089adbb40f75c00744d843685c8d008adaf3aed31476780312553caf07fa86e5bc7
@@ -1287,6 +1287,13 @@ __metadata:
   version: 2.0.20
   resolution: "colorette@npm:2.0.20"
   checksum: 10/0b8de48bfa5d10afc160b8eaa2b9938f34a892530b2f7d7897e0458d9535a066e3998b49da9d21161c78225b272df19ae3a64d6df28b4c9734c0e55bbd02406f
+  languageName: node
+  linkType: hard
+
+"commander@npm:^13.1.0":
+  version: 13.1.0
+  resolution: "commander@npm:13.1.0"
+  checksum: 10/d3b4b79e6be8471ddadacbb8cd441fe82154d7da7393b50e76165a9e29ccdb74fa911a186437b9a211d0fc071db6051915c94fb8ef16d77511d898e9dbabc6af
   languageName: node
   linkType: hard
 
@@ -3498,6 +3505,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-color-log@npm:^12.0.1":
+  version: 12.0.1
+  resolution: "node-color-log@npm:12.0.1"
+  checksum: 10/d5fb763cc6844a0f942ce67eadd5303deee64bcbb29d7a9ca427fad4c4f90ff823a2fa3a2c6abd39b7098f9e9dcf0546fc5b5f292626ba199e502d5a1f1a5a1b
+  languageName: node
+  linkType: hard
+
 "node-gyp@npm:latest":
   version: 11.1.0
   resolution: "node-gyp@npm:11.1.0"
@@ -3928,6 +3942,8 @@ __metadata:
     "@types/semver": "npm:^7"
     ajv: "npm:^8.17.1"
     ajv-formats: "npm:^3.0.1"
+    chalk: "npm:^5.4.1"
+    commander: "npm:^13.1.0"
     eslint: "npm:^9.21.0"
     eslint-config-esnext: "npm:^4.1.0"
     eslint-import-resolver-typescript: "npm:^3.8.3"
@@ -3938,6 +3954,7 @@ __metadata:
     eslint-visitor-keys: "npm:^4.2.0"
     json-schema-to-ts: "npm:^3.1.1"
     lodash-es: "npm:^4.17.21"
+    node-color-log: "npm:^12.0.1"
     ora: "npm:^8.2.0"
     pino: "npm:^9.6.0"
     pino-pretty: "npm:^13.0.0"
