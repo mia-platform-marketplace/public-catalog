@@ -16,6 +16,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import type { CatalogItemManifest } from '@mia-platform/console-types'
 import type { JSONSchema } from 'json-schema-to-ts'
 import pino from 'pino'
 
@@ -26,9 +27,18 @@ export const logger = pino({
   },
 })
 
+export type ItemTypeData = {
+  schema: JSONSchema
+  type: string
+}
+
 export type ItemTypeModule = {
-  default: {
-    schema: JSONSchema
-    type: string
-  }
+  default: ItemTypeData
+}
+
+export type ImageFileData = { localPath: string }
+
+export type Manifest = CatalogItemManifest & {
+  image: ImageFileData
+  supportedByImage: ImageFileData
 }
