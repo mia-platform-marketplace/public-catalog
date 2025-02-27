@@ -18,8 +18,6 @@
 
 /* eslint-disable no-console */
 import chalk from 'chalk'
-import type { Ora } from 'ora'
-import ora from 'ora'
 
 export const indent = (spaces = 1) => new Array(spaces).fill(' ').join('')
 
@@ -49,21 +47,10 @@ const warn: typeof console.log = (...data) => { console.log(prefixes.warn, ...da
 
 const error: typeof console.log = (...data) => { console.log(prefixes.error, ...data) }
 
-const spin = (msg: string): Ora => {
-  const spinner = ora({
-    hideCursor: false,
-    prefixText: prefixes.info,
-    text: msg,
-  })
-
-  return spinner.start()
-}
-
 export default {
   error,
   info,
   newLine,
-  spin,
   success,
   warn,
 }

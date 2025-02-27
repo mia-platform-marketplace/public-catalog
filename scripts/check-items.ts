@@ -25,7 +25,7 @@ import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 import { Command } from 'commander'
 import type { JSONSchema } from 'json-schema-to-ts'
-import type { DefaultRenderer, ListrTaskWrapper } from 'listr2'
+import type { ListrTaskWrapper } from 'listr2'
 import { Listr } from 'listr2'
 import semver from 'semver'
 
@@ -35,7 +35,7 @@ import logger from './logger'
 import type { ItemTypeData, ItemTypeModule, Manifest } from './utils'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Task = ListrTaskWrapper<any, typeof DefaultRenderer, any>
+type Task = ListrTaskWrapper<any, any, any>
 
 const ajv = new Ajv({ addUsedSchema: false, allErrors: true })
 addFormats(ajv)
@@ -74,21 +74,15 @@ const computePathsToCheck = async (itemIds: string[] = ['*']): Promise<string[]>
 }
 
 /** @throws Error */
-const validateManifest = (manifest: unknown, schema: JSONSchema) => {
+const validateManifest = (task: Task, manifest: unknown, schema: JSONSchema) => {
   const validate = ajv.compile(schema)
 
   const valid = validate(manifest)
   if (valid) { return }
 
-  const error = validate.errors?.at(0)
+  validate.errors?.forEach((error) => { task.output = JSON.stringify(error) })
 
-  throw new Error(`Error validating manifest against schema${error ? `: ${JSON.stringify(error)}` : ''}`)
-
-  // if (!validate.errors) {
-  //   return ['Error validating manifest against schema: AJV did not return any error']
-  // }
-
-  // return validate.errors.map((error) => `Error validating manifest against schema: ${JSON.stringify(error)}`)
+  throw new Error(`Error validating manifest against schema`)
 }
 
 /** @throws Error */
@@ -119,11 +113,11 @@ const assertValidSupportedByImageFile = async (manifest: Manifest, manifestPath:
 }
 
 /** @throws Error */
-const assertVersionValid = async (manifestPath: string, typeData: ItemTypeData) => {
+const assertVersionValid = async (task: Task, manifestPath: string, typeData: ItemTypeData) => {
   const manifestModule = await import(manifestPath, { with: { type: 'json' } }) as { default: Manifest }
   const manifest = manifestModule.default
 
-  validateManifest(manifest, typeData.schema)
+  validateManifest(task, manifest, typeData.schema)
 
   const itemFolderName = manifestPath.split('/').at(-3)
   if (manifest.itemId !== itemFolderName) {
@@ -227,7 +221,8 @@ const assertItemValid = async (task: Task, itemDirPath: string): Promise<Listr> 
     const versionName = path.basename(manifestPath, '.json')
 
     subTask.add({
-      task: async () => { await assertVersionValid(manifestPath, typeData) },
+      rendererOptions: { outputBar: Infinity, persistentOutput: true },
+      task: async (_, task) => { await assertVersionValid(task, manifestPath, typeData) },
       title: `Checking version "${versionName}" validity`,
     })
   }
@@ -247,6 +242,7 @@ const main = async () => {
   const paths = await computePathsToCheck(options.items)
 
   const tasks = new Listr([], {
+    collectErrors: 'minimal',
     concurrent: true,
     exitOnError: false,
     rendererOptions: { collapseErrors: false, collapseSubtasks: false, showSubtasks: true },
@@ -262,7 +258,14 @@ const main = async () => {
   }
 
   await tasks.run()
+
+  if (tasks.errors.length > 0) {
+    throw new Error('Some items are not valid')
+  }
 }
 
 main()
-  .catch((error) => logger.error(error instanceof Error ? error.message : 'Unexpected error checking items validity'))
+  .catch((error) => {
+    logger.error(error instanceof Error ? error.message : 'Unexpected error checking items validity')
+    process.exit(1)
+  })

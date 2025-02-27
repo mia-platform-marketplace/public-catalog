@@ -4,6 +4,16 @@ Collection of manifests composing Mia-Platform public catalog.
 
 ## Development
 
+The repository runs on Node.js 23 or higher. We recommend using [nvm](https://github.com/nvm-sh/nvm) to manage Node versions and running `nvm use` to install the correct version of Node.
+
+To setup te repository run
+
+```sh
+corepack enable
+yarn install
+yarn build
+```
+
 ### Check items
 
 To check if the items are valid you can use the command
