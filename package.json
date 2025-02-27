@@ -12,7 +12,8 @@
     "build": "yarn build:manifest-schemas",
     "check:items": "tsx --no-warnings scripts/check-items.ts",
     "check:types": "tsc --noEmit --skipLibCheck",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "check-license": "addlicense -c 'Mia srl' -check -s scripts/**/*.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

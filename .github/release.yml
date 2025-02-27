@@ -1,0 +1,33 @@
+changelog:
+  exclude:
+    authors:
+      - dependabot
+  categories:
+    - title: Breaking Changes 💢
+      labels:
+        - breaking
+
+    - title: New Items 🍾
+      labels:
+        - new item
+        - new item release
+
+    - title: Exciting New Features 🎉
+      labels:
+        - enhancement
+
+    - title: Bug fixes 🐛
+      labels:
+        - bug
+
+    - title: Security Fixes 🔐
+      labels:
+        - security
+
+    - title: Refactor 💅
+      labels:
+        - refactor
+
+    - title: Other Changes 🛠
+      labels:
+        - "*"
