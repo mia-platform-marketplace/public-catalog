@@ -1,0 +1,19 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+      timezone: Europe/Rome
+    groups:
+      minor-actions-dependencies:
+        update-types:
+        - minor
+        - patch
+    commit-message:
+      include: scope
+      prefix: ci

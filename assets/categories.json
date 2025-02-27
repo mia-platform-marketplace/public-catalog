@@ -1,0 +1,136 @@
+{
+  "categories": [
+    {
+      "categoryId": "stream",
+      "label": "Add-ons - Data Stream"
+    },
+    {
+      "categoryId": "business",
+      "label": "Add-ons - Data Visualization"
+    },
+    {
+      "categoryId": "frontendbuilder",
+      "label": "Add-ons - Frontend Builders"
+    },
+    {
+      "categoryId": "monitoring",
+      "label": "Add-ons - Monitoring"
+    },
+    {
+      "categoryId": "utility",
+      "label": "Add-ons - Utilities"
+    },
+    {
+      "categoryId": "auth",
+      "label": "Core Plugins - Authentication & Authorization"
+    },
+    {
+      "categoryId": "database",
+      "label": "Core Plugins - Database Management"
+    },
+    {
+      "categoryId": "devportal",
+      "label": "Core Plugins - Dev Portal"
+    },
+    {
+      "categoryId": "files",
+      "label": "Core Plugins - Files Management"
+    },
+    {
+      "categoryId": "microfrontend",
+      "label": "Core Plugins - Micro Frontend"
+    },
+    {
+      "categoryId": "notification",
+      "label": "Core Plugins - Notifications"
+    },
+    {
+      "categoryId": "orchestrators",
+      "label": "Core Plugins - Orchestrators"
+    },
+    {
+      "categoryId": "serverless",
+      "label": "Core Plugins - Serverless"
+    },
+    {
+      "categoryId": "code",
+      "label": "Start From Code"
+    },
+    {
+      "categoryId": "dotnetcore",
+      "label": "Start From Code - .NET Core"
+    },
+    {
+      "categoryId": "golang",
+      "label": "Start From Code - Go"
+    },
+    {
+      "categoryId": "kotlin",
+      "label": "Start From Code - Java/Kotlin"
+    },
+    {
+      "categoryId": "nodejs",
+      "label": "Start From Code - Node.js"
+    },
+    {
+      "categoryId": "python",
+      "label": "Start From Code - Python"
+    },
+    {
+      "categoryId": "rust",
+      "label": "Start From Code - Rust/C/Swift"
+    },
+    {
+      "categoryId": "spa",
+      "label": "Start From Code - SPA - Angular/React"
+    },
+    {
+      "categoryId": "insurance",
+      "label": "Add-ons - Insurance"
+    },
+    {
+      "categoryId": "addgeo",
+      "label": "Add-ons - Geolocation"
+    },
+    {
+      "categoryId": "addonsecurity",
+      "label": "Add-ons - Security"
+    },
+    {
+      "categoryId": "payments",
+      "label": "Add-ons - Payments"
+    },
+    {
+      "categoryId": "fast-data",
+      "label": "Add-ons - Fast Data"
+    },
+    {
+      "categoryId": "communication",
+      "label": "Add-ons - Communication"
+    },
+    {
+      "categoryId": "scheduling",
+      "label": "Add-ons - Scheduling Management"
+    },
+    {
+      "categoryId": "fast-data-connectors",
+      "label": "Add-ons - Fast Data Connectors"
+    },
+    {
+      "categoryId": "idm",
+      "label": "Add-ons - Identification Manager"
+    },
+    {
+      "categoryId": "scoring",
+      "label": "Add-ons - Scoring Manager"
+    },
+    {
+      "categoryId": "data-catalog",
+      "label": "Add-ons - Data Catalog"
+    },
+    {
+      "categoryId": "artificial-intelligence",
+      "label": "Artificial Intelligence"
+    }
+  ]
+}

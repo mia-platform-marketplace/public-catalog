@@ -1,0 +1,21 @@
+name: Main
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    uses: ./.github/workflows/_lint.yml
+
+  build:
+    uses: ./.github/workflows/_build.yml
+
+  tests:
+    uses: ./.github/workflows/_tests.yml
