@@ -1,0 +1,108 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Slack Webhook Example",
+  "itemId": "slack-webhook-example",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Node.js application that uses Pre and Post \nhooks to send a message on a Slack channel.",
+  "type": "example",
+  "image": {
+    "localPath": "../../assets/slack-webhook-example-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "nodejs",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-PrePost-Microservice-Example/master/README.md"
+  },
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "slack-webhook-example": {
+        "type": "example",
+        "name": "slack-webhook-example",
+        "description": "Node.js application that uses Pre and Post \nhooks to send a message on a Slack channel.",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Node.js-PrePost-Microservice-Example/archive/master.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fnode-pre-post.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_NAME",
+            "value": "api-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  }
+}

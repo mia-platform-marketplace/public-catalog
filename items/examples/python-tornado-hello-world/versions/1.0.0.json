@@ -1,0 +1,51 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Python Tornado Hello World",
+  "itemId": "python-tornado-hello-world",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Example of Python Microservice based on Tornado",
+  "type": "example",
+  "image": {
+    "localPath": "../../assets/python-tornado-example-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "python",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/python-tornado-hello-world-microservice-example/master/README.md"
+  },
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "python-tornado-hello-world": {
+        "type": "example",
+        "name": "python-tornado-hello-world",
+        "description": "Example of Python Microservice based on Tornado",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/python-tornado-hello-world-microservice-example/archive/master.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fpython-hello-world-ci.yml/raw"
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  }
+}

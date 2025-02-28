@@ -1,0 +1,71 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Kafka2Rest Example",
+  "itemId": "kafka2rest-example",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "This is an example of using our library Kafka2Rest. It takes messages from Kafka broker and sends POST request after filter and process the messages.",
+  "type": "example",
+  "image": {
+    "localPath": "../../assets/kafka2rest-example-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "stream",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "kafka2rest-example": {
+        "type": "example",
+        "name": "kafka2rest-example",
+        "description": "This is an example of using our library Kafka2Rest. It takes messages from Kafka broker and sends POST request after filter and process the messages.",
+        "archiveUrl": "https://git.tools.mia-platform.eu/api/v4/projects/943/repository/archive.tar.gz",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "KAFKA_HOST",
+            "value": "CHANGE_WITH_YOUR_KAFKA_HOST",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_USERNAME",
+            "value": "CHANGE_WITH_YOUR_KAFKA_USERNAME",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_PASSWORD",
+            "value": "CHANGE_WITH_YOUR_KAFKA_PASSWORD",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_TOPICS",
+            "value": "CHANGE_WITH_YOUR_KAFKA_TOPICS",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_CONSUMER_GROUP_ID",
+            "value": "CHANGE_WITH_YOUR_KAFKA_CONSUMER_GROUP_ID",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTO_OFFSET_RESET",
+            "value": "CHANGE_WITH_YOUR_AUTO_OFFSET_RESET",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE_URL",
+            "value": "CHANGE_WITH_YOUR_CRUD_SERVICE_URL",
+            "valueType": "plain"
+          }
+        ]
+      }
+    }
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Rust Hello World",
+  "itemId": "rust-hello-world",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Example of Rust Microservice",
+  "type": "example",
+  "image": {
+    "localPath": "../../assets/rust-hello-world-example-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "rust",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/rust-hello-world-example/master/README.md"
+  },
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "rust-hello-world": {
+        "type": "example",
+        "name": "rust-hello-world",
+        "description": "Example of Rust Microservice",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/rust-hello-world-example/archive/master.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Frust-app.gitlab-ci.yml/raw"
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  }
+}
