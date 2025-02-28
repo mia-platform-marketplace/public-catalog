@@ -1,0 +1,82 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Mongo2Kafka",
+  "itemId": "mongo2kafka",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Stream your MongoDB changes to Kafka",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/mongo2kafka-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "stream",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/mongo2kafka/configuration"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/mongo2kafka",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "mongo2kafka": {
+        "type": "plugin",
+        "name": "mongo2kafka",
+        "description": "Stream your MongoDB changes to Kafka",
+        "dockerImage": "nexus.mia-platform.eu/core/mongo2kafka:1.1.2",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "MONGO_URL",
+            "value": "CHANGE_WITH_YOUR_MONGODB_URL",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGO_DATABASE_NAME",
+            "value": "CHANGE_WITH_YOUR_MONGO_DATABASE_NAME",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGO_WATCHED_COLLECTION_LIST",
+            "value": "CHANGE_WITH_YOUR_LIST_OF_COLLECTIONS",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGO_BOOKMARK_COLLECTION",
+            "value": "resumetoken",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_HOST",
+            "value": "CHANGE_WITH_YOUR_KAFKA_HOST",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_API_KEY",
+            "value": "CHANGE_WITH_YOUR_KAFKA_API_KEY",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_API_SECRET",
+            "value": "CHANGE_WITH_YOUR_KAFKA_API_SECRET",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_PRODUCER_TOPIC",
+            "value": "CHANGE_WITH_YOUR_KAFKA_PRODUCER_TOPIC",
+            "valueType": "plain"
+          }
+        ]
+      }
+    }
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  }
+}

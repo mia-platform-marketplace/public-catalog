@@ -1,0 +1,95 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "ACL Service",
+  "itemId": "acl-service",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "This service provides REST API that can be configured to manage request ACL",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/acl-service-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "auth",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/acl-service/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/acl-service",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "acl-service": {
+        "type": "plugin",
+        "name": "acl-service",
+        "description": "This service provides REST API that can be configured to manage request ACL",
+        "dockerImage": "nexus.mia-platform.eu/core/acl-service:2.0.1",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "ACL_CONFIGURATION_PATH",
+            "value": "CHANGE_WITH_YOUR_ACL_CONFIGURATION_PATH",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROFILE_DIR",
+            "value": "/home/node/app/profiles",
+            "valueType": "plain"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Google Proxy FHIR Service",
+  "itemId": "google-proxy-fhir-service",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Proxy service to interact with Google FHIR APIs through a service account authentication",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/google-proxy-fhir-service-plugin.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "supportedBy": "Mia-Care",
+  "categoryId": "utility",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/proxy-google-fhir/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/proxy-google-fhir",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "google-proxy-fhir-service": {
+        "type": "plugin",
+        "name": "google-proxy-fhir-service",
+        "description": "Proxy service to interact with Google FHIR APIs through a service account authentication",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/proxy-google-fhir:0.1.1",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "GOOGLE_APPLICATION_CREDENTIALS",
+            "value": "{{GOOGLE_APPLICATION_CREDENTIALS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "FHIR_STORE_URL",
+            "value": "{{FHIR_STORE_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "ACTIVE_RESOURCES",
+            "value": "Patient",
+            "valueType": "plain"
+          },
+          {
+            "name": "FHIR_PLATFORM_URL",
+            "value": "{{FHIR_PLATFORM_URL}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  }
+}
