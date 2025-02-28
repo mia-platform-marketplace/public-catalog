@@ -1,25 +1,13 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Flow Manager Router",
-  "itemId": "flow-manager-router",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "1.0.0",
-    "releaseNote": "-"
-  },
+  "categoryId": "orchestrators",
   "description": "This plugin helps to manage a set of flow manager services",
-  "type": "plugin",
   "image": {
     "localPath": "../../assets/flow-manager-router-plugin.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/MIA-FinTech.png"
-  },
-  "supportedBy": "Mia-FinTech",
-  "categoryId": "orchestrators",
+  "itemId": "flow-manager-router",
+  "name": "Flow Manager Router",
+  "releaseStage": "stable",
   "resources": {
     "services": {
       "flow-manager-router": {
@@ -147,5 +135,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-FinTech",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
 }

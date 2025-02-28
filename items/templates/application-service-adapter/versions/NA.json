@@ -1,23 +1,14 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Application Service Adapter",
-  "itemId": "application-service-adapter",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "code",
   "description": "This is the best template to start creating an adapter service for your project",
-  "type": "template",
   "image": {
     "localPath": "../../assets/application-service-adapter-template.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/MIA-FinTech.png"
-  },
-  "supportedBy": "Mia-FinTech",
-  "categoryId": "code",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/template/service-adapter-template",
+  "itemId": "application-service-adapter",
+  "name": "Application Service Adapter",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/template/service-adapter-template",
   "resources": {
     "services": {
       "application-service-adapter": {
@@ -109,5 +100,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-FinTech",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "visibility": {
+    "public": true
   }
 }

@@ -1,9 +1,5 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "fast-data",
   "description": "Use this application to set up a Control Plane with identity access management to control your Fast Data Runtime with just a few clicks",
   "documentation": {
@@ -16,6 +12,7 @@
   "itemId": "fast-data-control-plane",
   "name": "Fast Data Control Plane",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/control-plane-application",
   "resources": {
     "collections": {
@@ -2639,10 +2636,13 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
   "type": "application",
   "visibility": {
     "public": true
-  },
-  "releaseStage": "stable"
+  }
 }

@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Notification Manager Service",
-  "itemId": "notification-manager-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "The Notification Manager provides an HTTP and Kafka interface to send notifications to users through various channels, namely e-mail, SMS, push notification, voice and whatsapp.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/notification-manager-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
-  "supportedBy": "Mia-Care",
   "categoryId": "notification",
-  "publishOnMiaDocumentation": true,
+  "description": "The Notification Manager provides an HTTP and Kafka interface to send notifications to users through various channels, namely e-mail, SMS, push notification, voice and whatsapp.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/notification-manager/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/notification-manager",
+  "image": {
+    "localPath": "../../assets/notification-manager-service-plugin-transparent.png"
+  },
+  "itemId": "notification-manager-service",
+  "name": "Notification Manager Service",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/notification-manager",
   "resources": {
     "services": {
       "notification-manager-service": {
@@ -145,5 +136,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

@@ -1,23 +1,14 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Token Service",
-  "itemId": "token-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "addonsecurity",
   "description": "Use this service for custom token generation and validation",
-  "type": "plugin",
   "image": {
     "localPath": "../../assets/token-service-plugin-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "addonsecurity",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/token-service",
+  "itemId": "token-service",
+  "name": "Token Service",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/token-service",
   "resources": {
     "services": {
       "token-service": {
@@ -82,5 +73,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

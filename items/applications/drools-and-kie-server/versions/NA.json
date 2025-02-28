@@ -1,21 +1,17 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "utility",
-  "releaseStage": "deprecated",
-  "type": "application",
-  "name": "Drools and Kie Server",
   "description": "This is the application that sets up a Drools Workbench and a Kie Server instance",
-  "image": {
-    "localPath": "../../assets/drools-application.png"
-  },
   "documentation": {
     "type": "externalLink",
     "url": "https://hub.docker.com/r/jboss/drools-workbench/"
   },
+  "image": {
+    "localPath": "../../assets/drools-application.png"
+  },
+  "itemId": "drools-and-kie-server",
+  "name": "Drools and Kie Server",
+  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "drools-workbench": {
@@ -135,8 +131,12 @@
       }
     }
   },
-  "itemId": "drools-and-kie-server",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
   }

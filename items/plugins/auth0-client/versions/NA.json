@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Auth0 Client",
-  "itemId": "auth0-client",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Integrate with your Auth0 tenant using Mia-Platform core service Auth0 Client.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/auth0-client-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "auth",
-  "publishOnMiaDocumentation": true,
+  "description": "Integrate with your Auth0 tenant using Mia-Platform core service Auth0 Client.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/auth0-client/configuration"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/auth0-client",
+  "image": {
+    "localPath": "../../assets/auth0-client-plugin-transparent.png"
+  },
+  "itemId": "auth0-client",
+  "name": "Auth0 Client",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/auth0-client",
   "resources": {
     "services": {
       "auth0-client": {
@@ -127,5 +118,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Single View Trigger Generator",
-  "itemId": "single-view-trigger-generator",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Keep your Real Time Updater lightning-fast by using the Single View Trigger Generator: this service will take care of executing strategies and produce projection changes, so that your Real Time Updater can live up to its name and always keep the Projections up to date in near real time.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/single-view-trigger-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "fast-data",
+  "description": "Keep your Real Time Updater lightning-fast by using the Single View Trigger Generator: this service will take care of executing strategies and produce projection changes, so that your Real Time Updater can live up to its name and always keep the Projections up to date in near real time.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/fast_data/configuration/single_view_trigger_generator"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-trigger-generator-service",
+  "image": {
+    "localPath": "../../assets/single-view-trigger-plugin-transparent.png"
+  },
+  "itemId": "single-view-trigger-generator",
+  "name": "Single View Trigger Generator",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-trigger-generator-service",
   "resources": {
     "services": {
       "single-view-trigger-generator": {
@@ -185,5 +176,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

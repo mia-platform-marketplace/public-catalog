@@ -1,9 +1,5 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Care",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
   "categoryId": "healthcare",
   "description": "This application allows to quickly setup the necessary services in order to manage appointments and availabilities.",
   "image": {
@@ -11,6 +7,7 @@
   },
   "itemId": "booking-module",
   "name": "Booking Module",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/booking-module/application",
   "resources": {
@@ -1663,9 +1660,12 @@
       }
     }
   },
-  "type": "application",
-  "publishOnMiaDocumentation": true,
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
   }

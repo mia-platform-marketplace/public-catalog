@@ -1,29 +1,17 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "HTTP Proxy Manager",
-  "itemId": "http-proxy-manager",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "3.4.2",
-    "releaseNote": "### Fixed\n\n - patch api failure if proxy authentication is set to invalid value.\n\n - return `tokenIssuerUrl` and `tokenIssuerValidationUrl` from GET management API"
-  },
-  "description": "A simple yet blazing fast proxy service that can be used to centralize request proxying.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/proxy-manager-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "addonsecurity",
+  "description": "A simple yet blazing fast proxy service that can be used to centralize request proxying.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/http-proxy-manager/overview"
   },
+  "image": {
+    "localPath": "../../assets/proxy-manager-plugin-transparent.png"
+  },
+  "itemId": "http-proxy-manager",
+  "name": "HTTP Proxy Manager",
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/proxy-manager",
   "resources": {
     "services": {
@@ -96,5 +84,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "3.4.2",
+    "releaseNote": "### Fixed\n\n - patch api failure if proxy authentication is set to invalid value.\n\n - return `tokenIssuerUrl` and `tokenIssuerValidationUrl` from GET management API"
+  },
+  "visibility": {
+    "public": true
+  }
 }

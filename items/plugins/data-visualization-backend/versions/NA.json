@@ -1,21 +1,12 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Data Visualization Backend",
-  "itemId": "data-visualization-backend",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "business",
   "description": "This is a backend for frontend to be used to configure Data Visualization dashboards.",
-  "type": "plugin",
   "image": {
     "localPath": "../../assets/data-visualization-backend-plugin-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "business",
+  "itemId": "data-visualization-backend",
+  "name": "Data Visualization Backend",
   "releaseStage": "deprecated",
   "resources": {
     "services": {
@@ -81,5 +72,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

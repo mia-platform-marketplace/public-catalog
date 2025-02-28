@@ -1,22 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-FinTech",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/MIA-FinTech.png"
-  },
   "categoryId": "scoring",
-  "type": "application",
-  "name": "Scoring Manager",
   "description": "The application allows you to quickly set up multiple scoring processes",
-  "image": {
-    "localPath": "../../assets/scoring-manager-application.png"
-  },
-  "publishOnMiaDocumentation": true,
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/scoring-manager",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/scoring-manager/overview"
   },
+  "image": {
+    "localPath": "../../assets/scoring-manager-application.png"
+  },
+  "itemId": "scoring-manager",
+  "name": "Scoring Manager",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/scoring-manager",
   "resources": {
     "services": {
       "crud-service": {
@@ -978,10 +975,13 @@
       }
     }
   },
-  "itemId": "scoring-manager",
+  "supportedBy": "Mia-FinTech",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
-  },
-  "releaseStage": "stable"
+  }
 }

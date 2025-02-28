@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "ACL Service",
-  "itemId": "acl-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "This service provides REST API that can be configured to manage request ACL",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/acl-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "auth",
-  "publishOnMiaDocumentation": true,
+  "description": "This service provides REST API that can be configured to manage request ACL",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/acl-service/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/acl-service",
+  "image": {
+    "localPath": "../../assets/acl-service-plugin-transparent.png"
+  },
+  "itemId": "acl-service",
+  "name": "ACL Service",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/acl-service",
   "resources": {
     "services": {
       "acl-service": {
@@ -88,8 +79,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Swagger Aggregator",
-  "itemId": "swagger-aggregator",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/swagger-aggregator-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "devportal",
-  "publishOnMiaDocumentation": true,
+  "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/swagger-aggregator/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
+  "image": {
+    "localPath": "../../assets/swagger-aggregator-plugin-transparent.png"
+  },
+  "itemId": "swagger-aggregator",
+  "name": "Swagger Aggregator",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
   "resources": {
     "services": {
       "swagger-aggregator": {
@@ -77,5 +68,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

@@ -1,29 +1,17 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Device Manager",
-  "itemId": "device-manager",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "1.0.0",
-    "releaseNote": "First release"
-  },
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/device-manager-plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
-  "supportedBy": "Mia-Care",
   "categoryId": "utility",
-  "publishOnMiaDocumentation": true,
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/device-manager/overview"
   },
+  "image": {
+    "localPath": "../../assets/device-manager-plugin.png"
+  },
+  "itemId": "device-manager",
+  "name": "Device Manager",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/device-manager",
   "resources": {
     "services": {
@@ -161,5 +149,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "First release"
+  },
+  "visibility": {
+    "public": true
+  }
 }

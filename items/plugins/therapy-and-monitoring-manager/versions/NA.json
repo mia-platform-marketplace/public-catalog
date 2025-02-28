@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Therapy and Monitoring Manager",
-  "itemId": "therapy-and-monitoring-manager",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "The Therapy and Monitoring Manager (TMM) is a service that enables health care professionals to manage patients therapies and monitor patients health conditions, adherence and compliance to therapy.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/therapy-and-monitoring-manager-plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
-  "supportedBy": "Mia-Care",
   "categoryId": "utility",
-  "publishOnMiaDocumentation": true,
+  "description": "The Therapy and Monitoring Manager (TMM) is a service that enables health care professionals to manage patients therapies and monitor patients health conditions, adherence and compliance to therapy.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/therapy-and-monitoring-manager/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/therapy-monitoring-manager",
+  "image": {
+    "localPath": "../../assets/therapy-and-monitoring-manager-plugin.png"
+  },
+  "itemId": "therapy-and-monitoring-manager",
+  "name": "Therapy and Monitoring Manager",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/therapy-monitoring-manager",
   "resources": {
     "services": {
       "therapy-and-monitoring-manager": {
@@ -170,5 +161,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Push Notification Manager",
-  "itemId": "push-notification-manager",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "This microservice offers some useful features for easily and safely handling the push notifications data.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/push-notification-manager-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "notification",
-  "publishOnMiaDocumentation": true,
+  "description": "This microservice offers some useful features for easily and safely handling the push notifications data.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/push-notification-manager/configuration"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/notifications-manager",
+  "image": {
+    "localPath": "../../assets/push-notification-manager-plugin-transparent.png"
+  },
+  "itemId": "push-notification-manager",
+  "name": "Push Notification Manager",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/notifications-manager",
   "resources": {
     "services": {
       "push-notification-manager": {
@@ -102,5 +93,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

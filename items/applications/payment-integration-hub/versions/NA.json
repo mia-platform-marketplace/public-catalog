@@ -1,22 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-FinTech",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/MIA-FinTech.png"
-  },
   "categoryId": "payments",
-  "type": "application",
-  "name": "Payment Integration Hub",
   "description": "This application provides a backoffice instance with two pages already configured for manage and monitoring payments created with all micro services needed to start and managed payments, such as payment gateway manager, notification service and invoice download service.",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/payment-gateway-backoffice",
-  "image": {
-    "localPath": "../../assets/payment-integration-hub-application-transparent.png"
-  },
-  "publishOnMiaDocumentation": true,
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/payment-integration-hub/overview"
   },
+  "image": {
+    "localPath": "../../assets/payment-integration-hub-application-transparent.png"
+  },
+  "itemId": "payment-integration-hub",
+  "name": "Payment Integration Hub",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/payment-gateway-backoffice",
   "resources": {
     "collections": {
       "fm_subscriptions": {
@@ -3099,10 +3096,13 @@
       }
     }
   },
-  "itemId": "payment-integration-hub",
+  "supportedBy": "Mia-FinTech",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
-  },
-  "releaseStage": "stable"
+  }
 }

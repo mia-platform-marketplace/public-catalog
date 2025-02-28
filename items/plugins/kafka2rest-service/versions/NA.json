@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Kafka2Rest service",
-  "itemId": "kafka2rest-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "A service that enables the conversion of Kafka messages into REST HTTP requests that are executed towards configured targets.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/kafka2rest-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "stream",
+  "description": "A service that enables the conversion of Kafka messages into REST HTTP requests that are executed towards configured targets.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/kafka2rest/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/kafka2rest",
+  "image": {
+    "localPath": "../../assets/kafka2rest-service-plugin-transparent.png"
+  },
+  "itemId": "kafka2rest-service",
+  "name": "Kafka2Rest service",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/kafka2rest",
   "resources": {
     "services": {
       "kafka2rest-service": {
@@ -158,5 +149,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

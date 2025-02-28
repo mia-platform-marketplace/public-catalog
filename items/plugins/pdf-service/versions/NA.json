@@ -1,23 +1,14 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "PDF Service",
-  "itemId": "pdf-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "utility",
   "description": "The PDF Services provides various functionalities to programmatically generate and manipulate pdf documents.",
-  "type": "plugin",
   "image": {
     "localPath": "../../assets/pdf-service-plugin-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "utility",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/pdf-service",
+  "itemId": "pdf-service",
+  "name": "PDF Service",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/pdf-service",
   "resources": {
     "services": {
       "pdf-service": {
@@ -55,5 +46,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

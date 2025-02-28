@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Cron Scheduler",
-  "itemId": "cron-scheduler",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "This service can be configured in order to execute custom scripts with crontab-like configuration.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/cron-scheduler-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "orchestrators",
-  "publishOnMiaDocumentation": true,
+  "description": "This service can be configured in order to execute custom scripts with crontab-like configuration.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/cron-scheduler/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/cron-scheduler",
+  "image": {
+    "localPath": "../../assets/cron-scheduler-plugin-transparent.png"
+  },
+  "itemId": "cron-scheduler",
+  "name": "Cron Scheduler",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/cron-scheduler",
   "resources": {
     "services": {
       "cron-scheduler": {
@@ -45,8 +36,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

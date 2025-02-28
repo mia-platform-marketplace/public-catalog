@@ -1,29 +1,17 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "micro-lc Middleware",
-  "itemId": "micro-lc-middleware",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "3.4.0",
-    "releaseNote": "### Added\n\n- Added env variable ENABLE_CACHE to toggle internal cache of config and public files."
-  },
-  "description": "Backend service responsible for serving micro-lc configuration files, applying some useful parsing logic before returning their content.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/microlc-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "microfrontend",
+  "description": "Backend service responsible for serving micro-lc configuration files, applying some useful parsing logic before returning their content.",
   "documentation": {
     "type": "externalLink",
     "url": "https://micro-lc.io/add-ons/backend/middleware"
   },
+  "image": {
+    "localPath": "../../assets/microlc-plugin-transparent.png"
+  },
+  "itemId": "micro-lc-middleware",
+  "name": "micro-lc Middleware",
+  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/micro-lc/middleware",
   "resources": {
     "services": {
@@ -164,5 +152,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "3.4.0",
+    "releaseNote": "### Added\n\n- Added env variable ENABLE_CACHE to toggle internal cache of config and public files."
+  },
+  "visibility": {
+    "public": true
+  }
 }

@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Microservice Gateway",
-  "itemId": "microservice-gateway",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "The Microservice Gateway provides the ability to specify HTTP hooks to be invoked before and after each request",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/microservice-gateway-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "stream",
-  "publishOnMiaDocumentation": true,
+  "description": "The Microservice Gateway provides the ability to specify HTTP hooks to be invoked before and after each request",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/microservice-gateway/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/microservice-gateway",
+  "image": {
+    "localPath": "../../assets/microservice-gateway-plugin-transparent.png"
+  },
+  "itemId": "microservice-gateway",
+  "name": "Microservice Gateway",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/microservice-gateway",
   "resources": {
     "services": {
       "microservice-gateway": {
@@ -92,5 +83,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

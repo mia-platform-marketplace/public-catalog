@@ -1,29 +1,17 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Back Kit",
-  "itemId": "back-kit",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "1.5.13",
-    "releaseNote": "Add `method` property to `bk-import-modal` to choose which method to use for the `/import` HTTP request."
-  },
-  "description": "Web component library to build your frontend pages.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/back-kit-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "frontendbuilder",
+  "description": "Web component library to build your frontend pages.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/business_suite/backoffice/overview"
   },
+  "image": {
+    "localPath": "../../assets/back-kit-plugin-transparent.png"
+  },
+  "itemId": "back-kit",
+  "name": "Back Kit",
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/microfrontend-composer/back-kit",
   "resources": {
     "services": {
@@ -69,5 +57,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.5.13",
+    "releaseNote": "Add `method` property to `bk-import-modal` to choose which method to use for the `/import` HTTP request."
+  },
+  "visibility": {
+    "public": true
+  }
 }

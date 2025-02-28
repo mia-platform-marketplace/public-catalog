@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Push Notification Sender",
-  "itemId": "push-notification-sender",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Use REST API for push notifications to Android and iOS devices. Use it paired with Notifications Manager.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/push-notification-sender-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "notification",
-  "publishOnMiaDocumentation": true,
+  "description": "Use REST API for push notifications to Android and iOS devices. Use it paired with Notifications Manager.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/push-notification-sender/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/notifications-service",
+  "image": {
+    "localPath": "../../assets/push-notification-sender-plugin-transparent.png"
+  },
+  "itemId": "push-notification-sender",
+  "name": "Push Notification Sender",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/notifications-service",
   "resources": {
     "services": {
       "push-notification-sender": {
@@ -87,5 +78,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

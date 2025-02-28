@@ -1,21 +1,12 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Rate Limit Envoy",
-  "itemId": "rate-limit-envoy",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "orchestrators",
   "description": "The Go/gRPC service to enable global rate limit on your Envoy API Gateway",
-  "type": "plugin",
   "image": {
     "localPath": "../../assets/rate-limit-envoy-plugin-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "orchestrators",
+  "itemId": "rate-limit-envoy",
+  "name": "Rate Limit Envoy",
   "releaseStage": "deprecated",
   "resources": {
     "services": {
@@ -123,5 +114,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

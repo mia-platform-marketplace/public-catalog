@@ -1,22 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "monitoring",
-  "name": "Fast Data Monitoring",
   "description": "This is the application that sets up the monitoring resources and cofigures them to monitor Fast Data operations",
-  "type": "application",
-  "image": {
-    "localPath": "../../assets/fast-data-monitoring-application-transparent.png"
-  },
-  "publishOnMiaDocumentation": false,
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/fast-data-monitoring-application",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/fast_data/monitoring/overview"
   },
+  "image": {
+    "localPath": "../../assets/fast-data-monitoring-application-transparent.png"
+  },
+  "itemId": "fast-data-monitoring",
+  "name": "Fast Data Monitoring",
+  "publishOnMiaDocumentation": false,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/fast-data-monitoring-application",
   "resources": {
     "services": {
       "kafka-exporter": {
@@ -172,10 +169,13 @@
       }
     }
   },
-  "itemId": "fast-data-monitoring",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
-  },
-  "releaseStage": "stable"
+  }
 }

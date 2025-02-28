@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Doctor Service",
-  "itemId": "doctor-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "This plugin reports status of the running microservices in your project.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/doctor-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "monitoring",
-  "publishOnMiaDocumentation": true,
+  "description": "This plugin reports status of the running microservices in your project.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/doctor-service/configuration"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/doctor-service",
+  "image": {
+    "localPath": "../../assets/doctor-service-plugin-transparent.png"
+  },
+  "itemId": "doctor-service",
+  "name": "Doctor Service",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/doctor-service",
   "resources": {
     "services": {
       "doctor-service": {
@@ -40,8 +31,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

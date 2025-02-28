@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Springboot 2 Java 11 Hello World",
-  "itemId": "java-hello-world",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Example of Java Microservice based on Springboot 2 with Java 11",
-  "type": "example",
-  "image": {
-    "localPath": "../../assets/java-hello-world-example-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "kotlin",
+  "description": "Example of Java Microservice based on Springboot 2 with Java 11",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/springboot-hello-world-example/refs/heads/2.x_jdk-11/README.md"
   },
-  "repositoryUrl": "https://github.com/mia-platform-marketplace/springboot-hello-world-example/tree/2.x_jdk-11",
+  "image": {
+    "localPath": "../../assets/java-hello-world-example-transparent.png"
+  },
+  "itemId": "java-hello-world",
+  "name": "Springboot 2 Java 11 Hello World",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/springboot-hello-world-example/tree/2.x_jdk-11",
   "resources": {
     "services": {
       "springboot-2-java-11-hello-world": {
@@ -63,5 +54,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "visibility": {
+    "public": true
   }
 }

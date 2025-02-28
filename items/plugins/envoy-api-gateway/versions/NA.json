@@ -1,21 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "orchestrators",
-  "type": "plugin",
-  "name": "Envoy API Gateway",
   "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
-  "image": {
-    "localPath": "../../assets/envoy-api-gateway-plugin-transparent.png"
-  },
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/envoy-api-gateway/overview"
   },
+  "image": {
+    "localPath": "../../assets/envoy-api-gateway-plugin-transparent.png"
+  },
+  "itemId": "envoy-api-gateway",
+  "name": "Envoy API Gateway",
   "publishOnMiaDocumentation": false,
+  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "api-gateway": {
@@ -111,9 +108,12 @@
       }
     }
   },
-  "itemId": "envoy-api-gateway",
-  "releaseStage": "deprecated",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
+  "type": "plugin",
   "visibility": {
     "public": true
   }

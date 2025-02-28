@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Chat Service Frontend",
-  "itemId": "chat-service-frontend",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "The Chat Service Frontend is a Mia-Platform plugin that uses the Stream React Library to provide a custom micro-frontend to chat with users registered on a target application.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/chat-service-frontend-plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
-  "supportedBy": "Mia-Care",
   "categoryId": "utility",
-  "publishOnMiaDocumentation": true,
+  "description": "The Chat Service Frontend is a Mia-Platform plugin that uses the Stream React Library to provide a custom micro-frontend to chat with users registered on a target application.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/chat-service-frontend/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/chat-service-frontend",
+  "image": {
+    "localPath": "../../assets/chat-service-frontend-plugin.png"
+  },
+  "itemId": "chat-service-frontend",
+  "name": "Chat Service Frontend",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/chat-service-frontend",
   "resources": {
     "services": {
       "chat-service-frontend": {
@@ -48,5 +39,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

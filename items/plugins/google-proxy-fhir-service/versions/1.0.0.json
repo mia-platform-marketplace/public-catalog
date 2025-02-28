@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Google Proxy FHIR Service",
-  "itemId": "google-proxy-fhir-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Proxy service to interact with Google FHIR APIs through a service account authentication",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/google-proxy-fhir-service-plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
-  "supportedBy": "Mia-Care",
   "categoryId": "utility",
+  "description": "Proxy service to interact with Google FHIR APIs through a service account authentication",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/proxy-google-fhir/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/proxy-google-fhir",
+  "image": {
+    "localPath": "../../assets/google-proxy-fhir-service-plugin.png"
+  },
+  "itemId": "google-proxy-fhir-service",
+  "name": "Google Proxy FHIR Service",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/proxy-google-fhir",
   "resources": {
     "services": {
       "google-proxy-fhir-service": {
@@ -98,8 +89,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

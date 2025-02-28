@@ -1,21 +1,17 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "nodejs",
-  "releaseStage": "deprecated",
-  "type": "example",
-  "name": "TypeScript Hello World Example",
   "description": "A simple Hello World example based on Mia-Platform TypeScript Template.",
-  "image": {
-    "localPath": "../../assets/typescript-hello-world-example-transparent.png"
-  },
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Typescript-LC39-Hello-World-Example/master/README.md"
   },
+  "image": {
+    "localPath": "../../assets/typescript-hello-world-example-transparent.png"
+  },
+  "itemId": "typescript-hello-world-example",
+  "name": "TypeScript Hello World Example",
+  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "typescript-hello-world-example": {
@@ -38,13 +34,17 @@
       }
     }
   },
-  "itemId": "typescript-hello-world-example",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
   },
+  "tenantId": "mia-platform",
+  "type": "example",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

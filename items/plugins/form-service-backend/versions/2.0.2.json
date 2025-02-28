@@ -1,29 +1,17 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Form Service Backend",
-  "itemId": "form-service-backend",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "2.0.2",
-    "releaseNote": "-"
-  },
-  "description": "This is a backend for frontend to be used for building and managing forms.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/form-service-backend-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
-  "supportedBy": "Mia-Care",
   "categoryId": "frontendbuilder",
+  "description": "This is a backend for frontend to be used for building and managing forms.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
   },
+  "image": {
+    "localPath": "../../assets/form-service-backend-plugin-transparent.png"
+  },
+  "itemId": "form-service-backend",
+  "name": "Form Service Backend",
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-backend",
   "resources": {
     "services": {
@@ -44,5 +32,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "2.0.2",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
 }

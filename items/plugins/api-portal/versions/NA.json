@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "API Portal",
-  "itemId": "api-portal",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Use Mia-Platform core API Portal to expose the swagger documentation of your development services in one unique place.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/api-portal-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "devportal",
-  "publishOnMiaDocumentation": true,
+  "description": "Use Mia-Platform core API Portal to expose the swagger documentation of your development services in one unique place.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/api-portal/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/api-portal/website",
+  "image": {
+    "localPath": "../../assets/api-portal-plugin-transparent.png"
+  },
+  "itemId": "api-portal",
+  "name": "API Portal",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/api-portal/website",
   "resources": {
     "services": {
       "api-portal": {
@@ -63,5 +54,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Integration Tests Service",
-  "itemId": "integration-tests-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Perform integration tests via Newman in a dedicated microservice",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/integration-test-service-plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
-  "supportedBy": "Mia-Care",
   "categoryId": "utility",
+  "description": "Perform integration tests via Newman in a dedicated microservice",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/integration-tests-service/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/integration-tests-service",
+  "image": {
+    "localPath": "../../assets/integration-test-service-plugin.png"
+  },
+  "itemId": "integration-tests-service",
+  "name": "Integration Tests Service",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/integration-tests-service",
   "resources": {
     "services": {
       "integration-tests-service": {
@@ -98,8 +89,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

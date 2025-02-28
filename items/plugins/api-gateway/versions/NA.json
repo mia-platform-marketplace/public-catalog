@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Nginx API Gateway",
-  "itemId": "api-gateway",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Use this service to route requests to the correct service and verify the need of authentication",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/api-gateway-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "orchestrators",
-  "publishOnMiaDocumentation": true,
+  "description": "Use this service to route requests to the correct service and verify the need of authentication",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/api-gateway/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/api-gateway",
+  "image": {
+    "localPath": "../../assets/api-gateway-plugin-transparent.png"
+  },
+  "itemId": "api-gateway",
+  "name": "Nginx API Gateway",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/api-gateway",
   "resources": {
     "services": {
       "nginx-api-gateway": {
@@ -148,5 +139,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

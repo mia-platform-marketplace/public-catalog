@@ -1,29 +1,17 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Appointment Manager",
-  "itemId": "appointment-manager",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "2.3.0",
-    "releaseNote": "-"
-  },
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/appointment-manager-plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
-  "supportedBy": "Mia-Care",
   "categoryId": "utility",
-  "publishOnMiaDocumentation": true,
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/appointment-manager/overview"
   },
+  "image": {
+    "localPath": "../../assets/appointment-manager-plugin.png"
+  },
+  "itemId": "appointment-manager",
+  "name": "Appointment Manager",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
   "resources": {
     "services": {
@@ -127,5 +115,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "2.3.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
 }

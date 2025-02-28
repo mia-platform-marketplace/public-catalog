@@ -1,31 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Springboot 2 Java 11 Template",
-  "itemId": "springboot-template",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "1.0.0",
-    "releaseNote": "-"
-  },
-  "description": "This is the best template to start creating a service in Springboot 2 with Java 11 integrated inside the Platform",
-  "type": "template",
-  "image": {
-    "localPath": "../../assets/springboot-template-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "kotlin",
+  "description": "This is the best template to start creating a service in Springboot 2 with Java 11 integrated inside the Platform",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/SpringBoot-Custom-Plugin-Template/refs/heads/2.x_jdk-11/README.md"
   },
-  "repositoryUrl": "https://github.com/mia-platform-marketplace/SpringBoot-Custom-Plugin-Template/tree/2.x_jdk-11",
+  "image": {
+    "localPath": "../../assets/springboot-template-transparent.png"
+  },
+  "itemId": "springboot-template",
+  "name": "Springboot 2 Java 11 Template",
   "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/SpringBoot-Custom-Plugin-Template/tree/2.x_jdk-11",
   "resources": {
     "services": {
       "springboot-2-java-11-template": {
@@ -67,5 +54,18 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

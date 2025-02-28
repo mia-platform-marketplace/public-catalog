@@ -1,9 +1,5 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Care",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
   "categoryId": "healthcare",
   "description": "This module provides a ready-to-use system for the user management and authentication services.",
   "image": {
@@ -11,6 +7,7 @@
   },
   "itemId": "user-manager-module",
   "name": "User Manager Module",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/user-auth-module/application",
   "resources": {
@@ -1296,9 +1293,12 @@
       }
     }
   },
-  "type": "application",
-  "publishOnMiaDocumentation": true,
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
   }

@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Mongo2Kafka",
-  "itemId": "mongo2kafka",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Stream your MongoDB changes to Kafka",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/mongo2kafka-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "stream",
-  "publishOnMiaDocumentation": true,
+  "description": "Stream your MongoDB changes to Kafka",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/mongo2kafka/configuration"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/mongo2kafka",
+  "image": {
+    "localPath": "../../assets/mongo2kafka-plugin-transparent.png"
+  },
+  "itemId": "mongo2kafka",
+  "name": "Mongo2Kafka",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/mongo2kafka",
   "resources": {
     "services": {
       "mongo2kafka": {
@@ -75,8 +66,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

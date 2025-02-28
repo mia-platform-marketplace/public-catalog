@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "O3 DICOM Service",
-  "itemId": "o3-dicom-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "The O3 DICOM Service is a microservice that allows you to interact with a DICOM PACS, in order to manage worklists, exams, notification coming from the PACS and OTP for the DICOM Viewer.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/o3-dicom-service-plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
-  "supportedBy": "Mia-Care",
   "categoryId": "utility",
-  "publishOnMiaDocumentation": true,
+  "description": "The O3 DICOM Service is a microservice that allows you to interact with a DICOM PACS, in order to manage worklists, exams, notification coming from the PACS and OTP for the DICOM Viewer.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/o3-dicom-service/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/o3-dicom-service",
+  "image": {
+    "localPath": "../../assets/o3-dicom-service-plugin.png"
+  },
+  "itemId": "o3-dicom-service",
+  "name": "O3 DICOM Service",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/o3-dicom-service",
   "resources": {
     "services": {
       "o3-dicom-service": {
@@ -123,5 +114,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

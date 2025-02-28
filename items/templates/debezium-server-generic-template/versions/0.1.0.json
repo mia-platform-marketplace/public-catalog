@@ -1,31 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Debezium Server Generic Template",
-  "itemId": "debezium-server-generic-template",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "0.1.0",
-    "releaseNote": "-"
-  },
-  "description": "Debezium is an open source distributed platform for change data capture",
-  "type": "template",
-  "image": {
-    "localPath": "../../assets/debezium-server-generic-template-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/debezium.png"
-  },
-  "supportedBy": "Community",
   "categoryId": "fast-data-connectors",
+  "description": "Debezium is an open source distributed platform for change data capture",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-generic-template",
+  "image": {
+    "localPath": "../../assets/debezium-server-generic-template-transparent.png"
+  },
+  "itemId": "debezium-server-generic-template",
+  "name": "Debezium Server Generic Template",
   "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-generic-template",
   "resources": {
     "services": {
       "debezium-server-generic-template": {
@@ -125,5 +112,18 @@
         ]
       }
     }
+  },
+  "supportedBy": "Community",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/debezium.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "0.1.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

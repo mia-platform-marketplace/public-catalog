@@ -1,27 +1,14 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Verifiable Credential Generator",
-  "itemId": "verifiable-credential-generator",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "1.0.0",
-    "releaseNote": "-"
-  },
+  "categoryId": "idm",
   "description": "This is the best template to start creating a verifiable credential service for your IDM project",
-  "type": "template",
   "image": {
     "localPath": "../../assets/verifiable-credentia-generator-template-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/MIA-FinTech.png"
-  },
-  "supportedBy": "Mia-FinTech",
-  "categoryId": "idm",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/template/vc-generator-template",
+  "itemId": "verifiable-credential-generator",
+  "name": "Verifiable Credential Generator",
   "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/template/vc-generator-template",
   "resources": {
     "services": {
       "verifiable-credential-generator": {
@@ -125,5 +112,18 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-FinTech",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

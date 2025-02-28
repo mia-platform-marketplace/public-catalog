@@ -1,30 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Ingestion Storer",
-  "itemId": "ingestion-storer",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "1.5.3",
-    "releaseNote": "### Build\n\n- added procedure to sign service image and generate its SBOM\n\n"
-  },
-  "description": "This service consume messages from Kafka Topics and store them into a Cloud Storage bucket",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/ingestion-storer-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "fast-data",
-  "publishOnMiaDocumentation": true,
+  "description": "This service consume messages from Kafka Topics and store them into a Cloud Storage bucket",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/fast_data/bucket_storage_support/configuration/ingestion_storer_configuration"
   },
+  "image": {
+    "localPath": "../../assets/ingestion-storer-plugin-transparent.png"
+  },
+  "itemId": "ingestion-storer",
+  "name": "Ingestion Storer",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/historical-data/ingestion-storer",
   "resources": {
     "services": {
@@ -171,5 +159,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.5.3",
+    "releaseNote": "### Build\n\n- added procedure to sign service image and generate its SBOM\n\n"
+  },
+  "visibility": {
+    "public": true
+  }
 }

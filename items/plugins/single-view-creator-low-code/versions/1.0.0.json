@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Single View Creator Low Code",
-  "itemId": "single-view-creator-low-code",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Create your Single Views leveraging the power of configuration files instead of writing all the code on your own!",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/singleViewCreator-Plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "fast-data",
+  "description": "Create your Single Views leveraging the power of configuration files instead of writing all the code on your own!",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/single-view-creator/configuration"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
+  "image": {
+    "localPath": "../../assets/singleViewCreator-Plugin.png"
+  },
+  "itemId": "single-view-creator-low-code",
+  "name": "Single View Creator Low Code",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
   "resources": {
     "services": {
       "single-view-creator-low-code": {
@@ -234,8 +225,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

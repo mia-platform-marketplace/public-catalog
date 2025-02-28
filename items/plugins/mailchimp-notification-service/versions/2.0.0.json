@@ -1,30 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Mailchimp Notification Service",
-  "itemId": "mailchimp-notification-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "2.0.0",
-    "releaseNote": "-"
-  },
-  "description": "Manage newsletters subscriptions and send transactional emails with Mailchimp/Mandrill",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/mailchimp-notification-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "notification",
-  "publishOnMiaDocumentation": true,
+  "description": "Manage newsletters subscriptions and send transactional emails with Mailchimp/Mandrill",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/mailchimp-mandrill-mail-notification-service/overview"
   },
+  "image": {
+    "localPath": "../../assets/mailchimp-notification-service-plugin-transparent.png"
+  },
+  "itemId": "mailchimp-notification-service",
+  "name": "Mailchimp Notification Service",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mailchimp-plugin",
   "resources": {
     "services": {
@@ -101,5 +89,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "2.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
 }

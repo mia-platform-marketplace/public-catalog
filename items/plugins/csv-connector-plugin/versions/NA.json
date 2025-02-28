@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "CSV Connector Plugin",
-  "itemId": "csv-connector-plugin",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Fetch data from CSV files and deliver it with validation to the Fast Data.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/csv-connector-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "fast-data-connectors",
-  "publishOnMiaDocumentation": true,
+  "description": "Fetch data from CSV files and deliver it with validation to the Fast Data.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/csv-connector/configuration"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/csv-connector",
+  "image": {
+    "localPath": "../../assets/csv-connector-plugin-transparent.png"
+  },
+  "itemId": "csv-connector-plugin",
+  "name": "CSV Connector Plugin",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/csv-connector",
   "resources": {
     "services": {
       "csv-connector-plugin": {
@@ -152,5 +143,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

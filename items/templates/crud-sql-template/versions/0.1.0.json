@@ -1,32 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "CRUD SQL Template",
-  "itemId": "crud-sql-template",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "0.1.0",
-    "releaseNote": "-"
-  },
-  "description": "This is a template to help you get started using the SQL CRUD service. You can provide a Data Source to connect to your preferred SQL database using the Mia-Platform SQL CRUD library",
-  "type": "template",
-  "image": {
-    "localPath": "../../assets/crud-sql-template.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "database",
-  "publishOnMiaDocumentation": true,
+  "description": "This is a template to help you get started using the SQL CRUD service. You can provide a Data Source to connect to your preferred SQL database using the Mia-Platform SQL CRUD library",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_templates/crud-sql-template/overview"
   },
-  "repositoryUrl": "https://github.com/mia-platform-marketplace/crud-sql-template/tree/0.1.0",
+  "image": {
+    "localPath": "../../assets/crud-sql-template.png"
+  },
+  "itemId": "crud-sql-template",
+  "name": "CRUD SQL Template",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/crud-sql-template/tree/0.1.0",
   "resources": {
     "services": {
       "crud-sql-template": {
@@ -123,5 +110,18 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "0.1.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

@@ -1,27 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "artificial-intelligence",
-  "name": "AI RAG Template",
   "description": "Use this Python template to create a RAG chatbot server",
-  "type": "template",
-  "releaseStage": "stable",
-  "image": {
-    "localPath": "../../assets/ai-rag-template-transparent.png"
-  },
-  "publishOnMiaDocumentation": true,
-  "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
-  "version": {
-    "name": "0.4.0",
-    "releaseNote": "## What's Changed\n* updated dependencies (FastAPI, Langchain, OpenAI) \n* add endpoint `POST /embeddings/generateFromFile` for embedding generation \n* add support for *Azure OpenAI provider* for embedding generation and LLM usage"
-  },
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform/ai-rag-template/main/README.md"
   },
+  "image": {
+    "localPath": "../../assets/ai-rag-template-transparent.png"
+  },
+  "itemId": "ai-rag-template",
+  "name": "AI RAG Template",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
   "resources": {
     "services": {
       "ai-rag-template": {
@@ -114,8 +106,16 @@
       }
     }
   },
-  "itemId": "ai-rag-template",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "0.4.0",
+    "releaseNote": "## What's Changed\n* updated dependencies (FastAPI, Langchain, OpenAI) \n* add endpoint `POST /embeddings/generateFromFile` for embedding generation \n* add support for *Azure OpenAI provider* for embedding generation and LLM usage"
+  },
   "visibility": {
     "public": true
   }

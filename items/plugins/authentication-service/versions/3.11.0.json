@@ -1,25 +1,13 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Authentication Service",
-  "itemId": "authentication-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "3.11.0",
-    "releaseNote": "### Added\n- `customTokenClaims.metadataFieldsToInclude` configuration now supports nested field specification with dot notation, allowing for more granular metadata injection in the token claims"
-  },
+  "categoryId": "auth",
   "description": "Use Mia-Platform core Authentication Service to provide OAuth2 compliant user authentication API.",
-  "type": "plugin",
   "image": {
     "localPath": "../../assets/authentication-service-plugin-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "auth",
+  "itemId": "authentication-service",
+  "name": "Authentication Service",
+  "releaseStage": "stable",
   "resources": {
     "services": {
       "authentication-service": {
@@ -118,5 +106,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "3.11.0",
+    "releaseNote": "### Added\n- `customTokenClaims.metadataFieldsToInclude` configuration now supports nested field specification with dot notation, allowing for more granular metadata injection in the token claims"
+  },
+  "visibility": {
+    "public": true
+  }
 }

@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Rönd",
-  "itemId": "r-nd",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Use Rönd as a standalone microservice to evaluate authorization security policies.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/rond-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "auth",
+  "description": "Use Rönd as a standalone microservice to evaluate authorization security policies.",
   "documentation": {
     "type": "externalLink",
     "url": "https://rond-authz.io/"
   },
-  "repositoryUrl": "https://github.com/rond-authz/rond/",
+  "image": {
+    "localPath": "../../assets/rond-plugin-transparent.png"
+  },
+  "itemId": "r-nd",
+  "name": "Rönd",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/rond-authz/rond/",
   "resources": {
     "services": {
       "rond": {
@@ -149,5 +140,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

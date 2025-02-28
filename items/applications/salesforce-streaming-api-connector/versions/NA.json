@@ -1,22 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "fast-data-connectors",
-  "name": "Salesforce Streaming API Connector",
   "description": "This application allows to quickly setup a connector between Salesforce Streaming API technology and your Fast Data, including error handling and monitoring",
-  "type": "application",
-  "image": {
-    "localPath": "../../assets/connectionSalesforce-kafka-1.png"
-  },
-  "publishOnMiaDocumentation": true,
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/salesforce-streaming-api-connector",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/salesforce-streaming-api-connector/overview"
   },
+  "image": {
+    "localPath": "../../assets/connectionSalesforce-kafka-1.png"
+  },
+  "itemId": "salesforce-streaming-api-connector",
+  "name": "Salesforce Streaming API Connector",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/salesforce-streaming-api-connector",
   "resources": {
     "services": {
       "sforce-connector": {
@@ -395,10 +392,13 @@
       }
     }
   },
-  "itemId": "salesforce-streaming-api-connector",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
-  },
-  "releaseStage": "stable"
+  }
 }

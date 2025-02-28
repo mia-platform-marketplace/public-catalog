@@ -1,21 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "devportal",
-  "name": "Dev Portal",
   "description": "Use this application to set up your Developer Portal in a few clicks",
-  "type": "application",
-  "image": {
-    "localPath": "../../assets/dev-portal-application-transparent.png"
-  },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/dev-portal/dev-portal-application",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/dev_portal/overview"
   },
+  "image": {
+    "localPath": "../../assets/dev-portal-application-transparent.png"
+  },
+  "itemId": "dev-portal",
+  "name": "Dev Portal",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/dev-portal/dev-portal-application",
   "resources": {
     "services": {
       "api-gateway": {
@@ -1560,10 +1557,13 @@
       }
     }
   },
-  "itemId": "dev-portal",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
-  },
-  "releaseStage": "stable"
+  }
 }

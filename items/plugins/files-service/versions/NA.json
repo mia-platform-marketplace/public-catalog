@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Files Service",
-  "itemId": "files-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Upload, download and handle your files using MongoDB, S3 or Google Storage.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/file-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "files",
-  "publishOnMiaDocumentation": true,
+  "description": "Upload, download and handle your files using MongoDB, S3 or Google Storage.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/files-service/configuration"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/files-service",
+  "image": {
+    "localPath": "../../assets/file-service-plugin-transparent.png"
+  },
+  "itemId": "files-service",
+  "name": "Files Service",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/files-service",
   "resources": {
     "services": {
       "files-service": {
@@ -83,5 +74,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

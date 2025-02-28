@@ -1,23 +1,14 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "ANIA Service Client",
-  "itemId": "ania-service-client",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "insurance",
   "description": "This plugins provides the REST API to query ANIA (Associazione Nazionale Italiana fra le Imprese Assicuratrici).",
-  "type": "plugin",
   "image": {
     "localPath": "../../assets/ania-service-client-plugin-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "insurance",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/ania-service",
+  "itemId": "ania-service-client",
+  "name": "ANIA Service Client",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/ania-service",
   "resources": {
     "services": {
       "ania-service-client": {
@@ -55,8 +46,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

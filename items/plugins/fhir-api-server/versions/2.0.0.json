@@ -1,29 +1,17 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "FHIR Server",
-  "itemId": "fhir-api-server",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "2.0.0",
-    "releaseNote": "Switch to HAPI FHIR Docker image (v7.6.0)"
-  },
-  "description": "The Mia FHIR Server implements the FHIR standard and is based on HAPI FHIR, an open-source Java implementation of the FHIR standard",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/fhir-api-server-plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
-  "supportedBy": "Mia-Care",
   "categoryId": "utility",
+  "description": "The Mia FHIR Server implements the FHIR standard and is based on HAPI FHIR, an open-source Java implementation of the FHIR standard",
   "documentation": {
     "type": "externalLink",
     "url": "https://hapifhir.io/hapi-fhir/docs/v/7.6.0/"
   },
+  "image": {
+    "localPath": "../../assets/fhir-api-server-plugin.png"
+  },
+  "itemId": "fhir-api-server",
+  "name": "FHIR Server",
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-api-server",
   "resources": {
     "services": {
@@ -77,5 +65,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "2.0.0",
+    "releaseNote": "Switch to HAPI FHIR Docker image (v7.6.0)"
+  },
+  "visibility": {
+    "public": true
+  }
 }

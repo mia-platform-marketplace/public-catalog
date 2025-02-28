@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "MongoDB Reader",
-  "itemId": "mongodb-reader",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Provide MongoDB aggregation pipelines as REST API.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/mongodb-reader-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "database",
-  "publishOnMiaDocumentation": true,
+  "description": "Provide MongoDB aggregation pipelines as REST API.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/mongodb-reader/configuration"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/mongodb-reader",
+  "image": {
+    "localPath": "../../assets/mongodb-reader-plugin-transparent.png"
+  },
+  "itemId": "mongodb-reader",
+  "name": "MongoDB Reader",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/mongodb-reader",
   "resources": {
     "services": {
       "mongodb-reader": {
@@ -83,8 +74,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

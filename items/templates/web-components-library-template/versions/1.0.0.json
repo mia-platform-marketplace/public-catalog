@@ -1,22 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "microfrontend",
-  "releaseStage": "stable",
-  "name": "Web Components Library Template",
   "description": "Use this template to scaffold a Web Components library to be used in Mia-Platform Microfrontend Composer",
-  "type": "template",
-  "image": {
-    "localPath": "../../assets/web-components-library-template-transparent.png"
-  },
-  "repositoryUrl": "https://github.com/micro-lc/wc-library-template",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/micro-lc/wc-library-template/refs/tags/v1.0.0/README.md"
   },
+  "image": {
+    "localPath": "../../assets/web-components-library-template-transparent.png"
+  },
+  "itemId": "web-components-library-template",
+  "name": "Web Components Library Template",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/micro-lc/wc-library-template",
   "resources": {
     "services": {
       "web-components-library-template": {
@@ -53,12 +49,16 @@
       }
     }
   },
-  "itemId": "web-components-library-template",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
   },
-  "tenantId": "mia-platform",
   "visibility": {
     "public": true
   }

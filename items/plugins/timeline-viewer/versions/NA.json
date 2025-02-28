@@ -1,23 +1,14 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Timeline Viewer",
-  "itemId": "timeline-viewer",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "business",
   "description": "Visualize events on a timeline",
-  "type": "plugin",
   "image": {
     "localPath": "../../assets/timeline-viewer-plugin-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "business",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/backoffice/timeline",
+  "itemId": "timeline-viewer",
+  "name": "Timeline Viewer",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/backoffice/timeline",
   "resources": {
     "services": {
       "timeline-viewer": {
@@ -44,5 +35,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

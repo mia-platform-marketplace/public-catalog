@@ -1,17 +1,12 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "artificial-intelligence",
-  "name": "AI RAG Chat",
-  "itemId": "ai-rag-chat",
   "description": "Create a retrieval augmented generation (RAG) app, with a plugin to generate embeddings and train your LLM and a front-end template with a UI to get the chatbot ready in minutes.",
-  "type": "application",
   "image": {
     "localPath": "../../assets/ai-rag-chat-transparent.png"
   },
+  "itemId": "ai-rag-chat",
+  "name": "AI RAG Chat",
   "publishOnMiaDocumentation": false,
   "releaseStage": "stable",
   "resources": {
@@ -312,7 +307,12 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
   }

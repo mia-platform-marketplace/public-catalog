@@ -1,31 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Debezium Server for Oracle",
-  "itemId": "debezium-server-for-oracle",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "0.1.0",
-    "releaseNote": "-"
-  },
-  "description": "Debezium is an open source distributed platform for change data capture",
-  "type": "template",
-  "image": {
-    "localPath": "../../assets/debezium-server-for-oracle-template-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/debezium.png"
-  },
-  "supportedBy": "Community",
   "categoryId": "fast-data-connectors",
+  "description": "Debezium is an open source distributed platform for change data capture",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc#oracle-db"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-template",
+  "image": {
+    "localPath": "../../assets/debezium-server-for-oracle-template-transparent.png"
+  },
+  "itemId": "debezium-server-for-oracle",
+  "name": "Debezium Server for Oracle",
   "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-template",
   "resources": {
     "services": {
       "debezium-server-for-oracle": {
@@ -125,5 +112,18 @@
         ]
       }
     }
+  },
+  "supportedBy": "Community",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/debezium.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "0.1.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

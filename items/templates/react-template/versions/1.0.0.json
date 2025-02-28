@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "React Template",
-  "itemId": "react-template",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "This template allows you to start setting up a front-end project with the React framework",
-  "type": "template",
-  "image": {
-    "localPath": "../../assets/react-template-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "spa",
+  "description": "This template allows you to start setting up a front-end project with the React framework",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/React-App-Template/master/README.md"
   },
-  "repositoryUrl": "https://github.com/mia-platform-marketplace/React-App-Template",
+  "image": {
+    "localPath": "../../assets/react-template-transparent.png"
+  },
+  "itemId": "react-template",
+  "name": "React Template",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/React-App-Template",
   "resources": {
     "services": {
       "react-template": {
@@ -53,8 +44,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "FHIR Adapter",
-  "itemId": "fhir-adapter",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "The FHIR Adapter provides a configurable interface to communicate systems which implement FHIR standard with systems which do not implement it.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/fhir-adapter-plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
-  "supportedBy": "Mia-Care",
   "categoryId": "utility",
-  "publishOnMiaDocumentation": true,
+  "description": "The FHIR Adapter provides a configurable interface to communicate systems which implement FHIR standard with systems which do not implement it.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/fhir-adapter/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-adapter",
+  "image": {
+    "localPath": "../../assets/fhir-adapter-plugin.png"
+  },
+  "itemId": "fhir-adapter",
+  "name": "FHIR Adapter",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-adapter",
   "resources": {
     "services": {
       "fhir-adapter": {
@@ -136,5 +127,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

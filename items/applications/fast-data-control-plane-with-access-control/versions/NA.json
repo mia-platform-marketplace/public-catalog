@@ -1,24 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "fast-data",
-  "releaseStage": "deprecated",
-  "name": "Fast Data Control Plane With Access Control",
-  "itemId": "fast-data-control-plane-with-access-control",
   "description": "Use this application to instantiate a Control Plane with identity access management to control your Fast Data Runtime with just a few clicks",
-  "tenantId": "mia-platform",
-  "type": "application",
-  "image": {
-    "localPath": "../../assets/fast-data-control-plane-with-access-control-application-transparent.png"
-  },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/control-plane-application",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/control-plane/overview"
   },
+  "image": {
+    "localPath": "../../assets/fast-data-control-plane-with-access-control-application-transparent.png"
+  },
+  "itemId": "fast-data-control-plane-with-access-control",
+  "name": "Fast Data Control Plane With Access Control",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/control-plane-application",
   "resources": {
     "services": {
       "api-gateway": {
@@ -1814,6 +1808,12 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
   }

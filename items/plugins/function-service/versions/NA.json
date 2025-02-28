@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Function Service",
-  "itemId": "function-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "This service allows to map functions to endpoints to be executed without creating a fully-fledged dedicated microservice.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/function-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "serverless",
-  "publishOnMiaDocumentation": true,
+  "description": "This service allows to map functions to endpoints to be executed without creating a fully-fledged dedicated microservice.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/function-service/configuration"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/function-service",
+  "image": {
+    "localPath": "../../assets/function-service-plugin-transparent.png"
+  },
+  "itemId": "function-service",
+  "name": "Function Service",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/function-service",
   "resources": {
     "services": {
       "function-service": {
@@ -87,5 +78,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

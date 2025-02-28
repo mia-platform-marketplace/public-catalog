@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Node.js 16 Flow Manager Client",
-  "itemId": "node-js-flow-manager-client",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Flow Manager Client Node.js 16 Template",
-  "type": "template",
-  "image": {
-    "localPath": "../../assets/nodejs-flow-manager-client-template.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "orchestrators",
+  "description": "Flow Manager Client Node.js 16 Template",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Flow-Manager-Client-Template/refs/heads/16.x/README.md"
   },
-  "repositoryUrl": "https://github.com/mia-platform-marketplace/Node.js-Flow-Manager-Client-Template/tree/16.x",
+  "image": {
+    "localPath": "../../assets/nodejs-flow-manager-client-template.png"
+  },
+  "itemId": "node-js-flow-manager-client",
+  "name": "Node.js 16 Flow Manager Client",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Node.js-Flow-Manager-Client-Template/tree/16.x",
   "resources": {
     "services": {
       "nodejs-16-flow-manager-client": {
@@ -126,5 +117,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "visibility": {
+    "public": true
   }
 }

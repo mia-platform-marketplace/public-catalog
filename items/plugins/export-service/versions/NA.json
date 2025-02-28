@@ -1,25 +1,16 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Export Service",
-  "itemId": "export-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "This service helps you manage Excel, CSV or JSON export from other services using jsonl.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/export-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "database",
+  "description": "This service helps you manage Excel, CSV or JSON export from other services using jsonl.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/export-service/overview"
   },
+  "image": {
+    "localPath": "../../assets/export-service-plugin-transparent.png"
+  },
+  "itemId": "export-service",
+  "name": "Export Service",
   "releaseStage": "deprecated",
   "resources": {
     "services": {
@@ -99,5 +90,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

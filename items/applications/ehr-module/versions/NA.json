@@ -1,9 +1,5 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Care",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
   "categoryId": "healthcare",
   "description": "This application allows to quickly setup the necessary services in order to handle forms and medical reports.",
   "image": {
@@ -11,6 +7,7 @@
   },
   "itemId": "ehr-module",
   "name": "EHR Module",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/ehr-module/application",
   "resources": {
@@ -1259,9 +1256,12 @@
       }
     }
   },
-  "type": "application",
-  "publishOnMiaDocumentation": true,
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
   }

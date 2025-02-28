@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Invoice Service",
-  "itemId": "invoice-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "This service provides a configurable interface to create and download a PDF payment invoice",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/invoice-pdf-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/MIA-FinTech.png"
-  },
-  "supportedBy": "Mia-FinTech",
   "categoryId": "payments",
-  "publishOnMiaDocumentation": true,
+  "description": "This service provides a configurable interface to create and download a PDF payment invoice",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/invoice-service/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/plugins/invoice-service",
+  "image": {
+    "localPath": "../../assets/invoice-pdf-service-plugin-transparent.png"
+  },
+  "itemId": "invoice-service",
+  "name": "Invoice Service",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/plugins/invoice-service",
   "resources": {
     "services": {
       "invoice-service": {
@@ -120,5 +111,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-FinTech",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

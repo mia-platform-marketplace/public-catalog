@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "SQL DB Reader",
-  "itemId": "sql-db-reader",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Provide SQL queries as REST API.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/sql-db-reader-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "database",
-  "publishOnMiaDocumentation": true,
+  "description": "Provide SQL queries as REST API.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/sql-db-reader/configuration_and_usage"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/db-sql-reader",
+  "image": {
+    "localPath": "../../assets/sql-db-reader-plugin-transparent.png"
+  },
+  "itemId": "sql-db-reader",
+  "name": "SQL DB Reader",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/db-sql-reader",
   "resources": {
     "services": {
       "sql-db-reader": {
@@ -42,8 +33,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

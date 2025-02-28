@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Flow Manager Service",
-  "itemId": "flow-manager-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "The Flow Manager is a saga orchestrator, capable to manage flows structured by using the Architectural pattern named Saga Pattern",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/flow-manager-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "orchestrators",
-  "publishOnMiaDocumentation": true,
+  "description": "The Flow Manager is a saga orchestrator, capable to manage flows structured by using the Architectural pattern named Saga Pattern",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/flow-manager-service/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/flow-manager/flow-manager",
+  "image": {
+    "localPath": "../../assets/flow-manager-service-plugin-transparent.png"
+  },
+  "itemId": "flow-manager-service",
+  "name": "Flow Manager Service",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/flow-manager/flow-manager",
   "resources": {
     "services": {
       "flow-manager-service": {
@@ -113,5 +104,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

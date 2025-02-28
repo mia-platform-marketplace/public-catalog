@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "micro-lc Angular 12 Template",
-  "itemId": "micro-lc-angular-12-template",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Use this template to set up a micro-lc Angular 12 plugin project",
-  "type": "template",
-  "image": {
-    "localPath": "../../assets/micro-lc-angular-template.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "microfrontend",
+  "description": "Use this template to set up a micro-lc Angular 12 plugin project",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/micro-lc/angular12-template/refs/tags/v2.0.4/README.md"
   },
-  "repositoryUrl": "https://github.com/micro-lc/angular12-template",
+  "image": {
+    "localPath": "../../assets/micro-lc-angular-template.png"
+  },
+  "itemId": "micro-lc-angular-12-template",
+  "name": "micro-lc Angular 12 Template",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/micro-lc/angular12-template",
   "resources": {
     "services": {
       "micro-lc-angular-12-template": {
@@ -53,8 +44,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

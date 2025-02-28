@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Ktor 1.6 Java 11 Hello World Example",
-  "itemId": "ktor-hello-world-example",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "kotlin",
   "description": "A simple Hello World example Kotlin Application using Ktor 1.6 framework with Java 11",
-  "type": "example",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Ktor-Hello-World-Example/refs/heads/1.6.x_jdk-11/README.md"
+  },
   "image": {
     "localPath": "../../assets/kotlin-example-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "kotlin",
-  "documentation": {
-    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Ktor-Hello-World-Example/refs/heads/1.6.x_jdk-11/README.md",
-    "type": "markdown"
-  },
-  "repositoryUrl": "https://github.com/mia-platform-marketplace/Ktor-Hello-World-Example/tree/1.6.x_jdk-11",
+  "itemId": "ktor-hello-world-example",
+  "name": "Ktor 1.6 Java 11 Hello World Example",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Ktor-Hello-World-Example/tree/1.6.x_jdk-11",
   "resources": {
     "services": {
       "ktor-16-java-11-hello-world-example": {
@@ -78,5 +69,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "visibility": {
+    "public": true
   }
 }

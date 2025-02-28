@@ -1,9 +1,5 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Care",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
   "categoryId": "healthcare",
   "description": "This application allows to quickly setup the necessary services in order to send messages, across the most widely used notification channels (email, sms, push, voice, whatsapp).",
   "image": {
@@ -11,6 +7,7 @@
   },
   "itemId": "notification-module",
   "name": "Notification Module",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/notification-module/notification-application",
   "resources": {
@@ -1892,9 +1889,12 @@
       }
     }
   },
-  "type": "application",
-  "publishOnMiaDocumentation": true,
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
   }

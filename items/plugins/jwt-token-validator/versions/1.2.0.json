@@ -1,30 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "JWT Token Validator",
-  "itemId": "jwt-token-validator",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "1.2.0",
-    "releaseNote": "### Changed\n\n- /verify handler looks in `sid` cookie for the token if not present in `authorization` header\n\n### Security\n\n- Added SBOM and docker image sign"
-  },
-  "description": "The JWT Token Validator service allows verifying if a given JWT token is valid.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/jwt-token-validator-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "auth",
-  "publishOnMiaDocumentation": true,
+  "description": "The JWT Token Validator service allows verifying if a given JWT token is valid.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/jwt-token-validator/overview_and_usage"
   },
+  "image": {
+    "localPath": "../../assets/jwt-token-validator-plugin-transparent.png"
+  },
+  "itemId": "jwt-token-validator",
+  "name": "JWT Token Validator",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/jwt-token-validator",
   "resources": {
     "services": {
@@ -89,5 +77,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.2.0",
+    "releaseNote": "### Changed\n\n- /verify handler looks in `sid` cookie for the token if not present in `authorization` header\n\n### Security\n\n- Added SBOM and docker image sign"
+  },
+  "visibility": {
+    "public": true
+  }
 }

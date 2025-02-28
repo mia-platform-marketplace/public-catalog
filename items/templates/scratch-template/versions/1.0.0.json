@@ -1,31 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Scratch Template",
-  "itemId": "scratch-template",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "1.0.0",
-    "releaseNote": "-"
-  },
-  "description": "A simple repository template to start coding from scratch",
-  "type": "template",
-  "image": {
-    "localPath": "../../assets/scratch-template-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "code",
+  "description": "A simple repository template to start coding from scratch",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/scratch-template/main/README.md"
   },
-  "repositoryUrl": "https://github.com/mia-platform-marketplace/scratch-template",
+  "image": {
+    "localPath": "../../assets/scratch-template-transparent.png"
+  },
+  "itemId": "scratch-template",
+  "name": "Scratch Template",
   "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/scratch-template",
   "resources": {
     "services": {
       "scratch-template": {
@@ -43,5 +30,18 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

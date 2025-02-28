@@ -1,23 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-FinTech",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/MIA-FinTech.png"
-  },
   "categoryId": "addonsecurity",
-  "releaseStage": "deprecated",
-  "type": "application",
-  "name": "Secure API Gateway",
   "description": "Use this application to enable Auth0 authorization for your front-end",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/auth0-application",
-  "image": {
-    "localPath": "../../assets/secure-api-gateway-application-transparent.png"
-  },
-  "publishOnMiaDocumentation": true,
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/secure-apigateway/overview"
   },
+  "image": {
+    "localPath": "../../assets/secure-api-gateway-application-transparent.png"
+  },
+  "itemId": "secure-api-gateway",
+  "name": "Secure API Gateway",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/auth0-application",
   "resources": {
     "services": {
       "authorization-service": {
@@ -488,8 +484,12 @@
       }
     }
   },
-  "itemId": "secure-api-gateway",
+  "supportedBy": "Mia-FinTech",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
   }

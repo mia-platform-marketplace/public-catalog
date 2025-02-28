@@ -1,25 +1,16 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Python Tornado Hello World",
-  "itemId": "python-tornado-hello-world",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Example of Python Microservice based on Tornado",
-  "type": "example",
-  "image": {
-    "localPath": "../../assets/python-tornado-example-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "python",
+  "description": "Example of Python Microservice based on Tornado",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/python-tornado-hello-world-microservice-example/master/README.md"
   },
+  "image": {
+    "localPath": "../../assets/python-tornado-example-transparent.png"
+  },
+  "itemId": "python-tornado-hello-world",
+  "name": "Python Tornado Hello World",
   "releaseStage": "deprecated",
   "resources": {
     "services": {
@@ -43,5 +34,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "visibility": {
+    "public": true
   }
 }

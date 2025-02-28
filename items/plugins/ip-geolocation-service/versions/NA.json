@@ -1,23 +1,14 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "IP Geolocation Service",
-  "itemId": "ip-geolocation-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "addgeo",
   "description": "Reverse geocoding service to obtain geolocation information based on request IP relying on ipgeolocation.io",
-  "type": "plugin",
   "image": {
     "localPath": "../../assets/ip-geolocation-service-plugin-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "addgeo",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/ip-geolocation-service",
+  "itemId": "ip-geolocation-service",
+  "name": "IP Geolocation Service",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/ip-geolocation-service",
   "resources": {
     "services": {
       "ip-geolocation-service": {
@@ -52,5 +43,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

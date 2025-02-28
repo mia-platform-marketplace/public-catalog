@@ -1,25 +1,16 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "GraphQL-Custom-Plugin-Example",
-  "itemId": "graphql-custom-plugin-example",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "With this template you can easily create a GraphQL service",
-  "type": "example",
-  "image": {
-    "localPath": "../../assets/graphql-custom-plugin-example-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "nodejs",
+  "description": "With this template you can easily create a GraphQL service",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/GraphQL-Custom-Plugin-Example/master/README.md"
   },
+  "image": {
+    "localPath": "../../assets/graphql-custom-plugin-example-transparent.png"
+  },
+  "itemId": "graphql-custom-plugin-example",
+  "name": "GraphQL-Custom-Plugin-Example",
   "releaseStage": "deprecated",
   "resources": {
     "services": {
@@ -65,8 +56,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

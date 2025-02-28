@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Rest2Kafka service",
-  "itemId": "rest2kafka-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "A service that exposes APIs to publish messages on Apache Kafka.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/rest2kafka-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "stream",
-  "publishOnMiaDocumentation": true,
+  "description": "A service that exposes APIs to publish messages on Apache Kafka.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/rest2kafka/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/rest2kafka",
+  "image": {
+    "localPath": "../../assets/rest2kafka-service-plugin-transparent.png"
+  },
+  "itemId": "rest2kafka-service",
+  "name": "Rest2Kafka service",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/rest2kafka",
   "resources": {
     "services": {
       "rest2kafka-service": {
@@ -135,5 +126,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

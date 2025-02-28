@@ -1,30 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Ingestion Reloader",
-  "itemId": "ingestion-reloader",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "1.4.2",
-    "releaseNote": "### Build\n\n- added procedure to sign service image and generate its SBOM\n\n"
-  },
-  "description": "This service expose a REST interface that allows reading messages from a Cloud Storage bucket, structured in the manner written by the Ingestion Storer, and publishing them onto target topics, specified at request-time",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/ingestion-reloader-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "fast-data",
-  "publishOnMiaDocumentation": true,
+  "description": "This service expose a REST interface that allows reading messages from a Cloud Storage bucket, structured in the manner written by the Ingestion Storer, and publishing them onto target topics, specified at request-time",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/fast_data/bucket_storage_support/configuration/ingestion_reloader_configuration"
   },
+  "image": {
+    "localPath": "../../assets/ingestion-reloader-plugin-transparent.png"
+  },
+  "itemId": "ingestion-reloader",
+  "name": "Ingestion Reloader",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/historical-data/ingestion-reloader",
   "resources": {
     "services": {
@@ -154,5 +142,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.4.2",
+    "releaseNote": "### Build\n\n- added procedure to sign service image and generate its SBOM\n\n"
+  },
+  "visibility": {
+    "public": true
+  }
 }

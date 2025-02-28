@@ -1,31 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Vite TypeScript React 18 Template",
-  "itemId": "vite-typescript-react-template",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "1.0.0",
-    "releaseNote": "-"
-  },
-  "description": "This template allows you to start setting up a front-end project with React 18 using TypeScript and Vite",
-  "type": "template",
-  "image": {
-    "localPath": "../../assets/vite-typescript-react-template-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "spa",
+  "description": "This template allows you to start setting up a front-end project with React 18 using TypeScript and Vite",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Vite-Typescript-React-App-Template/refs/heads/18.x/README.md"
   },
-  "repositoryUrl": "https://github.com/mia-platform-marketplace/Vite-Typescript-React-App-Template/tree/18.x",
+  "image": {
+    "localPath": "../../assets/vite-typescript-react-template-transparent.png"
+  },
+  "itemId": "vite-typescript-react-template",
+  "name": "Vite TypeScript React 18 Template",
   "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Vite-Typescript-React-App-Template/tree/18.x",
   "resources": {
     "services": {
       "vite-typescript-react-18-template": {
@@ -56,5 +43,18 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

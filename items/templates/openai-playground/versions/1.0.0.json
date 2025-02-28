@@ -1,22 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "code",
-  "releaseStage": "deprecated",
-  "type": "template",
-  "name": "OpenAI Playground",
   "description": "A simple Next.js Application to try-out OpenAI APIs",
-  "image": {
-    "localPath": "../../assets/openai-playground-example-transparent.png"
-  },
-  "repositoryUrl": "https://github.com/mia-platform-marketplace/open-ai-showcase",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/open-ai-showcase/master/README.md"
   },
+  "image": {
+    "localPath": "../../assets/openai-playground-example-transparent.png"
+  },
+  "itemId": "openai-playground",
+  "name": "OpenAI Playground",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/open-ai-showcase",
   "resources": {
     "services": {
       "open-ai-playground": {
@@ -91,13 +87,17 @@
       }
     }
   },
-  "itemId": "openai-playground",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
   },
+  "tenantId": "mia-platform",
+  "type": "template",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

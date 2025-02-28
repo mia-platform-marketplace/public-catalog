@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "SQL Invoker",
-  "itemId": "sql-invoker",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Provide a REST API interface to execute SQL Stored Procedures",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/sql-invoker-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "database",
-  "publishOnMiaDocumentation": true,
+  "description": "Provide a REST API interface to execute SQL Stored Procedures",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/sql-invoker/configuration_and_usage"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/sql-invoker",
+  "image": {
+    "localPath": "../../assets/sql-invoker-plugin-transparent.png"
+  },
+  "itemId": "sql-invoker",
+  "name": "SQL Invoker",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/sql-invoker",
   "resources": {
     "services": {
       "sql-invoker": {
@@ -72,5 +63,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

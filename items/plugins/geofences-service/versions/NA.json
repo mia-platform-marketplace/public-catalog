@@ -1,21 +1,12 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Geofences Service",
-  "itemId": "geofences-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "addgeo",
   "description": "The Geofences Service Plugin handles geofences and related resources and actions.",
-  "type": "plugin",
   "image": {
     "localPath": "../../assets/geofences-service-plugin-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "addgeo",
+  "itemId": "geofences-service",
+  "name": "Geofences Service",
   "releaseStage": "deprecated",
   "resources": {
     "services": {
@@ -48,5 +39,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

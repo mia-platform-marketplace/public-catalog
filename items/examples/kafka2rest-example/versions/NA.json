@@ -1,21 +1,12 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Kafka2Rest Example",
-  "itemId": "kafka2rest-example",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "stream",
   "description": "This is an example of using our library Kafka2Rest. It takes messages from Kafka broker and sends POST request after filter and process the messages.",
-  "type": "example",
   "image": {
     "localPath": "../../assets/kafka2rest-example-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "stream",
+  "itemId": "kafka2rest-example",
+  "name": "Kafka2Rest Example",
   "releaseStage": "deprecated",
   "resources": {
     "services": {
@@ -63,5 +54,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "visibility": {
+    "public": true
   }
 }

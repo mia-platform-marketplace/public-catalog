@@ -1,22 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "microfrontend",
-  "name": "Microfrontend Composer Toolkit",
   "description": "Use this application to set up Microfrontend Composer to build your frontend in a few clicks",
-  "type": "application",
-  "image": {
-    "localPath": "../../assets/microfrontend-composer-toolkit-application-transparent.png"
-  },
-  "publishOnMiaDocumentation": true,
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/microfrontend-composer-toolkit-application",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/microfrontend-composer-toolkit/overview"
   },
+  "image": {
+    "localPath": "../../assets/microfrontend-composer-toolkit-application-transparent.png"
+  },
+  "itemId": "microfrontend-composer-toolkit",
+  "name": "Microfrontend Composer Toolkit",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/microfrontend-composer-toolkit-application",
   "resources": {
     "services": {
       "api-gateway": {
@@ -301,10 +298,13 @@
       }
     }
   },
-  "itemId": "microfrontend-composer-toolkit",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
-  },
-  "releaseStage": "stable"
+  }
 }

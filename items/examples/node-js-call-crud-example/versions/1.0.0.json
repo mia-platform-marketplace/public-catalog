@@ -1,25 +1,16 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Node.js Call CRUD Example",
-  "itemId": "node-js-call-crud-example",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Example of using our Custom Plugin to access the CRUD. \nIt contains example of tests too.",
-  "type": "example",
-  "image": {
-    "localPath": "../../assets/nodejs-call-crud-example-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "nodejs",
+  "description": "Example of using our Custom Plugin to access the CRUD. \nIt contains example of tests too.",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Call-CRUD-Example/master/README.md"
   },
+  "image": {
+    "localPath": "../../assets/nodejs-call-crud-example-transparent.png"
+  },
+  "itemId": "node-js-call-crud-example",
+  "name": "Node.js Call CRUD Example",
   "releaseStage": "deprecated",
   "resources": {
     "services": {
@@ -96,8 +87,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

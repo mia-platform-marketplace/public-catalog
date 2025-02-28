@@ -1,23 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "files",
-  "releaseStage": "deprecated",
-  "name": "File Bucket",
   "description": "Ready to use upload/download file service with supporting crud collections",
-  "type": "application",
-  "image": {
-    "localPath": "../../assets/application_file-bucket.png"
-  },
-  "publishOnMiaDocumentation": true,
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/file-bucket-application",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/files-service/configuration"
   },
+  "image": {
+    "localPath": "../../assets/application_file-bucket.png"
+  },
+  "itemId": "file-bucket",
+  "name": "File Bucket",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/file-bucket-application",
   "resources": {
     "services": {
       "api-gateway": {
@@ -423,8 +419,12 @@
       }
     }
   },
-  "itemId": "file-bucket",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
   }

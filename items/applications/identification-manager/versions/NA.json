@@ -1,22 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-FinTech",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/MIA-FinTech.png"
-  },
   "categoryId": "idm",
-  "type": "application",
-  "name": "Identification Manager",
   "description": "The application allows you to quickly set up multiple identification processes",
-  "image": {
-    "localPath": "../../assets/identification-manager-application.png"
-  },
-  "publishOnMiaDocumentation": true,
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/identification-manager",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/identification-manager/overview"
   },
+  "image": {
+    "localPath": "../../assets/identification-manager-application.png"
+  },
+  "itemId": "identification-manager",
+  "name": "Identification Manager",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/identification-manager",
   "resources": {
     "services": {
       "crud-service": {
@@ -1041,10 +1038,13 @@
       }
     }
   },
-  "itemId": "identification-manager",
+  "supportedBy": "Mia-FinTech",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
-  },
-  "releaseStage": "stable"
+  }
 }

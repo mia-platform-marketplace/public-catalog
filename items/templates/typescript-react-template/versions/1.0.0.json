@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "TypeScript React Template",
-  "itemId": "typescript-react-template",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "This template allows you to start setting up a front-end project with React using TypeScript",
-  "type": "template",
-  "image": {
-    "localPath": "../../assets/typescript-react-template-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "spa",
+  "description": "This template allows you to start setting up a front-end project with React using TypeScript",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Typescript-React-App-Template/master/README.md"
   },
-  "repositoryUrl": "https://github.com/mia-platform-marketplace/Typescript-React-App-Template",
+  "image": {
+    "localPath": "../../assets/typescript-react-template-transparent.png"
+  },
+  "itemId": "typescript-react-template",
+  "name": "TypeScript React Template",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Typescript-React-App-Template",
   "resources": {
     "services": {
       "typescript-react-template": {
@@ -53,8 +44,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

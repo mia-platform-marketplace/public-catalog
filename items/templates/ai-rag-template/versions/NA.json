@@ -1,23 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "artificial-intelligence",
-  "name": "AI RAG Template",
   "description": "Use this Python template to create a RAG chatbot server",
-  "type": "template",
-  "releaseStage": "deprecated",
-  "image": {
-    "localPath": "../../assets/ai-rag-template-transparent.png"
-  },
-  "publishOnMiaDocumentation": true,
-  "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform/ai-rag-template/main/README.md"
   },
+  "image": {
+    "localPath": "../../assets/ai-rag-template-transparent.png"
+  },
+  "itemId": "ai-rag-template",
+  "name": "AI RAG Template",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
   "resources": {
     "services": {
       "ai-rag-template": {
@@ -110,8 +106,12 @@
       }
     }
   },
-  "itemId": "ai-rag-template",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
+  "type": "template",
   "visibility": {
     "public": true
   }

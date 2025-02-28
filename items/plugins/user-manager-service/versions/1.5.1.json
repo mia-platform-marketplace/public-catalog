@@ -1,29 +1,17 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "User Manager Service",
-  "itemId": "user-manager-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "1.5.1",
-    "releaseNote": "-"
-  },
-  "description": "The User Manager Service combines the Authentication Service (e.g. Auth0 Client) and the CRUD into a unique service for user management.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/user-manager-service-plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
-  "supportedBy": "Mia-Care",
   "categoryId": "utility",
+  "description": "The User Manager Service combines the Authentication Service (e.g. Auth0 Client) and the CRUD into a unique service for user management.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-manager-service/overview"
   },
+  "image": {
+    "localPath": "../../assets/user-manager-service-plugin.png"
+  },
+  "itemId": "user-manager-service",
+  "name": "User Manager Service",
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/user-manager-service",
   "resources": {
     "services": {
@@ -138,5 +126,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.5.1",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
 }

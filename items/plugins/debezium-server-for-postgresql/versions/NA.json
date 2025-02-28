@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Debezium Server for PostgreSQL",
-  "itemId": "debezium-server-for-postgresql",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Debezium is an open source distributed platform for change data capture. This plugins offers the Debezium server application with the addition of JMX Prometheus exporter to expose server metrics",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/debezium-server-for-postgresql-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/debezium.png"
-  },
-  "supportedBy": "Community",
   "categoryId": "fast-data-connectors",
+  "description": "Debezium is an open source distributed platform for change data capture. This plugins offers the Debezium server application with the addition of JMX Prometheus exporter to expose server metrics",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc#postgresql"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-with-prometheus-metrics",
+  "image": {
+    "localPath": "../../assets/debezium-server-for-postgresql-plugin-transparent.png"
+  },
+  "itemId": "debezium-server-for-postgresql",
+  "name": "Debezium Server for PostgreSQL",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-with-prometheus-metrics",
   "resources": {
     "services": {
       "debezium-server-for-postgresql": {
@@ -117,5 +108,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Community",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/debezium.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

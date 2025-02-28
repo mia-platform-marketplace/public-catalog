@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "SES Mail Notification Service",
-  "itemId": "ses-mail-notification-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Send custom email using an Amazon SES.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/ses-mail-notification-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "notification",
-  "publishOnMiaDocumentation": true,
+  "description": "Send custom email using an Amazon SES.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/ses-mail-notification-service/configuration"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mail-notification-service",
+  "image": {
+    "localPath": "../../assets/ses-mail-notification-service-plugin-transparent.png"
+  },
+  "itemId": "ses-mail-notification-service",
+  "name": "SES Mail Notification Service",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mail-notification-service",
   "resources": {
     "services": {
       "ses-mail-notification-service": {
@@ -49,5 +40,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

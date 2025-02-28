@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "micro-lc",
-  "itemId": "micro-lc",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "micro-lc enables you to create applications composed by micro-frontends integrated at runtime.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/microlc-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "microfrontend",
+  "description": "micro-lc enables you to create applications composed by micro-frontends integrated at runtime.",
   "documentation": {
     "type": "externalLink",
     "url": "https://micro-lc.io"
   },
-  "repositoryUrl": "https://github.com/micro-lc/micro-lc",
+  "image": {
+    "localPath": "../../assets/microlc-plugin-transparent.png"
+  },
+  "itemId": "micro-lc",
+  "name": "micro-lc",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/micro-lc/micro-lc",
   "resources": {
     "services": {
       "micro-lc": {
@@ -65,5 +56,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

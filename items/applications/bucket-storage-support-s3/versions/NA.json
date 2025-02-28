@@ -1,22 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "fast-data",
-  "name": "Bucket Storage Support - S3",
   "description": "The Bucket Storage Support Application contains all the microservices and resources need to load and reload data from your bucket.",
-  "type": "application",
-  "image": {
-    "localPath": "../../assets/bucket-storage-s3-application.png"
-  },
-  "publishOnMiaDocumentation": true,
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/bucket-storage-support-application",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/fast_data/bucket_storage_support/overview_bucket_storage_support"
   },
+  "image": {
+    "localPath": "../../assets/bucket-storage-s3-application.png"
+  },
+  "itemId": "bucket-storage-support-s3",
+  "name": "Bucket Storage Support - S3",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/bucket-storage-support-application",
   "resources": {
     "services": {
       "api-gateway": {
@@ -641,10 +638,13 @@
       }
     }
   },
-  "itemId": "bucket-storage-support-s3",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
-  },
-  "releaseStage": "stable"
+  }
 }

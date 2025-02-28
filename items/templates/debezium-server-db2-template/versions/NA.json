@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Debezium Server DB2 Template",
-  "itemId": "debezium-server-db2-template",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Debezium is an open source distributed platform for change data capture",
-  "type": "template",
-  "image": {
-    "localPath": "../../assets/debezium-server-db2-template-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/debezium.png"
-  },
-  "supportedBy": "Community",
   "categoryId": "fast-data-connectors",
+  "description": "Debezium is an open source distributed platform for change data capture",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc#db2"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-db2-template",
+  "image": {
+    "localPath": "../../assets/debezium-server-db2-template-transparent.png"
+  },
+  "itemId": "debezium-server-db2-template",
+  "name": "Debezium Server DB2 Template",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-db2-template",
   "resources": {
     "services": {
       "debezium-server-db2-template": {
@@ -121,5 +112,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Community",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/debezium.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "visibility": {
+    "public": true
   }
 }

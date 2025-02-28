@@ -1,31 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Ktor 1.6 Java 11 Multi Module Template",
-  "itemId": "ktor-multi-module-template",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "1.0.0",
-    "releaseNote": "-"
-  },
+  "categoryId": "kotlin",
   "description": "Kotlin Multi Module Template for monorepo service implementation based on Ktor 1.6 framework and Java 11",
-  "type": "template",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Ktor-Multi-Module-Template/refs/heads/1.6.x_jdk-11/README.md"
+  },
   "image": {
     "localPath": "../../assets/ktor-multi-module-template-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "kotlin",
-  "documentation": {
-    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Ktor-Multi-Module-Template/refs/heads/1.6.x_jdk-11/README.md",
-    "type": "markdown"
-  },
-  "repositoryUrl": "https://github.com/mia-platform-marketplace/Ktor-Multi-Module-Template/tree/1.6.x_jdk-11",
+  "itemId": "ktor-multi-module-template",
+  "name": "Ktor 1.6 Java 11 Multi Module Template",
   "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Ktor-Multi-Module-Template/tree/1.6.x_jdk-11",
   "resources": {
     "services": {
       "ktor-16-java-11-multi-module-template": {
@@ -82,5 +69,18 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

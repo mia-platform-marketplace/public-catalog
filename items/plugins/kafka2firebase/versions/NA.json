@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Kafka2Firebase",
-  "itemId": "kafka2firebase",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Use this is plugin to convert kafka messages into Firebase push notification.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/kafka2firebase-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "stream",
-  "publishOnMiaDocumentation": true,
+  "description": "Use this is plugin to convert kafka messages into Firebase push notification.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/kafka2firebase/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/kafka2firebase",
+  "image": {
+    "localPath": "../../assets/kafka2firebase-plugin-transparent.png"
+  },
+  "itemId": "kafka2firebase",
+  "name": "Kafka2Firebase",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/kafka2firebase",
   "resources": {
     "services": {
       "kafka2firebase": {
@@ -82,5 +73,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

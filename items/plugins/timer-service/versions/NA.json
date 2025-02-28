@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Timer Service",
-  "itemId": "timer-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "The Timer Service allows scheduling of timers that perform custom actions upon expiry.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/timer-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "orchestrators",
-  "publishOnMiaDocumentation": true,
+  "description": "The Timer Service allows scheduling of timers that perform custom actions upon expiry.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/timer-service/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/timer-service",
+  "image": {
+    "localPath": "../../assets/timer-service-plugin-transparent.png"
+  },
+  "itemId": "timer-service",
+  "name": "Timer Service",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/timer-service",
   "resources": {
     "services": {
       "timer-service": {
@@ -122,5 +113,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

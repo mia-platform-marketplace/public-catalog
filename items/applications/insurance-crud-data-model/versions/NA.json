@@ -1,23 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "insurance",
-  "releaseStage": "deprecated",
-  "name": "Insurance CRUD Data Model",
   "description": "This application has already configured data models for the insurance industry. The data models are for the Subject, Policy, Vehicle, FNOL, and Claim entities.",
-  "type": "application",
-  "image": {
-    "localPath": "../../assets/insurance-crud-data-model-application-transparent.png"
-  },
-  "publishOnMiaDocumentation": false,
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/insurance-crud-data-model-application",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/csv-connector/configuration"
   },
+  "image": {
+    "localPath": "../../assets/insurance-crud-data-model-application-transparent.png"
+  },
+  "itemId": "insurance-crud-data-model",
+  "name": "Insurance CRUD Data Model",
+  "publishOnMiaDocumentation": false,
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/insurance-crud-data-model-application",
   "resources": {
     "services": {
       "crud-service": {
@@ -4756,8 +4752,12 @@
       }
     }
   },
-  "itemId": "insurance-crud-data-model",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
   }

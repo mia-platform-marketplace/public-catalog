@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Go Echo Template",
-  "itemId": "go-echo-template",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "This is the best template to start creating a service in Go with an Echo web framework integrated inside the Platform",
-  "type": "template",
-  "image": {
-    "localPath": "../../assets/go-echo-template-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "golang",
+  "description": "This is the best template to start creating a service in Go with an Echo web framework integrated inside the Platform",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/go-echo-template/master/README.md"
   },
-  "repositoryUrl": "https://github.com/mia-platform-marketplace/go-echo-template",
+  "image": {
+    "localPath": "../../assets/go-echo-template-transparent.png"
+  },
+  "itemId": "go-echo-template",
+  "name": "Go Echo Template",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/go-echo-template",
   "resources": {
     "services": {
       "go-echo-template": {
@@ -46,8 +37,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

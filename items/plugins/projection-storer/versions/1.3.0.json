@@ -1,30 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Projection Storer",
-  "itemId": "projection-storer",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "1.3.0",
-    "releaseNote": "-"
-  },
-  "description": "Consumes ingestion events in order to keep the Fast Data projections records up to date with the connected System of Record.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/projection-storer-plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "fast-data",
-  "publishOnMiaDocumentation": true,
+  "description": "Consumes ingestion events in order to keep the Fast Data projections records up to date with the connected System of Record.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/fast_data/projection_storer"
   },
+  "image": {
+    "localPath": "../../assets/projection-storer-plugin.png"
+  },
+  "itemId": "projection-storer",
+  "name": "Projection Storer",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/projection-storer",
   "resources": {
     "services": {
@@ -92,5 +80,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.3.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
 }

@@ -1,22 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "microfrontend",
-  "name": "Microfrontend Composer On Prem Toolkit",
   "description": "Use this application to set up Microfrontend Composer to build your frontend without using external resources in a few clicks.",
-  "type": "application",
-  "image": {
-    "localPath": "../../assets/microfrontend-composer-onprem-toolkit-application-transparent.png"
-  },
-  "publishOnMiaDocumentation": true,
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/microfrontend-composer-on-prem-toolkit-application",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/microfrontend-composer-on-prem-toolkit-application/overview"
   },
+  "image": {
+    "localPath": "../../assets/microfrontend-composer-onprem-toolkit-application-transparent.png"
+  },
+  "itemId": "microfrontend-composer-on-prem-toolkit",
+  "name": "Microfrontend Composer On Prem Toolkit",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/microfrontend-composer-on-prem-toolkit-application",
   "resources": {
     "services": {
       "api-gateway": {
@@ -356,10 +353,13 @@
       }
     }
   },
-  "itemId": "microfrontend-composer-on-prem-toolkit",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
-  },
-  "releaseStage": "stable"
+  }
 }

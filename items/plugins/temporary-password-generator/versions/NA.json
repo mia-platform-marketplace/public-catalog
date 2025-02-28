@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Temporary Password Generator",
-  "itemId": "temporary-password-generator",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Generates Temporary-Passwords associated with arbitrary data payload to be later consumed.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/temporary-password-generator-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "addonsecurity",
+  "description": "Generates Temporary-Passwords associated with arbitrary data payload to be later consumed.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/temporary-password-generator/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/temporary-password-generator",
+  "image": {
+    "localPath": "../../assets/temporary-password-generator-plugin-transparent.png"
+  },
+  "itemId": "temporary-password-generator",
+  "name": "Temporary Password Generator",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/temporary-password-generator",
   "resources": {
     "services": {
       "temporary-password-generator": {
@@ -101,5 +92,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

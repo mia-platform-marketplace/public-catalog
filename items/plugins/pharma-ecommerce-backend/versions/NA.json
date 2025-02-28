@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Pharma Ecommerce Backend",
-  "itemId": "pharma-ecommerce-backend",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "The Pharma Ecommerce Backend is a Mia-Care plugin that provides APIs that can be used to create your own pharmaceutical e-commerce.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/pharma-ecommerce-backend-plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
-  "supportedBy": "Mia-Care",
   "categoryId": "utility",
-  "publishOnMiaDocumentation": true,
+  "description": "The Pharma Ecommerce Backend is a Mia-Care plugin that provides APIs that can be used to create your own pharmaceutical e-commerce.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/pharma-ecommerce-backend/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/pharma-ecommerce-backend",
+  "image": {
+    "localPath": "../../assets/pharma-ecommerce-backend-plugin.png"
+  },
+  "itemId": "pharma-ecommerce-backend",
+  "name": "Pharma Ecommerce Backend",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/pharma-ecommerce-backend",
   "resources": {
     "services": {
       "pharma-ecommerce-backend": {
@@ -153,5 +144,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

@@ -1,25 +1,16 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Vapor Hello World Example",
-  "itemId": "vapor-hello-world-example",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "rust",
   "description": "A simple Hello World example application using Mia-Platform Swift template based on Vapor.",
-  "type": "example",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Vapor-Hello-World-Example/master/README.md"
+  },
   "image": {
     "localPath": "../../assets/vapor-hello-world-example.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "rust",
-  "documentation": {
-    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Vapor-Hello-World-Example/master/README.md",
-    "type": "markdown"
-  },
+  "itemId": "vapor-hello-world-example",
+  "name": "Vapor Hello World Example",
   "releaseStage": "deprecated",
   "resources": {
     "services": {
@@ -82,5 +73,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "visibility": {
+    "public": true
   }
 }

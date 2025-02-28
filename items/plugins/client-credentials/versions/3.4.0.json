@@ -1,30 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Client Credentials",
-  "itemId": "client-credentials",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "3.4.0",
-    "releaseNote": "Added:\n\n- add support to tls connection to redis\n\n- add support to redis sentinel mode"
-  },
-  "description": "Use this plugin to expose API to perform OAuth2 compliant client credential flows with third party providers.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/client-credentials-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "auth",
-  "publishOnMiaDocumentation": true,
+  "description": "Use this plugin to expose API to perform OAuth2 compliant client credential flows with third party providers.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/client-credentials/configuration"
   },
+  "image": {
+    "localPath": "../../assets/client-credentials-plugin-transparent.png"
+  },
+  "itemId": "client-credentials",
+  "name": "Client Credentials",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/client-credentials",
   "resources": {
     "services": {
@@ -122,5 +110,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "3.4.0",
+    "releaseNote": "Added:\n\n- add support to tls connection to redis\n\n- add support to redis sentinel mode"
+  },
+  "visibility": {
+    "public": true
+  }
 }

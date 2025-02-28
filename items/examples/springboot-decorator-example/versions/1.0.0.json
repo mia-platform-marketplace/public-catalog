@@ -1,25 +1,16 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Springboot Decorator Example",
-  "itemId": "springboot-decorator-example",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Use Mia-Platform Springboot library to develop custom Decorators and interact with CRUD Service.",
-  "type": "example",
-  "image": {
-    "localPath": "../../assets/springboot-example.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "kotlin",
+  "description": "Use Mia-Platform Springboot library to develop custom Decorators and interact with CRUD Service.",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Springboot-PrePost-Decorator-Example/master/README.md"
   },
+  "image": {
+    "localPath": "../../assets/springboot-example.png"
+  },
+  "itemId": "springboot-decorator-example",
+  "name": "Springboot Decorator Example",
   "releaseStage": "deprecated",
   "resources": {
     "services": {
@@ -63,8 +54,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

@@ -1,21 +1,12 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Authentication Service",
-  "itemId": "authentication-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "auth",
   "description": "Use Mia-Platform core Authentication Service to provide OAuth2 compliant user authentication API.",
-  "type": "plugin",
   "image": {
     "localPath": "../../assets/authentication-service-plugin-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "auth",
+  "itemId": "authentication-service",
+  "name": "Authentication Service",
   "releaseStage": "deprecated",
   "resources": {
     "services": {
@@ -114,5 +105,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

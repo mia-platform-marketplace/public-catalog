@@ -1,25 +1,16 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Slack Webhook Example",
-  "itemId": "slack-webhook-example",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Node.js application that uses Pre and Post \nhooks to send a message on a Slack channel.",
-  "type": "example",
-  "image": {
-    "localPath": "../../assets/slack-webhook-example-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "nodejs",
+  "description": "Node.js application that uses Pre and Post \nhooks to send a message on a Slack channel.",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-PrePost-Microservice-Example/master/README.md"
   },
+  "image": {
+    "localPath": "../../assets/slack-webhook-example-transparent.png"
+  },
+  "itemId": "slack-webhook-example",
+  "name": "Slack Webhook Example",
   "releaseStage": "deprecated",
   "resources": {
     "services": {
@@ -100,5 +91,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "visibility": {
+    "public": true
   }
 }

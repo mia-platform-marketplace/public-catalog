@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "CRUD Service",
-  "itemId": "crud-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/crud-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "database",
-  "publishOnMiaDocumentation": true,
+  "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/crud-service/overview_and_usage"
   },
-  "repositoryUrl": "https://github.com/mia-platform/crud-service",
+  "image": {
+    "localPath": "../../assets/crud-service-plugin-transparent.png"
+  },
+  "itemId": "crud-service",
+  "name": "CRUD Service",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform/crud-service",
   "resources": {
     "services": {
       "crud-service": {
@@ -110,5 +101,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

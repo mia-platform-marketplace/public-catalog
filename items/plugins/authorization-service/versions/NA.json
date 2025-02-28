@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Authorization Service",
-  "itemId": "authorization-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Use this service to authorize routes to request certain resources, leveraging OpenID Connect and simple user-defined configurations",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/authorization-service-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "auth",
-  "publishOnMiaDocumentation": true,
+  "description": "Use this service to authorize routes to request certain resources, leveraging OpenID Connect and simple user-defined configurations",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/authorization-service/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/authorization-service",
+  "image": {
+    "localPath": "../../assets/authorization-service-plugin-transparent.png"
+  },
+  "itemId": "authorization-service",
+  "name": "Authorization Service",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/authorization-service",
   "resources": {
     "services": {
       "authorization-service": {
@@ -143,5 +134,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

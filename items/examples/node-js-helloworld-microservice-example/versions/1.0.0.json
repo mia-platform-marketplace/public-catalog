@@ -1,31 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Node.js 16 HelloWorld Microservice Example",
-  "itemId": "node-js-helloworld-microservice-example",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "1.0.0",
-    "releaseNote": "-"
-  },
-  "description": "Example of a simple Node.js 16 application. \nIt contains example of tests too.",
-  "type": "example",
-  "image": {
-    "localPath": "../../assets/nodejs-hello-world-example-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "nodejs",
+  "description": "Example of a simple Node.js 16 application. \nIt contains example of tests too.",
   "documentation": {
     "type": "markdown",
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Hello-World-Microservice-Example/refs/heads/16.x/README.md"
   },
-  "repositoryUrl": "https://github.com/mia-platform-marketplace/Node.js-Hello-World-Microservice-Example/tree/16.x",
+  "image": {
+    "localPath": "../../assets/nodejs-hello-world-example-transparent.png"
+  },
+  "itemId": "node-js-helloworld-microservice-example",
+  "name": "Node.js 16 HelloWorld Microservice Example",
   "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Node.js-Hello-World-Microservice-Example/tree/16.x",
   "resources": {
     "services": {
       "nodejs-16-helloworld-microservice-example": {
@@ -52,5 +39,18 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

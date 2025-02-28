@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Messaging Service",
-  "itemId": "messaging-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Send messages to your users through various channels",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/messaging-service-plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
-  },
-  "supportedBy": "Mia-Care",
   "categoryId": "notification",
-  "publishOnMiaDocumentation": true,
+  "description": "Send messages to your users through various channels",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/messaging-service/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/messaging-service",
+  "image": {
+    "localPath": "../../assets/messaging-service-plugin.png"
+  },
+  "itemId": "messaging-service",
+  "name": "Messaging Service",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/messaging-service",
   "resources": {
     "services": {
       "messaging-service": {
@@ -113,5 +104,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

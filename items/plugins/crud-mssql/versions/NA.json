@@ -1,27 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "CRUD MSSQL",
-  "itemId": "crud-mssql",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "The CRUD MSSQL is a Mia-Platform plugin that abstracts SQL tables allowing developers to expose CRUD APIs over a MSSQL database in an easy, scalable, and secure way.",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/crud-mssql-plugin.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "database",
+  "description": "The CRUD MSSQL is a Mia-Platform plugin that abstracts SQL tables allowing developers to expose CRUD APIs over a MSSQL database in an easy, scalable, and secure way.",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/crud-postgresql/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/crud-sql",
+  "image": {
+    "localPath": "../../assets/crud-mssql-plugin.png"
+  },
+  "itemId": "crud-mssql",
+  "name": "CRUD MSSQL",
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/crud-sql",
   "resources": {
     "services": {
       "crud-mssql": {
@@ -113,5 +104,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

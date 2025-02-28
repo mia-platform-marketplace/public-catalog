@@ -1,21 +1,12 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Rest2Kafka Example",
-  "itemId": "rest2kafka-example",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "stream",
   "description": "This is an example of using our library Rest2Kafka. It takes the body of a POST and create a Kafka message.",
-  "type": "example",
   "image": {
     "localPath": "../../assets/rest2kafka-example-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "stream",
+  "itemId": "rest2kafka-example",
+  "name": "Rest2Kafka Example",
   "releaseStage": "deprecated",
   "resources": {
     "services": {
@@ -77,8 +68,17 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
   }
 }

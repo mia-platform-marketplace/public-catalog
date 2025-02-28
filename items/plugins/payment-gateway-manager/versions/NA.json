@@ -1,28 +1,19 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Payment Gateway Manager",
-  "itemId": "payment-gateway-manager",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "description": "Payment Gateway Manager helps you connect your services with different payment gateways in an easy fashion",
-  "type": "plugin",
-  "image": {
-    "localPath": "../../assets/payment-gateway-plugin-transparent.png"
-  },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
   "categoryId": "payments",
-  "publishOnMiaDocumentation": true,
+  "description": "Payment Gateway Manager helps you connect your services with different payment gateways in an easy fashion",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/payment-gateway-manager/overview"
   },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/payment-gateway-manager",
+  "image": {
+    "localPath": "../../assets/payment-gateway-plugin-transparent.png"
+  },
+  "itemId": "payment-gateway-manager",
+  "name": "Payment Gateway Manager",
+  "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/payment-gateway-manager",
   "resources": {
     "services": {
       "payment-gateway-manager": {
@@ -94,5 +85,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

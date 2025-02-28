@@ -1,25 +1,13 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "SMTP Mail Notification Service",
-  "itemId": "smtp-mail-notification-service",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
-  "version": {
-    "name": "3.3.0",
-    "releaseNote": "-"
-  },
+  "categoryId": "notification",
   "description": "Send custom email using configured SMTP server",
-  "type": "plugin",
   "image": {
     "localPath": "../../assets/smtp-mail-notification-plugin-service-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "notification",
+  "itemId": "smtp-mail-notification-service",
+  "name": "SMTP Mail Notification Service",
+  "releaseStage": "stable",
   "resources": {
     "services": {
       "smtp-mail-notification-service": {
@@ -72,5 +60,17 @@
       }
     }
   },
-  "releaseStage": "stable"
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "3.3.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
 }

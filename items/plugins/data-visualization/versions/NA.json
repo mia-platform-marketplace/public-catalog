@@ -1,21 +1,12 @@
 {
   "$schema": "../../manifest.schema.json",
-  "name": "Data Visualization",
-  "itemId": "data-visualization",
-  "tenantId": "mia-platform",
-  "visibility": {
-    "public": true
-  },
+  "categoryId": "business",
   "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
-  "type": "plugin",
   "image": {
     "localPath": "../../assets/data-visualization-plugin-transparent.png"
   },
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
-  "supportedBy": "Mia-Platform",
-  "categoryId": "business",
+  "itemId": "data-visualization",
+  "name": "Data Visualization",
   "releaseStage": "deprecated",
   "resources": {
     "services": {
@@ -43,5 +34,14 @@
         ]
       }
     }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
   }
 }

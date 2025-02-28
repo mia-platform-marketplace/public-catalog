@@ -1,23 +1,18 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
-  "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
-  },
   "categoryId": "devportal",
-  "name": "API Documentation Aggregator NGINX",
-  "itemId": "api-documentation-aggregator-nginx",
   "description": "This application groups the plugins API Portal and Swagger Aggregator in order to aggregate the individual Open APIs of all the microservices and show them through a graphical interface. Endpoints are exposed via NGINX API Gateway",
-  "tenantId": "mia-platform",
-  "type": "application",
-  "image": {
-    "localPath": "../../assets/api-documentation-aggregator-nginx-application-transparent.png"
-  },
-  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/api-documentation-aggregator-application",
   "documentation": {
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/api-documentation-aggregator/overview"
   },
+  "image": {
+    "localPath": "../../assets/api-documentation-aggregator-nginx-application-transparent.png"
+  },
+  "itemId": "api-documentation-aggregator-nginx",
+  "name": "API Documentation Aggregator NGINX",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/api-documentation-aggregator-application",
   "resources": {
     "services": {
       "api-gateway": {
@@ -252,8 +247,13 @@
       }
     }
   },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "application",
   "visibility": {
     "public": true
-  },
-  "releaseStage": "stable"
+  }
 }
