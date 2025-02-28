@@ -231,5 +231,6 @@
   "tenantId": "mia-platform",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseStage": "stable"
 }

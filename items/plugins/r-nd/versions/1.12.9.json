@@ -152,5 +152,6 @@
         ]
       }
     }
-  }
+  },
+  "releaseStage": "stable"
 }

@@ -29,6 +29,7 @@
         "type": "template",
         "name": "crud-sql-template",
         "description": "This is a template to help you get started using the SQL CRUD service. You can provide a Data Source to connect to your preferred SQL database using the Mia-Platform SQL CRUD library",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/crud-sql-template/archive/0.1.0.tar.gz",
         "componentId": "crud-sql-template",
         "mapEnvVarToMountPath": {
           "collections": {

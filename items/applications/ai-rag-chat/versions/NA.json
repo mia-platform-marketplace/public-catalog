@@ -13,7 +13,7 @@
     "localPath": "../../assets/ai-rag-chat-transparent.png"
   },
   "publishOnMiaDocumentation": false,
-  "releaseStage": null,
+  "releaseStage": "stable",
   "resources": {
     "services": {
       "api-gateway": {

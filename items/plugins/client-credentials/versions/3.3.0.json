@@ -121,5 +121,6 @@
         ]
       }
     }
-  }
+  },
+  "releaseStage": "stable"
 }

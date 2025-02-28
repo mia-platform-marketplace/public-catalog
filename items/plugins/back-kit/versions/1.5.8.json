@@ -68,5 +68,6 @@
         ]
       }
     }
-  }
+  },
+  "releaseStage": "stable"
 }

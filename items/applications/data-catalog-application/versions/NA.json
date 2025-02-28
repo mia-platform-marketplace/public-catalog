@@ -16,7 +16,7 @@
   "itemId": "data-catalog-application",
   "name": "Data Catalog",
   "publishOnMiaDocumentation": true,
-  "releaseStage": null,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/data-catalog-application",
   "resources": {
     "collections": {

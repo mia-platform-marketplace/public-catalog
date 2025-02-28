@@ -1,0 +1,60 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "micro-lc Angular 12 Template",
+  "itemId": "micro-lc-angular-12-template",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Use this template to set up a micro-lc Angular 12 plugin project",
+  "type": "template",
+  "image": {
+    "localPath": "../../assets/micro-lc-angular-template.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "microfrontend",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/micro-lc/angular12-template/refs/tags/v2.0.4/README.md"
+  },
+  "repositoryUrl": "https://github.com/micro-lc/angular12-template",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "micro-lc-angular-12-template": {
+        "type": "template",
+        "name": "micro-lc-angular-12-template",
+        "description": "Use this template to set up a micro-lc Angular 12 plugin project",
+        "archiveUrl": "https://github.com/micro-lc/angular12-template/archive/v2.0.4.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fangular-app.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  }
+}

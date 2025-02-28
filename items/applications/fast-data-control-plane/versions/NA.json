@@ -2643,5 +2643,6 @@
   "type": "application",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseStage": "stable"
 }

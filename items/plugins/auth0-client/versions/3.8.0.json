@@ -140,5 +140,6 @@
         ]
       }
     }
-  }
+  },
+  "releaseStage": "stable"
 }

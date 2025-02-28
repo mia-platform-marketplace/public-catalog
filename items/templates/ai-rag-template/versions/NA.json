@@ -8,7 +8,7 @@
   "name": "AI RAG Template",
   "description": "Use this Python template to create a RAG chatbot server",
   "type": "template",
-  "releaseStage": null,
+  "releaseStage": "deprecated",
   "image": {
     "localPath": "../../assets/ai-rag-template-transparent.png"
   },

@@ -173,5 +173,6 @@
         ]
       }
     }
-  }
+  },
+  "releaseStage": "stable"
 }

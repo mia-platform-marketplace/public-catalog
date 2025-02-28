@@ -256,5 +256,6 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseStage": "stable"
 }

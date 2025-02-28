@@ -105,5 +105,6 @@
         ]
       }
     }
-  }
+  },
+  "releaseStage": "stable"
 }
