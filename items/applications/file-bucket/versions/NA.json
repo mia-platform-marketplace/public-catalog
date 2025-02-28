@@ -23,12 +23,10 @@
       "api-gateway": {
         "name": "api-gateway",
         "type": "plugin",
-        "categoryId": "orchestrators",
         "description": "Use this service to route requests to the correct service and verify the need of authentication",
         "dockerImage": "nexus.mia-platform.eu/core/api-gateway:5.0.2",
         "componentId": "api-gateway",
         "defaultDocumentationPath": "",
-        "publishOnMiaDocumentation": true,
         "containerPorts": [
           {
             "name": "frontend",

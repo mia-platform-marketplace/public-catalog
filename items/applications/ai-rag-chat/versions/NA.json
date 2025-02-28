@@ -22,12 +22,7 @@
         "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
         "dockerImage": "envoyproxy/envoy:v1.29.2",
         "componentId": "api-gateway-envoy",
-        "documentation": {
-          "type": "externalLink",
-          "url": "https://docs.mia-platform.eu/docs/runtime_suite/envoy-api-gateway/overview"
-        },
         "defaultDocumentationPath": "",
-        "publishOnMiaDocumentation": false,
         "defaultArgs": [
           "-c",
           "/etc/envoy/envoy.json",
@@ -184,12 +179,7 @@
             "from": 80,
             "to": 3000
           }
-        ],
-        "pipelines": {
-          "gitlab-ci": {
-            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fpython-hello-world-ci.yml/raw"
-          }
-        }
+        ]
       },
       "ai-rag-template-chat": {
         "type": "template",

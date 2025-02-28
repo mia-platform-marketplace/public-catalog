@@ -1,4 +1,5 @@
 {
+  "$schema": "./schemas/categories.schema.json",
   "categories": [
     {
       "categoryId": "stream",
@@ -131,6 +132,10 @@
     {
       "categoryId": "artificial-intelligence",
       "label": "Artificial Intelligence"
+    },
+    {
+      "categoryId": "healthcare",
+      "label": "Healthcare"
     }
   ]
 }

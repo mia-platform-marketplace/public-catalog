@@ -1,0 +1,22 @@
+{
+  "$id": "categories.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "categoryId": { "type": "string" },
+          "label": { "type": "string" }
+        },
+        "additionalProperties": false,
+        "required": ["categoryId", "label"]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": ["categories"]
+}

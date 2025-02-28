@@ -1,6 +1,6 @@
 {
   "$schema": "../../manifest.schema.json",
-  "supportedBy": "Mia-Platform",
+  "supportedBy": "Mia-Care",
   "supportedByImage": {
     "localPath": "../../../../../assets/img/mia-care.png"
   },
@@ -11,7 +11,6 @@
   },
   "itemId": "therapy-device-module",
   "name": "Therapy Device Module",
-  "releaseDate": "2024-05-29T10:55:48.189Z",
   "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/therapy-device-module/therapy-device-application",
   "resources": {

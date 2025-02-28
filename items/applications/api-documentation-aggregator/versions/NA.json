@@ -27,7 +27,6 @@
         "dockerImage": "envoyproxy/envoy:v1.29.2",
         "componentId": "api-gateway-envoy",
         "defaultDocumentationPath": "",
-        "publishOnMiaDocumentation": false,
         "defaultArgs": [
           "-c",
           "/etc/envoy/envoy.json",

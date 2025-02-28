@@ -38,7 +38,8 @@
         "idm",
         "scoring",
         "data-catalog",
-        "artificial-intelligence"
+        "artificial-intelligence",
+        "healthcare"
       ],
       "type": "string"
     },

@@ -1,4 +1,5 @@
 {
+  "$schema": "./schemas/supporters.schema.json",
   "supporters": [
     {
       "label": "Mia-Platform",
@@ -15,7 +16,7 @@
     {
       "label": "Mia-Care",
       "images": [
-        "logo-mia-care.png"
+        "mia-care.png"
       ]
     },
     {

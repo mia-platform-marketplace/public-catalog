@@ -745,7 +745,7 @@
       },
       "micro-lc": {
         "type": "plugin",
-        "logParser": "mia-json",
+        "defaultLogParser": "mia-json",
         "name": "micro-lc",
         "description": "micro-lc config server",
         "dockerImage": "nexus.mia-platform.eu/microlc/middleware:{{MICRO_LC_MANAGER_VERSION}}",
