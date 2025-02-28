@@ -1,0 +1,252 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Single View Creator Low Code - MongoDB",
+  "itemId": "single-view-creator-low-code-mongodb",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "6.8.0",
+    "releaseNote": "### Added\n\n- introduce `forceResume` parameter in Control Plane settings to control the service behavior in case of unsuccessful connection with Control Plane Operator\n\n### Changed\n\n- Control Plane settings `state` and `feedback` properties are now optional\n\n"
+  },
+  "description": "Create your Single Views leveraging the power of configuration files instead of writing all the code on your own!",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/single-view-creator-low-code-mongodb-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "fast-data",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/single-view-creator/configuration"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
+  "resources": {
+    "services": {
+      "single-view-creator-low-code-mongodb": {
+        "type": "plugin",
+        "name": "single-view-creator-low-code-mongodb",
+        "description": "Create your Single Views leveraging the power of configuration files instead of writing all the code on your own!",
+        "dockerImage": "nexus.mia-platform.eu/fast-data/single-view-creator-plugin:6.8.0",
+        "componentId": "single-view-creator-low-code",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain",
+            "description": "Level to use for logging"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "TYPE",
+            "value": "CHANGE_WITH_TYPE",
+            "valueType": "plain",
+            "description": "Identifies the type of projection changes that need to be read. It should be the same as the Single View name you want to update."
+          },
+          {
+            "name": "PROJECTIONS_MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain",
+            "description": "MongoDB connection string where projections are stored. Must be a valid uri"
+          },
+          {
+            "name": "PROJECTIONS_DATABASE",
+            "value": "{{MONGODB_NAME}}",
+            "valueType": "plain",
+            "description": "The db from where projections are read."
+          },
+          {
+            "name": "SINGLE_VIEWS_MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain",
+            "description": "MongoDB connection string where single view must be stored. Must be a valid uri"
+          },
+          {
+            "name": "SINGLE_VIEWS_DATABASE",
+            "value": "{{MONGODB_NAME}}",
+            "valueType": "plain",
+            "description": "The db from where single views are written."
+          },
+          {
+            "name": "SINGLE_VIEWS_COLLECTION",
+            "value": "CHANGE_WITH_SINGLE_VIEWS_COLLECTION",
+            "valueType": "plain",
+            "description": "It must be equal to the Single View name the service is in charge of."
+          },
+          {
+            "name": "SINGLE_VIEWS_PORTFOLIO_ORIGIN",
+            "value": "CHANGE_WITH_SINGLE_VIEWS_PORTFOLIO_ORIGIN",
+            "valueType": "plain",
+            "description": "An identifier for the Kafka client to be able to debug and track the requests. If this Single View Creator is responsible for handling only one system, we suggest to use the `SYSTEM_ID` specified in the Real Time Updater service."
+          },
+          {
+            "name": "SINGLE_VIEWS_ERRORS_COLLECTION",
+            "value": "CHANGE_WITH_SINGLE_VIEWS_ERRORS_COLLECTION",
+            "valueType": "plain",
+            "description": "Name of a MongoDB CRUD you want to use as collection for single view errors."
+          },
+          {
+            "name": "USE_AUTOMATIC",
+            "value": "true",
+            "valueType": "plain",
+            "description": "wheather to use the low code architecture for the Single View Creator service or not"
+          },
+          {
+            "name": "ER_SCHEMA_FOLDER",
+            "value": "/home/node/app/erSchema",
+            "valueType": "plain",
+            "description": "the path to the ER Schema folder, e.g. `/home/node/app/erSchema`"
+          },
+          {
+            "name": "AGGREGATION_FOLDER",
+            "value": "/home/node/app/aggregation",
+            "valueType": "plain",
+            "description": "the path to the Aggregation folder, e.g. `/home/node/app/aggregation`"
+          },
+          {
+            "name": "CONFIGURATION_FOLDER",
+            "value": "/home/node/app/configuration",
+            "valueType": "plain",
+            "description": "Folder where configuration files are mounted"
+          },
+          {
+            "name": "PROJECTIONS_CHANGES_SOURCE",
+            "value": "MONGO",
+            "valueType": "plain",
+            "description": "Tells the plugin the source where projection changes are read."
+          },
+          {
+            "name": "PROJECTIONS_CHANGES_DATABASE",
+            "value": "{{MONGODB_NAME}}",
+            "valueType": "plain",
+            "description": "The db from where projections changes are read."
+          },
+          {
+            "name": "PROJECTIONS_CHANGES_COLLECTION",
+            "value": "CHANGE_WITH_PROJECTIONS_CHANGES_COLLECTION",
+            "valueType": "plain",
+            "description": "if you have set a custom projection change collection name from advanced, then set its name. Otherwise, it is `fd-pc-SYSTEM_ID` where `SYSTEM_ID` is the id of the System of Records this single view creator is responsible for."
+          },
+          {
+            "name": "SCHEDULING_TIME",
+            "value": "60000",
+            "valueType": "plain",
+            "description": "a quantity of time in milliseconds, every X milliseconds the service wake up and check if there are some projections changes in NEW state to work on."
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "100Mi",
+            "max": "300Mi"
+          },
+          "cpuLimits": {
+            "min": "120m",
+            "max": "600m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 10,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "aggregation",
+            "mountPath": "/home/node/app/aggregation",
+            "files": [
+              {
+                "content": "{\n  \"version\": \"1.3.0\",\n  \"config\": {\n      \"SV_CONFIG\": {\n          \"dependencies\": {},\n          \"mapping\": {}\n      }\n  }\n}",
+                "name": "aggregation.json"
+              }
+            ]
+          },
+          {
+            "name": "configuration",
+            "mountPath": "/home/node/app/configuration",
+            "files": [
+              {
+                "content": "{\n    \"version\": \"1.0.0\",\n    \"config\": {}\n}",
+                "name": "singleViewKey.json"
+              }
+            ]
+          },
+          {
+            "name": "erschema",
+            "mountPath": "/home/node/app/erSchema",
+            "files": [
+              {
+                "content": "{\n    \"version\": \"1.0.0\",\n    \"config\": {}\n}",
+                "name": "erSchema.json"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,496 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "supportedBy": "Mia-FinTech",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
+  "categoryId": "addonsecurity",
+  "releaseStage": "deprecated",
+  "type": "application",
+  "name": "Secure API Gateway",
+  "description": "Use this application to enable Auth0 authorization for your front-end",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/auth0-application",
+  "image": {
+    "localPath": "../../assets/secure-api-gateway-application-transparent.png"
+  },
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/secure-apigateway/overview"
+  },
+  "resources": {
+    "services": {
+      "authorization-service": {
+        "name": "authorization-service",
+        "type": "plugin",
+        "componentId": "authorization-service",
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/configs",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_FILE_NAME",
+            "value": "auth",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_VERSION",
+            "value": "2.0.2",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERINFO_URL",
+            "value": "http://auth0-client/userinfo",
+            "valueType": "plain"
+          },
+          {
+            "name": "CUSTOM_USER_ID_KEY",
+            "value": "sub",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEADERS_TO_PROXY",
+            "value": "x-request-id,request-id,cookie,authorization,client-type,host,x-forwarded-host",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTHORIZATION_STRICT_MODE_ENABLED",
+            "value": "true",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENT_TYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "CUSTOM_PERMISSIONS_KEY",
+            "value": "permissions",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "50m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "50Mi",
+            "min": "30Mi"
+          }
+        },
+        "description": "",
+        "dockerImage": "nexus.mia-platform.eu/core/authorization-service:2.4.2",
+        "mapEnvVarToMountPath": {
+          "authorization-service-config": {
+            "type": "folder",
+            "envName": "CONFIGURATION_PATH"
+          }
+        },
+        "defaultConfigMaps": [
+          {
+            "name": "authorization-service-config",
+            "mountPath": "/configs",
+            "files": [],
+            "viewAsReadOnly": true
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "oauth-login-site": {
+        "type": "plugin",
+        "description": "",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/login-site:8.1.2",
+        "name": "oauth-login-site",
+        "componentId": "oauth-login-site",
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "50m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "50Mi",
+            "min": "30Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 5,
+            "failureThreshold": 1
+          },
+          "readiness": {
+            "path": "",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "api-gateway": {
+        "type": "plugin",
+        "description": "Use this service to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "nexus.mia-platform.eu/core/api-gateway:5.0.2",
+        "name": "api-gateway",
+        "componentId": "api-gateway",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "frontend",
+            "from": 8080,
+            "to": 8080
+          },
+          {
+            "name": "backoffice",
+            "from": 8081,
+            "to": 8081
+          }
+        ],
+        "defaultEnvironmentVariables": [],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "25Mi",
+            "min": "5Mi"
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "defaultProbes": {
+          "liveness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20
+          },
+          "readiness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10
+          }
+        },
+        "execPreStop": [
+          "sh",
+          "-c",
+          "sleep 5 && /usr/sbin/nginx -s quit"
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "api-gateway-server",
+            "mountPath": "/etc/nginx/conf.d",
+            "files": [],
+            "viewAsReadOnly": true
+          },
+          {
+            "name": "api-gateway-platform",
+            "mountPath": "/etc/nginx/platform.d",
+            "files": [],
+            "viewAsReadOnly": true
+          },
+          {
+            "name": "api-gateway-customization",
+            "mountPath": "/etc/nginx/customization.d",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "endpoints"
+            }
+          },
+          {
+            "name": "api-gateway-backoffice",
+            "mountPath": "/etc/nginx/backoffice.d",
+            "files": [],
+            "viewAsReadOnly": true
+          }
+        ],
+        "additionalContainers": [
+          {
+            "name": "dnsmasq",
+            "dockerImage": "nexus.mia-platform.eu/core/dnsmasq:1.0.3",
+            "defaultEnvironmentVariables": [],
+            "defaultResources": {
+              "memoryLimits": {
+                "max": "20Mi",
+                "min": "5Mi"
+              },
+              "cpuLimits": {
+                "min": "10m"
+              }
+            },
+            "args": [
+              "--listen",
+              "127.0.0.1:53",
+              "--default-resolver",
+              "--enable-search",
+              "--hostsfile=/etc/hosts"
+            ],
+            "defaultProbes": {
+              "liveness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 15,
+                "periodSeconds": 20
+              },
+              "readiness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 5,
+                "periodSeconds": 10
+              }
+            }
+          }
+        ]
+      },
+      "auth0-client": {
+        "type": "plugin",
+        "description": "",
+        "dockerImage": "nexus.mia-platform.eu/core/auth0-client:3.6.0",
+        "name": "auth0-client",
+        "componentId": "auth0-client",
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "SESSION_SCOPE",
+            "value": "",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_CONFIG_FILE_NAME",
+            "value": "config",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_CONFIG_PATH",
+            "value": "/configs",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_HOSTS",
+            "value": "{{REDIS_HOSTS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_MODE",
+            "value": "normal",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "60m"
+          },
+          "memoryLimits": {
+            "max": "100Mi",
+            "min": "60Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 5,
+            "failureThreshold": 1
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultConfigMaps": [
+          {
+            "name": "auth0-client-config",
+            "mountPath": "/configs",
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\n\"clients\": {\n\"frontEnd\": {\n\"auth0Url\": \"{{AUTH0_APPLICATION_URL}}\",\n\"clientId\": \"{{AUTH0_CLIENT_ID}}\",\n\"clientSecret\": \"{{AUTH0_CLIENT_SECRET}}\",\n\"redirectUrl\": \"{{AUTH0_CALLBACK_URL}}\",\n\"scopes\": [\n    \"offline_access\",\n    \"profile\",\n    \"email\",\n    \"website\"\n],\n\"authorizeStateRequired\": true\n}\n},\n\"defaultClient\": \"frontEnd\",\n\"managementClient\": {\n\"auth0Url\": \"{{AUTH0_APPLICATION_URL}}\",\n\"clientId\": \"{{AUTH0_MANAGEMENT_CLIENT_ID}}\",\n\"clientSecret\": \"{{AUTH0_MANAGEMENT_CLIENT_SECRET}}\"\n},\n\"customClaimsNamespaces\": [\n\"{{AUTH0_NAMESPACE}}/app_metadata\",\n\"{{AUTH0_NAMESPACE}}/user_metadata\"\n]\n}"
+              }
+            ],
+            "link": {}
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    },
+    "endpoints": {
+      "/web-login": {
+        "defaultBasePath": "/web-login",
+        "defaultPathRewrite": "/web-login",
+        "description": "Endpoint /web-login",
+        "type": "custom",
+        "tags": [
+          "auth0"
+        ],
+        "public": true,
+        "showInDocumentation": false,
+        "secreted": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": true,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "oauth-login-site",
+        "routes": {}
+      },
+      "/authorize": {
+        "defaultBasePath": "/authorize",
+        "defaultPathRewrite": "/authorize",
+        "description": "Endpoint /authorize",
+        "type": "custom",
+        "tags": [
+          "auth0"
+        ],
+        "public": true,
+        "showInDocumentation": false,
+        "secreted": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": true,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "auth0-client",
+        "routes": {}
+      },
+      "/oauth/token": {
+        "defaultBasePath": "/oauth/token",
+        "defaultPathRewrite": "/oauth/token",
+        "description": "Endpoint /oauth/token",
+        "type": "custom",
+        "tags": [
+          "auth0"
+        ],
+        "public": true,
+        "showInDocumentation": false,
+        "secreted": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": true,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "auth0-client",
+        "routes": {}
+      },
+      "/userinfo": {
+        "defaultBasePath": "/userinfo",
+        "defaultPathRewrite": "/userinfo",
+        "description": "Endpoint /userinfo",
+        "type": "custom",
+        "tags": [
+          "auth0"
+        ],
+        "public": true,
+        "showInDocumentation": false,
+        "secreted": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": true,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "auth0-client",
+        "routes": {}
+      },
+      "/logout": {
+        "defaultBasePath": "/logout",
+        "defaultPathRewrite": "/logout",
+        "description": "Endpoint /logout",
+        "type": "custom",
+        "tags": [
+          "auth0"
+        ],
+        "public": true,
+        "showInDocumentation": false,
+        "secreted": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": true,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "auth0-client",
+        "routes": {}
+      }
+    },
+    "collections": {},
+    "unsecretedVariables": {
+      "AUTH0_NAMESPACE": {
+        "productionEnv": "your-auth0-namespace",
+        "noProductionEnv": "your-auth0-namespace"
+      },
+      "AUTH0_CALLBACK_URL": {
+        "productionEnv": "your-auth0-callback-url",
+        "noProductionEnv": "your-auth0-callback-url"
+      }
+    }
+  },
+  "itemId": "secure-api-gateway",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  }
+}

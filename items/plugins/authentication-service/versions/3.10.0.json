@@ -1,0 +1,121 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Authentication Service",
+  "itemId": "authentication-service",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "3.10.0",
+    "releaseNote": "### Added\nintroduce permissions custom claim, which can be employed by other services to restrict the access to resources specified by the permissions granted to the user.\nBy default the list of permissions is empty."
+  },
+  "description": "Use Mia-Platform core Authentication Service to provide OAuth2 compliant user authentication API.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/authentication-service-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "auth",
+  "resources": {
+    "services": {
+      "authentication-service": {
+        "type": "plugin",
+        "name": "authentication-service",
+        "description": "Use Mia-Platform core Authentication Service to provide OAuth2 compliant user authentication API.",
+        "dockerImage": "nexus.mia-platform.eu/core/authentication-service:3.10.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "DELAY_SHUTDOWN_SECONDS",
+            "value": "10",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_HOSTS",
+            "value": "CHANGE_WITH_YOUR_REDIS_HOST",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "/configs",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_NAME",
+            "value": "config",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERS_CRUD_BASE_URL",
+            "value": "CHANGE_WITH_YOUR_USERS_CRUD_BASE_URL",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_JWT_TOKEN_SIGN_KEY",
+            "value": "CHANGE_WITH_YOUR_MIA_JWT_TOKEN_SIGN_KEY",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_JWT_TOKEN_VALID_DURATION_SEC",
+            "value": "CHANGE_WITH_YOUR_JWT_TOKEN_DURATION",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_REFRESH_TOKEN_VALID_DURATION_SEC",
+            "value": "CHANGE_WITH_YOUR_REFRESH_TOKEN_DURATION",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROVIDER_TOKEN_PASS_PHRASE",
+            "value": "CHANGE_WITH_PROVIDER_TOKEN_PASS_PHRASE",
+            "valueType": "plain"
+          },
+          {
+            "name": "ORIGINAL_PROTOCOL_HEADER",
+            "value": "X-Forwarded-Proto",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_SESSION_SCOPE",
+            "value": "CHANGE WITH YOUR SESSION SCOPE",
+            "valueType": "plain"
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "defaultConfigMaps": [
+          {
+            "name": "authentication-config",
+            "mountPath": "/configs",
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{}"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

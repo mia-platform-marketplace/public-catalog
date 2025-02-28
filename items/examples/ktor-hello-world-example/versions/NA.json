@@ -1,0 +1,82 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Ktor 1.6 Java 11 Hello World Example",
+  "itemId": "ktor-hello-world-example",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "A simple Hello World example Kotlin Application using Ktor 1.6 framework with Java 11",
+  "type": "example",
+  "image": {
+    "localPath": "../../assets/kotlin-example-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "kotlin",
+  "documentation": {
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Ktor-Hello-World-Example/refs/heads/1.6.x_jdk-11/README.md",
+    "type": "markdown"
+  },
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Ktor-Hello-World-Example/tree/1.6.x_jdk-11",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "ktor-16-java-11-hello-world-example": {
+        "type": "example",
+        "name": "ktor-16-java-11-hello-world-example",
+        "description": "A simple Hello World example Kotlin Application using Ktor 1.6 framework with Java 11",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Ktor-Hello-World-Example/archive/refs/heads/1.6.x_jdk-11.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fgradle6-template.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_LOG_LEVEL",
+            "value": "body",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_CONFIG_FILE",
+            "value": "logback.xml",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "1000m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "150Mi"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "/documentation/openapi.json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

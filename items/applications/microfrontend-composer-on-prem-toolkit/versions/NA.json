@@ -1,0 +1,364 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "categoryId": "microfrontend",
+  "name": "Microfrontend Composer On Prem Toolkit",
+  "description": "Use this application to set up Microfrontend Composer to build your frontend without using external resources in a few clicks.",
+  "type": "application",
+  "image": {
+    "localPath": "../../assets/microfrontend-composer-onprem-toolkit-application-transparent.png"
+  },
+  "publishOnMiaDocumentation": true,
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/microfrontend-composer-on-prem-toolkit-application",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/microfrontend-composer-on-prem-toolkit-application/overview"
+  },
+  "resources": {
+    "services": {
+      "api-gateway": {
+        "name": "api-gateway",
+        "type": "plugin",
+        "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "envoyproxy/envoy:v1.32.1",
+        "componentId": "api-gateway-envoy",
+        "defaultDocumentationPath": "",
+        "defaultArgs": [
+          "-c",
+          "/etc/envoy/envoy.json",
+          "-l",
+          "{{LOG_LEVEL}}",
+          "--log-format",
+          "{\"level\":\"%l\",\"time\":\"%Y-%m-%dT%T.%fZ\",\"scope\":\"%n\",\"message\":\"%j\"}",
+          "--drain-time-s",
+          "50"
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultEnvironmentVariables": [],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "250Mi",
+            "min": "150Mi"
+          },
+          "cpuLimits": {
+            "min": "150m",
+            "max": "200m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20
+          },
+          "readiness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "frontend",
+            "from": 8080,
+            "to": 8080
+          },
+          {
+            "name": "backoffice",
+            "from": 8081,
+            "to": 8081
+          },
+          {
+            "name": "admin",
+            "from": 9901,
+            "to": 9901
+          }
+        ],
+        "execPreStop": [
+          "bash",
+          "-c",
+          "echo -e 'POST /drain_listeners?graceful HTTP/1.1\r\nHost: localhost:9901\r\n\r' > /dev/tcp/localhost/9901 && sleep 55s"
+        ],
+        "defaultTerminationGracePeriodSeconds": 60,
+        "defaultConfigMaps": [
+          {
+            "name": "api-gateway-envoy-config",
+            "mountPath": "/etc/envoy",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "endpoints"
+            }
+          }
+        ]
+      },
+      "micro-lc": {
+        "type": "plugin",
+        "name": "micro-lc",
+        "description": "micro-lc config server.",
+        "dockerImage": "nexus.mia-platform.eu/back-kit/mfe-toolkit-on-prem:{{MFE_TOOLKIT_VERSION}}",
+        "componentId": "backoffice-backend",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "micro-lc-static-files",
+            "mountPath": "/usr/static/public",
+            "viewAsReadOnly": true,
+            "usePreserve": true,
+            "files": [
+              {
+                "name": "index.html",
+                "content": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <base href=\"/mfe-application/\" target=\"_blank\" />\n\n  <title>Microfrontend composer</title>\n\n  <link rel=\"icon\" type=\"image/png\" href=\"./assets/favicon.svg\" />\n  <link rel=\"stylesheet\" nonce=\"**CSP_NONCE**\" href=\"./assets/style.css\" />\n\n  <script\n    type=\"module\"\n    nonce=\"**CSP_NONCE**\"\n    src=\"{{BACK_KIT_SOURCE}}/bk-loading-animation.esm.js\"\n  ></script>\n\n  <script\n    type=\"module\"\n    nonce=\"**CSP_NONCE**\"\n    src=\"{{MICRO_LC_SOURCE}}/micro-lc.production.js\"\n  ></script>\n</head>\n\n<body>\n  <bk-loading-animation primary-color=\"#1890ff\">\n    <micro-lc config-src=\"/micro-lc-configurations/config.json\" fallback-language=\"en\"></micro-lc>\n  </bk-loading-animation>\n</body>\n\n</html>\n"
+              }
+            ]
+          },
+          {
+            "name": "micro-lc-configurations",
+            "mountPath": "/usr/static/configurations",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\n  \"applications\": {\n    \"home\": {\n      \"config\": {\n        \"content\": {\n          \"attributes\": {\n            \"style\": \"width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; row-gap: 24px\"\n          },\n          \"content\": [\n            {\n              \"content\": \"Welcome to your new frontend! 👋\",\n              \"tag\": \"span\"\n            },\n            {\n              \"attributes\": {\n                \"href\": \"https://docs.mia-platform.eu/docs/microfrontend-composer/overview\",\n                \"target\": \"_blank\"\n              },\n              \"content\": \"Get started with the official documentation!\",\n              \"tag\": \"a\"\n            }\n          ],\n          \"tag\": \"div\"\n        }\n      },\n      \"integrationMode\": \"compose\",\n      \"route\": \"./home\"\n    }\n  },\n  \"layout\": {\n    \"content\": [\n      {\n        \"properties\": {\n          \"logo\": {\n            \"altText\": \"Change me\",\n            \"url\": \"/mfe-application/assets/logo.svg\"\n          },\n          \"menuItems\": [\n            {\n              \"icon\": {\n                \"library\": \"@ant-design/icons-svg\",\n                \"selector\": \"HomeOutlined\"\n              },\n              \"id\": \"home\",\n              \"label\": \"Home\",\n              \"type\": \"application\"\n            }\n          ],\n          \"mode\": \"fixedSideBar\"\n        },\n        \"tag\": \"bk-layout\"\n      },\n      {\n        \"properties\": {\n          \"primaryColor\": \"#1890ff\",\n          \"varsPrefix\": [\n            \"micro-lc\",\n            \"microlc\",\n            \"back-kit\",\n            \"ant\"\n          ]\n        },\n        \"tag\": \"bk-antd-theme-manager\"\n      }\n    ],\n    \"sources\": [\n      \"{{BACK_KIT_SOURCE}}/bk-web-components.esm.js\"\n    ]\n  },\n  \"settings\": {\n    \"defaultUrl\": \"./home\"\n  },\n  \"version\": 2\n}\n"
+              }
+            ]
+          },
+          {
+            "name": "micro-lc-server-configuration",
+            "mountPath": "/usr/src/app/config",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\n  \"contentTypeMap\": {\n    \".svg\": \"image/svg+xml\",\n    \".png\": \"image/png\"\n  },\n  \"publicHeadersMap\": {\n    \"/public/index.html\": {\n      \"content-security-policy\": [\n        [\n          \"script-src 'nonce-**CSP_NONCE**' 'strict-dynamic' 'unsafe-eval'\",\n          \"style-src 'self' 'unsafe-inline'\",\n          \"img-src 'self' https:\",\n          \"object-src 'none'\",\n          \"font-src 'self'\",\n          \"worker-src 'self' blob:\",\n          \"base-uri 'self'\"\n        ]\n      ],\n      \"link\": [\n        \"</mfe-application/assets/style.css>; rel=preload; as=style; nonce=**CSP_NONCE**\",\n        \"<{{MICRO_LC_SOURCE}}/micro-lc.production.js>; rel=modulepreload; as=script; nonce=**CSP_NONCE**\",\n        \"<{{MICRO_LC_SOURCE}}/assets/composer.js>; rel=preload; as=fetch; crossorigin\",\n        \"<{{BACK_KIT_SOURCE}}/bk-web-components.esm.js>; rel=preload; as=fetch; crossorigin\",\n        \"<{{BACK_KIT_SOURCE}}/bk-loading-animation.esm.js; rel=preload; as=fetch; crossorigin\"\n      ]\n    }\n  }\n}\n"
+              }
+            ]
+          },
+          {
+            "name": "micro-lc-assets",
+            "mountPath": "/usr/static/public/assets",
+            "files": [
+              {
+                "name": "favicon.svg",
+                "content": "<svg width=\"240\" height=\"277\" viewBox=\"0 0 240 277\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M123.564 120.955V155.993L95.0113 173.242L66.5345 155.804V120.955L95.0113 103.518L123.564 120.955ZM49.9009 112.475V164.207L95.0374 190.085L140.198 164.207V112.475L95.0374 86.6208L49.9009 112.475Z\" fill=\"#EA515A\"/>\n<path d=\"M144.963 190.085L173.465 207.509V242.465L144.963 259.863L116.436 242.304V207.509L144.963 190.112V190.085ZM99.802 199.12V250.852L144.963 276.706L190.099 250.852V199.12L144.963 173.242L99.802 199.12Z\" fill=\"#28B7E0\"/>\n<path d=\"M45.1485 190.085L73.6634 207.509V242.465L45.1485 259.863L16.6337 242.304V207.509L45.1485 190.112V190.085ZM0 199.12V250.852L45.1485 276.706L90.297 250.852V199.12L45.1485 173.242L0 199.12Z\" fill=\"#26A56F\"/>\n<path d=\"M194.839 103.464L223.366 120.955V155.993L194.839 173.242L166.337 155.804V120.955L194.839 103.518V103.464ZM149.703 112.475V164.207L194.851 190.085L240 164.207V112.475L194.851 86.6208L149.703 112.475Z\" fill=\"#664389\"/>\n<path d=\"M45.1612 16.843L73.6634 34.3548V69.3785L45.1612 86.621L16.6337 69.163V34.3548L45.1612 16.843ZM45.1605 0L0 25.854V77.586L45.1605 103.464L90.297 77.586V25.854L45.1605 0Z\" fill=\"#F1883F\"/>\n</svg>\n"
+              },
+              {
+                "name": "logo.svg",
+                "content": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?> <svg xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" id=\"svg6364\" viewBox=\"0 0 123.48676 28.988379\" height=\"8.1811647mm\" width=\"34.850708mm\"><defs id=\"defs6366\"></defs><metadata id=\"metadata6369\"></metadata><rect width=\"123.48676\" height=\"28.988379\" fill=\"#fff\"></rect><path id=\"path1102\" d=\"M 41.328125 0 L 41.328125 1.1601562 L 42.476562 1.1601562 L 42.476562 0 L 41.328125 0 z M 34.005859 2.2011719 C 33.079609 2.2011719 32.246797 2.8692969 31.966797 3.5605469 L 31.945312 3.5605469 C 31.945313 3.5605469 31.966797 3.3619531 31.966797 3.1269531 L 31.966797 2.3417969 L 30.865234 2.3417969 L 30.867188 8.2695312 L 32.003906 8.2695312 L 32.003906 5.5644531 C 32.003906 5.2944531 32.016719 5.0260156 32.074219 4.7910156 C 32.297969 3.9485156 32.905938 3.2324219 33.773438 3.2324219 C 34.685937 3.2324219 34.802734 3.9482031 34.802734 4.7207031 L 34.802734 8.2734375 L 35.939453 8.2734375 L 35.939453 5.5644531 C 35.939453 5.2594531 35.964638 4.9923437 36.023438 4.7460938 C 36.233438 3.9373437 36.855 3.234375 37.6875 3.234375 C 38.5775 3.234375 38.740234 3.8901562 38.740234 4.7226562 L 38.740234 8.2695312 L 39.876953 8.2695312 L 39.876953 4.4746094 C 39.876953 2.9633594 39.256172 2.2011719 37.919922 2.2011719 C 36.959922 2.2011719 36.138047 2.8357813 35.810547 3.5507812 L 35.787109 3.5507812 C 35.587109 2.6595312 35.002109 2.2011719 34.005859 2.2011719 z M 46.166016 2.203125 C 44.807266 2.203125 43.951172 2.9042969 43.951172 2.9042969 L 44.419922 3.7363281 C 44.419922 3.7363281 45.158516 3.1640625 46.072266 3.1640625 C 46.822266 3.1640625 47.373047 3.4903906 47.373047 4.4628906 L 47.373047 4.5703125 L 47.115234 4.5703125 C 46.118984 4.5703125 43.541719 4.651925 43.542969 6.609375 C 43.542969 7.791875 44.539844 8.4121094 45.558594 8.4121094 C 46.976094 8.4121094 47.457031 7.2402344 47.457031 7.2402344 L 47.478516 7.2402344 C 47.478516 7.2402344 47.457031 7.4389844 47.457031 7.7089844 L 47.457031 8.2714844 L 48.509766 8.2714844 L 48.509766 4.5214844 C 48.509766 3.0214844 47.666016 2.203125 46.166016 2.203125 z M 41.339844 2.34375 L 41.339844 8.2714844 L 42.476562 8.2714844 L 42.476562 2.34375 L 41.339844 2.34375 z M 47.09375 5.4238281 L 47.384766 5.4238281 L 47.384766 5.6113281 C 47.384766 6.4900781 46.765234 7.4980469 45.802734 7.4980469 C 45.065234 7.4980469 44.691406 7.0288281 44.691406 6.5488281 C 44.691406 5.4813281 46.2375 5.4238281 47.09375 5.4238281 z M 77.742188 10.886719 C 76.138437 10.886719 72.984375 11.410547 72.984375 15.591797 L 72.984375 16.191406 L 71.40625 16.191406 L 71.40625 18.146484 L 72.984375 18.146484 L 72.984375 28.6875 L 75.388672 28.6875 L 75.388672 18.146484 L 78.392578 18.146484 L 78.392578 16.195312 L 75.388672 16.195312 L 75.388672 15.642578 C 75.388672 13.288828 77.114766 12.988281 78.041016 12.988281 C 78.417266 12.988281 78.667969 13.039062 78.667969 13.039062 L 78.667969 10.960938 C 78.667969 10.960938 78.292187 10.886719 77.742188 10.886719 z M 30.869141 11.009766 L 30.869141 28.6875 L 33.347656 28.6875 L 33.347656 22.152344 L 37.328125 22.152344 C 40.559375 22.152344 42.888672 19.897969 42.888672 16.542969 C 42.888672 13.187969 40.559375 11.009766 37.328125 11.009766 L 30.869141 11.009766 z M 44.916016 11.009766 L 44.916016 25.232422 C 44.916016 28.413672 46.944766 28.787109 48.322266 28.787109 C 48.747266 28.787109 49.121094 28.736328 49.121094 28.736328 L 49.121094 26.583984 C 49.121094 26.583984 48.922266 26.609375 48.697266 26.609375 C 47.944766 26.609375 47.34375 26.333437 47.34375 24.804688 L 47.34375 11.009766 L 44.916016 11.009766 z M 64.445312 12.537109 L 64.445312 16.191406 L 62.716797 16.191406 L 62.716797 18.146484 L 64.369141 18.146484 L 64.369141 24.054688 C 64.369141 28.287187 67.599063 28.787109 69.226562 28.787109 C 69.727812 28.787109 70.078125 28.736328 70.078125 28.736328 L 70.078125 26.583984 C 70.078125 26.583984 69.851963 26.634766 69.501953 26.634766 C 68.575703 26.634766 66.798828 26.308047 66.798828 23.779297 L 66.798828 18.146484 L 69.853516 18.146484 L 69.853516 16.191406 L 66.798828 16.191406 L 66.798828 12.537109 L 64.445312 12.537109 z M 33.347656 13.164062 L 36.953125 13.164062 C 39.056875 13.164062 40.357422 14.416172 40.357422 16.544922 C 40.357422 18.673672 39.056484 20 36.927734 20 L 33.347656 20 L 33.347656 13.164062 z M 55.783203 15.716797 C 52.878203 15.716797 51.048828 17.21875 51.048828 17.21875 L 52.050781 18.998047 C 52.050781 18.998047 53.629531 17.769531 55.582031 17.769531 C 57.183281 17.769531 58.361328 18.470078 58.361328 20.548828 L 58.361328 20.775391 L 57.810547 20.775391 C 55.681797 20.775391 50.173828 20.951563 50.173828 25.132812 C 50.173828 27.661562 52.302969 28.988281 54.480469 28.988281 C 57.511719 28.988281 58.537109 26.484375 58.537109 26.484375 L 58.587891 26.484375 C 58.587891 26.484375 58.537109 26.910078 58.537109 27.486328 L 58.537109 28.6875 L 60.789062 28.6875 L 60.789062 20.673828 C 60.789062 17.468828 58.988203 15.716797 55.783203 15.716797 z M 86.128906 15.716797 C 82.347656 15.716797 79.294219 18.495625 79.292969 22.328125 C 79.292969 26.183125 82.347656 28.986328 86.128906 28.986328 C 89.910156 28.986328 92.964844 26.184375 92.964844 22.328125 C 92.964844 18.496875 89.910156 15.716797 86.128906 15.716797 z M 110.94141 15.716797 C 108.96391 15.716797 107.18593 17.144844 106.58594 18.621094 L 106.53516 18.621094 C 106.53516 18.621094 106.58594 18.196562 106.58594 17.695312 L 106.58594 16.017578 L 104.23242 16.017578 L 104.23242 28.689453 L 106.66016 28.689453 L 106.66016 22.904297 C 106.66016 22.329297 106.6868 21.753203 106.81055 21.251953 C 107.2868 19.449453 108.58766 17.921875 110.44141 17.921875 C 112.39391 17.921875 112.64453 19.449063 112.64453 21.101562 L 112.64453 28.6875 L 115.07227 28.6875 L 115.07227 22.904297 C 115.07227 22.253047 115.12375 21.675391 115.25 21.150391 C 115.7 19.422891 117.02719 17.921875 118.80469 17.921875 C 120.70844 17.921875 121.05859 19.324063 121.05859 21.101562 L 121.05859 28.6875 L 123.48633 28.6875 L 123.48633 20.574219 C 123.48633 17.344219 122.16038 15.716797 119.30664 15.716797 C 117.25163 15.716797 115.50009 17.069453 114.79883 18.595703 L 114.74805 18.595703 C 114.32179 16.693203 113.07016 15.716797 110.94141 15.716797 z M 101.70312 15.867188 C 99.75063 15.867187 98.273526 17.320625 97.697266 19.171875 L 97.646484 19.171875 C 97.646484 19.171875 97.697266 18.745703 97.697266 18.220703 L 97.697266 16.017578 L 95.34375 16.017578 L 95.34375 28.6875 L 97.771484 28.6875 L 97.771484 23.503906 C 97.771484 22.727656 97.847266 21.950859 98.072266 21.224609 C 98.648516 19.347109 100.07766 18.244141 101.62891 18.244141 C 102.00516 18.244141 102.33008 18.322266 102.33008 18.322266 L 102.33008 15.916016 C 102.33008 15.916016 102.02813 15.867188 101.70312 15.867188 z M 86.128906 17.820312 C 88.532656 17.820312 90.484375 19.697422 90.484375 22.326172 C 90.484375 24.981172 88.532656 26.884766 86.128906 26.884766 C 83.750146 26.884766 81.773437 24.981172 81.773438 22.326172 C 81.773438 19.697422 83.750146 17.820312 86.128906 17.820312 z M 57.759766 22.601562 L 58.386719 22.601562 L 58.386719 23.003906 C 58.386719 24.881406 57.057109 27.035156 55.005859 27.035156 C 53.428359 27.035156 52.629453 26.033359 52.626953 25.005859 C 52.626953 22.727109 55.932266 22.601562 57.759766 22.601562 z \" style=\"fill:#666;fill-opacity:1;fill-rule:nonzero;stroke:none\"></path><path id=\"path1144\" style=\"fill:#eb525c;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 9.848125,11.132 2.78625,1.60875 0,3.21875 -2.78625,1.60875 -2.7875,-1.60875 0,-3.21875 2.7875,-1.60875 z m 0,-2.1675 -4.665,2.6925 0,5.38625 4.665,2.6925 4.66375,-2.6925 0,-5.38625 -4.66375,-2.6925 z\"></path><path id=\"path1148\" style=\"fill:#24b8e0;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 15.030745,20.08113 2.78626,1.60875 0,3.21875 -2.78626,1.6075 -2.78749,-1.60875 0,-3.2175 2.78749,-1.60875 z m 0,-2.16875 -4.665,2.6925 0,5.38625 4.665,2.6925 4.66376,-2.6925 0,-5.38625 -4.66376,-2.6925 z\"></path><path id=\"path1152\" style=\"fill:#26a670;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,20.60625 0,5.38625 4.66375,2.6925 4.664995,-2.6925 0,-5.38625 L 4.66375,17.9125 0,20.60625 Z m 1.8775,4.30125 0,-3.2175 2.78625,-1.60875 2.787495,1.60875 0,3.2175 -2.787495,1.61 -2.78625,-1.61 z\"></path><path id=\"path1156\" style=\"fill:#66458c;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 20.169125,11.132 2.78625,1.60875 0,3.21875 -2.78625,1.60875 -2.7875,-1.60875 0,-3.21875 2.7875,-1.60875 z m 0,-2.1675 -4.665,2.6925 0,5.38625 4.665,2.6925 4.66375,-2.6925 0,-5.38625 -4.66375,-2.6925 z\"></path><path id=\"path1160\" style=\"fill:#f28740;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0.022125,2.70663 0,5.38625 4.66375,2.6925 4.665,-2.6925 0,-5.38625 -4.665,-2.69375 -4.66375,2.69375 z m 1.8775,4.3025 0,-3.2175 2.78625,-1.61 2.7875,1.61 0,3.2175 -2.7875,1.60875 -2.78625,-1.60875 z\"></path></svg> "
+              },
+              {
+                "name": "style.css",
+                "content": "html,\nbody {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n}\n"
+              }
+            ]
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 5,
+            "failureThreshold": 1
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "20m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "60Mi"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "",
+        "links": [
+          {
+            "label": "Microfrontend Composer",
+            "targetSection": "microfrontend-composer",
+            "enableIf": "ENABLE_BACKOFFICE_CONFIGURATOR"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    },
+    "endpoints": {
+      "/mfe-application": {
+        "defaultBasePath": "/mfe-application",
+        "defaultPathRewrite": "/public",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "microfrontend"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "micro-lc",
+        "listeners": {
+          "frontend": true
+        }
+      },
+      "/micro-lc-configurations": {
+        "defaultBasePath": "/micro-lc-configurations",
+        "defaultPathRewrite": "/configurations",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "microfrontend"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "micro-lc",
+        "listeners": {
+          "frontend": true
+        }
+      },
+      "/micro-lc": {
+        "defaultBasePath": "/micro-lc",
+        "defaultPathRewrite": "/public/micro-lc",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "microfrontend"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "micro-lc",
+        "listeners": {
+          "frontend": true
+        }
+      },
+      "/back-kit": {
+        "defaultBasePath": "/back-kit",
+        "defaultPathRewrite": "/public/back-kit",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "microfrontend"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "micro-lc",
+        "listeners": {
+          "frontend": true
+        }
+      }
+    },
+    "unsecretedVariables": {
+      "MFE_TOOLKIT_VERSION": {
+        "productionEnv": "1.3.2",
+        "noProductionEnv": "latest"
+      },
+      "BACK_KIT_SOURCE": {
+        "productionEnv": "/back-kit",
+        "noProductionEnv": "/back-kit"
+      },
+      "MICRO_LC_SOURCE": {
+        "productionEnv": "/micro-lc",
+        "noProductionEnv": "/micro-lc"
+      }
+    },
+    "listeners": {
+      "frontend": {
+        "name": "frontend",
+        "port": "8080",
+        "selectedByDefault": true,
+        "description": "Default listener for frontend API",
+        "ownedBy": {
+          "componentIds": [
+            "api-gateway-envoy"
+          ]
+        }
+      }
+    }
+  },
+  "itemId": "microfrontend-composer-on-prem-toolkit",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "IP Geolocation Service",
+  "itemId": "ip-geolocation-service",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Reverse geocoding service to obtain geolocation information based on request IP relying on ipgeolocation.io",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/ip-geolocation-service-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "addgeo",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/ip-geolocation-service",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "ip-geolocation-service": {
+        "type": "plugin",
+        "name": "ip-geolocation-service",
+        "description": "Reverse geocoding service to obtain geolocation information based on request IP relying on ipgeolocation.io",
+        "dockerImage": "nexus.mia-platform.eu/plugins/ip-geolocation-service:2.0.2",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "IPGEOLOCATION_PRIVATE_KEY",
+            "value": "CHANGE_WITH_YOUR_SECRET_IPGEOLOCATION_KEY",
+            "valueType": "plain"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

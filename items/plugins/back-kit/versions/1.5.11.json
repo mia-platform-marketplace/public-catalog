@@ -1,0 +1,72 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Back Kit",
+  "itemId": "back-kit",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "1.5.11",
+    "releaseNote": "The component bk-table now it is visible when inside bk-layout-swap"
+  },
+  "description": "Web component library to build your frontend pages.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/back-kit-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "frontendbuilder",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/business_suite/backoffice/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/microfrontend-composer/back-kit",
+  "resources": {
+    "services": {
+      "back-kit": {
+        "type": "plugin",
+        "name": "back-kit",
+        "description": "Web component library to build your frontend pages.",
+        "dockerImage": "nexus.mia-platform.eu/back-kit/bk-web-components:1.5.11",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "50m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "50Mi",
+            "min": "30Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": ""
+          },
+          "readiness": {
+            "path": ""
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080
+          }
+        ]
+      }
+    }
+  }
+}

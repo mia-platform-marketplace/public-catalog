@@ -1,0 +1,50 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Data Visualization",
+  "itemId": "data-visualization",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "1.8.2",
+    "releaseNote": "-"
+  },
+  "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/data-visualization-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "business",
+  "resources": {
+    "services": {
+      "data-visualization": {
+        "type": "plugin",
+        "name": "data-visualization",
+        "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/data-visualization:1.8.2",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

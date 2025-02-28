@@ -1,0 +1,67 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Springboot 2 Java 11 Template",
+  "itemId": "springboot-template",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "This is the best template to start creating a service in Springboot 2 with Java 11 integrated inside the Platform",
+  "type": "template",
+  "image": {
+    "localPath": "../../assets/springboot-template-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "kotlin",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/SpringBoot-Custom-Plugin-Template/refs/heads/2.x_jdk-11/README.md"
+  },
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/SpringBoot-Custom-Plugin-Template/tree/2.x_jdk-11",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "springboot-2-java-11-template": {
+        "type": "template",
+        "name": "springboot-2-java-11-template",
+        "description": "This is the best template to start creating a service in Springboot 2 with Java 11 integrated inside the Platform",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/SpringBoot-Custom-Plugin-Template/archive/refs/heads/2.x_jdk-11.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fspringboot.gitlab-ci-jdk-11.yml/raw"
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "350m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "150Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "initialDelaySeconds": 40,
+            "periodSeconds": 15,
+            "timeoutSeconds": 1,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

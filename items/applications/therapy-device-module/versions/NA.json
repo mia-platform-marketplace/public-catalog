@@ -1,0 +1,1870 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "categoryId": "healthcare",
+  "description": "This application allows to quickly setup the necessary services in order to manage patient care plans and collect data from medical and wearable devices",
+  "image": {
+    "localPath": "../../assets/therapy-device-module.png"
+  },
+  "itemId": "therapy-device-module",
+  "name": "Therapy Device Module",
+  "releaseDate": "2024-05-29T10:55:48.189Z",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/therapy-device-module/therapy-device-application",
+  "resources": {
+    "collections": {
+      "tdm_dm_devices": {
+        "defaultName": "tdm_dm_devices",
+        "description": "Device Manager devices",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "deviceId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "deviceProvider",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "deviceType",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "features",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "status",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "name",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "assignedPatientId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "serialNumber",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "tdm_dm_devices",
+        "internalEndpoints": [
+          {
+            "basePath": "/tdm-dm-devices",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "tdm_dm_health_data": {
+        "defaultName": "tdm_dm_health_data",
+        "description": "Device Manager health data",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "deviceId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "patientId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "providerId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "rawData",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "rawDataType",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "receivedAt",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "type",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "rawDataFormat",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "normalizedData",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "normalizedDataType",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "recordedAt",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Date"
+          }
+        ],
+        "id": "tdm_dm_health_data",
+        "internalEndpoints": [
+          {
+            "basePath": "/tdm-dm-health-data",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "tdm_dm_health_data_type": {
+        "defaultName": "tdm_dm_health_data_type",
+        "description": "Device Manager health data types",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "version",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "name",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "providerId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "dataType",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "schema",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "canonicalForm",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "normalizationRules",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "metrics",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "code",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "format",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "normalizedDataType",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "normalizedDataSchema",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "identifier",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "tdm_dm_health_data_type",
+        "internalEndpoints": [
+          {
+            "basePath": "/tdm-dm-health-data-type",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "tdm_tmm_detections": {
+        "defaultName": "tdm_tmm_detections",
+        "description": "TMM detections",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "planType",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "planId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "value",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "observedAt",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "doctorId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "patientId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isCompliant",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "deviceId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "tdm_tmm_detections",
+        "internalEndpoints": [
+          {
+            "basePath": "/detections",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "tdm_tmm_monitorings": {
+        "defaultName": "tdm_tmm_monitorings",
+        "description": "TMM monitorings",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "planName",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "prototypeId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "notes",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "startDate",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "endDate",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "each",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "times",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "hours",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "doctorId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "patientId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "assignedDevices",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "adherenceToleranceTime",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "adherenceToleranceFrequency",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "adherenceMinimumPercentage",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "complianceMinimumPercentage",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isPatientAdherent",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isPatientCompliant",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "tresholds",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isPatientAdherentLastUpdatedAt",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isPatientCompliantLastUpdatedAt",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "thresholds",
+            "nullable": false,
+            "required": false,
+            "schema": {
+              "properties": {
+                "propertyName": {
+                  "description": "Name of the property the threshold is evaluated on",
+                  "type": "string"
+                },
+                "thresholdOperator": {
+                  "description": "Name of the operator",
+                  "enum": [
+                    "gt",
+                    "lt",
+                    "gte",
+                    "lte",
+                    "eq"
+                  ],
+                  "type": "string"
+                },
+                "thresholdValue": {
+                  "description": "Threshold value",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "propertyName",
+                "thresholdOperator",
+                "thresholdValue"
+              ]
+            },
+            "sensitivityValue": 0,
+            "type": "Array_RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "adherenceStatus",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "complianceStatus",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "tdm_tmm_monitorings",
+        "internalEndpoints": [
+          {
+            "basePath": "/monitorings",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "tdm_tmm_therapies": {
+        "defaultName": "tdm_tmm_therapies",
+        "description": "TMM therapies",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "planName",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "prototypeId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "notes",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "startDate",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "endDate",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "each",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "times",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "hours",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "doctorId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "patientId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "adherenceToleranceTime",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "adherenceToleranceFrequency",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "adherenceMinimumPercentage",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "complianceMinimumPercentage",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isPatientAdherent",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isPatientCompliant",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isPatientAdherentLastUpdatedAt",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isPatientCompliantLastUpdatedAt",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "directives",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "adherenceStatus",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "complianceStatus",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "tdm_tmm_therapies",
+        "internalEndpoints": [
+          {
+            "basePath": "/therapies",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      }
+    },
+    "endpoints": {
+      "/device-manager": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/device-manager",
+        "defaultPathRewrite": "/",
+        "description": "Device Manager endpoint",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "device-manager",
+        "tags": [
+          "Device Manager"
+        ],
+        "type": "custom"
+      },
+      "/mobile-bff": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/mobile-bff",
+        "defaultPathRewrite": "/",
+        "description": "Mobile BFF endpoint",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "mobile-bff",
+        "tags": [
+          "Mobile BFF"
+        ],
+        "type": "custom"
+      },
+      "/tdm-dm-devices": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "collectionId": "tdm_dm_devices",
+        "defaultBasePath": "/tdm-dm-devices",
+        "defaultPathRewrite": "/tdm-dm-devices",
+        "description": "Endpoint /tdm-dm-devices",
+        "forceMicroserviceGatewayProxy": false,
+        "pathName": "/",
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "tags": [
+          "crud"
+        ],
+        "type": "crud"
+      },
+      "/tdm-dm-health-data": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "collectionId": "tdm_dm_health_data",
+        "defaultBasePath": "/tdm-dm-health-data",
+        "defaultPathRewrite": "/tdm-dm-health-data",
+        "description": "Endpoint /tdm-dm-health-data",
+        "forceMicroserviceGatewayProxy": false,
+        "pathName": "/",
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "tags": [
+          "crud"
+        ],
+        "type": "crud"
+      },
+      "/tdm-dm-health-data-type": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "collectionId": "tdm_dm_health_data_type",
+        "defaultBasePath": "/tdm-dm-health-data-type",
+        "defaultPathRewrite": "/tdm-dm-health-data-type",
+        "description": "Endpoint /tdm-dm-health-data-type",
+        "forceMicroserviceGatewayProxy": false,
+        "pathName": "/",
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "tags": [
+          "crud"
+        ],
+        "type": "crud"
+      },
+      "/tmm": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/tmm",
+        "defaultPathRewrite": "/",
+        "description": "TMM endpoint",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "therapy-monitoring-manager",
+        "tags": [
+          "Therapy and Monitoring Manager"
+        ],
+        "type": "custom"
+      }
+    },
+    "services": {
+      "api-gateway": {
+        "componentId": "api-gateway-envoy",
+        "containerPorts": [
+          {
+            "from": 8080,
+            "name": "frontend",
+            "to": 8080
+          },
+          {
+            "from": 8081,
+            "name": "backoffice",
+            "to": 8081
+          },
+          {
+            "from": 9901,
+            "name": "admin",
+            "to": 9901
+          }
+        ],
+        "defaultArgs": [
+          "-c",
+          "/etc/envoy/envoy.json",
+          "-l",
+          "{{LOG_LEVEL}}",
+          "--log-format",
+          "{\"level\":\"%l\",\"time\":\"%Y-%m-%dT%T.%fZ\",\"scope\":\"%n\",\"message\":\"%j\"}",
+          "--drain-time-s",
+          "50"
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "endpoints"
+            },
+            "mountPath": "/etc/envoy",
+            "name": "api-gateway-envoy-config",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "initialDelaySeconds": 15,
+            "path": "/healthz",
+            "periodSeconds": 20,
+            "port": "frontend"
+          },
+          "readiness": {
+            "initialDelaySeconds": 5,
+            "path": "/healthz",
+            "periodSeconds": 10,
+            "port": "frontend"
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "200m",
+            "min": "150m"
+          },
+          "memoryLimits": {
+            "max": "250Mi",
+            "min": "150Mi"
+          }
+        },
+        "defaultTerminationGracePeriodSeconds": 60,
+        "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "envoyproxy/envoy:v1.29.2",
+        "execPreStop": [
+          "bash",
+          "-c",
+          "echo -e 'POST /drain_listeners?graceful HTTP/1.1\r\nHost: localhost:9901\r\n\r' > /dev/tcp/localhost/9901 && sleep 55s"
+        ],
+        "name": "api-gateway",
+        "type": "plugin"
+      },
+      "crud-service": {
+        "componentId": "crud-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "collections"
+            },
+            "mountPath": "/home/node/app/collections",
+            "name": "crud-service-collections",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+            "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "secretKey": "url",
+            "secretName": "mongodb",
+            "valueType": "secret"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 2
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 2
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "400m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "70Mi"
+          }
+        },
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:{{CRUD_SERVICE_VERSION}}",
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "envName": "COLLECTION_DEFINITION_FOLDER",
+            "type": "folder"
+          }
+        },
+        "name": "crud-service",
+        "type": "plugin"
+      },
+      "device-manager": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "{\"medisante\": {\"name\": \"Medisanté\"}}",
+                "name": "config.json"
+              }
+            ],
+            "mountPath": "/home/node/app/providers/",
+            "name": "providers-config"
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "trace",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROVIDERS_CONFIGURATION_PATH",
+            "value": "/home/node/app/providers/config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "secretKey": "url",
+            "secretName": "mongodb",
+            "valueType": "secret"
+          },
+          {
+            "name": "DATA_ACQUISITION_JOB_COLLECTION",
+            "value": "tdm_dm_data_acquisition_jobs",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 2
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 2
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "300m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "150Mi"
+          }
+        },
+        "description": "A plugin to collect health data from medical and wearable devices",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/device-manager:{{DEVICE_MANAGER_VERSION}}",
+        "name": "device-manager",
+        "type": "plugin"
+      },
+      "mobile-bff": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "trace",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "UMS_SERVICE_URL",
+            "value": "{{USER_MANAGER_SERVICE_URL}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 2
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 2
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "150Mi"
+          }
+        },
+        "description": "A plugin to collect health data from medical and wearable devices",
+        "dockerImage": "nexus.mia-platform.eu/therapy-device-module/mobile-bff:{{MOBILE_BFF_VERIOSN}}",
+        "name": "mobile-bff",
+        "type": "plugin"
+      },
+      "therapy-monitoring-manager": {
+        "componentId": "therapy-monitoring-manager",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "[\n  {\n    \"identifier\": \"bodyTemperature\",\n    \"type\": \"measurement\",\n    \"name\": {\n      \"en\": \"Body Temperature\",\n      \"it\": \"Temperatura Corporea\"\n    },\n    \"schema\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"bodyTemperature\": {\n          \"type\": \"number\",\n          \"minimum\": 31,\n          \"maximum\": 45\n        }\n      },\n      \"required\": [\n        \"bodyTemperature\"\n      ]\n    },\n    \"labels\": {\n      \"bodyTemperature\": {\n        \"en\": \"Body temperature [°C]\",\n        \"it\": \"Temperatura corporea [°C]\"\n      }\n    }\n  },\n  {\n    \"identifier\": \"cardiologyTherapy\",\n    \"type\": \"therapy\",\n    \"name\": {\n      \"it\": \"Terapia Cardiologica\",\n      \"en\": \"Cardiology Therapy\"\n    },\n    \"schema\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"drug\": {\n          \"type\": \"string\"\n        },\n        \"dosage\": {\n          \"type\": \"string\"\n        },\n        \"notes\": {\n          \"type\": \"string\"\n        }\n      }\n    },\n    \"labels\": {\n      \"drug\": {\n        \"en\": \"Drug\",\n        \"it\": \"Farmaco\"\n      },\n      \"dosage\": {\n        \"en\": \"Dosage\",\n        \"it\": \"Dosaggio\"\n      },\n      \"notes\": {\n        \"en\": \"Notes\",\n        \"it\": \"Note\"\n      }\n    }\n  },\n  {\n    \"identifier\": \"physicalExercise\",\n    \"type\": \"therapy\",\n    \"name\": {\n      \"en\": \"Physical Exercise\",\n      \"it\": \"Esercizio Fisico\"\n    },\n    \"schema\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"sessionName\": {\n          \"type\": \"string\"\n        },\n        \"advices\": {\n          \"type\": \"string\"\n        },\n        \"tool\": {\n          \"type\": \"string\"\n        },\n        \"exerciseType\": {\n          \"type\": \"string\"\n        },\n        \"steps\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"duration\": {\n                \"type\": \"integer\"\n              },\n              \"power\": {\n                \"type\": \"integer\"\n              }\n            }\n          }\n        }\n      }\n    },\n    \"labels\": {\n      \"sessionName\": {\n        \"en\": \"Session name\",\n        \"it\": \"Nome della sessione\"\n      },\n      \"advices\": {\n        \"en\": \"Terapeutic advices\",\n        \"it\": \"Consigli terapeutici\"\n      },\n      \"tool\": {\n        \"en\": \"Tool\",\n        \"it\": \"Attrezzo\"\n      },\n      \"exerciseType\": {\n        \"en\": \"Exercise type\",\n        \"it\": \"Tipo di allenamento\"\n      },\n      \"steps\": {\n        \"en\": \"Steps\",\n        \"it\": \"Step\"\n      },\n      \"duration\": {\n        \"en\": \"Duration\",\n        \"it\": \"Durata\"\n      },\n      \"power\": {\n        \"en\": \"Power\",\n        \"it\": \"Potenza\"\n      }\n    }\n  },\n  {\n    \"identifier\": \"nutritionalTherapy\",\n    \"type\": \"therapy\",\n    \"name\": {\n      \"en\": \"Nutritional Therapy\",\n      \"it\": \"Terapia Nutrizionale\"\n    },\n    \"schema\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"nutritionalAdvices\": {\n          \"type\": \"string\"\n        },\n        \"personalAdvices\": {\n          \"type\": \"string\"\n        },\n        \"diet\": {\n          \"type\": \"string\"\n        }\n      }\n    },\n    \"labels\": {\n      \"nutritionalAdvices\": {\n        \"en\": \"Advices for a healthy and correct diet\",\n        \"it\": \"Consigli di una sana e corretta alimentazione\"\n      },\n      \"personalAdvices\": {\n        \"en\": \"Personal recommendations\",\n        \"it\": \"Consigli personalizzati\"\n      },\n      \"diet\": {\n        \"en\": \"Diet\",\n        \"it\": \"Dieta\"\n      }\n    },\n    \"hints\": {\n      \"diet\": [\n        {\n          \"en\": \"Low calorie 1200 KCAL (BEE ≤ 1300KCAL)\",\n          \"it\": \"Ipocalorica 1200 KCAL (BEE ≤ 1300KCAL)\"\n        },\n        {\n          \"en\": \"Low calorie 1400 KCAL (BEE [1400-1600] KCAL)\",\n          \"it\": \"Ipocalorica 1400 KCAL (BEE [1400-1600] KCAL)\"\n        },\n        {\n          \"en\": \"Low calorie 1600 KCAL (BEE [1600-1800] KCAL)\",\n          \"it\": \"Ipocalorica 1600 KCAL (BEE [1600-1800] KCAL)\"\n        },\n        {\n          \"en\": \"Low calorie 1800 KCAL (BEE [1800-2000] KCAL)\",\n          \"it\": \"Ipocalorica 1800 KCAL (BEE [1800-2000] KCAL)\"\n        }\n      ]\n    }\n  },\n  {\n    \"identifier\": \"psychologicalTherapy\",\n    \"type\": \"therapy\",\n    \"name\": {\n      \"en\": \"Psychological Therapy\",\n      \"it\": \"Terapia Psicologica\"\n    },\n    \"schema\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"advices\": {\n          \"type\": \"string\"\n        },\n        \"hiddenNotes\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"advices\"\n      ]\n    },\n    \"labels\": {\n      \"advices\": {\n        \"en\": \"Terapeutic advices\",\n        \"it\": \"Consigli terapeutici\"\n      },\n      \"hiddenNotes\": {\n        \"en\": \"Notes (not visible to the patient)\",\n        \"it\": \"Note (non visibili al paziente)\"\n      }\n    }\n  }\n]",
+                "name": "prototypes.json"
+              }
+            ],
+            "mountPath": "/home/config/",
+            "name": "tdm-tmm-prototypes"
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "trace",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE_URL",
+            "value": "http://crud-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONITORINGS_CRUD_NAME",
+            "value": "monitorings",
+            "valueType": "plain"
+          },
+          {
+            "name": "THERAPIES_CRUD_NAME",
+            "value": "therapies",
+            "valueType": "plain"
+          },
+          {
+            "name": "DETECTIONS_CRUD_NAME",
+            "value": "detections",
+            "valueType": "plain"
+          },
+          {
+            "name": "DETECTIONS_GRACE_PERIOD",
+            "value": "30",
+            "valueType": "plain"
+          },
+          {
+            "name": "DETECTIONS_TIME_ZONE",
+            "value": "UTC",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRON_SCHEDULE",
+            "value": "0 0 * * *",
+            "valueType": "plain"
+          },
+          {
+            "name": "VALIDATION_SERVICE",
+            "value": "integrated",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_ADHERENCE_STATUS",
+            "value": "disabled",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_COMPLIANCE_STATUS",
+            "value": "disabled",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROTOTYPES_SERVICE_URL",
+            "value": "http://device-manager/prototypes/",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROTOTYPES_CONFIG_FILE_PATH",
+            "value": "/home/config/prototypes.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "NOTIFICATION_MANAGER_URL",
+            "value": "{{NOTIFICATION_MANAGER_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_ADHERENCE_TOLERANCE_FREQUENCY",
+            "value": "1",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_ADHERENCE_TOLERANCE_TIME",
+            "value": "1",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_ADHERENCE_MINIMUM_PERCENTAGE",
+            "value": "80",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_COMPLIANCE_MINIMUM_PERCENTAGE",
+            "value": "80",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 2
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 2
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "100Mi",
+            "min": "100Mi"
+          }
+        },
+        "description": "The Therapy and Monitoring Manager (TMM) enables health care professionals to manage patients therapies and monitor patients health conditions, adherence and compliance to therapy.",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/therapy-monitoring-manager:{{THERAPY_MONITORING_MANAGER_VERSION}}",
+        "name": "therapy-monitoring-manager",
+        "type": "plugin"
+      }
+    },
+    "unsecretedVariables": {
+      "CRUD_SERVICE_VERSION": {
+        "noProductionEnv": "7.2.1",
+        "productionEnv": "7.2.1"
+      },
+      "DEVICE_MANAGER_VERSION": {
+        "noProductionEnv": "1.0.0",
+        "productionEnv": "1.0.0"
+      },
+      "MOBILE_BFF_VERIOSN": {
+        "noProductionEnv": "0.1.0-rc.4",
+        "productionEnv": "0.1.0-rc.4"
+      },
+      "NOTIFICATION_MANAGER_URL": {
+        "noProductionEnv": "http://notification-manager.notification-module-development.svc.cluster.local",
+        "productionEnv": "http://notification-manager.notification-module-preproduction.svc.cluster.local"
+      },
+      "THERAPY_MONITORING_MANAGER_VERSION": {
+        "noProductionEnv": "0.5.1",
+        "productionEnv": "0.5.1"
+      },
+      "USER_MANAGER_MODULE_NAMESPACE": {
+        "noProductionEnv": "user-manager-module-development",
+        "productionEnv": "user-manager-module-preproduction"
+      },
+      "USER_MANAGER_SERVICE_URL": {
+        "noProductionEnv": "http://user-manager-service.user-auth-module-development.svc.cluster.local",
+        "productionEnv": "http://user-manager-service.user-auth-module-preproduction.svc.cluster.local"
+      }
+    }
+  },
+  "type": "application",
+  "publishOnMiaDocumentation": true,
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  }
+}

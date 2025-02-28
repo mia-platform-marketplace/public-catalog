@@ -1,0 +1,1049 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "supportedBy": "Mia-FinTech",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
+  "categoryId": "idm",
+  "type": "application",
+  "name": "Identification Manager",
+  "description": "The application allows you to quickly set up multiple identification processes",
+  "image": {
+    "localPath": "../../assets/identification-manager-application.png"
+  },
+  "publishOnMiaDocumentation": true,
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/identification-manager",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/identification-manager/overview"
+  },
+  "resources": {
+    "services": {
+      "crud-service": {
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.1.1",
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "collections"
+            },
+            "mountPath": "/home/node/app/collections",
+            "name": "crud-service-collections",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+            "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_PREFIX",
+            "value": "/",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "200m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "250Mi",
+            "min": "70Mi"
+          }
+        },
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "envName": "COLLECTION_DEFINITION_FOLDER",
+            "type": "folder"
+          }
+        },
+        "name": "crud-service",
+        "type": "plugin",
+        "componentId": "crud-service"
+      },
+      "flow-manager-main": {
+        "defaultConfigMaps": [
+          {
+            "name": "flow-configuration-main",
+            "mountPath": "/sagaConfiguration",
+            "viewAsReadOnly": false,
+            "files": [
+              {
+                "name": "rest.json",
+                "content": "{   \"machineDefinition\": {     \"initialState\": \"PROCESS_CREATED\",     \"creationEvent\": \"processCreated\",     \"states\": [       {         \"id\": \"PROCESS_CREATED\",         \"description\": \"The new process was created\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outgoingTransitions\": [           {             \"inputEvent\": \"subFlowCreated\",             \"targetState\": \"IDENTIFICATION_PENDING\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"expireProcess\",             \"targetState\": \"PROCESS_EXPIRED\",             \"businessEventId\": 1001           }         ]       },       {         \"id\": \"IDENTIFICATION_PENDING\",         \"description\": \"The identification process is not completed\",         \"isFinal\": false,         \"businessStateId\": 1,         \"outgoingTransitions\": [           {             \"inputEvent\": \"updateData\",             \"targetState\": \"IDENTIFICATION_PENDING\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"identificationCompleted\",             \"targetState\": \"CREDENTIAL_GENERATION\",             \"businessEventId\": 2           },           {             \"inputEvent\": \"identificationError\",             \"targetState\": \"IDENTIFICATION_FAILED\",             \"businessEventId\": 1000           },           {             \"inputEvent\": \"expireProcess\",             \"targetState\": \"PROCESS_EXPIRED\",             \"businessEventId\": 1001           }         ]       },       {         \"id\": \"CREDENTIAL_GENERATION\",         \"description\": \"Create a credential document at the end of the process\",         \"isFinal\": false,         \"businessStateId\": 2,         \"outputCommand\": {           \"channel\": \"generateCredential\",           \"label\": \"generateCredential\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"verifiableCredentialGenerated\",             \"targetState\": \"PROCESS_COMPLETED\",             \"businessEventId\": 2           },           {             \"inputEvent\": \"expireProcess\",             \"targetState\": \"PROCESS_EXPIRED\",             \"businessEventId\": 1001           },           {             \"inputEvent\": \"verifiableCredentialGenerationFailed\",             \"targetState\": \"CREDENTIAL_GENERATION_FAILED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"CREDENTIAL_GENERATION_FAILED\",         \"description\": \"The credential generations step failed\",         \"isFinal\": false,         \"businessStateId\": 2,         \"outgoingTransitions\": [           {             \"inputEvent\": \"generateCredential\",             \"targetState\": \"CREDENTIAL_GENERATION\",             \"businessEventId\": 2           },           {             \"inputEvent\": \"expireProcess\",             \"targetState\": \"PROCESS_EXPIRED\",             \"businessEventId\": 1001           }         ]       },       {         \"id\": \"PROCESS_COMPLETED\",         \"description\": \"The process is closed\",         \"isFinal\": true,         \"businessStateId\": 3,         \"outputCommand\": {           \"channel\": \"notify\",           \"label\": \"notify\"         },         \"outgoingTransitions\": []       },       {         \"id\": \"PROCESS_EXPIRED\",         \"description\": \"The process expire\",         \"isFinal\": true,         \"businessStateId\": 1000,         \"outputCommand\": {           \"channel\": \"notify\",           \"label\": \"notify\"         },         \"outgoingTransitions\": []       },       {         \"id\": \"IDENTIFICATION_FAILED\",         \"description\": \"An error occurs during identification process\",         \"isFinal\": true,         \"businessStateId\": 1000,         \"outputCommand\": {           \"channel\": \"notify\",           \"label\": \"notify\"         },         \"outgoingTransitions\": []       }     ],     \"businessStates\": [       {         \"id\": 0,         \"description\": \"PROCESS_CREATED\"       },       {         \"id\": 1,         \"description\": \"IDENTIFICATION_PENDING\"       },       {         \"id\": 2,         \"description\": \"IDENTIFICATION_COMPLETED\"       },       {         \"id\": 3,         \"description\": \"PROCESS_COMPLETED\"       },       {         \"id\": 1000,         \"description\": \"PROCESS_FAILED\"       }     ],     \"businessEvents\": [       {         \"id\": 0,         \"description\": \"processCreated\"       },       {         \"id\": 1,         \"description\": \"startIdentification\"       },       {         \"id\": 2,         \"description\": \"identificationCompleted\"       },       {         \"id\": 3,         \"description\": \"processCompleted\"       },       {         \"id\": 1000,         \"description\": \"identificationFailed\"       },       {         \"id\": 1001,         \"description\": \"processExpired\"       }     ]   },   \"communicationProtocols\": [     {       \"id\": \"notify\",       \"type\": \"rest\",       \"configurations\": {         \"protocol\": \"http\",         \"endpoint\": \"external-service\",         \"method\": \"POST\",         \"path\": \"/notify\"       }     },     {       \"id\": \"generateCredential\",       \"type\": \"rest\",       \"configurations\": {         \"protocol\": \"http\",         \"endpoint\": \"vc-service\",         \"method\": \"POST\",         \"path\": \"/saga/generate\"       }     }   ],   \"persistencyManagement\": {     \"type\": \"crud\",     \"configurations\": {       \"collectionName\": \"main-process\"     }   } }"
+              },
+              {
+                "name": "kafka.json",
+                "content": "{   \"machineDefinition\": {     \"initialState\": \"PROCESS_CREATED\",     \"creationEvent\": \"processCreated\",     \"states\": [       {         \"id\": \"PROCESS_CREATED\",         \"description\": \"The new process was created\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outgoingTransitions\": [           {             \"inputEvent\": \"subFlowCreated\",             \"targetState\": \"IDENTIFICATION_PENDING\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"expireProcess\",             \"targetState\": \"PROCESS_EXPIRED\",             \"businessEventId\": 1001           }         ]       },       {         \"id\": \"IDENTIFICATION_PENDING\",         \"description\": \"The identification process is not completed\",         \"isFinal\": false,         \"businessStateId\": 1,         \"outgoingTransitions\": [           {             \"inputEvent\": \"updateData\",             \"targetState\": \"IDENTIFICATION_PENDING\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"identificationCompleted\",             \"targetState\": \"CREDENTIAL_GENERATION\",             \"businessEventId\": 2           },           {             \"inputEvent\": \"identificationError\",             \"targetState\": \"IDENTIFICATION_FAILED\",             \"businessEventId\": 1000           },           {             \"inputEvent\": \"expireProcess\",             \"targetState\": \"PROCESS_EXPIRED\",             \"businessEventId\": 1001           }         ]       },       {         \"id\": \"CREDENTIAL_GENERATION\",         \"description\": \"Create a credential document at the end of the process\",         \"isFinal\": false,         \"businessStateId\": 2,         \"outputCommand\": {           \"channel\": \"generateCredential\",           \"label\": \"generateCredential\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"verifiableCredentialGenerated\",             \"targetState\": \"PROCESS_COMPLETED\",             \"businessEventId\": 2           },           {             \"inputEvent\": \"expireProcess\",             \"targetState\": \"PROCESS_EXPIRED\",             \"businessEventId\": 1001           },           {             \"inputEvent\": \"verifiableCredentialGenerationFailed\",             \"targetState\": \"CREDENTIAL_GENERATION_FAILED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"CREDENTIAL_GENERATION_FAILED\",         \"description\": \"The credential generations step failed\",         \"isFinal\": false,         \"businessStateId\": 2,         \"outgoingTransitions\": [           {             \"inputEvent\": \"generateCredential\",             \"targetState\": \"CREDENTIAL_GENERATION\",             \"businessEventId\": 2           },           {             \"inputEvent\": \"expireProcess\",             \"targetState\": \"PROCESS_EXPIRED\",             \"businessEventId\": 1001           }         ]       },       {         \"id\": \"PROCESS_COMPLETED\",         \"description\": \"The process is closed\",         \"isFinal\": true,         \"businessStateId\": 3,         \"outputCommand\": {           \"channel\": \"notify\",           \"label\": \"notify\"         },         \"outgoingTransitions\": []       },       {         \"id\": \"PROCESS_EXPIRED\",         \"description\": \"The process expire\",         \"isFinal\": true,         \"businessStateId\": 1000,         \"outputCommand\": {           \"channel\": \"notify\",           \"label\": \"notify\"         },         \"outgoingTransitions\": []       },       {         \"id\": \"IDENTIFICATION_FAILED\",         \"description\": \"An error occurs during identification process\",         \"isFinal\": true,         \"businessStateId\": 1000,         \"outputCommand\": {           \"channel\": \"notify\",           \"label\": \"notify\"         },         \"outgoingTransitions\": []       }     ],     \"businessStates\": [       {         \"id\": 0,         \"description\": \"PROCESS_CREATED\"       },       {         \"id\": 1,         \"description\": \"IDENTIFICATION_PENDING\"       },       {         \"id\": 2,         \"description\": \"IDENTIFICATION_COMPLETED\"       },       {         \"id\": 3,         \"description\": \"PROCESS_COMPLETED\"       },       {         \"id\": 1000,         \"description\": \"PROCESS_FAILED\"       }     ],     \"businessEvents\": [       {         \"id\": 0,         \"description\": \"processCreated\"       },       {         \"id\": 1,         \"description\": \"startIdentification\"       },       {         \"id\": 2,         \"description\": \"identificationCompleted\"       },       {         \"id\": 3,         \"description\": \"processCompleted\"       },       {         \"id\": 1000,         \"description\": \"identificationFailed\"       },       {         \"id\": 1001,         \"description\": \"processExpired\"       }     ]   },   \"communicationProtocols\": [     {       \"id\": \"notify\",       \"type\": \"rest\",       \"configurations\": {         \"protocol\": \"http\",         \"endpoint\": \"external-service\",         \"method\": \"POST\",         \"path\": \"/notify\"       }     },     {       \"id\": \"generateCredential\",       \"type\": \"kafka\",       \"configurations\": {         \"brokers\": [\"CHANGE ME\"],         \"inputTopics\": [\"main-flow\"],         \"outputTopics\": [\"verifiable-credentials\"],         \"consumerGroup\": \"main-flow-manager\",         \"authenticationProperties\": {           \"ssl\": true,           \"sasl\": {             \"mechanism\": \"PLAIN\",             \"username\": \"CHANGE ME\",             \"password\": \"CHANGE ME\"           }         }       }     }   ],   \"persistencyManagement\": {     \"type\": \"crud\",     \"configurations\": {       \"collectionName\": \"main-process\"     }   } }"
+              }
+            ]
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "miaclienttype",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATIONS_FILE_PATH",
+            "value": "{{FLOW_MANAGER_CONFIG_PATH}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SAGA_ID_PREFIX",
+            "value": "main",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "100Mi"
+          }
+        },
+        "tags": [
+          "main"
+        ],
+        "description": "The Main Flow Manager of the Identification Manager Application",
+        "dockerImage": "nexus.mia-platform.eu/core/flow-manager:{{FLOW_MANAGER_VERSION}}",
+        "name": "flow-manager-main",
+        "type": "plugin",
+        "componentId": "flow-manager",
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 1,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "flow-manager-subflow": {
+        "defaultConfigMaps": [
+          {
+            "name": "flow-configuration-sub-flow",
+            "mountPath": "/sagaConfiguration",
+            "viewAsReadOnly": false,
+            "files": [
+              {
+                "name": "rest.json",
+                "content": "{   \"machineDefinition\": {     \"initialState\": \"IDENTIFICATION_READY\",     \"creationEvent\": \"identificationReady\",     \"states\": [       {         \"id\": \"IDENTIFICATION_READY\",         \"description\": \"identification process ready and created on CRUD\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outputCommand\": {           \"channel\": \"notify\",           \"label\": \"notify\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"requestEvent\",             \"targetState\": \"ACTION_REQUESTED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"expireProcess\",             \"targetState\": \"PROCESS_EXPIRED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"ACTION_REQUESTED\",         \"description\": \"request to service for identification\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outputCommand\": {           \"channel\": \"identification\",           \"label\": \"identification\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"waitingWebhookEvent\",             \"targetState\": \"IDENTIFICATION_PENDING\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"nextEvent\",             \"targetState\": \"IDENTIFICATION_READY\",             \"businessEventId\": 2           },           {             \"inputEvent\": \"identificationError\",             \"targetState\": \"IDENTIFICATION_COMPLETED\",             \"businessEventId\": 1001           },           {             \"inputEvent\": \"identificationCompleted\",             \"targetState\": \"IDENTIFICATION_COMPLETED\",             \"businessEventId\": 3           },           {             \"inputEvent\": \"expireProcess\",             \"targetState\": \"PROCESS_EXPIRED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"IDENTIFICATION_PENDING\",         \"description\": \"waiting for the callback of the service\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outputCommand\": {           \"channel\": \"notify\",           \"label\": \"notify\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"identificationCompleted\",             \"targetState\": \"IDENTIFICATION_COMPLETED\",             \"businessEventId\": 3           },           {             \"inputEvent\": \"nextEvent\",             \"targetState\": \"IDENTIFICATION_READY\",             \"businessEventId\": 2           },           {             \"inputEvent\": \"identificationError\",             \"targetState\": \"IDENTIFICATION_COMPLETED\",             \"businessEventId\": 1001           },           {             \"inputEvent\": \"expireProcess\",             \"targetState\": \"PROCESS_EXPIRED\",             \"businessEventId\": 1001           }         ]       },       {         \"id\": \"IDENTIFICATION_COMPLETED\",         \"description\": \"the identification process ended\",         \"isFinal\": true,         \"businessStateId\": 1,         \"outputCommand\": {           \"channel\": \"notify\",           \"label\": \"notify\"         },         \"outgoingTransitions\": []       },       {         \"id\": \"PROCESS_EXPIRED\",         \"description\": \"the identification process expired\",         \"isFinal\": true,         \"businessStateId\": 1001,         \"outputCommand\": {           \"channel\": \"notify\",           \"label\": \"notify\"         },         \"outgoingTransitions\": []       }     ],     \"businessStates\": [       {         \"id\": 0,         \"description\": \"CUSTOM_BUSINESS_STATE\"       },       {         \"id\": 1,         \"description\": \"IDENTIFICATION_CLOSED\"       },       {         \"id\": 1001,         \"description\": \"IDENTIFICATION_FAILED\"       }     ],     \"businessEvents\": [       {         \"id\": 0,         \"description\": \"subProcessCreated\"       },       {         \"id\": 1,         \"description\": \"recognitionServiceEvent\"       },       {         \"id\": 2,         \"description\": \"nextEvent\"       },       {         \"id\": 3,         \"description\": \"identificationCompleted\"       },       {         \"id\": 1001,         \"description\": \"identificationError\"       },       {         \"id\": 1000,         \"description\": \"identificationExpired\"       }     ]   },   \"communicationProtocols\": [     {       \"id\": \"notify\",       \"type\": \"rest\",       \"configurations\": {         \"protocol\": \"http\",         \"endpoint\": \"route\",         \"method\": \"POST\",         \"path\": \"/saga/notify\"       }     },     {       \"id\": \"identification\",       \"type\": \"rest\",       \"configurations\": {         \"protocol\": \"http\",         \"endpoint\": \"external-service\",         \"method\": \"POST\",         \"path\": \"/identification\"       }     }   ],   \"persistencyManagement\": {     \"type\": \"crud\",     \"configurations\": {       \"collectionName\": \"subflow-process\"     }   } }"
+              },
+              {
+                "name": "kafka.json",
+                "content": "{   \"machineDefinition\": {     \"initialState\": \"IDENTIFICATION_READY\",     \"creationEvent\": \"identificationReady\",     \"states\": [       {         \"id\": \"IDENTIFICATION_READY\",         \"description\": \"identification process ready and created on CRUD\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outputCommand\": {           \"channel\": \"notify\",           \"label\": \"notify\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"requestEvent\",             \"targetState\": \"ACTION_REQUESTED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"expireProcess\",             \"targetState\": \"PROCESS_EXPIRED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"ACTION_REQUESTED\",         \"description\": \"request to service for identification\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outputCommand\": {           \"channel\": \"identification\",           \"label\": \"identification\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"waitingWebhookEvent\",             \"targetState\": \"IDENTIFICATION_PENDING\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"nextEvent\",             \"targetState\": \"IDENTIFICATION_READY\",             \"businessEventId\": 2           },           {             \"inputEvent\": \"identificationError\",             \"targetState\": \"IDENTIFICATION_COMPLETED\",             \"businessEventId\": 1001           },           {             \"inputEvent\": \"identificationCompleted\",             \"targetState\": \"IDENTIFICATION_COMPLETED\",             \"businessEventId\": 3           },           {             \"inputEvent\": \"expireProcess\",             \"targetState\": \"PROCESS_EXPIRED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"IDENTIFICATION_PENDING\",         \"description\": \"waiting for the callback of the service\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outputCommand\": {           \"channel\": \"notify\",           \"label\": \"notify\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"identificationCompleted\",             \"targetState\": \"IDENTIFICATION_COMPLETED\",             \"businessEventId\": 3           },           {             \"inputEvent\": \"nextEvent\",             \"targetState\": \"IDENTIFICATION_READY\",             \"businessEventId\": 2           },           {             \"inputEvent\": \"identificationError\",             \"targetState\": \"IDENTIFICATION_COMPLETED\",             \"businessEventId\": 1001           },           {             \"inputEvent\": \"expireProcess\",             \"targetState\": \"PROCESS_EXPIRED\",             \"businessEventId\": 1001           }         ]       },       {         \"id\": \"IDENTIFICATION_COMPLETED\",         \"description\": \"the identification process ended\",         \"isFinal\": true,         \"businessStateId\": 1,         \"outputCommand\": {           \"channel\": \"notify\",           \"label\": \"notify\"         },         \"outgoingTransitions\": []       },       {         \"id\": \"PROCESS_EXPIRED\",         \"description\": \"the identification process expired\",         \"isFinal\": true,         \"businessStateId\": 1001,         \"outputCommand\": {           \"channel\": \"notify\",           \"label\": \"notify\"         },         \"outgoingTransitions\": []       }     ],     \"businessStates\": [       {         \"id\": 0,         \"description\": \"CUSTOM_BUSINESS_STATE\"       },       {         \"id\": 1,         \"description\": \"IDENTIFICATION_CLOSED\"       },       {         \"id\": 1001,         \"description\": \"IDENTIFICATION_FAILED\"       }     ],     \"businessEvents\": [       {         \"id\": 0,         \"description\": \"subProcessCreated\"       },       {         \"id\": 1,         \"description\": \"recognitionServiceEvent\"       },       {         \"id\": 2,         \"description\": \"nextEvent\"       },       {         \"id\": 3,         \"description\": \"identificationCompleted\"       },       {         \"id\": 1001,         \"description\": \"identificationError\"       },       {         \"id\": 1000,         \"description\": \"identificationExpired\"       }     ]   },   \"communicationProtocols\": [     {       \"id\": \"notify\",       \"type\": \"kafka\",       \"configurations\": {         \"brokers\": [\"CHANGE ME\"],         \"inputTopics\": [\"sub-flow\"],         \"outputTopics\": [\"router-notification\"],         \"consumerGroup\": \"sub-flow-manager\",         \"authenticationProperties\": {           \"ssl\": true,           \"sasl\": {             \"mechanism\": \"PLAIN\",             \"username\": \"CHANGE ME\",             \"password\": \"CHANGE ME\"           }         }       }     },     {       \"id\": \"identification\",       \"type\": \"kafka\",       \"configurations\": {         \"brokers\": [\"CHANGE ME\"],         \"outputTopics\": [\"identification\"],         \"authenticationProperties\": {           \"ssl\": true,           \"sasl\": {             \"mechanism\": \"PLAIN\",             \"username\": \"CHANGE ME\",             \"password\": \"CHANGE ME\"           }         }       }     }   ],   \"persistencyManagement\": {     \"type\": \"crud\",     \"configurations\": {       \"collectionName\": \"subflow-process\"     }   } }"
+              }
+            ]
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "miaclienttype",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATIONS_FILE_PATH",
+            "value": "{{FLOW_MANAGER_CONFIG_PATH}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SAGA_ID_PREFIX",
+            "value": "subflow",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "100Mi"
+          }
+        },
+        "description": "The Flow Manager Sub Flow",
+        "dockerImage": "nexus.mia-platform.eu/core/flow-manager:{{FLOW_MANAGER_VERSION}}",
+        "name": "flow-manager-subflow",
+        "type": "plugin",
+        "componentId": "flow-manager",
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 1,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "idm-router-service": {
+        "defaultConfigMaps": [
+          {
+            "name": "idm-router-config",
+            "mountPath": "/config",
+            "viewAsReadOnly": false,
+            "files": [
+              {
+                "name": "rules.json",
+                "content": "[\n   {\n     \"id\": \"default\",\n     \"info\": {\n       \"flowManagerUrl\": \"http://flow-manager-subflow/\", \n      \"crudServiceUrl\": \"http://crud-service/subflow-process/\" \n    },\n     \"rules\": {}\n   }\n]\n"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_LOG_LEVEL",
+            "value": "NONE",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAIN_FLOW_MANAGER_URL",
+            "value": "http://flow-manager-main/",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAIN_SAGA_CRUD_URL",
+            "value": "http://crud-service/main-process/",
+            "valueType": "plain"
+          },
+          {
+            "name": "SUB_FLOW_CONFIGURATION_FILE_PATH",
+            "value": "/config/rules.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "MODE",
+            "value": "{{COMMUNICATION_MODE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_CONFIGURATION_FILE_PATH",
+            "value": "/path/to/file",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAX_RETRIES",
+            "value": "5",
+            "valueType": "plain"
+          },
+          {
+            "name": "RETRIES_DELAY_MS",
+            "value": "1500",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAIN_FLOW_ID_KEY",
+            "value": "mainFlowId",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAIN_FLOW_DATA_KEY",
+            "value": "mainFlowData",
+            "valueType": "plain"
+          },
+          {
+            "name": "SUB_FLOW_ID_KEY",
+            "value": "subFlowId",
+            "valueType": "plain"
+          },
+          {
+            "name": "SUB_FLOW_CREATED_EVENT",
+            "value": "{{CHANGE_ME}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "ARRAY_MERGE_MODE",
+            "value": "{{CHANGE_ME}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXTERNAL_SERVICE_URL",
+            "value": "http://external-service/",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "250m",
+            "min": "25m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "200Mi"
+          }
+        },
+        "description": "This service provides communication among flow managers of your IDM project",
+        "dockerImage": "nexus.mia-platform.eu/plugins/flow-manager-router:{{ROUTER_VERSION}}",
+        "name": "idm-router-service",
+        "type": "plugin",
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 1,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "identification-service": {
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "backoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "ROUTER_URL",
+            "value": "http://idm-router-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "IDENTIFICATION_URL",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAX_RETRIES",
+            "value": "3",
+            "valueType": "plain"
+          },
+          {
+            "name": "RETRIES_DELAY_MS",
+            "value": "1000",
+            "valueType": "plain"
+          },
+          {
+            "name": "MODE",
+            "value": "{{COMMUNICATION_MODE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_CONFIG_FILE_PATH",
+            "value": "/path/to/file",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "50Mi"
+          }
+        },
+        "archiveUrl": "https://git.tools.mia-platform.eu/api/v4/projects/62973/repository/archive.tar.gz",
+        "description": "This is the best template to start creating an adapter service for your IDM project",
+        "name": "identification-service",
+        "type": "template",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ]
+      },
+      "verifiable-credential-service": {
+        "defaultConfigMaps": [
+          {
+            "name": "vc-config",
+            "mountPath": "/config",
+            "viewAsReadOnly": false,
+            "files": [
+              {
+                "name": "vcMapping.json",
+                "content": "{\n   \"default\": \"/vc/default.json\"\n }"
+              }
+            ]
+          },
+          {
+            "name": "vc",
+            "mountPath": "/vc",
+            "viewAsReadOnly": false,
+            "files": [
+              {
+                "name": "default.json",
+                "content": "{\n   \"@context\": [\n     \"https://www.w3.org/2018/credentials/v1\"\n   ],\n   \"type\": [\n     \"VerifiableCredential\"\n   ],\n   \"issuer\": \"change-me\"\n }\n"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "userid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "groups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "clienttype",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "backoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADDITIONAL_HEADERS_TO_PROXY",
+            "value": "console-sid,cms-sid",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOW_MANAGER_URL",
+            "value": "http://flow-manager-main",
+            "valueType": "plain"
+          },
+          {
+            "name": "VERIFIABLE_CREDENTIAL_JWK",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "VERIFIABLE_CREDENTIAL_JWA",
+            "value": "RS256",
+            "valueType": "plain"
+          },
+          {
+            "name": "VERIFIABLE_CREDENTIAL_CONFIG",
+            "value": "/config/vcMapping.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "MODE",
+            "value": "{{COMMUNICATION_MODE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_CONFIG_FILE_PATH",
+            "value": "/path/to/file",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "50Mi"
+          }
+        },
+        "archiveUrl": "https://git.tools.mia-platform.eu/api/v4/projects/64569/repository/archive.tar.gz",
+        "description": "This is the best template to start creating a verifiable credentials service generator for your IDM project",
+        "name": "verifiable-credential-service",
+        "type": "template",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ]
+      }
+    },
+    "endpoints": {
+      "/identification/callback": {
+        "defaultBasePath": "/identification/callback",
+        "defaultPathRewrite": "/callback",
+        "service": "identification-service",
+        "description": "Endpoint /identification/callback",
+        "type": "custom",
+        "tags": [
+          "identification-service"
+        ],
+        "public": true,
+        "secreted": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      }
+    },
+    "collections": {
+      "main_process": {
+        "id": "main_process",
+        "description": "This collection contains main process data and the identification data collected from different identification processes",
+        "defaultName": "main_process",
+        "type": "collection",
+        "tags": [
+          "collection"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "sagaId",
+            "description": "",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "metadata",
+            "description": "",
+            "type": "RawObject",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "isFinal",
+            "description": "",
+            "type": "boolean",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "currentState",
+            "description": "",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "latestEvent",
+            "description": "",
+            "type": "RawObject",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "associatedEntityId",
+            "description": "",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "events",
+            "description": "",
+            "type": "Array_string",
+            "required": false,
+            "nullable": false
+          },
+          {
+            "name": "history",
+            "description": "",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false
+          },
+          {
+            "name": "businessStateId",
+            "description": "",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "businessStateDescription",
+            "description": "",
+            "type": "string",
+            "required": false,
+            "nullable": false
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/main-process",
+            "defaultState": "PUBLIC"
+          }
+        ]
+      },
+      "subflow_process": {
+        "id": "subflow_process",
+        "description": "This collection contains identification process data",
+        "defaultName": "subflow_process",
+        "type": "collection",
+        "tags": [
+          "collection"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "sagaId",
+            "description": "",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "metadata",
+            "description": "",
+            "type": "RawObject",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "isFinal",
+            "description": "",
+            "type": "boolean",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "currentState",
+            "description": "",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "latestEvent",
+            "description": "",
+            "type": "RawObject",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "associatedEntityId",
+            "description": "",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "events",
+            "description": "",
+            "type": "Array_string",
+            "required": false,
+            "nullable": false
+          },
+          {
+            "name": "history",
+            "description": "",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false
+          },
+          {
+            "name": "businessStateId",
+            "description": "",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "businessStateDescription",
+            "description": "",
+            "type": "string",
+            "required": false,
+            "nullable": false
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/subflow-process",
+            "defaultState": "PUBLIC"
+          }
+        ]
+      },
+      "tenants": {
+        "id": "tenants",
+        "description": "Tenants data used by identification microservices",
+        "defaultName": "tenants",
+        "type": "collection",
+        "tags": [
+          "collection"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "tenant-id",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/tenants",
+            "defaultState": "PUBLIC"
+          }
+        ]
+      }
+    },
+    "unsecretedVariables": {
+      "ROUTER_VERSION": {
+        "productionEnv": "1.0.0",
+        "noProductionEnv": "latest"
+      },
+      "FLOW_MANAGER_VERSION": {
+        "productionEnv": "2.6.4",
+        "noProductionEnv": "2.6.4"
+      },
+      "COMMUNICATION_MODE": {
+        "productionEnv": "KAFKA",
+        "noProductionEnv": "REST"
+      },
+      "FLOW_MANAGER_CONFIG_PATH": {
+        "productionEnv": "/sagaConfiguration/kafka.json",
+        "noProductionEnv": "/sagaConfiguration/rest.json"
+      }
+    }
+  },
+  "itemId": "identification-manager",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  }
+}

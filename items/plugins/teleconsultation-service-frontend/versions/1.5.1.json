@@ -1,0 +1,55 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Teleconsultation Service Frontend",
+  "itemId": "teleconsultation-service-frontend",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "1.5.1",
+    "releaseNote": "-"
+  },
+  "description": "Start your videocall application leveraging Bandyer APIs",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/teleconsultation-service-frontend-plugin.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "supportedBy": "Mia-Care",
+  "categoryId": "utility",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/teleconsultation-service-frontend/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-frontend",
+  "resources": {
+    "services": {
+      "teleconsultation-service-frontend": {
+        "type": "plugin",
+        "name": "teleconsultation-service-frontend",
+        "description": "Start your videocall application leveraging Bandyer APIs",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/teleconsultation-service-frontend:1.5.1",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Real-Time Updater",
+  "itemId": "real-time-updater",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "7.10.0",
+    "releaseNote": "### Added\n\n- introduce `PRODUCER_MAX_BATCH_SIZE` environment variable to configure the batch size of Kafka producer. Defaults to 500.\n\n### Fixed\n\n- GRPC client successfully reconnect upon Control Plane Operator restarts\n\n"
+  },
+  "description": "Consumes Kafka messages in order to keep the Fast Data projection collections up to date with the connected system.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/real-time-updater-plugin.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "fast-data",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/fast_data/realtime_updater"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/real-time-updater",
+  "resources": {
+    "services": {
+      "real-time-updater": {
+        "type": "plugin",
+        "name": "real-time-updater",
+        "description": "Consumes Kafka messages in order to keep the Fast Data projection collections up to date with the connected system.",
+        "dockerImage": "nexus.mia-platform.eu/fast-data/real-time-updater:7.10.0",
+        "componentId": "realtime-updater",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "USE_AUTOMATIC_STRATEGIES",
+            "value": "true",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOGGING_UNMAPPED_FIELDS",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "USE_POS_AS_COUNTER",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROJECTIONS_CHANGES_ENABLED",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROJECTIONS_DATABASE_NAME",
+            "value": "",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROJECTIONS_CHANGES_COLLECTION_NAME",
+            "value": "",
+            "valueType": "plain"
+          },
+          {
+            "name": "GENERATE_KAFKA_PROJECTION_UPDATES",
+            "value": "true",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_BROKERS",
+            "value": "",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_GROUP_ID",
+            "value": "",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_USERNAME",
+            "value": "",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_PASSWORD",
+            "value": "",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_MECHANISM",
+            "value": "",
+            "valueType": "plain"
+          },
+          {
+            "name": "CA_CERT_PATH",
+            "value": "",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_MESSAGE_ADAPTER",
+            "value": "basic",
+            "readOnly": true,
+            "managedBy": "fast-data",
+            "valueType": "plain"
+          },
+          {
+            "name": "INVARIANT_TOPIC_MAP",
+            "value": "",
+            "readOnly": true,
+            "managedBy": "fast-data",
+            "valueType": "plain"
+          },
+          {
+            "name": "SYSTEM_OF_RECORDS",
+            "value": "",
+            "readOnly": true,
+            "managedBy": "fast-data",
+            "valueType": "plain"
+          },
+          {
+            "name": "CAST_FUNCTIONS_FOLDER",
+            "value": "/home/node/app/configurations/castFunctionsFolder",
+            "readOnly": true,
+            "managedBy": "fast-data",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAP_TABLE_FOLDER",
+            "value": "/home/node/app/configurations/mapTableFolder",
+            "readOnly": true,
+            "managedBy": "fast-data",
+            "valueType": "plain"
+          },
+          {
+            "name": "STRATEGIES_FOLDER",
+            "value": "/home/node/app/configurations/strategies",
+            "readOnly": true,
+            "managedBy": "fast-data",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_ADAPTER_FOLDER",
+            "value": "/home/node/app/configurations/kafkaAdapterFolder",
+            "readOnly": true,
+            "managedBy": "fast-data",
+            "valueType": "plain"
+          },
+          {
+            "name": "ER_SCHEMA_FOLDER",
+            "value": "/home/node/app/erSchema",
+            "readOnly": true,
+            "managedBy": "fast-data",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROJECTION_CHANGES_SCHEMA_FOLDER",
+            "value": "/home/node/app/projectionChangesSchema",
+            "readOnly": true,
+            "managedBy": "fast-data",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_PROJECTION_UPDATES_FOLDER",
+            "value": "/home/node/app/kafkaProjectionUpdates",
+            "readOnly": true,
+            "managedBy": "fast-data",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "80Mi",
+            "max": "250Mi"
+          },
+          "cpuLimits": {
+            "min": "40m",
+            "max": "250m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 1,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

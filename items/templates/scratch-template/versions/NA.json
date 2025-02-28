@@ -1,0 +1,43 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Scratch Template",
+  "itemId": "scratch-template",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "A simple repository template to start coding from scratch",
+  "type": "template",
+  "image": {
+    "localPath": "../../assets/scratch-template-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "code",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/scratch-template/main/README.md"
+  },
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/scratch-template",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "scratch-template": {
+        "type": "template",
+        "name": "scratch-template",
+        "description": "A simple repository template to start coding from scratch",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/scratch-template/archive/main.tar.gz",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

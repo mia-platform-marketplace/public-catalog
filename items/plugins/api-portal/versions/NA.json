@@ -1,0 +1,67 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "API Portal",
+  "itemId": "api-portal",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Use Mia-Platform core API Portal to expose the swagger documentation of your development services in one unique place.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/api-portal-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "devportal",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/api-portal/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/api-portal/website",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "api-portal": {
+        "type": "plugin",
+        "name": "api-portal",
+        "description": "Use Mia-Platform core API Portal to expose the swagger documentation of your development services in one unique place.",
+        "dockerImage": "nexus.mia-platform.eu/api-portal/website:2.1.1",
+        "componentId": "api-portal",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "25Mi",
+            "min": "5Mi"
+          }
+        },
+        "defaultProbes": {
+          "readiness": {
+            "path": "/index.html"
+          },
+          "liveness": {
+            "path": "/index.html"
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

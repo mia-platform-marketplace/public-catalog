@@ -1,0 +1,208 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Single View Creator",
+  "itemId": "single-view-creator",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "This is a plugin to be used for creating a manual Single View Creator for your Fast Data",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/single-view-creator-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "fast-data",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/single-view-creator/configuration"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "single-view-creator": {
+        "type": "plugin",
+        "name": "single-view-creator",
+        "description": "This is a plugin to be used for creating a manual Single View Creator for your Fast Data",
+        "dockerImage": "nexus.mia-platform.eu/fast-data/single-view-creator-plugin:6.7.1",
+        "componentId": "single-view-creator",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "CONFIGURATION_FOLDER",
+            "value": "/home/node/app/configuration",
+            "valueType": "plain",
+            "description": "Folder where configuration files are mounted"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain",
+            "description": "Level to use for logging"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "TYPE",
+            "value": "CHANGE_WITH_TYPE",
+            "valueType": "plain",
+            "description": "Identifies the type of projection changes that need to be read. It should be the same as the Single View name you want to update."
+          },
+          {
+            "name": "PROJECTIONS_MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain",
+            "description": "MongoDB connection string where projections are stored. Must be a valid uri"
+          },
+          {
+            "name": "PROJECTIONS_DATABASE",
+            "value": "{{MONGODB_NAME}}",
+            "valueType": "plain",
+            "description": "The db from where projections are read."
+          },
+          {
+            "name": "PROJECTIONS_CHANGES_DATABASE",
+            "value": "{{MONGODB_NAME}}",
+            "valueType": "plain",
+            "description": "The db from where projections changes are read."
+          },
+          {
+            "name": "PROJECTIONS_CHANGES_COLLECTION",
+            "value": "CHANGE_WITH_PROJECTIONS_CHANGES_COLLECTION",
+            "valueType": "plain",
+            "description": "if you have set a custom projection change collection name from advanced, then set its name. Otherwise, it is `fd-pc-SYSTEM_ID` where `SYSTEM_ID` is the id of the System of Records this single view creator is responsible for."
+          },
+          {
+            "name": "SINGLE_VIEWS_MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain",
+            "description": "MongoDB connection string where single view must be stored. Must be a valid uri"
+          },
+          {
+            "name": "SINGLE_VIEWS_DATABASE",
+            "value": "{{MONGODB_NAME}}",
+            "valueType": "plain",
+            "description": "The db from where single views are written."
+          },
+          {
+            "name": "SINGLE_VIEWS_COLLECTION",
+            "value": "CHANGE_WITH_SINGLE_VIEWS_COLLECTION",
+            "valueType": "plain",
+            "description": "It must be equals to the Single View name the service is in charge of keeping updated."
+          },
+          {
+            "name": "SINGLE_VIEWS_PORTFOLIO_ORIGIN",
+            "value": "CHANGE_WITH_SINGLE_VIEWS_PORTFOLIO_ORIGIN",
+            "valueType": "plain",
+            "description": "should be equals to the `SYSTEM_ID` you have set in `PROJECTIONS_CHANGES_COLLECTION`"
+          },
+          {
+            "name": "SINGLE_VIEWS_ERRORS_COLLECTION",
+            "value": "CHANGE_WITH_SINGLE_VIEWS_ERRORS_COLLECTION",
+            "valueType": "plain",
+            "description": "Name of a MongoDB CRUD you want to use as collection for single view errors."
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "100Mi",
+            "max": "300Mi"
+          },
+          "cpuLimits": {
+            "min": "120m",
+            "max": "600m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 10,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "configuration",
+            "mountPath": "/home/node/app/configuration",
+            "files": [
+              {
+                "name": "singleViewKey.js",
+                "content": "'use strict'\nconst { get } = require('lodash')\n\n// ref: https://docs.mia-platform.eu/docs/fast_data/configure_single_view_creator#single-view-key-extractor\nmodule.exports = function singleViewKeyGenerator(logger, projectionChangeIdentifier) {\n    logger.debug({ identifier: projectionChangeIdentifier }, 'singleViewKeyGenerator identifier')\n\n    // get the single view id from the identifier\n    const IDENTIFIER_KEY = 'UNIQUE_ID'\n    const myId = get(projectionChangeIdentifier, IDENTIFIER_KEY, null)\n\n    logger.debug({ myId }, 'single view key')\n    return {\n    myId,\n    }\n}\n                            \n"
+              },
+              {
+                "name": "pipeline.js",
+                "content": "'use strict'\nconst { propOr } = require('ramda')\n\nconst PROJECTIONS_NAMES = {\nMY_PROJECTION: 'my-projection-name',\n}\n\n// ref: https://docs.mia-platform.eu/docs/fast_data/configure_single_view_creator#aggregator\nmodule.exports = (mongoDb) => {\n    return async(logger, projectionChangeIdentifier) => {\n        const uniqueId = propOr(null, 'UNIQUE_ID', projectionChangeIdentifier)\n        logger.debug({ uniqueId }, 'pipeline document received')\n\n        // retrieve data from all projections you need for your single view\n        const projectionCollection = mongoDb.collection(PROJECTIONS_NAMES.MY_PROJECTION)\n        const projectionDataById = await projectionCollection.findOne({ UNIQUE_ID: uniqueId, __STATE__: 'PUBLIC' }) \n        if (!projectionDataById) {\n        logger.debug({ UNIQUE_ID: uniqueId }, 'single view public data not found')\n        return []\n        }\n        const singleViewData = projectionDataById\n        logger.debug({ singleViewData }, 'single view retrieved data')\n\n        return [\n            singleViewData,\n        ]\n    }\n}\n              \n              \n"
+              },
+              {
+                "name": "mapper.js",
+                "content": "\n'use strict'\n// ref: https://docs.mia-platform.eu/docs/fast_data/configure_single_view_creator#mapping\nmodule.exports = (logger, singleViewData) => {\n    const { UNIQUE_ID, NAME } = singleViewData\n    const singleView = {\n    myId: UNIQUE_ID,\n    name: NAME,\n    }\n    // be aware not to log sensitive data\n    logger.debug({ singleView }, 'mapper')\n    return singleView\n}\n\n"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

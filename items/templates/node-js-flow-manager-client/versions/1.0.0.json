@@ -1,0 +1,134 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Node.js 16 Flow Manager Client",
+  "itemId": "node-js-flow-manager-client",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "description": "Flow Manager Client Node.js 16 Template",
+  "type": "template",
+  "image": {
+    "localPath": "../../assets/nodejs-flow-manager-client-template.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "orchestrators",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Flow-Manager-Client-Template/refs/heads/16.x/README.md"
+  },
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Node.js-Flow-Manager-Client-Template/tree/16.x",
+  "releaseStage": "stable",
+  "resources": {
+    "services": {
+      "nodejs-16-flow-manager-client": {
+        "type": "template",
+        "name": "nodejs-16-flow-manager-client",
+        "description": "Flow Manager Client Node.js 16 Template",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Node.js-Flow-Manager-Client-Template/archive/refs/heads/16.x.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fnode-template.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "miaclienttype",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_BROKERS_LIST",
+            "value": "CHANGE_WITH_YOUR_KAFKA_BROKERS_LIST",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_CLIENT_ID",
+            "value": "CHANGE_WITH_YOUR_KAFKA_CLIENT_ID",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_GROUP_ID",
+            "value": "CHANGE_WITH_YOUR_KAFKA_GROUP_ID",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_COMMANDS_TOPIC_NAME",
+            "value": "CHANGE_WITH_YOUR_KAFKA_COMMANDS_TOPIC_NAME",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_EVENTS_TOPIC_NAME",
+            "value": "CHANGE_WITH_YOUR_KAFKA_EVENTS_TOPIC_NAME",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_USERNAME",
+            "value": "CHANGE_WITH_YOUR_KAFKA_SASL_USERNAME",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_PASSWORD",
+            "value": "CHANGE_WITH_YOUR_KAFKA_SASL_PASSWORD",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_AUTH_METHOD",
+            "value": "SCRAM-256",
+            "valueType": "plain"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

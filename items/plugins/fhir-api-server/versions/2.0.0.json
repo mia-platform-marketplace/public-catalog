@@ -1,0 +1,80 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "FHIR Server",
+  "itemId": "fhir-api-server",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "2.0.0",
+    "releaseNote": "Switch to HAPI FHIR Docker image (v7.6.0)"
+  },
+  "description": "The Mia FHIR Server implements the FHIR standard and is based on HAPI FHIR, an open-source Java implementation of the FHIR standard",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/fhir-api-server-plugin.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "supportedBy": "Mia-Care",
+  "categoryId": "utility",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://hapifhir.io/hapi-fhir/docs/v/7.6.0/"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-api-server",
+  "resources": {
+    "services": {
+      "fhir-server": {
+        "type": "plugin",
+        "name": "fhir-server",
+        "description": "The Mia FHIR Server implements the FHIR standard and is based on HAPI FHIR, an open-source Java implementation of the FHIR standard",
+        "dockerImage": "hapiproject/hapi:v7.6.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "SPRING_CONFIG_LOCATION",
+            "value": "file:///etc/hapi/config.yaml",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "300m",
+            "min": "150m"
+          },
+          "memoryLimits": {
+            "max": "2000Mi",
+            "min": "1000Mi"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "config",
+            "mountPath": "/etc/hapi",
+            "files": [
+              {
+                "name": "config.yaml",
+                "content": "Fill with starter template available at https://github.com/hapifhir/hapi-fhir-jpaserver-starter/blob/master/src/main/resources/application.yaml"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080
+          }
+        ]
+      }
+    }
+  }
+}

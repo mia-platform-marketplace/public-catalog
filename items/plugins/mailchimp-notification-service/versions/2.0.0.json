@@ -1,0 +1,104 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Mailchimp Notification Service",
+  "itemId": "mailchimp-notification-service",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "2.0.0",
+    "releaseNote": "-"
+  },
+  "description": "Manage newsletters subscriptions and send transactional emails with Mailchimp/Mandrill",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/mailchimp-notification-service-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "notification",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/mailchimp-mandrill-mail-notification-service/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mailchimp-plugin",
+  "resources": {
+    "services": {
+      "mailchimp-notification-service": {
+        "type": "plugin",
+        "name": "mailchimp-notification-service",
+        "description": "Manage newsletters subscriptions and send transactional emails with Mailchimp/Mandrill",
+        "dockerImage": "nexus.mia-platform.eu/plugins/mailchimp:2.0.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_LOG_LEVEL",
+            "value": "BODY",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_CONFIG_FILE",
+            "value": "service/logback.xml",
+            "valueType": "plain"
+          },
+          {
+            "name": "MANDRILL_API_KEY",
+            "value": "{{MANDRILL_API_KEY}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAILCHIMP_URL",
+            "value": "{{MAILCHIMP_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAILCHIMP_API_KEY",
+            "value": "{{MAILCHIMP_API_KEY}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "300m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "500Mi",
+            "min": "200Mi"
+          }
+        },
+        "defaultMonitoring": {
+          "endpoints": [
+            {
+              "path": "/metrics",
+              "port": "metrics",
+              "interval": "60s"
+            }
+          ]
+        },
+        "defaultLogParser": "mia-json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

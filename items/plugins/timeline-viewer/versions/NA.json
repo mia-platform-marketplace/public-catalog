@@ -1,0 +1,48 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Timeline Viewer",
+  "itemId": "timeline-viewer",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Visualize events on a timeline",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/timeline-viewer-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "business",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/backoffice/timeline",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "timeline-viewer": {
+        "type": "plugin",
+        "name": "timeline-viewer",
+        "description": "Visualize events on a timeline",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/timeline:2.1.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

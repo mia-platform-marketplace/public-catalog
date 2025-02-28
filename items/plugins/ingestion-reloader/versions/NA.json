@@ -1,0 +1,154 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Ingestion Reloader",
+  "itemId": "ingestion-reloader",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "This service expose a REST interface that allows reading messages from a Cloud Storage bucket, structured in the manner written by the Ingestion Storer, and publishing them onto target topics, specified at request-time",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/ingestion-reloader-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "fast-data",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/fast_data/bucket_storage_support/configuration/ingestion_reloader_configuration"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/historical-data/ingestion-reloader",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "ingestion-reloader": {
+        "type": "plugin",
+        "name": "ingestion-reloader",
+        "description": "This service expose a REST interface that allows reading messages from a Cloud Storage bucket, structured in the manner written by the Ingestion Storer, and publishing them onto target topics, specified at request-time",
+        "dockerImage": "nexus.mia-platform.eu/fast-data/history/ingestion-reloader:1.4.1",
+        "componentId": "plugin_ingestion-reloader",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{JVM_LOG_LEVEL}}",
+            "valueType": "plain",
+            "description": "JVM Level to use for logging - e.g. INFO"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_BROKERS",
+            "value": "{{KAFKA_BROKERS}}",
+            "valueType": "plain",
+            "description": "List of comma-separated Kafka brokers addresses"
+          },
+          {
+            "name": "KAFKA_CLIENT_ID",
+            "value": "<change-with-your-project>.{{STAGE_TO_DEPLOY}}.bss.ingestion-reloader",
+            "valueType": "plain",
+            "description": "Identifier employed by Kafka to recognize your application"
+          },
+          {
+            "name": "KAFKA_GROUP_ID",
+            "value": "<change-with-your-project>.{{STAGE_TO_DEPLOY}}.bss.ingestion-reloader",
+            "valueType": "plain",
+            "description": "Kafka consumer group name assigned to the this service to read from configured topic - important for distributing topic partitions"
+          },
+          {
+            "name": "KAFKA_USERNAME",
+            "value": "{{KAFKA_SASL_USERNAME}}",
+            "valueType": "plain",
+            "description": "Username needed to authenticate with SASL auth mechanism"
+          },
+          {
+            "name": "KAFKA_PASSWORD",
+            "value": "{{KAFKA_SASL_PASSWORD}}",
+            "valueType": "plain",
+            "description": "Password needed to authenticate with SASL auth mechanism"
+          },
+          {
+            "name": "BUCKET_NAME",
+            "value": "<change-me>",
+            "valueType": "plain",
+            "description": "Name of your bucket where the Ingestion Reloader will write messages"
+          },
+          {
+            "name": "BUCKET_TYPE",
+            "value": "<change-me>",
+            "valueType": "plain",
+            "description": "Type of bucket the Ingestion Reloader will connect with"
+          },
+          {
+            "name": "GOOGLE_APPLICATION_CREDENTIALS",
+            "value": "/app/keys/credentials.json",
+            "valueType": "plain",
+            "description": "In case the selected bucket type is 'google', this variable points to the filepath where the Google Storage Service Account credentials are stored - usually mounted in the service from a secret. Remove in case BUCKET_TYPE is not set to 'google'"
+          },
+          {
+            "name": "KEY_PARTITIONS_RELATIVE_PATH",
+            "value": "bss-partition-by-key",
+            "valueType": "plain",
+            "description": "The prefix name to the files where messages organized by key can be found - no trailing slash needed"
+          },
+          {
+            "name": "BUCKET_SPLITS",
+            "value": "5000",
+            "valueType": "plain",
+            "description": "Number of possible groups onto which the Kafka messages' key are partitioned following an organization by key procedure"
+          },
+          {
+            "name": "CONFIGURATIONS_PATH",
+            "value": "/app/config",
+            "valueType": "plain",
+            "description": "Path where the selectors folder can be found"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "350Mi",
+            "max": "500Mi"
+          },
+          "cpuLimits": {
+            "min": "100m",
+            "max": "1000m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/health/live",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 2,
+            "successThreshold": 1,
+            "failureThreshold": 2
+          },
+          "readiness": {
+            "path": "/-/health/ready",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 10,
+            "timeoutSeconds": 2,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

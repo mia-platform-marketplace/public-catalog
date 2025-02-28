@@ -1,0 +1,56 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "micro-lc React 18 Template",
+  "itemId": "micro-lc-react-template",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Use this template to set up a micro-lc React 18 plugin project",
+  "type": "template",
+  "image": {
+    "localPath": "../../assets/micro-lc-react-template.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "microfrontend",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/micro-lc/react-template/refs/heads/18.x/README.md"
+  },
+  "repositoryUrl": "https://github.com/micro-lc/react-template/tree/18.x",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "micro-lc-react-18-template": {
+        "type": "template",
+        "name": "micro-lc-react-18-template",
+        "description": "Use this template to set up a micro-lc React 18 plugin project",
+        "archiveUrl": "https://github.com/micro-lc/react-template/archive/refs/heads/18.x.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Freact-app.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

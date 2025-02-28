@@ -1,0 +1,99 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "categoryId": "code",
+  "releaseStage": "deprecated",
+  "type": "template",
+  "name": "OpenAI Playground",
+  "description": "A simple Next.js Application to try-out OpenAI APIs",
+  "image": {
+    "localPath": "../../assets/openai-playground-example-transparent.png"
+  },
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/open-ai-showcase",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/open-ai-showcase/master/README.md"
+  },
+  "resources": {
+    "services": {
+      "open-ai-playground": {
+        "type": "template",
+        "name": "open-ai-playground",
+        "description": "A simple Next.js Application to try-out OpenAI APIs",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/open-ai-showcase/archive/master.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fnode-template.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "OPENAI_API_KEY",
+            "value": "<here-your-api-key from OpenAI>",
+            "valueType": "plain"
+          },
+          {
+            "name": "MODEL_FAMILY",
+            "value": "text-davinci-002",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAX_TOKENS",
+            "value": "1000",
+            "valueType": "plain"
+          },
+          {
+            "name": "TEMPERATURE",
+            "value": "0.6",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "150Mi"
+          },
+          "cpuLimits": {
+            "max": "100m",
+            "min": "100m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": ""
+          },
+          "readiness": {
+            "path": ""
+          }
+        }
+      }
+    }
+  },
+  "itemId": "openai-playground",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  }
+}

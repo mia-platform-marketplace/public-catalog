@@ -1,0 +1,189 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Single View Trigger Generator",
+  "itemId": "single-view-trigger-generator",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Keep your Real Time Updater lightning-fast by using the Single View Trigger Generator: this service will take care of executing strategies and produce projection changes, so that your Real Time Updater can live up to its name and always keep the Projections up to date in near real time.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/single-view-trigger-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "fast-data",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/fast_data/configuration/single_view_trigger_generator"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-trigger-generator-service",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "single-view-trigger-generator": {
+        "type": "plugin",
+        "name": "single-view-trigger-generator",
+        "description": "Keep your Real Time Updater lightning-fast by using the Single View Trigger Generator: this service will take care of executing strategies and produce projection changes, so that your Real Time Updater can live up to its name and always keep the Projections up to date in near real time.",
+        "dockerImage": "nexus.mia-platform.eu/fast-data/single-view-trigger-generator-plugin:3.3.2",
+        "componentId": "single-view-trigger-generator",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain",
+            "description": "Level to use for logging; to choose from: error, fatal, warn, info, debug, trace, silent"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain",
+            "description": "MongoDB URL where the projections are stored"
+          },
+          {
+            "name": "MONGODB_NAME",
+            "value": "{{MONGODB_NAME}}",
+            "valueType": "plain",
+            "description": "MongoDB Database name where the projections are stored"
+          },
+          {
+            "name": "EVENT_STORE_TARGET",
+            "value": "CHANGE_WITH_YOUR_EVENT_STORE_TARGET",
+            "valueType": "plain",
+            "description": "Kafka topic to send the `sv-trigger` messages or MongoDB collection to save the `pc` records"
+          },
+          {
+            "name": "SINGLE_VIEW_NAME",
+            "value": "",
+            "valueType": "plain",
+            "description": "The name of the Single View",
+            "readOnly": true,
+            "managedBy": "fast-data"
+          },
+          {
+            "name": "EVENT_STORE_CONFIG_PATH",
+            "value": "/home/node/app/eventStoreConfig/eventStoreConfig.json",
+            "valueType": "plain",
+            "description": "Path to the Event Store Config file"
+          },
+          {
+            "name": "ER_SCHEMA_FOLDER",
+            "value": "/home/node/app/erSchema",
+            "valueType": "plain",
+            "description": "Path to the ER Schema folder",
+            "readOnly": true,
+            "managedBy": "fast-data"
+          },
+          {
+            "name": "PROJECTION_CHANGES_SCHEMA_FOLDER",
+            "value": "/home/node/app/projectionChangesSchema",
+            "valueType": "plain",
+            "description": "Path to the Projection Changes Schema folder",
+            "readOnly": true,
+            "managedBy": "fast-data"
+          },
+          {
+            "name": "KAFKA_PROJECTION_UPDATES_FOLDER",
+            "value": "/home/node/app/kafkaProjectionUpdates",
+            "valueType": "plain",
+            "description": "Path to the folder that contains the file kafkaProjectionUpdates.json",
+            "readOnly": true,
+            "managedBy": "fast-data"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "120Mi",
+            "max": "360Mi"
+          },
+          "cpuLimits": {
+            "min": "100m",
+            "max": "600m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 10,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "event-store-config",
+            "mountPath": "/home/node/app/eventStoreConfig",
+            "files": [
+              {
+                "content": "{\n  \"consumer\": {\n    \"kafka\": {\n      \"brokers\": \"my-broker:9092\",\n      \"clientId\": \"client-id\",\n      \"consumerGroupId\": \"group-id\",\n      \"consumeFromBeginning\": true,\n      \"logLevel\": \"WARN\"\n    }\n  },\n  \"producer\": {\n    \"kafka\": {\n      \"brokers\": \"my-broker:9092\",\n      \"clientId\": \"client-id\",\n      \"logLevel\": \"WARN\"\n    }\n  }\n}\n",
+                "name": "eventStoreConfig.json"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

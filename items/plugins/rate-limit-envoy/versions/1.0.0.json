@@ -1,0 +1,130 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Rate Limit Envoy",
+  "itemId": "rate-limit-envoy",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "description": "The Go/gRPC service to enable global rate limit on your Envoy API Gateway",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/rate-limit-envoy-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "orchestrators",
+  "resources": {
+    "services": {
+      "rate-limit-envoy": {
+        "type": "plugin",
+        "name": "rate-limit-envoy",
+        "description": "The Go/gRPC service to enable global rate limit on your Envoy API Gateway",
+        "dockerImage": "envoyproxy/ratelimit:8d6488ea",
+        "componentId": "rate-limit-envoy",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "USE_STATSD",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "{{LOG_LEVEL}}",
+            "value": "info",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_SOCKET_TYPE",
+            "value": "tcp",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_URL",
+            "value": "{{REDIS_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "RUNTIME_ROOT",
+            "value": "/data",
+            "valueType": "plain"
+          },
+          {
+            "name": "RUNTIME_SUBDIRECTORY",
+            "value": "ratelimit",
+            "valueType": "plain"
+          },
+          {
+            "name": "RUNTIME_WATCH_ROOT",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "RUNTIME_IGNOREDOTFILES",
+            "value": "true",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "100Mi",
+            "max": "150Mi"
+          },
+          "cpuLimits": {
+            "min": "50m",
+            "max": "100m"
+          }
+        },
+        "defaultArgs": [
+          "/bin/ratelimit"
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "path": "/healthcheck",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "port": "http"
+          },
+          "readiness": {
+            "path": "/healthcheck",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 5,
+            "port": "http"
+          }
+        },
+        "defaultLogParser": "mia-plain",
+        "defaultDocumentationPath": "",
+        "defaultConfigMaps": [
+          {
+            "name": "api-gateway-ratelimit",
+            "mountPath": "/data/ratelimit/config",
+            "files": [
+              {
+                "name": "ratelimit-config.yaml",
+                "content": "domain: mia_limit\ndescriptors:\n  - key: remote_address\n    rate_limit:\n      unit: second\n      requests_per_unit: 1000\n"
+              }
+            ],
+            "viewAsReadOnly": false
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 8080,
+            "to": 8080
+          },
+          {
+            "name": "grpc",
+            "from": 8081,
+            "to": 8081
+          }
+        ]
+      }
+    }
+  }
+}

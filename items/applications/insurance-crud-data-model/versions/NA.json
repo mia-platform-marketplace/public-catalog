@@ -1,0 +1,4764 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "categoryId": "insurance",
+  "releaseStage": "deprecated",
+  "name": "Insurance CRUD Data Model",
+  "description": "This application has already configured data models for the insurance industry. The data models are for the Subject, Policy, Vehicle, FNOL, and Claim entities.",
+  "type": "application",
+  "image": {
+    "localPath": "../../assets/insurance-crud-data-model-application-transparent.png"
+  },
+  "publishOnMiaDocumentation": false,
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/insurance-crud-data-model-application",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/csv-connector/configuration"
+  },
+  "resources": {
+    "services": {
+      "crud-service": {
+        "type": "plugin",
+        "name": "crud-service",
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "miaplatform/crud-service:{{CRUD_SERVICE_VERSION}}",
+        "componentId": "crud-service",
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "type": "folder",
+            "envName": "COLLECTION_DEFINITION_FOLDER"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+            "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "250Mi",
+            "min": "70Mi"
+          }
+        },
+        "defaultConfigMaps": [
+          {
+            "name": "crud-service-collections",
+            "mountPath": "/home/node/app/collections",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "collections"
+            }
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    },
+    "endpoints": {
+      "/vehicle": {
+        "defaultBasePath": "/vehicle",
+        "defaultPathRewrite": "/vehicle",
+        "description": "Endpoint /vehicle",
+        "type": "crud",
+        "tags": [
+          "crud"
+        ],
+        "public": true,
+        "showInDocumentation": true,
+        "secreted": false,
+        "acl": "true",
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "pathName": "/",
+        "collectionId": "Vehicle"
+      },
+      "/subject": {
+        "defaultBasePath": "/subject",
+        "defaultPathRewrite": "/subject",
+        "description": "Endpoint /subject",
+        "type": "crud",
+        "tags": [
+          "crud"
+        ],
+        "public": true,
+        "showInDocumentation": true,
+        "secreted": false,
+        "acl": "true",
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "pathName": "/",
+        "collectionId": "Subject"
+      },
+      "/policy": {
+        "defaultBasePath": "/policy",
+        "defaultPathRewrite": "/policy",
+        "description": "Endpoint /policy",
+        "type": "crud",
+        "tags": [
+          "crud"
+        ],
+        "public": true,
+        "showInDocumentation": true,
+        "secreted": false,
+        "acl": "true",
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "pathName": "/",
+        "collectionId": "Policy"
+      },
+      "/fnol": {
+        "defaultBasePath": "/fnol",
+        "pathName": "/",
+        "defaultPathRewrite": "/fnol",
+        "type": "crud",
+        "tags": [
+          "crud"
+        ],
+        "description": "Endpoint /fnol",
+        "collectionId": "FNOL",
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "acl": "true",
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      },
+      "/claim": {
+        "defaultBasePath": "/claim",
+        "pathName": "/",
+        "defaultPathRewrite": "/claim",
+        "type": "crud",
+        "tags": [
+          "crud"
+        ],
+        "description": "Endpoint /claim",
+        "collectionId": "Claim",
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "acl": "true",
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      }
+    },
+    "collections": {
+      "FNOL": {
+        "id": "FNOL",
+        "description": "Collection of FNOL",
+        "defaultName": "FNOL",
+        "tags": [
+          "collection"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "fnolCode",
+            "description": "Codice della Richiesta Fnol",
+            "type": "string",
+            "required": true,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "companyCode",
+            "description": "Codice della compagnia",
+            "type": "string",
+            "required": true,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "claimType",
+            "description": "Codice tipo Sinistro Richiesta Fnol",
+            "type": "string",
+            "required": true,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "policyNumber",
+            "description": "Codice polizza colpita.",
+            "type": "string",
+            "required": true,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "complaintDate",
+            "description": "Data Denuncia",
+            "type": "string",
+            "required": true,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "fnolOpeningRequestDate",
+            "description": "Data apertura della Richiesta Fnol",
+            "type": "string",
+            "required": true,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "event",
+            "type": "RawObject",
+            "required": true,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "date": {
+                  "title": "Data Evento",
+                  "type": "string"
+                },
+                "zipCode": {
+                  "title": "CAP",
+                  "type": "string"
+                },
+                "city": {
+                  "title": "Comune",
+                  "type": "string"
+                },
+                "province": {
+                  "title": "Provincia",
+                  "type": "string"
+                },
+                "country": {
+                  "title": "Nazione",
+                  "type": "string"
+                },
+                "address": {
+                  "title": "Indirizzo",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "date"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "fnolType",
+            "description": "Tipo richiesta Fnol",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "fnolSourceChannelCode",
+            "description": "Codice canale di provenienza Richiesta Fnol",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "fnolSourceChannelId",
+            "description": "Identificativo canale di provenienza Richiesta Fnol",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "insuredSubject",
+            "description": "Soggetto Assicurato",
+            "type": "RawObject",
+            "required": false,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "name": {
+                  "title": "Nome Assicurato",
+                  "type": "string"
+                },
+                "surname": {
+                  "title": "Cognome Assicurato",
+                  "type": "string"
+                },
+                "fiscalCode": {
+                  "title": "Codice Fiscale Assicurato",
+                  "type": "string"
+                },
+                "residenceAddress": {
+                  "title": "Residenza del soggetto assicurato",
+                  "type": "object",
+                  "properties": {
+                    "city": {
+                      "title": "Comune",
+                      "type": "string"
+                    },
+                    "province": {
+                      "title": "Provincia",
+                      "type": "string"
+                    },
+                    "country": {
+                      "title": "Nazione",
+                      "type": "string"
+                    },
+                    "address": {
+                      "title": "Indirizzo",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "intervenedAuthority",
+            "type": "RawObject",
+            "required": false,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "name": {
+                  "title": "Nome Autorità intervenuta",
+                  "type": "string"
+                },
+                "description": {
+                  "title": "Descrizione libera autorità intervenuta",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "vehicle",
+            "description": "Veicolo Azienda condotto",
+            "type": "RawObject",
+            "required": false,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "licensePlate": {
+                  "title": "Targa Veicolo Azienda",
+                  "type": "string"
+                },
+                "vehicleDynamics": {
+                  "title": "Dinamica Veicolo Azienda",
+                  "type": "string"
+                },
+                "driver": {
+                  "title": "Conducente veicolo quando diverso da assicurato",
+                  "type": "object",
+                  "properties": {
+                    "questionaryQuestion": {
+                      "title": "Riferimento al questionario",
+                      "type": "string"
+                    },
+                    "name": {
+                      "title": "Nome soggetto",
+                      "type": "string"
+                    },
+                    "surname": {
+                      "title": "Cognome soggetto",
+                      "type": "string"
+                    },
+                    "fiscalCode": {
+                      "title": "Codice Fiscale soggetto",
+                      "type": "string"
+                    },
+                    "residenceAddress": {
+                      "type": "object",
+                      "properties": {
+                        "city": {
+                          "title": "Comune",
+                          "type": "string"
+                        },
+                        "province": {
+                          "title": "Provincia",
+                          "type": "string"
+                        },
+                        "country": {
+                          "title": "Nazione",
+                          "type": "string"
+                        },
+                        "address": {
+                          "title": "Indirizzo",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "insuredWitness",
+            "description": "Testimone dell assicurato",
+            "type": "RawObject",
+            "required": false,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "questionaryQuestion": {
+                  "title": "Riferimento al questionario",
+                  "type": "string"
+                },
+                "name": {
+                  "title": "Nome soggetto",
+                  "type": "string"
+                },
+                "surname": {
+                  "title": "Cognome soggetto",
+                  "type": "string"
+                },
+                "fiscalCode": {
+                  "title": "Codice Fiscale soggetto",
+                  "type": "string"
+                },
+                "city": {
+                  "title": "Comune",
+                  "type": "string"
+                },
+                "province": {
+                  "title": "Provincia",
+                  "type": "string"
+                },
+                "country": {
+                  "title": "Nazione",
+                  "type": "string"
+                },
+                "address": {
+                  "title": "Indirizzo",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "injuredSubjects",
+            "description": "Soggetti trasportati dal Veicolo Azienda con lesioni",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "questionaryQuestion": {
+                  "title": "Riferimento al questionario",
+                  "type": "string"
+                },
+                "name": {
+                  "title": "Nome soggetto",
+                  "type": "string"
+                },
+                "surname": {
+                  "title": "Cognome soggetto",
+                  "type": "string"
+                },
+                "fiscalCode": {
+                  "title": "Codice Fiscale soggetto",
+                  "type": "string"
+                },
+                "city": {
+                  "title": "Comune",
+                  "type": "string"
+                },
+                "province": {
+                  "title": "Provincia",
+                  "type": "string"
+                },
+                "country": {
+                  "title": "Nazione",
+                  "type": "string"
+                },
+                "address": {
+                  "title": "Indirizzo",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "injuredPedestrian",
+            "description": "Pedone con ferite causate da Veicolo Azienda ",
+            "type": "RawObject",
+            "required": false,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "questionaryQuestion": {
+                  "title": "Riferimento al questionario",
+                  "type": "string"
+                },
+                "name": {
+                  "title": "Nome soggetto",
+                  "type": "string"
+                },
+                "surname": {
+                  "title": "Cognome soggetto",
+                  "type": "string"
+                },
+                "fiscalCode": {
+                  "title": "Codice Fiscale soggetto",
+                  "type": "string"
+                },
+                "city": {
+                  "title": "Comune",
+                  "type": "string"
+                },
+                "province": {
+                  "title": "Provincia",
+                  "type": "string"
+                },
+                "country": {
+                  "title": "Nazione",
+                  "type": "string"
+                },
+                "address": {
+                  "title": "Indirizzo",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "damagedOtherThirdPartiesAssets",
+            "description": "Danni a cose (diverse da veicoli e persone) di proprietà di terzi ?",
+            "type": "RawObject",
+            "required": false,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "questionaryQuestion": {
+                  "title": "Riferimento al questionario",
+                  "type": "string"
+                },
+                "damageDescription": {
+                  "title": "Descrizione del danno procurato",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "injuredSubjectsOnCounterpartsVehicles",
+            "description": "Lesioni a trasportati veicoli di controparte ?",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "injuredPedestrianByCounterpartVehicle",
+            "description": "Lesioni a pedoni da veicolo di controparte ?",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "counterpartWitnessesAvailable",
+            "description": "Presenza testimoni di controparte ?",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "damageType",
+            "description": "Tipo Danno",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "factsDescription",
+            "description": "Descrizione dettagliata dei fatti",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "insuredSubjectNotes",
+            "description": "Note assicurato",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "vehiclesCollision",
+            "description": "Dati di collisione veicoli",
+            "type": "RawObject",
+            "required": false,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "existsCollision": {
+                  "title": "Esiste collisione?",
+                  "type": "string"
+                },
+                "involvedOtherVehicles": {
+                  "title": "Oltre al veicolo assicurato sono coinvolti altri veicoli?",
+                  "type": "string"
+                },
+                "existsFriendlyAccidentStatement": {
+                  "title": "Esiste modulo blu firmato da entrambi le parti?",
+                  "type": "string"
+                },
+                "firstCounterpartVehicle": {
+                  "title": "1mo veicolo di controparte",
+                  "type": "object",
+                  "properties": {
+                    "licensePlate": {
+                      "title": "Targa",
+                      "type": "string"
+                    },
+                    "vehicleDynamics": {
+                      "title": "Dinamica veicolo controparte",
+                      "type": "string"
+                    },
+                    "insuranceCompany": {
+                      "title": "Compagnia di controparte",
+                      "type": "string"
+                    },
+                    "driver": {
+                      "type": "object",
+                      "properties": {
+                        "questionaryQuestion": {
+                          "title": "Riferimento al questionario",
+                          "type": "string"
+                        },
+                        "name": {
+                          "title": "Nome soggetto",
+                          "type": "string"
+                        },
+                        "surname": {
+                          "title": "Cognome soggetto",
+                          "type": "string"
+                        },
+                        "fiscalCode": {
+                          "title": "Codice Fiscale soggetto",
+                          "type": "string"
+                        },
+                        "residenceAddress": {
+                          "type": "object",
+                          "properties": {
+                            "city": {
+                              "title": "Comune",
+                              "type": "string"
+                            },
+                            "province": {
+                              "title": "Provincia",
+                              "type": "string"
+                            },
+                            "country": {
+                              "title": "Nazione",
+                              "type": "string"
+                            },
+                            "address": {
+                              "title": "Indirizzo",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "otherCounterpartsVehicles": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "questionaryQuestion": {
+                        "title": "Riferimento al questionario",
+                        "type": "string"
+                      },
+                      "licensePlate": {
+                        "title": "Targa",
+                        "type": "string"
+                      },
+                      "driver": {
+                        "type": "object",
+                        "properties": {
+                          "questionaryQuestion": {
+                            "title": "Riferimento al questionario",
+                            "type": "string"
+                          },
+                          "name": {
+                            "title": "Nome soggetto",
+                            "type": "string"
+                          },
+                          "surname": {
+                            "title": "Cognome soggetto",
+                            "type": "string"
+                          },
+                          "fiscalCode": {
+                            "title": "Codice Fiscale soggetto",
+                            "type": "string"
+                          },
+                          "residenceAddress": {
+                            "type": "object",
+                            "properties": {
+                              "city": {
+                                "title": "Comune",
+                                "type": "string"
+                              },
+                              "province": {
+                                "title": "Provincia",
+                                "type": "string"
+                              },
+                              "country": {
+                                "title": "Nazione",
+                                "type": "string"
+                              },
+                              "address": {
+                                "title": "Indirizzo",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/fnol",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection",
+        "indexes": [
+          {
+            "name": "_id",
+            "type": "normal",
+            "unique": true,
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ]
+          },
+          {
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "createdAt",
+                "order": -1
+              }
+            ]
+          }
+        ]
+      },
+      "Claim": {
+        "id": "Claim",
+        "description": "Collection of Claim",
+        "defaultName": "Claim",
+        "tags": [
+          "collection"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "dateOfEvent",
+            "type": "Date",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "openingDate",
+            "type": "Date",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "closingDate",
+            "type": "Date",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "reopeningDate",
+            "type": "Date",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "rejectionDate",
+            "type": "Date",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "aniaProcessingMovementDate",
+            "type": "Date",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "openedBy",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "category",
+            "type": "string",
+            "required": false,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "portfolioOrigin",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "type",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "head",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "responsabilityDivision",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "responsibilityDivisionAccordingToOurDeclaration",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "replyDeadlineDate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "address",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "zipCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "province",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "country",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "city",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "cai",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "responsibilityPercentage",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "ourDeclaration",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "companyVehicle": {
+                  "type": "string"
+                },
+                "counterpartVehicle": {
+                  "type": "string"
+                },
+                "aniaClassification": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "counterpartDeclaration",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "companyVehicle": {
+                  "type": "string"
+                },
+                "counterpartVehicle": {
+                  "type": "string"
+                },
+                "aniaClassification": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "witnesses",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "authority",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "state",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "raw": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "policy",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "number": {
+                  "type": "string"
+                },
+                "realtimeNumber": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "company",
+            "type": "RawObject",
+            "required": true,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "companyInCharge",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "complaint",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "documentDate": {
+                  "type": "string"
+                },
+                "receiptDate": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "outcomeSICRequest",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "responseCode": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "supervisor",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "warranties",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "processCode": {
+                  "type": "string"
+                },
+                "userPinsCode": {
+                  "type": "string"
+                },
+                "userUmodCode": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "maximumCoverage": {
+                  "type": "number"
+                },
+                "liabilityType": {
+                  "type": "string"
+                },
+                "liabilityAmount": {
+                  "type": "object",
+                  "properties": {
+                    "deductible": {
+                      "type": "number"
+                    },
+                    "variablePercentage": {
+                      "type": "number"
+                    },
+                    "variableMinimum": {
+                      "type": "number"
+                    },
+                    "variableMaximum": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "riskCode": {
+                  "type": "string"
+                },
+                "riskLocation": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "positions",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "isInsuredSubject": {
+                  "type": "string"
+                },
+                "causal": {
+                  "type": "string"
+                },
+                "rejectionDate": {
+                  "type": "string"
+                },
+                "injuredSubject": {
+                  "type": "object",
+                  "properties": {
+                    "fiscalCode": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "surname": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "openingType": {
+                  "type": "string"
+                },
+                "lawyer": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "surname": {
+                      "type": "string"
+                    },
+                    "fiscalCode": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "statusCode": {
+                  "type": "string"
+                },
+                "positionTypeCode": {
+                  "type": "string"
+                },
+                "assignments": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "assignmentType": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "surname": {
+                      "type": "string"
+                    },
+                    "fiscalCode": {
+                      "type": "string"
+                    },
+                    "expertiseStatus": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "province": {
+                      "type": "string"
+                    },
+                    "zipCode": {
+                      "type": "string"
+                    },
+                    "date": {
+                      "type": "string"
+                    },
+                    "returnDate": {
+                      "type": "string"
+                    },
+                    "telephone": {
+                      "type": "string"
+                    },
+                    "vatNumber": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "adjuster": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "surname": {
+                      "type": "string"
+                    },
+                    "fiscalCode": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "zipCode": {
+                      "type": "string"
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "province": {
+                      "type": "string"
+                    },
+                    "telephone": {
+                      "type": "string"
+                    },
+                    "verbalRecovery": {
+                      "type": "string"
+                    },
+                    "settlementDate": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "cardcounterpart": {
+                  "type": "object",
+                  "properties": {
+                    "licensePlate": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "surname": {
+                      "type": "string"
+                    },
+                    "fiscalCode": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "inspectorate": {
+                  "type": "object",
+                  "properties": {
+                    "companyCode": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "telephone": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "injuredPerson": {
+                  "type": "object",
+                  "properties": {
+                    "injuries": {
+                      "type": "string"
+                    },
+                    "emergencyRoom": {
+                      "type": "string"
+                    },
+                    "firstAidLocation": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "lawsuits": {
+                  "type": "object",
+                  "properties": {
+                    "validity": {
+                      "type": "object",
+                      "properties": {
+                        "startDate": {
+                          "type": "string"
+                        },
+                        "endDate": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "firstHearingDate": {
+                      "type": "string"
+                    },
+                    "court": {
+                      "type": "string"
+                    },
+                    "judgmentNumber": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "objects": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "object",
+                      "properties": {
+                        "raw": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "vehicle": {
+                      "type": "object",
+                      "properties": {
+                        "licensePlate": {
+                          "type": "string"
+                        },
+                        "plateChassis": {
+                          "type": "string"
+                        },
+                        "province": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "damageRequestReceiptDate": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "operations": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "effectiveDate": {
+                      "type": "string"
+                    },
+                    "paymentDate": {
+                      "type": "string"
+                    },
+                    "paymentType": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "amount": {
+                      "type": "string"
+                    },
+                    "recipient": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "surname": {
+                          "type": "string"
+                        },
+                        "fiscalCode": {
+                          "type": "string"
+                        },
+                        "vatCode": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "contractors",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "type": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          {
+            "name": "fnols",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "adjuster",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "surname": {
+                  "type": "string"
+                },
+                "fiscalCode": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "zipCode": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "province": {
+                  "type": "string"
+                },
+                "telephone": {
+                  "type": "string"
+                },
+                "verbalRecovery": {
+                  "type": "string"
+                },
+                "settlementDate": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "inspectorate",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "companyCode": {
+                  "type": "string"
+                },
+                "code": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "telephone": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "deductible",
+            "type": "number",
+            "required": false,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/claim",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection",
+        "indexes": [
+          {
+            "name": "_id",
+            "type": "normal",
+            "unique": true,
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ]
+          },
+          {
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "createdAt",
+                "order": -1
+              }
+            ]
+          }
+        ]
+      },
+      "Vehicle": {
+        "id": "Vehicle",
+        "description": "Collection of Vehicle",
+        "defaultName": "Vehicle",
+        "tags": [
+          "collection"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "productCardBandCode",
+            "type": "Array_string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "plateChassis",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "firstRegistrationDate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "brand",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "brandCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "model",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "modelCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "licensePlate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "vehicleType",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "sector": {
+                  "type": "string"
+                },
+                "sectorId": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "class": {
+                  "type": "string"
+                },
+                "usage": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "watercraftName",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "owner",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "fiscalCode": {
+                  "type": "string"
+                },
+                "vatCode": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "attachment",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "effectiveDate": {
+                  "type": "string"
+                },
+                "expirationDate": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "risks",
+            "type": "RawObject",
+            "required": true,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "netto": {
+                  "type": "string"
+                },
+                "ssn": {
+                  "type": "string"
+                },
+                "acc": {
+                  "type": "string"
+                },
+                "taxes": {
+                  "type": "string"
+                },
+                "intfrazacc": {
+                  "type": "string"
+                },
+                "intfraznetto": {
+                  "type": "string"
+                },
+                "units": {
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "fatUnits": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        },
+                        "factorCode": {
+                          "type": "string"
+                        },
+                        "factorDescription": {
+                          "type": "string"
+                        },
+                        "factorType": {
+                          "type": "string"
+                        },
+                        "visible": {
+                          "type": "string"
+                        },
+                        "extDescription": {
+                          "type": "string"
+                        },
+                        "tras1Code": {
+                          "type": "string"
+                        },
+                        "visibleInConsult": {
+                          "type": "string"
+                        },
+                        "factorValueDescription": {
+                          "type": "string"
+                        },
+                        "stringValue": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "warranty": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "ministerialBranch": {
+                      "type": "object",
+                      "properties": {
+                        "raw": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "furtherCoverageSubject": {
+                      "type": "string"
+                    },
+                    "wellValue": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "premium": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    },
+                    "productCode": {
+                      "type": "string"
+                    },
+                    "maximums": {
+                      "type": "string"
+                    },
+                    "coverageSubject": {
+                      "type": "string"
+                    },
+                    "riskInsured": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "riskValues": {
+                      "type": "object",
+                      "properties": {
+                        "coverageSubject": {
+                          "type": "string"
+                        },
+                        "maximumCoverage": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "lifeInsured",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/vehicle",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection",
+        "indexes": [
+          {
+            "name": "_id",
+            "type": "normal",
+            "unique": true,
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ]
+          },
+          {
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "createdAt",
+                "order": -1
+              }
+            ]
+          }
+        ]
+      },
+      "Subject": {
+        "id": "Subject",
+        "description": "Collection of Subject",
+        "defaultName": "Subject",
+        "tags": [
+          "collection"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "dataVersion",
+            "type": "RawObject",
+            "required": true,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "major": {
+                  "type": "number"
+                },
+                "minor": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "subject",
+            "type": "RawObject",
+            "required": true,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "fiscalCode": {
+                  "type": "string"
+                },
+                "vatCode": {
+                  "type": "string"
+                },
+                "idSubject": {
+                  "type": "string"
+                },
+                "isLegalEntity": {
+                  "type": "string"
+                },
+                "typeSubject": {
+                  "type": "object",
+                  "properties": {
+                    "raw": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "ana": {
+                  "type": "object",
+                  "properties": {
+                    "gender": {
+                      "type": "object",
+                      "properties": {
+                        "raw": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "birthDay": {
+                      "type": "string"
+                    },
+                    "birthPlace": {
+                      "type": "string"
+                    },
+                    "birthProvince": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "contacts": {
+                  "type": "object",
+                  "properties": {
+                    "portfolioOrigin": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "emails": {
+                      "type": "string"
+                    },
+                    "numbers": {
+                      "type": "string"
+                    },
+                    "visibility": {
+                      "type": "object",
+                      "properties": {
+                        "companyCode": {
+                          "type": "string"
+                        },
+                        "pointOfSaleCode": {
+                          "type": "string"
+                        },
+                        "subPointOfSaleCode": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "insurances",
+            "type": "Array_RawObject",
+            "required": true,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "company": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "id": {
+                  "type": "string"
+                },
+                "portfolioOrigin": {
+                  "type": "string"
+                },
+                "number": {
+                  "type": "string"
+                },
+                "technicalBranchCode": {
+                  "type": "string"
+                },
+                "currentExpirationDate": {
+                  "type": "string"
+                },
+                "originalExpirationDate": {
+                  "type": "string"
+                },
+                "proposalNumber": {
+                  "type": "string"
+                },
+                "currentEffectDate": {
+                  "type": "string"
+                },
+                "originalEffectDate": {
+                  "type": "string"
+                },
+                "migrated": {
+                  "type": "string"
+                },
+                "masterNumber": {
+                  "type": "string"
+                },
+                "roles": {
+                  "type": "object",
+                  "properties": {
+                    "idRole": {
+                      "type": "string"
+                    },
+                    "idLock": {
+                      "type": "string"
+                    },
+                    "idLegalForm": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "string"
+                    },
+                    "idUserData": {
+                      "type": "string"
+                    },
+                    "surname": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "businessName": {
+                      "type": "string"
+                    },
+                    "visible": {
+                      "type": "string"
+                    },
+                    "typeRole": {
+                      "type": "object",
+                      "properties": {
+                        "raw": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "residence": {
+                      "type": "object",
+                      "properties": {
+                        "address": {
+                          "type": "string"
+                        },
+                        "zipCode": {
+                          "type": "string"
+                        },
+                        "addressType": {
+                          "type": "string"
+                        },
+                        "houseNumber": {
+                          "type": "string"
+                        },
+                        "province": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "atCorrespondence": {
+                          "type": "string"
+                        },
+                        "country": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        },
+                        "fraction": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "correspondence": {
+                      "type": "object",
+                      "properties": {
+                        "address": {
+                          "type": "string"
+                        },
+                        "zipCode": {
+                          "type": "string"
+                        },
+                        "addressType": {
+                          "type": "string"
+                        },
+                        "houseNumber": {
+                          "type": "string"
+                        },
+                        "province": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "atCorrespondence": {
+                          "type": "string"
+                        },
+                        "country": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        },
+                        "fraction": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/subject",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection",
+        "indexes": [
+          {
+            "name": "_id",
+            "type": "normal",
+            "unique": true,
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ]
+          },
+          {
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "createdAt",
+                "order": -1
+              }
+            ]
+          }
+        ]
+      },
+      "Policy": {
+        "id": "Policy",
+        "description": "Collection of Policy",
+        "defaultName": "Policy",
+        "tags": [
+          "collection"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "dataVersion",
+            "type": "RawObject",
+            "required": true,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "major": {
+                  "type": "number"
+                },
+                "minor": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "number",
+            "type": "string",
+            "required": true,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "channel",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "specificChannel",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "raw": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "paymentTypeCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "policyStatusCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "installmentDivisionStatusCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "installmentDivisionTypeCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "saleDate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "policyTags",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "insuranceTag",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "masterNumber",
+            "type": "string",
+            "required": true,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "childNumber",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "company",
+            "type": "RawObject",
+            "required": true,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "portfolioOrigin",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "effectiveDate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "expirationDate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "suspendable",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "proposalNumber",
+            "type": "string",
+            "required": false,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "lobCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "constraint",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "silentRenewal",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "nextDeadline",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "fraction",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "agreement",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "product",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "code": {
+                  "type": "string"
+                },
+                "businessLine": {
+                  "type": "object",
+                  "properties": {
+                    "raw": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "type": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "pointOfSale",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "subPointOfSale",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "address",
+            "type": "RawObject",
+            "required": false,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "address": {
+                  "type": "string"
+                },
+                "zipCode": {
+                  "type": "string"
+                },
+                "addressType": {
+                  "type": "string"
+                },
+                "houseNumber": {
+                  "type": "string"
+                },
+                "province": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "atCorrespondence": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "fraction": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "operations",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "operationDate": {
+                  "type": "string"
+                },
+                "effectiveDate": {
+                  "type": "string"
+                },
+                "effectiveDateProgressive": {
+                  "type": "string"
+                },
+                "operationType": {
+                  "type": "string"
+                },
+                "statusCode": {
+                  "type": "object",
+                  "properties": {
+                    "raw": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "causal": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "titles": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "completionDate": {
+                      "type": "string"
+                    },
+                    "operationAmount": {
+                      "type": "string"
+                    },
+                    "statusCode": {
+                      "type": "object",
+                      "properties": {
+                        "raw": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "cashable": {
+                      "type": "string"
+                    },
+                    "receipts": {
+                      "type": "object",
+                      "properties": {
+                        "paymentTypeCode": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "paymentType": {
+                      "type": "object",
+                      "properties": {
+                        "raw": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "subtypeLoad": {
+                      "type": "object",
+                      "properties": {
+                        "raw": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "emissionDate": {
+                      "type": "string"
+                    },
+                    "effectiveDate": {
+                      "type": "string"
+                    },
+                    "expirationDate": {
+                      "type": "string"
+                    },
+                    "coInsuredType": {
+                      "type": "object",
+                      "properties": {
+                        "raw": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "claimStatus": {
+                      "type": "object",
+                      "properties": {
+                        "raw": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "canceled": {
+                  "type": "string"
+                },
+                "expirationDate": {
+                  "type": "string"
+                },
+                "installmentDivisionStatusCode": {
+                  "type": "string"
+                },
+                "installmentDivisionStatusDescription": {
+                  "type": "string"
+                },
+                "reducedDataVariationReceipt": {
+                  "type": "string"
+                },
+                "progressive": {
+                  "type": "string"
+                },
+                "installment": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "roles",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "roleOrigin": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "object",
+                  "properties": {
+                    "raw": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "version": {
+                  "type": "string"
+                },
+                "subject": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "fiscalCode": {
+                      "type": "string"
+                    },
+                    "vatCode": {
+                      "type": "string"
+                    },
+                    "gender": {
+                      "type": "object",
+                      "properties": {
+                        "raw": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "visible": {
+                      "type": "string"
+                    },
+                    "isLegalEntity": {
+                      "type": "string"
+                    },
+                    "registryType": {
+                      "type": "string"
+                    },
+                    "birthday": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "surname": {
+                      "type": "string"
+                    },
+                    "businessName": {
+                      "type": "string"
+                    },
+                    "residence": {
+                      "type": "object",
+                      "properties": {
+                        "address": {
+                          "type": "string"
+                        },
+                        "zipCode": {
+                          "type": "string"
+                        },
+                        "addressType": {
+                          "type": "string"
+                        },
+                        "houseNumber": {
+                          "type": "string"
+                        },
+                        "province": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "atCorrespondence": {
+                          "type": "string"
+                        },
+                        "country": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        },
+                        "fraction": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "correspondence": {
+                      "type": "object",
+                      "properties": {
+                        "address": {
+                          "type": "string"
+                        },
+                        "zipCode": {
+                          "type": "string"
+                        },
+                        "addressType": {
+                          "type": "string"
+                        },
+                        "houseNumber": {
+                          "type": "string"
+                        },
+                        "province": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "atCorrespondence": {
+                          "type": "string"
+                        },
+                        "country": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        },
+                        "fraction": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "values",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "valueStr": {
+                      "type": "string"
+                    },
+                    "factors": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "maximumCoverage": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "valuesFactors",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "riskFactors",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "sales",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "saleDate": {
+                  "type": "string"
+                },
+                "fundCode": {
+                  "type": "string"
+                },
+                "navValue": {
+                  "type": "string"
+                },
+                "fundTechnicalName": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "string"
+                },
+                "paymentShare": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "originalEffectiveDate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "originalExpirationDate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "numberDaysArrear",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "migrated",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "netAmount",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "grossAmount",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "technicalSource",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "netGrantedYieldRate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "grossGrantedYieldRate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "totalInvestedPremiums",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "theoreticalReleaseValue",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "theoreticalReleaseDate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "deathCaseInsuredAmount",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "lifeCaseInsuredAmount",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "policyStartHour",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "policyExpireHour",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "policyType",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "finalBalancePaymentDate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "fundValue",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "balanceTypeCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "balanceTypeDescription",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "complementaryWarrantyinsuredAmount",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "retrocessionRate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "retrocessionPercentage",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "fundCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "fundDescription",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "annuity",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "insuredAmount",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "insuredCapital",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "NAVValue",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "shareBalance",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "policyTypeDescription",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "lobDescription",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "policyStatus",
+            "type": "RawObject",
+            "required": false,
+            "nullable": true,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "premiumType",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "installmentDivisionType",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "warrantyEffectiveDate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "warrantyEffectiveHour",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "warrantyExpirationDate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "warrantyExpirationHour",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "deathCaseBeneficiaries",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "lifeCaseBeneficiaries",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "recipients",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "heading": {
+                  "type": "string"
+                },
+                "warrantyDescription": {
+                  "type": "string"
+                },
+                "warrantyIdentifier": {
+                  "type": "object",
+                  "properties": {
+                    "warrantyType": {
+                      "type": "string"
+                    },
+                    "warrantyNumber": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "designationType": {
+                  "type": "string"
+                },
+                "recipientType": {
+                  "type": "object",
+                  "properties": {
+                    "raw": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "benefitPercentage": {
+                  "type": "string"
+                },
+                "connectionWithContractor": {
+                  "type": "string"
+                },
+                "legalStatus": {
+                  "type": "string"
+                },
+                "fiscalCode": {
+                  "type": "string"
+                },
+                "vatCode": {
+                  "type": "string"
+                },
+                "surname": {
+                  "type": "string"
+                },
+                "businessName": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "birthDay": {
+                  "type": "string"
+                },
+                "birthplace": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "province": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "zipCode": {
+                  "type": "string"
+                },
+                "phoneNumber": {
+                  "type": "string"
+                },
+                "mobileNumber": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "notifyRecipientOnExpiration": {
+                  "type": "string"
+                },
+                "isStructured": {
+                  "type": "string"
+                },
+                "rawData": {
+                  "type": "string"
+                },
+                "secondLevelRecipient": {
+                  "type": "object",
+                  "properties": {
+                    "heading": {
+                      "type": "string"
+                    },
+                    "warrantyDescription": {
+                      "type": "string"
+                    },
+                    "designationType": {
+                      "type": "string"
+                    },
+                    "recipientType": {
+                      "type": "string"
+                    },
+                    "benefitPercentage": {
+                      "type": "string"
+                    },
+                    "connectionWithContractor": {
+                      "type": "string"
+                    },
+                    "legalStatus": {
+                      "type": "string"
+                    },
+                    "fiscalCode": {
+                      "type": "string"
+                    },
+                    "vatCode": {
+                      "type": "string"
+                    },
+                    "surname": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "birthDay": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "province": {
+                      "type": "string"
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "zipCode": {
+                      "type": "string"
+                    },
+                    "phoneNumber": {
+                      "type": "string"
+                    },
+                    "mobileNumber": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "systemCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "fileCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "storicRoles",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "items": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "bank",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "abi": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "branch",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "cab": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "emissionTitle",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "operationId": {
+                  "type": "string"
+                },
+                "groupTitlesId": {
+                  "type": "string"
+                },
+                "effectiveHour": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "effectiveDate": {
+                      "type": "string"
+                    },
+                    "expirationDate": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "backwardEmissionTitles",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "operationId": {
+                  "type": "string"
+                },
+                "groupTitlesId": {
+                  "type": "string"
+                },
+                "effectiveHour": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "effectiveDate": {
+                      "type": "string"
+                    },
+                    "expirationDate": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "lastCashedEmissionTitleAll",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "effectiveHour": {
+                  "type": "string"
+                },
+                "effectiveDate": {
+                  "type": "string"
+                },
+                "expirationDate": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "name": "lastCashedEmissionTitleEsqra",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "effectiveHour": {
+                  "type": "string"
+                },
+                "effectiveDate": {
+                  "type": "string"
+                },
+                "expirationDate": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "name": "lastCashedEmissionTitleEsra",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "effectiveHour": {
+                  "type": "string"
+                },
+                "effectiveDate": {
+                  "type": "string"
+                },
+                "expirationDate": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "name": "operationsEffect",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "operationId": {
+                  "type": "string"
+                },
+                "effectiveHour": {
+                  "type": "string"
+                },
+                "effectiveDate": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "name": "startCoverageDate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "endCoverageDate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "cancellationDate",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "productCardBandCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "fiscalCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "vatCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "mdmRegistryCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "investments",
+            "type": "Array_RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "mdmRegistryCode": {
+                  "type": "string"
+                },
+                "fiscalCode": {
+                  "type": "string"
+                },
+                "VATNumber": {
+                  "type": "string"
+                },
+                "productCode": {
+                  "type": "string"
+                },
+                "policyNumber": {
+                  "type": "string"
+                },
+                "fundCode": {
+                  "type": "string"
+                },
+                "fundDescription": {
+                  "type": "string"
+                },
+                "NAVDate": {
+                  "type": "string"
+                },
+                "sign": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "NAVValue": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "name": "balance",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "lifeCaseInsuredAmount": {
+                  "type": "string"
+                },
+                "theoreticalReleaseValue": {
+                  "type": "string"
+                },
+                "theoreticalReleaseDate": {
+                  "type": "string"
+                },
+                "totalInvestedPremiums": {
+                  "type": "string"
+                },
+                "mdmRegistryCode": {
+                  "type": "string"
+                },
+                "fiscalCode": {
+                  "type": "string"
+                },
+                "VATNumber": {
+                  "type": "string"
+                },
+                "policyNumber": {
+                  "type": "string"
+                },
+                "productCode": {
+                  "type": "string"
+                },
+                "finalBalancePaymentDate": {
+                  "type": "string"
+                },
+                "netGrantedYieldRate": {
+                  "type": "string"
+                },
+                "grossGrantedYieldRate": {
+                  "type": "string"
+                },
+                "deathCaseInsuredAmount": {
+                  "type": "string"
+                },
+                "fundValue": {
+                  "type": "string"
+                },
+                "balanceTypeCode": {
+                  "type": "string"
+                },
+                "balanceTypeDescription": {
+                  "type": "string"
+                },
+                "complementaryWarrantyinsuredAmount": {
+                  "type": "string"
+                },
+                "retrocessionRate": {
+                  "type": "string"
+                },
+                "retrocessionPercentage": {
+                  "type": "string"
+                },
+                "fundCode": {
+                  "type": "string"
+                },
+                "fundDescription": {
+                  "type": "string"
+                },
+                "annuity": {
+                  "type": "string"
+                },
+                "insuredAmount": {
+                  "type": "string"
+                },
+                "insuredCapital": {
+                  "type": "string"
+                },
+                "NAVValue": {
+                  "type": "string"
+                },
+                "shareBalance": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "name": "policyValue",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "dossierCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "dipCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "dipAddedCode",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "contractType",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "schema": {
+              "properties": {
+                "raw": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "enum": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/policy",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection",
+        "indexes": [
+          {
+            "name": "_id",
+            "type": "normal",
+            "unique": true,
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ]
+          },
+          {
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "createdAt",
+                "order": -1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "itemId": "insurance-crud-data-model",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  }
+}

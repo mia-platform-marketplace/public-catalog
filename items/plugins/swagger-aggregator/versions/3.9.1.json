@@ -1,0 +1,84 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Swagger Aggregator",
+  "itemId": "swagger-aggregator",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "3.9.1",
+    "releaseNote": "### Added\n\n- Added `apiPortalConfig` configurable object in the `swagger-config.json`, to specify a custom prefix, logo, or favicon for the API Portal.\n- Added GET `/api-portal/config` endpoint to retrieve the config for the API Portal, such as the prefix with which call the backend.\n\n### Updated\n\n- GET `/ui-config` endpoint returns the custom logo for the API Portal, when configured.\n"
+  },
+  "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/swagger-aggregator-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "devportal",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/swagger-aggregator/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
+  "resources": {
+    "services": {
+      "swagger-aggregator": {
+        "type": "plugin",
+        "name": "swagger-aggregator",
+        "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
+        "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.1",
+        "componentId": "swagger-aggregator",
+        "mapEnvVarToMountPath": {
+          "swagger-aggregator-config": {
+            "type": "file",
+            "envName": "CONFIG_FILE_PATH"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "/home/node/app/configs/config.json",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "swagger-aggregator-config",
+            "mountPath": "/home/node/app/configs",
+            "files": [],
+            "viewAsReadOnly": true
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

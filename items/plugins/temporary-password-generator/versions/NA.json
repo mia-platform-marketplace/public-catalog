@@ -1,0 +1,105 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Temporary Password Generator",
+  "itemId": "temporary-password-generator",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Generates Temporary-Passwords associated with arbitrary data payload to be later consumed.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/temporary-password-generator-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "addonsecurity",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/temporary-password-generator/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/temporary-password-generator",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "temporary-password-generator": {
+        "type": "plugin",
+        "name": "temporary-password-generator",
+        "description": "Generates Temporary-Passwords associated with arbitrary data payload to be later consumed.",
+        "dockerImage": "nexus.mia-platform.eu/core/temporary-password-generator:1.1.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "PEM_PRIVATE_KEY_PATH",
+            "value": "/CHANGE_WITH_YOUR_PATH_TO/private.pem",
+            "description": "Private key used to sign JWTs.",
+            "valueType": "plain"
+          },
+          {
+            "name": "OTP_HMAC_KEY",
+            "value": "CHANGE_WITH_A_32_CHARACTERS_SECRET",
+            "description": "This value should be a 32 letters passphrase, used to hash passwords.",
+            "valueType": "plain"
+          },
+          {
+            "name": "OTP_CRUD_NAME",
+            "value": "CHANGE_WITH_CRUD_NAME",
+            "description": "Name of the CRUD where password and metadata will be stored.",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "/documentation/json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Go Echo Template",
+  "itemId": "go-echo-template",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "This is the best template to start creating a service in Go with an Echo web framework integrated inside the Platform",
+  "type": "template",
+  "image": {
+    "localPath": "../../assets/go-echo-template-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "golang",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/go-echo-template/master/README.md"
+  },
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/go-echo-template",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "go-echo-template": {
+        "type": "template",
+        "name": "go-echo-template",
+        "description": "This is the best template to start creating a service in Go with an Echo web framework integrated inside the Platform",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/go-echo-template/archive/main.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fgo-app.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Email Builder",
+  "itemId": "email-builder",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "## Overview\nThe first version of **Email Builder** offers a simple and intuitive solution for creating HTML email templates through a graphical interface.\n\n---\n\n## Features\n\n- **Template Creation**: Enables creating and editing HTML templates via a graphical interface using customizable components.\n- **Template Export**: Allows saving email templates in HTML and JSON formats via POST to a customizable endpoint.\n- **Predefined Templates**: Includes a collection of basic templates for common email types that can be quickly customized."
+  },
+  "description": "Build and manage custom html email templates.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/email-builder-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "supportedBy": "Mia-Care",
+  "categoryId": "notification",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/email-builder/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/email-builder",
+  "resources": {
+    "services": {
+      "email-builder": {
+        "type": "plugin",
+        "name": "email-builder",
+        "description": "Build and manage custom html email templates.",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/email-builder:1.0.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

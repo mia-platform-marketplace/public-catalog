@@ -1,0 +1,56 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "React Template",
+  "itemId": "react-template",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "This template allows you to start setting up a front-end project with the React framework",
+  "type": "template",
+  "image": {
+    "localPath": "../../assets/react-template-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "spa",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/React-App-Template/master/README.md"
+  },
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/React-App-Template",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "react-template": {
+        "type": "template",
+        "name": "react-template",
+        "description": "This template allows you to start setting up a front-end project with the React framework",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/React-App-Template/archive/master.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Freact-app.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

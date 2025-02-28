@@ -1,0 +1,47 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "categoryId": "nodejs",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Typescript-LC39-Template/tree/16.x",
+  "type": "template",
+  "description": "This is the best template to start creating a service in Node.js 16 with TypeScript integrated with Mia-Platform",
+  "image": {
+    "localPath": "../../assets/typescript-template-transparent.png"
+  },
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Typescript-LC39-Template/refs/heads/16.x/README.md"
+  },
+  "resources": {
+    "services": {
+      "typescript-template": {
+        "type": "template",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Typescript-LC39-Template/archive/refs/heads/16.x.tar.gz",
+        "name": "typescript-template",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fnode-template.gitlab-ci.yml/raw"
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "name": "Node.js 16 TypeScript Template",
+  "itemId": "typescript-template",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  }
+}

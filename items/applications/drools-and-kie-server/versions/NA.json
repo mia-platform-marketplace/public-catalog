@@ -1,0 +1,143 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "categoryId": "utility",
+  "releaseStage": "deprecated",
+  "type": "application",
+  "name": "Drools and Kie Server",
+  "description": "This is the application that sets up a Drools Workbench and a Kie Server instance",
+  "image": {
+    "localPath": "../../assets/drools-application.png"
+  },
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://hub.docker.com/r/jboss/drools-workbench/"
+  },
+  "resources": {
+    "services": {
+      "drools-workbench": {
+        "type": "plugin",
+        "name": "drools-workbench",
+        "description": "This is a ready to run Docker image for JBoss Drools Workbench. Just run it and try the Drools workbench!",
+        "dockerImage": "jboss/drools-workbench-showcase:latest",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "min": "50m",
+            "max": "1000m"
+          },
+          "memoryLimits": {
+            "min": "1000Mi",
+            "max": "2000Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 1,
+            "failureThreshold": 3,
+            "successThreshold": 1
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "kie-server": {
+        "type": "plugin",
+        "name": "kie-server",
+        "description": "This is a ready to run Docker image for Drools KIE Server. Just run it and try the Drools runtime execution server!",
+        "dockerImage": "jboss/kie-server-showcase:latest",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "KIE_SERVER_CONTROLLER",
+            "value": "http://drools-workbench:80/business-central/rest/controller",
+            "valueType": "plain"
+          },
+          {
+            "name": "KIE_SERVER_CONTROLLER_USER",
+            "value": "{{KIE_SERVER_CONTROLLER_USER}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KIE_SERVER_CONTROLLER_PWD",
+            "value": "{{KIE_SERVER_CONTROLLER_PASSWORD}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "min": "50m",
+            "max": "1000m"
+          },
+          "memoryLimits": {
+            "min": "1000Mi",
+            "max": "2000Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 1,
+            "failureThreshold": 3,
+            "successThreshold": 1
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "itemId": "drools-and-kie-server",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  }
+}

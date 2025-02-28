@@ -1,0 +1,101 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Payment Gateway Manager",
+  "itemId": "payment-gateway-manager",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "3.6.1",
+    "releaseNote": "-"
+  },
+  "description": "Payment Gateway Manager helps you connect your services with different payment gateways in an easy fashion",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/payment-gateway-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "payments",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/payment-gateway-manager/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/payment-gateway-manager",
+  "resources": {
+    "services": {
+      "payment-gateway-manager": {
+        "type": "plugin",
+        "name": "payment-gateway-manager",
+        "description": "Payment Gateway Manager helps you connect your services with different payment gateways in an easy fashion",
+        "dockerImage": "nexus.mia-platform.eu/plugins/payment-gateway-manager:3.6.1",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_CONFIG_FILE",
+            "value": "./prod-logback.xml",
+            "valueType": "plain"
+          },
+          {
+            "name": "PAYMENT_CALLBACK_URL",
+            "value": "{{CHANGE_WITH_YOUR_PAYMENT_CALLBACK_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "ENABLED_PROVIDERS",
+            "value": "gestpay",
+            "valueType": "plain"
+          },
+          {
+            "name": "GESTPAY_IS_SANDBOX",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "GESTPAY_API_KEY",
+            "value": "{{CHANGE_WITH_YOUR_GESTPAY_API_KEY}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "GESTPAY_SHOP_LOGIN",
+            "value": "{{CHANGE_WITH_YOUR_GESTPAY_SHOP_LOGIN}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "300m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "150Mi"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

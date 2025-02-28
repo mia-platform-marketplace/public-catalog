@@ -1,0 +1,91 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Push Notification Sender",
+  "itemId": "push-notification-sender",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Use REST API for push notifications to Android and iOS devices. Use it paired with Notifications Manager.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/push-notification-sender-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "notification",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/push-notification-sender/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/notifications-service",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "push-notification-sender": {
+        "type": "plugin",
+        "name": "push-notification-sender",
+        "description": "Use REST API for push notifications to Android and iOS devices. Use it paired with Notifications Manager.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/notifications-service:2.1.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "CHANGE_WITH_YOUR_CONFIG_FILE_PATH",
+            "valueType": "plain"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

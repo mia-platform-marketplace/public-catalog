@@ -1,0 +1,1673 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "categoryId": "healthcare",
+  "description": "This application allows to quickly setup the necessary services in order to manage appointments and availabilities.",
+  "image": {
+    "localPath": "../../assets/booking-module.png"
+  },
+  "itemId": "booking-module",
+  "name": "Booking Module",
+  "releaseDate": "2024-10-01T10:02:05.077Z",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/booking-module/application",
+  "resources": {
+    "collections": {
+      "bk_am_appointments": {
+        "defaultName": "bk_am_appointments",
+        "description": "Appointment Manager appointments",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "reminderMilliseconds",
+            "nullable": false,
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "reminderIds",
+            "nullable": false,
+            "required": false,
+            "type": "Array_string"
+          },
+          {
+            "name": "channels",
+            "nullable": false,
+            "required": false,
+            "type": "Array_string"
+          },
+          {
+            "name": "title",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "startDate",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "name": "endDate",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isRemote",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "linkTeleconsultation",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isFlagged",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "availabilityId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "slotId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "ownerId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "status",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "lockExpiration",
+            "nullable": true,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "customerId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "customer",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "resourceId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "resource",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "description",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "completed",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "type",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "location",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "participants",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "patients",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "doctors",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "method",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "notes",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "bk_am_appointments",
+        "internalEndpoints": [
+          {
+            "basePath": "/bk-am-appointments",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "bk_am_availabilities": {
+        "defaultName": "bk_am_availabilities",
+        "description": "Collection of bk_am_availabilities",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "startDate",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "endDate",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "slotDuration",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "simultaneousSlotsNumber",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "each",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "on",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "untilDate",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "doctorId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "resourceId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "timeZone",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "location",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "onCreate",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "onUpdate",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "onDelete",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "onCompute",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "type",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "bk_am_availabilities",
+        "internalEndpoints": [
+          {
+            "basePath": "/bk-am-availabilities",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "tags": [
+          "collection"
+        ],
+        "type": "collection"
+      },
+      "bk_am_exceptions": {
+        "defaultName": "bk_am_exceptions",
+        "description": "Collection of bk_am_exceptions",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "startDate",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "endDate",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "reason",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "resourceId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "bk_am_exceptions",
+        "internalEndpoints": [
+          {
+            "basePath": "/bk-am-exceptions",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "tags": [
+          "collection"
+        ],
+        "type": "collection"
+      },
+      "bk_am_week_days": {
+        "defaultName": "bk_am_week_days",
+        "description": "Collection of bk_am_week_days",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "index",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "name",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "bk_am_week_days",
+        "internalEndpoints": [
+          {
+            "basePath": "/bk-am-week-days",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "bk_ts_teleconsultations": {
+        "defaultName": "bk_ts_teleconsultations",
+        "description": "Collection of bk_ts_teleconsultations",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "bandyerRoomId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "participants",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "Array_RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "teleconsultationState",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "participantsNumber",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "startDate",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "endDate",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "duration",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "number"
+          }
+        ],
+        "id": "bk_ts_teleconsultations",
+        "internalEndpoints": [
+          {
+            "basePath": "/bk-ts-teleconsultations",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "bk_ts_userid_maps": {
+        "defaultName": "bk_ts_userid_maps",
+        "description": "Collection of bk_ts_userid_maps",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "bandyerId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "receivedUserId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "bk_ts_userid_maps",
+        "internalEndpoints": [
+          {
+            "basePath": "/bk-ts-userid-maps",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      }
+    },
+    "endpoints": {
+      "/api/v1/telecons-be": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/api/v1/telecons-be",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /api/v1/telecons-be",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "teleconsultation-service-backend",
+        "tags": [
+          "teleconsultation-service-backend"
+        ],
+        "type": "custom"
+      },
+      "/appointment-manager": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/appointment-manager",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /appointment-manager",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "appointment-manager",
+        "tags": [
+          "appointment-manager"
+        ],
+        "type": "custom"
+      },
+      "/bk-am-appointments": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "collectionId": "bk_am_appointments",
+        "defaultBasePath": "/bk-am-appointments",
+        "defaultPathRewrite": "/bk-am-appointments",
+        "description": "Endpoint /bk-am-appointments",
+        "forceMicroserviceGatewayProxy": false,
+        "pathName": "/",
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "tags": [
+          "crud"
+        ],
+        "type": "crud"
+      },
+      "/bk-am-availabilities": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "collectionId": "bk_am_availabilities",
+        "defaultBasePath": "/bk-am-availabilities",
+        "defaultPathRewrite": "/bk-am-availabilities",
+        "description": "Endpoint /bk-am-availabilities",
+        "forceMicroserviceGatewayProxy": false,
+        "pathName": "/",
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "tags": [
+          "crud"
+        ],
+        "type": "crud"
+      },
+      "/bk-am-exceptions": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "collectionId": "bk_am_exceptions",
+        "defaultBasePath": "/bk-am-exceptions",
+        "defaultPathRewrite": "/bk-am-exceptions",
+        "description": "Endpoint /bk-am-exceptions",
+        "forceMicroserviceGatewayProxy": false,
+        "pathName": "/",
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "tags": [
+          "crud"
+        ],
+        "type": "crud"
+      },
+      "/bk-am-week-days": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "collectionId": "bk_am_week_days",
+        "defaultBasePath": "/bk-am-week-days",
+        "defaultPathRewrite": "/bk-am-week-days",
+        "description": "Endpoint /bk-am-week-days",
+        "forceMicroserviceGatewayProxy": false,
+        "pathName": "/",
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "tags": [
+          "crud"
+        ],
+        "type": "crud"
+      },
+      "/telecons-fe": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/telecons-fe",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /telecons-fe",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "teleconsultation-service-frontend",
+        "tags": [
+          "teleconsultation-service-frontend"
+        ],
+        "type": "custom"
+      }
+    },
+    "services": {
+      "api-gateway": {
+        "additionalContainers": [
+          {
+            "args": [
+              "--listen",
+              "127.0.0.1:53",
+              "--default-resolver",
+              "--enable-search",
+              "--hostsfile=/etc/hosts"
+            ],
+            "defaultEnvironmentVariables": [
+              {
+                "name": "LOG_LEVEL",
+                "value": "{{LOG_LEVEL}}",
+                "valueType": "plain"
+              },
+              {
+                "name": "TRUSTED_PROXIES",
+                "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+                "valueType": "plain"
+              },
+              {
+                "name": "HTTP_PORT",
+                "value": "3000",
+                "valueType": "plain"
+              },
+              {
+                "name": "USERID_HEADER_KEY",
+                "value": "miauserid",
+                "valueType": "plain"
+              },
+              {
+                "name": "GROUPS_HEADER_KEY",
+                "value": "miausergroups",
+                "valueType": "plain"
+              },
+              {
+                "name": "CLIENTTYPE_HEADER_KEY",
+                "value": "client-type",
+                "valueType": "plain"
+              },
+              {
+                "name": "BACKOFFICE_HEADER_KEY",
+                "value": "isbackoffice",
+                "valueType": "plain"
+              },
+              {
+                "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+                "value": "microservice-gateway",
+                "valueType": "plain"
+              },
+              {
+                "name": "USER_PROPERTIES_HEADER_KEY",
+                "value": "miauserproperties",
+                "valueType": "plain"
+              }
+            ],
+            "defaultProbes": {
+              "liveness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 15,
+                "periodSeconds": 20
+              },
+              "readiness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 5,
+                "periodSeconds": 10
+              }
+            },
+            "defaultResources": {
+              "cpuLimits": {
+                "min": "10m"
+              },
+              "memoryLimits": {
+                "max": "20Mi",
+                "min": "5Mi"
+              }
+            },
+            "dockerImage": "nexus.mia-platform.eu/core/dnsmasq:1.0.3",
+            "name": "dnsmasq"
+          }
+        ],
+        "componentId": "api-gateway",
+        "containerPorts": [
+          {
+            "from": 8080,
+            "name": "frontend",
+            "to": 8080
+          },
+          {
+            "from": 8081,
+            "name": "backoffice",
+            "to": 8081
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "mountPath": "/etc/nginx/conf.d",
+            "name": "api-gateway-server",
+            "viewAsReadOnly": true
+          },
+          {
+            "files": [],
+            "mountPath": "/etc/nginx/platform.d",
+            "name": "api-gateway-platform",
+            "viewAsReadOnly": true
+          },
+          {
+            "files": [],
+            "link": {
+              "targetSection": "endpoints"
+            },
+            "mountPath": "/etc/nginx/customization.d",
+            "name": "api-gateway-customization",
+            "viewAsReadOnly": true
+          },
+          {
+            "files": [],
+            "mountPath": "/etc/nginx/backoffice.d",
+            "name": "api-gateway-backoffice",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [],
+        "defaultLogParser": "mia-nginx",
+        "defaultProbes": {
+          "liveness": {
+            "initialDelaySeconds": 15,
+            "path": "/healthz",
+            "periodSeconds": 20,
+            "port": "frontend"
+          },
+          "readiness": {
+            "initialDelaySeconds": 5,
+            "path": "/healthz",
+            "periodSeconds": 10,
+            "port": "frontend"
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "25Mi",
+            "min": "5Mi"
+          }
+        },
+        "description": "Use this service to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "nexus.mia-platform.eu/core/api-gateway:5.0.2",
+        "execPreStop": [
+          "sh",
+          "-c",
+          "sleep 5 && /usr/sbin/nginx -s quit"
+        ],
+        "name": "api-gateway",
+        "type": "plugin"
+      },
+      "appointment-manager": {
+        "componentId": "appointment-manager",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "{\n  \"users\": {\n    \"doctors\": {\n      \"create\": \"{{APPOINTMENT_CREATION_DOCTOR_TEMPLATE_ID}}\",\n      \"reminders\": [\n        {\n          \"template\": \"{{APPOINTMENT_REMINDER_DOCTOR_TEMPLATE_ID}}\",\n          \"reminderMilliseconds\": 3600000\n        }\n      ],\n      \"status\": \"needs-action\",\n      \"required\": true,\n      \"acceptanceRequired\": false\n    },\n    \"patients\": {\n      \"create\": \"{{APPOINTMENT_CREATION_PATIENT_TEMPLATE_ID}}\",\n      \"reminders\": [\n        {\n          \"template\": \"{{APPOINTMENT_REMINDER_PATIENT_TEMPLATE_ID}}\",\n          \"reminderMilliseconds\": 3600000\n        }\n      ],\n      \"status\": \"needs-action\",\n      \"required\": true,\n      \"acceptanceRequired\": false\n    },\n    \"resourceId\": {}\n  },\n  \"channels\": [\n    \"email\",\n    \"sms\"\n  ],\n  \"isTeleconsultationAvailable\": true,\n  \"isMessagingAvailable\": false,\n  \"isTimerAvailable\": false,\n  \"isUserAvailable\": false,\n  \"isFlexibleSlotAvailable\": false,\n  \"isParticipantStatusAvailable\": false,\n  \"isNotificationManagerAvailable\": true\n}",
+                "name": "config.json"
+              }
+            ],
+            "mountPath": "/home/node/app/appointment-manager",
+            "name": "appointment-manager"
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "info",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE_NAME",
+            "value": "crud-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "APPOINTMENTS_CRUD_NAME",
+            "value": "bk-am-appointments",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/home/node/app/appointment-manager/config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "RESOURCE_ID_FIELD_NAME",
+            "value": "resourceId",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_TIME_ZONE",
+            "value": "Europe/Rome",
+            "valueType": "plain"
+          },
+          {
+            "name": "TELECONSULTATION_SERVICE_NAME",
+            "value": "teleconsultation-service-backend",
+            "valueType": "plain"
+          },
+          {
+            "name": "TELECONSULTATION_BASE_PATH",
+            "value": "{{TELECONSULTATION_BASE_PATH}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TELECONSULTATION_ENDPOINT_FE",
+            "value": "/telecons-fe",
+            "valueType": "plain"
+          },
+          {
+            "name": "AVAILABILITIES_CRUD_NAME",
+            "value": "bk-am-availabilities",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXCEPTIONS_CRUD_NAME",
+            "value": "bk-am-exceptions",
+            "valueType": "plain"
+          },
+          {
+            "name": "NOTIFICATION_MANAGER_NAME",
+            "value": "{{NOTIFICATION_MANAGER_NAME}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "150Mi"
+          }
+        },
+        "description": "Use this service to handle appointments.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager:{{APPOINTMENT_MANAGER_VERSION}}",
+        "name": "appointment-manager",
+        "type": "plugin"
+      },
+      "crud-service": {
+        "componentId": "crud-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "collections"
+            },
+            "mountPath": "/home/node/app/collections",
+            "name": "crud-service-collections",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+            "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "secretKey": "url",
+            "secretName": "mongodb",
+            "valueType": "secret"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "300m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "70Mi"
+          }
+        },
+        "defaultSecrets": [
+          {
+            "mountPath": "/home/node/app/secrets/mongodb",
+            "name": "mongodb"
+          }
+        ],
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:{{CRUD_SERVICE_VERSION}}",
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "envName": "COLLECTION_DEFINITION_FOLDER",
+            "type": "folder"
+          }
+        },
+        "name": "crud-service",
+        "type": "plugin"
+      },
+      "teleconsultation-service-backend": {
+        "componentId": "teleconsultation-service-backend",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "{\n  \"privileges\": {\n    \"basic\": {\n      \"groups\": [\n        \"patient\"\n      ],\n      \"tools\": {\n        \"chat\": true,\n        \"screen_sharing\": true,\n        \"file_upload\": true,\n        \"whiteboard\": true,\n        \"snapshot\": true,\n        \"live_edit\": true,\n        \"live_pointer\": true,\n        \"present_to_everyone\": true\n      }\n    },\n    \"plus\": {\n      \"groups\": [\n        \"doctor\",\n        \"admin\",\n        \"superadmin\"\n      ],\n      \"tools\": {\n        \"chat\": true,\n        \"screen_sharing\": true,\n        \"file_upload\": true,\n        \"whiteboard\": true,\n        \"snapshot\": true,\n        \"live_edit\": true,\n        \"live_pointer\": true,\n        \"present_to_everyone\": true\n      }\n    }\n  },\n  \"theme\": {\n    \"light\": {\n      \"primaryColor\": \"#ffffff\",\n      \"accentColor\": \"#480ca8\"\n    },\n    \"dark\": {\n      \"primaryColor\": \"#003049\",\n      \"accentColor\": \"#d62828\"\n    }\n  },\n  \"environment\": \"sandbox\",\n  \"mode\": \"window\",\n  \"customUserId\": {\n    \"source\": \"_id\",\n    \"target\": \"authUserId\"\n  }\n}",
+                "name": "config.json"
+              }
+            ],
+            "mountPath": "/home/node/app/teleconsultation-service",
+            "name": "teleconsultation-service"
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "trace",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADDITIONAL_HEADERS_TO_PROXY",
+            "value": "x-forwarded-for,x-request-id,x-forwarded-host,cookie,client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_CLIENT_TYPE",
+            "value": "backoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "BANDYER_API_SECRET_KEY",
+            "secretKey": "bandyer-api-secret-key",
+            "secretName": "teleconsultation",
+            "valueType": "secret"
+          },
+          {
+            "name": "TELECONSULTATION_SERVICE_CONFIG_PATH",
+            "value": "/home/node/app/teleconsultation-service/config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "TELECONSULTATIONS_CRUD_NAME",
+            "value": "/bk-ts-teleconsultations",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_MAP_CRUD_NAME",
+            "value": "/bk-ts-userid-maps",
+            "valueType": "plain"
+          },
+          {
+            "name": "BANDYER_BASE_URL",
+            "secretKey": "bandyer-base-url",
+            "secretName": "teleconsultation",
+            "valueType": "secret"
+          },
+          {
+            "name": "BANDYER_APP_ID",
+            "secretKey": "bandyer-app-id",
+            "secretName": "teleconsultation",
+            "valueType": "secret"
+          },
+          {
+            "name": "AUTH_SERVICE",
+            "value": "{{AUTH_SERVICE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "CUSTOM_ID_USERS_API_ENDPOINT",
+            "value": "http://user-manager-service-proxy/users/",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "150Mi"
+          }
+        },
+        "description": "Use this service to handle teleconsultations.",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/teleconsultation-service-backend:{{TELECONSULTATION_SERVICE_BE_VERSION}}",
+        "name": "teleconsultation-service-backend",
+        "type": "plugin"
+      },
+      "teleconsultation-service-frontend": {
+        "componentId": "teleconsultation-service-frontend",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "150Mi"
+          }
+        },
+        "description": "Start your videocall application leveraging Bandyer APIs",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/teleconsultation-service-frontend:{{TELECONSULTATION_SERVICE_FE_VERSION}}",
+        "name": "teleconsultation-service-frontend",
+        "type": "plugin"
+      }
+    },
+    "unsecretedVariables": {
+      "APPOINTMENT_CREATION_DOCTOR_TEMPLATE_ID": {
+        "noProductionEnv": "64ee0c6df1d8f12eeb8a2909",
+        "productionEnv": "64ee0c6df1d8f12eeb8a2909"
+      },
+      "APPOINTMENT_CREATION_PATIENT_TEMPLATE_ID": {
+        "noProductionEnv": "64ee0cd5f1d8f12eeb8a290e",
+        "productionEnv": "64ee0cd5f1d8f12eeb8a290e"
+      },
+      "APPOINTMENT_MANAGER_VERSION": {
+        "noProductionEnv": "2.4.0",
+        "productionEnv": "2.4.0"
+      },
+      "APPOINTMENT_REMINDER_DOCTOR_TEMPLATE_ID": {
+        "noProductionEnv": "66ac98c268156d086570e091",
+        "productionEnv": "66ac98c268156d086570e091"
+      },
+      "APPOINTMENT_REMINDER_PATIENT_TEMPLATE_ID": {
+        "noProductionEnv": "66ac991668156d086570e092",
+        "productionEnv": "66ac991668156d086570e092"
+      },
+      "AUTH_SERVICE": {
+        "noProductionEnv": "auth0-client.user-auth-module-development.svc.cluster.local",
+        "productionEnv": "auth0-client.user-auth-module-preproduction.svc.cluster.local"
+      },
+      "CRUD_SERVICE_VERSION": {
+        "noProductionEnv": "7.2.1",
+        "productionEnv": "7.2.1"
+      },
+      "NOTIFICATION_MANAGER_NAME": {
+        "noProductionEnv": "notification-manager.notification-module-development.svc.cluster.local",
+        "productionEnv": "notification-manager.notification-module-preproduction.svc.cluster.local"
+      },
+      "TELECONSULTATION_BASE_PATH": {
+        "noProductionEnv": "user-auth-module.test.mia-care.io",
+        "productionEnv": "user-auth-module.preprod.mia-care.io"
+      },
+      "TELECONSULTATION_SERVICE_BE_VERSION": {
+        "noProductionEnv": "2.0.1",
+        "productionEnv": "2.0.1"
+      },
+      "TELECONSULTATION_SERVICE_FE_VERSION": {
+        "noProductionEnv": "2.0.2",
+        "productionEnv": "2.0.2"
+      },
+      "USER_AUTH_MODULE_AUTH_SERVICE": {
+        "noProductionEnv": "auth0-client.user-auth-module-development.svc.cluster.local",
+        "productionEnv": "auth0-client.user-auth-module-preproduction.svc.cluster.local"
+      },
+      "USER_AUTH_MODULE_BASE_PATH": {
+        "noProductionEnv": "user-auth-module.test.mia-care.io",
+        "productionEnv": "user-auth-module.preprod.mia-care.io"
+      },
+      "USER_AUTH_MODULE_NAMESPACE": {
+        "noProductionEnv": "user-auth-module-development",
+        "productionEnv": "user-auth-module-preproduction"
+      }
+    }
+  },
+  "type": "application",
+  "publishOnMiaDocumentation": true,
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  }
+}

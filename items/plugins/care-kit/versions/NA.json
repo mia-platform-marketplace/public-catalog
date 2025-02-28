@@ -1,0 +1,62 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Care Kit",
+  "itemId": "care-kit",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "This plugin exposes a bundle of web components, designed by Mia Care, that can be used within your Backoffice.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/care-kit-plugin.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "supportedBy": "Mia-Care",
+  "categoryId": "frontendbuilder",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/care-kit/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/mia-care-web-components",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "care-kit": {
+        "type": "plugin",
+        "name": "care-kit",
+        "description": "This plugin exposes a bundle of web components, designed by Mia Care, that can be used within your Backoffice.",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/mia-care-web-components:2.8.2",
+        "componentId": "care-kit",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "readiness": {
+            "path": "/mia-care-web-components.esm.js"
+          },
+          "liveness": {
+            "path": "/mia-care-web-components.esm.js"
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

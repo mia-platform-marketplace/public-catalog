@@ -1,0 +1,140 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Teleconsultation Service Backend",
+  "itemId": "teleconsultation-service-backend",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "1.7.0",
+    "releaseNote": "-"
+  },
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/teleconsultation-service-backend-plugin.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "supportedBy": "Mia-Care",
+  "categoryId": "utility",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/teleconsultation-service-backend/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-backend",
+  "resources": {
+    "services": {
+      "teleconsultation-service-backend": {
+        "type": "plugin",
+        "name": "teleconsultation-service-backend",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/teleconsultation-service-backend:1.7.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "trace",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADDITIONAL_HEADERS_TO_PROXY",
+            "value": "x-forwarded-for,x-request-id,x-forwarded-host,cookie,client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_CLIENT_TYPE",
+            "value": "backoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "BANDYER_API_SECRET_KEY",
+            "value": "{{CHANGE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TELECONSULTATION_SERVICE_CONFIG_PATH",
+            "value": "/home/node/app/teleconsultation-service/config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "TELECONSULTATIONS_CRUD_NAME",
+            "value": "{{CHANGE-INSERT_VALUE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_MAP_CRUD_NAME",
+            "value": "{{CHANGE-INSERT_VALUE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "BANDYER_BASE_URL",
+            "value": "{{CHANGE-INSERT_VALUE}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "teleconsultation-service",
+            "mountPath": "/home/node/app/teleconsultation-service",
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\n\"privileges\": {\n\"basic\": {\n\"groups\": [\n\"customer\"\n],\n\"tools\": {\n\"chat\": true,\n\"screen_sharing\": true,\n\"file_upload\": true,\n\"whiteboard\": true,\n\"snapshot\": true,\n\"live_edit\": true,\n\"live_pointer\": true,\n\"present_to_everyone\": true\n}\n},\n\"plus\": {\n\"groups\": [\n\"doctor\",\n\"admin\"\n],\n\"tools\": {\n\"chat\": true,\n\"screen_sharing\": true,\n\"file_upload\": true,\n\"whiteboard\": true,\n\"snapshot\": true,\n\"live_edit\": true,\n\"live_pointer\": true,\n\"present_to_everyone\": true\n}\n}\n},\n\"theme\": {\n\"light\": {\n\"primaryColor\": \"#fff\",\n\"accentColor\": \"#480ca8\"\n},\n\"dark\": {\n\"primaryColor\": \"#003049\",\n\"accentColor\": \"#d62828\"\n}\n},\n\"environment\": \"sandbox\",\n\"mode\": \"window\",\n\"companyLogo\": {\n\"url\": \"https://www.insert.url.it\"\n}\n}"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

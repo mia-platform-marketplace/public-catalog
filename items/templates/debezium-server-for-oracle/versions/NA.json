@@ -1,0 +1,125 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Debezium Server for Oracle",
+  "itemId": "debezium-server-for-oracle",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Debezium is an open source distributed platform for change data capture",
+  "type": "template",
+  "image": {
+    "localPath": "../../assets/debezium-server-for-oracle-template-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/debezium.png"
+  },
+  "supportedBy": "Community",
+  "categoryId": "fast-data-connectors",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc#oracle-db"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-template",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "debezium-server-for-oracle": {
+        "type": "template",
+        "name": "debezium-server-for-oracle",
+        "description": "Debezium is an open source distributed platform for change data capture",
+        "archiveUrl": "https://git.tools.mia-platform.eu/api/v4/projects/65125/repository/archive.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "v4/projects/platform%2Ffast-data%2Fconnectors%2Fsource%2Fdebezium-server-template/repository/files/.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "METRICS_HTTP_PORT",
+            "value": "3001",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "INFO",
+            "valueType": "plain",
+            "description": "JVM Level to use for logging - e.g. INFO"
+          },
+          {
+            "name": "REDIS_PORT",
+            "value": "6379",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "400Mi",
+            "max": "900Mi"
+          },
+          "cpuLimits": {
+            "min": "100m",
+            "max": "500m"
+          }
+        },
+        "defaultMonitoring": {
+          "endpoints": [
+            {
+              "path": "/metrics",
+              "port": "metrics",
+              "interval": "60s"
+            }
+          ]
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/q/health/live",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 3,
+            "successThreshold": 1,
+            "failureThreshold": 2
+          },
+          "readiness": {
+            "path": "/q/health/ready",
+            "initialDelaySeconds": 20,
+            "periodSeconds": 10,
+            "timeoutSeconds": 3,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-plain",
+        "defaultConfigMaps": [
+          {
+            "name": "debezium-cdc-oracle-conf",
+            "mountPath": "/debezium/conf",
+            "files": [
+              {
+                "name": "application.properties",
+                "content": "# Application Configuration\nquarkus.http.port = ${HTTP_PORT:3000}\nquarkus.log.level = ${LOG_LEVEL:INFO}\nquarkus.log.console.json = false\nquarkus.log.console.json.excluded-keys = sequence,loggerClassName\n\n# Source Configuration\ndebezium.source.name = {{DEBEZIUM_SOURCE_TASK_NAME}}\ndebezium.source.tasks.max = 1\ndebezium.source.connector.class = io.debezium.connector.oracle.OracleConnector\n\ndebezium.source.offset.flush.interval.ms = 15000\ndebezium.source.offset.storage = io.debezium.storage.redis.offset.RedisOffsetBackingStore\ndebezium.source.offset.storage.redis.address = {{REDIS_HOSTNAME}}:${REDIS_PORT}\ndebezium.source.offset.storage.redis.user = {{DEBEZIUM_REDIS_USERNAME}}\ndebezium.source.offset.storage.redis.password = {{DEBEZIUM_REDIS_PASSWORD}}\ndebezium.source.offset.storage.redis.key = metadata::debezium-oracle::offsets\n\ndebezium.source.schema.history.internal = io.debezium.storage.redis.history.RedisSchemaHistory\ndebezium.source.schema.history.internal.redis.address = {{REDIS_HOSTNAME}}:${REDIS_PORT}\ndebezium.source.schema.history.internal.redis.user = {{DEBEZIUM_REDIS_USERNAME}}\ndebezium.source.schema.history.internal.redis.password = {{DEBEZIUM_REDIS_PASSWORD}}\n\ndebezium.source.database.hostname = {{DATABASE_HOSTNAME}}\ndebezium.source.database.port = {{DATABASE_PORT}}\ndebezium.source.database.user = {{DEBEZIUM_DB_USERNAME}}\ndebezium.source.database.password = {{DEBEZIUM_DB_PASSWORD}}\ndebezium.source.database.dbname = {{DATABASE_NAME}}\n\ndebezium.source.database.server.id = 1\ndebezium.source.database.ssl.mode = <CONFIGURE_ME>\n\ndebezium.source.topic.prefix = {{TOPIC_PREFIX}}\ndebezium.source.topic.delimiter = .\n\ndebezium.source.schema.include.list = {{DATABASES_LIST}}\ndebezium.source.table.include.list = {{TABLES_LIST}}\n\ndebezium.source.include.schema.changes = false\ndebezium.source.include.schema.comments = false\n\ndebezium.source.key.converter = org.apache.kafka.connect.json.JsonConverter\ndebezium.source.key.converter.schemas.enable = false\n\ndebezium.source.value.converter = org.apache.kafka.connect.json.JsonConverter\ndebezium.source.value.converter.schemas.enable = false\n\ndebezium.source.poll.interval.ms = 500\ndebezium.source.max.batch.size = 2048\ndebezium.source.max.queue.size = 8192\n\ndebezium.source.tombstones.on.delete = true\n\n# redo_log_catalog (default) or online_catalog\ndebezium.source.log.mining.strategy = redo_log_catalog\n\n# Sink Configuration\ndebezium.sink.type = kafka\ndebezium.sink.name = {{DEBEZIUM_SINK_TASK_NAME}}\ndebezium.sink.kafka.producer.bootstrap.servers={{KAFKA_BROKERS}}\ndebezium.sink.kafka.producer.client.id = dz-cdc-producer-{{ENVIRONMENT_TO_DEPLOY}}\n\ndebezium.sink.kafka.producer.ssl.endpoint.identification.algorithm = HTTPS\ndebezium.sink.kafka.producer.security.protocol = SASL_SSL\ndebezium.sink.kafka.producer.sasl.mechanism = SCRAM-SHA-256\ndebezium.sink.kafka.producer.sasl.jaas.config = org.apache.kafka.common.security.scram.ScramLoginModule required username=\"{{KAFKA_USERNAME}}\" password=\"{{KAFKA_PASSWORD}}\";\n\ndebezium.sink.kafka.producer.key.serializer = org.apache.kafka.common.serialization.StringSerializer\ndebezium.sink.kafka.producer.value.serializer = org.apache.kafka.common.serialization.StringSerializer\n\ndebezium.sink.kafka.producer.acks = all\ndebezium.sink.kafka.producer.max.in.flight.requests.per.connection = 5\ndebezium.sink.kafka.producer.enable.idempotence = true\ndebezium.sink.kafka.producer.min.insync.replicas = 2\ndebezium.sink.kafka.producer.retries = 2147483647\ndebezium.sink.kafka.producer.compression.type = snappy\n\n\n# Format Configuration\ndebezium.format.key = json\ndebezium.format.value = json\n\n# Transforms\ndebezium.transforms=Reroute\ndebezium.transforms.Reroute.type=io.debezium.transforms.ByLogicalTableRouter\n# to all tables that are mapped onto topics\ndebezium.transforms.Reroute.topic.regex=(.+)\n# add the suffix .ingestion\ndebezium.transforms.Reroute.topic.replacement=$1.ingestion\n# this disable the additional parameter that is added to the key, since the service it still sending\n# each table to their own topic and therefore the key is still unique within that topic\ndebezium.transforms.Reroute.key.enforce.uniqueness=false\n"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          },
+          {
+            "name": "metrics",
+            "from": 8080,
+            "to": 3001
+          }
+        ]
+      }
+    }
+  }
+}

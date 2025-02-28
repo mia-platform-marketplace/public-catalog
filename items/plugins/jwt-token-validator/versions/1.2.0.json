@@ -1,0 +1,92 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "JWT Token Validator",
+  "itemId": "jwt-token-validator",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "1.2.0",
+    "releaseNote": "### Changed\n\n- /verify handler looks in `sid` cookie for the token if not present in `authorization` header\n\n### Security\n\n- Added SBOM and docker image sign"
+  },
+  "description": "The JWT Token Validator service allows verifying if a given JWT token is valid.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/jwt-token-validator-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "auth",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/jwt-token-validator/overview_and_usage"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/jwt-token-validator",
+  "resources": {
+    "services": {
+      "jwt-token-validator": {
+        "type": "plugin",
+        "name": "jwt-token-validator",
+        "description": "The JWT Token Validator service allows verifying if a given JWT token is valid.",
+        "dockerImage": "nexus.mia-platform.eu/core/jwt-token-validator:1.2.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "ISSUER_CONFIGURATION_PATH",
+            "value": "/configurations",
+            "valueType": "plain"
+          },
+          {
+            "name": "ISSUER_CONFIGURATION_FILENAME",
+            "value": "issuer-config",
+            "valueType": "plain"
+          },
+          {
+            "name": "JWKS_ENCRYPTION_KEYS_PATH",
+            "value": "/configurations/jwks-config.json",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "",
+        "defaultConfigMaps": [
+          {
+            "name": "jwt-token-validator-config",
+            "mountPath": "/configurations",
+            "files": [
+              {
+                "name": "issuer-config.json",
+                "content": "{}"
+              },
+              {
+                "name": "jwks-config.json",
+                "content": "{}"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

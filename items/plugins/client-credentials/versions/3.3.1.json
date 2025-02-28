@@ -1,0 +1,125 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Client Credentials",
+  "itemId": "client-credentials",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "3.3.1",
+    "releaseNote": "Added:\n\n- set `lastLogin` field when a service account receives a new access token"
+  },
+  "description": "Use this plugin to expose API to perform OAuth2 compliant client credential flows with third party providers.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/client-credentials-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "auth",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/client-credentials/configuration"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/client-credentials",
+  "resources": {
+    "services": {
+      "client-credentials": {
+        "type": "plugin",
+        "name": "client-credentials",
+        "description": "Use this plugin to expose API to perform OAuth2 compliant client credential flows with third party providers.",
+        "dockerImage": "nexus.mia-platform.eu/core/client-credentials:3.3.1",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_CLIENT_BASE_URL",
+            "value": "CHANGE_WITH_YOUR_CRUD_CLIENT_BASE_URL",
+            "description": "Base URL to the crud collection containing the client information.",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENT_ID_HASH_SALT",
+            "value": "CHANGE_WITH_YOUR_CLIENT_ID_HASH_SALT",
+            "valueType": "plain"
+          },
+          {
+            "name": "CREDENTIALS_MONGODB_URL",
+            "value": "CHANGE_WITH_YOUR_CREDENTIALS_MONGODB_URL",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_CREDENTIALS_DATABASE_NAME",
+            "value": "CHANGE_WITH_YOUR_CREDENTIALS_DB_NAME",
+            "valueType": "plain"
+          },
+          {
+            "name": "PRIVATE_RSA_KEY_FILE_PATH",
+            "value": "CHANGE_WITH_YOUR_SECRET_RSA_KEY_FILE_PATH",
+            "valueType": "plain"
+          },
+          {
+            "name": "PRIVATE_RSA_KEY_ID",
+            "value": "CHANGE_WITH_YOUR_SECRET_RSA_KEY_ID",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_JWT_ISSUER",
+            "value": "CHANGE_WITH_YOUR_MIA_JWT_ISSUER",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_JWT_EXPIRES_IN",
+            "value": "CHANGE_WITH_YOUR_MIA_JWT_EXPIRES_IN",
+            "description": "Expiration time for the generated jwt, in seconds",
+            "valueType": "plain"
+          },
+          {
+            "name": "PRIVATE_KEY_PASSWORD",
+            "value": "CHANGE_WITH_YOUR_OPTIONAL_SECRET_KEY_PSW",
+            "valueType": "plain"
+          },
+          {
+            "name": "ACCEPTED_AUDIENCES",
+            "value": "CHANGE_WITH_YOUR_ACCEPTED_AUDIENCES",
+            "description": "Audience accepted by the service, if included in JWT aud claim",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_HOSTS",
+            "value": "CHANGE_WITH_YOUR_REDIS_HOSTS",
+            "description": "Comma separated list of hosts with port",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_MODE",
+            "value": "normal",
+            "description": "Can be normal or sentinel depending on your redis installation",
+            "valueType": "plain"
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

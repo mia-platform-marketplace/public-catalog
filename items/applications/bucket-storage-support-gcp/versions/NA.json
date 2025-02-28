@@ -1,0 +1,662 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "categoryId": "fast-data",
+  "name": "Bucket Storage Support - GCP",
+  "description": "The Bucket Storage Support Application contains all the microservices and resources need to load and reload data from your bucket.",
+  "type": "application",
+  "image": {
+    "localPath": "../../assets/bucket-storage-gcp-application.png"
+  },
+  "publishOnMiaDocumentation": true,
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/bucket-storage-support-application",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/fast_data/bucket_storage_support/overview_bucket_storage_support"
+  },
+  "resources": {
+    "services": {
+      "api-gateway": {
+        "type": "plugin",
+        "description": "Use this service to route requests to the correct service and verify the need of authentication.",
+        "dockerImage": "nexus.mia-platform.eu/core/api-gateway:5.0.2",
+        "name": "api-gateway",
+        "componentId": "api-gateway",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "frontend",
+            "from": 8080,
+            "to": 8080
+          },
+          {
+            "name": "backoffice",
+            "from": 8081,
+            "to": 8081
+          }
+        ],
+        "defaultEnvironmentVariables": [],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "25Mi",
+            "min": "5Mi"
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "defaultProbes": {
+          "liveness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20
+          },
+          "readiness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10
+          }
+        },
+        "execPreStop": [
+          "sh",
+          "-c",
+          "sleep 5 && /usr/sbin/nginx -s quit"
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "api-gateway-server",
+            "mountPath": "/etc/nginx/conf.d",
+            "files": [],
+            "viewAsReadOnly": true
+          },
+          {
+            "name": "api-gateway-platform",
+            "mountPath": "/etc/nginx/platform.d",
+            "files": [],
+            "viewAsReadOnly": true
+          },
+          {
+            "name": "api-gateway-customization",
+            "mountPath": "/etc/nginx/customization.d",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "endpoints"
+            }
+          },
+          {
+            "name": "api-gateway-backoffice",
+            "mountPath": "/etc/nginx/backoffice.d",
+            "files": [],
+            "viewAsReadOnly": true
+          }
+        ],
+        "additionalContainers": [
+          {
+            "name": "dnsmasq",
+            "dockerImage": "fra.ocir.io/ufoc01/dih/core/dnsmasq:1.0.3",
+            "defaultEnvironmentVariables": [],
+            "defaultResources": {
+              "memoryLimits": {
+                "max": "20Mi",
+                "min": "5Mi"
+              },
+              "cpuLimits": {
+                "min": "10m"
+              }
+            },
+            "args": [
+              "--listen",
+              "127.0.0.1:53",
+              "--default-resolver",
+              "--enable-search",
+              "--hostsfile=/etc/hosts"
+            ],
+            "defaultProbes": {
+              "liveness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 15,
+                "periodSeconds": 20
+              },
+              "readiness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 5,
+                "periodSeconds": 10
+              }
+            }
+          }
+        ]
+      },
+      "crud-service": {
+        "type": "plugin",
+        "name": "crud-service",
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.2.2",
+        "componentId": "crud-service",
+        "defaultDocumentationPath": "",
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "300m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "400Mi",
+            "min": "70Mi"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_PREFIX",
+            "value": "/",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "collections"
+            },
+            "mountPath": "/home/node/app/collections",
+            "name": "crud-service-collections",
+            "viewAsReadOnly": true
+          }
+        ],
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "envName": "COLLECTION_DEFINITION_FOLDER",
+            "type": "folder"
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ]
+      },
+      "bss-ingestion-storer": {
+        "type": "plugin",
+        "name": "bss-ingestion-storer",
+        "description": "This service consumes messages from Kafka Topics and stores them into a Cloud Storage bucket",
+        "dockerImage": "nexus.mia-platform.eu/fast-data/history/ingestion-storer:1.5.3",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_BROKERS",
+            "value": "{{KAFKA_BROKERS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_GROUP_ID",
+            "value": "{{KAFKA_STORER_GROUP_ID}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_USERNAME",
+            "value": "{{KAFKA_USERNAME}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_PASSWORD",
+            "value": "{{KAFKA_PASSWORD}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "BUCKET_NAME",
+            "value": "{{BUCKET_NAME}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "BUCKET_TYPE",
+            "value": "google",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_CLIENT_ID",
+            "value": "{{INGESTION_STORER_CLIENT_ID}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "BSS_EVENTS_TOPIC",
+            "value": "{{BSS_EVENTS_TOPIC}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "BSS_ENABLE_POST_INGESTION",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "GOOGLE_APPLICATION_CREDENTIALS",
+            "value": "/app/keys/credentials.json",
+            "valueType": "plain"
+          }
+        ],
+        "defaultSecrets": [
+          {
+            "name": "google-cloud-credentials-bucket-write",
+            "mountPath": "/app/keys/credentials.json"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "bss-gcp-ingestion-storer-properties",
+            "mountPath": "/app/config",
+            "files": [
+              {
+                "content": "bss:\n  topics-config:\n    # this section contains the topic that the ingestion storer will store to the bucket    \n    #  data-topics-mapping:    \n    #  - ingestion: <input-topic-name> \n    #    bucket-folder: <optional-custom-folder> this field can be omitted entirely and the service would use the ingestion topic as folder name # leave empty if you don't need post-ingestion topic \n    #    post-ingestion: []      \n    #  - <output-topic-name-1>     # this topic will contain file written events from the component    \n    output-events-topic: {{BSS_EVENTS_TOPIC}}\n",
+                "name": "application.yaml"
+              }
+            ]
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/health/live",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1,
+            "failureThreshold": 1
+          },
+          "readiness": {
+            "path": "/-/health/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 1,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "1000m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "160Mi",
+            "min": "40Mi"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "",
+        "links": [],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ]
+      },
+      "bss-ingestion-reloader": {
+        "name": "bss-ingestion-reloader",
+        "type": "plugin",
+        "description": "This service exposes a REST interface that allows reading messages from a Cloud Storage bucket, structured in the manner written by the Ingestion Storer, and publishing them onto target topics, specified at request-time",
+        "defaultLogParser": "mia-json",
+        "dockerImage": "nexus.mia-platform.eu/fast-data/history/ingestion-reloader:1.4.2",
+        "defaultSecrets": [
+          {
+            "name": "google-cloud-credentials-bucket-read",
+            "mountPath": "/app/keys/credentials.json"
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_BROKERS",
+            "value": "{{KAFKA_BROKERS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "BUCKET_NAME",
+            "value": "{{BUCKET_NAME}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "BUCKET_TYPE",
+            "value": "google",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_USERNAME",
+            "value": "{{KAFKA_USERNAME}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_PASSWORD",
+            "value": "{{KAFKA_PASSWORD}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_CLIENT_ID",
+            "value": "{{INGESTION_RELOADER_CLIENT_ID}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATIONS_PATH",
+            "value": "/config",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_NAME",
+            "value": "{{MONGODB_NAME}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_COLLECTION",
+            "value": "status-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "GOOGLE_APPLICATION_CREDENTIALS",
+            "value": "/app/keys/credentials.json",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "1500m",
+            "min": "250m"
+          },
+          "memoryLimits": {
+            "max": "550Mi",
+            "min": "350Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/health/live",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/health/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 1,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultConfigMaps": [
+          {
+            "name": "bss-ingestion-reloader-properties",
+            "mountPath": "/app/config",
+            "viewAsReadOnly": false,
+            "files": [
+              {
+                "name": "application.yaml",
+                "content": ""
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ]
+      }
+    },
+    "endpoints": {
+      "/reingestion": {
+        "defaultBasePath": "/reingestion",
+        "defaultPathRewrite": "/reingestion",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "ingestion-reloader"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "bss-ingestion-reloader"
+      },
+      "/reingestion/status": {
+        "defaultBasePath": "/reingestion/status",
+        "defaultPathRewrite": "/status",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "ingestion-reloader"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "bss-ingestion-reloader"
+      },
+      "/status-service": {
+        "defaultBasePath": "/status-service",
+        "defaultPathRewrite": "/status-service",
+        "description": "Endpoint for collection /status-service",
+        "type": "crud",
+        "tags": [
+          "crud"
+        ],
+        "collectionId": "status-service",
+        "pathName": "/",
+        "public": true,
+        "showInDocumentation": true,
+        "secreted": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      }
+    },
+    "collections": {
+      "status-service": {
+        "id": "status-service",
+        "description": "Collection handling the requests of ingestion-reloader",
+        "defaultName": "status-service",
+        "type": "collection",
+        "tags": [
+          "ingestion-reloader"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "request",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "schema": {
+              "properties": {
+                "reIngestionTopic": {
+                  "type": "string"
+                },
+                "topic": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          {
+            "name": "status",
+            "type": "string",
+            "required": false,
+            "nullable": false
+          },
+          {
+            "name": "lineIndex",
+            "type": "number",
+            "required": false,
+            "nullable": false
+          }
+        ],
+        "indexes": [
+          {
+            "name": "_id",
+            "type": "normal",
+            "unique": true,
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ]
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/status-service",
+            "defaultState": "PUBLIC"
+          }
+        ]
+      }
+    },
+    "unsecretedVariables": {
+      "BUCKET_NAME": {
+        "productionEnv": "your bucket name",
+        "noProductionEnv": "your bucket name"
+      },
+      "INGESTION_RELOADER_CLIENT_ID": {
+        "productionEnv": "ingestion-reloader",
+        "noProductionEnv": "ingestion-reloader"
+      },
+      "INGESTION_STORER_CLIENT_ID": {
+        "productionEnv": "ingestion-storer",
+        "noProductionEnv": "ingestion-storer"
+      },
+      "KAFKA_STORER_GROUP_ID": {
+        "productionEnv": "change with your ingestion storer consumer group",
+        "noProductionEnv": "change with your ingestion storer consumer group"
+      },
+      "BSS_EVENTS_TOPIC": {
+        "productionEnv": "change with your bss events topic",
+        "noProductionEnv": "change with your bss events topic"
+      }
+    }
+  },
+  "itemId": "bucket-storage-support-gcp",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "User Access Sync",
+  "itemId": "user-access-sync",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "This plugin keeps a user's permissions on different tools synchronized according to some configurable rules.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/user-access-sync-plugin.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
+  "supportedBy": "Mia-FinTech",
+  "categoryId": "utility",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-access-sync/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/fintech/middleware-permissions",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "user-access-sync": {
+        "type": "plugin",
+        "name": "user-access-sync",
+        "description": "This plugin keeps a user's permissions on different tools synchronized according to some configurable rules.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/user-access-sync:0.1.1",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "info",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_CONSOLE_NAME",
+            "value": "change-me",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_RULES_URL",
+            "value": "change-me",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_PROVIDER_CONFIGURATION_URL",
+            "value": "change-me",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "150m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "100Mi",
+            "min": "10Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 2,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 10,
+            "timeoutSeconds": 2,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Chat Service Backend",
+  "itemId": "chat-service-backend",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "The Chat Service Backend is a Mia-Platform plugin acting as a proxy between your project's microservices and the Stream Chat APIs, introducing a Token Provider to validate and generate a token for your users.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/chat-service-backend-plugin.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "supportedBy": "Mia-Care",
+  "categoryId": "utility",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/chat-service-backend/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/chat-service-backend",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "chat-service-backend": {
+        "type": "plugin",
+        "name": "chat-service-backend",
+        "description": "The Chat Service Backend is a Mia-Platform plugin acting as a proxy between your project's microservices and the Stream Chat APIs, introducing a Token Provider to validate and generate a token for your users.",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/chat-service-backend:1.0.1",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "STREAM_API_KEY",
+            "value": "CHANGE VALUE",
+            "valueType": "plain"
+          },
+          {
+            "name": "STREAM_API_SECRET",
+            "value": "CHANGE VALUE",
+            "valueType": "plain"
+          },
+          {
+            "name": "STREAM_AUTH_TOKEN",
+            "value": "CHANGE VALUE",
+            "valueType": "plain"
+          },
+          {
+            "name": "STYLE_CONFIG",
+            "value": "/config/styles/style.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPIRATION_TOKEN_DURATION",
+            "value": "3600",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "chat-service-backend-styles",
+            "mountPath": "/config/styles",
+            "files": [
+              {
+                "name": "style.json",
+                "content": "{\n  \"web\": {\n    \"errors\": {\n      \"title\": \"Chat not available\",\n      \"message\": \"You currently don't have any available chat. Please come back later to start messaging.\"\n    },\n    \"stylesheet\": {\n      \"--white-snow\": \"#F0F0EC\"\n    },\n    \"options\": {\n      \"showUnreadBadge\": true,\n      \"showLastMessageTimestamp\": true,\n      \"disableEmojiPicker\": true,\n      \"theme\": {\n        \"--white-snow\": \"#F0F0EC\"\n      }\n    }\n  }\n}"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

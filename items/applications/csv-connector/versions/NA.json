@@ -1,0 +1,560 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "categoryId": "fast-data-connectors",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/csv-connector-application",
+  "name": "CSV Connector",
+  "description": "This application uses the CSV Connector microservice to fetch data from CSV files and deliver it with validation to the Fast Data. It comes with all the microservices needed, namely the Files Service and the CRUD Service",
+  "type": "application",
+  "image": {
+    "localPath": "../../assets/csv-connector-application-transparent.png"
+  },
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/csv-connector/configuration"
+  },
+  "resources": {
+    "services": {
+      "crud-service": {
+        "type": "plugin",
+        "name": "crud-service",
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.2.2",
+        "componentId": "crud-service",
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "type": "folder",
+            "envName": "COLLECTION_DEFINITION_FOLDER"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+            "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "250Mi",
+            "min": "70Mi"
+          }
+        },
+        "defaultConfigMaps": [
+          {
+            "name": "crud-service-collections",
+            "mountPath": "/home/node/app/collections",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "collections"
+            }
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "files-service": {
+        "type": "plugin",
+        "name": "files-service",
+        "description": "Upload, download and handle your files using MongoDB, S3 or Google Storage.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/files-service:{{FILES_SERVICE_VERSION}}",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_URL",
+            "value": "http://crud-service/",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_CONFIGURATION_PATH",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_PREFIX",
+            "value": "CHANGE_WITH_YOUR_OPTIONAL_SERVICE_PREFIX",
+            "valueType": "plain"
+          },
+          {
+            "name": "PATH_PREFIX",
+            "value": "CHANGE_WITH_YOUR_OPTIONAL_PATH_PREFIX",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEADERS_TO_PROXY",
+            "value": "miauserid,miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROJECT_HOSTNAME",
+            "value": "CHANGE_WITH_YOUR_PROJECT_HOSTNAME",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "1500m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "70Mi"
+          }
+        },
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "csv-connector": {
+        "type": "plugin",
+        "name": "csv-connector",
+        "description": "Fetch data from CSV files and deliver it with validation to the Fast Data.",
+        "dockerImage": "nexus.mia-platform.eu/fast-data/connectors/source/csv-connector:{{CSV_CONNECTOR_VERSION}}",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "FILES_NAMES_REGEXES",
+            "value": "CHANGE_WITH_A_CUSTOM_REGEX",
+            "valueType": "plain"
+          },
+          {
+            "name": "SCHEMA_FOLDER",
+            "value": "/app/config/schema/CHANGE_WITH_YOUR_CUSTOM_SCHEMA_FOLDER_PATH",
+            "valueType": "plain"
+          },
+          {
+            "name": "LAUNCH_MECHANISM",
+            "value": "polling",
+            "valueType": "plain"
+          },
+          {
+            "name": "SCHEDULING",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_SCHEDULING",
+            "valueType": "plain"
+          },
+          {
+            "name": "FILES_SERVICE",
+            "value": "http://files-service/",
+            "valueType": "plain"
+          },
+          {
+            "name": "INPUT_FILES_SCOPE",
+            "value": "input-csv-connector",
+            "valueType": "plain"
+          },
+          {
+            "name": "OUTPUT_FILES_SCOPE",
+            "value": "output-csv-connector",
+            "valueType": "plain"
+          },
+          {
+            "name": "TOPIC_MAP",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_TOPIC_MAP",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "{{HTTP_PORT}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_BROKERS",
+            "value": "{{KAFKA_BROKERS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_GROUP_ID",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_GROUP_ID",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_CLIENT_ID",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_CLIENT_ID",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_USERNAME",
+            "value": "{{KAFKA_SASL_USERNAME}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_PASSWORD",
+            "value": "{{KAFKA_SASL_PASSWORD}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_MECHANISM",
+            "value": "{{KAFKA_SASL_MECHANISM}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "1500m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "70Mi"
+          }
+        },
+        "defaultProbes": {
+          "readiness": {
+            "path": "/-/health/ready",
+            "port": "http",
+            "initialDelaySeconds": 30,
+            "periodSeconds": 10,
+            "timeoutSeconds": 1,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          },
+          "liveness": {
+            "path": "/-/health/live",
+            "port": "http",
+            "initialDelaySeconds": 30,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    },
+    "collections": {
+      "input_files": {
+        "id": "input_files",
+        "description": "Collection of input_files for the CSV Connector input scope",
+        "defaultName": "input_files",
+        "type": "collection",
+        "tags": [
+          "collection"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "name",
+            "description": " original file name",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "file",
+            "description": "unique name of the file that should be used to retrieve it using this service",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "size",
+            "description": "size in bytes of the uploaded file",
+            "type": "number",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "location",
+            "description": "the URL that can be used to download the file using the same service that performed the upload.",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          }
+        ],
+        "indexes": [
+          {
+            "name": "_id",
+            "type": "normal",
+            "unique": true,
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ]
+          },
+          {
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "createdAt",
+                "order": -1
+              }
+            ]
+          },
+          {
+            "name": "file",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "file",
+                "order": 1
+              }
+            ]
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/input-csv-connector",
+            "defaultState": "PUBLIC"
+          }
+        ]
+      },
+      "output_files": {
+        "id": "output_files",
+        "description": "Collection of output_files for the CSV Connector output scope",
+        "defaultName": "output_files",
+        "type": "collection",
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "name",
+            "description": " original file name",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "file",
+            "description": "unique name of the file that should be used to retrieve it using this service",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "size",
+            "description": "size in bytes of the uploaded file",
+            "type": "number",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "location",
+            "description": "the URL that can be used to download the file using the same service that performed the upload.",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          }
+        ],
+        "indexes": [
+          {
+            "name": "_id",
+            "type": "normal",
+            "unique": true,
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ]
+          },
+          {
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "createdAt",
+                "order": -1
+              }
+            ]
+          },
+          {
+            "name": "file",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "file",
+                "order": 1
+              }
+            ]
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/output-csv-connector",
+            "defaultState": "PUBLIC"
+          }
+        ]
+      }
+    },
+    "unsecretedVariables": {
+      "FILES_SERVICE_VERSION": {
+        "productionEnv": "2.7.1",
+        "noProductionEnv": "latest"
+      },
+      "CSV_CONNECTOR_VERSION": {
+        "productionEnv": "1.0.0",
+        "noProductionEnv": "latest"
+      }
+    }
+  },
+  "itemId": "csv-connector",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  }
+}

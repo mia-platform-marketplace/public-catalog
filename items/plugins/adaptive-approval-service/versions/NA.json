@@ -1,0 +1,84 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Adaptive Approval Service",
+  "itemId": "adaptive-approval-service",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "This service allow to define and verify rules",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/adaptive-approval-plugin.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
+  "supportedBy": "Mia-FinTech",
+  "categoryId": "utility",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "adaptive-approval-service": {
+        "type": "plugin",
+        "name": "adaptive-approval-service",
+        "description": "This service allow to define and verify rules",
+        "dockerImage": "nexus.mia-platform.eu/fintech/adaptive-approval:0.0.2",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_URL",
+            "value": "CHANGE-ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOW_MANAGER_URL",
+            "value": "CHANGE-ME",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "20m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "20Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 1,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultConfigMaps": [],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

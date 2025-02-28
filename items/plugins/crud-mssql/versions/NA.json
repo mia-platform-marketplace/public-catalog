@@ -1,0 +1,117 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "CRUD MSSQL",
+  "itemId": "crud-mssql",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "The CRUD MSSQL is a Mia-Platform plugin that abstracts SQL tables allowing developers to expose CRUD APIs over a MSSQL database in an easy, scalable, and secure way.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/crud-mssql-plugin.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "database",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/crud-postgresql/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/crud-sql",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "crud-mssql": {
+        "type": "plugin",
+        "name": "crud-mssql",
+        "description": "The CRUD MSSQL is a Mia-Platform plugin that abstracts SQL tables allowing developers to expose CRUD APIs over a MSSQL database in an easy, scalable, and secure way.",
+        "dockerImage": "nexus.mia-platform.eu/mia-platform/crud-sql-mssql:0.1.0",
+        "componentId": "crud-mssql",
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "type": "folder",
+            "envName": "TABLE_DEFINITION_FOLDER"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "DB_URL",
+            "value": "{{SQL_DB_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TABLE_DEFINITION_FOLDER",
+            "value": "/home/node/app/tables-configuration",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "500Mi",
+            "min": "300Mi"
+          },
+          "cpuLimits": {
+            "max": "500m",
+            "min": "200m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 15,
+            "timeoutSeconds": 3,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 10,
+            "periodSeconds": 10,
+            "timeoutSeconds": 3,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "",
+        "defaultConfigMaps": [
+          {
+            "name": "crud-mssql-tables",
+            "mountPath": "/home/node/app/tables-configuration",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "tables-configuration"
+            }
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "SES Mail Notification Service",
+  "itemId": "ses-mail-notification-service",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "3.3.0",
+    "releaseNote": "-"
+  },
+  "description": "Send custom email using an Amazon SES.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/ses-mail-notification-service-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "notification",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/ses-mail-notification-service/configuration"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mail-notification-service",
+  "resources": {
+    "services": {
+      "ses-mail-notification-service": {
+        "type": "plugin",
+        "name": "ses-mail-notification-service",
+        "description": "Send custom email using an Amazon SES.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/ses-mail-notification-service:3.3.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SES_SECRET",
+            "value": "CHANGE_WITH_YOUR_SES_SECRET",
+            "valueType": "plain"
+          },
+          {
+            "name": "SES_KEY",
+            "value": "CHANGE_WITH_YOUR_SES_KEY",
+            "valueType": "plain"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "CRUD SQL Template",
+  "itemId": "crud-sql-template",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "0.1.0",
+    "releaseNote": "-"
+  },
+  "description": "This is a template to help you get started using the SQL CRUD service. You can provide a Data Source to connect to your preferred SQL database using the Mia-Platform SQL CRUD library",
+  "type": "template",
+  "image": {
+    "localPath": "../../assets/crud-sql-template.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "database",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite_templates/crud-sql-template/overview"
+  },
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/crud-sql-template/tree/0.1.0",
+  "releaseStage": "stable",
+  "resources": {
+    "services": {
+      "crud-sql-template": {
+        "type": "template",
+        "name": "crud-sql-template",
+        "description": "This is a template to help you get started using the SQL CRUD service. You can provide a Data Source to connect to your preferred SQL database using the Mia-Platform SQL CRUD library",
+        "componentId": "crud-sql-template",
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "type": "folder",
+            "envName": "TABLE_DEFINITION_FOLDER"
+          }
+        },
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fgradle6-template.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "DB_URL",
+            "value": "{{SQL_DB_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TABLE_DEFINITION_FOLDER",
+            "value": "/home/node/app/tables-configuration",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "500Mi",
+            "min": "300Mi"
+          },
+          "cpuLimits": {
+            "max": "500m",
+            "min": "200m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 15,
+            "timeoutSeconds": 3,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 10,
+            "periodSeconds": 10,
+            "timeoutSeconds": 3,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "",
+        "defaultConfigMaps": [
+          {
+            "name": "crud-sql-tables",
+            "mountPath": "/home/node/app/tables-configuration",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "tables-configuration"
+            }
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

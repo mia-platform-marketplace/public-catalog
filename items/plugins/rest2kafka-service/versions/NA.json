@@ -1,0 +1,139 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Rest2Kafka service",
+  "itemId": "rest2kafka-service",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "A service that exposes APIs to publish messages on Apache Kafka.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/rest2kafka-service-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "stream",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/rest2kafka/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/rest2kafka",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "rest2kafka-service": {
+        "type": "plugin",
+        "name": "rest2kafka-service",
+        "description": "A service that exposes APIs to publish messages on Apache Kafka.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/rest2kafka:1.2.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "REST2KAFKA_CONFIG_FILE_PATH",
+            "value": "/config/rest2kafka-config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_CLIENT_ID",
+            "value": "CHANGE WITH YOUR CLIENT_ID",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_BROKERS_LIST",
+            "value": "CHANGE WITH THE COMMA SEPARATED LIST OF BROKERS",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_AUTH_METHOD",
+            "value": "plain",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_USERNAME",
+            "value": "CHANGE WITH THE USERNAME",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_PASSWORD",
+            "value": "CHANGE WITH THE PASSWORD",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "100Mi",
+            "min": "50Mi"
+          },
+          "cpuLimits": {
+            "min": "5m",
+            "max": "50m"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "rest2kafka-configs",
+            "mountPath": "/configs",
+            "files": [
+              {
+                "name": "rest2kafka-config.json",
+                "content": "[]"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

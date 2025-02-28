@@ -1,0 +1,75 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Helidon Hello World",
+  "itemId": "helidon-hello-world",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Simple hello world application based on Helidon framework",
+  "type": "example",
+  "image": {
+    "localPath": "../../assets/helidon-hello-world-example-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "kotlin",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/helidon-hello-world-example/main/README.md"
+  },
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "helidon-hello-world": {
+        "type": "example",
+        "name": "helidon-hello-world",
+        "description": "Simple hello world application based on Helidon framework",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Helidon-Hello-World-Example/archive/main.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fspringboot.gitlab-ci-jdk-11.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVER_HOST",
+            "value": "0.0.0.0",
+            "valueType": "plain"
+          },
+          {
+            "name": "APP_NAME",
+            "value": "World",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "350m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "100Mi"
+          }
+        },
+        "defaultLogParser": "mia-plain",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

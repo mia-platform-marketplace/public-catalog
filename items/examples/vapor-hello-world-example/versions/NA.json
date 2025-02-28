@@ -1,0 +1,86 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Vapor Hello World Example",
+  "itemId": "vapor-hello-world-example",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "A simple Hello World example application using Mia-Platform Swift template based on Vapor.",
+  "type": "example",
+  "image": {
+    "localPath": "../../assets/vapor-hello-world-example.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "rust",
+  "documentation": {
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Vapor-Hello-World-Example/master/README.md",
+    "type": "markdown"
+  },
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "vapor-hello-world-example": {
+        "type": "example",
+        "name": "vapor-hello-world-example",
+        "description": "A simple Hello World example application using Mia-Platform Swift template based on Vapor.",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Vapor-Hello-World-Example/archive/master.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fswift-app.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-plain",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

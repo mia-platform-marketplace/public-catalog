@@ -1,0 +1,75 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "SMTP Mail Notification Service",
+  "itemId": "smtp-mail-notification-service",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "3.3.0",
+    "releaseNote": "-"
+  },
+  "description": "Send custom email using configured SMTP server",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/smtp-mail-notification-plugin-service-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "notification",
+  "resources": {
+    "services": {
+      "smtp-mail-notification-service": {
+        "type": "plugin",
+        "name": "smtp-mail-notification-service",
+        "description": "Send custom email using configured SMTP server",
+        "dockerImage": "nexus.mia-platform.eu/plugins/smtp-mail-notification-service:3.3.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HOST",
+            "value": "CHANGE_WITH_YOUR_HOST",
+            "valueType": "plain"
+          },
+          {
+            "name": "PORT",
+            "value": "CHANGE_WITH_YOUR_PORT",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTH_TYPE",
+            "value": "CHANGE_WITH_YOUR_AUTH_TYPE",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTH_USER",
+            "value": "CHANGE_WITH_YOUR_AUTH_USER",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTH_PASS",
+            "value": "CHANGE_WITH_YOUR_SECRET_AUTH_PASS",
+            "valueType": "plain"
+          },
+          {
+            "name": "TLS_SECURE",
+            "value": "CHANGE_WITH_YOUR_OPTIONAL_TLS_SECURE",
+            "valueType": "plain"
+          },
+          {
+            "name": "TLS_IGNORE",
+            "value": "CHANGE_WITH_YOUR_OPTIONAL_TLS_IGNORE",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "CHANGE_WITH_YOUR_OPTIONAL_TRUSTED_PROXIES",
+            "valueType": "plain"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Node.js Custom Plugin with Mongo Example",
+  "itemId": "node-js-custom-plugin-with-mongo-example",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "Example of using our Custom Plugin to access Mongo. \nIt contains example of tests too.",
+  "type": "example",
+  "image": {
+    "localPath": "../../assets/nodejs-custom-plugin-with-mongo-example-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "nodejs",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Custom-Plugin-Mongo-Example/master/README.md"
+  },
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "nodejs-custom-plugin-with-mongo-example": {
+        "type": "example",
+        "name": "nodejs-custom-plugin-with-mongo-example",
+        "description": "Example of using our Custom Plugin to access Mongo. \nIt contains example of tests too.",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Node.js-Custom-Plugin-Mongo-Example/archive/master.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fnode-mongo.gitlab-ci.yml/raw"
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

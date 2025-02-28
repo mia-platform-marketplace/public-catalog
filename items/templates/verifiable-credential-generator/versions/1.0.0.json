@@ -1,0 +1,129 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Verifiable Credential Generator",
+  "itemId": "verifiable-credential-generator",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "description": "This is the best template to start creating a verifiable credential service for your IDM project",
+  "type": "template",
+  "image": {
+    "localPath": "../../assets/verifiable-credentia-generator-template-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
+  "supportedBy": "Mia-FinTech",
+  "categoryId": "idm",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/template/vc-generator-template",
+  "releaseStage": "stable",
+  "resources": {
+    "services": {
+      "verifiable-credential-generator": {
+        "type": "template",
+        "name": "verifiable-credential-generator",
+        "description": "This is the best template to start creating a verifiable credential service for your IDM project",
+        "archiveUrl": "https://git.tools.mia-platform.eu/api/v4/projects/64569/repository/archive.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fnode-template.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "userid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "groups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "clienttype",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "backoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADDITIONAL_HEADERS_TO_PROXY",
+            "value": "console-sid,cms-sid",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOW_MANAGER_URL",
+            "value": "http://flow-manager-master",
+            "valueType": "plain"
+          },
+          {
+            "name": "VERIFIABLE_CREDENTIAL_CONFIG",
+            "value": "/config/vcMapping.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "VERIFIABLE_CREDENTIAL_JWK",
+            "value": "{\"kty\":\"RSA\",\"n\":\"0vx7agoebGcQSuuPiLJXZptN9nndrQmbXEps2aiAFbWhM78LhWx4cbbfAAtVT86zwu1RK7aPFFxuhDR1L6tSoc_BJECPebWKRXjBZCiFV4n3oknjhMstn64tZ_2W-5JsGY4Hc5n9yBXArwl93lqt7_RN5w6Cf0h4QyQ5v-65YGjQR0_FDW2QvzqY368QQMicAtaSqzs8KJZgnYb9c7d0zgdAZHzu6qMQvRL5hajrn1n91CbOpbISD08qNLyrdkt-bFTWhAI4vMQFh6WeZu0fM4lFd2NcRwr3XPksINHaQ-G_xBniIqbw0Ls1jF44-csFCur-kEgU8awapJzKnqDKgw\",\"e\":\"AQAB\",\"d\":\"nXNyzeWLkKOpKrnWnX8V3ykE_uxDK4fDV3vra8enRhrqELJiYmuyGuuWW3g9qbliYdMaI5FdvBlREKw5yg5wnKMdAvt7DAigUW-YYE317TCTWx3iitfHfNYYImUMcHXTMT_q8B5hoqmTlaHzdFIlMnL7q4uW3xRMtrvscLgOVgJaRJ5kuW7k9YF_J1b4HfBdPw-5czrQaFER3Ys-84HXXK7ZHK0mck7bkHOG57oHFoTygPwV97YqgiAva01wC_jsHyRWQCbAm4b61GKycGzMNOoW5IobkncSOCIGgTmQPQUroAc1r8aeoWNzI_v55SW2xoCYkL-c9UAtHl29aOmTSQ\",\"p\":\"34G14OI-ShxJ1NGhWBismSXe4q6yi2v0xQ3gaEvOVTLwMiDDC7CkSNHvkEw9QCnhySBGOlwStZydi8eRsmjWWdI61syH55ger1sucsfW2J7h5oUlFf-DZK5_bWI0swwRaV-Fqu3nzOacXQ8hD1P36E9qmVParrcvwjHYFoNdBT8\",\"q\":\"057nKHye7qvQnuV8llUvlBpAc9ONGlqPS-ACf-IXupwS94Lf2BQzqAwDeXTpGx5jVtiw3iPP3yIoV3uZ1y4eX4ETN219H_jppjSO1t1bTQLQPrygrKCZ9RAFhFBYM1SfbKwroi4z6uatqbl6awuGLRZss1FE2ZT1z1eWZdmBY7c\",\"dp\":\"R5njLUbtU4qacG4ztOg6qtlB_PagRh_wiww1_tOCJzMpVbW_JkiRaK6wg1aZLKv-JBONy_ZhHAMvSW9GkpQZTy8VIGjnhN7rvZuFVsoEXuMPVW0EA3cWnbN1KRKT9WQBU_OA-9A5OSALqZhGLAXnXmnKqZH-dYhD6X9UTWoJ67s\",\"dq\":\"W0MQ_1XXGKjCHHRtaUutbBpyJ0FZfb8GQzuE-G-huhlq2JD5Re9YY6VirjNsAAT35FEo3XPmRp0tdqTYMIM0GA3LIsE2D97BrKrH2wO1Rx3qftPMGwZbvuK87lXT47cf1bbeTl_MhgYbaLGTiKx8nd8o26A1p_vkkhl8w8msUjs\",\"qi\":\"ix3m1zTFKMtJTgnIT3LvPw8gXV9buVjtARguoc0nY7dzyy-HLWsUwliLzgd2oxZAy-NTpM3HAeFP8w7hHZsDGMZd5rhrQqqY6L0RWjvKEqeM959lazoFMAkuV0U2KW_enpRplUuH5zK1VsfnNZxtBfv6zgWurzWMLHjnP2YpoKU\"}",
+            "valueType": "plain"
+          },
+          {
+            "name": "VERIFIABLE_CREDENTIAL_JWA",
+            "value": "RS256",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultConfigMaps": [
+          {
+            "name": "verifiable-credential-config",
+            "mountPath": "/config",
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\"default\":\"/vc/default.json\"}"
+              }
+            ]
+          },
+          {
+            "name": "verifiable-credential-schema-config",
+            "mountPath": "/vc",
+            "files": [
+              {
+                "name": "default.json",
+                "content": "{\"@context\":[\"https://www.w3.org/2018/credentials/v1\"],\"type\":[\"VerifiableCredential\"],\"issuer\":\"change-me\"}"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Node.js 16 HelloWorld Microservice Example",
+  "itemId": "node-js-helloworld-microservice-example",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "description": "Example of a simple Node.js 16 application. \nIt contains example of tests too.",
+  "type": "example",
+  "image": {
+    "localPath": "../../assets/nodejs-hello-world-example-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "nodejs",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Hello-World-Microservice-Example/refs/heads/16.x/README.md"
+  },
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Node.js-Hello-World-Microservice-Example/tree/16.x",
+  "releaseStage": "stable",
+  "resources": {
+    "services": {
+      "nodejs-16-helloworld-microservice-example": {
+        "type": "example",
+        "name": "nodejs-16-helloworld-microservice-example",
+        "description": "Example of a simple Node.js 16 application. \nIt contains example of tests too.",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Node.js-Hello-World-Microservice-Example/archive/refs/heads/16.x.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fnode-hello-world.gitlab-ci.yml/raw"
+          },
+          "webhook": {
+            "url": "https://example.com",
+            "token": "test-token"
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

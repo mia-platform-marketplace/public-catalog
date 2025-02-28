@@ -1,0 +1,171 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Ingestion Storer",
+  "itemId": "ingestion-storer",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "This service consume messages from Kafka Topics and store them into a Cloud Storage bucket",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/ingestion-storer-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "fast-data",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/fast_data/bucket_storage_support/configuration/ingestion_storer_configuration"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/historical-data/ingestion-storer",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "ingestion-storer": {
+        "type": "plugin",
+        "name": "ingestion-storer",
+        "description": "This service consume messages from Kafka Topics and store them into a Cloud Storage bucket",
+        "dockerImage": "nexus.mia-platform.eu/fast-data/history/ingestion-storer:1.5.2",
+        "componentId": "ingestion-storer",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{JVM_LOG_LEVEL}}",
+            "valueType": "plain",
+            "description": "JVM Level to use for logging - e.g. INFO"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_BROKERS",
+            "value": "{{KAFKA_BROKERS}}",
+            "valueType": "plain",
+            "description": "List of comma-separated Kafka brokers addresses"
+          },
+          {
+            "name": "KAFKA_CLIENT_ID",
+            "value": "<change-with-your-project>.{{STAGE_TO_DEPLOY}}.bss.ingestion-storer",
+            "valueType": "plain",
+            "description": "Identifier employed by Kafka to recognize your application"
+          },
+          {
+            "name": "KAFKA_GROUP_ID",
+            "value": "<change-with-your-project>.{{STAGE_TO_DEPLOY}}.bss.ingestion-storer",
+            "valueType": "plain",
+            "description": "Kafka consumer group name assigned to the this service to read from configured topic - important for distributing topic partitions"
+          },
+          {
+            "name": "KAFKA_USERNAME",
+            "value": "{{KAFKA_SASL_USERNAME}}",
+            "valueType": "plain",
+            "description": "Username needed to authenticate with SASL auth mechanism"
+          },
+          {
+            "name": "KAFKA_PASSWORD",
+            "value": "{{KAFKA_SASL_PASSWORD}}",
+            "valueType": "plain",
+            "description": "Password needed to authenticate with SASL auth mechanism"
+          },
+          {
+            "name": "KAFKA_MAX_POLL_MS",
+            "value": "500",
+            "valueType": "plain",
+            "description": "Number of milliseconds the consumer waits before returning the batch messages in case the maximum batch size is not reached"
+          },
+          {
+            "name": "KAFKA_MAX_POLL_RECORDS",
+            "value": "1500",
+            "valueType": "plain",
+            "description": "Maximum number of messages that a single poll operation returns"
+          },
+          {
+            "name": "BUCKET_NAME",
+            "value": "<change-me>",
+            "valueType": "plain",
+            "description": "Name of your bucket where the Ingestion Storer will write messages"
+          },
+          {
+            "name": "BUCKET_TYPE",
+            "value": "<change-me>",
+            "valueType": "plain",
+            "description": "Type of bucket the Ingestion Storer will connect with"
+          },
+          {
+            "name": "GOOGLE_APPLICATION_CREDENTIALS",
+            "value": "/app/keys/credentials.json",
+            "valueType": "plain",
+            "description": "In case the selected bucket type is 'google', this variable points to the filepath where the Google Storage Service Account credentials are stored - usually mounted in the service from a secret. Remove in case BUCKET_TYPE is not set to 'google'"
+          },
+          {
+            "name": "BSS_EVENTS_TOPIC",
+            "value": "{{BATCH_STORED_EVENTS_TOPIC}}",
+            "valueType": "plain",
+            "description": "Kafka topic where Ingestion Store will publish the events batch written onto the bucket"
+          },
+          {
+            "name": "BSS_ENABLE_POST_INGESTION",
+            "value": "false",
+            "valueType": "plain",
+            "description": "Define whether consumed messages should be forwarded as is onto a further configured topic - useful to release the Ingestion Storer in a sequential manner with respect to the data flow"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "40Mi",
+            "max": "160Mi"
+          },
+          "cpuLimits": {
+            "min": "150m",
+            "max": "1000m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/health/live",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 2,
+            "successThreshold": 1,
+            "failureThreshold": 2
+          },
+          "readiness": {
+            "path": "/-/health/ready",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 10,
+            "timeoutSeconds": 2,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "bss-ingestion-storer-config",
+            "mountPath": "/app/config",
+            "files": [
+              {
+                "name": "application.yaml",
+                "content": "bss:\n  topics-config:\n    data-topics-mapping:\n      - ingestion: bss.{{ENVIRONMENT_TO_DEPLOY}}.<example-topic>.ingestion\n        post-ingestion:\n          - bss.{{ENVIRONMENT_TO_DEPLOY}}.<example-topic>.post-ingestion\n"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

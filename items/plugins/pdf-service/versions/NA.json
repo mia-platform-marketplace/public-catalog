@@ -1,0 +1,59 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "PDF Service",
+  "itemId": "pdf-service",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "The PDF Services provides various functionalities to programmatically generate and manipulate pdf documents.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/pdf-service-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "utility",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/pdf-service",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "pdf-service": {
+        "type": "plugin",
+        "name": "pdf-service",
+        "description": "The PDF Services provides various functionalities to programmatically generate and manipulate pdf documents.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/pdf-service:2.0.1",
+        "componentId": "pdf-service",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "DOCKER",
+            "value": "true",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Timer Service",
+  "itemId": "timer-service",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "2.1.3",
+    "releaseNote": "-"
+  },
+  "description": "The Timer Service allows scheduling of timers that perform custom actions upon expiry.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/timer-service-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "orchestrators",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/timer-service/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/timer-service",
+  "resources": {
+    "services": {
+      "timer-service": {
+        "type": "plugin",
+        "name": "timer-service",
+        "description": "The Timer Service allows scheduling of timers that perform custom actions upon expiry.",
+        "dockerImage": "nexus.mia-platform.eu/core/timer-service:2.1.3",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE_NAME",
+            "value": "crud-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_PATH",
+            "value": "CHANGE_WITH_YOUR_CRUD_PATH",
+            "valueType": "plain"
+          },
+          {
+            "name": "POLL_INTERVAL_MS",
+            "value": "30000",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_BROKERS",
+            "value": "CHANGE_WITH_YOUR_KAFKA_BROKERS",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_LOG_LEVEL",
+            "value": "CHANGE_WITH_YOUR_KAFKA_LOG_LEVEL",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_MECHANISM",
+            "value": "CHANGE_WITH_YOUR_KAFKA_SASL_MECHANISM",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_USERNAME",
+            "value": "CHANGE_WITH_YOUR_KAFKA_SASL_USERNAME",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_PASSWORD",
+            "value": "CHANGE_WITH_YOUR_SECRET_KAFKA_SASL_PSW",
+            "valueType": "plain"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

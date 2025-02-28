@@ -1,0 +1,309 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "categoryId": "microfrontend",
+  "name": "Microfrontend Composer Toolkit",
+  "description": "Use this application to set up Microfrontend Composer to build your frontend in a few clicks",
+  "type": "application",
+  "image": {
+    "localPath": "../../assets/microfrontend-composer-toolkit-application-transparent.png"
+  },
+  "publishOnMiaDocumentation": true,
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/microfrontend-composer-toolkit-application",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/microfrontend-composer-toolkit/overview"
+  },
+  "resources": {
+    "services": {
+      "api-gateway": {
+        "name": "api-gateway",
+        "type": "plugin",
+        "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "envoyproxy/envoy:v1.32.1",
+        "componentId": "api-gateway-envoy",
+        "defaultDocumentationPath": "",
+        "defaultArgs": [
+          "-c",
+          "/etc/envoy/envoy.json",
+          "-l",
+          "{{LOG_LEVEL}}",
+          "--log-format",
+          "{\"level\":\"%l\",\"time\":\"%Y-%m-%dT%T.%fZ\",\"scope\":\"%n\",\"message\":\"%j\"}",
+          "--drain-time-s",
+          "50"
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultEnvironmentVariables": [],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "250Mi",
+            "min": "150Mi"
+          },
+          "cpuLimits": {
+            "min": "150m",
+            "max": "200m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20
+          },
+          "readiness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "frontend",
+            "from": 8080,
+            "to": 8080
+          },
+          {
+            "name": "backoffice",
+            "from": 8081,
+            "to": 8081
+          },
+          {
+            "name": "admin",
+            "from": 9901,
+            "to": 9901
+          }
+        ],
+        "execPreStop": [
+          "bash",
+          "-c",
+          "echo -e 'POST /drain_listeners?graceful HTTP/1.1\r\nHost: localhost:9901\r\n\r' > /dev/tcp/localhost/9901 && sleep 55s"
+        ],
+        "defaultTerminationGracePeriodSeconds": 60,
+        "defaultConfigMaps": [
+          {
+            "name": "api-gateway-envoy-config",
+            "mountPath": "/etc/envoy",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "endpoints"
+            }
+          }
+        ]
+      },
+      "micro-lc": {
+        "type": "plugin",
+        "name": "micro-lc",
+        "description": "micro-lc config server.",
+        "dockerImage": "nexus.mia-platform.eu/microlc/middleware:3.4.0",
+        "componentId": "backoffice-backend",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "micro-lc-static-files",
+            "mountPath": "/usr/static/public",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "content": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <base href=\"/mfe-application/\" target=\"_blank\" />\n\n  <title>Microfrontend composer</title>\n\n  <link rel=\"icon\" type=\"image/png\" href=\"https://www.mia-platform.eu/static/img/favicon/apple-icon-60x60.png\" />\n  <link rel=\"stylesheet\" nonce=\"**CSP_NONCE**\" href=\"./assets/style.css\" />\n\n  <script\n    type=\"module\"\n    nonce=\"**CSP_NONCE**\"\n    src=\"https://cdn.mia-platform.eu/backoffice/bk-web-components/{{BACK_KIT_VERSION}}/dist/bk-loading-animation.esm.js\"\n  ></script>\n\n  <script\n    type=\"module\"\n    nonce=\"**CSP_NONCE**\"\n    src=\"https://cdn.mia-platform.eu/micro-lc/orchestrator/2.4.3/dist/micro-lc.production.js\"\n  ></script>\n</head>\n\n<body>\n  <bk-loading-animation primary-color=\"#1890ff\">\n    <micro-lc config-src=\"/micro-lc-configurations/config.json\" fallback-language=\"en\"></micro-lc>\n  </bk-loading-animation>\n</body>\n\n</html>\n",
+                "name": "index.html"
+              }
+            ]
+          },
+          {
+            "name": "micro-lc-configurations",
+            "mountPath": "/usr/static/configurations",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "content": "{\n  \"applications\": {\n    \"home\": {\n      \"config\": {\n        \"content\": {\n          \"attributes\": {\n            \"style\": \"width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; row-gap: 24px\"\n          },\n          \"content\": [\n            {\n              \"content\": \"Welcome to your new frontend! 👋\",\n              \"tag\": \"span\"\n            },\n            {\n              \"attributes\": {\n                \"href\": \"https://docs.mia-platform.eu/docs/microfrontend-composer/overview\",\n                \"target\": \"_blank\"\n              },\n              \"content\": \"Get started with the official documentation!\",\n              \"tag\": \"a\"\n            }\n          ],\n          \"tag\": \"div\"\n        }\n      },\n      \"integrationMode\": \"compose\",\n      \"route\": \"./home\"\n    }\n  },\n  \"layout\": {\n    \"content\": [\n      {\n        \"properties\": {\n          \"logo\": {\n            \"altText\": \"Change me\",\n            \"url\": \"https://www.mia-platform.eu/static/img/logo.svg\"\n          },\n          \"menuItems\": [\n            {\n              \"icon\": {\n                \"library\": \"@ant-design/icons-svg\",\n                \"selector\": \"HomeOutlined\"\n              },\n              \"id\": \"home\",\n              \"label\": \"Home\",\n              \"type\": \"application\"\n            }\n          ],\n          \"mode\": \"fixedSideBar\"\n        },\n        \"tag\": \"bk-layout\"\n      },\n      {\n        \"properties\": {\n          \"primaryColor\": \"#1890ff\",\n          \"varsPrefix\": [\n            \"micro-lc\",\n            \"microlc\",\n            \"back-kit\",\n            \"ant\"\n          ]\n        },\n        \"tag\": \"bk-antd-theme-manager\"\n      }\n    ],\n    \"sources\": [\n      \"https://cdn.mia-platform.eu/backoffice/bk-web-components/{{BACK_KIT_VERSION}}/dist/bk-web-components.esm.js\"\n    ]\n  },\n  \"settings\": {\n    \"defaultUrl\": \"./home\"\n  },\n  \"version\": 2\n}\n",
+                "name": "config.json"
+              }
+            ]
+          },
+          {
+            "name": "micro-lc-server-configuration",
+            "mountPath": "/usr/src/app/config",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "content": "{\n  \"publicHeadersMap\": {\n    \"/public/index.html\": {\n      \"content-security-policy\": [\n        [\n          \"script-src 'nonce-**CSP_NONCE**' 'strict-dynamic' 'unsafe-eval'\",\n          \"style-src 'self' 'unsafe-inline'\",\n          \"img-src 'self' https:\",\n          \"object-src 'none'\",\n          \"font-src 'self'\",\n          \"worker-src 'self' blob:\",\n          \"base-uri 'self'\"\n        ]\n      ],\n      \"link\": [\n        \"</mfe-application/assets/style.css>; rel=preload; as=style; nonce=**CSP_NONCE**\",\n        \"<https://cdn.mia-platform.eu/micro-lc/orchestrator/2.4.3/dist/micro-lc.production.js>; rel=modulepreload; as=script; nonce=**CSP_NONCE**\",\n        \"<https://cdn.mia-platform.eu/micro-lc/orchestrator/2.4.3/dist/assets/composer.js>; rel=preload; as=fetch; crossorigin\",\n        \"<https://cdn.mia-platform.eu/backoffice/bk-web-components/{{BACK_KIT_VERSION}}/dist/bk-web-components.esm.js>; rel=preload; as=fetch; crossorigin\",\n        \"<https://cdn.mia-platform.eu/backoffice/bk-web-components/{{BACK_KIT_VERSION}}/dist/bk-loading-animation.esm.js; rel=preload; as=fetch; crossorigin\"\n      ]\n    }\n  }\n}\n",
+                "name": "config.json"
+              }
+            ]
+          },
+          {
+            "name": "micro-lc-assets",
+            "mountPath": "/usr/static/public/assets",
+            "files": [
+              {
+                "content": "html,\nbody {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n}\n",
+                "name": "style.css"
+              }
+            ]
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 5,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "20m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "60Mi"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "",
+        "links": [
+          {
+            "label": "Microfrontend Composer",
+            "targetSection": "microfrontend-composer",
+            "enableIf": "ENABLE_BACKOFFICE_CONFIGURATOR"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    },
+    "endpoints": {
+      "/mfe-application": {
+        "defaultBasePath": "/mfe-application",
+        "defaultPathRewrite": "/public",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "microfrontend"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "micro-lc",
+        "listeners": {
+          "frontend": true
+        }
+      },
+      "/micro-lc-configurations": {
+        "defaultBasePath": "/micro-lc-configurations",
+        "defaultPathRewrite": "/configurations",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "backoffice"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "micro-lc",
+        "listeners": {
+          "frontend": true
+        }
+      }
+    },
+    "unsecretedVariables": {
+      "BACK_KIT_VERSION": {
+        "productionEnv": "1.5.15",
+        "noProductionEnv": "1.5.15"
+      }
+    },
+    "listeners": {
+      "frontend": {
+        "name": "frontend",
+        "port": "8080",
+        "selectedByDefault": true,
+        "description": "Default listener for frontend API",
+        "ownedBy": {
+          "componentIds": [
+            "api-gateway-envoy"
+          ]
+        }
+      }
+    }
+  },
+  "itemId": "microfrontend-composer-toolkit",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Invoice Service",
+  "itemId": "invoice-service",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "This service provides a configurable interface to create and download a PDF payment invoice",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/invoice-pdf-service-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
+  "supportedBy": "Mia-FinTech",
+  "categoryId": "payments",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/invoice-service/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/plugins/invoice-service",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "invoice-service": {
+        "type": "plugin",
+        "name": "invoice-service",
+        "description": "This service provides a configurable interface to create and download a PDF payment invoice",
+        "dockerImage": "nexus.mia-platform.eu/plugins/invoice-service:1.0.3",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client_type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isBackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "COMPANY_DATA_PATH",
+            "value": "/config/company-data.json",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "80m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "150Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 2,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 10,
+            "timeoutSeconds": 2,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultConfigMaps": [
+          {
+            "name": "config",
+            "mountPath": "/config",
+            "files": [
+              {
+                "name": "company-data.json",
+                "content": "{\n\"companyName\":\"Company Name Srl\",\n\"address\":\"Via Name, 1, City\",\n\"telephoneNumber\":\"Tel. +39 1234567890\",\n\"logo\":\"base64 of your logo\"\n}"
+              }
+            ],
+            "link": {}
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

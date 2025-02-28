@@ -1,0 +1,403 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "categoryId": "fast-data-connectors",
+  "name": "Salesforce Streaming API Connector",
+  "description": "This application allows to quickly setup a connector between Salesforce Streaming API technology and your Fast Data, including error handling and monitoring",
+  "type": "application",
+  "image": {
+    "localPath": "../../assets/connectionSalesforce-kafka-1.png"
+  },
+  "publishOnMiaDocumentation": true,
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/salesforce-streaming-api-connector",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/salesforce-streaming-api-connector/overview"
+  },
+  "resources": {
+    "services": {
+      "sforce-connector": {
+        "type": "plugin",
+        "name": "sforce-connector",
+        "description": "This service connects to multiple Streaming API topics and pushes changes to the corresponding Fast Data projections.",
+        "defaultTerminationGracePeriodSeconds": 30,
+        "defaultLogParser": "mia-json",
+        "dockerImage": "nexus.mia-platform.eu/plugins/salesforce-connector-service:1.1.0",
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_BROKERS",
+            "value": "{{KAFKA_BROKERS}}",
+            "valueType": "plain",
+            "description": "comma separated list of broker addresses"
+          },
+          {
+            "name": "KAFKA_CLIENT_ID",
+            "value": "{{KAFKA_CLIENT_ID}}",
+            "valueType": "plain",
+            "description": "client id of the producer that will write on projection topics"
+          },
+          {
+            "name": "KAFKA_SASL_MECHANISM",
+            "value": "SCRAM-SHA-256",
+            "valueType": "plain",
+            "description": "authentication mechanism, use `SCRAM-SHA-256` to enable scram authentication, defaulted to `plain`"
+          },
+          {
+            "name": "KAFKA_SASL_USERNAME",
+            "value": "{{KAFKA_SASL_USERNAME}}",
+            "valueType": "plain",
+            "description": "scram username"
+          },
+          {
+            "name": "KAFKA_SASL_PASSWORD",
+            "value": "{{KAFKA_SASL_PASSWORD}}",
+            "valueType": "plain",
+            "description": "scram password"
+          },
+          {
+            "name": "SALESFORCE_HTTP_BASE_PATH",
+            "value": "{{SALESFORCE_HTTP_BASE_PATH}}",
+            "valueType": "plain",
+            "description": "base path for salesforce access token generation (mustn't end with `/`)"
+          },
+          {
+            "name": "SALESFORCE_CLIENT_ID",
+            "value": "{{SALESFORCE_CLIENT_ID}}",
+            "valueType": "plain",
+            "description": "client id of your salesforce account"
+          },
+          {
+            "name": "SALESFORCE_CLIENT_SECRET",
+            "value": "{{SALESFORCE_CLIENT_SECRET}}",
+            "valueType": "plain",
+            "description": "secret of your salesforce account"
+          },
+          {
+            "name": "SALESFORCE_USERNAME",
+            "value": "{{SALESFORCE_USERNAME}}",
+            "valueType": "plain",
+            "description": "username of your salesforce account"
+          },
+          {
+            "name": "SALESFORCE_PASSWORD",
+            "value": "{{SALESFORCE_PASSWORD}}",
+            "valueType": "plain",
+            "description": "**concatenation** of password and secret token of your salesforce account"
+          },
+          {
+            "name": "CRUD_URL",
+            "value": "http://crud-service/",
+            "valueType": "plain",
+            "description": "url of your crud service"
+          },
+          {
+            "name": "KAFKA_DLQ_TOPIC",
+            "value": "{{KAFKA_DLQ_TOPIC}}",
+            "valueType": "plain",
+            "description": "Kafka topic used to implement the DLQ"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "/home/java/config/topicConfig.yml",
+            "valueType": "plain",
+            "description": "path to the yaml configuration file"
+          },
+          {
+            "name": "DEFAULT_REPLAY_POLICY",
+            "value": "REPLAY_FROM_EARLIER",
+            "valueType": "plain",
+            "description": "replay id policy used in case a checkpoint is invalid for topic connection. Use `REPLAY_FROM_TIP` if you want the topic to start processing from the current instant, use `REPLAY_FROM_EARLIER` if you want to process all events received during the last 24 hours (might put the service under heavy load, but also might help to not lose changes)"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "300m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "750Mi",
+            "min": "500Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/health",
+            "initialDelaySeconds": 90,
+            "periodSeconds": 30,
+            "timeoutSeconds": 5,
+            "failureThreshold": 1
+          },
+          "readiness": {
+            "path": "/health",
+            "initialDelaySeconds": 40,
+            "periodSeconds": 20,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultConfigMaps": [
+          {
+            "name": "topic-config",
+            "mountPath": "/home/java/config",
+            "files": [
+              {
+                "name": "topicConfig.yml",
+                "content": "- salesforceTableName: TableName\n  salesforceTopic: /topic/Table\n  projectionTopic: fd-p-system-table-json,\n  idPropertyName: Id"
+              }
+            ]
+          }
+        ],
+        "defaultMonitoring": {
+          "endpoints": [
+            {
+              "path": "/prometheus",
+              "port": "http",
+              "interval": "30s"
+            }
+          ]
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "sforce-connector-dlq": {
+        "type": "plugin",
+        "name": "sforce-connector-dlq",
+        "description": "This service processes events that were sent to the DLQ by the sforce-connector service.",
+        "defaultTerminationGracePeriodSeconds": 30,
+        "defaultLogParser": "mia-json",
+        "dockerImage": "nexus.mia-platform.eu/plugins/salesforce-connector-dlq-service:1.1.0",
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "SALESFORCE_HTTP_BASE_PATH",
+            "value": "{{SALESFORCE_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SALESFORCE_CLIENT_ID",
+            "value": "{{SALESFORCE_CLIENT_ID}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SALESFORCE_CLIENT_SECRET",
+            "value": "{{SALESFORCE_CLIENT_SECRET}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SALESFORCE_USERNAME",
+            "value": "{{SALESFORCE_USERNAME}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SALESFORCE_PASSWORD",
+            "value": "{{SALESFORCE_PASSWORD}}",
+            "valueType": "plain",
+            "description": "Authentication password, might be account password + secret token"
+          },
+          {
+            "name": "KAFKA_CLIENT_ID",
+            "value": "{{SFORCE_CONN_DLQ_KAFKA_CLIENT_ID}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_GROUP_ID",
+            "value": "{{SFORCE_CONN_DLQ_KAFKA_GROUP_ID}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_BROKERS",
+            "value": "{{KAFKA_BROKERS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_MECHANISM",
+            "value": "SCRAM-SHA-256",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_USERNAME",
+            "value": "{{KAFKA_SASL_USERNAME}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_PASSWORD",
+            "value": "{{KAFKA_SASL_PASSWORD}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_DLQ_TOPIC",
+            "value": "{{SFORCE_DLQ_TOPIC}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "FIELD_MAPPING_FILE_PATH",
+            "value": "/home/java/config/mappingConfig.yml",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "250m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "450Mi",
+            "min": "350Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/health",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 5,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/health",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 10,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultConfigMaps": [
+          {
+            "name": "mapping-config",
+            "mountPath": "/home/java/config",
+            "files": [
+              {
+                "name": "mappingConfig.yml",
+                "content": ""
+              }
+            ]
+          }
+        ],
+        "defaultMonitoring": {
+          "endpoints": [
+            {
+              "path": "/prometheus",
+              "port": "http",
+              "interval": "30s"
+            }
+          ]
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "itemId": "salesforce-streaming-api-connector",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  }
+}

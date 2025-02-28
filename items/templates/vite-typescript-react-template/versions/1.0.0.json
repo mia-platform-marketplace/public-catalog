@@ -1,0 +1,60 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Vite TypeScript React 18 Template",
+  "itemId": "vite-typescript-react-template",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "description": "This template allows you to start setting up a front-end project with React 18 using TypeScript and Vite",
+  "type": "template",
+  "image": {
+    "localPath": "../../assets/vite-typescript-react-template-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "spa",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Vite-Typescript-React-App-Template/refs/heads/18.x/README.md"
+  },
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Vite-Typescript-React-App-Template/tree/18.x",
+  "releaseStage": "stable",
+  "resources": {
+    "services": {
+      "vite-typescript-react-18-template": {
+        "type": "template",
+        "name": "vite-typescript-react-18-template",
+        "description": "This template allows you to start setting up a front-end project with React 18 using TypeScript and Vite",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Vite-Typescript-React-App-Template/archive/refs/heads/18.x.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Freact-app.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

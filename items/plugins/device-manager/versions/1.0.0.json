@@ -1,0 +1,164 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Device Manager",
+  "itemId": "device-manager",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "First release"
+  },
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/device-manager-plugin.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "supportedBy": "Mia-Care",
+  "categoryId": "utility",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/device-manager/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/device-manager",
+  "resources": {
+    "services": {
+      "device-manager": {
+        "type": "plugin",
+        "name": "device-manager",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/device-manager:1.0.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "info",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE_URL",
+            "value": "http://crud-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "TMM_SERVICE_URL",
+            "value": "http://therapy-monitoring-manager",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_DEVICES_ENDPOINT",
+            "value": "/tdm-dm-devices",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_HEALTH_DATA_ENDPOINT",
+            "value": "/tdm-dm-health-data",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_HEALTH_DATA_TYPE_ENDPOINT",
+            "value": "/tdm-dm-health-data-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "TMM_MONITORINGS_ENDPOINT",
+            "value": "/monitorings",
+            "valueType": "plain"
+          },
+          {
+            "name": "TMM_DETECTIONS_ENDPOINT",
+            "value": "/detections",
+            "valueType": "plain"
+          },
+          {
+            "name": "TMM_PROTOTYPES_ENDPOINT",
+            "value": "/prototypes",
+            "valueType": "plain"
+          },
+          {
+            "name": "MEDISANTE_PROVIDER",
+            "value": "medisante",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEALTHKIT_PROVIDER",
+            "value": "healthkit",
+            "valueType": "plain"
+          },
+          {
+            "name": "STANDARD_JSON_MEDISANTE",
+            "value": "medisante-standard-json",
+            "valueType": "plain"
+          },
+          {
+            "name": "STANDARD_JSON_HEALTHKIT",
+            "value": "healthkit-standard-json",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "DATA_ACQUISITION_JOB_COLLECTION",
+            "value": "",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

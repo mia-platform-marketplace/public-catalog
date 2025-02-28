@@ -1,0 +1,96 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Microservice Gateway",
+  "itemId": "microservice-gateway",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "The Microservice Gateway provides the ability to specify HTTP hooks to be invoked before and after each request",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/microservice-gateway-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "stream",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/microservice-gateway/overview"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/microservice-gateway",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "microservice-gateway": {
+        "type": "plugin",
+        "name": "microservice-gateway",
+        "description": "The Microservice Gateway provides the ability to specify HTTP hooks to be invoked before and after each request",
+        "dockerImage": "nexus.mia-platform.eu/core/microservice-gateway:6.0.8",
+        "componentId": "microservice-gateway",
+        "mapEnvVarToMountPath": {
+          "microservice-gateway-config": {
+            "type": "file",
+            "envName": "CONFIGURATION_PATH"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/home/node/app/configs/config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "DISABLE_STRICT_CONTENT_TYPE_CHECK",
+            "value": "false",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "50Mi"
+          },
+          "cpuLimits": {
+            "max": "700m",
+            "min": "150m"
+          }
+        },
+        "defaultConfigMaps": [
+          {
+            "name": "microservice-gateway-config",
+            "mountPath": "/home/node/app/configs",
+            "files": [],
+            "viewAsReadOnly": true
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

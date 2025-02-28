@@ -1,0 +1,156 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Rönd",
+  "itemId": "r-nd",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "version": {
+    "name": "1.12.9",
+    "releaseNote": "-"
+  },
+  "description": "Use Rönd as a standalone microservice to evaluate authorization security policies.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/rond-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "auth",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://rond-authz.io/"
+  },
+  "repositoryUrl": "https://github.com/rond-authz/rond/",
+  "resources": {
+    "services": {
+      "rond": {
+        "type": "plugin",
+        "name": "rond",
+        "description": "Use Rönd as a standalone microservice to evaluate authorization security policies.",
+        "dockerImage": "ghcr.io/rond-authz/rond:1.12.9",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "STANDALONE",
+            "description": "This value enables the standalone mode for the RBAC service",
+            "value": "true",
+            "valueType": "plain"
+          },
+          {
+            "name": "BINDINGS_CRUD_SERVICE_URL",
+            "description": "This is the compelte URL to the endpoint exposed by the crud service to the bindings collection",
+            "value": "CHANGE ME WITH THE CORRECT URL",
+            "valueType": "plain"
+          },
+          {
+            "name": "API_PERMISSIONS_FILE_PATH",
+            "description": "This variable lets you specify a file from which reading an OAS to expose.",
+            "value": "/oas-permissions/service-permissions.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "TARGET_SERVICE_OAS_PATH",
+            "description": "If you want to retrieve the OpenApi specification from a specific endpoint please specify it here",
+            "value": "CHANGE ME WITH AND ENDPOINT TO CONTACT THAT EXPOSE THE OAS DESIRED",
+            "valueType": "plain"
+          },
+          {
+            "name": "OPA_MODULES_DIRECTORY",
+            "description": "This directory will contain the file in which the policies to be evaluated are written",
+            "value": "/opa",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "BINDINGS_COLLECTION_NAME",
+            "description": "mongo collection in which users bindings are stored",
+            "value": "rbac-bindings",
+            "valueType": "plain"
+          },
+          {
+            "name": "ROLES_COLLECTION_NAME",
+            "description": "mongo collection in which users roles are stored",
+            "value": "rbac-roles",
+            "valueType": "plain"
+          },
+          {
+            "name": "PATH_PREFIX_STANDALONE",
+            "description": "This prefix will be added to all the route exposed from the oas when the standalone mode is active",
+            "value": "/eval",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "350m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "150Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/rbac-healthz",
+            "initialDelaySeconds": 40,
+            "periodSeconds": 15,
+            "timeoutSeconds": 1,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/rbac-ready"
+          }
+        },
+        "defaultConfigMaps": [
+          {
+            "name": "policies",
+            "mountPath": "/opa",
+            "files": [
+              {
+                "name": "policies.rego",
+                "content": "package policies \nallow_always{\n  true  \n}"
+              }
+            ]
+          },
+          {
+            "name": "permissions",
+            "mountPath": "/oas-permissions",
+            "files": [
+              {
+                "name": "service-permissions.json",
+                "content": "{\"paths\":{\"/hello\":{\"get\":{\"x-permission\":{\"allow\":\"allow_always\"}}}}}"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}

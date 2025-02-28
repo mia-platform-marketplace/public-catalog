@@ -1,0 +1,329 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "categoryId": "artificial-intelligence",
+  "name": "AI RAG Chat",
+  "itemId": "ai-rag-chat",
+  "description": "Create a retrieval augmented generation (RAG) app, with a plugin to generate embeddings and train your LLM and a front-end template with a UI to get the chatbot ready in minutes.",
+  "type": "application",
+  "image": {
+    "localPath": "../../assets/ai-rag-chat-transparent.png"
+  },
+  "publishOnMiaDocumentation": false,
+  "releaseStage": null,
+  "resources": {
+    "services": {
+      "api-gateway": {
+        "name": "api-gateway",
+        "type": "plugin",
+        "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "envoyproxy/envoy:v1.29.2",
+        "componentId": "api-gateway-envoy",
+        "documentation": {
+          "type": "externalLink",
+          "url": "https://docs.mia-platform.eu/docs/runtime_suite/envoy-api-gateway/overview"
+        },
+        "defaultDocumentationPath": "",
+        "publishOnMiaDocumentation": false,
+        "defaultArgs": [
+          "-c",
+          "/etc/envoy/envoy.json",
+          "-l",
+          "{{LOG_LEVEL}}",
+          "--log-format",
+          "{\"level\":\"%l\",\"time\":\"%Y-%m-%dT%T.%fZ\",\"scope\":\"%n\",\"message\":\"%j\"}",
+          "--drain-time-s",
+          "50"
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultEnvironmentVariables": [],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "250Mi",
+            "min": "150Mi"
+          },
+          "cpuLimits": {
+            "min": "150m",
+            "max": "200m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20
+          },
+          "readiness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "frontend",
+            "from": 8080,
+            "to": 8080
+          },
+          {
+            "name": "backoffice",
+            "from": 8081,
+            "to": 8081
+          },
+          {
+            "name": "admin",
+            "from": 9901,
+            "to": 9901
+          }
+        ],
+        "execPreStop": [
+          "bash",
+          "-c",
+          "echo -e 'POST /drain_listeners?graceful HTTP/1.1\r\nHost: localhost:9901\r\n\r' > /dev/tcp/localhost/9901 && sleep 55s"
+        ],
+        "defaultTerminationGracePeriodSeconds": 60,
+        "defaultConfigMaps": [
+          {
+            "name": "api-gateway-envoy-config",
+            "mountPath": "/etc/envoy",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "endpoints"
+            }
+          }
+        ]
+      },
+      "rag-chatbot-api": {
+        "type": "plugin",
+        "name": "rag-chatbot-api",
+        "dockerImage": "nexus.mia-platform.eu/plugins/rag-chatbot-api:0.5.3",
+        "tags": [
+          "artificial-intelligence"
+        ],
+        "componentId": "rag-chatbot-api",
+        "defaultResources": {
+          "cpuLimits": {
+            "min": "100m",
+            "max": "100m"
+          },
+          "memoryLimits": {
+            "min": "250Mi",
+            "max": "400Mi"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "INFO",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/config/configuration.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_CLUSTER_URI",
+            "value": "<YOUR_MONGODB_CONNECTION_STRING>",
+            "valueType": "plain"
+          },
+          {
+            "name": "EMBEDDINGS_API_KEY",
+            "value": "<YOUR_OPENAI_API_KEY>",
+            "valueType": "plain"
+          },
+          {
+            "name": "LLM_API_KEY",
+            "value": "<YOUR_OPENAI_API_KEY>",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "assistant-config",
+            "mountPath": "/config",
+            "files": [
+              {
+                "name": "configuration.json",
+                "content": "{\n  \"llm\": {\n    \"name\": \"<YOUR_MODEL_NAME>\"\n  },\n  \"embeddings\": {\n    \"name\": \"<YOUR_EMBEDDING_NAME>\"\n  },\n  \"vectorStore\": {\n    \"dbName\": \"<YOUR_DATABASE_NAME>\",\n    \"collectionName\": \"<YOUR_COLLECTION_NAME>\",\n    \"indexName\": \"<YOUR_INDEX_NAME>\",\n    \"relevanceScoreFn\": \"<YOUR_DISTANCE_FUNCTION>\",\n    \"embeddingKey\": \"<YOUR_EMBEDDING_KEY>\",\n    \"textKey\": \"<YOUR_TEXT_KEY>\",\n    \"maxDocumentsToRetrieve\": 3\n  }\n}\n"
+              }
+            ]
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 15,
+            "timeoutSeconds": 3,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 10,
+            "periodSeconds": 10,
+            "timeoutSeconds": 3,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ],
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fpython-hello-world-ci.yml/raw"
+          }
+        }
+      },
+      "ai-rag-template-chat": {
+        "type": "template",
+        "name": "ai-rag-template-chat",
+        "archiveUrl": "https://github.com/mia-platform/ai-rag-template-chat/archive/refs/tags/v0.0.3.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Freact-app-vitest.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "port": "frontend",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20
+          },
+          "readiness": {
+            "port": "frontend",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "frontend",
+            "from": 80,
+            "to": 8080
+          }
+        ]
+      }
+    },
+    "endpoints": {
+      "/": {
+        "service": "ai-rag-template-chat",
+        "port": "80",
+        "defaultBasePath": "/",
+        "defaultPathRewrite": "/",
+        "type": "custom",
+        "description": "",
+        "tags": [
+          "artificial-intelligence"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": true,
+        "allowUnknownResponseContentType": true,
+        "forceMicroserviceGatewayProxy": false
+      },
+      "/api/chat/completions": {
+        "service": "rag-chatbot-api",
+        "port": "80",
+        "defaultBasePath": "/api/chat/completions",
+        "defaultPathRewrite": "/chat/completions",
+        "type": "custom",
+        "description": "",
+        "tags": [
+          "artificial-intelligence"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": true,
+        "allowUnknownResponseContentType": true,
+        "forceMicroserviceGatewayProxy": false
+      },
+      "/api/embeddings/generate": {
+        "service": "rag-chatbot-api",
+        "port": "80",
+        "defaultBasePath": "/api/embeddings/generate",
+        "defaultPathRewrite": "/embeddings/generate",
+        "type": "custom",
+        "description": "Endpoint /api/embeddings/generate",
+        "tags": [
+          "artificial-intelligence"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      },
+      "/api/embeddings/generateFromFile": {
+        "service": "rag-chatbot-api",
+        "port": "80",
+        "defaultBasePath": "/api/embeddings/generateFromFile",
+        "defaultPathRewrite": "/embeddings/generateFromFile",
+        "type": "custom",
+        "description": "Endpoint /api/embeddings/generateFromFile",
+        "tags": [
+          "artificial-intelligence"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      },
+      "/api/embeddings/status": {
+        "service": "rag-chatbot-api",
+        "port": "80",
+        "defaultBasePath": "/api/embeddings/status",
+        "defaultPathRewrite": "/embeddings/status",
+        "type": "custom",
+        "description": "Endpoint /api/embeddings/status",
+        "tags": [
+          "artificial-intelligence"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      }
+    },
+    "listeners": {
+      "frontend": {
+        "name": "frontend",
+        "port": "8080",
+        "selectedByDefault": true,
+        "description": "Default listener for frontend API",
+        "ownedBy": {
+          "componentIds": [
+            "api-gateway-envoy"
+          ]
+        }
+      }
+    }
+  },
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  }
+}

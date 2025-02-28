@@ -1,0 +1,106 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "name": "Push Notification Manager",
+  "itemId": "push-notification-manager",
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "description": "This microservice offers some useful features for easily and safely handling the push notifications data.",
+  "type": "plugin",
+  "image": {
+    "localPath": "../../assets/push-notification-manager-plugin-transparent.png"
+  },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "supportedBy": "Mia-Platform",
+  "categoryId": "notification",
+  "publishOnMiaDocumentation": true,
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/push-notification-manager/configuration"
+  },
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/notifications-manager",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "push-notification-manager": {
+        "type": "plugin",
+        "name": "push-notification-manager",
+        "description": "This microservice offers some useful features for easily and safely handling the push notifications data.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/notifications-manager:2.0.1",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE_NAME",
+            "value": "crud-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "NOTIFICATIONS_COLLECTION_NAME",
+            "value": "CHANGE_WITH_YOUR_NOTIFICATIONS_COLLECTION",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_PREFIX",
+            "value": "CHANGE_WITH_YOUR_OPTIONAL_SERVICE_PREFIX",
+            "valueType": "plain"
+          },
+          {
+            "name": "PATH_PREFIX",
+            "value": "CHANGE_WITH_YOUR_OPTIONAL_PATH_PREFIX",
+            "valueType": "plain"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  }
+}
