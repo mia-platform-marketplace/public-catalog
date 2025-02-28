@@ -39,6 +39,8 @@ const prefixes = {
 
 const newLine = () => { console.log('\n') }
 
+const log: typeof console.log = (...data) => { console.log(...data) }
+
 const info: typeof console.log = (...data) => { console.log(prefixes.info, ...data) }
 
 const success: typeof console.log = (...data) => { console.log(prefixes.success, ...data) }
@@ -50,6 +52,7 @@ const error: typeof console.log = (...data) => { console.log(prefixes.error, ...
 export default {
   error,
   info,
+  log,
   newLine,
   success,
   warn,

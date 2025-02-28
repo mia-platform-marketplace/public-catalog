@@ -23,9 +23,10 @@ import path from 'node:path'
 import { CatalogReleaseStage, catalogWellKnownItemsCustomResourceDefinitions, NA_VERSION } from '@mia-platform/console-types'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
+import chalk from 'chalk'
 import { Command } from 'commander'
 import type { JSONSchema } from 'json-schema-to-ts'
-import type { ListrTaskWrapper } from 'listr2'
+import type { ListrError, ListrTaskWrapper } from 'listr2'
 import { Listr } from 'listr2'
 import semver from 'semver'
 
@@ -39,6 +40,18 @@ type Task = ListrTaskWrapper<any, any, any>
 
 const ajv = new Ajv({ addUsedSchema: false, allErrors: true })
 addFormats(ajv)
+
+class CheckError extends Error {
+  private readonly _taskErrors: ListrError[]
+
+  constructor(message: string, taskErrors: ListrError[]) {
+    super(message)
+
+    this._taskErrors = taskErrors
+  }
+
+  get taskErrors() { return this._taskErrors }
+}
 
 
 /** @throws Error */
@@ -131,7 +144,7 @@ const assertVersionValid = async (task: Task, manifestPath: string, typeData: It
       throw new Error(`Manifests for "NA" versions must not have property "version"`)
     }
 
-    if (manifest.releaseStage !== CatalogReleaseStage.DEPRECATED) {
+    if (typeData.crd.isVersioningSupported && manifest.releaseStage !== CatalogReleaseStage.DEPRECATED) {
       throw new Error(`Manifests for "NA" versions must have "releaseStage" set to "deprecated"`)
     }
   }
@@ -190,16 +203,11 @@ const computeAndValidateReleaseFilesPaths = async (itemDirPath: string, typeData
     throw new Error(`Unexpected empty directory "versions"`)
   }
 
-  const crd = catalogWellKnownItemsCustomResourceDefinitions[typeData.type]
-  if (!crd) {
-    throw new Error(`Could not find a Custom Resource Definition for the item's type "${typeData.type}"`)
-  }
-
-  if (!crd.isVersioningSupported && (hasSemver || !hasNa)) {
+  if (!typeData.crd.isVersioningSupported && (hasSemver || !hasNa)) {
     throw new Error(`Items of type "${typeData.type}" must have only a single "NA.json" file`)
   }
 
-  if (crd.isVersioningSupported && !hasSemver) {
+  if (typeData.crd.isVersioningSupported && !hasSemver) {
     throw new Error(`Items of type "${typeData.type}" must have at least one versioned manifest`)
   }
 
@@ -209,9 +217,14 @@ const computeAndValidateReleaseFilesPaths = async (itemDirPath: string, typeData
 /** @throws Error */
 const assertItemValid = async (task: Task, itemDirPath: string): Promise<Listr> => {
   const typeDir = path.dirname(itemDirPath)
-
   const typeDataModule = await import(typeDir) as ItemTypeModule
-  const typeData = typeDataModule.default
+
+  const crd = catalogWellKnownItemsCustomResourceDefinitions[typeDataModule.default.type]
+  if (!crd) {
+    throw new Error(`Could not find a Custom Resource Definition for the item's type "${typeDataModule.default.type}"`)
+  }
+
+  const typeData = { ...typeDataModule.default, crd }
 
   const manifestPaths = await computeAndValidateReleaseFilesPaths(itemDirPath, typeData)
 
@@ -223,7 +236,7 @@ const assertItemValid = async (task: Task, itemDirPath: string): Promise<Listr> 
     subTask.add({
       rendererOptions: { outputBar: Infinity, persistentOutput: true },
       task: async (_, task) => { await assertVersionValid(task, manifestPath, typeData) },
-      title: `Checking version "${versionName}" validity`,
+      title: `Checking version "${chalk.bold(versionName)}"`,
     })
   }
 
@@ -231,6 +244,10 @@ const assertItemValid = async (task: Task, itemDirPath: string): Promise<Listr> 
 }
 
 // TODO: check that services, endpoints, and collections have `name` equal to `key`
+/**
+ * @throws CheckError
+ * @throws Error
+ */
 const main = async () => {
   const program = new Command()
 
@@ -243,29 +260,51 @@ const main = async () => {
 
   const tasks = new Listr([], {
     collectErrors: 'minimal',
-    concurrent: true,
+    concurrent: false,
     exitOnError: false,
     rendererOptions: { collapseErrors: false, collapseSubtasks: false, showSubtasks: true },
   })
 
   for (const itemDirPath of paths) {
     const itemId = itemDirPath.split('/').at(-1)
+    const itemType = itemDirPath.split('/').at(-2)
 
     tasks.add({
       task: async (_, task) => assertItemValid(task, itemDirPath),
-      title: `Checking "${itemId}" validity`,
+      title: `Checking item "${chalk.bold(`${itemType}/${itemId}`)}"`,
     })
   }
 
   await tasks.run()
 
   if (tasks.errors.length > 0) {
-    throw new Error('Some items are not valid')
+    throw new CheckError('Some checks were not successful', tasks.errors)
   }
 }
 
 main()
+  .then(() => {
+    logger.log('\n')
+    logger.success('No problems found in checked items')
+    process.exit(0)
+  })
   .catch((error) => {
-    logger.error(error instanceof Error ? error.message : 'Unexpected error checking items validity')
+    logger.log('\n')
+
+    if (error instanceof CheckError) {
+      logger.error('Some checks were not successful, here\'s a list of encountered errors:')
+
+      error.taskErrors.forEach(({ error, path: taskPaths }) => {
+        const logLines = [...taskPaths, error.message]
+
+        logLines.forEach((logLine, idx) => {
+          const indent = new Array(idx + 1).fill('   ').join('')
+          logger.error(`${indent}${logLine}`)
+        })
+      })
+    } else {
+      logger.error('Unexpected error checking items validity')
+    }
+
     process.exit(1)
   })
