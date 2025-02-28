@@ -12,6 +12,10 @@ changelog:
         - new item
         - new item release
 
+    - title: Edited items 🔧
+      labels:
+        - edit item
+
     - title: Exciting New Features 🎉
       labels:
         - enhancement
