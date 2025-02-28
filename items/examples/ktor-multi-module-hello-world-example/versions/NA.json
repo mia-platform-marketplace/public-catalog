@@ -1,0 +1,82 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "kotlin",
+  "description": "A simple Hello World example application using Mia-Platform Kotlin Multi Module template based on Ktor 1.6 with Java 11",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Ktor-Multi-Module-Hello-World-Example/refs/heads/1.6.x_jdk-11/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/kotlin-multi-module-example-transparent.png"
+  },
+  "itemId": "ktor-multi-module-hello-world-example",
+  "name": "Ktor 1.6 Java 11 Multi Module Hello World Example",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Ktor-Multi-Module-Hello-World-Example/tree/1.6.x_jdk-11",
+  "resources": {
+    "services": {
+      "ktor-16-java-11-multi-module-hello-world-example": {
+        "type": "example",
+        "name": "ktor-16-java-11-multi-module-hello-world-example",
+        "description": "A simple Hello World example application using Mia-Platform Kotlin Multi Module template based on Ktor 1.6 with Java 11",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Ktor-Multi-Module-Hello-World-Example/archive/refs/heads/1.6.x_jdk-11.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fgradle6-multi-project-template.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "info",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_LOG_LEVEL",
+            "value": "body",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_CONFIG_FILE",
+            "value": "service/logback.xml",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "1000m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "150Mi"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "/documentation/openapi.json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "visibility": {
+    "public": true
+  }
+}

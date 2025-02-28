@@ -1,0 +1,124 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "orchestrators",
+  "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/envoy-api-gateway/overview"
+  },
+  "image": {
+    "localPath": "../../assets/envoy-api-gateway-plugin-transparent.png"
+  },
+  "itemId": "envoy-api-gateway",
+  "name": "Envoy API Gateway",
+  "publishOnMiaDocumentation": false,
+  "releaseStage": "stable",
+  "resources": {
+    "services": {
+      "api-gateway": {
+        "name": "api-gateway",
+        "type": "plugin",
+        "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "envoyproxy/envoy:v1.29.2",
+        "componentId": "api-gateway-envoy",
+        "defaultDocumentationPath": "",
+        "defaultArgs": [
+          "-c",
+          "/etc/envoy/envoy.json",
+          "-l",
+          "{{LOG_LEVEL}}",
+          "--log-format",
+          "{\"level\":\"%l\",\"time\":\"%Y-%m-%dT%T.%fZ\",\"scope\":\"%n\",\"message\":\"%j\"}",
+          "--drain-time-s",
+          "50"
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultEnvironmentVariables": [],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "250Mi",
+            "min": "150Mi"
+          },
+          "cpuLimits": {
+            "min": "150m",
+            "max": "200m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20
+          },
+          "readiness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "frontend",
+            "from": 8080,
+            "to": 8080
+          },
+          {
+            "name": "backoffice",
+            "from": 8081,
+            "to": 8081
+          },
+          {
+            "name": "admin",
+            "from": 9901,
+            "to": 9901
+          }
+        ],
+        "execPreStop": [
+          "bash",
+          "-c",
+          "echo -e 'POST /drain_listeners?graceful HTTP/1.1\r\nHost: localhost:9901\r\n\r' > /dev/tcp/localhost/9901 && sleep 55s"
+        ],
+        "defaultTerminationGracePeriodSeconds": 60,
+        "defaultConfigMaps": [
+          {
+            "name": "api-gateway-envoy-config",
+            "mountPath": "/etc/envoy",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "endpoints"
+            }
+          }
+        ]
+      }
+    },
+    "listeners": {
+      "frontend": {
+        "name": "frontend",
+        "port": "8080",
+        "selectedByDefault": true,
+        "description": "Default listener for frontend API",
+        "ownedBy": {
+          "componentIds": [
+            "api-gateway-envoy"
+          ]
+        }
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.29.2",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

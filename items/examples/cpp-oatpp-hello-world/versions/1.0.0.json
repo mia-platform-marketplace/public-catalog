@@ -1,0 +1,63 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "rust",
+  "description": "Example of Microservice with Oat++ Web Framework",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/cpp-oatpp-hello-world-microservice-example/master/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/cpp-oatpp-hello-world-example-transparent.png"
+  },
+  "itemId": "cpp-oatpp-hello-world",
+  "name": "Cpp Oatpp Hello World",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "cpp-oatpp-hello-world": {
+        "type": "example",
+        "name": "cpp-oatpp-hello-world",
+        "description": "Example of Microservice with Oat++ Web Framework",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/cpp-oatpp-hello-world-microservice-example/archive/master.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fcpp-aotpp-hello-world.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

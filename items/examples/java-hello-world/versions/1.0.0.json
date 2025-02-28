@@ -1,0 +1,71 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "kotlin",
+  "description": "Example of Java Microservice based on Springboot 2 with Java 11",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/springboot-hello-world-example/refs/heads/2.x_jdk-11/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/java-hello-world-example-transparent.png"
+  },
+  "itemId": "java-hello-world",
+  "name": "Springboot 2 Java 11 Hello World",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/springboot-hello-world-example/tree/2.x_jdk-11",
+  "resources": {
+    "services": {
+      "springboot-2-java-11-hello-world": {
+        "type": "example",
+        "name": "springboot-2-java-11-hello-world",
+        "description": "Example of Java Microservice based on Springboot 2 with Java 11",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/springboot-hello-world-example/archive/refs/heads/2.x_jdk-11.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fspringboot.gitlab-ci-jdk-11.yml/raw"
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "350m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "150Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "initialDelaySeconds": 40,
+            "periodSeconds": 15,
+            "timeoutSeconds": 1,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

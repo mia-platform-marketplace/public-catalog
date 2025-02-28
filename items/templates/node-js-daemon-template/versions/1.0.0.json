@@ -1,0 +1,47 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "nodejs",
+  "description": "A Node.js basic template to start developing a daemon service.",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/node.js-daemon-template/main/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/nodejs-daemon-template-transparent.png"
+  },
+  "itemId": "node-js-daemon-template",
+  "name": "Node.js Daemon Template",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/node.js-daemon-template",
+  "resources": {
+    "services": {
+      "nodejs-daemon-template": {
+        "type": "template",
+        "name": "nodejs-daemon-template",
+        "description": "A Node.js basic template to start developing a daemon service.",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/node.js-daemon-template/archive/main.tar.gz",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

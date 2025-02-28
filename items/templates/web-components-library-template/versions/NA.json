@@ -1,0 +1,61 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "microfrontend",
+  "description": "Use this template to scaffold a Web Components library to be used in Mia-Platform Microfrontend Composer",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/micro-lc/wc-library-template/refs/tags/v1.0.0/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/web-components-library-template-transparent.png"
+  },
+  "itemId": "web-components-library-template",
+  "name": "Web Components Library Template",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/micro-lc/wc-library-template",
+  "resources": {
+    "services": {
+      "web-components-library-template": {
+        "type": "template",
+        "name": "web-components-library-template",
+        "archiveUrl": "https://github.com/micro-lc/wc-library-template/archive/v1.0.0.tar.gz",
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "50m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "50Mi",
+            "min": "30Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": ""
+          },
+          "readiness": {
+            "path": ""
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080
+          }
+        ],
+        "defaultEnvironmentVariables": [],
+        "defaultLogParser": "mia-nginx"
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "visibility": {
+    "public": true
+  }
+}

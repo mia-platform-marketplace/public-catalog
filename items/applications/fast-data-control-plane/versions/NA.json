@@ -1,0 +1,2648 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "fast-data",
+  "description": "Use this application to set up a Control Plane with identity access management to control your Fast Data Runtime with just a few clicks",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/control-plane/overview"
+  },
+  "image": {
+    "localPath": "../../assets/fast-data-control-plane-application-transparent.png"
+  },
+  "itemId": "fast-data-control-plane",
+  "name": "Fast Data Control Plane",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/control-plane-application",
+  "resources": {
+    "collections": {
+      "users": {
+        "defaultName": "users",
+        "description": "Collection of users of Data Fabric solution",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "name",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "groups",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "username",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "email",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "providerId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "providerUserId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "realm",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "metadata",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "permissions",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          }
+        ],
+        "id": "users",
+        "indexes": [
+          {
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ],
+            "name": "_id",
+            "type": "normal",
+            "unique": true
+          },
+          {
+            "fields": [
+              {
+                "name": "creatdAt",
+                "order": -1
+              }
+            ],
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false
+          },
+          {
+            "fields": [
+              {
+                "name": "__STATE__",
+                "order": 1
+              }
+            ],
+            "name": "stateIndex",
+            "type": "normal",
+            "unique": false
+          },
+          {
+            "fields": [
+              {
+                "name": "email",
+                "order": 1
+              },
+              {
+                "name": "name",
+                "order": 1
+              },
+              {
+                "name": "__STATE__",
+                "order": 1
+              }
+            ],
+            "name": "nameSearch",
+            "type": "normal",
+            "unique": false
+          },
+          {
+            "fields": [
+              {
+                "name": "providerId",
+                "order": 1
+              },
+              {
+                "name": "providerUserId",
+                "order": 1
+              },
+              {
+                "name": "realm",
+                "order": 1
+              }
+            ],
+            "name": "upsertSupport",
+            "type": "normal",
+            "unique": false
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/users",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "tags": [
+          "collection"
+        ],
+        "type": "collection"
+      }
+    },
+    "endpoints": {
+      "/api/backend/projects": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/api/backend/projects",
+        "defaultPathRewrite": "/api/backend/projects",
+        "description": "Endpoint /api/backend/projects",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "public": false,
+        "secreted": false,
+        "service": "fabric-bff",
+        "showInDocumentation": true,
+        "tags": [
+          "fabric-bff"
+        ],
+        "type": "custom"
+      },
+      "/api/fast-data": {
+        "acl": "false",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/api/fast-data",
+        "defaultPathRewrite": "/api/fast-data",
+        "description": "Endpoint /api/fast-data",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "public": false,
+        "routes": {
+          "DELETE/connections/items": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"delete:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "DELETE/connections/items",
+            "path": "/connections/items",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "DELETE"
+          },
+          "DELETE/runtimes/items/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:runtimes\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "DELETE/runtimes/items/:id",
+            "path": "/runtimes/items/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "DELETE"
+          },
+          "GET/connections/items": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/connections/items",
+            "path": "/connections/items",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/feedback": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:pipelines\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/feedback",
+            "path": "/feedback",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/namespaces/usage": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:pipelines\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/namespaces/usage",
+            "path": "/namespaces/usage",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "rateLimit": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/runtimes/items": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:pipelines\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/runtimes/items",
+            "path": "/runtimes/items",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/runtimes/items/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:pipelines\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/runtimes/items/:id",
+            "path": "/runtimes/items/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/runtimes/items/:id/pipelines": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:pipelines\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/runtimes/items/:id/pipelines",
+            "path": "/runtimes/items/:id/pipelines",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/runtimes/stats": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:pipelines\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/runtimes/stats",
+            "path": "/runtimes/stats",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "HEAD/control": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"control:pipelines\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "HEAD/control",
+            "path": "/control",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "HEAD"
+          },
+          "HEAD/feedback": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:pipelines\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "HEAD/feedback",
+            "path": "/feedback",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "HEAD"
+          },
+          "PATCH/connections/items": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/connections/items",
+            "path": "/connections/items",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/runtimes/items/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:runtimes\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/runtimes/items/:id",
+            "path": "/runtimes/items/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "POST/connections/items": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/connections/items",
+            "path": "/connections/items",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "POST"
+          },
+          "POST/control": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"control:pipelines\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/control",
+            "path": "/control",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "POST"
+          },
+          "POST/runtimes/items": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:runtimes\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/runtimes/items",
+            "path": "/runtimes/items",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "POST"
+          }
+        },
+        "secreted": false,
+        "service": "fabric-bff",
+        "showInDocumentation": true,
+        "tags": [
+          "control-plane"
+        ],
+        "type": "custom"
+      },
+      "/apps": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/apps",
+        "defaultPathRewrite": "/apps",
+        "description": "Endpoint /apps",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "public": true,
+        "secreted": false,
+        "service": "authentication-service",
+        "showInDocumentation": true,
+        "tags": [
+          "auth"
+        ],
+        "type": "custom"
+      },
+      "/authorize": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/authorize",
+        "defaultPathRewrite": "/authorize",
+        "description": "Endpoint /authorize",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "public": true,
+        "secreted": false,
+        "service": "authentication-service",
+        "showInDocumentation": true,
+        "tags": [
+          "auth"
+        ],
+        "type": "custom"
+      },
+      "/authz/users": {
+        "acl": "\"update:users\" in permissions",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "collectionId": "users",
+        "defaultBasePath": "/authz/users",
+        "defaultPathRewrite": "/users",
+        "description": "Endpoint /authz/users",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "pathName": "/",
+        "public": false,
+        "routes": {
+          "DELETE/": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "DELETE/",
+            "path": "/",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "DELETE"
+          },
+          "DELETE/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "DELETE/:id",
+            "path": "/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "DELETE"
+          },
+          "GET/": {
+            "acl": {
+              "inherited": false,
+              "value": "\"read:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/",
+            "path": "/",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "GET"
+          },
+          "GET/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "\"read:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/:id",
+            "path": "/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "GET"
+          },
+          "GET/count": {
+            "acl": {
+              "inherited": false,
+              "value": "\"read:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/count",
+            "path": "/count",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "GET"
+          },
+          "GET/export": {
+            "acl": {
+              "inherited": false,
+              "value": "\"read:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": false,
+              "value": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/export",
+            "path": "/export",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "GET"
+          },
+          "PATCH/": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/",
+            "path": "/",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/:id",
+            "path": "/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/bulk": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/bulk",
+            "path": "/bulk",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "PATCH"
+          },
+          "POST/": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/",
+            "path": "/",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "POST"
+          },
+          "POST/:id/state": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/:id/state",
+            "path": "/:id/state",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "POST"
+          },
+          "POST/bulk": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/bulk",
+            "path": "/bulk",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "POST"
+          },
+          "POST/state": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/state",
+            "path": "/state",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "POST"
+          },
+          "POST/upsert-one": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/upsert-one",
+            "path": "/upsert-one",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "POST"
+          }
+        },
+        "secreted": false,
+        "showInDocumentation": true,
+        "tags": [
+          "backoffice"
+        ],
+        "type": "crud"
+      },
+      "/control-plane": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/control-plane",
+        "defaultPathRewrite": "/control-plane",
+        "description": "Endpoint /control-plane",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "options": {
+          "iframePolicy": "all"
+        },
+        "public": false,
+        "secreted": false,
+        "service": "control-plane-fe",
+        "showInDocumentation": false,
+        "tags": [
+          "control-plane-fe"
+        ],
+        "type": "custom"
+      },
+      "/control-plane/.well-known/oidc-configuration": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/control-plane/.well-known/oidc-configuration",
+        "defaultPathRewrite": "/control-plane/oidc-configuration.json",
+        "description": "Endpoint /control-plane/.well-known/oidc-configuration",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "public": false,
+        "secreted": false,
+        "service": "control-plane-fe",
+        "showInDocumentation": true,
+        "tags": [
+          "control-plane-fe"
+        ],
+        "type": "custom"
+      },
+      "/control-plane/configuration": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/control-plane/configuration",
+        "defaultPathRewrite": "/control-plane/configuration.json",
+        "description": "Endpoint /control-plane/configuration",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "public": false,
+        "secreted": false,
+        "service": "control-plane-fe",
+        "showInDocumentation": true,
+        "tags": [
+          "control-plane-fe"
+        ],
+        "type": "custom"
+      },
+      "/control_plane_fabric.RuntimeManagement": {
+        "acl": "clientType == \"control_plane_operator\"",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/control_plane_fabric.RuntimeManagement",
+        "defaultPathRewrite": "/control_plane_fabric.RuntimeManagement",
+        "description": "Endpoint /control_plane_fabric.RuntimeManagement",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": false,
+          "grpc": true
+        },
+        "port": "50051",
+        "public": true,
+        "secreted": true,
+        "service": "control-plane",
+        "showInDocumentation": true,
+        "tags": [
+          "control-plane"
+        ],
+        "type": "custom",
+        "useDownstreamProtocol": true
+      },
+      "/control_plane_intercomm.ControlPlane": {
+        "acl": "clientType == \"control_plane_operator\"",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/control_plane_intercomm.ControlPlane",
+        "defaultPathRewrite": "/control_plane_intercomm.ControlPlane",
+        "description": "Endpoint /control_plane_intercomm.ControlPlane",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": false,
+          "grpc": true
+        },
+        "port": "50051",
+        "public": true,
+        "secreted": true,
+        "service": "control-plane",
+        "showInDocumentation": true,
+        "tags": [
+          "control-plane"
+        ],
+        "type": "custom",
+        "useDownstreamProtocol": true
+      },
+      "/grpc.reflection.v1.ServerReflection": {
+        "acl": "clientType == \"control_plane_operator\"",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/grpc.reflection.v1.ServerReflection",
+        "defaultPathRewrite": "/grpc.reflection.v1.ServerReflection",
+        "description": "Endpoint /grpc.reflection.v1.ServerReflection",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": false,
+          "grpc": true
+        },
+        "port": "50051",
+        "public": true,
+        "secreted": true,
+        "service": "control-plane",
+        "showInDocumentation": true,
+        "tags": [
+          "control-plane"
+        ],
+        "type": "custom",
+        "useDownstreamProtocol": true
+      },
+      "/grpc.reflection.v1alpha.ServerReflection": {
+        "acl": "clientType == \"control_plane_operator\"",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/grpc.reflection.v1alpha.ServerReflection",
+        "defaultPathRewrite": "/grpc.reflection.v1alpha.ServerReflection",
+        "description": "Endpoint /grpc.reflection.v1alpha.ServerReflection",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": false,
+          "grpc": true
+        },
+        "port": "50051",
+        "public": true,
+        "secreted": true,
+        "service": "control-plane",
+        "showInDocumentation": true,
+        "tags": [
+          "control-plane"
+        ],
+        "type": "custom",
+        "useDownstreamProtocol": true
+      },
+      "/logout": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/logout",
+        "defaultPathRewrite": "/logout",
+        "description": "Endpoint /logout",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "public": false,
+        "secreted": false,
+        "service": "authentication-service",
+        "showInDocumentation": true,
+        "tags": [
+          "auth"
+        ],
+        "type": "custom"
+      },
+      "/mgmt": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/mgmt",
+        "defaultPathRewrite": "/public",
+        "description": "Endpoint /mgmt",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "options": {
+          "iframePolicy": "all"
+        },
+        "public": false,
+        "routes": {
+          "GET/users": {
+            "acl": {
+              "inherited": false,
+              "value": "\"read:users\" in permissions || \"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/users",
+            "path": "/users",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          }
+        },
+        "secreted": false,
+        "service": "micro-lc",
+        "showInDocumentation": true,
+        "tags": [
+          "backoffice"
+        ],
+        "type": "custom"
+      },
+      "/micro-lc-configurations": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/micro-lc-configurations",
+        "defaultPathRewrite": "/configurations",
+        "description": "Endpoint /micro-lc-configurations",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "options": {
+          "iframePolicy": "all"
+        },
+        "public": false,
+        "secreted": false,
+        "service": "micro-lc",
+        "showInDocumentation": true,
+        "tags": [
+          "backoffice"
+        ],
+        "type": "custom"
+      },
+      "/oauth/token": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/oauth/token",
+        "defaultPathRewrite": "/oauth/token",
+        "description": "Endpoint /oauth/token",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "public": true,
+        "secreted": false,
+        "service": "authentication-service",
+        "showInDocumentation": true,
+        "tags": [
+          "authentication-service"
+        ],
+        "type": "custom"
+      },
+      "/refreshtoken": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/refreshtoken",
+        "defaultPathRewrite": "/refreshtoken",
+        "description": "Endpoint /refreshtoken",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "public": false,
+        "secreted": false,
+        "service": "authentication-service",
+        "showInDocumentation": true,
+        "tags": [
+          "authentication-service"
+        ],
+        "type": "custom"
+      },
+      "/userinfo": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/userinfo",
+        "defaultPathRewrite": "/userinfo",
+        "description": "Endpoint /userinfo",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "public": false,
+        "secreted": false,
+        "service": "authentication-service",
+        "showInDocumentation": true,
+        "tags": [
+          "authentication-service"
+        ],
+        "type": "custom"
+      },
+      "/web-login": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/web-login",
+        "defaultPathRewrite": "/web-login",
+        "description": "Endpoint /web-login",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true,
+          "grpc": false
+        },
+        "options": {
+          "iframePolicy": "all"
+        },
+        "public": true,
+        "secreted": false,
+        "service": "login-site",
+        "showInDocumentation": true,
+        "tags": [
+          "auth"
+        ],
+        "type": "custom"
+      }
+    },
+    "listeners": {
+      "frontend": {
+        "description": "Default listener for frontend API",
+        "name": "frontend",
+        "ownedBy": {
+          "componentIds": [
+            "api-gateway-envoy"
+          ]
+        },
+        "port": "8080",
+        "selectedByDefault": true
+      },
+      "grpc": {
+        "description": "Listener for gRPC services",
+        "name": "grpc",
+        "port": "50051"
+      }
+    },
+    "services": {
+      "api-gateway": {
+        "componentId": "api-gateway-envoy",
+        "containerPorts": [
+          {
+            "from": 8080,
+            "name": "frontend",
+            "to": 8080
+          },
+          {
+            "from": 8081,
+            "name": "backoffice",
+            "to": 8081
+          },
+          {
+            "from": 9901,
+            "name": "admin",
+            "to": 9901
+          },
+          {
+            "from": 50051,
+            "name": "grpc",
+            "to": 50051
+          }
+        ],
+        "defaultArgs": [
+          "-c",
+          "/etc/envoy/envoy.json",
+          "-l",
+          "{{LOG_LEVEL}}",
+          "--log-format",
+          "{\"level\":\"%l\",\"time\":\"%Y-%m-%dT%T.%fZ\",\"scope\":\"%n\",\"message\":\"%j\"}",
+          "--drain-time-s",
+          "50"
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "endpoints"
+            },
+            "mountPath": "/etc/envoy",
+            "name": "api-gateway-envoy-config",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/healthz",
+            "periodSeconds": 20,
+            "port": "frontend",
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/healthz",
+            "periodSeconds": 10,
+            "port": "frontend",
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "200m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "100Mi",
+            "min": "30Mi"
+          }
+        },
+        "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "envoyproxy/envoy:v1.32.1",
+        "execPreStop": [
+          "bash",
+          "-c",
+          "echo -e 'POST /drain_listeners?graceful HTTP/1.1\r\nHost: localhost:9901\r\n\r' > /dev/tcp/localhost/9901 && sleep 55s"
+        ],
+        "name": "api-gateway",
+        "tags": [
+          "custom"
+        ],
+        "type": "plugin"
+      },
+      "authentication-service": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/configs",
+            "name": "authentication-service-config",
+            "files": [
+              {
+                "content": "{\n  \"apps\": {\n    \"{{CP_APP_ID}}\": {\n      \"providers\": {\n        \"{{CP_PROVIDER_ID}}\": {\n          \"order\": 10,\n          \"type\": \"okta\",\n          \"label\": \"Login with Okta\",\n          \"clientId\": \"{{CP_OKTA_CLIENT_ID}}\",\n          \"clientSecret\": \"{{CP_OKTA_CLIENT_SECRET}}\",\n          \"baseUrl\": \"{{OKTA_BASE_URL}}\",\n          \"authUrl\": \"{{OKTA_BASE_URL}}/oauth2/v1/authorize\",\n          \"tokenUrl\": \"{{OKTA_BASE_URL}}/oauth2/v1/token\",\n          \"userInfoUrl\": \"{{OKTA_BASE_URL}}/oauth2/v1/userinfo\",\n          \"userSettingsURL\": \"{{OKTA_BASE_URL}}/enduser/settings\",\n          \"logoutUrl\": \"{{OKTA_BASE_URL}}/oauth2/v1/logout\",\n          \"scope\": [\n            \"openid\",\n            \"profile\",\n            \"email\",\n            \"offline_access\",\n            \"groups\"\n          ]\n        }\n      },\n      \"redirectUrl\": \"{{CP_BASE_URL}}/web-login/oauth/callback\",\n      \"defaultRedirectUrlOnSuccessfulLogin\": \"/\",\n      \"authorizeStateRequired\": true,\n      \"realm\": \"data-fabric\",\n      \"isWebsiteApp\": true,\n      \"issuer\": \"{{CP_APP_ID}}\",\n      \"defaultGroups\": []\n    }\n  }\n}",
+                "name": "config.json"
+              }
+            ]
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "DELAY_SHUTDOWN_SECONDS",
+            "value": "10",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "/configs",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_NAME",
+            "value": "config",
+            "valueType": "plain"
+          },
+          {
+            "name": "ORIGINAL_PROTOCOL_HEADER",
+            "value": "X-Forwarded-Proto",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADDITIONAL_HEADERS_TO_PROXY",
+            "value": "request-id,traceparent,tracestate",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERS_CRUD_BASE_URL",
+            "value": "http://crud-service/users",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_MODE",
+            "value": "normal",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_HOSTS",
+            "value": "{{AUTH_REDIS_HOSTS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROVIDER_TOKEN_PASS_PHRASE",
+            "value": "{{CP_REDIS_PASSPHRASE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPIRE_DELTA_PROVIDER_TOKEN_SEC",
+            "value": "300",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_JWT_TOKEN_VALID_DURATION_SEC",
+            "value": "86400",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_JWT_TOKEN_SIGNING_METHOD",
+            "value": "RS256",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_JWT_TOKEN_PRIVATE_KEY_FILE_PATH",
+            "value": "/run/secrets/keys/private-key.pem",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_JWT_TOKEN_PRIVATE_KEY_KID",
+            "value": "{{CP_JWT_CLIENT_KID}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_REFRESH_TOKEN_VALID_DURATION_SEC",
+            "value": "604800",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_SESSION_SCOPE",
+            "value": "{{CP_REDIS_SCOPE}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "port": "http",
+            "timeoutSeconds": 3
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 3
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "80m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "30Mi",
+            "min": "15Mi"
+          }
+        },
+        "defaultSecrets": [
+          {
+            "mountPath": "/run/secrets/keys",
+            "name": "authentication-service-secrets"
+          }
+        ],
+        "description": "Use Mia-Platform core Authentication Service to provide OAuth2 compliant user authentication API.",
+        "dockerImage": "nexus.mia-platform.eu/core/authentication-service:3.11.0",
+        "name": "authentication-service",
+        "tags": [
+          "custom"
+        ],
+        "type": "plugin"
+      },
+      "authorization-service": {
+        "componentId": "authorization-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/configs",
+            "name": "authorization-service-config",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "content": "{\n  \"/control_plane_fabric.RuntimeManagement\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"clientType == \\\"control_plane_operator\\\"\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/control_plane_intercomm.ControlPlane\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"clientType == \\\"control_plane_operator\\\"\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/grpc.reflection.v1.ServerReflection\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"clientType == \\\"control_plane_operator\\\"\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/web-login\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/authorize\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/oauth/token\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/logout\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/refreshtoken\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/userinfo\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/apps\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/micro-lc-configurations\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/mgmt\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/mgmt/users\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions || \\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/export\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/:id\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/count\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/bulk\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/upsert-one\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/:id/state\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/state\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/grpc.reflection.v1alpha.ServerReflection\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"clientType == \\\"control_plane_operator\\\"\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/fast-data\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"control:pipelines\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/fast-data/control\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"control:pipelines\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/fast-data/feedback\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:pipelines\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/fast-data/runtimes/stats\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:pipelines\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/fast-data/runtimes/items/:id/pipelines\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:pipelines\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/fast-data/runtimes/items/:id\": {\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:runtimes\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:runtimes\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:pipelines\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/fast-data/runtimes/items\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:runtimes\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:pipelines\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/control-plane\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/control-plane/configuration\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/control-plane/.well-known/oidc-configuration\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  }\n}",
+                "name": "auth.json"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/configs",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_FILE_NAME",
+            "value": "auth",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_VERSION",
+            "value": "2.4.3",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERINFO_URL",
+            "value": "http://authentication-service/userinfo",
+            "valueType": "plain"
+          },
+          {
+            "name": "CUSTOM_USER_ID_KEY",
+            "value": "userId",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEADERS_TO_PROXY",
+            "value": "connection,upgrade,sec-websocket-protocol,sec-webSocket-version,x-request-id,request-id,cookie,authorization,client-type,host,x-forwarded-host,traceparent,tracestate",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTHORIZATION_STRICT_MODE_ENABLED",
+            "value": "true",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_TO_PROXY",
+            "value": "provider,email,username,name,permissions,metadata",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENT_TYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_USERINFO_URL",
+            "value": "",
+            "valueType": "plain"
+          },
+          {
+            "name": "CUSTOM_PERMISSIONS_KEY",
+            "value": "permissions",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTHORIZATION_HEADERS_TO_PROXY",
+            "value": "",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "port": "http",
+            "timeoutSeconds": 3
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 3
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "80Mi",
+            "min": "20Mi"
+          }
+        },
+        "description": "Use this service to authorize routes to request certain resources, leveraging OpenID Connect and simple user-defined configurations",
+        "dockerImage": "nexus.mia-platform.eu/core/authorization-service:2.4.3",
+        "mapEnvVarToMountPath": {
+          "authorization-service-config": {
+            "envName": "CONFIGURATION_PATH",
+            "type": "folder"
+          }
+        },
+        "name": "authorization-service",
+        "tags": [
+          "custom"
+        ],
+        "type": "plugin"
+      },
+      "control-plane": {
+        "componentId": "data-fabric.company-control-plane",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          },
+          {
+            "from": 50051,
+            "name": "grpc",
+            "protocol": "TCP",
+            "to": 50051
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/home/control_plane/.fd/control-plane",
+            "name": "control-plane-config",
+            "files": [
+              {
+                "content": "{\n  \"cache\": {\n    \"type\": \"redis\",\n    \"configuration\": {\n      \"url\": \"redis://fabric-cache:6379\"\n    }\n  },\n  \"persistence\": {\n    \"type\": \"mongodb\",\n    \"configuration\": {\n      \"url\": \"<CONFIGURE_ME>\"\n    }\n  },\n  \"settings\": {\n    \"apiPrefix\": \"/api\"\n  }\n}",
+                "name": "configuration.json"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "debug",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "port": "http"
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "port": "http"
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "150m",
+            "min": "50m"
+          },
+          "memoryLimits": {
+            "max": "80Mi",
+            "min": "15Mi"
+          }
+        },
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/control-plane:0.3.1",
+        "name": "control-plane",
+        "tags": [
+          "control-plane"
+        ],
+        "type": "plugin"
+      },
+      "control-plane-fe": {
+        "componentId": "data-fabric.control-plane-fe",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/usr/static",
+            "name": "control-plane-fe-config",
+            "subPaths": [
+              "configuration.json",
+              "oidc-configuration.json"
+            ],
+            "usePreserve": true,
+            "files": [
+              {
+                "content": "{\n  \"api\": {\n    \"fast-data\": \"**CONTROL_PLANE_BASE_URL**\"\n  },\n  \"name\": \"**APPLICATION_NAME**\",\n  \"version\": \"**VERSION**\"\n}",
+                "name": "configuration.json"
+              },
+              {
+                "content": "{\n  \"end_session_endpoint\": \"{{CP_BASE_URL}}/logout\"\n}",
+                "name": "oidc-configuration.json"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "BASE_PATH",
+            "value": "/control-plane/",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONTROL_PLANE_BASE_URL",
+            "value": "/api",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "port": "http"
+          },
+          "readiness": {
+            "port": "http"
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "20m"
+          },
+          "memoryLimits": {
+            "max": "60Mi",
+            "min": "15Mi"
+          }
+        },
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/control-plane-frontend:0.4.3",
+        "name": "control-plane-fe",
+        "tags": [
+          "control-plane"
+        ],
+        "type": "plugin"
+      },
+      "crud-service": {
+        "componentId": "crud-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "link": {
+              "targetSection": "collections"
+            },
+            "mountPath": "/home/node/app/collections",
+            "name": "crud-service-collections",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "content": "{\n  \"id\": \"users\",\n  \"description\": \"Collection of users\",\n  \"name\": \"users\",\n  \"fields\": [\n    {\n      \"name\": \"_id\",\n      \"type\": \"ObjectId\",\n      \"required\": true,\n      \"nullable\": false,\n      \"description\": \"_id\"\n    },\n    {\n      \"name\": \"creatorId\",\n      \"type\": \"string\",\n      \"required\": true,\n      \"nullable\": false,\n      \"description\": \"creatorId\"\n    },\n    {\n      \"name\": \"createdAt\",\n      \"type\": \"Date\",\n      \"required\": true,\n      \"nullable\": false,\n      \"description\": \"createdAt\"\n    },\n    {\n      \"name\": \"updaterId\",\n      \"type\": \"string\",\n      \"required\": true,\n      \"nullable\": false,\n      \"description\": \"updaterId\"\n    },\n    {\n      \"name\": \"updatedAt\",\n      \"type\": \"Date\",\n      \"required\": true,\n      \"nullable\": false,\n      \"description\": \"updatedAt\"\n    },\n    {\n      \"name\": \"__STATE__\",\n      \"type\": \"string\",\n      \"required\": true,\n      \"nullable\": false,\n      \"description\": \"__STATE__\"\n    },\n    {\n      \"name\": \"name\",\n      \"type\": \"string\",\n      \"required\": false,\n      \"nullable\": false\n    },\n    {\n      \"name\": \"groups\",\n      \"type\": \"Array\",\n      \"required\": false,\n      \"nullable\": false,\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    {\n      \"name\": \"username\",\n      \"type\": \"string\",\n      \"required\": false,\n      \"nullable\": false\n    },\n    {\n      \"name\": \"email\",\n      \"type\": \"string\",\n      \"required\": false,\n      \"nullable\": false\n    },\n    {\n      \"name\": \"providerId\",\n      \"type\": \"string\",\n      \"required\": true,\n      \"nullable\": false\n    },\n    {\n      \"name\": \"providerUserId\",\n      \"type\": \"string\",\n      \"required\": true,\n      \"nullable\": false\n    },\n    {\n      \"name\": \"realm\",\n      \"type\": \"string\",\n      \"required\": false,\n      \"nullable\": false\n    },\n    {\n      \"name\": \"metadata\",\n      \"type\": \"RawObject\",\n      \"required\": false,\n      \"nullable\": false,\n      \"schema\": {\n        \"properties\": {\n          \"permissions\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\",\n              \"enum\": [\n                \"read:pipelines\",\n                \"control:pipelines\",\n                \"read:connections\",\n                \"update:connections\",\n                \"delete:connections\",\n                \"read:runtimes\",\n                \"update:runtimes\",\n                \"read:data-assets\",\n                \"update:metadata-assets\",\n                \"read:users\",\n                \"update:users\"\n              ]\n            }\n          }\n        }\n      }\n    },\n    {\n      \"name\": \"permissions\",\n      \"type\": \"Array\",\n      \"required\": false,\n      \"nullable\": false,\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  ],\n  \"endpointBasePath\": \"/users\",\n  \"defaultState\": \"PUBLIC\",\n  \"indexes\": [\n    {\n      \"name\": \"_id\",\n      \"type\": \"normal\",\n      \"unique\": true,\n      \"fields\": [\n        {\n          \"name\": \"_id\",\n          \"order\": 1\n        }\n      ]\n    },\n    {\n      \"name\": \"createdAt\",\n      \"type\": \"normal\",\n      \"unique\": false,\n      \"fields\": [\n        {\n          \"name\": \"creatdAt\",\n          \"order\": -1\n        }\n      ]\n    },\n    {\n      \"name\": \"stateIndex\",\n      \"type\": \"normal\",\n      \"unique\": false,\n      \"fields\": [\n        {\n          \"name\": \"__STATE__\",\n          \"order\": 1\n        }\n      ]\n    },\n    {\n      \"name\": \"nameSearch\",\n      \"type\": \"normal\",\n      \"unique\": false,\n      \"fields\": [\n        {\n          \"name\": \"email\",\n          \"order\": 1\n        },\n        {\n          \"name\": \"name\",\n          \"order\": 1\n        },\n        {\n          \"name\": \"__STATE__\",\n          \"order\": 1\n        }\n      ]\n    },\n    {\n      \"name\": \"upsertSupport\",\n      \"type\": \"normal\",\n      \"unique\": false,\n      \"fields\": [\n        {\n          \"name\": \"providerId\",\n          \"order\": 1\n        },\n        {\n          \"name\": \"providerUserId\",\n          \"order\": 1\n        },\n        {\n          \"name\": \"realm\",\n          \"order\": 1\n        }\n      ]\n    }\n  ],\n  \"tags\": [\n    \"collection\"\n  ]\n}",
+                "name": "users-users.json"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+            "value": "true",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "true",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "<CONFIGURE_ME>",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "port": "http",
+            "timeoutSeconds": 3
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 3
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "500m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "70Mi"
+          }
+        },
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.2.2",
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "envName": "COLLECTION_DEFINITION_FOLDER",
+            "type": "folder"
+          }
+        },
+        "name": "crud-service",
+        "type": "plugin"
+      },
+      "fabric-bff": {
+        "componentId": "data-fabric.bff",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/home/fabric_bff/.fd/data-fabric-bff",
+            "name": "fabric-bff-config",
+            "files": [
+              {
+                "content": "{\n  \"console\": {\n    \"rest\": {\n      \"target\": \"<CONFIGURE_YOUR_CONSOLE_URL>\",\n      \"auth\": {\n        \"type\": \"oauth2\",\n        \"flow\": \"client_credentials\",\n        \"tokenEndpoint\": \"/api/m2m/oauth/token\",\n        \"credentials\": {\n          \"clientId\": \"<CONFIGURE_ME>\",\n          \"clientKeyId\": \"<CONFIGURE_ME>\",\n          \"privateKey\": \"<CONFIGURE_ME>\"\n        }\n      }\n    }\n  },\n  \"controlPlane\": {\n    \"rest\": {\n      \"target\": \"control-plane\"\n    },\n    \"grpc\": {\n      \"target\": \"http://control-plane:50051\"\n    }\n  },\n  \"persistence\": {\n    \"type\": \"mongodb\",\n    \"configuration\": {\n      \"url\": \"<CONFIGURE_ME>\"\n    }\n  },\n  \"settings\": {\n    \"apiPrefix\": \"/\",\n    \"auditUserHeader\": \"miauserid\"\n  }\n}",
+                "name": "config.json"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "port": "http"
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "port": "http"
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "120m",
+            "min": "50m"
+          },
+          "memoryLimits": {
+            "max": "80Mi",
+            "min": "15Mi"
+          }
+        },
+        "description": "Backend for frontend communication proxy for Control Plane services and other applications",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/fabric-bff:0.3.0",
+        "name": "fabric-bff",
+        "tags": [
+          "data-fabric"
+        ],
+        "type": "plugin"
+      },
+      "fabric-cache": {
+        "args": [
+          "redis-server",
+          "/etc/redis/redis.conf"
+        ],
+        "containerPorts": [
+          {
+            "from": 6379,
+            "name": "redis",
+            "protocol": "TCP",
+            "to": 6379
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/etc/redis",
+            "name": "redis-configuration",
+            "subPaths": [
+              "redis.conf"
+            ],
+            "files": [
+              {
+                "content": "## GENERIC ##\nport                      6379\nbind                      0.0.0.0\n\n## MEMORY ##\nsave                      \"\"\nappendonly                no\nmaxmemory                 31457280\n\n## REPLICAS ##\nslave-serve-stale-data    yes\nslave-read-only           yes\n",
+                "name": "redis.conf"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "port": "redis"
+          },
+          "readiness": {
+            "port": "redis"
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "150m",
+            "min": "50m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "50Mi"
+          }
+        },
+        "dockerImage": "redis:7.2.5",
+        "name": "fabric-cache",
+        "tags": [
+          "custom"
+        ],
+        "type": "plugin"
+      },
+      "login-site": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "port": "http"
+          },
+          "readiness": {
+            "port": "http"
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "80m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "30Mi",
+            "min": "15Mi"
+          }
+        },
+        "description": "Frontend supporting authentication flow",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/login-site:8.1.2",
+        "name": "login-site",
+        "type": "plugin"
+      },
+      "micro-lc": {
+        "componentId": "backoffice-backend",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/usr/static/public",
+            "name": "micro-lc-static-files",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "content": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <base href=\"/mgmt/\" target=\"_blank\" />\n\n  <title>Fabric Users Management</title>\n\n  <link rel=\"icon\" type=\"image/png\" href=\"https://www.mia-platform.eu/static/img/favicon/apple-icon-60x60.png\" />\n  <link rel=\"stylesheet\" nonce=\"**CSP_NONCE**\" href=\"./assets/style.css\" />\n\n  <script type=\"module\" nonce=\"**CSP_NONCE**\"\n    src=\"https://cdn.mia-platform.eu/backoffice/bk-web-components/{{BACK_KIT_VERSION}}/dist/bk-loading-animation.esm.js\">\n  </script>\n\n  <script type=\"module\" nonce=\"**CSP_NONCE**\"\n    src=\"https://cdn.mia-platform.eu/micro-lc/orchestrator/{{MICRO_LC_VERSION}}/dist/micro-lc.production.js\"></script>\n</head>\n\n<body>\n  <bk-loading-animation primary-color=\"#2cb47b\">\n    <micro-lc config-src=\"/micro-lc-configurations/config.json\" fallback-language=\"en\"></micro-lc>\n  </bk-loading-animation>\n</body>\n\n</html>",
+                "name": "index.html"
+              }
+            ]
+          },
+          {
+            "mountPath": "/usr/static/configurations",
+            "name": "micro-lc-configurations",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "content": "{\n  \"applications\": {\n    \"users\": {\n      \"integrationMode\": \"compose\",\n      \"route\": \"./users\",\n      \"config\": \"/micro-lc-configurations/users.config.json\"\n    },\n    \"docs\": {\n      \"integrationMode\": \"iframe\",\n      \"route\": \"./documentation\",\n      \"src\": \"https://docs.mia-platform.eu/docs/fast_data/runtime_management/overview\"\n    }\n  },\n  \"layout\": {\n    \"content\": [\n      {\n        \"properties\": {\n          \"logo\": {\n            \"altText\": \"Mia Platform Logo\",\n            \"url\": \"https://raw.githubusercontent.com/mia-platform/.github/master/profile/img/mia-platform_logo_color.png\"\n          },\n          \"menuItems\": [\n            {\n              \"icon\": {\n                \"library\": \"@ant-design/icons-svg\",\n                \"selector\": \"HomeOutlined\"\n              },\n              \"id\": \"docs\",\n              \"label\": \"Documentation\",\n              \"type\": \"application\"\n            },\n            {\n              \"type\": \"application\",\n              \"icon\": {\n                \"library\": \"@ant-design/icons-svg\",\n                \"selector\": \"UserOutlined\"\n              },\n              \"id\": \"users\",\n              \"label\": \"Users\"\n            }\n          ],\n          \"mode\": \"topBar\",\n          \"showSearchBar\": false,\n          \"userMenuTrigger\": \"hover\",\n          \"userMenu\": {\n            \"userInfoUrl\": \"/userinfo\"\n          }\n        },\n        \"tag\": \"bk-layout\"\n      },\n      {\n        \"properties\": {\n          \"primaryColor\": \"#1890ff\",\n          \"varsPrefix\": [\n            \"micro-lc\",\n            \"microlc\",\n            \"back-kit\",\n            \"ant\"\n          ]\n        },\n        \"tag\": \"bk-antd-theme-manager\"\n      }\n    ],\n    \"sources\": [\n      \"https://cdn.mia-platform.eu/backoffice/bk-web-components/{{BACK_KIT_VERSION}}/dist/bk-web-components.esm.js\"\n    ]\n  },\n  \"settings\": {\n    \"defaultUrl\": \"./users\"\n  },\n  \"version\": 2\n}",
+                "name": "config.json"
+              },
+              {
+                "content": "{\n  \"content\": {\n    \"attributes\": {\n      \"style\": \"width: 100%; height: 100%; display: flex; flex-direction: column; position: relative;\"\n    },\n    \"content\": [\n      {\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: column; padding-top: 10px; background-color: white;\"\n        },\n        \"content\": [\n          {\n            \"attributes\": {\n              \"style\": \"display: flex; flex-direction: row; gap: 10px; padding: 0 20px;\"\n            },\n            \"content\": [\n              {\n                \"properties\": {\n                  \"content\": \"Users\"\n                },\n                \"tag\": \"bk-title\"\n              },\n              {\n                \"attributes\": {\n                  \"style\": \"margin-left: 14px; align-self: end;\"\n                },\n                \"tag\": \"bk-refresh-button\"\n              },\n              {\n                \"attributes\": {\n                  \"style\": \"flex-grow: 1;\"\n                },\n                \"tag\": \"div\"\n              },\n              {\n                \"properties\": {\n                  \"placeholder\": \"Search...\"\n                },\n                \"tag\": \"bk-search-bar\"\n              },\n              {\n                \"properties\": {\n                  \"clickConfig\": {\n                    \"actionConfig\": {\n                      \"label\": \"filter\",\n                      \"payload\": {}\n                    },\n                    \"type\": \"event\"\n                  },\n                  \"content\": \"\",\n                  \"iconId\": \"FunnelPlotOutlined\",\n                  \"type\": \"outlined\"\n                },\n                \"tag\": \"bk-button\"\n              }\n            ],\n            \"tag\": \"div\"\n          },\n          {\n            \"attributes\": {\n              \"style\": \"width: 100%; display: flex; justify-content: space-between;\"\n            },\n            \"content\": [\n              {\n                \"attributes\": {\n                  \"style\": \"flex-grow: 1;\"\n                },\n                \"properties\": {\n                  \"tabs\": [\n                    {\n                      \"filters\": [\n                        {\n                          \"operator\": \"equal\",\n                          \"property\": \"__STATE__\",\n                          \"value\": \"PUBLIC\"\n                        }\n                      ],\n                      \"key\": \"public\",\n                      \"order\": 0,\n                      \"title\": \"Public\"\n                    },\n                    {\n                      \"filters\": [\n                        {\n                          \"operator\": \"equal\",\n                          \"property\": \"__STATE__\",\n                          \"value\": \"DRAFT\"\n                        }\n                      ],\n                      \"key\": \"draft\",\n                      \"order\": 2,\n                      \"title\": \"Draft\"\n                    },\n                    {\n                      \"filters\": [\n                        {\n                          \"operator\": \"equal\",\n                          \"property\": \"__STATE__\",\n                          \"value\": \"TRASH\"\n                        }\n                      ],\n                      \"key\": \"trash\",\n                      \"order\": 3,\n                      \"title\": \"Trash\"\n                    }\n                  ]\n                },\n                \"tag\": \"bk-tabs\"\n              },\n              {\n                \"attributes\": {\n                  \"style\": \"margin-right: 4px\"\n                },\n                \"properties\": {\n                  \"dataSchema\": {\n                    \"$ref\": \"#/definitions/dataSchema\"\n                  },\n                  \"filters\": []\n                },\n                \"tag\": \"bk-filters-manager\"\n              }\n            ],\n            \"tag\": \"div\"\n          },\n          {\n            \"attributes\": {\n              \"style\": \"padding: 0 20px;\"\n            },\n            \"content\": {\n              \"properties\": {\n                \"dataSchema\": {\n                  \"$ref\": \"#/definitions/dataSchema\"\n                }\n              },\n              \"tag\": \"bk-breadcrumbs\"\n            },\n            \"tag\": \"div\"\n          }\n        ],\n        \"tag\": \"header\"\n      },\n      {\n        \"attributes\": {\n          \"style\": \"flex-grow: 1; background-color: #f0f2f5; padding: 20px; overflow-y: auto;\"\n        },\n        \"content\": [\n          {\n            \"properties\": {\n              \"dataSchema\": {\n                \"$ref\": \"#/definitions/dataSchema\"\n              },\n              \"fitParentContainer\": true,\n              \"rowActions\": {\n                \"actions\": [\n                  {\n                    \"content\": \"delete-data\",\n                    \"icon\": \"fas fa-trash\",\n                    \"kind\": \"event\",\n                    \"label\": \"Delete\",\n                    \"meta\": {\n                      \"actionId\": \"delete-data\"\n                    },\n                    \"requireConfirm\": true\n                  }\n                ],\n                \"kind\": \"icons\"\n              }\n            },\n            \"tag\": \"bk-table\"\n          },\n          {\n            \"properties\": {\n              \"allowNavigation\": true,\n              \"allowObjectAsTable\": false,\n              \"dataSchema\": {\n                \"$ref\": \"#/definitions/dataSchema\"\n              },\n              \"editorHeight\": \"30vh\",\n              \"requireConfirm\": {\n                \"onClose\": true,\n                \"onSave\": true\n              },\n              \"width\": \"70vw\"\n            },\n            \"tag\": \"bk-form-modal\"\n          },\n          {\n            \"tag\": \"bk-confirmation-modal\"\n          },\n          {\n            \"attributes\": {},\n            \"properties\": {\n              \"errorEventMap\": {\n                \"create-data\": {\n                  \"content\": \"An error occurred during order creation\",\n                  \"title\": \"Error\",\n                  \"type\": \"error\"\n                },\n                \"delete-data\": {\n                  \"content\": \"An error occurred during order deletion\",\n                  \"title\": \"Error\",\n                  \"type\": \"error\"\n                },\n                \"update-data\": {\n                  \"content\": \"An error occurred during order updated\",\n                  \"title\": \"Error\",\n                  \"type\": \"error\"\n                }\n              },\n              \"rootElementSelectors\": \"main.micro-lc-layout-content\",\n              \"successEventMap\": {\n                \"create-data\": {\n                  \"content\": \"Data successfully created\",\n                  \"title\": \"Success\",\n                  \"type\": \"success\"\n                },\n                \"delete-data\": {\n                  \"content\": \"Data successfully deleted\",\n                  \"title\": \"Success\",\n                  \"type\": \"success\"\n                },\n                \"update-data\": {\n                  \"content\": \"Data successfully updated\",\n                  \"title\": \"Success\",\n                  \"type\": \"success\"\n                }\n              }\n            },\n            \"tag\": \"bk-notifications\"\n          }\n        ],\n        \"tag\": \"main\"\n      },\n      {\n        \"content\": [\n          {\n            \"properties\": {\n              \"dataSchema\": {\n                \"$ref\": \"#/definitions/dataSchema\"\n              },\n              \"width\": \"40vw\"\n            },\n            \"tag\": \"bk-filter-drawer\"\n          }\n        ],\n        \"tag\": \"aside\"\n      },\n      {\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: row; flex-wrap: wrap; padding: 10px 20px; background-color: white; gap: 10px; position: sticky; bottom: 0; z-index: 10\"\n        },\n        \"content\": [\n          {\n            \"tag\": \"bk-bulk-delete\"\n          },\n          {\n            \"properties\": {\n              \"dataSchema\": {\n                \"$ref\": \"#/definitions/dataSchema\"\n              }\n            },\n            \"tag\": \"bk-bulk-actions\"\n          },\n          {\n            \"attributes\": {\n              \"style\": \"flex-grow: 1;\"\n            },\n            \"tag\": \"div\"\n          },\n          {\n            \"attributes\": {\n              \"style\": \"display: flex; justify-content: end; align-items: center;\"\n            },\n            \"tag\": \"bk-footer\"\n          },\n          {\n            \"properties\": {\n              \"pageSize\": 10\n            },\n            \"tag\": \"bk-pagination\"\n          }\n        ],\n        \"tag\": \"footer\"\n      },\n      {\n        \"properties\": {\n          \"basePath\": \"/v2/authz/users\",\n          \"dataSchema\": {\n            \"$ref\": \"#/definitions/dataSchema\"\n          }\n        },\n        \"tag\": \"bk-crud-client\"\n      }\n    ],\n    \"tag\": \"div\"\n  },\n  \"definitions\": {\n    \"dataSchema\": {\n      \"properties\": {\n        \"__STATE__\": {\n          \"enum\": [\n            \"PUBLIC\",\n            \"DRAFT\",\n            \"TRASH\",\n            \"DELETED\"\n          ],\n          \"formOptions\": {\n            \"placeholder\": \"PUBLIC\",\n            \"readOnly\": false,\n            \"readOnlyOnUpdate\": true\n          },\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"_id\": {\n          \"formOptions\": {\n            \"hiddenOnInsert\": true,\n            \"readOnlyOnUpdate\": true\n          },\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"createdAt\": {\n          \"dateOptions\": {\n            \"displayFormat\": \"YYYY-MM-DD hh:mm\"\n          },\n          \"format\": \"date-time\",\n          \"formOptions\": {\n            \"disabled\": false,\n            \"hidden\": true,\n            \"hiddenOnInsert\": true,\n            \"readOnlyOnUpdate\": true\n          },\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"creatorId\": {\n          \"formOptions\": {\n            \"disabled\": false,\n            \"hidden\": true,\n            \"hiddenOnInsert\": true,\n            \"readOnlyOnUpdate\": true\n          },\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"email\": {\n          \"formOptions\": {\n            \"readOnly\": true\n          },\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"groups\": {\n          \"items\": {\n            \"type\": \"string\"\n          },\n          \"type\": \"array\"\n        },\n        \"metadata\": {\n          \"type\": \"object\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"name\": {\n          \"formOptions\": {\n            \"readOnly\": true\n          },\n          \"type\": \"string\"\n        },\n        \"permissions\": {\n          \"dataSchema\": {\n            \"items\": {\n              \"enum\": [\n                \"read:pipelines\",\n                \"control:pipelines\",\n                \"update:runtimes\",\n                \"read:data-assets\",\n                \"update:metadata-assets\",\n                \"read:users\",\n                \"update:users\"\n              ],\n              \"type\": \"string\"\n            },\n            \"type\": \"array\"\n          },\n          \"items\": {\n            \"enum\": [\n              \"read:pipelines\",\n              \"control:pipelines\",\n              \"update:runtimes\",\n              \"read:data-assets\",\n              \"update:metadata-assets\",\n              \"read:users\",\n              \"update:users\"\n            ],\n            \"type\": \"string\"\n          },\n          \"type\": \"array\"\n        },\n        \"providerId\": {\n          \"formOptions\": {\n            \"readOnly\": true\n          },\n          \"type\": \"string\"\n        },\n        \"providerUserId\": {\n          \"formOptions\": {\n            \"readOnly\": true\n          },\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"realm\": {\n          \"formOptions\": {\n            \"readOnly\": true,\n            \"readOnlyOnInsert\": false\n          },\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"updatedAt\": {\n          \"dateOptions\": {\n            \"displayFormat\": \"YYYY-MM-DD hh:mm\"\n          },\n          \"format\": \"date-time\",\n          \"formOptions\": {\n            \"hidden\": true,\n            \"hiddenOnInsert\": true,\n            \"hiddenOnUpdate\": false,\n            \"readOnlyOnUpdate\": true\n          },\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"updaterId\": {\n          \"formOptions\": {\n            \"hiddenOnInsert\": true,\n            \"hiddenOnUpdate\": true,\n            \"readOnlyOnUpdate\": true\n          },\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"username\": {\n          \"formOptions\": {\n            \"readOnly\": true\n          },\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        }\n      },\n      \"required\": [\n        \"providerId\",\n        \"providerUserId\"\n      ],\n      \"type\": \"object\"\n    }\n  },\n  \"sources\": [\n    \"https://cdn.mia-platform.eu/backoffice/bk-web-components/{{BACK_KIT_VERSION}}/dist/bk-web-components.esm.js\"\n  ]\n}",
+                "name": "users.config.json"
+              }
+            ]
+          },
+          {
+            "mountPath": "/usr/src/app/config",
+            "name": "micro-lc-server-configuration",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "content": "{\n  \"publicHeadersMap\": {\n    \"/public/index.html\": {\n      \"content-security-policy\": [\n        [\n          \"script-src 'nonce-**CSP_NONCE**' 'strict-dynamic' 'unsafe-eval'\",\n          \"style-src 'self' 'unsafe-inline'\",\n          \"img-src 'self' https:\",\n          \"object-src 'none'\",\n          \"font-src 'self'\",\n          \"worker-src 'self' blob:\",\n          \"base-uri 'self'\"\n        ]\n      ],\n      \"link\": [\n        \"</micro-lc-configurations/config.json>; rel=preload; as=fetch; crossorigin\",\n        \"</mfe-application/assets/style.css>; rel=preload; as=style; nonce=**CSP_NONCE**\",\n        \"<https://cdn.mia-platform.eu/micro-lc/orchestrator/{{MICRO_LC_VERSION}}/dist/micro-lc.production.js>; rel=modulepreload; as=script; nonce=**CSP_NONCE**\",\n        \"<https://cdn.mia-platform.eu/micro-lc/orchestrator/{{MICRO_LC_VERSION}}/dist/assets/composer.js>; rel=preload; as=fetch; crossorigin\",\n        \"<https://cdn.mia-platform.eu/backoffice/bk-web-components/{{BACK_KIT_VERSION}}/dist/bk-web-components.esm.js>; rel=preload; as=fetch; crossorigin\",\n        \"<https://cdn.mia-platform.eu/backoffice/bk-web-components/{{BACK_KIT_VERSION}}/dist/bk-loading-animation.esm.js; rel=preload; as=fetch; crossorigin\"\n      ]\n    }\n  }\n}",
+                "name": "config.json"
+              }
+            ]
+          },
+          {
+            "mountPath": "/usr/static/public/assets",
+            "name": "micro-lc-assets",
+            "files": [
+              {
+                "content": "html,\nbody {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n}\n",
+                "name": "style.css"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "port": "http",
+            "timeoutSeconds": 5
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 5
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "20m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "60Mi"
+          }
+        },
+        "description": "micro-lc config server",
+        "dockerImage": "nexus.mia-platform.eu/microlc/middleware:{{MICRO_LC_MANAGER_VERSION}}",
+        "name": "micro-lc",
+        "tags": [
+          "custom"
+        ],
+        "type": "plugin"
+      }
+    },
+    "unsecretedVariables": {
+      "BACK_KIT_VERSION": {
+        "noProductionEnv": "1.5.8",
+        "productionEnv": "1.5.8"
+      },
+      "CP_APP_ID": {
+        "noProductionEnv": "<CONFIGURE_ME>",
+        "productionEnv": "<CONFIGURE_ME>"
+      },
+      "CP_BASE_URL": {
+        "noProductionEnv": "<CONFIGURE_ME>",
+        "productionEnv": "<CONFIGURE_ME>"
+      },
+      "CP_PROVIDER_ID": {
+        "noProductionEnv": "<CONFIGURE_ME>",
+        "productionEnv": "<CONFIGURE_ME>"
+      },
+      "CP_REDIS_SCOPE": {
+        "noProductionEnv": "<CONFIGURE_ME>",
+        "productionEnv": "<CONFIGURE_ME>"
+      },
+      "LOG_LEVEL": {
+        "noProductionEnv": "debug",
+        "productionEnv": "info"
+      },
+      "MICRO_LC_MANAGER_VERSION": {
+        "noProductionEnv": "3.2.2",
+        "productionEnv": "3.2.2"
+      },
+      "MICRO_LC_VERSION": {
+        "noProductionEnv": "2.4.2",
+        "productionEnv": "2.4.2"
+      },
+      "OKTA_BASE_URL": {
+        "noProductionEnv": "<CONFIGURE_ME>",
+        "productionEnv": "<CONFIGURE_ME>"
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "application",
+  "visibility": {
+    "public": true
+  }
+}

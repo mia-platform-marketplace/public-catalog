@@ -1,0 +1,122 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "artificial-intelligence",
+  "description": "Use this Python template to create a RAG chatbot server",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform/ai-rag-template/main/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/ai-rag-template-transparent.png"
+  },
+  "itemId": "ai-rag-template",
+  "name": "AI RAG Template",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
+  "resources": {
+    "services": {
+      "ai-rag-template": {
+        "type": "template",
+        "name": "ai-rag-template",
+        "archiveUrl": "https://github.com/mia-platform/ai-rag-template/archive/refs/tags/v0.4.0.tar.gz",
+        "defaultResources": {
+          "cpuLimits": {
+            "min": "100m",
+            "max": "100m"
+          },
+          "memoryLimits": {
+            "min": "250Mi",
+            "max": "400Mi"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "INFO",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/config/configuration.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_CLUSTER_URI",
+            "value": "<YOUR_MONGODB_CONNECTION_STRING>",
+            "valueType": "plain"
+          },
+          {
+            "name": "EMBEDDINGS_API_KEY",
+            "value": "<YOUR_OPENAI_API_KEY>",
+            "valueType": "plain"
+          },
+          {
+            "name": "LLM_API_KEY",
+            "value": "<YOUR_OPENAI_API_KEY>",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "assistant-config",
+            "mountPath": "/config",
+            "files": [
+              {
+                "name": "configuration.json",
+                "content": "{\n  \"llm\": {\n    \"name\": \"<YOUR_MODEL_NAME>\"\n  },\n  \"embeddings\": {\n    \"name\": \"<YOUR_EMBEDDING_NAME>\"\n  },\n  \"vectorStore\": {\n    \"dbName\": \"<YOUR_DATABASE_NAME>\",\n    \"collectionName\": \"<YOUR_COLLECTION_NAME>\",\n    \"indexName\": \"<YOUR_INDEX_NAME>\",\n    \"relevanceScoreFn\": \"<YOUR_DISTANCE_FUNCTION>\",\n    \"embeddingKey\": \"<YOUR_EMBEDDING_KEY>\",\n    \"textKey\": \"<YOUR_TEXT_KEY>\",\n    \"maxDocumentsToRetrieve\": 3\n  }\n}\n"
+              }
+            ]
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 15,
+            "timeoutSeconds": 3,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 10,
+            "periodSeconds": 10,
+            "timeoutSeconds": 3,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ],
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fpython-hello-world-ci.yml/raw"
+          }
+        }
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "0.4.0",
+    "releaseNote": "## What's Changed\n* updated dependencies (FastAPI, Langchain, OpenAI) \n* add endpoint `POST /embeddings/generateFromFile` for embedding generation \n* add support for *Azure OpenAI provider* for embedding generation and LLM usage"
+  },
+  "visibility": {
+    "public": true
+  }
+}

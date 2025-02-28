@@ -1,0 +1,56 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "microfrontend",
+  "description": "Use this template to set up a micro-lc Angular 14 plugin project",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/micro-lc/angular14-template/refs/tags/v1.0.1/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/micro-lc-angular-template.png"
+  },
+  "itemId": "micro-lc-angular-14-template",
+  "name": "micro-lc Angular 14 Template",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/micro-lc/angular14-template",
+  "resources": {
+    "services": {
+      "micro-lc-angular-14-template": {
+        "type": "template",
+        "name": "micro-lc-angular-14-template",
+        "description": "Use this template to set up a micro-lc Angular 14 plugin project",
+        "archiveUrl": "https://github.com/micro-lc/angular14-template/archive/v1.0.1.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fangular-app.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "visibility": {
+    "public": true
+  }
+}

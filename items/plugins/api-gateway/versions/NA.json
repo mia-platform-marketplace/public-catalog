@@ -1,0 +1,152 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "orchestrators",
+  "description": "Use this service to route requests to the correct service and verify the need of authentication",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/api-gateway/overview"
+  },
+  "image": {
+    "localPath": "../../assets/api-gateway-plugin-transparent.png"
+  },
+  "itemId": "api-gateway",
+  "name": "Nginx API Gateway",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/api-gateway",
+  "resources": {
+    "services": {
+      "nginx-api-gateway": {
+        "type": "plugin",
+        "name": "nginx-api-gateway",
+        "description": "Use this service to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "nexus.mia-platform.eu/core/api-gateway:5.0.2",
+        "componentId": "api-gateway",
+        "defaultEnvironmentVariables": [],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "25Mi",
+            "min": "5Mi"
+          },
+          "cpuLimits": {
+            "min": "10m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20
+          },
+          "readiness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": "",
+        "defaultConfigMaps": [
+          {
+            "name": "api-gateway-server",
+            "mountPath": "/etc/nginx/conf.d",
+            "files": [],
+            "viewAsReadOnly": true
+          },
+          {
+            "name": "api-gateway-platform",
+            "mountPath": "/etc/nginx/platform.d",
+            "files": [],
+            "viewAsReadOnly": true
+          },
+          {
+            "name": "api-gateway-customization",
+            "mountPath": "/etc/nginx/customization.d",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "endpoints"
+            }
+          },
+          {
+            "name": "api-gateway-backoffice",
+            "mountPath": "/etc/nginx/backoffice.d",
+            "files": [],
+            "viewAsReadOnly": true
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "frontend",
+            "from": 8080,
+            "to": 8080
+          },
+          {
+            "name": "backoffice",
+            "from": 8081,
+            "to": 8081
+          }
+        ],
+        "execPreStop": [
+          "sh",
+          "-c",
+          "sleep 5 && /usr/sbin/nginx -s quit"
+        ],
+        "additionalContainers": [
+          {
+            "name": "dnsmasq",
+            "dockerImage": "nexus.mia-platform.eu/core/dnsmasq:1.0.3",
+            "defaultEnvironmentVariables": [],
+            "defaultResources": {
+              "memoryLimits": {
+                "max": "20Mi",
+                "min": "5Mi"
+              },
+              "cpuLimits": {
+                "min": "10m"
+              }
+            },
+            "args": [
+              "--listen",
+              "127.0.0.1:53",
+              "--default-resolver",
+              "--enable-search",
+              "--hostsfile=/etc/hosts"
+            ],
+            "defaultProbes": {
+              "liveness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 15,
+                "periodSeconds": 20
+              },
+              "readiness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 5,
+                "periodSeconds": 10
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
+  }
+}

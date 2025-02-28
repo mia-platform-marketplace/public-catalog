@@ -1,0 +1,91 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "files",
+  "description": "Upload, download and handle your files using MongoDB, S3 or Google Storage.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/files-service/configuration"
+  },
+  "image": {
+    "localPath": "../../assets/file-service-plugin-transparent.png"
+  },
+  "itemId": "files-service",
+  "name": "Files Service",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/files-service",
+  "resources": {
+    "services": {
+      "files-service": {
+        "type": "plugin",
+        "name": "files-service",
+        "description": "Upload, download and handle your files using MongoDB, S3 or Google Storage.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/files-service:2.10.1",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_URL",
+            "value": "http://crud-service/CHANGE_WITH_YOUR_CRUD_URL",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_CONFIGURATION_PATH",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_PREFIX",
+            "value": "CHANGE_WITH_YOUR_OPTIONAL_SERVICE_PREFIX",
+            "valueType": "plain"
+          },
+          {
+            "name": "PATH_PREFIX",
+            "value": "CHANGE_WITH_YOUR_OPTIONAL_PATH_PREFIX",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEADERS_TO_PROXY",
+            "value": "miauserid,miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROJECT_HOSTNAME",
+            "value": "CHANGE_WITH_YOUR_PROJECT_HOSTNAME",
+            "valueType": "plain"
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "2.10.1",
+    "releaseNote": "Added:\n\n- verified MongoDB 7 support"
+  },
+  "visibility": {
+    "public": true
+  }
+}

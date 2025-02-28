@@ -1,0 +1,112 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "fast-data",
+  "description": "Use the Control Plane Operator to manage your Fast Data runtime. Deploying this service will enable the control of your Fast Data services within the namespace.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/fast_data/runtime_management/overview"
+  },
+  "image": {
+    "localPath": "../../assets/control-plane-operator-plugin.png"
+  },
+  "itemId": "fast-data-control-plane-operator",
+  "name": "Fast Data Control Plane Operator",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/control-plane-operator-plugin",
+  "resources": {
+    "services": {
+      "fast-data-control-plane-operator": {
+        "type": "plugin",
+        "name": "fast-data-control-plane-operator",
+        "description": "Use the Control Plane Operator to manage your Fast Data runtime. Deploying this service will enable the control of your Fast Data services within the namespace.",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/control-plane-operator:0.3.0",
+        "componentId": "fd.control-plane",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "MIA_PLATFORM_EU_TENANT",
+            "valueType": "downwardAPI",
+            "fieldPath": "metadata.labels['mia-platform.eu/tenant']"
+          },
+          {
+            "name": "APP_KUBERNETES_IO_PART_OF",
+            "valueType": "downwardAPI",
+            "fieldPath": "metadata.labels['app.kubernetes.io/part-of']"
+          },
+          {
+            "name": "MIA_PLATFORM_EU_STAGE",
+            "valueType": "downwardAPI",
+            "fieldPath": "metadata.labels['mia-platform.eu/stage']"
+          },
+          {
+            "name": "FD_CONTROL_PLANE_CONFIGURATION_FILEPATH",
+            "valueType": "plain",
+            "readOnly": true,
+            "value": "/home/control_plane_operator/.fd/control-plane/configuration.json"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "5Mi",
+            "max": "15Mi"
+          },
+          "cpuLimits": {
+            "min": "5m",
+            "max": "30m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "port": "grpc",
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "port": "grpc",
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1,
+            "successThreshold": 1
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "operator-configuration",
+            "mountPath": "/home/control_plane_operator/.fd/control-plane",
+            "files": [
+              {
+                "content": "{\n  \"upstream\": {\n    \"url\": \"<CONFIGURE_ME>\"\n  }\n}",
+                "name": "configuration.json"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "grpc",
+            "from": 50051,
+            "to": 50051,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "0.3.0",
+    "releaseNote": "## What's Changed\n* Control Plane Operator now starts accepting connections incoming from Fast Data workloads only after it has connected itself to the main Control Plane instance.\n"
+  },
+  "visibility": {
+    "public": true
+  }
+}

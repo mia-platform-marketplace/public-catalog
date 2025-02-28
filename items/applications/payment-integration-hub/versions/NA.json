@@ -1,0 +1,3108 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "payments",
+  "description": "This application provides a backoffice instance with two pages already configured for manage and monitoring payments created with all micro services needed to start and managed payments, such as payment gateway manager, notification service and invoice download service.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/payment-integration-hub/overview"
+  },
+  "image": {
+    "localPath": "../../assets/payment-integration-hub-application-transparent.png"
+  },
+  "itemId": "payment-integration-hub",
+  "name": "Payment Integration Hub",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/payment-gateway-backoffice",
+  "resources": {
+    "collections": {
+      "fm_subscriptions": {
+        "defaultName": "fm_subscriptions",
+        "description": "Collection of fm_subscriptions",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "name": "sagaId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "metadata",
+            "nullable": false,
+            "required": true,
+            "schema": {
+              "properties": {
+                "additionalData": {
+                  "type": "object"
+                },
+                "amount": {
+                  "type": "number"
+                },
+                "currency": {
+                  "type": "string"
+                },
+                "expirationDate": {
+                  "type": "string"
+                },
+                "expireRequested": {
+                  "type": "boolean"
+                },
+                "interval": {
+                  "type": "string"
+                },
+                "intervalCount": {
+                  "type": "number"
+                },
+                "nextPaymentDate": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "paymentMethod": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "providerData": {
+                  "type": "object"
+                },
+                "shopSubscriptionId": {
+                  "type": "string"
+                },
+                "transactions": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "description": "",
+            "name": "isFinal",
+            "nullable": false,
+            "required": true,
+            "type": "boolean"
+          },
+          {
+            "description": "",
+            "name": "currentState",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "name": "latestEvent",
+            "nullable": false,
+            "required": true,
+            "type": "RawObject"
+          },
+          {
+            "description": "",
+            "name": "associatedEntityId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "name": "events",
+            "nullable": false,
+            "required": false,
+            "type": "Array_string"
+          },
+          {
+            "description": "",
+            "name": "history",
+            "nullable": false,
+            "required": false,
+            "type": "RawObject"
+          },
+          {
+            "description": "",
+            "name": "businessStateId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "name": "businessStateDescription",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "id": "fm_subscriptions",
+        "internalEndpoints": [
+          {
+            "basePath": "/fm-subscriptions",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "tags": [
+          "collection"
+        ],
+        "type": "collection"
+      },
+      "fm_transactions": {
+        "defaultName": "fm_transactions",
+        "description": "Collection of fm_transactions",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "name": "sagaId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "metadata",
+            "nullable": false,
+            "required": true,
+            "schema": {
+              "properties": {
+                "additionalData": {
+                  "properties": {
+                    "channel": {
+                      "type": "string"
+                    },
+                    "items": {
+                      "items": {
+                        "properties": {
+                          "amount": {
+                            "type": "number"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "itemId": {
+                            "type": "string"
+                          },
+                          "quantity": {
+                            "type": "number"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "amount": {
+                  "type": "number"
+                },
+                "buyer": {
+                  "type": "object"
+                },
+                "currency": {
+                  "type": "string"
+                },
+                "isRecurrent": {
+                  "type": "boolean"
+                },
+                "paymentID": {
+                  "type": "string"
+                },
+                "paymentMethod": {
+                  "type": "string"
+                },
+                "paymentToken": {
+                  "type": "string"
+                },
+                "payRequestData": {
+                  "type": "object"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "providerData": {
+                  "type": "object"
+                },
+                "recurrenceDetails": {
+                  "type": "object"
+                },
+                "refundDetails": {
+                  "type": "object"
+                },
+                "refundRequestData": {
+                  "type": "object"
+                },
+                "sessionToken": {
+                  "type": "string"
+                },
+                "shopTransactionID": {
+                  "type": "string"
+                },
+                "subscriptionId": {
+                  "type": "string"
+                }
+              }
+            },
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "description": "",
+            "name": "isFinal",
+            "nullable": false,
+            "required": true,
+            "type": "boolean"
+          },
+          {
+            "description": "",
+            "name": "currentState",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "name": "latestEvent",
+            "nullable": false,
+            "required": true,
+            "type": "RawObject"
+          },
+          {
+            "description": "",
+            "name": "associatedEntityId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "name": "events",
+            "nullable": false,
+            "required": false,
+            "type": "Array_string"
+          },
+          {
+            "description": "",
+            "name": "history",
+            "nullable": false,
+            "required": false,
+            "type": "RawObject"
+          },
+          {
+            "description": "",
+            "name": "businessStateId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "name": "businessStateDescription",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "id": "fm_transactions",
+        "internalEndpoints": [
+          {
+            "basePath": "/fm-transactions",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "tags": [
+          "collection"
+        ],
+        "type": "collection"
+      },
+      "invoices": {
+        "defaultName": "invoices",
+        "description": "Collection of invoices",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "name",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "file",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "size",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "location",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "sagaId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "invoices",
+        "internalEndpoints": [
+          {
+            "basePath": "/invoices",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "tags": [
+          "collection"
+        ],
+        "type": "collection"
+      },
+      "notification_templates": {
+        "defaultName": "notification_templates",
+        "description": "Collection of notification_templates",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "name",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "emailTitle",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "emailMessage",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "emailHtmlMessage",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "smsMessage",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "notification_templates",
+        "internalEndpoints": [
+          {
+            "basePath": "/notification-templates",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "tags": [
+          "collection"
+        ],
+        "type": "collection"
+      },
+      "rules": {
+        "defaultName": "rules",
+        "description": "Collection of rules",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "priority",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "number"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "ruleId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "type",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "rules",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "Array_RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "response",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "Array_RawObject"
+          }
+        ],
+        "id": "rules",
+        "internalEndpoints": [
+          {
+            "basePath": "/rules",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "tags": [
+          "collection"
+        ],
+        "type": "collection"
+      },
+      "users": {
+        "defaultName": "users",
+        "description": "Collection of users",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "emailAddress",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "phoneNumber",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "clusters",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          }
+        ],
+        "id": "users",
+        "internalEndpoints": [
+          {
+            "basePath": "/users",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "tags": [
+          "collection"
+        ],
+        "type": "collection"
+      }
+    },
+    "endpoints": {
+      "/": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": true,
+        "service": "pgm-bff",
+        "tags": [
+          "pgm-bff"
+        ],
+        "type": "custom"
+      },
+      "/adaptive-checkout": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/adaptive-checkout",
+        "defaultPathRewrite": "/rules",
+        "description": "Endpoint /adaptive-checkout",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "tags": [
+          "crud"
+        ],
+        "type": "crud",
+        "collectionId": "rules"
+      },
+      "/analytics": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/analytics",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /analytics",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "analytics-transactions",
+        "tags": [
+          "analytics"
+        ],
+        "type": "custom"
+      },
+      "/api/charts/dashboards": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/api/charts/dashboards",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /api/charts/dashboards",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "data-visualization-backend",
+        "tags": [
+          "data-visualization-backend"
+        ],
+        "type": "custom"
+      },
+      "/callback-adyen": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/callback-adyen",
+        "defaultPathRewrite": "/v3/adyen/callback",
+        "description": "Endpoint /callback-adyen",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "payment-gateway-manager",
+        "tags": [
+          "payment-gateway-manager"
+        ],
+        "type": "custom"
+      },
+      "/callback-axerve": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/callback-axerve",
+        "defaultPathRewrite": "/v3/axerve/callback",
+        "description": "Endpoint /callback-axerve",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "payment-gateway-manager",
+        "tags": [
+          "payment-gateway-manager"
+        ],
+        "type": "custom"
+      },
+      "/callback-braintree": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/callback-braintree",
+        "defaultPathRewrite": "/v3/braintree/callback",
+        "description": "Endpoint /callback-braintree",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "payment-gateway-manager",
+        "tags": [
+          "payment-gateway-manager"
+        ],
+        "type": "custom"
+      },
+      "/callback-flowpay": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/callback-flowpay",
+        "defaultPathRewrite": "/v3/flowpay/callback",
+        "description": "Endpoint /callback-flowpay",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "payment-gateway-manager",
+        "tags": [
+          "payment-gateway-manager"
+        ],
+        "type": "custom"
+      },
+      "/callback-nexi": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/callback-nexi",
+        "defaultPathRewrite": "/v3/nexi/callback",
+        "description": "Endpoint /callback-nexi",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "payment-gateway-manager",
+        "tags": [
+          "payment-gateway-manager"
+        ],
+        "type": "custom"
+      },
+      "/callback-satispay": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/callback-satispay",
+        "defaultPathRewrite": "/v3/satispay/callback",
+        "description": "Endpoint /callback-satispay",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "payment-gateway-manager",
+        "tags": [
+          "payment-gateway-manager"
+        ],
+        "type": "custom"
+      },
+      "/callback-scalapay": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/callback-scalapay",
+        "defaultPathRewrite": "/v3/scalapay/callback",
+        "description": "Endpoint /callback-scalapay",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "payment-gateway-manager",
+        "tags": [
+          "payment-gateway-manager"
+        ],
+        "type": "custom"
+      },
+      "/callback-soisy": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/callback-soisy",
+        "defaultPathRewrite": "/v3/soisy/callback",
+        "description": "Endpoint /callback-soisy",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "payment-gateway-manager",
+        "tags": [
+          "payment-gateway-manager"
+        ],
+        "type": "custom"
+      },
+      "/callback-stripe": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/callback-stripe",
+        "defaultPathRewrite": "/v3/stripe/callback",
+        "description": "Endpoint /callback-stripe",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "payment-gateway-manager",
+        "tags": [
+          "payment-gateway-manager"
+        ],
+        "type": "custom"
+      },
+      "/data-visualization": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/data-visualization",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /data-visualization",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "data-visualization-frontend",
+        "tags": [
+          "data-visualization-frontend"
+        ],
+        "type": "custom"
+      },
+      "/demo": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/demo",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /demo",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "payment-front-end",
+        "tags": [
+          "payment-front-end"
+        ],
+        "type": "custom"
+      },
+      "/export": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/export",
+        "defaultPathRewrite": "/export",
+        "description": "Endpoint /export",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": true,
+        "service": "export-service",
+        "tags": [
+          "export-service"
+        ],
+        "type": "custom"
+      },
+      "/fm": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/fm",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /fm",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": true,
+        "service": "flow-manager-service",
+        "tags": [
+          "flow-manager-service"
+        ],
+        "type": "custom"
+      }
+    },
+    "services": {
+      "adaptive-approval": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_URL",
+            "value": "http://crud-service/rules/",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOW_MANAGER_URL",
+            "value": "http://flow-manager-service",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "150Mi"
+          }
+        },
+        "description": "This service allow to define and verify rules",
+        "dockerImage": "nexus.mia-platform.eu/fintech/adaptive-approval:0.0.2",
+        "name": "adaptive-approval",
+        "type": "plugin"
+      },
+      "analytics-transactions": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "\"use strict\";  module.exports = {   tags: [\"Profiles\"],   name: \"amount-transactions-by-day-last-year\",   parameters: [],   inputFormatter: function t(query, params) {     return { ...query, ...params }       },   query: {     collectionName: \"fm_transactions\",     aggregationFunction: function t(params) {       return [         {           $match: {             __STATE__: \"PUBLIC\",              createdAt: {               $lt: new Date(new Date() - 1000*60*60*24*365),                $gt: new Date(new Date() - 1000*60*60*24*365*2)             },             businessStateDescription: \"PAYMENT_PAID\"           }         }, {           $project: {             dateToGroup: {               $dateToString: {                 format: \"%Y-%m-%d\",                  date: \"$createdAt\"               }             },              amount: \"$metadata.amount\"           }         }, {           $group: {             _id: \"$dateToGroup\",              total: {               $sum: \"$amount\"             }           }         }, {           $sort: {             _id: 1           }         }, {           $project: {             total: {               $divide: [                 \"$total\",                 100               ]             },              fakeTimestamp: {               $toLong: {                 $dateAdd: {                   startDate: {                     $toDate: \"$_id\"                   },                    unit: \"year\",                    amount: 1                 }               }             }           }         }       ]     }   },   castInterpolatedPipeline: function t(pipeline) {     return pipeline   },   outputFormatter: function t(doc, format, input) {     return [doc.fakeTimestamp, doc.total]   } };",
+                "name": "amount-transactions-by-day-last-year.js"
+              },
+              {
+                "content": "\"use strict\";  module.exports = {   tags: [\"Profiles\"],   name: \"amount-transactions-by-day-this-year\",   parameters: [],   inputFormatter: function t(query, params) {     return { ...query, ...params }       },   query: {     collectionName: \"fm_transactions\",     aggregationFunction: function t(params) {       return [         {           $match: {             __STATE__: \"PUBLIC\",              createdAt: {               $gt: new Date(new Date() - 1000*60*60*24*365)             },             businessStateDescription: \"PAYMENT_PAID\"           }         }, {           $project: {             dateToGroup: {               $dateToString: {                 format: \"%Y-%m-%d\",                  date: \"$createdAt\"               }             },              amount: \"$metadata.amount\"           }         }, {           $group: {             _id: \"$dateToGroup\",              total: {               $sum: \"$amount\"             }           }         }, {           $sort: {             _id: 1           }         }, {           $project: {             total: {               $divide: [                 \"$total\",                 100               ]             },              timestamp: {               $toLong: {                 $toDate: \"$_id\"               }             }           }         }       ]     }   },   castInterpolatedPipeline: function t(pipeline) {     return pipeline   },   outputFormatter: function t(doc, format, input) {     return [doc.timestamp, doc.total]   } };",
+                "name": "amount-transactions-by-day-this-year.js"
+              },
+              {
+                "content": "\"use strict\";  module.exports = {   tags: [\"Profiles\"],   name: \"amount-by-method\",   parameters: [{     type: \"string\",     name: \"transactionDateFrom\",     required: false   }, {     type: \"string\",     name: \"transactionDateTo\",     required: false   }],   inputFormatter: function t(query, params) {     return { ...query, ...params }   },   query: {     collectionName: \"fm_transactions\",     aggregationFunction: function t(params) {       return [{         $match: {           __STATE__: \"PUBLIC\",           businessStateDescription: \"PAYMENT_PAID\"         }       }, {         '#matchWithFilters#': [{           requiredParameters: [\"transactionDateFrom\", \"transactionDateTo\"],           query: {             createdAt: {               $gt: new Date(params.transactionDateFrom),               $lt: new Date(params.transactionDateTo)             }           }         }]       }, {         $group: {           _id: \"$metadata.paymentMethod\",           total: {             $sum: \"$metadata.amount\"           }         }       }, {         $set: {           total: {             $divide: [               \"$total\",               100             ]           },           method: {             $switch: {               branches: [                 {                   case: {                     $eq: [\"$_id\", \"applepay\"]                   },                   then: \"Apple Pay\"                 },                 {                   case: {                     $eq: [\"$_id\", \"credit-cards\"]                   },                   then: \"Credit Card\"                 },                 {                   case: {                     $eq: [\"$_id\", \"googlepay\"]                   },                   then: \"Google Pay\"                 },                 {                   case: {                     $eq: [\"$_id\", \"pay-pal\"]                   },                   then: \"PayPal\"                 },                 {                   case: {                     $eq: [\"$_id\", \"safecharge\"]                   },                   then: \"Safecharge\"                 },                 {                   case: {                     $eq: [\"$_id\", \"satispay\"]                   },                   then: \"Satispay\"                 },                 {                   case: {                     $eq: [\"$_id\", \"scalapay\"]                   },                   then: \"Scalapay\"                 },                 {                   case: {                     $eq: [\"$_id\", \"soisy\"]                   },                   then: \"Soisy\"                 },               ],               default: \"$_id\"             }           }         }       }, {         $sort: {           method: 1         }       }]     }   },   castInterpolatedPipeline: function t(pipeline) {     return pipeline   },   outputFormatter: function t(doc, format, input) {     return [doc.method, doc.total]   } };",
+                "name": "amount-by-method.js"
+              },
+              {
+                "content": "\"use strict\";  module.exports = {   tags: [\"Profiles\"],   name: \"amount-by-channel\",   parameters: [{     type: \"string\",     name: \"transactionDateFrom\",     required: false   }, {     type: \"string\",     name: \"transactionDateTo\",     required: false   }],   inputFormatter: function t(query, params) {     return { ...query, ...params }   },   query: {     collectionName: \"fm_transactions\",     aggregationFunction: function t(params) {       return [{         $match: {           __STATE__: \"PUBLIC\",           businessStateDescription: \"PAYMENT_PAID\"         }       }, {         '#matchWithFilters#': [{           requiredParameters: [\"transactionDateFrom\", \"transactionDateTo\"],           query: {             createdAt: {               $gt: new Date(params.transactionDateFrom),               $lt: new Date(params.transactionDateTo)             }           }         }]       }, {         $group: {           _id: \"$metadata.additionalData.channel\",           total: {             $sum: \"$metadata.amount\"           }         }       }, {         $set: {           total: {             $divide: [               \"$total\",               100             ]           },           channel: {             $switch: {               branches: [                 {                   case: {                     $eq: [\"$_id\", null]                   },                   then: \"unknown\"                 }               ],               default: \"$_id\"             }           }         }       }, {         $sort: {           channel: 1         }       }]     }   },   castInterpolatedPipeline: function t(pipeline) {     return pipeline   },   outputFormatter: function t(doc, format, input) {     return [doc.channel, doc.total]   } };",
+                "name": "amount-by-channel.js"
+              },
+              {
+                "content": "\"use strict\";  module.exports = {   tags: [\"Profiles\"],   name: \"percentage-by-status\",   parameters: [{     type: \"string\",     name: \"transactionDateFrom\",     required: false   }, {     type: \"string\",     name: \"transactionDateTo\",     required: false   }],   inputFormatter: function t(query, params) {     return { ...query, ...params }       },   query: {     collectionName: \"fm_transactions\",     aggregationFunction: function t(params) {       return [{         $match: {           __STATE__: \"PUBLIC\"         }       }, {         '#matchWithFilters#': [{           requiredParameters: [\"transactionDateFrom\", \"transactionDateTo\"],           query: {             createdAt: {               $gt: new Date(params.transactionDateFrom),               $lt: new Date(params.transactionDateTo)             }           }         }]       }, {         $facet: {           nDocs: [             {               \"$count\": \"nDocs\"             }           ],           groupValues: [             {               \"$group\": {                 \"_id\": \"$businessStateDescription\",                 \"total\": {                   \"$sum\": 1                 }               }             },           ]         }       }, {         $unwind: {           path: '$groupValues',           includeArrayIndex: 'string',           preserveNullAndEmptyArrays: true         }       }, {         $project: {           status: '$groupValues._id',           percentage: {             $round: [               {                 $multiply: [                   {                     $divide: [ \"$groupValues.total\", {                       $getField: {                         field: 'nDocs',                         input: { $arrayElemAt: ['$nDocs', 0] }                       }                     } ]                   },                   100                 ]               },               2             ]           }         }       }, {         $set: {           state: {             $switch: {               branches: [                 {                   case: {                     $eq: [\"$status\", \"PAYMENT_PAID\"]                   },                   then: \"Payment Paid\"                 },                 {                   case: {                     $eq: [\"$status\", \"PAYMENT_CREATED\"]                   },                   then: \"Payment Created\"                 },                 {                   case: {                     $eq: [\"$status\", \"PAYMENT_PARTIALLY_REFUNDED\"]                   },                   then: \"Payment Partially Refunded\"                 },                 {                   case: {                     $eq: [\"$status\", \"PAYMENT_TOTALLY_REFUNDED\"]                   },                   then: \"Payment Totally Refunded\"                 },                 {                   case: {                     $eq: [\"$status\", \"PAYMENT_FAILED\"]                   },                   then: \"Payment Failed\"                 },               ],               default: \"$status\"             }           }         }       }]     }   },   castInterpolatedPipeline: function t(pipeline) {     return pipeline   },   outputFormatter: function t(doc, format, input) {     return [doc.state, doc.percentage]   } };",
+                "name": "percentage-by-status.js"
+              }
+            ],
+            "mountPath": "/home/node/app/profiles",
+            "name": "transactions-analytics",
+            "viewAsReadOnly": false
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROFILE_DIR",
+            "value": "/home/node/app/profiles",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "50Mi"
+          }
+        },
+        "description": "Provide MongoDB aggregation pipelines as REST API.",
+        "dockerImage": "nexus.mia-platform.eu/core/mongodb-reader:{{ANALYTICS_TRANSACTIONS_VERSION}}",
+        "name": "analytics-transactions",
+        "type": "plugin"
+      },
+      "crud-service": {
+        "componentId": "crud-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "collections"
+            },
+            "mountPath": "/home/node/app/collections",
+            "name": "crud-service-collections",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_PREFIX",
+            "value": "/",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+            "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "false",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20
+          },
+          "readiness": {
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "50m"
+          },
+          "memoryLimits": {
+            "max": "250Mi",
+            "min": "70Mi"
+          }
+        },
+        "description": "",
+        "dockerImage": "miaplatform/crud-service:{{CRUD_SERVICE_VERSION}}",
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "envName": "COLLECTION_DEFINITION_FOLDER",
+            "type": "folder"
+          }
+        },
+        "name": "crud-service",
+        "type": "plugin"
+      },
+      "data-visualization-backend": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "{   \"charts\": {     \"percentageByStatus\": {       \"id\": \"percentageByStatus\",       \"constructorType\": \"chart\",       \"options\": {         \"chart\": {           \"plotBackgroundColor\": null,           \"plotBorderWidth\": null,           \"plotShadow\": false,           \"type\": \"pie\"         },         \"title\": {           \"text\": \"Percentage of transactions by state\"         },         \"tooltip\": {           \"pointFormat\": \"{series.name}: <b>{point.percentage:.1f}%</b>\"         },         \"accessibility\": {           \"point\": {             \"valueSuffix\": \"%\"           }         },         \"plotOptions\": {           \"pie\": {             \"allowPointSelect\": true,             \"cursor\": \"pointer\",             \"dataLabels\": {               \"enabled\": true,               \"format\": \"<b>{point.name}</b>: {point.percentage:.2f} %\"             },             \"colors\": [               \"#EA5159\",               \"#FAA0A0\",               \"#800020\",               \"#4A0404\"             ]           }         },         \"series\": [           {             \"id\": \"serie1\",             \"name\": \"Percentage of transactions: \",             \"colorByPoint\": true,             \"endpointData\": \"/analytics/percentage-by-status/json\"           }         ]       },       \"filters\": {         \"dateFilter\": {           \"type\": \"DATERANGE\",           \"placeholder\": \"Date\",           \"fieldName\": \"transactionDate\",           \"title\": \"Date\",           \"description\": \"Creation Date\"         }       }     },     \"transactionsbyChannel\": {       \"id\": \"transactionsbyChannel\",       \"constructorType\": \"chart\",       \"filters\": {         \"dateFilter\": {           \"type\": \"DATERANGE\",           \"placeholder\": \"Date\",           \"fieldName\": \"transactionDate\",           \"title\": \"Date\",           \"description\": \"Creation Date\"         }       },       \"options\": {         \"title\": {           \"text\": \"Transactions by Channel\"         },         \"subtitle\": {           \"text\": \"Number of transactions\"         },         \"chart\": {           \"alignTicks\": false,           \"type\": \"bar\"         },         \"legend\": {           \"enabled\": true         },         \"xAxis\": {           \"type\": \"category\",           \"labels\": {             \"style\": {               \"fontSize\": \"12px\",               \"fontFamily\": \"Verdana, sans-serif\"             }           }         },         \"yAxis\": [           {             \"title\": {               \"text\": \"Revenues\"             }           },           {             \"title\": {               \"text\": \"Transactions\"             }           }         ],         \"tooltip\": {           \"shared\": true         },         \"series\": [           {             \"id\": \"serie2\",             \"name\": \"Number\",             \"endpointData\": \"/analytics/number-transactions-by-channel/json\",             \"type\": \"column\",             \"color\": \"#EA5159\",             \"yAxis\": 0           }         ]       }     },     \"transactionComparisonLastYear\": {       \"id\": \"transactionComparisonLastYear\",       \"constructorType\": \"stockChart\",       \"options\": {         \"title\": {           \"text\": \"Transactions trend\"         },         \"subtitle\": {           \"text\": \"Amount by day\"         },         \"chart\": {           \"alignTicks\": false         },         \"legend\": {           \"enabled\": true         },         \"xAxis\": {           \"type\": \"datetime\"         },         \"yAxis\": [           {             \"title\": {               \"text\": \"Amount\"             }           }         ],         \"series\": [           {             \"id\": \"amount-transactions-by-day-last-year\",             \"name\": \"Last year\",             \"endpointData\": \"/analytics/amount-transactions-by-day-last-year/json\",             \"color\": \"#C0C0C0\",             \"tooltip\": {               \"valuePrefix\": \"€ \"             },             \"fill\": {               \"granularity\": \"days\",               \"untilNow\": true,               \"value\": 0             },             \"yAxis\": 0,             \"xAxis\": 0,             \"dashStyle\": \"ShortDot\"           },           {             \"id\": \"amount-transactions-by-day-this-year\",             \"name\": \"This year\",             \"endpointData\": \"/analytics/amount-transactions-by-day-this-year/json\",             \"color\": \"#EA5159\",             \"tooltip\": {               \"valuePrefix\": \"€ \"             },             \"fill\": {               \"granularity\": \"days\",               \"untilNow\": true,               \"value\": 0             },             \"yAxis\": 0,             \"xAxis\": 0           }         ]       }     },     \"amountByMethod\": {       \"id\": \"amountByMethod\",       \"constructorType\": \"chart\",       \"filters\": {         \"dateFilter\": {           \"type\": \"DATERANGE\",           \"placeholder\": \"Date\",           \"fieldName\": \"transactionDate\",           \"title\": \"Date\",           \"description\": \"Creation Date\"         }       },       \"options\": {         \"title\": {           \"text\": \"Amount by payment method\"         },         \"chart\": {           \"alignTicks\": false,           \"type\": \"bar\"         },         \"legend\": {           \"enabled\": true         },         \"xAxis\": {           \"type\": \"category\"         },         \"yAxis\": [           {             \"title\": {               \"text\": \"Revenues\"             }           }         ],         \"tooltip\": {           \"shared\": true         },         \"series\": [           {             \"id\": \"amount-by-method\",             \"name\": \"Amount\",             \"endpointData\": \"/analytics/amount-by-method/json\",             \"type\": \"column\",             \"tooltip\": {               \"valuePrefix\": \"€ \"             },             \"color\": \"#EA5159\",             \"yAxis\": 0           }         ]       }     },     \"amountByChannel\": {       \"id\": \"amountByChannel\",       \"constructorType\": \"chart\",       \"filters\": {         \"dateFilter\": {           \"type\": \"DATERANGE\",           \"placeholder\": \"Date\",           \"fieldName\": \"transactionDate\",           \"title\": \"Date\",           \"description\": \"Creation Date\"         }       },       \"options\": {         \"title\": {           \"text\": \"Amount by payment channel\"         },         \"chart\": {           \"alignTicks\": false,           \"type\": \"bar\"         },         \"legend\": {           \"enabled\": true         },         \"xAxis\": {           \"type\": \"category\"         },         \"yAxis\": [           {             \"title\": {               \"text\": \"Revenues\"             }           }         ],         \"tooltip\": {           \"shared\": true         },         \"series\": [           {             \"id\": \"amount-by-channel\",             \"name\": \"Amount\",             \"endpointData\": \"/analytics/amount-by-channel/json\",             \"type\": \"column\",             \"tooltip\": {               \"valuePrefix\": \"€ \"             },             \"color\": \"#EA5159\",             \"yAxis\": 0           }         ]       }     }   },   \"dashboard\": {     \"dashboard-1\": {       \"rows\": [         {           \"charts\": [             {               \"id\": \"transactionComparisonLastYear\"             }           ]         },         {           \"charts\": [             {               \"id\": \"amountByMethod\"             },             {               \"id\": \"amountByChannel\"             }           ]         },         {           \"charts\": [             {               \"id\": \"percentageByStatus\"             }           ]         }       ]     }   } }",
+                "name": "config.json"
+              }
+            ],
+            "mountPath": "/home/node/app/data-visualization",
+            "name": "data-visualization-backend",
+            "viewAsReadOnly": false
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "DASHBOARD_AND_CHARTS_CONFIG_PATH",
+            "value": "/home/node/app/data-visualization/config.json",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "50Mi"
+          }
+        },
+        "description": "This is a backend for frontend to be used to configure Data Visualization dashboards.",
+        "dockerImage": "nexus.mia-platform.eu/core/charts-service:{{DATA_VIZ_BE_VERSION}}",
+        "name": "data-visualization-backend",
+        "type": "plugin"
+      },
+      "data-visualization-frontend": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "50Mi"
+          }
+        },
+        "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/data-visualization:{{DATA_VIZ_FE_VERSION}}",
+        "name": "data-visualization-frontend",
+        "type": "plugin"
+      },
+      "export-service": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "miaclienttype",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 40,
+            "path": "/-/healthz",
+            "periodSeconds": 15,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "150Mi"
+          }
+        },
+        "description": "This service helps you manage Excel, CSV or JSON export from other services using jsonl.",
+        "dockerImage": "nexus.mia-platform.eu/core/export-service:2.0.2",
+        "name": "export-service",
+        "type": "plugin"
+      },
+      "files-service": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "CHANGE ME",
+                "name": "db-config.json"
+              },
+              {
+                "content": "'use strict'\nmodule.exports = function caster(doc) {   return {     sagaId: doc.sagaId || undefined,   } }\nmodule.exports.additionalPropertiesValidator = {   sagaId: { type: 'string' }, }",
+                "name": "caster-file.js"
+              }
+            ],
+            "mountPath": "/file-service-config",
+            "name": "file-sevice-config",
+            "viewAsReadOnly": false
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_URL",
+            "value": "http://crud-service/invoices/",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "/file-service-config/db-config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEADERS_TO_PROXY",
+            "value": "miauserid,miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROJECT_HOSTNAME",
+            "value": "https://{{PROJECT_HOST}}/",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADDITIONAL_FUNCTION_CASTER_FILE_PATH",
+            "value": "/file-service-config/caster-file.js",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "100Mi"
+          }
+        },
+        "description": "Upload, download and handle your files using MongoDB, S3 or Google Storage.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/files-service:2.10.1",
+        "name": "files-service",
+        "type": "plugin"
+      },
+      "flow-manager-service": {
+        "componentId": "flow-manager",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "{   \"machineDefinition\": {     \"initialState\": \"PAYMENT_CREATED\",     \"creationEvent\": \"paymentCreated\",     \"states\": [       {         \"id\": \"PAYMENT_CREATED\",         \"description\": \"payment created on CRUD\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outgoingTransitions\": [           {             \"inputEvent\": \"scheduleRequested\",             \"targetState\": \"PAYMENT_SCHEDULE_REQUESTED\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"subscriptionScheduledRequested\",             \"targetState\": \"SUBSCRIPTION_SCHEDULED_REQUESTED\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"subscriptionStart\",             \"targetState\": \"SUBSCRIPTION_STARTED\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"subscriptionPaymentRequested\",             \"targetState\": \"SUBSCRIPTION_PAYMENT_REQUESTED\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"authorizationRequested\",             \"targetState\": \"AUTHORIZATION_REQUESTED\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"linkRequested\",             \"targetState\": \"LINK_REQUESTED\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"paymentExecuted\",             \"targetState\": \"PAYMENT_EXECUTED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"paymentFailed\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"LINK_REQUESTED\",         \"description\": \"Link has been requested\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outputCommand\": {           \"channel\": \"createLink\",           \"label\": \"createLink\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"linkCreated\",             \"targetState\": \"LINK_CREATED\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"paymentFailed\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"LINK_CREATED\",         \"description\": \"Link has been created\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outgoingTransitions\": [           {             \"inputEvent\": \"notificationSent\",             \"targetState\": \"PAYMENT_PENDING\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"paymentFailed\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"AUTHORIZATION_REQUESTED\",         \"description\": \"authorization has been requested\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outputCommand\": {           \"channel\": \"getAuthorization\",           \"label\": \"getAuthorization\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"authorizationScheduled\",             \"targetState\": \"AUTHORIZATION_PENDING\",             \"businessEventId\": 0           }         ]       },       {         \"id\": \"AUTHORIZATION_PENDING\",         \"description\": \"waiting for authorization\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outgoingTransitions\": [           {             \"inputEvent\": \"subscriptionStart\",             \"targetState\": \"SUBSCRIPTION_STARTED\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"subscriptionPaymentRequested\",             \"targetState\": \"SUBSCRIPTION_PAYMENT_REQUESTED\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"paymentFailed\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"PAYMENT_SCHEDULE_REQUESTED\",         \"description\": \"payment schedule has been requested\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outputCommand\": {           \"channel\": \"pay\",           \"label\": \"paymentScheduled\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"paymentScheduled\",             \"targetState\": \"PAYMENT_PENDING\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"paymentExecuted\",             \"targetState\": \"PAYMENT_EXECUTED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"paymentExecutedBySystem\",             \"targetState\": \"PAYMENT_EXECUTED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"paymentFailed\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1000           },           {             \"inputEvent\": \"paymentFailedBySystem\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"SUBSCRIPTION_SCHEDULED_REQUESTED\",         \"description\": \"subscription schedule has been requested\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outputCommand\": {           \"channel\": \"subscriptionScheduledRequested\",           \"label\": \"subscriptionScheduledRequested\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"paymentScheduled\",             \"targetState\": \"PAYMENT_PENDING\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"paymentExecuted\",             \"targetState\": \"PAYMENT_EXECUTED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"paymentExecutedBySystem\",             \"targetState\": \"PAYMENT_EXECUTED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"paymentFailed\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1000           },           {             \"inputEvent\": \"paymentFailedBySystem\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"SUBSCRIPTION_STARTED\",         \"description\": \"subscription's first payment has been requested\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outputCommand\": {           \"channel\": \"subscriptionStart\",           \"label\": \"subscriptionStart\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"paymentScheduled\",             \"targetState\": \"PAYMENT_PENDING\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"paymentExecuted\",             \"targetState\": \"PAYMENT_EXECUTED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"paymentExecutedBySystem\",             \"targetState\": \"PAYMENT_EXECUTED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"paymentFailed\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1000           },           {             \"inputEvent\": \"paymentFailedBySystem\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"SUBSCRIPTION_PAYMENT_REQUESTED\",         \"description\": \"subscription's payment has been requested\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outputCommand\": {           \"channel\": \"subscriptionPaymentRequested\",           \"label\": \"subscriptionPaymentRequested\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"paymentScheduled\",             \"targetState\": \"PAYMENT_PENDING\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"paymentExecuted\",             \"targetState\": \"PAYMENT_EXECUTED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"paymentExecutedBySystem\",             \"targetState\": \"PAYMENT_EXECUTED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"paymentFailed\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1000           },           {             \"inputEvent\": \"paymentFailedBySystem\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"PAYMENT_PENDING\",         \"description\": \"payment created on provider's system\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outgoingTransitions\": [           {             \"inputEvent\": \"update\",             \"targetState\": \"PAYMENT_PENDING\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"paymentExecuted\",             \"targetState\": \"PAYMENT_EXECUTED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"paymentExecutedBySystem\",             \"targetState\": \"PAYMENT_EXECUTED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"paymentFailed\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1000           },           {             \"inputEvent\": \"paymentFailedBySystem\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1000           }         ]       },       {         \"id\": \"PAYMENT_EXECUTED\",         \"description\": \"payment has been paid\",         \"isFinal\": false,         \"businessStateId\": 1,         \"outgoingTransitions\": [           {             \"inputEvent\": \"refundRequested\",             \"targetState\": \"REFUND_REQUESTED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"sendNotification\",             \"targetState\": \"PAYMENT_EXECUTED\",             \"businessEventId\": 1           }         ]       },       {         \"id\": \"REFUND_REQUESTED\",         \"description\": \"payment refund has been requested\",         \"isFinal\": false,         \"businessStateId\": 1,         \"outputCommand\": {           \"channel\": \"refund\",           \"label\": \"refundRequested\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"refundFailed\",             \"targetState\": \"REFUND_FAILED\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"partialRefundExecuted\",             \"targetState\": \"PARTIALLY_REFUNDED\",             \"businessEventId\": 2           },           {             \"inputEvent\": \"totalRefundExecuted\",             \"targetState\": \"TOTALLY_REFUNDED\",             \"businessEventId\": 3           }         ]       },       {         \"id\": \"REFUND_FAILED\",         \"description\": \"payment refund failed\",         \"isFinal\": false,         \"businessStateId\": 1,         \"outgoingTransitions\": [           {             \"inputEvent\": \"refundRequested\",             \"targetState\": \"REFUND_REQUESTED\",             \"businessEventId\": 1           }         ]       },       {         \"id\": \"PARTIALLY_REFUNDED\",         \"description\": \"payment has been partially refunded\",         \"isFinal\": false,         \"businessStateId\": 2,         \"outgoingTransitions\": [           {             \"inputEvent\": \"refundRequested\",             \"targetState\": \"SUBSEQUENT_REFUND_REQUESTED\",             \"businessEventId\": 2           },           {             \"inputEvent\": \"sendNotification\",             \"targetState\": \"PARTIALLY_REFUNDED\",             \"businessEventId\": 1           }         ]       },       {         \"id\": \"SUBSEQUENT_REFUND_REQUESTED\",         \"description\": \"payment refund has been requested again\",         \"isFinal\": false,         \"businessStateId\": 2,         \"outputCommand\": {           \"channel\": \"refund\",           \"label\": \"refundRequested\"         },         \"outgoingTransitions\": [           {             \"inputEvent\": \"partialRefundExecuted\",             \"targetState\": \"PARTIALLY_REFUNDED\",             \"businessEventId\": 2           },           {             \"inputEvent\": \"refundFailed\",             \"targetState\": \"SUBSEQUENT_REFUND_FAILED\",             \"businessEventId\": 2           },           {             \"inputEvent\": \"totalRefundExecuted\",             \"targetState\": \"TOTALLY_REFUNDED\",             \"businessEventId\": 3           }         ]       },       {         \"id\": \"SUBSEQUENT_REFUND_FAILED\",         \"description\": \"subsequent payment refund failed\",         \"isFinal\": false,         \"businessStateId\": 2,         \"outgoingTransitions\": [           {             \"inputEvent\": \"refundRequested\",             \"targetState\": \"SUBSEQUENT_REFUND_REQUESTED\",             \"businessEventId\": 2           }         ]       },       {         \"id\": \"TOTALLY_REFUNDED\",         \"description\": \"payment has been totally refunded\",         \"isFinal\": false,         \"businessStateId\": 3,         \"outgoingTransitions\": [           {             \"inputEvent\": \"sendNotification\",             \"targetState\": \"TOTALLY_REFUNDED\",             \"businessEventId\": 1           }         ]       },       {         \"id\": \"PAYMENT_FAILED\",         \"description\": \"payment could not be performed\",         \"isFinal\": false,         \"businessStateId\": 1000,         \"outgoingTransitions\": [           {             \"inputEvent\": \"sendNotification\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 1           }         ]       }     ],     \"businessStates\": [       {         \"id\": 0,         \"description\": \"PAYMENT_CREATED\"       },       {         \"id\": 1,         \"description\": \"PAYMENT_PAID\"       },       {         \"id\": 2,         \"description\": \"PAYMENT_PARTIALLY_REFUNDED\"       },       {         \"id\": 3,         \"description\": \"PAYMENT_TOTALLY_REFUNDED\"       },       {         \"id\": 1000,         \"description\": \"PAYMENT_FAILED\"       }     ],     \"businessEvents\": [       {         \"id\": 0,         \"description\": \"paymentCreated\"       },       {         \"id\": 1,         \"description\": \"paymentPaid\"       },       {         \"id\": 2,         \"description\": \"paymentPartiallyRefunded\"       },       {         \"id\": 3,         \"description\": \"paymentTotallyRefunded\"       },       {         \"id\": 1000,         \"description\": \"paymentFailed\"       }     ]   },   \"communicationProtocols\": [     {       \"id\": \"pay\",       \"type\": \"rest\",       \"configurations\": {         \"protocol\": \"http\",         \"endpoint\": \"payment-gateway-manager\",         \"method\": \"POST\",         \"path\": \"/saga/pay\"       }     },     {       \"id\": \"createLink\",       \"type\": \"rest\",       \"configurations\": {         \"protocol\": \"http\",         \"endpoint\": \"payment-gateway-manager\",         \"method\": \"POST\",         \"path\": \"/saga/pay-by-link\"       }     },     {       \"id\": \"subscriptionScheduledRequested\",       \"type\": \"rest\",       \"configurations\": {         \"protocol\": \"http\",         \"endpoint\": \"payment-gateway-manager\",         \"method\": \"POST\",         \"path\": \"/saga/subscription/schedule\"       }     },     {       \"id\": \"subscriptionStart\",       \"type\": \"rest\",       \"configurations\": {         \"protocol\": \"http\",         \"endpoint\": \"payment-gateway-manager\",         \"method\": \"POST\",         \"path\": \"/saga/subscription/start\"       }     },     {       \"id\": \"subscriptionPaymentRequested\",       \"type\": \"rest\",       \"configurations\": {         \"protocol\": \"http\",         \"endpoint\": \"payment-gateway-manager\",         \"method\": \"POST\",         \"path\": \"/saga/subscription/pay\"       }     },     {       \"id\": \"getAuthorization\",       \"type\": \"rest\",       \"configurations\": {         \"protocol\": \"http\",         \"endpoint\": \"payment-gateway-manager\",         \"method\": \"POST\",         \"path\": \"/saga/subscription/authorization\"       }     },     {       \"id\": \"refund\",       \"type\": \"rest\",       \"configurations\": {         \"protocol\": \"http\",         \"endpoint\": \"payment-gateway-manager\",         \"method\": \"POST\",         \"path\": \"/saga/refund\"       }     },     {       \"id\": \"subscription-notify\",       \"type\": \"rest\",       \"configurations\": {         \"protocol\": \"http\",         \"endpoint\": \"subscription-handler-service\",         \"method\": \"POST\",         \"path\": \"/notify\"       }     },     {       \"id\": \"notify\",       \"type\": \"rest\",       \"configurations\": {         \"protocol\": \"http\",         \"endpoint\": \"messaging-service\",         \"method\": \"POST\",         \"path\": \"/saga/send\"       }     }   ],   \"persistencyManagement\": {     \"type\": \"crud\",     \"configurations\": {       \"collectionName\": \"fm-transactions\"     }   },   \"settings\": {     \"deepMergeMetadata\": {       \"enabled\": true     }   } }",
+                "name": "saga.json"
+              }
+            ],
+            "mountPath": "/configuration",
+            "name": "flow-configuration",
+            "viewAsReadOnly": false
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "miaclienttype",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATIONS_FILE_PATH",
+            "value": "/configuration/saga.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "SAGA_ID_PREFIX",
+            "value": "payment",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "100Mi"
+          }
+        },
+        "description": "The Flow Manager is a saga orchestrator, capable to manage flows structured by using the Architectural pattern named Saga Pattern",
+        "dockerImage": "nexus.mia-platform.eu/core/flow-manager:2.6.5",
+        "name": "flow-manager-service",
+        "type": "plugin"
+      },
+      "frullino-service": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE_URL",
+            "value": "http://crud-service/payment-pending-view",
+            "valueType": "plain"
+          },
+          {
+            "name": "PGM_URL",
+            "value": "http://payment-gateway-manager",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOW_MANAGER_URL",
+            "value": "http://flow-manager-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_HOST",
+            "value": "redis://{{REDIS_HOSTS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "THREAD_NUMBER",
+            "value": "2",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOGS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "FRULLINO_RUNNING_INTERVAL_CRON",
+            "value": "30s",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz"
+          },
+          "readiness": {
+            "initialDelaySeconds": 15,
+            "path": "/-/ready"
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "400Mi",
+            "min": "200Mi"
+          }
+        },
+        "dockerImage": "nexus.mia-platform.eu/plugins/frullino:{{FRULLINO_VERSION}}",
+        "name": "frullino-service",
+        "type": "plugin"
+      },
+      "invoice-service": {
+        "componentId": "invoice-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "{   \"companyName\": \"CHANGE ME\",   \"address\": \"CHANGE ME\",   \"telephoneNumber\": \"Tel. CHANGE ME\",   \"logo\": \"CHANGE ME\" }",
+                "name": "company-data.json"
+              }
+            ],
+            "mountPath": "/config",
+            "name": "config",
+            "viewAsReadOnly": false
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client_type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isBackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "COMPANY_DATA_PATH",
+            "value": "/config/company-data.json",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "successThreshold": 1,
+            "timeoutSeconds": 2
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 2
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "80Mi"
+          }
+        },
+        "dockerImage": "nexus.mia-platform.eu/plugins/invoice-service:1.0.3",
+        "name": "invoice-service",
+        "type": "plugin"
+      },
+      "messaging-service": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "{   \"activeChannels\": [     \"email\",     \"sms\"   ],   \"sender\": {     \"email\": \"{{EMAIL_SENDER}}\",     \"sms\": \"CHANGE ME\"   },   \"flowManagerConfiguration\": {     \"serviceUrl\": \"http://flow-manager-service\",     \"successEventLabel\": \"notificationSent\",     \"failEventLabel\": \"paymentFailed\",     \"getTemplateIdFilePath\": \"/home/node/app/messaging-service/getTemplateId.js\",     \"getDataFilePath\": \"/home/node/app/messaging-service/getData.js\",     \"metadataSchema\": {       \"channels\": \"additionalData.notificationChannels\",       \"recipients\": \"additionalData.buyer.id\"     }   } }",
+                "name": "config.json"
+              },
+              {
+                "content": "function amountToDecimal(amount, currency) {   if (isNaN(amount)) return undefined   \nswitch (currency.toLocaleLowerCase()) {     case 'eur':       return (amount / 100).toFixed(2)\ndefault:       return amount   } }  function currencyToSymbol(currency) {   switch (currency.toLocaleLowerCase()) {     case 'eur':       return '€'     \ndefault:       return currency   } }  function mapStatus(status) {     switch (status) {         case 'PAYMENT_EXECUTED':             return 'Payment Paid'         \ncase 'PAYMENT_FAILED':             return 'Payment Failed'         \ncase 'PARTIAL_REFUND_EXECUTED':             return 'Payment Partially Refunded'         \ncase 'TOTAL_REFUND_EXECUTED':             return 'Payment Totally Refunded'         \ndefault:             return status     } }  \nmodule.exports = function getData(event) {   return {     ...event,     value: {       messageLabel: mapStatus(event.value.messageLabel),       messagePayload: {         ...event.value.messagePayload,         amount: amountToDecimal(event.value.messagePayload.amount, event.value.messagePayload.currency),         currency: currencyToSymbol(event.value.messagePayload.currency),         refundRequestData: {           ...event.value.messagePayload.refundRequestData,           amount: amountToDecimal(event.value.messagePayload.refundRequestData?.amount, event.value.messagePayload.currency),         },         refundDetails: {           ...event.value.messagePayload.refundDetails,           totalRefundedAmount: amountToDecimal(event.value.messagePayload.refundDetails?.totalRefundedAmount, event.value.messagePayload.currency),           refundedAmounts: event.value.messagePayload.refundDetails?.refundedAmounts?.map(a => amountToDecimal(a, event.value.messagePayload.currency)),         },       },     },   } } ",
+                "name": "getData.js"
+              },
+              {
+                "content": "module.exports = function getTemplateId(event) {   const mapIds = new Map(JSON.parse('{{NOTIFICATION_TEMPLATE_IDS}}'))   \nreturn mapIds.get(event.value.messageLabel) ?? event.value.messageLabel } ",
+                "name": "getTemplateId.js"
+              }
+            ],
+            "mountPath": "/home/node/app/messaging-service",
+            "name": "messaging-configuration",
+            "viewAsReadOnly": false
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOGS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE_NAME",
+            "value": "crud-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERS_CRUD_NAME",
+            "value": "users",
+            "valueType": "plain"
+          },
+          {
+            "name": "TEMPLATES_CRUD_NAME",
+            "value": "notification-templates",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/home/node/app/messaging-service/config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAIL_SERVICE_NAME",
+            "value": "smtp-mail-notification-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "SMS_SERVICE_NAME",
+            "value": "sms-service",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "50Mi"
+          }
+        },
+        "description": "Service used to send notification through various medium",
+        "dockerImage": "nexus.mia-platform.eu/plugins/messaging-service:{{MESSAGING_SERVICE_VERSION}}",
+        "name": "messaging-service",
+        "type": "plugin"
+      },
+      "payment-front-end": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "{   \"primaryColor\": \"#EA5159\",   \"backgroundColor\": \"#ffffff\",   \"bodyColor\": \"#F4F4F4\",   \"fontColor\": \"#555555\",   \"logo\": \"./logo.webp\",   \"favicon\": \"./favicon.webp\",   \"title\": \"Payment\",   \"pages\": {     \"home\": \"/demo/checkout\",     \"checkout\": \"/demo/checkout\",     \"subscription\": \"/demo/subscription\",     \"buyer\": \"/demo/buyer\",     \"pay\": \"/demo/pay\",     \"result\": \"/demo/result\",     \"error\": \"/demo/error\",     \"pending\": \"/demo/pending\"   },   \"endpoint\": {     \"pay\": \"/pay\",     \"paySubscription\": \"/pay-recurrent\",     \"payPolling\": \"/pay-polling\",     \"payByLink\": \"/pay-by-link\",     \"downloadInvoice\": \"/invoice-download\",     \"checkout\": \"/fm/saga\",     \"checkoutSubscription\": \"/create\",     \"paymentDetail\": \"/payment-info\",     \"paymentMethods\": \"/payment/{id}/methods\",     \"axerveCreditToken\": \"https://sandbox.gestpay.net/api/v1/shop/token\",     \"applePaySession\": \"/apple-pay-session\",     \"paymentTokenization\": \"/tokenization\"   },   \"googlepay\": {     \"environment\": \"TEST\",     \"countryCode\": \"IT\"   },   \"applePay\": {     \"merchantIdentifier\": \"CHANGE ME\",     \"domain\": \"{{PROJECT_HOST}}\",     \"displayName\": \"CHANGE ME\"   },   \"pollingInterval\": 2000 }",
+                "name": "env.json"
+              }
+            ],
+            "mountPath": "/usr/static/config",
+            "name": "payment-front-end",
+            "viewAsReadOnly": false
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "BASE_PATH",
+            "value": "/demo/",
+            "valueType": "plain"
+          },
+          {
+            "name": "VITE_AXERVE_API_KEY",
+            "value": "{{AXERVE_API_KEY}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "VITE_AXERVE_SHOPLOGIN",
+            "value": "{{AXERVE_SHOP_LOGIN}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "VITE_ADYEN_KEY",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "VITE_BRAINTREE_KEY",
+            "value": "{{BRAINTREE_TOKENIZATION_KEY}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "VITE_GOOGLE_MERCHANT_ID",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "VITE_GOOGLE_MERCHANT_NAME",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "VITE_POLLING_INTERVAL",
+            "value": "10000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CSP_HEADER",
+            "value": "\"default-src 'self'; script-src 'self' *.adyen.com/checkoutshopper/v2/analytics/id pay.google.com js.braintreegateway.com assets.braintreegateway.com www.paypalobjects.com c.paypal.com applepay.cdn-apple.com; object-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' www.gstatic.com assets.braintreegateway.com checkout.paypal.com data: https://checkoutshopper-test.adyen.com; font-src 'self' applepay.cdn-apple.com; child-src 'self' assets.braintreegateway.com c.paypal.com; frame-src 'self' pay.google.com assets.braintreegateway.com c.paypal.com checkout.paypal.com *.cardinalcommerce.com https://checkoutshopper-test.adyen.com; connect-src 'self' https://sandbox.gestpay.net/api/v1/shop/token api.sandbox.braintreegateway.com client-analytics.sandbox.braintreegateway.com *.braintree-api.com *.adyen.com/checkoutshopper/v2/analytics/log *.adyen.com/checkoutshopper/v2/analytics/id *.adyen.com/checkoutshopper/v3/bin/binLookup\"",
+            "valueType": "plain"
+          },
+          {
+            "name": "VITE_DEMO_API_KEY",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "50Mi"
+          }
+        },
+        "description": "",
+        "dockerImage": "nexus.mia-platform.eu/plugins/payments-front-end:{{PAYMENT_FRONTEND_VERSION}}",
+        "name": "payment-front-end",
+        "type": "plugin"
+      },
+      "payment-gateway-manager": {
+        "componentId": "payment-gateway-manager",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "{   \"externalServices\": [     {       \"externalService\": \"CHANGE ME\",       \"baseUrl\": \"CHANGE ME\"     }     ] }",
+                "name": "external-providers.json"
+              }
+            ],
+            "mountPath": "/config",
+            "name": "pgm-config",
+            "viewAsReadOnly": false
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/openapi.json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_CONFIG_FILE",
+            "value": "./prod-logback.xml",
+            "valueType": "plain"
+          },
+          {
+            "name": "ENABLED_PROVIDERS",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "PAYMENT_CALLBACK_URL",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "STRIPE_BASE_URL",
+            "value": "https://api.stripe.com",
+            "valueType": "plain"
+          },
+          {
+            "name": "STRIPE_PRIVATE_KEY",
+            "value": "{{STRIPE_PRIVATE_KEY}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SATISPAY_IS_SANDBOX",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "SATISPAY_KEY_ID",
+            "value": "{{SATISPAY_KEY_ID}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SATISPAY_PRIVATE_KEY",
+            "value": "{{SATISPAY_PRIVATE_KEY}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SATISPAY_AFTER_BUY_WEB_REDIRECT_URL",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "SATISPAY_AFTER_BUY_MOBILE_REDIRECT_URL",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "SATISPAY_WAITING_SECONDS",
+            "value": "0",
+            "valueType": "plain"
+          },
+          {
+            "name": "PGM_PUBLIC_URL",
+            "value": "https://{{PROJECT_HOST}}/payment-gateway-manager",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOW_MANAGER_URL",
+            "value": "http://flow-manager-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "SAGA_CRUD_URL",
+            "value": "http://crud-service/fm-transactions/",
+            "valueType": "plain"
+          },
+          {
+            "name": "BRAINTREE_MERCHANT_ID",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "BRAINTREE_MERCHANT_ACCOUNT_ID",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "BRAINTREE_PUBLIC_KEY",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "BRAINTREE_PRIVATE_KEY",
+            "value": "{{BRAINTREE_PRIVATE_KEY}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "BRAINTREE_IS_SANDBOX",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "SCALAPAY_BASE_PATH",
+            "value": "https://integration.api.scalapay.com/",
+            "valueType": "plain"
+          },
+          {
+            "name": "SCALAPAY_API_KEY",
+            "value": "{{SCALAPAY_API_KEY}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SCALAPAY_SUCCESS_REDIRECT_URL",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "SCALAPAY_FAILURE_REDIRECT_URL",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "SOISY_SHOP_ID",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "SOISY_PARTNER_KEY",
+            "value": "{{SOISY_PARTNER_KEY}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SOISY_BASE_URL",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_LOG_LEVEL",
+            "value": "BASIC",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADAPTIVE_CHECKOUT_CACHE_EXPIRE_MIN",
+            "value": "1",
+            "valueType": "plain"
+          },
+          {
+            "name": "AXERVE_IS_SANDBOX",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "AXERVE_SHOP_LOGIN",
+            "value": "{{AXERVE_SHOP_LOGIN}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "AXERVE_API_KEY",
+            "value": "{{AXERVE_API_KEY}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXTERNAL_PROVIDERS_CONFIG",
+            "value": "/config/external-providers.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADYEN_IS_TEST",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADYEN_MERCHANT_ACCOUNT",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADYEN_HMAC_KEY",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADYEN_PRIVATE_KEY",
+            "value": "{{ADYEN_PRIVATE_KEY}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SATISPAY_CALLBACK_URL",
+            "value": "https://{{PROJECT_HOST}}/callback-satispay",
+            "valueType": "plain"
+          },
+          {
+            "name": "SUBSCRIPTION_HANDLER_URL",
+            "value": "http://subscription-handler-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "NEXI_BASE_URL",
+            "value": "https://stg-ta.nexigroup.com",
+            "valueType": "plain"
+          },
+          {
+            "name": "NEXI_API_KEY",
+            "value": "{{NEXI_API_KEY}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "NEXI_CALLBACK_URL",
+            "value": "https://{{PROJECT_HOST}}/callback-nexi",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOWPAY_API_BASE_URL",
+            "value": "https://core.c2c-development.flowpay.it",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOWPAY_CORE_BASE_URL",
+            "value": "https://core.c2c-development.flowpay.it",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOWPAY_CLIENT_ID",
+            "value": "{{FLOWPAY_CLIENT_ID}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOWPAY_CLIENT_SECRET",
+            "value": "{{FLOWPAY_CLIENT_SECRET}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOWPAY_PUBLIC_KEY",
+            "value": "{{FLOWPAY_PUBLIC_KEY}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOWPAY_CHECKOUT_BASE_URL",
+            "value": "https://checkout.c2c-development.flowpay.it",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOWPAY_CALLBACK_URL",
+            "value": "https://{{PROJECT_HOST}}/callback-flowpay",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "successThreshold": 1,
+            "timeoutSeconds": 5
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 5
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "50m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "150Mi"
+          }
+        },
+        "dockerImage": "nexus.mia-platform.eu/plugins/payment-gateway-manager:{{PGM_VERSION}}",
+        "name": "payment-gateway-manager",
+        "type": "plugin"
+      },
+      "pgm-bff": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultConfigMaps": [],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOW_MANAGER_URL",
+            "value": "http://flow-manager-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "PAYMENT_OK_REDIRECT_URL",
+            "value": "https://{{PROJECT_HOST}}/demo/result",
+            "valueType": "plain"
+          },
+          {
+            "name": "PAYMENT_KO_REDIRECT_URL",
+            "value": "https://{{PROJECT_HOST}}/demo/result",
+            "valueType": "plain"
+          },
+          {
+            "name": "PGM_URL",
+            "value": "http://payment-gateway-manager",
+            "valueType": "plain"
+          },
+          {
+            "name": "INVOICE_SERVICE_URL",
+            "value": "http://invoice-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "FILES_SERVICE_URL",
+            "value": "http://files-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "SAGA_CRUD_URL",
+            "value": "http://crud-service/fm-transactions",
+            "valueType": "plain"
+          },
+          {
+            "name": "INVOICE_CRUD_URL",
+            "value": "http://crud-service/invoices",
+            "valueType": "plain"
+          },
+          {
+            "name": "PAYMENT_PENDING_REDIRECT_URL",
+            "value": "https://{{PROJECT_HOST}}/demo/pending",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "userid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "usergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "clienttype",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "userproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "SUBSCRIPTION_HANDLER_SERVICE",
+            "value": "http://subscription-handler-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "PAY_BY_LINK_PROVIDER",
+            "value": "{{PROVIDER_PAY_BY_LINK}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERS_CRUD_URL",
+            "value": "http://crud-service/users",
+            "valueType": "plain"
+          },
+          {
+            "name": "SAGA_SUBSCRIPTION_CRUD_URL",
+            "value": "http://crud-service/fm-subscriptions",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADAPTIVE_CHECKOUT_URL",
+            "value": "http://adaptive-approval",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "100Mi"
+          }
+        },
+        "dockerImage": "nexus.mia-platform.eu/fintech/pgm-bff:{{BFF_VERSION}}",
+        "name": "pgm-bff",
+        "type": "plugin"
+      },
+      "sms-service": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "to": 3000
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOGS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_PROVIDER",
+            "value": "twilio",
+            "valueType": "plain"
+          },
+          {
+            "name": "TWILIO_ACCOUNT_SID",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "TWILIO_AUTH_TOKEN",
+            "value": "{{SMS_AUTH_TOKEN}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TWILIO_EMPTY_BALANCE_CHECK",
+            "value": "true",
+            "valueType": "plain"
+          },
+          {
+            "name": "RATE_LIMIT_MAX_REQUESTS",
+            "value": "3",
+            "valueType": "plain"
+          },
+          {
+            "name": "RATE_LIMIT_TIME_WINDOW",
+            "value": "60000",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "50Mi"
+          }
+        },
+        "dockerImage": "nexus.mia-platform.eu/plugins/sms-service:1.2.1",
+        "name": "sms-service",
+        "type": "plugin"
+      },
+      "smtp-mail-notification-service": {
+        "componentId": "smtp-mail-notification-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HOST",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "PORT",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTH_TYPE",
+            "value": "login",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTH_USER",
+            "value": "{{EMAIL_SENDER}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTH_PASS",
+            "value": "{{EMAIL_AUTH_PASSWORD}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TLS_SECURE",
+            "value": "true",
+            "valueType": "plain"
+          },
+          {
+            "name": "TLS_IGNORE",
+            "value": "true",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "successThreshold": 1,
+            "timeoutSeconds": 5
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 5
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "50Mi"
+          }
+        },
+        "dockerImage": "nexus.mia-platform.eu/plugins/smtp-mail-notification-service:3.3.0",
+        "name": "smtp-mail-notification-service",
+        "type": "plugin"
+      },
+      "subscription-handler-service": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOGS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADDITIONAL_HEADERS_TO_PROXY",
+            "value": "",
+            "valueType": "plain"
+          },
+          {
+            "name": "SUBSCRIPTIONS_FLOW_MANAGER_URL",
+            "value": "http://subscription-saga",
+            "valueType": "plain"
+          },
+          {
+            "name": "PAYMENTS_FLOW_MANAGER_URL",
+            "value": "http://flow-manager-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "PAYMENTS_CRUD_URL",
+            "value": "http://crud-service/fm-transactions",
+            "valueType": "plain"
+          },
+          {
+            "name": "SUBSCRIPTIONS_CRUD_URL",
+            "value": "http://crud-service/fm-subscriptions",
+            "valueType": "plain"
+          },
+          {
+            "name": "RUNNING_INTERVAL_CRON",
+            "value": "120s",
+            "valueType": "plain"
+          },
+          {
+            "name": "ENABLED_STATES",
+            "value": "ACTIVE,PAYMENT_FAILED",
+            "valueType": "plain"
+          },
+          {
+            "name": "MANUAL_PROVIDERS",
+            "value": "satispay,axerve,adyen",
+            "valueType": "plain"
+          },
+          {
+            "name": "PGM_URL",
+            "value": "http://payment-gateway-manager",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "100Mi",
+            "min": "50Mi"
+          }
+        },
+        "description": "Handles the entire subscriptions' lifecycle ",
+        "dockerImage": "nexus.mia-platform.eu/fintech/subscription-handler:{{SUB_HANDLER_VERSION}}",
+        "name": "subscription-handler-service",
+        "type": "plugin"
+      },
+      "subscription-saga": {
+        "componentId": "flow-manager",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "{   \"machineDefinition\": {     \"initialState\": \"CREATED\",     \"creationEvent\": \"create\",     \"states\": [       {         \"id\": \"CREATED\",         \"description\": \"Subscription created on CRUD\",         \"isFinal\": false,         \"businessStateId\": 0,         \"outgoingTransitions\": [           {             \"inputEvent\": \"update\",             \"targetState\": \"CREATED\",             \"businessEventId\": 0           },           {             \"inputEvent\": \"start\",             \"targetState\": \"PAYMENT_PENDING\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"expire\",             \"targetState\": \"EXPIRED\",             \"businessEventId\": 1000           },           {             \"inputEvent\": \"abort\",             \"targetState\": \"ABORTED\",             \"businessEventId\": 1001           }         ]       },       {         \"id\": \"PAYMENT_PENDING\",         \"description\": \"A payment is processing\",         \"isFinal\": false,         \"businessStateId\": 1,         \"outgoingTransitions\": [           {             \"inputEvent\": \"update\",             \"targetState\": \"PAYMENT_PENDING\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"paymentExecuted\",             \"targetState\": \"ACTIVE\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"paymentFailed\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 10           },           {             \"inputEvent\": \"expire\",             \"targetState\": \"EXPIRED\",             \"businessEventId\": 1000           },           {             \"inputEvent\": \"abort\",             \"targetState\": \"ABORTED\",             \"businessEventId\": 1001           }         ]       },       {         \"id\": \"ACTIVE\",         \"description\": \"Subscription is active\",         \"isFinal\": false,         \"businessStateId\": 1,         \"outgoingTransitions\": [           {             \"inputEvent\": \"update\",             \"targetState\": \"ACTIVE\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"scheduleNextPayment\",             \"targetState\": \"PAYMENT_PENDING\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"expire\",             \"targetState\": \"EXPIRED\",             \"businessEventId\": 1000           },           {             \"inputEvent\": \"abort\",             \"targetState\": \"ABORTED\",             \"businessEventId\": 1001           }         ]       },       {         \"id\": \"PAYMENT_FAILED\",         \"description\": \"A payment has failed\",         \"isFinal\": false,         \"businessStateId\": 10,         \"outgoingTransitions\": [           {             \"inputEvent\": \"update\",             \"targetState\": \"PAYMENT_FAILED\",             \"businessEventId\": 10           },           {             \"inputEvent\": \"scheduleNextPayment\",             \"targetState\": \"PAYMENT_PENDING\",             \"businessEventId\": 1           },           {             \"inputEvent\": \"expire\",             \"targetState\": \"EXPIRED\",             \"businessEventId\": 1000           },           {             \"inputEvent\": \"abort\",             \"targetState\": \"ABORTED\",             \"businessEventId\": 1001           }         ]       },       {         \"id\": \"EXPIRED\",         \"description\": \"Subscription expired\",         \"isFinal\": true,         \"businessStateId\": 1000       },       {         \"id\": \"ABORTED\",         \"description\": \"Subscription aborted after several failure\",         \"isFinal\": true,         \"businessStateId\": 1001       }     ],     \"businessStates\": [       {         \"id\": 0,         \"description\": \"CREATED\"       },       {         \"id\": 1,         \"description\": \"ACTIVE\"       },       {         \"id\": 10,         \"description\": \"ON_HOLD\"       },       {         \"id\": 1000,         \"description\": \"EXPIRED\"       },       {         \"id\": 1001,         \"description\": \"ABORTED\"       }     ],     \"businessEvents\": [       {         \"id\": 0,         \"description\": \"created\"       },       {         \"id\": 1,         \"description\": \"activated\"       },       {         \"id\": 10,         \"description\": \"on_hold\"       },       {         \"id\": 1000,         \"description\": \"expired\"       },       {         \"id\": 1001,         \"description\": \"abort\"       }     ]   },   \"communicationProtocols\": [],   \"persistencyManagement\": {     \"type\": \"crud\",     \"configurations\": {       \"collectionName\": \"fm-subscriptions\"     }   },   \"settings\": {     \"deepMergeMetadata\": {       \"enabled\": true     }   } }",
+                "name": "saga.json"
+              }
+            ],
+            "mountPath": "/configuration",
+            "name": "subscription-saga-configuration",
+            "viewAsReadOnly": false
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "miaclienttype",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATIONS_FILE_PATH",
+            "value": "/configuration/saga.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "SAGA_ID_PREFIX",
+            "value": "sb",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "100Mi"
+          }
+        },
+        "description": "The Flow Manager is a saga orchestrator, capable to manage flows structured by using the Architectural pattern named Saga Pattern",
+        "dockerImage": "nexus.mia-platform.eu/core/flow-manager:2.6.5",
+        "name": "subscription-saga",
+        "type": "plugin"
+      }
+    },
+    "unsecretedVariables": {
+      "ANALYTICS_TRANSACTIONS_VERSION": {
+        "noProductionEnv": "2.1.0",
+        "productionEnv": "2.1.0"
+      },
+      "BFF_VERSION": {
+        "noProductionEnv": "2.3.0",
+        "productionEnv": "2.3.0"
+      },
+      "CRUD_SERVICE_VERSION": {
+        "noProductionEnv": "7.2.0",
+        "productionEnv": "7.2.0"
+      },
+      "DATA_VIZ_BE_VERSION": {
+        "noProductionEnv": "2.0.1",
+        "productionEnv": "2.0.1"
+      },
+      "DATA_VIZ_FE_VERSION": {
+        "noProductionEnv": "1.8.2",
+        "productionEnv": "1.8.2"
+      },
+      "EMAIL_SENDER": {
+        "noProductionEnv": "CHANGE ME",
+        "productionEnv": "CHANGE ME"
+      },
+      "FRULLINO_VERSION": {
+        "noProductionEnv": "2.1.0",
+        "productionEnv": "2.1.0"
+      },
+      "LOGS": {
+        "noProductionEnv": "debug",
+        "productionEnv": "info"
+      },
+      "MESSAGING_SERVICE_VERSION": {
+        "noProductionEnv": "1.5.0",
+        "productionEnv": "1.5.0"
+      },
+      "NOTIFICATION_TEMPLATE_IDS": {
+        "noProductionEnv": "[ [\"PAY_BY_LINK\", \"CHANGE ME\"], [\"PAYMENT_EXECUTED\", \"CHANGE ME\"], [\"PAYMENT_FAILED\", \"CHANGE ME\"], [\"PARTIAL_REFUND_EXECUTED\", \"CHANGE ME\"], [\"TOTAL_REFUND_EXECUTED\", \"CHANGE ME\"] ]",
+        "productionEnv": "[ [\"PAY_BY_LINK\", \"CHANGE ME\"], [\"PAYMENT_EXECUTED\", \"CHANGE ME\"], [\"PAYMENT_FAILED\", \"CHANGE ME\"], [\"PARTIAL_REFUND_EXECUTED\", \"CHANGE ME\"], [\"TOTAL_REFUND_EXECUTED\", \"CHANGE ME\"] ]"
+      },
+      "PAYMENT_FRONTEND_VERSION": {
+        "noProductionEnv": "1.4.0",
+        "productionEnv": "1.4.0"
+      },
+      "PGM_VERSION": {
+        "noProductionEnv": "3.5.0",
+        "productionEnv": "3.5.0"
+      },
+      "PROJECT_HOST": {
+        "noProductionEnv": "CHANGE ME",
+        "productionEnv": "CHANGE ME"
+      },
+      "PROVIDER_PAY_BY_LINK": {
+        "noProductionEnv": "CHANGE ME",
+        "productionEnv": "CHANGE ME"
+      },
+      "SUB_HANDLER_VERSION": {
+        "noProductionEnv": "1.1.1",
+        "productionEnv": "1.1.1"
+      }
+    }
+  },
+  "supportedBy": "Mia-FinTech",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "application",
+  "visibility": {
+    "public": true
+  }
+}

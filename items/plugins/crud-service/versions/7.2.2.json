@@ -6,7 +6,9 @@
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/crud-service/overview_and_usage"
   },
-  "image": { "localPath": "../../assets/logo.png" },
+  "image": {
+    "localPath": "../../assets/crud-service-plugin-transparent.png"
+  },
   "itemId": "crud-service",
   "name": "CRUD Service",
   "publishOnMiaDocumentation": true,
@@ -15,18 +17,17 @@
   "resources": {
     "services": {
       "crud-service": {
+        "type": "plugin",
+        "name": "crud-service",
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.2.2",
         "componentId": "crud-service",
-        "defaultConfigMaps": [
-          {
-            "name": "crud-service-collections",
-            "mountPath": "/home/node/app/collections",
-            "files": [],
-            "viewAsReadOnly": true,
-            "link": {
-              "targetSection": "collections"
-            }
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "type": "folder",
+            "envName": "COLLECTION_DEFINITION_FOLDER"
           }
-        ],
+        },
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",
@@ -79,25 +80,39 @@
             "min": "100m"
           }
         },
-        "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.2.2",
-        "mapEnvVarToMountPath": {
-          "collections": {
-            "type": "folder",
-            "envName": "COLLECTION_DEFINITION_FOLDER"
+        "defaultConfigMaps": [
+          {
+            "name": "crud-service-collections",
+            "mountPath": "/home/node/app/collections",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "collections"
+            }
           }
-        },
-        "name": "crud-service",
-        "type": "plugin"
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
       }
     }
   },
   "supportedBy": "Mia-Platform",
-  "supportedByImage": { "localPath": "../../../../../assets/img/logo-mia-platform-2023.png" },
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
   "tenantId": "mia-platform",
   "type": "plugin",
   "version": {
     "name": "7.2.2",
     "releaseNote": "## What's Changed\n* ci: introduce SBOM generation for service image\n"
   },
-  "visibility": { "public": true }
+  "visibility": {
+    "public": true
+  }
 }

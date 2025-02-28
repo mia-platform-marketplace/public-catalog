@@ -1,0 +1,88 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "utility",
+  "description": "This service allow to define and verify rules",
+  "image": {
+    "localPath": "../../assets/adaptive-approval-plugin.png"
+  },
+  "itemId": "adaptive-approval-service",
+  "name": "Adaptive Approval Service",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "resources": {
+    "services": {
+      "adaptive-approval-service": {
+        "type": "plugin",
+        "name": "adaptive-approval-service",
+        "description": "This service allow to define and verify rules",
+        "dockerImage": "nexus.mia-platform.eu/fintech/adaptive-approval:0.0.2",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_URL",
+            "value": "CHANGE-ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "FLOW_MANAGER_URL",
+            "value": "CHANGE-ME",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "20m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "20Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 1,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultConfigMaps": [],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-FinTech",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "0.0.2",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

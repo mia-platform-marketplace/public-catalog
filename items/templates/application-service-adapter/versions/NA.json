@@ -1,0 +1,113 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "code",
+  "description": "This is the best template to start creating an adapter service for your project",
+  "image": {
+    "localPath": "../../assets/application-service-adapter-template.png"
+  },
+  "itemId": "application-service-adapter",
+  "name": "Application Service Adapter",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/template/service-adapter-template",
+  "resources": {
+    "services": {
+      "application-service-adapter": {
+        "type": "template",
+        "name": "application-service-adapter",
+        "description": "This is the best template to start creating an adapter service for your project",
+        "archiveUrl": "https://git.tools.mia-platform.eu/api/v4/projects/62973/repository/archive.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fnode-template.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "info",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "backoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAX_RETRIES",
+            "value": "CHANGE-ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "IDENTIFICATION_URL",
+            "value": "CHANGE ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAX_RETRIES",
+            "value": "3",
+            "valueType": "plain"
+          },
+          {
+            "name": "RETRIES_DELAY_MS",
+            "value": "1000",
+            "valueType": "plain"
+          },
+          {
+            "name": "MODE",
+            "value": "REST",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_CONFIG_FILE_PATH",
+            "value": "/path/to/file",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "/documentation/json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-FinTech",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "visibility": {
+    "public": true
+  }
+}

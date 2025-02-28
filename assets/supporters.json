@@ -1,27 +1,28 @@
 {
+  "$schema": "./schemas/supporters.schema.json",
   "supporters": [
     {
       "label": "Mia-Platform",
       "images": [
-        "logo-mia-platform-2023.png"
+        "mia-platform-logo-2023.png"
       ]
     },
     {
       "label": "Mia-FinTech",
       "images": [
-        "logo-mia-fintech.png"
+        "MIA-FinTech.png"
       ]
     },
     {
       "label": "Mia-Care",
       "images": [
-        "logo-mia-care.png"
+        "mia-care.png"
       ]
     },
     {
       "label": "Community",
       "images": [
-        "logo-debezium.png"
+        "debezium.png"
       ]
     }
   ]

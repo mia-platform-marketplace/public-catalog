@@ -1,0 +1,80 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "stream",
+  "description": "This is an example of using our library Rest2Kafka. It takes the body of a POST and create a Kafka message.",
+  "image": {
+    "localPath": "../../assets/rest2kafka-example-transparent.png"
+  },
+  "itemId": "rest2kafka-example",
+  "name": "Rest2Kafka Example",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "rest2kafka-example": {
+        "type": "example",
+        "name": "rest2kafka-example",
+        "description": "This is an example of using our library Rest2Kafka. It takes the body of a POST and create a Kafka message.",
+        "archiveUrl": "https://git.tools.mia-platform.eu/api/v4/projects/911/repository/archive.tar.gz",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_HOST",
+            "value": "CHANGE_WITH_YOUR_KAFKA_HOST",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_TOPIC",
+            "value": "CHANGE_WITH_YOUR_KAFKA_TOPIC",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_VERSION",
+            "value": "CHANGE_WITH_YOUR_SERVICE_VERSION",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_API_KEY",
+            "value": "CHANGE_WITH_YOUR_KAFKA_API_KEY",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_API_SECRET",
+            "value": "CHANGE_WITH_YOUR_KAFKA_API_SECRET",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "CHANGE_WITH_YOUR_USER_ID_HEADER_KEY",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEADERS_TO_PROXY",
+            "value": "CHANGE_WITH_YOUR_HEADERS_TO_PROXY",
+            "valueType": "plain"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "visibility": {
+    "public": true
+  }
+}

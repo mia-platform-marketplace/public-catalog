@@ -1,0 +1,100 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "golang",
+  "description": "This is the best template to start creating a service in Go integrated with CRUD",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Go-Call-CRUD-Template/master/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/go-call-crud-example-transparent.png"
+  },
+  "itemId": "go-call-crud-example",
+  "name": "Go Call CRUD Example",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "go-call-crud-example": {
+        "type": "example",
+        "name": "go-call-crud-example",
+        "description": "This is the best template to start creating a service in Go integrated with CRUD",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Go-Call-CRUD-Template/archive/master.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fgo-app.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "miaclienttype",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_BASE_URL",
+            "value": "http://crud-service/",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_BASE_PATH",
+            "value": "/orders-crud",
+            "valueType": "plain"
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "visibility": {
+    "public": true
+  }
+}

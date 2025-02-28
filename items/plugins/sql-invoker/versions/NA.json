@@ -1,0 +1,76 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "database",
+  "description": "Provide a REST API interface to execute SQL Stored Procedures",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/sql-invoker/configuration_and_usage"
+  },
+  "image": {
+    "localPath": "../../assets/sql-invoker-plugin-transparent.png"
+  },
+  "itemId": "sql-invoker",
+  "name": "SQL Invoker",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/sql-invoker",
+  "resources": {
+    "services": {
+      "sql-invoker": {
+        "type": "plugin",
+        "name": "sql-invoker",
+        "description": "Provide a REST API interface to execute SQL Stored Procedures",
+        "dockerImage": "nexus.mia-platform.eu/core/sqlinvoker:0.0.5",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROFILE_FILES_PATH",
+            "value": "CHANGE_WITH_YOUR_PROFILE_FILES_PATH",
+            "valueType": "plain"
+          },
+          {
+            "name": "DB_USER",
+            "value": "CHANGE_WITH_YOUR_DB_USER",
+            "valueType": "plain"
+          },
+          {
+            "name": "DB_PASSWORD",
+            "value": "CHANGE_WITH_YOUR_SECRET_DB_PASSWORD",
+            "valueType": "plain"
+          },
+          {
+            "name": "DB_URI",
+            "value": "CHANGE_WITH_YOUR_DB_URI",
+            "valueType": "plain"
+          },
+          {
+            "name": "DB_DRIVER",
+            "value": "CHANGE_WITH_YOUR_DB_DRIVER",
+            "valueType": "plain"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
+  }
+}

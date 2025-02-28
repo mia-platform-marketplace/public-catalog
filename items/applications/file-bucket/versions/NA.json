@@ -1,0 +1,431 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "files",
+  "description": "Ready to use upload/download file service with supporting crud collections",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/files-service/configuration"
+  },
+  "image": {
+    "localPath": "../../assets/application_file-bucket.png"
+  },
+  "itemId": "file-bucket",
+  "name": "File Bucket",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/file-bucket-application",
+  "resources": {
+    "services": {
+      "api-gateway": {
+        "name": "api-gateway",
+        "type": "plugin",
+        "description": "Use this service to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "nexus.mia-platform.eu/core/api-gateway:5.0.2",
+        "componentId": "api-gateway",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "frontend",
+            "from": 8080,
+            "to": 8080
+          },
+          {
+            "name": "backoffice",
+            "from": 8081,
+            "to": 8081
+          }
+        ],
+        "tags": [
+          "microgateway"
+        ],
+        "defaultEnvironmentVariables": [],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "25Mi",
+            "min": "5Mi"
+          },
+          "cpuLimits": {
+            "min": "10m"
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "defaultProbes": {
+          "liveness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20
+          },
+          "readiness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10
+          }
+        },
+        "execPreStop": [
+          "sh",
+          "-c",
+          "sleep 5 && /usr/sbin/nginx -s quit"
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "api-gateway-server",
+            "mountPath": "/etc/nginx/conf.d",
+            "files": [],
+            "viewAsReadOnly": true
+          },
+          {
+            "name": "api-gateway-platform",
+            "mountPath": "/etc/nginx/platform.d",
+            "files": [],
+            "viewAsReadOnly": true
+          },
+          {
+            "name": "api-gateway-customization",
+            "mountPath": "/etc/nginx/customization.d",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "endpoints"
+            }
+          },
+          {
+            "name": "api-gateway-backoffice",
+            "mountPath": "/etc/nginx/backoffice.d",
+            "files": [],
+            "viewAsReadOnly": true
+          }
+        ],
+        "additionalContainers": [
+          {
+            "name": "dnsmasq",
+            "dockerImage": "nexus.mia-platform.eu/core/dnsmasq:1.0.3",
+            "defaultEnvironmentVariables": [],
+            "defaultResources": {
+              "memoryLimits": {
+                "max": "20Mi",
+                "min": "5Mi"
+              },
+              "cpuLimits": {
+                "min": "10m"
+              }
+            },
+            "args": [
+              "--listen",
+              "127.0.0.1:53",
+              "--default-resolver",
+              "--enable-search",
+              "--hostsfile=/etc/hosts"
+            ],
+            "defaultProbes": {
+              "liveness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 15,
+                "periodSeconds": 20
+              },
+              "readiness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 5,
+                "periodSeconds": 10
+              }
+            }
+          }
+        ]
+      },
+      "crud-service": {
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "collections"
+            },
+            "mountPath": "/home/node/app/collections",
+            "name": "crud-service-collections",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+            "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_PREFIX",
+            "value": "/",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "200m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "250Mi",
+            "min": "70Mi"
+          }
+        },
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.1.1",
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "envName": "COLLECTION_DEFINITION_FOLDER",
+            "type": "folder"
+          }
+        },
+        "name": "crud-service",
+        "type": "plugin",
+        "componentId": "crud-service",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "files-service": {
+        "type": "plugin",
+        "name": "files-service",
+        "description": "Upload, download and handle your files using MongoDB, S3 or Google Storage.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/files-service:2.10.1",
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_URL",
+            "value": "http://crud-service/file-records/",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "/home/node/config/config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "PATH_PREFIX",
+            "value": "/files-service/",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEADERS_TO_PROXY",
+            "value": "miauserid,miausergroups",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/home/node/config",
+            "name": "files-service-configuration",
+            "files": [
+              {
+                "content": "{\n  \"type\": \"mongodb\",\n  \"options\": {\n    \"url\": \"{{MONGODB_URL}}\",\n    \"bucketName\": \"CHANGE_WITH_YOUR_BUCKET_NAME\"\n  }\n}\n",
+                "name": "config.json"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    },
+    "endpoints": {
+      "/files-service": {
+        "defaultBasePath": "/files-service",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /files-service",
+        "type": "custom",
+        "tags": [
+          "files"
+        ],
+        "public": true,
+        "showInDocumentation": false,
+        "secreted": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "files-service"
+      }
+    },
+    "collections": {
+      "file_records": {
+        "id": "file_records",
+        "description": "Collection of file records implementing the JS File interface",
+        "defaultName": "file_records",
+        "type": "collection",
+        "tags": [
+          "files"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "file",
+            "type": "string",
+            "required": false,
+            "nullable": false
+          },
+          {
+            "name": "location",
+            "type": "string",
+            "required": false,
+            "nullable": false
+          },
+          {
+            "name": "size",
+            "type": "number",
+            "required": true,
+            "nullable": false
+          }
+        ],
+        "indexes": [
+          {
+            "name": "_id",
+            "type": "normal",
+            "unique": true,
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ]
+          },
+          {
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "createdAt",
+                "order": -1
+              }
+            ]
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/file-records",
+            "defaultState": "PUBLIC"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "application",
+  "visibility": {
+    "public": true
+  }
+}

@@ -1,0 +1,1901 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "healthcare",
+  "description": "This application allows to quickly setup the necessary services in order to send messages, across the most widely used notification channels (email, sms, push, voice, whatsapp).",
+  "image": {
+    "localPath": "../../assets/notification-module.png"
+  },
+  "itemId": "notification-module",
+  "name": "Notification Module",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/notification-module/notification-application",
+  "resources": {
+    "collections": {
+      "nm_fs_files": {
+        "defaultName": "nm_fs_files",
+        "description": "File Service files",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "original file name",
+            "name": "name",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "size in bytes of the uploaded file",
+            "name": "size",
+            "nullable": false,
+            "required": false,
+            "type": "number"
+          },
+          {
+            "description": "the URL that can be used to download the file using the same service that performed the upload",
+            "name": "location",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "unique name of the file that should be used to retrieve it using this service",
+            "name": "file",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "id": "nm_fs_files",
+        "internalEndpoints": [
+          {
+            "basePath": "/files",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "nm_nm_event_settings": {
+        "defaultName": "nm_nm_event_settings",
+        "description": "Notification Manager event settings",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "eventName",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "userGroups",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "supportedChannels",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "eventSchema",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "handlerName",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "handlerConfig",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          }
+        ],
+        "id": "nm_nm_event_settings",
+        "internalEndpoints": [
+          {
+            "basePath": "/event-settings",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "nm_nm_events": {
+        "defaultName": "nm_nm_events",
+        "description": "Notification Manager events",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "id",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "key",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "name",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "metadata",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "payload",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "source",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "status",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "errors",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_RawObject"
+          }
+        ],
+        "id": "nm_nm_events",
+        "internalEndpoints": [
+          {
+            "basePath": "/events",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "nm_nm_notification_settings": {
+        "defaultName": "nm_nm_notification_settings",
+        "description": "Notification Manager notification settings",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "eventName",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "user",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "group",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "cluster",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "role",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "channels",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "hours",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "description": "The name of the template used for the notification settings",
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "templateName",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "rule",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "emitters",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "reminders",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          }
+        ],
+        "id": "nm_nm_notification_settings",
+        "internalEndpoints": [
+          {
+            "basePath": "/notification-settings",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "nm_nm_notifications": {
+        "defaultName": "nm_nm_notifications",
+        "description": "Notification Manager notifications",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "event",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "recipient",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "ObjectId"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "messages",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "failures",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "reminders",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_RawObject"
+          }
+        ],
+        "id": "nm_nm_notifications",
+        "internalEndpoints": [
+          {
+            "basePath": "/notifications",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "nm_nm_templates": {
+        "defaultName": "nm_nm_templates",
+        "description": "Notification Manager message templates",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "emailTitle",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "emailMessage",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "emailHtmlMessage",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "emailAttachments",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "pushTitle",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "pushSubtitle",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "pushMessage",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "pushData",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "name": "smsMessage",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "emailJsonTemplate",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "voiceMessage",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "whatsappTemplateName",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "whatsappTemplateParameters",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "nm_nm_templates",
+        "internalEndpoints": [
+          {
+            "basePath": "/templates",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "nm_nm_users": {
+        "defaultName": "nm_nm_users",
+        "description": "Notification Manager users",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "auth service user id associated to a specific user",
+            "name": "id",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "clusters",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "groups",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "roles",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "name": "emailAddress",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "phoneNumber",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "deviceToken",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "description": "First name",
+            "name": "firstName",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Last name",
+            "name": "lastName",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "id": "nm_nm_users",
+        "internalEndpoints": [
+          {
+            "basePath": "/users",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "nm_ts_reminders": {
+        "defaultName": "nm_ts_reminders",
+        "description": "Timer Service reminders",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "payload",
+            "nullable": false,
+            "required": true,
+            "type": "RawObject"
+          },
+          {
+            "name": "startDate",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "name": "expirationIntervalMs",
+            "nullable": false,
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "applicantService",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "outputMode",
+            "nullable": false,
+            "required": true,
+            "type": "RawObject"
+          },
+          {
+            "name": "expirationDate",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "name": "failureCount",
+            "nullable": false,
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "expirationStatus",
+            "nullable": false,
+            "required": true,
+            "type": "RawObject"
+          }
+        ],
+        "id": "nm_ts_reminders",
+        "internalEndpoints": [
+          {
+            "basePath": "/reminders",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      }
+    },
+    "endpoints": {
+      "/attachments": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/attachments",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /attachments",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "files-service",
+        "tags": [
+          "files-service"
+        ],
+        "type": "custom"
+      },
+      "/notification-manager": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/notification-manager",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /notification-manager",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "notification-manager",
+        "tags": [
+          "notification-manager"
+        ],
+        "type": "custom"
+      }
+    },
+    "services": {
+      "api-gateway": {
+        "additionalContainers": [
+          {
+            "args": [
+              "--listen",
+              "127.0.0.1:53",
+              "--default-resolver",
+              "--enable-search",
+              "--hostsfile=/etc/hosts"
+            ],
+            "defaultEnvironmentVariables": [
+              {
+                "name": "LOG_LEVEL",
+                "value": "{{LOG_LEVEL}}",
+                "valueType": "plain"
+              },
+              {
+                "name": "TRUSTED_PROXIES",
+                "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+                "valueType": "plain"
+              },
+              {
+                "name": "HTTP_PORT",
+                "value": "3000",
+                "valueType": "plain"
+              },
+              {
+                "name": "USERID_HEADER_KEY",
+                "value": "miauserid",
+                "valueType": "plain"
+              },
+              {
+                "name": "GROUPS_HEADER_KEY",
+                "value": "miausergroups",
+                "valueType": "plain"
+              },
+              {
+                "name": "CLIENTTYPE_HEADER_KEY",
+                "value": "client-type",
+                "valueType": "plain"
+              },
+              {
+                "name": "BACKOFFICE_HEADER_KEY",
+                "value": "isbackoffice",
+                "valueType": "plain"
+              },
+              {
+                "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+                "value": "microservice-gateway",
+                "valueType": "plain"
+              },
+              {
+                "name": "USER_PROPERTIES_HEADER_KEY",
+                "value": "miauserproperties",
+                "valueType": "plain"
+              }
+            ],
+            "defaultProbes": {
+              "liveness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 15,
+                "periodSeconds": 20
+              },
+              "readiness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 5,
+                "periodSeconds": 10
+              }
+            },
+            "defaultResources": {
+              "cpuLimits": {
+                "min": "10m"
+              },
+              "memoryLimits": {
+                "max": "20Mi",
+                "min": "5Mi"
+              }
+            },
+            "dockerImage": "nexus.mia-platform.eu/core/dnsmasq:1.0.3",
+            "name": "dnsmasq"
+          }
+        ],
+        "componentId": "api-gateway",
+        "containerPorts": [
+          {
+            "from": 8080,
+            "name": "frontend",
+            "to": 8080
+          },
+          {
+            "from": 8081,
+            "name": "backoffice",
+            "to": 8081
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "mountPath": "/etc/nginx/conf.d",
+            "name": "api-gateway-server",
+            "viewAsReadOnly": true
+          },
+          {
+            "files": [],
+            "mountPath": "/etc/nginx/platform.d",
+            "name": "api-gateway-platform",
+            "viewAsReadOnly": true
+          },
+          {
+            "files": [],
+            "link": {
+              "targetSection": "endpoints"
+            },
+            "mountPath": "/etc/nginx/customization.d",
+            "name": "api-gateway-customization",
+            "viewAsReadOnly": true
+          },
+          {
+            "files": [],
+            "mountPath": "/etc/nginx/backoffice.d",
+            "name": "api-gateway-backoffice",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [],
+        "defaultLogParser": "mia-nginx",
+        "defaultProbes": {
+          "liveness": {
+            "initialDelaySeconds": 15,
+            "path": "/healthz",
+            "periodSeconds": 20,
+            "port": "frontend"
+          },
+          "readiness": {
+            "initialDelaySeconds": 5,
+            "path": "/healthz",
+            "periodSeconds": 10,
+            "port": "frontend"
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "25Mi",
+            "min": "5Mi"
+          }
+        },
+        "description": "Use this service to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "nexus.mia-platform.eu/core/api-gateway:5.0.2",
+        "execPreStop": [
+          "sh",
+          "-c",
+          "sleep 5 && /usr/sbin/nginx -s quit"
+        ],
+        "name": "api-gateway",
+        "type": "plugin"
+      },
+      "crud-service": {
+        "componentId": "crud-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "collections"
+            },
+            "mountPath": "/home/node/app/collections",
+            "name": "crud-service-collections",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+            "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "secretKey": "url",
+            "secretName": "mongodb",
+            "valueType": "secret"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "300m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "70Mi"
+          }
+        },
+        "defaultSecrets": [
+          {
+            "mountPath": "/home/node/app/secrets/mongodb",
+            "name": "mongodb"
+          }
+        ],
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:{{CRUD_SERVICE_VERSION}}",
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "envName": "COLLECTION_DEFINITION_FOLDER",
+            "type": "folder"
+          }
+        },
+        "name": "crud-service",
+        "type": "plugin"
+      },
+      "email-service": {
+        "componentId": "email-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SES_SECRET",
+            "secretKey": "ses-secret",
+            "secretName": "email-service",
+            "valueType": "secret"
+          },
+          {
+            "name": "SES_KEY",
+            "secretKey": "ses-key",
+            "secretName": "email-service",
+            "valueType": "secret"
+          },
+          {
+            "name": "SES_REGION",
+            "secretKey": "ses-region",
+            "secretName": "email-service",
+            "valueType": "secret"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "75m",
+            "min": "25m"
+          },
+          "memoryLimits": {
+            "max": "100Mi",
+            "min": "50Mi"
+          }
+        },
+        "defaultSecrets": [
+          {
+            "mountPath": "/home/node/app/secrets/mlp",
+            "name": "email-service"
+          }
+        ],
+        "dockerImage": "nexus.mia-platform.eu/plugins/ses-mail-notification-service:{{EMAIL_SERVICE_VERSION}}",
+        "name": "email-service",
+        "type": "plugin"
+      },
+      "files-service": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "{\"type\":\"mongodb\",\"options\":{\"url\":\"{{MONGODB_URL}}\",\"bucketName\":\"demofilesbucket\"}}",
+                "name": "config.json"
+              }
+            ],
+            "mountPath": "/home/node/app/configs",
+            "name": "fs-config",
+            "viewAsReadOnly": false
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_URL",
+            "value": "http://crud-service/files/",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "/home/node/app/configs/config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "PATH_PREFIX",
+            "value": "/v1/files/",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEADERS_TO_PROXY",
+            "value": "miauserid,miausergroups",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "20m"
+          },
+          "memoryLimits": {
+            "max": "200Mi",
+            "min": "70Mi"
+          }
+        },
+        "description": "Upload, download and handle your files using MongoDB, S3 or Google Storage.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/files-service:{{FILES_SERVICE_VERSION}}",
+        "name": "files-service",
+        "type": "plugin"
+      },
+      "notification-manager": {
+        "componentId": "notification-manager",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "{\"userFields\":{\"emailAddress\":\"email\",\"phoneNumber\":\"mobilePhone\"},\"activeChannels\":[\"whatsapp\",\"voice\",\"push\",\"email\",\"sms\"],\"sender\":{\"email\":\"{{EMAIL_SENDER}}\",\"sms\":\"{{SMS_SENDER}}\",\"voice\":\"{{VOICE_SENDER}}\",\"whatsappPhoneNumberId\":\"{{WHATSAPP_SENDER}}\"},\"voice\":{\"retryCount\":0,\"speechSpeed\":\"medium\",\"speechLanguage\":\"it-IT\"},\"push\":{\"provider\":\"firebase\"}}",
+                "name": "default.json"
+              }
+            ],
+            "mountPath": "/home/node/app/configs",
+            "name": "nm-config",
+            "viewAsReadOnly": false
+          },
+          {
+            "files": [
+              {
+                "content": "const crypto = require('crypto')\n\nmodule.exports = async function handler(service, event, utils) {\n  const {proxies, config, log: logger} = service\n  const {TEMPLATES_CRUD_NAME} = config\n\n  logger.info({event}, 'Received event')\n\n  const {payload} = event\n  const {recipient, channel, templateName, emailObject, emailHtmlMessage, messageContent} = payload\n\n  const [user] = await utils.getRecipients(service, {ids: [recipient]})\n  if (!user) {\n    logger.warn({recipient}, 'User not found')\n    return []\n  }\n  logger.info({user}, 'User found')\n\n  // Send email or sms using template\n  if (templateName) {\n    logger.info({templateName}, 'Sending notification using template')\n    const notification = await utils.sendMessages(service, event, user, [{channel, templateName}])\n    return [notification]\n  }\n\n  // Send email or sms using custom fields\n  logger.info({emailObject, emailHtmlMessage, messageContent}, 'Sending notification using custom fields')\n  const tempTemplateName = crypto.randomUUID().toString()\n  const tempTemplate = {\n    name: tempTemplateName,\n    ...(emailObject && {emailTitle: emailObject}),\n    ...(emailHtmlMessage && {emailHtmlMessage}),\n    ...(messageContent && {smsMessage: messageContent}),\n  }\n  const {payload: {_id: tempTemplateId}} = await proxies.crudProxy.post(`/${TEMPLATES_CRUD_NAME}/`, tempTemplate)\n  logger.info({_id: tempTemplateId, template: tempTemplate}, 'Created temporary template')\n  const notification = await utils.sendMessages(service, event, user, [{channel, templateName: tempTemplateName}])\n  await proxies.crudProxy.delete(`/${TEMPLATES_CRUD_NAME}/${tempTemplateId}`, {}, {returnAs: 'BUFFER'})\n  logger.info({_id: tempTemplateId}, 'Deleted temporary template')\n  return [notification]\n}\n",
+                "name": "paginaNotifiche.js"
+              },
+              {
+                "content": "module.exports = async function handler(service, event, utils) {\n  const { config, log: logger, configMap: configuration, proxies } = service\n  const { TEMPLATES_CRUD_NAME } = config\n  const { payload } = event\n  const { eventName, templateName, recipient: usersGroup, channels } = payload\n  logger.debug({event}, 'Receive event')\n\n  // retrieve users with group\n  const users = await utils.getRecipients(service, { groups: [usersGroup] })\n  logger.debug({ users: users.length }, 'Retrieve users')\n  // retrieve template\n  const { payload: templates } = await get(\n    proxies.crudProxy,\n    TEMPLATES_CRUD_NAME,\n    { name: templateName },\n    logger\n  )\n  logger.debug({ templates: templates[0] }, 'Fetched template')\n  const [template] = templates\n  \n  // for each user send messages to all channels in template\n  const notifications = users.map(async (user) => {\n    const messages = []\n    if (isEmailChannel(channels, template, configuration)) {\n      messages.push({channel: 'email', templateName})\n      logger.debug('Send email')\n    }\n    if (isPushChannel(channels, template, configuration)) {\n      messages.push({channel: 'push', templateName})\n      logger.debug('Send push notification')\n    }\n    if (isSmsChannel(channels, template, configuration)) {\n      messages.push({channel: 'sms', templateName})\n      logger.debug('Send sms')\n    }\n    if (isVoiceChannel(channels, template, configuration)) {\n      messages.push({channel: 'voice', templateName})\n      logger.debug('Send voice message')\n    }\n    if (isWhatsappChannel(channels, template, configuration)) {\n      messages.push({channel: 'whatsapp', templateName})\n      logger.debug('Send whatsapp message')\n    }\n    const eventWithCustomName = {\n      ...event,\n      name: eventName,\n    }\n    const messagesNotification = await utils.sendMessages(service, eventWithCustomName, user, messages)\n    return utils.mergeNotifications(service, event, user, [messagesNotification])\n  })\n  return awaitAll(notifications, event, users)\n}\n\nasync function get(crudProxy, crudCollection, query, logger) {\n  const path = `/${crudCollection}/`\n  logger.trace({ query }, `Start GET ${path}`)\n  const response = await crudProxy.get(path, { query })\n  logger.trace(\n    { statusCode: response.statusCode, payload: response.payload?.length },\n    `End GET ${path}`\n  )\n  return response\n}\n\nfunction isChannelActive(channel, configuration) {\n  return configuration.activeChannels?.includes(channel)\n}\n\nfunction isEmailChannel(channels, template, configuration) {\n  const { emailTitle, emailHtmlMessage, emailMessage, emailAttachments } = template\n  return (\n    channels.includes('email') && isChannelActive('email', configuration) &&\n    (emailTitle || emailHtmlMessage || emailMessage || emailAttachments)\n  )\n}\n\nfunction isPushChannel(channels, template, configuration) {\n  const { pushTitle, pushSubtitle, pushMessage, pushData } = template\n  return (\n    channels.includes('push') && isChannelActive('push', configuration) && (pushTitle || pushSubtitle || pushMessage || pushData)\n  )\n}\n\nfunction isSmsChannel(channels, template, configuration) {\n  const { smsMessage } = template\n  return channels.includes('sms') && isChannelActive('sms', configuration) && smsMessage\n}\n\nfunction isVoiceChannel(channels, template, configuration) {\n  const { voiceMessage } = template\n  return channels.includes('voice') && isChannelActive('voice', configuration) && voiceMessage\n}\n\nfunction isWhatsappChannel(channels, template, configuration) {\n  const { whatsappTemplateName, whatsappTemplateParameters } = template\n  return (\n    channels.includes('whatsapp') && isChannelActive('whatsapp', configuration) &&\n    (whatsappTemplateName || whatsappTemplateParameters)\n  )\n}\n\nasync function awaitAll(userNotifications, event, users) {\n  return (await Promise.allSettled(userNotifications)).map((userNotification, index) => {\n    return userNotification.status === 'fulfilled' ?\n      userNotification.value :\n      {\n        event,\n        recipient: users[index].id,\n        failures: [userNotification.reason.message || userNotification.reason.payload || JSON.stringify(userNotification.reason)],\n      }\n  })\n}",
+                "name": "paginaEventi.js"
+              },
+              {
+                "content": "const { DateTime } = require('luxon')\n\nmodule.exports = async function handler(service, event, utils) {\n  const { log: logger } = service\n  const { payload: monitoring, metadata } = event\n  if (!monitoring) {\n    const message = 'Cannot process the event since monitoring payload is missing'\n    logger.error({ event }, message)\n    throw new Error(message)\n  }\n\n  // Se nel monitoring è definito hours usare nome dell'evento custom MultiDailyMonitoringReminder\n  const reminderEvent = {\n    ...event,\n    name: monitoring.hours ? 'MultiDailyMonitoringReminder' : 'TMM/MonitoringReminder/v1',\n  }\n\n  const { doctorId, patientId } = monitoring\n  const participants = new Set([doctorId, patientId])\n  metadata?.includeUsers?.forEach((participant) => participants.add(participant))\n  metadata?.excludeUsers?.forEach((participant) => participants.delete(participant))\n\n  const users = await utils.getRecipients(service, { ids: Array.from(participants) })\n  logger.debug({ users: users.length }, 'Fetched participants')\n\n  const notifications = users.map(async (recipient) => {\n    const userNotifications = []\n    const notificationSettings = await utils.getNotificationSettings(service, event, recipient)\n    const mergedNotificationSettings = utils.mergeNotificationSettings(\n      service,\n      notificationSettings\n    )\n    const messagesToSend = utils.buildMessages(service, mergedNotificationSettings)\n    const messagesNotification = await utils.sendMessages(service, event, recipient, messagesToSend)\n    userNotifications.push(messagesNotification)\n\n    logger.debug({ messagesNotification: messagesNotification.length }, 'messagesNotification')\n\n    const nextRemindersDateTimes = getMultipleDailyReminderEvents(monitoring)\n\n    logger.debug({ monitoring }, 'monitoring')\n    logger.debug({ nextRemindersDateTimes }, 'nextRemindersDateTimes')\n\n    if (nextRemindersDateTimes.length) {\n      const reminderNotificationsPromises = nextRemindersDateTimes.map(nextReminderDateTime => {\n        const notificationReminder = utils.buildReminders(\n          service,\n          recipient,\n          mergedNotificationSettings,\n          nextReminderDateTime\n        )\n        logger.debug({ notificationReminder }, 'notificationReminder')\n\n        return utils.setReminders(\n          service,\n          reminderEvent,\n          recipient,\n          notificationReminder\n        )\n      })\n\n      const reminderNotifications = await Promise.all(reminderNotificationsPromises)\n      reminderNotifications.forEach(reminderNotification => userNotifications.push(reminderNotification))\n    }\n\n    logger.debug({ userNotifications }, 'userNotifications')\n    return utils.mergeNotifications(service, event, recipient, userNotifications)\n  })\n\n  return awaitAll(notifications, event, users)\n}\n\n/**\n * Return a ISO 8601 date-time string representing the given date/time in a given time zone (default: UTC)\n * @param {DateTime} dateTime Date/time\n * @param {string} timeZone A time zone (see https://moment.github.io/luxon/#/zones?id=specifying-a-zone for a list of supported values)\n * @returns {string} A ISO 8601 date-time string representing the given date/time in the given time zone (default: UTC)\n */\nconst toISO = (dateTime, timeZone = 'utc') => dateTime.setZone(timeZone).toISO()\n\n/**\n * Convert a string representing an ISO 8601 date-time into a UTC date/time object\n * @param {string} isoDateTime ISO 8601 date-time string\n * @returns {DateTime} A UTC date/time object\n */\nconst fromISOtoUTC = (isoDateTime) => DateTime.fromISO(isoDateTime, { zone: 'utc' })\n\n/**\n * Returns current date/time in UTC\n * @returns {DateTime} Current date/time in UTC\n */\nconst currentDateTime = () => DateTime.utc()\n\n/**\n * Return the next event, at least one day from now, of the monitoring plan\n *\n * @param {Monitoring | Therapy} monitoring A monitoring or therapy plan\n * @returns {string | undefined} Next day of the monitoring or therapy plan, if available, undefined otherwise\n */\nfunction getNextReminderEvent(monitoring) {\n  const { each, startDate, endDate } = monitoring\n  if (each && each.length > 0) {\n    const sendAfter = currentDateTime().endOf('day')\n    let sendAt = fromISOtoUTC(startDate).startOf('day')\n    while (sendAt < sendAfter) {\n      sendAt = sendAt.plus({ day: 1 })\n    }\n    if (!each?.includes('day')) {\n      const allowedWeekDays = each?.map((weekDay) => luxonWeekDays.get(weekDay))\n      while (!allowedWeekDays?.includes(sendAt.weekday)) {\n        sendAt = sendAt.plus({ day: 1 })\n      }\n    }\n    if (!endDate || sendAt < fromISOtoUTC(endDate)) {\n      return toISO(sendAt)\n    }\n  }\n}\n\n/**\n * Return the list of next events, at least one day from now, of the monitoring plan\n *\n * @param {Monitoring | Therapy} monitoring A monitoring or therapy plan\n * @returns {string | undefined} Next day of the monitoring or therapy plan, if available, undefined otherwise\n */\nfunction getMultipleDailyReminderEvents(monitoring) {\n  const { each, startDate, endDate, hours } = monitoring\n\n  if (!each || each.length === 0) {\n    return []\n  }\n\n  const reminderEventsDateTimes = []\n  if (!hours || hours.length === 0) {\n    console.log('hours is not defined')\n    const nextReminderEvent = getNextReminderEvent(monitoring)\n    console.log(nextReminderEvent, 'the next reminder event, hours is not defined')\n    return nextReminderEvent ? [nextReminderEvent] : []\n  }\n\n  console.log('hours is defined')\n  hours.forEach((reminderHour) => {\n    const sendAfter = currentDateTime().endOf('day')\n    console.log({ reminderHour }, 'inside hours loop, print one reminder hour')\n    const [hour, minute] = reminderHour.split(':').map(Number)\n    console.log({ hour, minute }, 'hours and minutes')\n\n    let sendAt = fromISOtoUTC(startDate).set({ hour, minute })\n\n    while (sendAt < sendAfter) {\n      sendAt = sendAt.plus({ day: 1 })\n    }\n    if (!each?.includes('day')) {\n      const allowedWeekDays = each?.map((weekDay) => luxonWeekDays.get(weekDay))\n      while (!allowedWeekDays?.includes(sendAt.weekday)) {\n        sendAt = sendAt.plus({ day: 1 })\n      }\n    }\n    if (!endDate || sendAt < fromISOtoUTC(endDate)) {\n      reminderEventsDateTimes.push(toISO(sendAt))\n    }\n  })\n  return reminderEventsDateTimes\n}\n\nasync function awaitAll(userNotifications, event, users) {\n  return (await Promise.allSettled(userNotifications)).map((userNotification, index) => {\n    return userNotification.status === 'fulfilled'\n      ? userNotification.value\n      : {\n          event,\n          recipient: users[index].id,\n          failures: [\n            userNotification.reason.message ||\n              userNotification.reason.payload ||\n              JSON.stringify(userNotification.reason),\n          ],\n        }\n  })\n}\n\nconst luxonWeekDays = new Map([\n  ['monday', 1],\n  ['tuesday', 2],\n  ['wednesday', 3],\n  ['thursday', 4],\n  ['friday', 5],\n  ['saturday', 6],\n  ['sunday', 7],\n])\n",
+                "name": "customMonitoringCreated.js"
+              },
+              {
+                "content": "const {DateTime} = require('luxon')\n\nmodule.exports = async function handler(service, event, utils) {\n  const {log: logger} = service\n  const {payload: monitoring, metadata} = event\n  if (!monitoring) {\n    const message = 'Cannot process the event since monitoring payload is missing'\n    logger.error({event}, message)\n    throw new Error(message)\n  }\n\n  const recipients = metadata?.reminder?.recipients || []\n  const schedule = metadata?.reminder?.schedule\n  const oldExpirationDatetime = metadata?.reminder.expirationDate\n  if (recipients.length === 0) return []\n\n  const users = await utils.getRecipients(service, {ids: Array.from(recipients)})\n  logger.debug({users: users.length}, 'Fetched participants')\n\n  const nextMonitoringEvent = getNextReminderWithHourEvent(monitoring, oldExpirationDatetime)\n  logger.debug({nextMonitoringEvent}, 'Next reminder to schedule')\n\n  const notifications = users.map(async recipient => {\n    const notificationSettings = (await utils.getNotificationSettings(service, event, recipient))\n      .filter(setting => !schedule || setting.reminders?.includes(schedule))\n\n    const mergedNotificationSettings = utils.mergeNotificationSettings(service, notificationSettings)\n    const messagesToSend = utils.buildMessages(service, mergedNotificationSettings)\n    logger.debug({messagesToSend}, 'messagesToSend')\n\n    const messagesNotification = await utils.sendMessages(service, event, recipient, messagesToSend)\n    logger.debug({messagesNotification}, 'messagesNotification')\n\n    const userNotifications = [messagesNotification]\n\n    if (nextMonitoringEvent) {\n      const nextReminder = buildNextDatetimeReminder(service, recipient, nextMonitoringEvent)\n      const reminderNotifications = await utils.setReminders(service, event, recipient, [nextReminder])\n      logger.debug({ reminderNotifications }, 'reminderNotifications')\n      \n      userNotifications.push(reminderNotifications)\n    }\n\n    logger.debug({ userNotifications }, 'userNotifications')\n    return utils.mergeNotifications(service, event, recipient, userNotifications)\n  })\n\n  return awaitAll(notifications, event, users)\n}\n\n\n/**\n * Return a ISO 8601 date-time string representing the given date/time in a given time zone (default: UTC)\n * @param {DateTime} dateTime Date/time\n * @param {string} timeZone A time zone (see https://moment.github.io/luxon/#/zones?id=specifying-a-zone for a list of supported values)\n * @returns {string} A ISO 8601 date-time string representing the given date/time in the given time zone (default: UTC)\n */\nconst toISO = (dateTime, timeZone = 'utc') => dateTime.setZone(timeZone).toISO()\n\n/**\n * Convert a string representing an ISO 8601 date-time into a UTC date/time object\n * @param {string} isoDateTime ISO 8601 date-time string\n * @returns {DateTime} A UTC date/time object\n */\nconst fromISOtoUTC = (isoDateTime) => DateTime.fromISO(isoDateTime, {zone: 'utc'})\n\n/**\n * Returns current date/time in UTC\n * @returns {DateTime} Current date/time in UTC\n */\nconst currentDateTime = () => DateTime.utc()\n\n\n/**\n * Return the next event, at least one day from now, of the monitoring plan, at the specified hour and minute\n *\n * @param {Monitoring | Therapy} monitoring A monitoring or therapy plan\n * @param {string} oldExpirationDatetime the expiration datetime of the current reminder\n * @returns {string | undefined} Next day of the monitoring or therapy plan, if available, undefined otherwise\n */\nfunction getNextReminderWithHourEvent(monitoring, oldExpirationDatetime) {\n  const {each, endDate, hours} = monitoring\n  if (!each || each.length === 0) {\n    return\n  }\n  if (!hours || hours.length === 0) {\n    console.log('hours is not defined')\n    return\n  }\n\n  if (each && each.length > 0) {\n    const sendAfter = currentDateTime().endOf('day')\n    let sendAt = fromISOtoUTC(oldExpirationDatetime)\n    console.log({oldExpirationDatetime}, 'oldExpirationDatetime')\n\n    while (sendAt < sendAfter) {\n      sendAt = sendAt.plus({day: 1})\n    }\n    if (!each?.includes('day')) {\n      const allowedWeekDays = each?.map(weekDay => luxonWeekDays.get(weekDay))\n      while (!allowedWeekDays?.includes(sendAt.weekday)) {\n        sendAt = sendAt.plus({day: 1})\n      }\n    }\n    console.log({sendAt}, 'sendAt - before returning the next reminder')\n\n    if (!endDate || sendAt < fromISOtoUTC(endDate)) {\n      return toISO(sendAt)\n    }\n  }\n}\n\n/**\n * It builds the reminder for the next expirationDateTime\n *\n * @param {customPlugin.DecoratedFastify} service The decorated Fastify instance\n * @param {CrudRecipient} user User details about the notification recipient\n * @param {string} eventDateTime The scheduled date-time of the event\n * @returns {NotificationReminder} The reminder specifications\n */\nconst buildNextDatetimeReminder = (service, user, eventDateTime) => {\n  const {log: logger} = service\n  const reminder = {\n    schedule: 'PT0S',\n    expirationDate: eventDateTime,\n    recipients: [user.id],\n    triggers: [],\n  } \n  logger.debug({reminder}, `Built one reminder`)\n  return reminder\n}\n\nasync function awaitAll(userNotifications, event, users) {\n  return (await Promise.allSettled(userNotifications)).map((userNotification, index) => {\n    return userNotification.status === 'fulfilled' ?\n      userNotification.value :\n      {\n        event,\n        recipient: users[index].id,\n        failures: [userNotification.reason.message || userNotification.reason.payload || JSON.stringify(userNotification.reason)],\n      }\n  })\n}\n\n/**\n * Schedule the reminder for the given event and user and return a notification with the details\n *\n * @async\n * @param {customPlugin.DecoratedFastify} service the decorated fastify instance\n * @param {CrudEvent} event the notification event\n * @param {CrudRecipient} user the user details about the notification recipient\n * @param {NotificationReminder} reminder the notification reminder\n * @returns {Promise<Notification>} the notification with the details about the reminder processed\n */\nconst setReminder = async(service, event, user, reminder) => {\n  const {CRUD_SERVICE_URL, TIMER_SERVICE_URL, SERVICE_NAME, NOTIFICATIONS_CRUD_NAME} = service.config\n  const {log: logger} = service\n  const reminderEvent = pick(event, Object.keys(notificationEventSchema.properties))\n\n  const timerClient = service.getHttpClient(TIMER_SERVICE_URL)\n\n  const {expirationDate} = reminder\n  const metadata = {\n    ...reminderEvent.metadata,\n    reminder,\n  }\n  const scheduleBody = {\n    payload: {\n      ...reminderEvent,\n      metadata,\n    },\n    startDate: expirationDate,\n    expirationIntervalMs: 1,\n    applicantService: 'notification-manager',\n    outputMode: {\n      type: 'rest',\n      method: 'post',\n      protocol: 'http',\n      hostname: SERVICE_NAME,\n      path: '/notification-events/',\n    },\n  }\n  const processedReminder = await timerClient.post('/schedule', scheduleBody)\n\n  const body = {\n    event: reminderEvent,\n    recipient: user.id,\n    reminders: [processedReminder],\n  }\n  if (processedReminder) {\n    const crudClient = service.getHttpClient(CRUD_SERVICE_URL)\n    await post(crudClient, NOTIFICATIONS_CRUD_NAME, body, logger)\n  }\n\n  return body\n}\n\n\nconst luxonWeekDays = new Map([\n  ['monday', 1],\n  ['tuesday', 2],\n  ['wednesday', 3],\n  ['thursday', 4],\n  ['friday', 5],\n  ['saturday', 6],\n  ['sunday', 7],\n])",
+                "name": "multiDailyMonitoringReminder.js"
+              },
+              {
+                "content": "async function awaitAll(userNotifications, event, users) {  return (await Promise.allSettled(userNotifications)).map((userNotification, index) => {    return userNotification.status === 'fulfilled' ?      userNotification.value :      {        event,        recipient: users[index].id,        failures: [userNotification.reason.message || userNotification.reason.payload || JSON.stringify(userNotification.reason)],      }  })}module.exports = async function handler(service, event, utils) {  const {log: logger} = service  const {payload: monitoring, metadata} = event  if (!monitoring) {    const message = 'Cannot process the event since monitoring payload is missing'    logger.error({eventId: event.id, eventName: event.name}, message)    throw new Error(message)  }  const {doctorId, patientId} = monitoring  const participants = new Set([doctorId, patientId])  metadata?.includeUsers?.forEach(participant => participants.add(participant))  metadata?.excludeUsers?.forEach(participant => participants.delete(participant))  const users = await utils.getRecipients(service, {ids: Array.from(participants)})  logger.debug({users: users.length}, 'Fetched participants')  const notifications = users.map(async user => {    const notificationSettings = await utils.getNotificationSettings(service, event, user)    const mergedNotificationSettings = utils.mergeNotificationSettings(service, notificationSettings)    const messagesToSend = utils.buildMessages(service, mergedNotificationSettings)    const messages = await utils.sendMessages(service, event, user, messagesToSend)    await utils.abortReminders(service, event, user, {      eventName: [        'TMM/MonitoringCreated/v1',        'TMM/MonitoringUpdated/v1',        'TMM/MonitoringReminder/v1',        'MultiDailyMonitoringReminder'      ],    })    return messages  })  return awaitAll(notifications, event, users)}",
+                "name": "customMonitoringDeleted.js"
+              }
+            ],
+            "mountPath": "/home/node/app/custom-handlers",
+            "name": "nm-custom-handlers",
+            "viewAsReadOnly": false
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "TEMPLATES_CRUD_NAME",
+            "value": "templates",
+            "valueType": "plain"
+          },
+          {
+            "name": "EVENTS_CRUD_NAME",
+            "value": "events",
+            "valueType": "plain"
+          },
+          {
+            "name": "EVENTS_SETTINGS_CRUD_NAME",
+            "value": "event-settings",
+            "valueType": "plain"
+          },
+          {
+            "name": "NOTIFICATIONS_CRUD_NAME",
+            "value": "notifications",
+            "valueType": "plain"
+          },
+          {
+            "name": "NOTIFICATIONS_SETTINGS_CRUD_NAME",
+            "value": "notification-settings",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_NAME",
+            "value": "notification-manager",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/home/node/app/configs/default.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE_URL",
+            "value": "http://crud-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAIL_SERVICE_URL",
+            "value": "http://email-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "SMS_SERVICE_URL",
+            "value": "http://sms-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "FILE_SERVICE_URL",
+            "value": "http://files-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "TIMER_SERVICE_URL",
+            "value": "http://timer-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "KALEYRA_API_BASE_URL",
+            "secretKey": "kaleyra-base-url",
+            "secretName": "notification-manager",
+            "valueType": "secret"
+          },
+          {
+            "name": "KALEYRA_API_KEY",
+            "secretKey": "kaleyra-api-key",
+            "secretName": "notification-manager",
+            "valueType": "secret"
+          },
+          {
+            "name": "KALEYRA_API_SID",
+            "secretKey": "kaleyra-sid",
+            "secretName": "notification-manager",
+            "valueType": "secret"
+          },
+          {
+            "name": "CUSTOM_HANDLERS_FOLDER",
+            "value": "/home/node/app/custom-handlers",
+            "valueType": "plain"
+          },
+          {
+            "name": "GOOGLE_APPLICATION_CREDENTIALS",
+            "value": "{{FIREBASE_CREDENTIALS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERS_API_ENDPOINT",
+            "value": "http://user-manager-service-proxy/users",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_LOCALE",
+            "value": "it-IT",
+            "valueType": "plain"
+          },
+          {
+            "name": "NOTIFICATIONS_MESSAGES_VIEW_NAME",
+            "value": "{{NOTIFICATIONS_MESSAGES_VIEW_NAME}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "50m"
+          },
+          "memoryLimits": {
+            "max": "120Mi",
+            "min": "50Mi"
+          }
+        },
+        "defaultSecrets": [
+          {
+            "mountPath": "/home/node/app/secrets/mlp",
+            "name": "notification-manager"
+          }
+        ],
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/notification-manager:{{NOTIFICATION_MANAGER_VERSION}}",
+        "name": "notification-manager",
+        "type": "plugin"
+      },
+      "sms-service": {
+        "componentId": "sms-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client_type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isBackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_PROVIDER",
+            "value": "kaleyra",
+            "valueType": "plain"
+          },
+          {
+            "name": "KALEYRA_BASE_URL",
+            "secretKey": "kaleyra-base-url",
+            "secretName": "sms-service",
+            "valueType": "secret"
+          },
+          {
+            "name": "KALEYRA_API_KEY",
+            "secretKey": "kaleyra-api-key",
+            "secretName": "sms-service",
+            "valueType": "secret"
+          },
+          {
+            "name": "KALEYRA_SID",
+            "secretKey": "kaleyra-sid",
+            "secretName": "sms-service",
+            "valueType": "secret"
+          },
+          {
+            "name": "KALEYRA_EMPTY_BALANCE_CHECK",
+            "value": "false",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 2
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 2
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "100Mi",
+            "min": "100Mi"
+          }
+        },
+        "defaultSecrets": [
+          {
+            "mountPath": "/home/node/app/secrets/mlp",
+            "name": "sms-service"
+          }
+        ],
+        "dockerImage": "nexus.mia-platform.eu/plugins/sms-service:{{SMS_SERVICE_VERSION}}",
+        "name": "sms-service",
+        "type": "plugin"
+      },
+      "timer-service": {
+        "componentId": "timer-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE_NAME",
+            "value": "crud-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_PATH",
+            "value": "/reminders",
+            "valueType": "plain"
+          },
+          {
+            "name": "POLL_INTERVAL_MS",
+            "value": "5000",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "50m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "75Mi",
+            "min": "50Mi"
+          }
+        },
+        "dockerImage": "nexus.mia-platform.eu/core/timer-service:{{TIMER_SERVICE_VERSION}}",
+        "name": "timer-service",
+        "type": "plugin"
+      }
+    },
+    "unsecretedVariables": {
+      "CRUD_SERVICE_VERSION": {
+        "noProductionEnv": "7.2.1",
+        "productionEnv": "7.2.1"
+      },
+      "EMAIL_SERVICE_VERSION": {
+        "noProductionEnv": "3.3.0",
+        "productionEnv": "3.3.0"
+      },
+      "FILES_SERVICE_VERSION": {
+        "noProductionEnv": "2.10.1",
+        "productionEnv": "2.10.1"
+      },
+      "NOTIFICATIONS_MESSAGES_VIEW_NAME": {
+        "noProductionEnv": "nm-nm-notification-messages",
+        "productionEnv": "nm-nm-notification-messages"
+      },
+      "NOTIFICATION_MANAGER_VERSION": {
+        "noProductionEnv": "2.4.0",
+        "productionEnv": "2.4.0"
+      },
+      "SMS_SERVICE_VERSION": {
+        "noProductionEnv": "1.2.1",
+        "productionEnv": "1.2.1"
+      },
+      "TIMER_SERVICE_VERSION": {
+        "noProductionEnv": "2.1.3",
+        "productionEnv": "2.1.3"
+      },
+      "USER_MANAGER_MODULE_NAMESPACE": {
+        "noProductionEnv": "user-auth-module-development",
+        "productionEnv": "user-auth-module-preproduction"
+      }
+    }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "application",
+  "visibility": {
+    "public": true
+  }
+}

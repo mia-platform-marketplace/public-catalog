@@ -1,0 +1,3919 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "data-catalog",
+  "description": "This application enable releasing Data Catalog components with ease",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/data-catalog/overview"
+  },
+  "image": {
+    "localPath": "../../assets/data-catalog-application.png"
+  },
+  "itemId": "data-catalog-application",
+  "name": "Data Catalog",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/data-catalog-application",
+  "resources": {
+    "collections": {
+      "users": {
+        "defaultName": "users",
+        "description": "Collection of users of Data Fabric solution",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "name",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "groups",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "username",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "email",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "providerId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "providerUserId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "realm",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "metadata",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "permissions",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          }
+        ],
+        "id": "users",
+        "indexes": [
+          {
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ],
+            "name": "_id",
+            "type": "normal",
+            "unique": true
+          },
+          {
+            "fields": [
+              {
+                "name": "creatdAt",
+                "order": -1
+              }
+            ],
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false
+          },
+          {
+            "fields": [
+              {
+                "name": "__STATE__",
+                "order": 1
+              }
+            ],
+            "name": "stateIndex",
+            "type": "normal",
+            "unique": false
+          },
+          {
+            "fields": [
+              {
+                "name": "email",
+                "order": 1
+              },
+              {
+                "name": "name",
+                "order": 1
+              },
+              {
+                "name": "__STATE__",
+                "order": 1
+              }
+            ],
+            "name": "nameSearch",
+            "type": "normal",
+            "unique": false
+          },
+          {
+            "fields": [
+              {
+                "name": "providerId",
+                "order": 1
+              },
+              {
+                "name": "providerUserId",
+                "order": 1
+              },
+              {
+                "name": "realm",
+                "order": 1
+              }
+            ],
+            "name": "upsertSupport",
+            "type": "normal",
+            "unique": false
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/users",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "tags": [
+          "collection"
+        ],
+        "type": "collection"
+      }
+    },
+    "endpoints": {
+      "/api/connections": {
+        "acl": "false",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/api/connections",
+        "defaultPathRewrite": "/api/connections",
+        "description": "Endpoint /api/connections",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "public": false,
+        "routes": {
+          "DELETE/items/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "DELETE/items/:id",
+            "path": "/items/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "DELETE"
+          },
+          "GET/items": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/items",
+            "path": "/items",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/items/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/items/:id",
+            "path": "/items/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "PATCH/items/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/items/:id",
+            "path": "/items/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "POST/items": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/items",
+            "path": "/items",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "POST"
+          }
+        },
+        "secreted": false,
+        "service": "fabric-bff",
+        "showInDocumentation": true,
+        "tags": [
+          "fabric-bff"
+        ],
+        "type": "custom"
+      },
+      "/api/data-catalog": {
+        "acl": "false",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/api/data-catalog",
+        "defaultPathRewrite": "/api/data-catalog",
+        "description": "Endpoint /api/data-catalog",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "public": false,
+        "routes": {
+          "DELETE/columns/:dataset-id/:field-name/custom-properties/:name": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "DELETE/columns/:dataset-id/:field-name/custom-properties/:name",
+            "path": "/columns/:dataset-id/:field-name/custom-properties/:name",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "DELETE"
+          },
+          "DELETE/metadata-registry/items/:name": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "DELETE/metadata-registry/items/:name",
+            "path": "/metadata-registry/items/:name",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "DELETE"
+          },
+          "DELETE/sors/:dataset-id/custom-properties/:name": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "DELETE/sors/:dataset-id/custom-properties/:name",
+            "path": "/sors/:dataset-id/custom-properties/:name",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "DELETE"
+          },
+          "DELETE/tables/:dataset-id/custom-properties/:name": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "DELETE/tables/:dataset-id/custom-properties/:name",
+            "path": "/tables/:dataset-id/custom-properties/:name",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "DELETE"
+          },
+          "GET/assets/search": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/assets/search",
+            "path": "/assets/search",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/assets/search-parents": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/assets/search-parents",
+            "path": "/assets/search-parents",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/bulk-actions": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:bulk-action\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/bulk-actions",
+            "path": "/bulk-actions",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/columns/:dataset-id/:field-name": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/columns/:dataset-id/:field-name",
+            "path": "/columns/:dataset-id/:field-name",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/metadata-registry/count": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/metadata-registry/count",
+            "path": "/metadata-registry/count",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/metadata-registry/items": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/metadata-registry/items",
+            "path": "/metadata-registry/items",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/metadata-registry/items/:name": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/metadata-registry/items/:name",
+            "path": "/metadata-registry/items/:name",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/metadata-registry/search": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/metadata-registry/search",
+            "path": "/metadata-registry/search",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/sors/:dataset-id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/sors/:dataset-id",
+            "path": "/sors/:dataset-id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/tables/:dataset-id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/tables/:dataset-id",
+            "path": "/tables/:dataset-id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/tags/count": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/tags/count",
+            "path": "/tags/count",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/tags/items": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/tags/items",
+            "path": "/tags/items",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/tags/search": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/tags/search",
+            "path": "/tags/search",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "HEAD/bulk-actions": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:bulk-action\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "HEAD/bulk-actions",
+            "path": "/bulk-actions",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "HEAD"
+          },
+          "PATCH/columns/:dataset-id/:field-name/custom-properties/:name": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/columns/:dataset-id/:field-name/custom-properties/:name",
+            "path": "/columns/:dataset-id/:field-name/custom-properties/:name",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/columns/:dataset-id/:field-name/description": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/columns/:dataset-id/:field-name/description",
+            "path": "/columns/:dataset-id/:field-name/description",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/columns/:dataset-id/:field-name/tags": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/columns/:dataset-id/:field-name/tags",
+            "path": "/columns/:dataset-id/:field-name/tags",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/metadata-registry/items/:name": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/metadata-registry/items/:name",
+            "path": "/metadata-registry/items/:name",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/sors/:dataset-id/custom-properties/:name": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/sors/:dataset-id/custom-properties/:name",
+            "path": "/sors/:dataset-id/custom-properties/:name",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/sors/:dataset-id/description": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/sors/:dataset-id/description",
+            "path": "/sors/:dataset-id/description",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/sors/:dataset-id/tags": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/sors/:dataset-id/tags",
+            "path": "/sors/:dataset-id/tags",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/tables/:dataset-id/custom-properties/:name": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/tables/:dataset-id/custom-properties/:name",
+            "path": "/tables/:dataset-id/custom-properties/:name",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/tables/:dataset-id/description": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/tables/:dataset-id/description",
+            "path": "/tables/:dataset-id/description",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/tables/:dataset-id/tags": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/tables/:dataset-id/tags",
+            "path": "/tables/:dataset-id/tags",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "POST/columns/:dataset-id/:field-name/custom-properties/:name": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/columns/:dataset-id/:field-name/custom-properties/:name",
+            "path": "/columns/:dataset-id/:field-name/custom-properties/:name",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "POST"
+          },
+          "POST/metadata-registry/items": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/metadata-registry/items",
+            "path": "/metadata-registry/items",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "POST"
+          },
+          "POST/sors/:dataset-id/custom-properties/:name": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/sors/:dataset-id/custom-properties/:name",
+            "path": "/sors/:dataset-id/custom-properties/:name",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "POST"
+          },
+          "POST/tables/:dataset-id/custom-properties/:name": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/tables/:dataset-id/custom-properties/:name",
+            "path": "/tables/:dataset-id/custom-properties/:name",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "POST"
+          }
+        },
+        "secreted": false,
+        "service": "fabric-bff",
+        "showInDocumentation": true,
+        "tags": [
+          "fabric-bff"
+        ],
+        "type": "custom"
+      },
+      "/api/job-runner": {
+        "acl": "false",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/api/job-runner",
+        "defaultPathRewrite": "/api/job-runner",
+        "description": "Endpoint /api/job-runner",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "public": false,
+        "routes": {
+          "GET/agent/drivers": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/agent/drivers",
+            "path": "/agent/drivers",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/agent/dsn": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/agent/dsn",
+            "path": "/agent/dsn",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/feedback": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/feedback",
+            "path": "/feedback",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/items": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/items",
+            "path": "/items",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "rateLimit": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/secret-names": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/secret-names",
+            "path": "/secret-names",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "HEAD/feedback": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "HEAD/feedback",
+            "path": "/feedback",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "HEAD"
+          },
+          "POST/agent/abort": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/agent/abort",
+            "path": "/agent/abort",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "POST"
+          },
+          "POST/agent/sync": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:connections\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/agent/sync",
+            "path": "/agent/sync",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "POST"
+          }
+        },
+        "secreted": false,
+        "service": "fabric-bff",
+        "showInDocumentation": true,
+        "tags": [
+          "fabric-bff"
+        ],
+        "type": "custom"
+      },
+      "/api/open-lineage": {
+        "acl": "false",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/api/open-lineage",
+        "defaultPathRewrite": "/api/open-lineage",
+        "description": "Endpoint /api/open-lineage",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "public": false,
+        "routes": {
+          "DELETE/datasets/items/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:lineage\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "DELETE/datasets/items/:id",
+            "path": "/datasets/items/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "DELETE"
+          },
+          "DELETE/facets/storage/items/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:lineage\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "DELETE/facets/storage/items/:id",
+            "path": "/facets/storage/items/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "DELETE"
+          },
+          "DELETE/jobs/items/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:lineage\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "DELETE/jobs/items/:id",
+            "path": "/jobs/items/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "DELETE"
+          },
+          "GET/datasets/items/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/datasets/items/:id",
+            "path": "/datasets/items/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/facets/storage/items/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/facets/storage/items/:id",
+            "path": "/facets/storage/items/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/jobs/from/dataset/:id/direction/:direction": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/jobs/from/dataset/:id/direction/:direction",
+            "path": "/jobs/from/dataset/:id/direction/:direction",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "GET/jobs/from/system/:id/direction/:direction": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:data-assets\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/jobs/from/system/:id/direction/:direction",
+            "path": "/jobs/from/system/:id/direction/:direction",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          },
+          "PATCH/datasets/items/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:lineage\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/datasets/items/:id",
+            "path": "/datasets/items/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/jobs/items/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:lineage\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/jobs/items/:id",
+            "path": "/jobs/items/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "PATCH"
+          },
+          "POST/datasets/items": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:lineage\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/datasets/items",
+            "path": "/datasets/items",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "POST"
+          },
+          "POST/jobs/items": {
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:lineage\"]"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/jobs/items",
+            "path": "/jobs/items",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "POST"
+          }
+        },
+        "secreted": false,
+        "service": "fabric-bff",
+        "showInDocumentation": true,
+        "tags": [
+          "fabric-bff"
+        ],
+        "type": "custom"
+      },
+      "/apps": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/apps",
+        "defaultPathRewrite": "/apps",
+        "description": "Endpoint /apps",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "public": true,
+        "secreted": false,
+        "service": "authentication-service",
+        "showInDocumentation": true,
+        "tags": [
+          "auth"
+        ],
+        "type": "custom"
+      },
+      "/authorize": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/authorize",
+        "defaultPathRewrite": "/authorize",
+        "description": "Endpoint /authorize",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "public": true,
+        "secreted": false,
+        "service": "authentication-service",
+        "showInDocumentation": true,
+        "tags": [
+          "auth"
+        ],
+        "type": "custom"
+      },
+      "/authz/users": {
+        "acl": "\"read:users\" in permissions || \"update:users\" in permissions",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "collectionId": "users",
+        "defaultBasePath": "/authz/users",
+        "defaultPathRewrite": "/users",
+        "description": "Endpoint /authz/users",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "pathName": "/",
+        "public": false,
+        "routes": {
+          "DELETE/": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "DELETE/",
+            "path": "/",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "DELETE"
+          },
+          "DELETE/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "DELETE/:id",
+            "path": "/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "DELETE"
+          },
+          "GET/": {
+            "acl": {
+              "inherited": false,
+              "value": "\"read:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/",
+            "path": "/",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "GET"
+          },
+          "GET/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "\"read:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/:id",
+            "path": "/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "GET"
+          },
+          "GET/count": {
+            "acl": {
+              "inherited": false,
+              "value": "\"read:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/count",
+            "path": "/count",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "GET"
+          },
+          "GET/export": {
+            "acl": {
+              "inherited": false,
+              "value": "\"read:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": false,
+              "value": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/export",
+            "path": "/export",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "GET"
+          },
+          "PATCH/": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/",
+            "path": "/",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/:id": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/:id",
+            "path": "/:id",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "PATCH"
+          },
+          "PATCH/bulk": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "PATCH/bulk",
+            "path": "/bulk",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "PATCH"
+          },
+          "POST/": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/",
+            "path": "/",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "POST"
+          },
+          "POST/:id/state": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/:id/state",
+            "path": "/:id/state",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "POST"
+          },
+          "POST/bulk": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/bulk",
+            "path": "/bulk",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "POST"
+          },
+          "POST/state": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/state",
+            "path": "/state",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "POST"
+          },
+          "POST/upsert-one": {
+            "acl": {
+              "inherited": false,
+              "value": "\"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "POST/upsert-one",
+            "path": "/upsert-one",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": false,
+              "value": false
+            },
+            "verb": "POST"
+          }
+        },
+        "secreted": false,
+        "showInDocumentation": true,
+        "tags": [
+          "crud"
+        ],
+        "type": "crud"
+      },
+      "/data-catalog": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/data-catalog",
+        "defaultPathRewrite": "/data-catalog",
+        "description": "Endpoint /data-catalog",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "options": {
+          "iframePolicy": "all"
+        },
+        "public": false,
+        "secreted": false,
+        "service": "data-catalog-fe",
+        "showInDocumentation": true,
+        "tags": [
+          "data-catalog"
+        ],
+        "type": "custom"
+      },
+      "/data-catalog/.well-known/openid-configuration": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/data-catalog/.well-known/openid-configuration",
+        "defaultPathRewrite": "/data-catalog/openid-configuration.json",
+        "description": "Endpoint /data-catalog/.well-known/openid-configuration",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "public": false,
+        "secreted": false,
+        "service": "data-catalog-fe",
+        "showInDocumentation": true,
+        "tags": [
+          "data-catalog"
+        ],
+        "type": "custom"
+      },
+      "/data-catalog/configuration": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/data-catalog/configuration",
+        "defaultPathRewrite": "/data-catalog/configuration.json",
+        "description": "Endpoint /data-catalog/configuration",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "public": false,
+        "secreted": false,
+        "service": "data-catalog-fe",
+        "showInDocumentation": true,
+        "tags": [
+          "data-catalog"
+        ],
+        "type": "custom"
+      },
+      "/logout": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/logout",
+        "defaultPathRewrite": "/logout",
+        "description": "Endpoint /logout",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "public": false,
+        "secreted": false,
+        "service": "authentication-service",
+        "showInDocumentation": true,
+        "tags": [
+          "auth"
+        ],
+        "type": "custom"
+      },
+      "/mgmt": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/mgmt",
+        "defaultPathRewrite": "/public",
+        "description": "Endpoint /mgmt",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "options": {
+          "iframePolicy": "all"
+        },
+        "public": false,
+        "routes": {
+          "GET/users": {
+            "acl": {
+              "inherited": false,
+              "value": "\"read:users\" in permissions || \"update:users\" in permissions"
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "id": "GET/users",
+            "path": "/users",
+            "postDecorators": [],
+            "preDecorators": [],
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "verb": "GET"
+          }
+        },
+        "secreted": false,
+        "service": "micro-lc",
+        "showInDocumentation": true,
+        "tags": [
+          "backoffice"
+        ],
+        "type": "custom"
+      },
+      "/micro-lc-configurations": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/micro-lc-configurations",
+        "defaultPathRewrite": "/configurations",
+        "description": "Endpoint /micro-lc-configurations",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "options": {
+          "iframePolicy": "all"
+        },
+        "public": false,
+        "secreted": false,
+        "service": "micro-lc",
+        "showInDocumentation": true,
+        "tags": [
+          "backoffice"
+        ],
+        "type": "custom"
+      },
+      "/oauth/token": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/oauth/token",
+        "defaultPathRewrite": "/oauth/token",
+        "description": "Endpoint /oauth/token",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "public": true,
+        "secreted": false,
+        "service": "authentication-service",
+        "showInDocumentation": true,
+        "tags": [
+          "auth"
+        ],
+        "type": "custom"
+      },
+      "/refreshtoken": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/refreshtoken",
+        "defaultPathRewrite": "/refreshtoken",
+        "description": "Endpoint /refreshtoken",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "public": false,
+        "secreted": false,
+        "service": "authentication-service",
+        "showInDocumentation": true,
+        "tags": [
+          "auth"
+        ],
+        "type": "custom"
+      },
+      "/ui/job-runner": {
+        "acl": "permissions[\"admin:producers\"] || permissions[\"admin:connections\"]",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/ui/job-runner",
+        "defaultPathRewrite": "/ui/job-runner",
+        "description": "Endpoint /ui/job-runner",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "options": {
+          "iframePolicy": "all"
+        },
+        "public": false,
+        "secreted": false,
+        "service": "grpcui",
+        "showInDocumentation": true,
+        "tags": [
+          "utils"
+        ],
+        "type": "custom"
+      },
+      "/userinfo": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/userinfo",
+        "defaultPathRewrite": "/userinfo",
+        "description": "Endpoint /userinfo",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "public": false,
+        "secreted": false,
+        "service": "authentication-service",
+        "showInDocumentation": true,
+        "tags": [
+          "auth"
+        ],
+        "type": "custom"
+      },
+      "/web-login": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/web-login",
+        "defaultPathRewrite": "/web-login",
+        "description": "Endpoint /web-login",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "options": {
+          "iframePolicy": "all"
+        },
+        "public": true,
+        "secreted": false,
+        "service": "login-site",
+        "showInDocumentation": true,
+        "tags": [
+          "auth"
+        ],
+        "type": "custom"
+      }
+    },
+    "listeners": {
+      "frontend": {
+        "description": "Default listener for frontend API",
+        "name": "frontend",
+        "ownedBy": {
+          "componentIds": [
+            "api-gateway-envoy"
+          ]
+        },
+        "port": "8080",
+        "selectedByDefault": true
+      }
+    },
+    "services": {
+      "api-gateway": {
+        "args": [
+          "-c",
+          "/etc/envoy/envoy.json",
+          "-l",
+          "{{LOG_LEVEL}}",
+          "--log-format",
+          "{\"level\":\"%l\",\"time\":\"%Y-%m-%dT%T.%fZ\",\"scope\":\"%n\",\"message\":\"%j\"}",
+          "--drain-time-s",
+          "50"
+        ],
+        "componentId": "api-gateway-envoy",
+        "containerPorts": [
+          {
+            "from": 8080,
+            "name": "frontend",
+            "to": 8080
+          },
+          {
+            "from": 8081,
+            "name": "backoffice",
+            "to": 8081
+          },
+          {
+            "from": 9901,
+            "name": "admin",
+            "to": 9901
+          },
+          {
+            "from": 50051,
+            "name": "grpc",
+            "protocol": "TCP",
+            "to": 50051
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "endpoints"
+            },
+            "mountPath": "/etc/envoy",
+            "name": "api-gateway-envoy-config",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultEnvironmentVariables": [],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/healthz",
+            "periodSeconds": 20,
+            "port": "frontend",
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/healthz",
+            "periodSeconds": 10,
+            "port": "frontend",
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "200m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "100Mi",
+            "min": "30Mi"
+          }
+        },
+        "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "envoyproxy/envoy:v1.32.1",
+        "execPreStop": [
+          "bash",
+          "-c",
+          "echo -e 'POST /drain_listeners?graceful HTTP/1.1\r\nHost: localhost:9901\r\n\r' > /dev/tcp/localhost/9901 && sleep 55s"
+        ],
+        "name": "api-gateway",
+        "tags": [
+          "api"
+        ],
+        "type": "plugin"
+      },
+      "authentication-service": {
+        "componentId": "authentication-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/configs",
+            "name": "authentication-service-config",
+            "files": [
+              {
+                "content": "{\n  \"apps\": {\n    \"{{DC_APP_ID}}\": {\n      \"providers\": {\n        \"{{DC_PROVIDER_ID}}\": {\n          \"order\": 10,\n          \"type\": \"okta\",\n          \"label\": \"Login with Okta\",\n          \"clientId\": \"{{DC_OKTA_CLIENT_ID}}\",\n          \"clientSecret\": \"{{DC_OKTA_CLIENT_SECRET}}\",\n          \"baseUrl\": \"{{OKTA_BASE_URL}}\",\n          \"authUrl\": \"{{OKTA_BASE_URL}}/oauth2/v1/authorize\",\n          \"tokenUrl\": \"{{OKTA_BASE_URL}}/oauth2/v1/token\",\n          \"userInfoUrl\": \"{{OKTA_BASE_URL}}/oauth2/v1/userinfo\",\n          \"userSettingsURL\": \"{{OKTA_BASE_URL}}/enduser/settings\",\n          \"logoutUrl\": \"{{OKTA_BASE_URL}}/oauth2/v1/logout\",\n          \"scope\": [\n            \"openid\",\n            \"profile\",\n            \"email\",\n            \"offline_access\",\n            \"groups\"\n          ]\n        }\n      },\n      \"redirectUrl\": \"{{DC_BASE_URL}}/web-login/oauth/callback\",\n      \"defaultRedirectUrlOnSuccessfulLogin\": \"/\",\n      \"authorizeStateRequired\": true,\n      \"realm\": \"data-fabric\",\n      \"isWebsiteApp\": true,\n      \"issuer\": \"{{DC_APP_ID}}\",\n      \"defaultGroups\": []\n    }\n  }\n}",
+                "name": "config.json"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "DELAY_SHUTDOWN_SECONDS",
+            "value": "10",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_HOSTS",
+            "value": "{{DC_REDIS_HOSTS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "/configs",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_NAME",
+            "value": "config",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERS_CRUD_BASE_URL",
+            "value": "http://crud-service/users",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_JWT_TOKEN_VALID_DURATION_SEC",
+            "value": "86400",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_REFRESH_TOKEN_VALID_DURATION_SEC",
+            "value": "604800",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROVIDER_TOKEN_PASS_PHRASE",
+            "value": "{{DC_REDIS_PASSPHRASE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "ORIGINAL_PROTOCOL_HEADER",
+            "value": "X-Forwarded-Proto",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_SESSION_SCOPE",
+            "value": "{{DC_REDIS_SCOPE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_MODE",
+            "value": "normal",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADDITIONAL_HEADERS_TO_PROXY",
+            "value": "request-id,traceparent,tracestate",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_JWT_TOKEN_PRIVATE_KEY_FILE_PATH",
+            "value": "/run/secrets/keys/private-key.pem",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_JWT_TOKEN_PRIVATE_KEY_KID",
+            "value": "{{DC_JWT_CLIENT_KID}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MIA_JWT_TOKEN_SIGNING_METHOD",
+            "value": "RS256",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPIRE_DELTA_PROVIDER_TOKEN_SEC",
+            "value": "300",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "port": "http",
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "30Mi",
+            "min": "15Mi"
+          }
+        },
+        "defaultSecrets": [
+          {
+            "mountPath": "/run/secrets/keys",
+            "name": "authentication-service-secrets"
+          }
+        ],
+        "description": "Use Mia-Platform core Authentication Service to provide OAuth2 compliant user authentication API.",
+        "dockerImage": "nexus.mia-platform.eu/core/authentication-service:3.11.0",
+        "name": "authentication-service",
+        "tags": [
+          "auth"
+        ],
+        "type": "plugin"
+      },
+      "authorization-service": {
+        "componentId": "authorization-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/configs",
+            "name": "authorization-service-config",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "content": "{\n  \"/web-login\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/authorize\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/oauth/token\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/logout\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/refreshtoken\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/userinfo\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/apps\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/micro-lc-configurations\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/mgmt\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/mgmt/users\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions || \\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/export\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/:id\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/count\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/bulk\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/upsert-one\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/:id/state\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/state\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"false\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/bulk-actions\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:bulk-action\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/assets/search\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/assets/search-parents\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/tags/search\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/tags/count\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/tags/items\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/sors/:dataset-id\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/sors/:dataset-id/custom-properties/:name\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/sors/:dataset-id/description\": {\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/sors/:dataset-id/tags\": {\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/tables/:dataset-id\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/tables/:dataset-id/custom-properties/:name\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/tables/:dataset-id/description\": {\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/tables/:dataset-id/tags\": {\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/columns/:dataset-id/:field-name\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/columns/:dataset-id/:field-name/custom-properties/:name\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/columns/:dataset-id/:field-name/description\": {\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/columns/:dataset-id/:field-name/tags\": {\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/metadata-registry/search\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/metadata-registry/count\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/metadata-registry/items\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/metadata-registry/items/:name\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/data-catalog\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/data-catalog/configuration\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/data-catalog/.well-known/openid-configuration\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  }\n}",
+                "name": "auth.json"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/configs",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_FILE_NAME",
+            "value": "auth",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_VERSION",
+            "value": "2.4.2",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERINFO_URL",
+            "value": "http://authentication-service/userinfo",
+            "valueType": "plain"
+          },
+          {
+            "name": "CUSTOM_USER_ID_KEY",
+            "value": "userId",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEADERS_TO_PROXY",
+            "value": "connection,upgrade,sec-websocket-protocol,sec-webSocket-version,x-request-id,request-id,cookie,authorization,client-type,host,x-forwarded-host,traceparent,tracestate",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTHORIZATION_STRICT_MODE_ENABLED",
+            "value": "true",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_TO_PROXY",
+            "value": "provider,email,username,name,permissions,metadata",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENT_TYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_USERINFO_URL",
+            "value": "",
+            "valueType": "plain"
+          },
+          {
+            "name": "CUSTOM_PERMISSIONS_KEY",
+            "value": "permissions",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTHORIZATION_HEADERS_TO_PROXY",
+            "value": "",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "port": "http",
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "80Mi",
+            "min": "20Mi"
+          }
+        },
+        "description": "Use this service to authorize routes to request certain resources, leveraging OpenID Connect and simple user-defined configurations",
+        "dockerImage": "nexus.mia-platform.eu/core/authorization-service:2.4.3",
+        "mapEnvVarToMountPath": {
+          "authorization-service-config": {
+            "envName": "CONFIGURATION_PATH",
+            "type": "folder"
+          }
+        },
+        "name": "authorization-service",
+        "tags": [
+          "auth"
+        ],
+        "type": "plugin"
+      },
+      "crud-service": {
+        "componentId": "crud-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "link": {
+              "targetSection": "collections"
+            },
+            "mountPath": "/home/node/app/collections",
+            "name": "crud-service-collections",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "content": "{\n  \"id\": \"users\",\n  \"description\": \"Collection of users\",\n  \"name\": \"users\",\n  \"fields\": [\n    {\n      \"name\": \"_id\",\n      \"type\": \"ObjectId\",\n      \"required\": true,\n      \"nullable\": false,\n      \"description\": \"_id\"\n    },\n    {\n      \"name\": \"creatorId\",\n      \"type\": \"string\",\n      \"required\": true,\n      \"nullable\": false,\n      \"description\": \"creatorId\"\n    },\n    {\n      \"name\": \"createdAt\",\n      \"type\": \"Date\",\n      \"required\": true,\n      \"nullable\": false,\n      \"description\": \"createdAt\"\n    },\n    {\n      \"name\": \"updaterId\",\n      \"type\": \"string\",\n      \"required\": true,\n      \"nullable\": false,\n      \"description\": \"updaterId\"\n    },\n    {\n      \"name\": \"updatedAt\",\n      \"type\": \"Date\",\n      \"required\": true,\n      \"nullable\": false,\n      \"description\": \"updatedAt\"\n    },\n    {\n      \"name\": \"__STATE__\",\n      \"type\": \"string\",\n      \"required\": true,\n      \"nullable\": false,\n      \"description\": \"__STATE__\"\n    },\n    {\n      \"name\": \"name\",\n      \"type\": \"string\",\n      \"required\": false,\n      \"nullable\": false\n    },\n    {\n      \"name\": \"groups\",\n      \"type\": \"Array\",\n      \"required\": false,\n      \"nullable\": false,\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    {\n      \"name\": \"username\",\n      \"type\": \"string\",\n      \"required\": false,\n      \"nullable\": false\n    },\n    {\n      \"name\": \"email\",\n      \"type\": \"string\",\n      \"required\": false,\n      \"nullable\": false\n    },\n    {\n      \"name\": \"providerId\",\n      \"type\": \"string\",\n      \"required\": true,\n      \"nullable\": false\n    },\n    {\n      \"name\": \"providerUserId\",\n      \"type\": \"string\",\n      \"required\": true,\n      \"nullable\": false\n    },\n    {\n      \"name\": \"realm\",\n      \"type\": \"string\",\n      \"required\": false,\n      \"nullable\": false\n    },\n    {\n      \"name\": \"metadata\",\n      \"type\": \"RawObject\",\n      \"required\": false,\n      \"nullable\": false,\n      \"schema\": {\n        \"properties\": {\n          \"permissions\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\",\n              \"enum\": [\n                \"read:pipelines\",\n                \"control:pipelines\",\n                \"read:connections\",\n                \"update:connections\",\n                \"delete:connections\",\n                \"read:runtimes\",\n                \"update:runtimes\",\n                \"read:data-assets\",\n                \"update:metadata-assets\",\n                \"read:users\",\n                \"update:users\"\n              ]\n            }\n          }\n        }\n      }\n    },\n    {\n      \"name\": \"permissions\",\n      \"type\": \"Array\",\n      \"required\": false,\n      \"nullable\": false,\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  ],\n  \"endpointBasePath\": \"/users\",\n  \"defaultState\": \"PUBLIC\",\n  \"indexes\": [\n    {\n      \"name\": \"_id\",\n      \"type\": \"normal\",\n      \"unique\": true,\n      \"fields\": [\n        {\n          \"name\": \"_id\",\n          \"order\": 1\n        }\n      ]\n    },\n    {\n      \"name\": \"createdAt\",\n      \"type\": \"normal\",\n      \"unique\": false,\n      \"fields\": [\n        {\n          \"name\": \"creatdAt\",\n          \"order\": -1\n        }\n      ]\n    },\n    {\n      \"name\": \"stateIndex\",\n      \"type\": \"normal\",\n      \"unique\": false,\n      \"fields\": [\n        {\n          \"name\": \"__STATE__\",\n          \"order\": 1\n        }\n      ]\n    },\n    {\n      \"name\": \"nameSearch\",\n      \"type\": \"normal\",\n      \"unique\": false,\n      \"fields\": [\n        {\n          \"name\": \"email\",\n          \"order\": 1\n        },\n        {\n          \"name\": \"name\",\n          \"order\": 1\n        },\n        {\n          \"name\": \"__STATE__\",\n          \"order\": 1\n        }\n      ]\n    },\n    {\n      \"name\": \"upsertSupport\",\n      \"type\": \"normal\",\n      \"unique\": false,\n      \"fields\": [\n        {\n          \"name\": \"providerId\",\n          \"order\": 1\n        },\n        {\n          \"name\": \"providerUserId\",\n          \"order\": 1\n        },\n        {\n          \"name\": \"realm\",\n          \"order\": 1\n        }\n      ]\n    }\n  ],\n  \"tags\": [\n    \"collection\"\n  ]\n}",
+                "name": "users-users.json"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+            "value": "true",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "true",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "<CONFIGURE_ME>",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "port": "http",
+            "timeoutSeconds": 3
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 3
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "500m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "70Mi"
+          }
+        },
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.2.2",
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "envName": "COLLECTION_DEFINITION_FOLDER",
+            "type": "folder"
+          }
+        },
+        "name": "crud-service",
+        "tags": [
+          "crud"
+        ],
+        "type": "plugin"
+      },
+      "data-catalog-fe": {
+        "componentId": "data-fabric.data-catalog-fe",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/usr/static",
+            "name": "data-catalog-fe-config",
+            "subPaths": [
+              "configuration.json",
+              "openid-configuration.json"
+            ],
+            "usePreserve": true,
+            "files": [
+              {
+                "content": "{\n  \"api\": {\n    \"data-catalog\": \"**DATA_CATALOG_BASE_URL**\"\n  },\n  \"name\": \"**APPLICATION_NAME**\",\n  \"version\": \"**VERSION**\"\n}",
+                "name": "configuration.json"
+              },
+              {
+                "content": "{\n  \"end_session_endpoint\": \"{{DC_BASE_URL}}/logout\"\n}",
+                "name": "openid-configuration.json"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "BASE_PATH",
+            "value": "/data-catalog/",
+            "valueType": "plain"
+          },
+          {
+            "name": "DATA_CATALOG_BASE_URL",
+            "value": "/api",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "cmd": [
+              "echo",
+              "'ok'"
+            ],
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "cmd": [
+              "echo",
+              "'ok'"
+            ],
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "20m"
+          },
+          "memoryLimits": {
+            "max": "60Mi",
+            "min": "15Mi"
+          }
+        },
+        "description": "This is the Data Catalog component for visualizing your data assets definitions and associated metadata",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/data-lineage/data-catalog-frontend:0.3.0",
+        "name": "data-catalog-fe",
+        "tags": [
+          "data-fabric"
+        ],
+        "type": "plugin"
+      },
+      "fabric-bff": {
+        "componentId": "data-fabric.bff",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/home/fabric_bff/.fd/data-fabric-bff",
+            "name": "fabric-bff-config",
+            "files": [
+              {
+                "content": "{\n  \"openLineage\": {\n    \"rest\": {\n      \"target\": \"http://open-lineage\"\n    },\n    \"grpc\": {\n      \"target\": \"http://open-lineage:50051\"\n    }\n  },\n  \"persistence\": {\n    \"type\": \"mongodb\",\n    \"configuration\": {\n      \"url\": \"<CONFIGURE_ME>\"\n    }\n  },\n  \"jobRunner\": {\n    \"grpc\": {\n      \"target\": \"http://job-runner:50051\"\n    }\n  },\n  \"settings\": {\n    \"apiPrefix\": \"/api\",\n    \"auditUserHeader\": \"miauserid\"\n  }\n}",
+                "name": "config.json"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "port": "http"
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "port": "http"
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "120m",
+            "min": "50m"
+          },
+          "memoryLimits": {
+            "max": "60Mi",
+            "min": "15Mi"
+          }
+        },
+        "description": "Backend for frontend communication proxy for Data Catalog services and other applications",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/fabric-bff:0.3.0",
+        "name": "fabric-bff",
+        "tags": [
+          "data-fabric"
+        ],
+        "type": "plugin"
+      },
+      "fabric-cache": {
+        "args": [
+          "redis-server",
+          "/etc/redis/redis.conf"
+        ],
+        "containerPorts": [
+          {
+            "from": 6379,
+            "name": "redis",
+            "protocol": "TCP",
+            "to": 6379
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/etc/redis",
+            "name": "redis-configuration",
+            "subPaths": [
+              "redis.conf"
+            ],
+            "files": [
+              {
+                "content": "## GENERIC ##\nport                      6379\nbind                      0.0.0.0\n\n## MEMORY ##\nsave                      \"\"\nappendonly                no\nmaxmemory                 31457280\n\n## REPLICAS ##\nslave-serve-stale-data    yes\nslave-read-only           yes\n",
+                "name": "redis.conf"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "port": "redis"
+          },
+          "readiness": {
+            "port": "redis"
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "150m",
+            "min": "50m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "50Mi"
+          }
+        },
+        "dockerImage": "redis:7.2.5",
+        "name": "fabric-cache",
+        "tags": [
+          "cache"
+        ],
+        "type": "plugin"
+      },
+      "grpcui": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultArgs": [
+          "-plaintext",
+          "-base-path=/ui/job-runner",
+          "-bind=0.0.0.0",
+          "-connect-fail-fast=false",
+          "job-runner:50051"
+        ],
+        "defaultEnvironmentVariables": [],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "port": "http"
+          },
+          "readiness": {
+            "port": "http"
+          },
+          "startup": {
+            "port": "http"
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "5m"
+          },
+          "memoryLimits": {
+            "max": "50Mi",
+            "min": "20Mi"
+          }
+        },
+        "defaultTerminationGracePeriodSeconds": 30,
+        "description": "temporary UI for job-runner",
+        "dockerImage": "docker.io/fullstorydev/grpcui:v1.4.1",
+        "name": "grpcui",
+        "tags": [
+          "utils"
+        ],
+        "type": "plugin"
+      },
+      "job-runner": {
+        "containerPorts": [
+          {
+            "from": 50051,
+            "name": "grpc",
+            "protocol": "TCP",
+            "to": 50051
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/home/job_runner/.fd/job-runner",
+            "name": "job-runner-config-folder",
+            "files": [
+              {
+                "content": "",
+                "name": ".odbc.ini"
+              },
+              {
+                "content": "{\n  \"persistence\": {\n    \"type\": \"mongodb\",\n    \"configuration\": {\n      \"url\": \"<CONFIGURE_ME>\"\n    }\n  }\n}",
+                "name": "config.json"
+              },
+              {
+                "content": "{}",
+                "name": "secrets.json"
+              }
+            ]
+          },
+          {
+            "mountPath": "/opt/oracle/instantclient/network/admin",
+            "name": "job-runner-oracle-tnsadmin",
+            "usePreserve": true,
+            "files": [
+              {
+                "content": "",
+                "name": "tnsnames.ora"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "info",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "port": "grpc"
+          },
+          "readiness": {
+            "port": "grpc"
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "120m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "350Mi",
+            "min": "50Mi"
+          }
+        },
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/job-runner:0.2.0",
+        "name": "job-runner",
+        "tags": [
+          "data-fabric"
+        ],
+        "type": "plugin"
+      },
+      "login-site": {
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "port": "http"
+          },
+          "readiness": {
+            "port": "http"
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "80m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "30Mi",
+            "min": "15Mi"
+          }
+        },
+        "description": "Frontend supporting authentication flow",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/login-site:8.1.2",
+        "name": "login-site",
+        "tags": [
+          "auth"
+        ],
+        "type": "plugin"
+      },
+      "micro-lc": {
+        "componentId": "backoffice-backend",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "link": {
+              "targetSection": "microfrontend-composer/micro-lc"
+            },
+            "mountPath": "/usr/static/public",
+            "name": "micro-lc-static-files",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "content": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <base href=\"/mgmt/\" target=\"_blank\" />\n\n  <title>Data Fabric Users Management</title>\n\n  <link rel=\"icon\" type=\"image/png\" href=\"https://www.mia-platform.eu/static/img/favicon/apple-icon-60x60.png\" />\n  <link rel=\"stylesheet\" nonce=\"**CSP_NONCE**\" href=\"./assets/style.css\" />\n\n  <script type=\"module\" nonce=\"**CSP_NONCE**\"\n    src=\"https://cdn.mia-platform.eu/backoffice/bk-web-components/{{BACK_KIT_VERSION}}/dist/bk-loading-animation.esm.js\"></script>\n\n  <script type=\"module\" nonce=\"**CSP_NONCE**\"\n    src=\"https://cdn.mia-platform.eu/micro-lc/orchestrator/{{MICRO_LC_VERSION}}/dist/micro-lc.production.js\"></script>\n</head>\n\n<body>\n  <bk-loading-animation primary-color=\"#2cb47b\">\n    <micro-lc config-src=\"/micro-lc-configurations/config.json\" fallback-language=\"en\"></micro-lc>\n  </bk-loading-animation>\n</body>\n\n</html>",
+                "name": "index.html"
+              }
+            ]
+          },
+          {
+            "link": {
+              "targetSection": "microfrontend-composer/micro-lc"
+            },
+            "mountPath": "/usr/static/configurations",
+            "name": "micro-lc-configurations",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "content": "{\n  \"applications\": {\n    \"users\": {\n      \"integrationMode\": \"compose\",\n      \"route\": \"./users\",\n      \"config\": \"/micro-lc-configurations/users.config.json\"\n    },\n    \"docs\": {\n      \"integrationMode\": \"iframe\",\n      \"route\": \"./documentation\",\n      \"src\": \"https://docs.mia-platform.eu/docs/fast_data/runtime_management/overview\"\n    },\n    \"job-runner-ui\": {\n      \"integrationMode\": \"iframe\",\n      \"route\": \"./job-runner\",\n      \"src\": \"{{DC_BASE_URL}}/ui/job-runner\"\n    }\n  },\n  \"layout\": {\n    \"content\": [\n      {\n        \"properties\": {\n          \"logo\": {\n            \"altText\": \"Mia-Platform Logo\",\n            \"url\": \"https://raw.githubusercontent.com/mia-platform/.github/master/profile/img/mia-platform_logo_color.png\"\n          },\n          \"menuItems\": [\n            {\n              \"icon\": {\n                \"library\": \"@ant-design/icons-svg\",\n                \"selector\": \"HomeOutlined\"\n              },\n              \"id\": \"docs\",\n              \"label\": \"Documentation\",\n              \"type\": \"application\"\n            },\n            {\n              \"type\": \"application\",\n              \"icon\": {\n                \"library\": \"@ant-design/icons-svg\",\n                \"selector\": \"UserOutlined\"\n              },\n              \"id\": \"users\",\n              \"label\": \"Users\"\n            },\n            {\n              \"type\": \"application\",\n              \"icon\": {\n                \"library\": \"@ant-design/icons-svg\",\n                \"selector\": \"LinkOutlined\"\n              },\n              \"id\": \"job-runner-ui\",\n              \"label\": \"Job Runner\"\n            }\n          ],\n          \"mode\": \"topBar\",\n          \"showSearchBar\": false,\n          \"userMenu\": {\n            \"logout\": {\n              \"method\": \"GET\",\n              \"redirectUrl\": \"/\",\n              \"url\": \"/logout\"\n            },\n            \"userInfoUrl\": \"/userinfo\"\n          },\n          \"userMenuTrigger\": \"click\"\n        },\n        \"tag\": \"bk-layout\"\n      },\n      {\n        \"properties\": {\n          \"primaryColor\": \"#2cb47b\",\n          \"varsPrefix\": [\n            \"micro-lc\",\n            \"microlc\",\n            \"back-kit\",\n            \"ant\"\n          ]\n        },\n        \"tag\": \"bk-antd-theme-manager\"\n      }\n    ],\n    \"sources\": [\n      \"https://cdn.mia-platform.eu/backoffice/bk-web-components/{{BACK_KIT_VERSION}}/dist/bk-web-components.esm.js\"\n    ]\n  },\n  \"settings\": {\n    \"defaultUrl\": \"./users\"\n  },\n  \"version\": 2\n}",
+                "name": "config.json"
+              },
+              {
+                "content": "{\n  \"definitions\": {\n    \"dataSchema\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"providerId\",\n        \"providerUserId\"\n      ],\n      \"properties\": {\n        \"_id\": {\n          \"formOptions\": {\n            \"hiddenOnInsert\": true,\n            \"readOnlyOnUpdate\": true\n          },\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"creatorId\": {\n          \"formOptions\": {\n            \"hiddenOnInsert\": true,\n            \"readOnlyOnUpdate\": true,\n            \"disabled\": false,\n            \"hidden\": true\n          },\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"createdAt\": {\n          \"formOptions\": {\n            \"hiddenOnInsert\": true,\n            \"readOnlyOnUpdate\": true,\n            \"disabled\": false,\n            \"hidden\": true\n          },\n          \"dateOptions\": {\n            \"displayFormat\": \"YYYY-MM-DD hh:mm\"\n          },\n          \"format\": \"date-time\",\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"updaterId\": {\n          \"formOptions\": {\n            \"hiddenOnInsert\": true,\n            \"readOnlyOnUpdate\": true,\n            \"hiddenOnUpdate\": true\n          },\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"updatedAt\": {\n          \"formOptions\": {\n            \"hiddenOnInsert\": true,\n            \"readOnlyOnUpdate\": true,\n            \"hiddenOnUpdate\": false,\n            \"hidden\": true\n          },\n          \"dateOptions\": {\n            \"displayFormat\": \"YYYY-MM-DD hh:mm\"\n          },\n          \"format\": \"date-time\",\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"__STATE__\": {\n          \"enum\": [\n            \"PUBLIC\",\n            \"DRAFT\",\n            \"TRASH\",\n            \"DELETED\"\n          ],\n          \"formOptions\": {\n            \"readOnlyOnUpdate\": true,\n            \"readOnly\": false,\n            \"placeholder\": \"PUBLIC\"\n          },\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"name\": {\n          \"type\": \"string\",\n          \"formOptions\": {\n            \"readOnly\": true\n          }\n        },\n        \"groups\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"string\"\n          }\n        },\n        \"username\": {\n          \"type\": \"string\",\n          \"formOptions\": {\n            \"readOnly\": true\n          },\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"email\": {\n          \"type\": \"string\",\n          \"formOptions\": {\n            \"readOnly\": true\n          },\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"providerId\": {\n          \"type\": \"string\",\n          \"formOptions\": {\n            \"readOnly\": true\n          }\n        },\n        \"providerUserId\": {\n          \"type\": \"string\",\n          \"formOptions\": {\n            \"readOnly\": true\n          },\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"realm\": {\n          \"type\": \"string\",\n          \"formOptions\": {\n            \"readOnlyOnInsert\": false,\n            \"readOnly\": true\n          },\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"permissions\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"read:pipelines\",\n              \"control:pipelines\",\n              \"read:runtimes\",\n              \"update:runtimes\",\n              \"read:data-assets\",\n              \"update:metadata-assets\",\n              \"update:bulk-action\",\n              \"read:users\",\n              \"update:users\",\n              \"update:lineage\",\n              \"admin:connections\",\n              \"admin:producers\"\n            ]\n          },\n          \"dataSchema\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\",\n              \"enum\": [\n                \"read:pipelines\",\n                \"control:pipelines\",\n                \"read:runtimes\",\n                \"update:runtimes\",\n                \"read:data-assets\",\n                \"update:metadata-assets\",\n                \"update:bulk-action\",\n                \"read:users\",\n                \"update:users\",\n                \"update:lineage\",\n                \"admin:connections\",\n                \"admin:producers\"\n              ]\n            }\n          }\n        },\n        \"metadata\": {\n          \"type\": \"object\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        }\n      }\n    }\n  },\n  \"content\": {\n    \"content\": [\n      {\n        \"content\": [\n          {\n            \"tag\": \"div\",\n            \"content\": [\n              {\n                \"properties\": {\n                  \"content\": \"Users\"\n                },\n                \"tag\": \"bk-title\"\n              },\n              {\n                \"tag\": \"bk-refresh-button\",\n                \"attributes\": {\n                  \"style\": \"margin-left: 14px; align-self: end;\"\n                }\n              },\n              {\n                \"tag\": \"div\",\n                \"attributes\": {\n                  \"style\": \"flex-grow: 1;\"\n                }\n              },\n              {\n                \"properties\": {\n                  \"placeholder\": \"Search...\"\n                },\n                \"tag\": \"bk-search-bar\"\n              },\n              {\n                \"properties\": {\n                  \"content\": \"\",\n                  \"clickConfig\": {\n                    \"type\": \"event\",\n                    \"actionConfig\": {\n                      \"label\": \"filter\",\n                      \"payload\": {}\n                    }\n                  },\n                  \"type\": \"outlined\",\n                  \"iconId\": \"FunnelPlotOutlined\"\n                },\n                \"tag\": \"bk-button\"\n              }\n            ],\n            \"attributes\": {\n              \"style\": \"display: flex; flex-direction: row; gap: 10px; padding: 0 20px;\"\n            }\n          },\n          {\n            \"tag\": \"div\",\n            \"attributes\": {\n              \"style\": \"width: 100%; display: flex; justify-content: space-between;\"\n            },\n            \"content\": [\n              {\n                \"attributes\": {\n                  \"style\": \"flex-grow: 1;\"\n                },\n                \"properties\": {\n                  \"tabs\": [\n                    {\n                      \"key\": \"public\",\n                      \"title\": \"Public\",\n                      \"filters\": [\n                        {\n                          \"property\": \"__STATE__\",\n                          \"operator\": \"equal\",\n                          \"value\": \"PUBLIC\"\n                        }\n                      ],\n                      \"order\": 0\n                    },\n                    {\n                      \"title\": \"Draft\",\n                      \"key\": \"draft\",\n                      \"order\": 2,\n                      \"filters\": [\n                        {\n                          \"property\": \"__STATE__\",\n                          \"operator\": \"equal\",\n                          \"value\": \"DRAFT\"\n                        }\n                      ]\n                    },\n                    {\n                      \"title\": \"Trash\",\n                      \"filters\": [\n                        {\n                          \"property\": \"__STATE__\",\n                          \"operator\": \"equal\",\n                          \"value\": \"TRASH\"\n                        }\n                      ],\n                      \"order\": 3,\n                      \"key\": \"trash\"\n                    }\n                  ]\n                },\n                \"tag\": \"bk-tabs\"\n              },\n              {\n                \"attributes\": {\n                  \"style\": \"margin-right: 4px\"\n                },\n                \"properties\": {\n                  \"dataSchema\": {\n                    \"$ref\": \"#/definitions/dataSchema\"\n                  },\n                  \"filters\": []\n                },\n                \"tag\": \"bk-filters-manager\"\n              }\n            ]\n          },\n          {\n            \"tag\": \"div\",\n            \"attributes\": {\n              \"style\": \"padding: 0 20px;\"\n            },\n            \"content\": {\n              \"tag\": \"bk-breadcrumbs\",\n              \"properties\": {\n                \"dataSchema\": {\n                  \"$ref\": \"#/definitions/dataSchema\"\n                }\n              }\n            }\n          }\n        ],\n        \"tag\": \"header\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: column; padding-top: 10px; background-color: white;\"\n        }\n      },\n      {\n        \"content\": [\n          {\n            \"properties\": {\n              \"dataSchema\": {\n                \"$ref\": \"#/definitions/dataSchema\"\n              },\n              \"rowActions\": {\n                \"kind\": \"icons\",\n                \"actions\": [\n                  {\n                    \"label\": \"Delete\",\n                    \"icon\": \"fas fa-trash\",\n                    \"kind\": \"event\",\n                    \"content\": \"delete-data\",\n                    \"meta\": {\n                      \"actionId\": \"delete-data\"\n                    },\n                    \"requireConfirm\": true\n                  }\n                ]\n              },\n              \"fitParentContainer\": true\n            },\n            \"tag\": \"bk-table\"\n          },\n          {\n            \"properties\": {\n              \"requireConfirm\": {\n                \"onClose\": true,\n                \"onSave\": true\n              },\n              \"dataSchema\": {\n                \"$ref\": \"#/definitions/dataSchema\"\n              },\n              \"width\": \"70vw\",\n              \"allowObjectAsTable\": false,\n              \"editorHeight\": \"30vh\",\n              \"allowNavigation\": true\n            },\n            \"tag\": \"bk-form-modal\"\n          },\n          {\n            \"tag\": \"bk-confirmation-modal\"\n          },\n          {\n            \"properties\": {\n              \"rootElementSelectors\": \"main.micro-lc-layout-content\",\n              \"successEventMap\": {\n                \"create-data\": {\n                  \"title\": \"Success\",\n                  \"content\": \"Data successfully created\",\n                  \"type\": \"success\"\n                },\n                \"update-data\": {\n                  \"title\": \"Success\",\n                  \"content\": \"Data successfully updated\",\n                  \"type\": \"success\"\n                },\n                \"delete-data\": {\n                  \"title\": \"Success\",\n                  \"content\": \"Data successfully deleted\",\n                  \"type\": \"success\"\n                }\n              },\n              \"errorEventMap\": {\n                \"create-data\": {\n                  \"title\": \"Error\",\n                  \"content\": \"An error occurred during order creation\",\n                  \"type\": \"error\"\n                },\n                \"update-data\": {\n                  \"title\": \"Error\",\n                  \"content\": \"An error occurred during order updated\",\n                  \"type\": \"error\"\n                },\n                \"delete-data\": {\n                  \"title\": \"Error\",\n                  \"content\": \"An error occurred during order deletion\",\n                  \"type\": \"error\"\n                }\n              }\n            },\n            \"tag\": \"bk-notifications\",\n            \"attributes\": {}\n          }\n        ],\n        \"tag\": \"main\",\n        \"attributes\": {\n          \"style\": \"flex-grow: 1; background-color: #f0f2f5; padding: 20px; overflow-y: auto;\"\n        }\n      },\n      {\n        \"content\": [\n          {\n            \"properties\": {\n              \"dataSchema\": {\n                \"$ref\": \"#/definitions/dataSchema\"\n              },\n              \"width\": \"40vw\"\n            },\n            \"tag\": \"bk-filter-drawer\"\n          }\n        ],\n        \"tag\": \"aside\"\n      },\n      {\n        \"content\": [\n          {\n            \"tag\": \"bk-bulk-delete\"\n          },\n          {\n            \"tag\": \"bk-bulk-actions\",\n            \"properties\": {\n              \"dataSchema\": {\n                \"$ref\": \"#/definitions/dataSchema\"\n              }\n            }\n          },\n          {\n            \"tag\": \"div\",\n            \"attributes\": {\n              \"style\": \"flex-grow: 1;\"\n            }\n          },\n          {\n            \"tag\": \"bk-footer\",\n            \"attributes\": {\n              \"style\": \"display: flex; justify-content: end; align-items: center;\"\n            }\n          },\n          {\n            \"tag\": \"bk-pagination\",\n            \"properties\": {\n              \"pageSize\": 10\n            }\n          }\n        ],\n        \"tag\": \"footer\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: row; flex-wrap: wrap; padding: 10px 20px; background-color: white; gap: 10px; position: sticky; bottom: 0; z-index: 10\"\n        }\n      },\n      {\n        \"properties\": {\n          \"basePath\": \"/v2/authz/users\",\n          \"dataSchema\": {\n            \"$ref\": \"#/definitions/dataSchema\"\n          }\n        },\n        \"tag\": \"bk-crud-client\"\n      }\n    ],\n    \"tag\": \"div\",\n    \"attributes\": {\n      \"style\": \"width: 100%; height: 100%; display: flex; flex-direction: column; position: relative;\"\n    }\n  },\n  \"sources\": [\n    \"https://cdn.mia-platform.eu/backoffice/bk-web-components/{{BACK_KIT_VERSION}}/dist/bk-web-components.esm.js\"\n  ]\n}",
+                "name": "users.config.json"
+              }
+            ]
+          },
+          {
+            "link": {
+              "targetSection": "microfrontend-composer/micro-lc"
+            },
+            "mountPath": "/usr/src/app/config",
+            "name": "micro-lc-server-configuration",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "content": "{\n  \"publicHeadersMap\": {\n    \"/public/index.html\": {\n      \"content-security-policy\": [\n        [\n          \"script-src 'nonce-**CSP_NONCE**' 'strict-dynamic' 'unsafe-eval'\",\n          \"style-src 'self' 'unsafe-inline'\",\n          \"img-src 'self' https:\",\n          \"object-src 'none'\",\n          \"font-src 'self'\",\n          \"worker-src 'self' blob:\",\n          \"base-uri 'self'\"\n        ]\n      ],\n      \"link\": [\n        \"</micro-lc-configurations/config.json>; rel=preload; as=fetch; crossorigin\",\n        \"</mfe-application/assets/style.css>; rel=preload; as=style; nonce=**CSP_NONCE**\",\n        \"<https://cdn.mia-platform.eu/micro-lc/orchestrator/{{MICRO_LC_VERSION}}/dist/micro-lc.production.js>; rel=modulepreload; as=script; nonce=**CSP_NONCE**\",\n        \"<https://cdn.mia-platform.eu/micro-lc/orchestrator/{{MICRO_LC_VERSION}}/dist/assets/composer.js>; rel=preload; as=fetch; crossorigin\",\n        \"<https://cdn.mia-platform.eu/backoffice/bk-web-components/{{BACK_KIT_VERSION}}/dist/bk-web-components.esm.js>; rel=preload; as=fetch; crossorigin\",\n        \"<https://cdn.mia-platform.eu/backoffice/bk-web-components/{{BACK_KIT_VERSION}}/dist/bk-loading-animation.esm.js; rel=preload; as=fetch; crossorigin\"\n      ]\n    }\n  }\n}",
+                "name": "config.json"
+              }
+            ]
+          },
+          {
+            "mountPath": "/usr/static/public/assets",
+            "name": "micro-lc-assets",
+            "files": [
+              {
+                "content": "html,\nbody {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n}",
+                "name": "style.css"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "port": "http",
+            "timeoutSeconds": 5
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "port": "http",
+            "successThreshold": 1,
+            "timeoutSeconds": 5
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "20m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "60Mi"
+          }
+        },
+        "description": "micro-lc config server.",
+        "dockerImage": "nexus.mia-platform.eu/microlc/middleware:3.3.3",
+        "links": [
+          {
+            "enableIf": "ENABLE_BACKOFFICE_CONFIGURATOR",
+            "label": "Microfrontend Composer",
+            "targetSection": "microfrontend-composer"
+          }
+        ],
+        "name": "micro-lc",
+        "tags": [
+          "composer"
+        ],
+        "type": "plugin"
+      },
+      "open-lineage": {
+        "componentId": "data-fabric.open-lineage",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "to": 3000
+          },
+          {
+            "from": 50051,
+            "name": "grpc",
+            "to": 50051
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/home/open_lineage/.fd/open-lineage",
+            "name": "open-lineage-config",
+            "files": [
+              {
+                "content": "{\n  \"cache\": {\n    \"type\": \"redis\",\n    \"configuration\": {\n      \"url\": \"redis://fabric-cache:6379\"\n    }\n  },\n  \"persistence\": {\n    \"type\": \"mongodb\",\n    \"configuration\": {\n      \"url\": \"<CONFIGURE_ME>\"\n    }\n  },\n  \"settings\": {\n    \"apiPrefix\": \"/api\",\n    \"auditUserHeader\": \"miauserid\"\n  }\n}",
+                "name": "config.json"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "port": "http"
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "port": "http"
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "400m",
+            "min": "125m"
+          },
+          "memoryLimits": {
+            "max": "250Mi",
+            "min": "100Mi"
+          }
+        },
+        "description": "Data Catalog component that allows reading your data assets definition and enrich them with ad-hoc metadata",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/open-lineage:0.3.1",
+        "name": "open-lineage",
+        "tags": [
+          "data-fabric"
+        ],
+        "type": "plugin"
+      }
+    },
+    "unsecretedVariables": {
+      "BACK_KIT_VERSION": {
+        "noProductionEnv": "1.5.8",
+        "productionEnv": "1.5.8"
+      },
+      "DC_APP_ID": {
+        "noProductionEnv": "<CONFIGURE_ME>",
+        "productionEnv": "<CONFIGURE_ME>"
+      },
+      "DC_BASE_URL": {
+        "noProductionEnv": "<CONFIGURE_ME>",
+        "productionEnv": "<CONFIGURE_ME>"
+      },
+      "DC_PROVIDER_ID": {
+        "noProductionEnv": "<CONFIGURE_ME>",
+        "productionEnv": "<CONFIGURE_ME>"
+      },
+      "DC_REDIS_SCOPE": {
+        "noProductionEnv": "<CONFIGURE_ME>",
+        "productionEnv": "<CONFIGURE_ME>"
+      },
+      "LOG_LEVEL": {
+        "noProductionEnv": "debug",
+        "productionEnv": "info"
+      },
+      "MICRO_LC_MANAGER_VERSION": {
+        "noProductionEnv": "3.3.3",
+        "productionEnv": "3.3.3"
+      },
+      "MICRO_LC_VERSION": {
+        "noProductionEnv": "2.4.3",
+        "productionEnv": "2.4.3"
+      },
+      "OKTA_BASE_URL": {
+        "noProductionEnv": "<CONFIGURE_ME>",
+        "productionEnv": "<CONFIGURE_ME>"
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "application",
+  "visibility": {
+    "public": true
+  }
+}

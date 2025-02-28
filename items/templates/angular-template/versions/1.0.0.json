@@ -1,0 +1,61 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "spa",
+  "description": "This template allows you to start setting up a front-end project with the Angular 10 framework",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Angular-App-Template/master/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/angular-template-transparent.png"
+  },
+  "itemId": "angular-template",
+  "name": "Angular 10 Template",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Angular-App-Template",
+  "resources": {
+    "services": {
+      "angular-10-template": {
+        "type": "template",
+        "name": "angular-10-template",
+        "description": "This template allows you to start setting up a front-end project with the Angular 10 framework",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Angular-App-Template/archive/master.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fangular-app.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

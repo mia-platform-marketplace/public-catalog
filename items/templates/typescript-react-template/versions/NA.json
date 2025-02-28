@@ -1,0 +1,56 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "spa",
+  "description": "This template allows you to start setting up a front-end project with React using TypeScript",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Typescript-React-App-Template/master/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/typescript-react-template-transparent.png"
+  },
+  "itemId": "typescript-react-template",
+  "name": "TypeScript React Template",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Typescript-React-App-Template",
+  "resources": {
+    "services": {
+      "typescript-react-template": {
+        "type": "template",
+        "name": "typescript-react-template",
+        "description": "This template allows you to start setting up a front-end project with React using TypeScript",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Typescript-React-App-Template/archive/master.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Freact-app.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "visibility": {
+    "public": true
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "database",
+  "description": "Provide SQL queries as REST API.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/sql-db-reader/configuration_and_usage"
+  },
+  "image": {
+    "localPath": "../../assets/sql-db-reader-plugin-transparent.png"
+  },
+  "itemId": "sql-db-reader",
+  "name": "SQL DB Reader",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/db-sql-reader",
+  "resources": {
+    "services": {
+      "sql-db-reader": {
+        "type": "plugin",
+        "name": "sql-db-reader",
+        "description": "Provide SQL queries as REST API.",
+        "dockerImage": "nexus.mia-platform.eu/core/db-sql-reader:3.0.1",
+        "defaultLogParser": "mia-plain",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
+  }
+}

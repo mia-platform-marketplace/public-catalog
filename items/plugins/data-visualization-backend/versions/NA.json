@@ -1,0 +1,85 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "business",
+  "description": "This is a backend for frontend to be used to configure Data Visualization dashboards.",
+  "image": {
+    "localPath": "../../assets/data-visualization-backend-plugin-transparent.png"
+  },
+  "itemId": "data-visualization-backend",
+  "name": "Data Visualization Backend",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "data-visualization-backend": {
+        "type": "plugin",
+        "name": "data-visualization-backend",
+        "description": "This is a backend for frontend to be used to configure Data Visualization dashboards.",
+        "dockerImage": "nexus.mia-platform.eu/core/charts-service:2.0.1",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "DASHBOARD_AND_CHARTS_CONFIG_PATH",
+            "value": "CHANGE_WITH_YOUR_DASHBOARD_CONFIG_PATH",
+            "valueType": "plain"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
+  }
+}

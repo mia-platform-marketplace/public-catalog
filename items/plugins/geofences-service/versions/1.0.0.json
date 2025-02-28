@@ -1,0 +1,56 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "addgeo",
+  "description": "The Geofences Service Plugin handles geofences and related resources and actions.",
+  "image": {
+    "localPath": "../../assets/geofences-service-plugin-transparent.png"
+  },
+  "itemId": "geofences-service",
+  "name": "Geofences Service",
+  "releaseStage": "stable",
+  "resources": {
+    "services": {
+      "geofences-service": {
+        "type": "plugin",
+        "name": "geofences-service",
+        "description": "The Geofences Service Plugin handles geofences and related resources and actions.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/geofences-service:1.0.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "URL",
+            "value": "http://crud-service/CHANGE_WITH_YOUR_CRUD_NAME",
+            "valueType": "plain"
+          },
+          {
+            "name": "SECRET",
+            "value": "CHANGE_WITH_YOUR_SECRET",
+            "valueType": "plain"
+          },
+          {
+            "name": "RADIUS",
+            "value": "300",
+            "valueType": "plain"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

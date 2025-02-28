@@ -1,0 +1,49 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "nodejs",
+  "description": "This is the best template to start creating a service in Node.js 16 integrated inside the platform",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Custom-Plugin-Template/refs/heads/16.x/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/nodejs-template-transparent.png"
+  },
+  "itemId": "node-js-template",
+  "name": "Node.js 16 Template",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Node.js-Custom-Plugin-Template/tree/16.x",
+  "resources": {
+    "services": {
+      "nodejs-16-template": {
+        "type": "template",
+        "name": "nodejs-16-template",
+        "description": "This is the best template to start creating a service in Node.js 16 integrated inside the platform",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Node.js-Custom-Plugin-Template/archive/refs/heads/16.x.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fnode-template.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "visibility": {
+    "public": true
+  }
+}

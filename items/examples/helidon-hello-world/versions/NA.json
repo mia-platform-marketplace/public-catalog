@@ -1,0 +1,75 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "kotlin",
+  "description": "Simple hello world application based on Helidon framework",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/helidon-hello-world-example/main/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/helidon-hello-world-example-transparent.png"
+  },
+  "itemId": "helidon-hello-world",
+  "name": "Helidon Hello World",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "helidon-hello-world": {
+        "type": "example",
+        "name": "helidon-hello-world",
+        "description": "Simple hello world application based on Helidon framework",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Helidon-Hello-World-Example/archive/main.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fspringboot.gitlab-ci-jdk-11.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVER_HOST",
+            "value": "0.0.0.0",
+            "valueType": "plain"
+          },
+          {
+            "name": "APP_NAME",
+            "value": "World",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "350m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "100Mi"
+          }
+        },
+        "defaultLogParser": "mia-plain",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "visibility": {
+    "public": true
+  }
+}

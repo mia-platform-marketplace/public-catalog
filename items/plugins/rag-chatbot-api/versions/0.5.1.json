@@ -1,0 +1,119 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "artificial-intelligence",
+  "description": "Application with useful APIs to generate embeddings and chat with a RAG chatbot.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/rag-chatbot-api/overview_and_usage"
+  },
+  "image": {
+    "localPath": "../../assets/rag-chatbot-api-transparent.png"
+  },
+  "itemId": "rag-chatbot-api",
+  "name": "RAG Chatbot API",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
+  "resources": {
+    "services": {
+      "rag-chatbot-api": {
+        "type": "plugin",
+        "name": "rag-chatbot-api",
+        "description": "Application with useful APIs to generate embeddings and chat with a RAG chatbot.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/rag-chatbot-api:0.5.1",
+        "componentId": "rag-chatbot-api",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "INFO",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/config/configuration.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_CLUSTER_URI",
+            "value": "<YOUR_MONGODB_CONNECTION_STRING>",
+            "valueType": "plain"
+          },
+          {
+            "name": "EMBEDDINGS_API_KEY",
+            "value": "<YOUR_OPENAI_API_KEY>",
+            "valueType": "plain"
+          },
+          {
+            "name": "LLM_API_KEY",
+            "value": "<YOUR_OPENAI_API_KEY>",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "min": "100m",
+            "max": "100m"
+          },
+          "memoryLimits": {
+            "min": "250Mi",
+            "max": "400Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 15,
+            "timeoutSeconds": 3,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 10,
+            "periodSeconds": 10,
+            "timeoutSeconds": 3,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultConfigMaps": [
+          {
+            "name": "assistant-config",
+            "mountPath": "/config",
+            "files": [
+              {
+                "name": "configuration.json",
+                "content": "{\n  \"llm\": {\n    \"name\": \"<YOUR_MODEL_NAME>\"\n  },\n  \"embeddings\": {\n    \"name\": \"<YOUR_EMBEDDING_NAME>\"\n  },\n  \"vectorStore\": {\n    \"dbName\": \"<YOUR_DATABASE_NAME>\",\n    \"collectionName\": \"<YOUR_COLLECTION_NAME>\",\n    \"indexName\": \"<YOUR_INDEX_NAME>\",\n    \"relevanceScoreFn\": \"<YOUR_DISTANCE_FUNCTION>\",\n    \"embeddingKey\": \"<YOUR_EMBEDDING_KEY>\",\n    \"textKey\": \"<YOUR_TEXT_KEY>\",\n    \"maxDocumentsToRetrieve\": 3\n  }\n}\n"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "0.5.1",
+    "releaseNote": "## First Release\nCreate your RAG Application with RAG Chatbot API, an application that allows you to generate embeddings and connect to LLMs to create a chatbot trained on the information you need.\n"
+  },
+  "visibility": {
+    "public": true
+  }
+}

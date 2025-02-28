@@ -1,0 +1,181 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "monitoring",
+  "description": "This is the application that sets up the monitoring resources and cofigures them to monitor Fast Data operations",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/fast_data/monitoring/overview"
+  },
+  "image": {
+    "localPath": "../../assets/fast-data-monitoring-application-transparent.png"
+  },
+  "itemId": "fast-data-monitoring",
+  "name": "Fast Data Monitoring",
+  "publishOnMiaDocumentation": false,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/fast-data-monitoring-application",
+  "resources": {
+    "services": {
+      "kafka-exporter": {
+        "type": "plugin",
+        "name": "kafka-exporter",
+        "dockerImage": "danielqsj/kafka-exporter:v1.8.0",
+        "description": "Use this service to export metrics from Kafka for Prometheus",
+        "defaultLogParser": "mia-plain",
+        "defaultDocumentationPath": "",
+        "defaultResources": {
+          "cpuLimits": {
+            "min": "40m",
+            "max": "200m"
+          },
+          "memoryLimits": {
+            "min": "20Mi",
+            "max": "80Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": ""
+          },
+          "readiness": {
+            "path": ""
+          }
+        },
+        "defaultArgs": [
+          "--kafka.server={{KAFKA_BROKERS}}",
+          "--sasl.enabled",
+          "--sasl.username={{KAFKA_SASL_USERNAME}}",
+          "--sasl.password={{KAFKA_SASL_PASSWORD}}",
+          "--sasl.mechanism={{KAFKA_SASL_MECHANISM}}",
+          "--tls.insecure-skip-tls-verify",
+          "--tls.enabled",
+          "--topic.filter={{KAFKA_EXPORTER_TOPIC_FILTER}}",
+          "--group.filter={{KAFKA_EXPORTER_GROUP_FILTER}}",
+          "--log.enable-sarama",
+          "--web.telemetry-path=/-/metrics",
+          "--web.listen-address=:3000"
+        ],
+        "defaultMonitoring": {
+          "endpoints": [
+            {
+              "path": "/-/metrics",
+              "port": "http",
+              "interval": "60s"
+            }
+          ]
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "mongodb-query-exporter": {
+        "type": "plugin",
+        "name": "mongodb-query-exporter",
+        "dockerImage": "ghcr.io/raffis/mongodb-query-exporter:v5.1.0",
+        "description": "Use this service to export metrics from MongoDB in the Prometheus format based on your queries",
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "MDBEXPORTER_CONFIG",
+            "value": "/configurations/config.yml",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "min": "30m",
+            "max": "100m"
+          },
+          "memoryLimits": {
+            "min": "20Mi",
+            "max": "80Mi"
+          }
+        },
+        "defaultConfigMaps": [
+          {
+            "name": "mongodb-exporter-config",
+            "mountPath": "/configurations",
+            "files": [
+              {
+                "content": "version: 3.0\nbind: 0.0.0.0:3000\nmetricsPath: /-/metrics\n\nlog:\n  encoding: json\n  level: info\n  development: false\n  disableCaller: false\n\nglobal:\n  queryTimeout: 10s\n  maxConnection: 3\n  defaultCache: 4m\n\nservers:\n  - name: main\n    uri: {{MONGODB_URL}}\n\naggregations:\n  - metrics:\n      - name: projection_changes_new_info\n        type: counter\n        help: \"Count the number of NEW projection changes\"\n        value: total\n        overrideEmpty: true\n        emptyValue: 0\n        labels: []\n        constLabels:\n          collection: d_projections_changes\n    servers: [main]\n    mode: pull\n    cache: 0\n    database: {{FAST_DATA_PROJECTIONS_DATABASE_NAME}}\n    collection: d_projections_changes\n    pipeline: |\n      [\n        {\n          \"$match\": {\n            \"changes.state\": \"NEW\"\n          }\n        },\n        {\n          \"$count\": \"total\"\n        }\n      ]\n",
+                "name": "config.yml"
+              }
+            ]
+          }
+        ],
+        "defaultMonitoring": {
+          "endpoints": [
+            {
+              "path": "/-/metrics",
+              "port": "http",
+              "interval": "60s"
+            }
+          ]
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    },
+    "unsecretedVariables": {
+      "KAFKA_BROKERS": {
+        "productionEnv": "CHANGE_ME",
+        "noProductionEnv": "CHANGE_ME"
+      },
+      "KAFKA_SASL_USERNAME": {
+        "productionEnv": "CHANGE_ME",
+        "noProductionEnv": "CHANGE_ME"
+      },
+      "KAFKA_SASL_PASSWORD": {
+        "productionEnv": "CHANGE_ME",
+        "noProductionEnv": "CHANGE_ME"
+      },
+      "KAFKA_SASL_MECHANISM": {
+        "productionEnv": "scram-sha-256",
+        "noProductionEnv": "scram-sha-256"
+      },
+      "KAFKA_EXPORTER_TOPIC_FILTER": {
+        "productionEnv": ".*",
+        "noProductionEnv": ".*"
+      },
+      "KAFKA_EXPORTER_GROUP_FILTER": {
+        "productionEnv": ".*",
+        "noProductionEnv": ".*"
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "application",
+  "visibility": {
+    "public": true
+  }
+}

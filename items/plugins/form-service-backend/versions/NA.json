@@ -1,0 +1,44 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "frontendbuilder",
+  "description": "This is a backend for frontend to be used for building and managing forms.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
+  },
+  "image": {
+    "localPath": "../../assets/form-service-backend-plugin-transparent.png"
+  },
+  "itemId": "form-service-backend",
+  "name": "Form Service Backend",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-backend",
+  "resources": {
+    "services": {
+      "form-service-backend": {
+        "type": "plugin",
+        "name": "form-service-backend",
+        "description": "This is a backend for frontend to be used for building and managing forms.",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/form-service-backend:2.0.2",
+        "defaultLogParser": "mia-json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
+  }
+}

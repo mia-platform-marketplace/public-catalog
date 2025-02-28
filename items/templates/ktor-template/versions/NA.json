@@ -1,0 +1,82 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "kotlin",
+  "description": "A complete Kotlin template using Ktor 1.6 framework with Java 11",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Ktor-Template/refs/heads/1.6.x_jdk-11/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/ktor-template-transparent.png"
+  },
+  "itemId": "ktor-template",
+  "name": "Ktor 1.6 Java 11 Template",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Ktor-Template/tree/1.6.x_jdk-11",
+  "resources": {
+    "services": {
+      "ktor-16-java-11-template": {
+        "type": "template",
+        "name": "ktor-16-java-11-template",
+        "description": "A complete Kotlin template using Ktor 1.6 framework with Java 11",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Ktor-Template/archive/refs/heads/1.6.x_jdk-11.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fgradle6-template.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_LOG_LEVEL",
+            "value": "body",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_CONFIG_FILE",
+            "value": "logback.xml",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "1000m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "150Mi"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "/documentation/openapi.json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "visibility": {
+    "public": true
+  }
+}

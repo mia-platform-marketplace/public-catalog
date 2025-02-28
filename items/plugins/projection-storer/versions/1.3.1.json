@@ -1,0 +1,96 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "fast-data",
+  "description": "Consumes ingestion events in order to keep the Fast Data projections records up to date with the connected System of Record.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/fast_data/projection_storer"
+  },
+  "image": {
+    "localPath": "../../assets/projection-storer-plugin.png"
+  },
+  "itemId": "projection-storer",
+  "name": "Projection Storer",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/projection-storer",
+  "resources": {
+    "services": {
+      "projection-storer": {
+        "type": "plugin",
+        "name": "projection-storer",
+        "description": "Consumes ingestion events in order to keep the Fast Data projections records up to date with the connected System of Record.",
+        "dockerImage": "nexus.mia-platform.eu/fast-data/projection-storer:1.3.1",
+        "componentId": "projection-storer",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "/app/conf/config.json",
+            "readOnly": true,
+            "managedBy": "fast-data",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "400Mi",
+            "max": "600Mi"
+          },
+          "cpuLimits": {
+            "min": "150m",
+            "max": "1000m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 15,
+            "timeoutSeconds": 3,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 10,
+            "periodSeconds": 10,
+            "timeoutSeconds": 3,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.3.1",
+    "releaseNote": "### Fixed\n\n- When Control Plane Operator closes the grpc client the Projection Storer is able to reconnect to it again when it re-opens without having to restart the service\n\n### Update\n\n- update service dependencies and Java build image to `21.0.4_7-jdk-jammy` \n\n"
+  },
+  "visibility": {
+    "public": true
+  }
+}

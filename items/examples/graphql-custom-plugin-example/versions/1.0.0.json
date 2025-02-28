@@ -1,0 +1,72 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "nodejs",
+  "description": "With this template you can easily create a GraphQL service",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/GraphQL-Custom-Plugin-Example/master/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/graphql-custom-plugin-example-transparent.png"
+  },
+  "itemId": "graphql-custom-plugin-example",
+  "name": "GraphQL-Custom-Plugin-Example",
+  "releaseStage": "deprecated",
+  "resources": {
+    "services": {
+      "graphql-custom-plugin-example": {
+        "type": "example",
+        "name": "graphql-custom-plugin-example",
+        "description": "With this template you can easily create a GraphQL service",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/GraphQL-Custom-Plugin-Example/archive/master.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fgraphql-custom-plugin.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_URL",
+            "value": "http://crud-service",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "path": ""
+          },
+          "readiness": {
+            "path": ""
+          }
+        },
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

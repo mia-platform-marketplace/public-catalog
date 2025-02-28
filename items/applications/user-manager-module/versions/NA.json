@@ -1,0 +1,1305 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "healthcare",
+  "description": "This module provides a ready-to-use system for the user management and authentication services.",
+  "image": {
+    "localPath": "../../assets/user-manager-module.png"
+  },
+  "itemId": "user-manager-module",
+  "name": "User Manager Module",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/user-auth-module/application",
+  "resources": {
+    "collections": {
+      "uam_user_manager_configs": {
+        "defaultName": "uam_user_manager_configs",
+        "description": "User Manager Service configurations for users",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "unique group type for users: eg. admin, secretary, etc. etc.",
+            "name": "userGroup",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "the registry CRUD endpoint associated to the user group, with additional user data",
+            "name": "crudEndpoint",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "the JSON schema of the CRUD that stores the user data for the specific gruop type",
+            "name": "crudSchema",
+            "nullable": false,
+            "required": true,
+            "type": "RawObject"
+          },
+          {
+            "description": "label displayed in the backoffice lookup",
+            "name": "label",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "authUserCreationDisabled",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          }
+        ],
+        "id": "uam_user_manager_configs",
+        "internalEndpoints": [
+          {
+            "basePath": "/uam-user-manager-configs",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "uam_users": {
+        "defaultName": "uam_users",
+        "description": "User Manager Service users",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "group associated to the user: customer, doctor, backoffice_operator, etc etc",
+            "name": "userGroup",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "firstName",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "lastName",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "title",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "birthDate",
+            "nullable": false,
+            "required": false,
+            "type": "Date"
+          },
+          {
+            "name": "birthCity",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "birthProvince",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "birthNation",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fiscalCode",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "mobilePhone",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "residenceAddress",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "residenceProvince",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "residenceZipCode",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "residenceNation",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "id of the company stored in the companies CRUD",
+            "name": "companyId",
+            "nullable": false,
+            "required": false,
+            "type": "ObjectId"
+          },
+          {
+            "description": "authUserId of the doctor assigned to a customer: stored in the users CRUD",
+            "name": "doctorId",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "id of the membership of a customer eg. Distance Care, Concierge, Distance Care: stored in the membership_models CRUD",
+            "name": "membershipModelId",
+            "nullable": false,
+            "required": false,
+            "type": "ObjectId"
+          },
+          {
+            "description": "",
+            "name": "residenceCity",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "auth service user id associated to a specific user",
+            "name": "authUserId",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "id of the insurance stored in the insurances CRUD",
+            "name": "insuranceId",
+            "nullable": false,
+            "required": false,
+            "type": "ObjectId"
+          },
+          {
+            "description": "medical notes about the customer",
+            "name": "notes",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "additional notes about the customer regarding risk factors",
+            "name": "riskFactors",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Array of medical specialties ids stored in the medical_specialties CRUD",
+            "name": "medicalSpecialties",
+            "nullable": false,
+            "required": false,
+            "type": "Array_string"
+          },
+          {
+            "description": "",
+            "name": "username",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "authUserId of the secretary associated with a customer",
+            "name": "secretaryId",
+            "nullable": false,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Array of medical expertises ids stored in the medical_expertises CRUD",
+            "name": "medicalExpertises",
+            "nullable": false,
+            "required": false,
+            "type": "Array_string"
+          },
+          {
+            "description": "corresponds to the 'blocked' property in auth0, replaces the old 'isBlocked'",
+            "name": "blocked",
+            "nullable": false,
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "the id of a gender stored in the genders CRUD",
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "genderId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "description": "true if the user accept the privacy agreement",
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isPrivacyAccepted",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "familyMembersIds",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "roles",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "expirationDate",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "expirationId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "ObjectId"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "groups",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "clusters",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "deviceToken",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "description": "List of doctors Ids",
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "doctorsIds",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "label",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "recipient",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "uam_users",
+        "internalEndpoints": [
+          {
+            "basePath": "/uam-users",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      }
+    },
+    "endpoints": {
+      "/authorize": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/authorize",
+        "defaultPathRewrite": "/authorize",
+        "description": "Endpoint /authorize",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "auth0-client",
+        "tags": [
+          "auth0-client"
+        ],
+        "type": "custom"
+      },
+      "/logout": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/logout",
+        "defaultPathRewrite": "/logout",
+        "description": "Endpoint /logout",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "auth0-client",
+        "tags": [
+          "auth0-client"
+        ],
+        "type": "custom"
+      },
+      "/oauth/token": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/oauth/token",
+        "defaultPathRewrite": "/oauth/token",
+        "description": "Endpoint /oauth/token",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "auth0-client",
+        "tags": [
+          "auth0-client"
+        ],
+        "type": "custom"
+      },
+      "/uam-user-manager-configs": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "collectionId": "uam_user_manager_configs",
+        "defaultBasePath": "/uam-user-manager-configs",
+        "defaultPathRewrite": "/uam-user-manager-configs",
+        "description": "Endpoint /uam-user-manager-configs",
+        "forceMicroserviceGatewayProxy": false,
+        "pathName": "/",
+        "public": false,
+        "secreted": false,
+        "showInDocumentation": true,
+        "tags": [
+          "crud"
+        ],
+        "type": "crud"
+      },
+      "/uam-users": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "collectionId": "uam_users",
+        "defaultBasePath": "/uam-users",
+        "defaultPathRewrite": "/uam-users",
+        "description": "Endpoint /uam-users",
+        "forceMicroserviceGatewayProxy": false,
+        "pathName": "/",
+        "public": false,
+        "secreted": false,
+        "showInDocumentation": true,
+        "tags": [
+          "crud"
+        ],
+        "type": "crud"
+      },
+      "/ums": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/ums",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /ums",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "user-manager-service",
+        "tags": [
+          "user-manager-service"
+        ],
+        "type": "custom"
+      },
+      "/web-login": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/web-login",
+        "defaultPathRewrite": "/web-login",
+        "description": "Endpoint /web-login",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "oauth-login-site",
+        "tags": [
+          "oauth-login-site"
+        ],
+        "type": "custom"
+      }
+    },
+    "services": {
+      "api-gateway": {
+        "additionalContainers": [
+          {
+            "args": [
+              "--listen",
+              "127.0.0.1:53",
+              "--default-resolver",
+              "--enable-search",
+              "--hostsfile=/etc/hosts"
+            ],
+            "defaultEnvironmentVariables": [
+              {
+                "name": "LOG_LEVEL",
+                "value": "{{LOG_LEVEL}}",
+                "valueType": "plain"
+              },
+              {
+                "name": "TRUSTED_PROXIES",
+                "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+                "valueType": "plain"
+              },
+              {
+                "name": "HTTP_PORT",
+                "value": "3000",
+                "valueType": "plain"
+              },
+              {
+                "name": "USERID_HEADER_KEY",
+                "value": "miauserid",
+                "valueType": "plain"
+              },
+              {
+                "name": "GROUPS_HEADER_KEY",
+                "value": "miausergroups",
+                "valueType": "plain"
+              },
+              {
+                "name": "CLIENTTYPE_HEADER_KEY",
+                "value": "client-type",
+                "valueType": "plain"
+              },
+              {
+                "name": "BACKOFFICE_HEADER_KEY",
+                "value": "isbackoffice",
+                "valueType": "plain"
+              },
+              {
+                "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+                "value": "microservice-gateway",
+                "valueType": "plain"
+              },
+              {
+                "name": "USER_PROPERTIES_HEADER_KEY",
+                "value": "miauserproperties",
+                "valueType": "plain"
+              }
+            ],
+            "defaultProbes": {
+              "liveness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 15,
+                "periodSeconds": 20
+              },
+              "readiness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 5,
+                "periodSeconds": 10
+              }
+            },
+            "defaultResources": {
+              "cpuLimits": {
+                "min": "10m"
+              },
+              "memoryLimits": {
+                "max": "20Mi",
+                "min": "5Mi"
+              }
+            },
+            "dockerImage": "nexus.mia-platform.eu/core/dnsmasq:1.0.3",
+            "name": "dnsmasq"
+          }
+        ],
+        "componentId": "api-gateway",
+        "containerPorts": [
+          {
+            "from": 8080,
+            "name": "frontend",
+            "to": 8080
+          },
+          {
+            "from": 8081,
+            "name": "backoffice",
+            "to": 8081
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "mountPath": "/etc/nginx/conf.d",
+            "name": "api-gateway-server",
+            "viewAsReadOnly": true
+          },
+          {
+            "files": [],
+            "mountPath": "/etc/nginx/platform.d",
+            "name": "api-gateway-platform",
+            "viewAsReadOnly": true
+          },
+          {
+            "files": [],
+            "link": {
+              "targetSection": "endpoints"
+            },
+            "mountPath": "/etc/nginx/customization.d",
+            "name": "api-gateway-customization",
+            "viewAsReadOnly": true
+          },
+          {
+            "files": [],
+            "mountPath": "/etc/nginx/backoffice.d",
+            "name": "api-gateway-backoffice",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [],
+        "defaultLogParser": "mia-nginx",
+        "defaultProbes": {
+          "liveness": {
+            "initialDelaySeconds": 15,
+            "path": "/healthz",
+            "periodSeconds": 20,
+            "port": "frontend"
+          },
+          "readiness": {
+            "initialDelaySeconds": 5,
+            "path": "/healthz",
+            "periodSeconds": 10,
+            "port": "frontend"
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "25Mi",
+            "min": "5Mi"
+          }
+        },
+        "description": "Use this service to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "nexus.mia-platform.eu/core/api-gateway:5.0.2",
+        "execPreStop": [
+          "sh",
+          "-c",
+          "sleep 5 && /usr/sbin/nginx -s quit"
+        ],
+        "name": "api-gateway",
+        "type": "plugin"
+      },
+      "auth0-client": {
+        "componentId": "auth0-client",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "{\"clients\":{\"cms\":{\"auth0Url\":\"{{AUTH0_TENANT_URL}}\",\"clientId\":\"{{AUTH0_CMS_CLIENT_ID}}\",\"clientSecret\":\"{{AUTH0_CMS_CLIENT_SECRET}}\",\"redirectUrl\":\"{{BACKOFFICE_BASE_URL}}/web-login/callback\",\"scopes\":[\"offline_access\",\"profile\",\"email\",\"website\"],\"audience\":\"\",\"supportedConnections\":[\"{{AUTH0_CONNECTION}}\"],\"defaultConnection\":\"{{AUTH0_CONNECTION}}\"},\"backoffice\":{\"auth0Url\":\"{{AUTH0_TENANT_URL}}\",\"clientId\":\"{{AUTH0_BACKOFFICE_CLIENT_ID}}\",\"clientSecret\":\"{{AUTH0_BACKOFFICE_CLIENT_SECRET}}\",\"redirectUrl\":\"{{BACKOFFICE_BASE_URL}}/web-login/callback\",\"scopes\":[\"offline_access\",\"profile\",\"email\",\"website\"],\"supportedConnections\":[\"{{AUTH0_CONNECTION}}\"],\"defaultConnection\":\"{{AUTH0_CONNECTION}}\"}},\"defaultClient\":\"backoffice\",\"managementClient\":{\"auth0Url\":\"{{AUTH0_TENANT_URL}}\",\"clientId\":\"{{AUTH0_MANAGEMENT_CLIENT_ID}}\",\"clientSecret\":\"{{AUTH0_MANAGEMENT_CLIENT_SECRET}}\",\"supportedConnectionsMap\":{\"{{AUTH0_CONNECTION}}\":{\"connectionId\":\"{{AUTH0_CONNECTION_ID}}\"}},\"defaultManagementConnectionName\":\"{{AUTH0_CONNECTION}}\"},\"customClaimsNamespaces\":[\"https://mia-platform.eu/app_metadata\",\"https://mia-platform.eu/user_metadata\"]}",
+                "name": "config.json"
+              }
+            ],
+            "link": {},
+            "mountPath": "/configs",
+            "name": "auth0-client-config"
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "SESSION_SCOPE",
+            "value": "{{SESSION_SCOPE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_CONFIG_FILE_NAME",
+            "value": "config",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_CONFIG_PATH",
+            "value": "/configs",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_MODE",
+            "value": "normal",
+            "valueType": "plain"
+          },
+          {
+            "name": "ORIGINAL_PROTOCOL_HEADER",
+            "value": "{{ORIGINAL_PROTOCOL_HEADER}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_HOSTS",
+            "secretKey": "redis-hosts",
+            "secretName": "redis",
+            "valueType": "secret"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "60m"
+          },
+          "memoryLimits": {
+            "max": "100Mi",
+            "min": "60Mi"
+          }
+        },
+        "defaultSecrets": [
+          {
+            "mountPath": "/home/node/app/secrets/redis",
+            "name": "redis"
+          }
+        ],
+        "description": "Integrate with your Auth0 tenant using Mia-Platform core service Auth0 Client.",
+        "dockerImage": "nexus.mia-platform.eu/core/auth0-client:{{AUTH0_CLIENT_VERSION}}",
+        "name": "auth0-client",
+        "type": "plugin"
+      },
+      "authorization-service": {
+        "componentId": "authorization-service",
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "mountPath": "/configs",
+            "name": "authorization-service-config",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/configs",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_FILE_NAME",
+            "value": "auth",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_VERSION",
+            "value": "2.0.2",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERINFO_URL",
+            "value": "http://user-manager-service/userinfo",
+            "valueType": "plain"
+          },
+          {
+            "name": "CUSTOM_USER_ID_KEY",
+            "value": "sub",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEADERS_TO_PROXY",
+            "value": "x-request-id,request-id,cookie,authorization,client-type,host,x-forwarded-host",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTHORIZATION_STRICT_MODE_ENABLED",
+            "value": "true",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENT_TYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "CUSTOM_PERMISSIONS_KEY",
+            "value": "permissions",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_TO_PROXY",
+            "value": "permissions",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTHORIZATION_HEADERS_TO_PROXY",
+            "value": "cookie,authorization,client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "50m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "50Mi",
+            "min": "30Mi"
+          }
+        },
+        "description": "",
+        "dockerImage": "nexus.mia-platform.eu/core/authorization-service:2.4.2",
+        "mapEnvVarToMountPath": {
+          "authorization-service-config": {
+            "envName": "CONFIGURATION_PATH",
+            "type": "folder"
+          }
+        },
+        "name": "authorization-service",
+        "type": "plugin",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "crud-service": {
+        "componentId": "crud-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "collections"
+            },
+            "mountPath": "/home/node/app/collections",
+            "name": "crud-service-collections",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+            "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "secretKey": "mongodb-url",
+            "secretName": "crud-service",
+            "valueType": "secret"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "300m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "70Mi"
+          }
+        },
+        "defaultSecrets": [
+          {
+            "mountPath": "/home/node/app/secrets/mlp",
+            "name": "crud-service"
+          }
+        ],
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:{{CRUD_SERVICE_VERSION}}",
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "envName": "COLLECTION_DEFINITION_FOLDER",
+            "type": "folder"
+          }
+        },
+        "name": "crud-service",
+        "type": "plugin"
+      },
+      "oauth-login-site": {
+        "componentId": "oauth-login-site",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultConfigMaps": [],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "50m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "50Mi",
+            "min": "30Mi"
+          }
+        },
+        "defaultSecrets": [],
+        "description": "Login Page for authentication.",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/login-site:7.2.1",
+        "name": "oauth-login-site",
+        "type": "plugin"
+      },
+      "user-manager-service": {
+        "componentId": "user-manager-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTH_SERVICE",
+            "value": "auth0-client",
+            "valueType": "plain"
+          },
+          {
+            "name": "UMS_CONFIG_CRUD_ENDPOINT",
+            "value": "/uam-user-manager-configs",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERS_CRUD_ENDPOINT",
+            "value": "/uam-users",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTH_CONNECTION",
+            "secretKey": "auth-connection",
+            "secretName": "user-manager-service",
+            "valueType": "secret"
+          },
+          {
+            "name": "RANDOM_PWD_LENGTH",
+            "value": "10",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADDITIONAL_HEADERS_TO_PROXY",
+            "value": "acl_rows,x-request-id,request-id,cookie,authorization,client-type,host,x-forwarded-host",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERINFO_ADDITIONAL_PROPERTIES",
+            "value": "permissions",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "secretKey": "mongodb-url",
+            "secretName": "user-manager-service",
+            "valueType": "secret"
+          },
+          {
+            "name": "JOBS_COLLECTION_NAME",
+            "value": "uam_ums_users_jobs",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "50m",
+            "min": "50m"
+          },
+          "memoryLimits": {
+            "max": "70Mi",
+            "min": "50Mi"
+          }
+        },
+        "defaultSecrets": [
+          {
+            "mountPath": "/home/node/app/secrets/mlp",
+            "name": "user-manager-service"
+          }
+        ],
+        "description": "The User Manager Service combines the Authentication Service (e.g. Auth0 Client) and the CRUD into a unique service for user management.",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/user-manager-service:{{USER_MANAGER_SERVICE_VERSION}}",
+        "name": "user-manager-service",
+        "type": "plugin"
+      }
+    },
+    "unsecretedVariables": {
+      "AUTH0_CLIENT_VERSION": {
+        "noProductionEnv": "3.6.0",
+        "productionEnv": "3.6.0"
+      },
+      "BOOKING_MODULE_NAMESPACE": {
+        "noProductionEnv": "booking-module-development",
+        "productionEnv": "booking-module-preproduction"
+      },
+      "CRUD_SERVICE_VERSION": {
+        "noProductionEnv": "7.1.0",
+        "productionEnv": "7.1.0"
+      },
+      "EHR_MODULE_NAMESPACE": {
+        "noProductionEnv": "ehr-module-development",
+        "productionEnv": "ehr-module-preproduction"
+      },
+      "NOTIFICATION_MODULE_NAMESPACE": {
+        "noProductionEnv": "notification-module-development",
+        "productionEnv": "notification-module-preproduction"
+      },
+      "ORIGINAL_PROTOCOL_HEADER": {
+        "noProductionEnv": "x-forwarded-proto",
+        "productionEnv": "x-forwarded-proto"
+      },
+      "PATIENT_MONITORING_PORTAL_NAMESPACE": {
+        "noProductionEnv": "patient-monitoring-portal-development",
+        "productionEnv": "patient-monitoring-portal-preproduction"
+      },
+      "REDIS_MODE": {
+        "noProductionEnv": "normal",
+        "productionEnv": "normal"
+      },
+      "SESSION_SCOPE": {
+        "noProductionEnv": "mia-care-platform-development",
+        "productionEnv": "mia-care-platform-preproduction"
+      },
+      "THERAPY_DEVICE_MODULE_NAMESPACE": {
+        "noProductionEnv": "therapy-device-module-development",
+        "productionEnv": "therapy-device-module-preproduction"
+      },
+      "USER_MANAGER_SERVICE_VERSION": {
+        "noProductionEnv": "1.5.2",
+        "productionEnv": "1.5.2"
+      }
+    }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "application",
+  "visibility": {
+    "public": true
+  }
+}

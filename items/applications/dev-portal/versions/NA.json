@@ -1,0 +1,1569 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "devportal",
+  "description": "Use this application to set up your Developer Portal in a few clicks",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/dev_portal/overview"
+  },
+  "image": {
+    "localPath": "../../assets/dev-portal-application-transparent.png"
+  },
+  "itemId": "dev-portal",
+  "name": "Dev Portal",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/dev-portal/dev-portal-application",
+  "resources": {
+    "services": {
+      "api-gateway": {
+        "componentId": "api-gateway-envoy",
+        "containerPorts": [
+          {
+            "from": 8080,
+            "name": "frontend",
+            "to": 8080
+          },
+          {
+            "from": 8081,
+            "name": "backoffice",
+            "to": 8081
+          },
+          {
+            "from": 9901,
+            "name": "admin",
+            "to": 9901
+          },
+          {
+            "from": 50051,
+            "name": "grpc",
+            "to": 50051
+          }
+        ],
+        "defaultArgs": [
+          "-c",
+          "/etc/envoy/envoy.json",
+          "-l",
+          "{{LOG_LEVEL}}",
+          "--log-format",
+          "{\"level\":\"%l\",\"time\":\"%Y-%m-%dT%T.%fZ\",\"scope\":\"%n\",\"message\":\"%j\"}",
+          "--drain-time-s",
+          "50"
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "endpoints"
+            },
+            "mountPath": "/etc/envoy",
+            "name": "api-gateway-envoy-config",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/healthz",
+            "periodSeconds": 20,
+            "port": "frontend",
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/healthz",
+            "periodSeconds": 10,
+            "port": "frontend",
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "200m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "100Mi",
+            "min": "30Mi"
+          }
+        },
+        "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "envoyproxy/envoy:v1.31.1",
+        "execPreStop": [
+          "bash",
+          "-c",
+          "echo -e 'POST /drain_listeners?graceful HTTP/1.1\r\nHost: localhost:9901\r\n\r' > /dev/tcp/localhost/9901 && sleep 55s"
+        ],
+        "name": "api-gateway",
+        "tags": [
+          "custom"
+        ],
+        "type": "plugin"
+      },
+      "crud-service": {
+        "type": "plugin",
+        "name": "crud-service",
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.2.0",
+        "componentId": "crud-service",
+        "defaultDocumentationPath": "",
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "70Mi"
+          },
+          "cpuLimits": {
+            "max": "400m",
+            "min": "100m"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+            "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "collections"
+            },
+            "mountPath": "/home/node/app/collections",
+            "name": "crud-service-collections",
+            "viewAsReadOnly": true
+          }
+        ],
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "envName": "COLLECTION_DEFINITION_FOLDER",
+            "type": "folder"
+          }
+        },
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "files-service": {
+        "type": "plugin",
+        "name": "files-service",
+        "description": "Upload, download and handle your files using MongoDB, S3 or Google Storage.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/files-service:2.10.1",
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_URL",
+            "value": "http://crud-service/file-records/",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "/home/node/config/config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "PATH_PREFIX",
+            "value": "/files-service/",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEADERS_TO_PROXY",
+            "value": "miauserid,miausergroups",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/home/node/config",
+            "name": "files-service-configuration",
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\n  \"type\": \"mongodb\",\n  \"options\": {\n    \"url\": \"{{MONGODB_URL}}\",\n    \"bucketName\": \"dev-portal-files-bucket\"\n  }\n}\n"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "swagger-aggregator": {
+        "type": "plugin",
+        "name": "swagger-aggregator",
+        "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
+        "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.8.0",
+        "componentId": "swagger-aggregator",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "/home/node/app/configs/config.json",
+            "valueType": "plain"
+          }
+        ],
+        "mapEnvVarToMountPath": {
+          "swagger-aggregator-config": {
+            "type": "file",
+            "envName": "CONFIG_FILE_PATH"
+          }
+        },
+        "defaultConfigMaps": [
+          {
+            "name": "swagger-aggregator-config",
+            "mountPath": "/home/node/app/configs",
+            "files": [],
+            "viewAsReadOnly": true
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "dev-portal-marketplace-bff": {
+        "type": "plugin",
+        "name": "dev-portal-marketplace-bff",
+        "description": "This plugin allows you to create the backend configuration for the dev portal marketplace.",
+        "defaultLogParser": "mia-json",
+        "dockerImage": "nexus.mia-platform.eu/dev-portal/marketplace-bff:1.1.0",
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE_NAME",
+            "value": "crud-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "CATEGORIES_CRUD_PATH",
+            "value": "/categories",
+            "valueType": "plain"
+          },
+          {
+            "name": "COMPONENTS_CRUD_PATH",
+            "value": "/components",
+            "valueType": "plain"
+          },
+          {
+            "name": "REQUESTS_CRUD_PATH",
+            "value": "/requests",
+            "valueType": "plain"
+          },
+          {
+            "name": "TAGS_CRUD_PATH",
+            "value": "/tags",
+            "valueType": "plain"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      },
+      "dev-portal-frontend": {
+        "type": "template",
+        "name": "dev-portal-frontend",
+        "description": "Dev Portal frontend aggregation",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Dev-Portal-Template/archive/main.tar.gz",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "dev-portal-static-files",
+            "mountPath": "/usr/static",
+            "usePreserve": true,
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\n  \"$schema\": \"https://raw.githubusercontent.com/micro-lc/micro-lc/main/packages/interfaces/schemas/v2/config.schema.json\",\n  \"version\": 2,\n  \"settings\": {\n    \"defaultUrl\": \"/dev-portal/home/\"\n  },\n  \"layout\": {\n    \"content\": [\n      {\n        \"properties\": {\n          \"mode\": \"topBar\",\n          \"logo\": {\n            \"altText\": \"Dev Portal\",\n            \"onClickHref\": \"/dev-portal/\",\n            \"url\": \"https://www.mia-platform.eu/static/img/logo.svg\"\n          },\n          \"menuItems\": [\n            {\n              \"icon\": {\n                \"library\": \"@fortawesome/free-solid-svg-icons\",\n                \"selector\": \"faHome\"\n              },\n              \"id\": \"home\",\n              \"label\": \"Home\",\n              \"type\": \"application\"\n            },\n            {\n              \"icon\": {\n                \"library\": \"@fortawesome/free-solid-svg-icons\",\n                \"selector\": \"faBook\"\n              },\n              \"id\": \"documentation\",\n              \"label\": \"Documentation\",\n              \"type\": \"application\"\n            },\n            {\n              \"icon\": {\n                \"library\": \"@fortawesome/free-solid-svg-icons\",\n                \"selector\": \"faSearchDollar\"\n              },\n              \"id\": \"marketplace\",\n              \"label\": \"Marketplace\",\n              \"type\": \"application\"\n            },\n            {\n              \"icon\": {\n                \"library\": \"@fortawesome/free-solid-svg-icons\",\n                \"selector\": \"faArrowUpRightFromSquare\"\n              },\n              \"id\": \"api-portal\",\n              \"label\": \"API Documentation\",\n              \"type\": \"href\",\n              \"target\": \"_blank\",\n              \"href\": \"/documentations/api-portal/\"\n            }\n          ],\n          \"helpMenu\": {\n            \"helpHref\": \"https://docs.mia-platform.eu/docs/dev_portal/overview\"\n          },\n          \"head\": {\n            \"favIconUrl\": \"https://www.mia-platform.eu/static/img/favicon/apple-icon-60x60.png\",\n            \"title\": \"Dev Portal\"\n          }\n        },\n        \"tag\": \"bk-layout\"\n      },\n      {\n        \"properties\": {\n          \"primaryColor\": \"#4568B5\",\n          \"varsPrefix\": [\n            \"micro-lc\",\n            \"microlc\",\n            \"back-kit\",\n            \"ant\",\n            \"dev-portal\"\n          ]\n        },\n        \"tag\": \"bk-antd-theme-manager\"\n      }\n    ],\n    \"sources\": [\n      \"https://cdn.mia-platform.eu/backoffice/bk-web-components/1.5.9/dist/bk-web-components.esm.js\"\n    ]\n  },\n  \"applications\": {\n    \"home\": {\n      \"integrationMode\": \"parcel\",\n      \"route\": \"/dev-portal/home/\",\n      \"entry\": \"/dev-portal-home/\",\n      \"injectBase\": true\n    },\n    \"documentation\": {\n      \"integrationMode\": \"parcel\",\n      \"route\": \"/dev-portal/documentation/\",\n      \"entry\": \"/dev-portal-documentation/\"\n    },\n    \"marketplace\": {\n      \"integrationMode\": \"parcel\",\n      \"route\": \"/dev-portal/marketplace/\",\n      \"entry\": \"/dev-portal-marketplace/\",\n      \"injectBase\": true,\n      \"properties\": {\n        \"formKind\": \"clientCredentials\"\n      }\n    }\n  }\n}\n"
+              },
+              {
+                "name": "index.html",
+                "content": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <title>Dev Portal</title>\n\n  <link rel=\"icon\" type=\"image/png\" href=\"https://www.mia-platform.eu/static/img/favicon/apple-icon-60x60.png\" />\n  <link rel=\"stylesheet\" href=\"/dev-portal/style.css\" />\n\n  <script \n    type=\"module\" \n    src=\"https://cdn.mia-platform.eu/backoffice/bk-web-components/1.5.9/dist/bk-loading-animation.esm.js\"\n  ></script>\n\n  <script\n    type=\"module\"\n    src=\"https://cdn.mia-platform.eu/micro-lc/orchestrator/2.4.2/dist/micro-lc.production.js\"\n  ></script>\n</head>\n\n<body>\n  <bk-loading-animation primary-color=\"#1890ff\">\n    <micro-lc config-src=\"/dev-portal/config.json\"></micro-lc>\n  </bk-loading-animation>\n</body>\n\n</html>\n"
+              },
+              {
+                "name": "style.css",
+                "content": "html,\nbody {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n}\n\ndiv#__micro_lc {\n  background-color: white;\n}\n"
+              }
+            ]
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "20m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "60Mi"
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": ""
+      },
+      "dev-portal-backoffice": {
+        "type": "plugin",
+        "name": "dev-portal-backoffice",
+        "description": "Dev Portal Backoffice instance",
+        "dockerImage": "nexus.mia-platform.eu/microlc/middleware:3.3.0",
+        "componentId": "backoffice-backend",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "backoffice-static-files",
+            "mountPath": "/usr/static/public",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "name": "index.html",
+                "content": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <base href=\"/dev-portal-backoffice/\" target=\"_blank\" />\n\n  <title>Dev Portal Backoffice</title>\n\n  <link rel=\"icon\" type=\"image/png\" href=\"https://www.mia-platform.eu/static/img/favicon/apple-icon-60x60.png\" />\n  <link rel=\"stylesheet\" nonce=\"**CSP_NONCE**\" href=\"./assets/style.css\" />\n\n  <script\n    type=\"module\"\n    nonce=\"**CSP_NONCE**\"\n    src=\"https://cdn.mia-platform.eu/backoffice/bk-web-components/1.5.9/dist/bk-loading-animation.esm.js\"\n  ></script>\n\n  <script\n    type=\"module\"\n    nonce=\"**CSP_NONCE**\"\n    src=\"https://cdn.mia-platform.eu/micro-lc/orchestrator/2.4.2/dist/micro-lc.production.js\"\n  ></script>\n</head>\n\n<body>\n  <bk-loading-animation primary-color=\"#1890ff\">\n    <micro-lc config-src=\"/dev-portal-backoffice-configurations/config.json\"></micro-lc>\n  </bk-loading-animation>\n</body>\n\n</html>\n"
+              }
+            ]
+          },
+          {
+            "name": "backoffice-configurations",
+            "mountPath": "/usr/static/configurations",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "name": "categories.config.json",
+                "content": "{\n  \"definitions\": {\n    \"dataSchema\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"_id\": {\n          \"type\": \"string\",\n          \"excludeFromSearch\": true,\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"name\": {\n          \"type\": \"string\",\n          \"label\": {\n            \"en\": \"Name\",\n            \"it\": \"Nome\"\n          },\n          \"formOptions\": {\n            \"placeholder\": {\n              \"en\": \"Select a name\",\n              \"it\": \"Seleziona un nome\"\n            }\n          }\n        },\n        \"description\": {\n          \"type\": \"string\",\n          \"format\": \"text-area\",\n          \"label\": {\n            \"en\": \"Description\",\n            \"it\": \"Descrizione\"\n          },\n          \"formOptions\": {\n            \"placeholder\": {\n              \"en\": \"Add a description\",\n              \"it\": \"Aggiungi una descrizione\"\n            }\n          }\n        },\n        \"creatorId\": {\n          \"type\": \"string\",\n          \"excludeFromSearch\": true,\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"createdAt\": {\n          \"type\": \"string\",\n          \"excludeFromSearch\": true,\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"updaterId\": {\n          \"type\": \"string\",\n          \"excludeFromSearch\": true,\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"updatedAt\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"dateOptions\": {\n            \"displayFormat\": \"LLLL\"\n          },\n          \"label\": {\n            \"en\": \"Last Update\",\n            \"it\": \"Ultima modifica\"\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"__STATE__\": {\n          \"type\": \"string\",\n          \"format\": \"text\",\n          \"excludeFromSearch\": true,\n          \"label\": {\n            \"en\": \"State\",\n            \"it\": \"Stato\"\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"visualizationOptions\": {\n            \"iconMap\": {\n              \"PUBLIC\": {\n                \"shape\": \"roundedSquare\",\n                \"color\": \"#52C41A\"\n              },\n              \"DRAFT\": {\n                \"shape\": \"roundedSquare\",\n                \"color\": \"#CDCDCE\"\n              }\n            }\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        }\n      },\n      \"required\": [\n        \"name\"\n      ]\n    }\n  },\n  \"content\": {\n    \"content\": [\n      {\n        \"content\": [\n          {\n            \"content\": [\n              {\n                \"properties\": {\n                  \"content\": {\n                    \"en\": \"Categories\",\n                    \"it\": \"Categorie\"\n                  }\n                },\n                \"tag\": \"bk-title\",\n                \"attributes\": {}\n              },\n              {\n                \"tag\": \"bk-refresh-button\",\n                \"attributes\": {}\n              }\n            ],\n            \"tag\": \"div\",\n            \"attributes\": {\n              \"style\": \"display: flex; flex-direction: row; align-items: center; gap: 1vw;\"\n            }\n          },\n          {\n            \"properties\": {\n              \"placeholder\": {\n                \"en\": \"Search...\",\n                \"it\": \"Cerca...\"\n              }\n            },\n            \"tag\": \"bk-search-bar\",\n            \"attributes\": {}\n          },\n          {\n            \"content\": [\n              {\n                \"tag\": \"bk-add-new-button\",\n                \"attributes\": {}\n              },\n              {\n                \"tag\": \"bk-add-filter-button\",\n                \"attributes\": {}\n              }\n            ],\n            \"tag\": \"div\",\n            \"attributes\": {\n              \"style\": \"display: flex; flex-direction: row; align-items: center; gap: 1vw;\"\n            }\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: row; justify-content: space-between; margin: 1vw 2vw 0.5vw 2vw; align-items: center;\"\n        }\n      },\n      {\n        \"content\": [\n          {\n            \"properties\": {\n              \"tabs\": [\n                {\n                  \"filters\": [\n                    {\n                      \"property\": \"__STATE__\",\n                      \"operator\": \"includeSome\",\n                      \"value\": [\n                        \"PUBLIC\",\n                        \"DRAFT\"\n                      ]\n                    }\n                  ],\n                  \"title\": {\n                    \"en\": \"All\",\n                    \"it\": \"Tutte\"\n                  }\n                },\n                {\n                  \"filters\": [\n                    {\n                      \"property\": \"__STATE__\",\n                      \"operator\": \"equal\",\n                      \"value\": \"DRAFT\"\n                    }\n                  ],\n                  \"title\": {\n                    \"en\": \"Draft\",\n                    \"it\": \"Da Pubblicare\"\n                  }\n                },\n                {\n                  \"filters\": [\n                    {\n                      \"property\": \"__STATE__\",\n                      \"operator\": \"equal\",\n                      \"value\": \"PUBLIC\"\n                    }\n                  ],\n                  \"title\": {\n                    \"en\": \"Public\",\n                    \"it\": \"Pubbliche\"\n                  }\n                }\n              ]\n            },\n            \"tag\": \"bk-tabs\",\n            \"attributes\": {\n              \"style\": \"flex-grow: 1;\"\n            }\n          },\n          {\n            \"properties\": {\n              \"filters\": []\n            },\n            \"tag\": \"bk-filters-manager\",\n            \"attributes\": {}\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: row; margin: 0 2vw; gap: 2vw; align-items: center;\"\n        }\n      },\n      {\n        \"content\": [\n          {\n            \"content\": [\n              {\n                \"properties\": {\n                  \"dataSchema\": {\n                    \"$ref\": \"#/definitions/dataSchema\"\n                  },\n                  \"rowActions\": {\n                    \"kind\": \"icons\",\n                    \"actions\": [\n                      {\n                        \"label\": {\n                          \"en\": \"Delete\",\n                          \"it\": \"Elimina\"\n                        },\n                        \"icon\": \"far fa-trash-alt\",\n                        \"kind\": \"event\",\n                        \"content\": \"delete-data\",\n                        \"requireConfirm\": {\n                          \"cancelText\": {\n                            \"en\": \"Cancel\",\n                            \"it\": \"Annulla\"\n                          },\n                          \"content\": \"Are you sure you want to delete this category?\",\n                          \"okText\": {\n                            \"en\": \"Delete\",\n                            \"it\": \"Elimina\"\n                          },\n                          \"title\": \"Delete Category\"\n                        }\n                      }\n                    ]\n                  }\n                },\n                \"tag\": \"bk-table\",\n                \"attributes\": {\n                  \"style\": \"height: 90%\"\n                }\n              },\n              {\n                \"properties\": {\n                  \"dataSchema\": {\n                    \"$ref\": \"#/definitions/dataSchema\"\n                  },\n                  \"width\": \"60vw\",\n                  \"requireConfirm\": {\n                    \"cancelText\": {\n                      \"en\": \"Keep editing\",\n                      \"it\": \"Continua a modificare\"\n                    },\n                    \"content\": \"Your changes will be lost if you don't save them.\",\n                    \"okText\": {\n                      \"en\": \"Close without saving\",\n                      \"it\": \"Esci senza salvare\"\n                    },\n                    \"title\": \"Save changes before closing?\"\n                  }\n                },\n                \"tag\": \"bk-form-modal\",\n                \"attributes\": {}\n              },\n              {\n                \"properties\": {\n                  \"dataSchema\": {\n                    \"$ref\": \"#/definitions/dataSchema\"\n                  },\n                  \"width\": \"400\"\n                },\n                \"tag\": \"bk-filter-drawer\",\n                \"attributes\": {}\n              }\n            ],\n            \"tag\": \"div\",\n            \"attributes\": {\n              \"style\": \"display: flex; flex-direction: column; background-color: #f0f2f5; padding: 1.2vw 2vw; flex-grow: 1; position:relative; overflow:hidden;\"\n            }\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: column; flex-grow: 1;position:relative;\"\n        }\n      },\n      {\n        \"content\": [\n          {\n            \"tag\": \"bk-footer\",\n            \"attributes\": {\n              \"style\": \"margin: auto 0;\"\n            }\n          },\n          {\n            \"tag\": \"bk-pagination\",\n            \"attributes\": {\n              \"style\": \"margin: auto 0;\"\n            }\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: row; position: sticky; justify-content: space-between; margin: 0.5vw 2vw; background-color: white; z-index: 10; bottom: 0; max-height: 64px;\"\n        }\n      },\n      {\n        \"tag\": \"bk-confirmation-modal\",\n        \"attributes\": {}\n      },\n      {\n        \"properties\": {\n          \"rootElementSelectors\": \".composer-body\",\n          \"errorEventMap\": {\n            \"update-data\": {\n              \"type\": \"error\",\n              \"content\": {\n                \"en\": \"The data has not been updated correctly\",\n                \"it\": \"I dati non sono stati aggiornati correttamente\"\n              }\n            }\n          }\n        },\n        \"tag\": \"bk-notifications\",\n        \"attributes\": {}\n      },\n      {\n        \"properties\": {\n          \"basePath\": \"/v2/categories\",\n          \"dataSchema\": {\n            \"$ref\": \"#/definitions/dataSchema\"\n          },\n          \"enableDefinitiveDelete\": true\n        },\n        \"tag\": \"bk-crud-client\",\n        \"attributes\": {}\n      }\n    ],\n    \"tag\": \"div\",\n    \"attributes\": {\n      \"style\": \"display: flex; flex-direction: column; height: calc(100vh - 64px);; background: white;\"\n    }\n  },\n  \"sources\": [\n    \"https://cdn.mia-platform.eu/backoffice/bk-web-components/1.5.9/dist/bk-web-components.esm.js\"\n  ]\n}\n"
+              },
+              {
+                "name": "config.json",
+                "content": "{\n  \"version\": 2,\n  \"settings\": {\n    \"defaultUrl\": \"./marketplace-components\"\n  },\n  \"layout\": {\n    \"content\": [\n      {\n        \"properties\": {\n          \"mode\": \"fixedSideBar\",\n          \"logo\": {\n            \"altText\": \"Mia Platform\",\n            \"onClickHref\": \"./marketplace-components\",\n            \"url\": \"https://www.mia-platform.eu/static/img/logo.svg\"\n          },\n          \"menuItems\": [\n            {\n              \"type\": \"application\",\n              \"icon\": {\n                \"library\": \"@fortawesome/free-solid-svg-icons\",\n                \"selector\": \"faCartShopping\"\n              },\n              \"id\": \"marketplace\",\n              \"label\": \"Marketplace\"\n            },\n            {\n              \"type\": \"application\",\n              \"icon\": {\n                \"library\": \"@fortawesome/free-solid-svg-icons\",\n                \"selector\": \"faTableList\"\n              },\n              \"id\": \"categories\",\n              \"label\": \"Categories\"\n            },\n            {\n              \"type\": \"application\",\n              \"icon\": {\n                \"library\": \"@fortawesome/free-solid-svg-icons\",\n                \"selector\": \"faTags\"\n              },\n              \"id\": \"tags\",\n              \"label\": \"Tags\"\n            },\n            {\n              \"type\": \"application\",\n              \"icon\": {\n                \"library\": \"@fortawesome/free-solid-svg-icons\",\n                \"selector\": \"faUserPlus\"\n              },\n              \"id\": \"requests\",\n              \"label\": \"Requests\"\n            }\n          ],\n          \"head\": {\n            \"favIconUrl\": \"https://www.mia-platform.eu/static/img/favicon/apple-icon-60x60.png\",\n            \"title\": \"Dev Portal Backoffice\"\n          }\n        },\n        \"tag\": \"bk-layout\"\n      },\n      {\n        \"properties\": {\n          \"primaryColor\": \"#4568B5\",\n          \"varsPrefix\": [\n            \"micro-lc\",\n            \"microlc\",\n            \"back-kit\",\n            \"ant\"\n          ]\n        },\n        \"tag\": \"bk-antd-theme-manager\"\n      }\n    ],\n    \"sources\": [\n      \"https://cdn.mia-platform.eu/backoffice/bk-web-components/1.5.9/dist/bk-web-components.esm.js\"\n    ]\n  },\n  \"applications\": {\n    \"marketplace\": {\n      \"config\": \"/dev-portal-backoffice-configurations/marketplace.config.json\",\n      \"integrationMode\": \"compose\",\n      \"route\": \"./marketplace-components\"\n    },\n    \"categories\": {\n      \"config\": \"/dev-portal-backoffice-configurations/categories.config.json\",\n      \"integrationMode\": \"compose\",\n      \"route\": \"./marketplace-categories\"\n    },\n    \"tags\": {\n      \"config\": \"/dev-portal-backoffice-configurations/tags.config.json\",\n      \"integrationMode\": \"compose\",\n      \"route\": \"./components-tags\"\n    },\n    \"requests\": {\n      \"config\": \"/dev-portal-backoffice-configurations/requests.config.json\",\n      \"integrationMode\": \"compose\",\n      \"route\": \"./marketplace-requests\"\n    }\n  }\n}\n"
+              },
+              {
+                "name": "marketplace.config.json",
+                "content": "{\n  \"definitions\": {\n    \"dataSchema\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"_id\": {\n          \"type\": \"string\",\n          \"excludeFromSearch\": true,\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"title\": {\n          \"type\": \"string\",\n          \"label\": {\n            \"en\": \"Title\",\n            \"it\": \"Titolo\"\n          },\n          \"formOptions\": {\n            \"placeholder\": {\n              \"en\": \"Select a title\",\n              \"it\": \"Seleziona un titolo\"\n            }\n          }\n        },\n        \"type\": {\n          \"type\": \"string\",\n          \"format\": \"text\",\n          \"label\": {\n            \"en\": \"Type\",\n            \"it\": \"Tipologia\"\n          },\n          \"enum\": [\n            \"api\",\n            \"event\"\n          ],\n          \"visualizationOptions\": {\n            \"iconMap\": {\n              \"api\": {\n                \"shape\": \"roundedSquare\",\n                \"color\": \"#D5A6BD\"\n              },\n              \"event\": {\n                \"shape\": \"roundedSquare\",\n                \"color\": \"#B6D7A8\"\n              }\n            }\n          },\n          \"formOptions\": {\n            \"placeholder\": {\n              \"en\": \"Select a type\",\n              \"it\": \"Seleziona una tipologia\"\n            }\n          }\n        },\n        \"creatorId\": {\n          \"type\": \"string\",\n          \"excludeFromSearch\": true,\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"createdAt\": {\n          \"type\": \"string\",\n          \"excludeFromSearch\": true,\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"updaterId\": {\n          \"type\": \"string\",\n          \"excludeFromSearch\": true,\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"updatedAt\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"dateOptions\": {\n            \"displayFormat\": \"LLLL\"\n          },\n          \"label\": {\n            \"en\": \"Last Update\",\n            \"it\": \"Ultima modifica\"\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"category\": {\n          \"type\": \"string\",\n          \"format\": \"lookup\",\n          \"label\": {\n            \"en\": \"Category\",\n            \"it\": \"Categoria\"\n          },\n          \"lookupOptions\": {\n            \"lookupDataSource\": \"categories\",\n            \"lookupFields\": [\n              \"name\"\n            ],\n            \"lookupValue\": \"_id\"\n          },\n          \"formOptions\": {\n            \"placeholder\": {\n              \"en\": \"Select a category\",\n              \"it\": \"Seleziona una categoria\"\n            }\n          }\n        },\n        \"tags\": {\n          \"type\": \"array\",\n          \"format\": \"multilookup\",\n          \"label\": {\n            \"en\": \"Tags\",\n            \"it\": \"Tag\"\n          },\n          \"lookupOptions\": {\n            \"lookupDataSource\": \"tags\",\n            \"lookupFields\": [\n              \"name\"\n            ],\n            \"lookupValue\": \"_id\"\n          },\n          \"formOptions\": {\n            \"placeholder\": {\n              \"en\": \"Select tags\",\n              \"it\": \"Seleziona dei tag\"\n            }\n          }\n        },\n        \"description\": {\n          \"type\": \"string\",\n          \"format\": \"editor\",\n          \"label\": {\n            \"en\": \"Description\",\n            \"it\": \"Descrizione\"\n          },\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"placeholder\": {\n              \"en\": \"Add a description\",\n              \"it\": \"Aggiungi una descrizione\"\n            }\n          }\n        },\n        \"linksTitle\": {\n          \"type\": \"form-addon\",\n          \"format\": \"title\",\n          \"excludeFromSearch\": true,\n          \"label\": {\n            \"en\": \"Links\",\n            \"it\": \"Link\"\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"linkApiPortal\": {\n          \"type\": \"string\",\n          \"format\": \"link\",\n          \"excludeFromSearch\": true,\n          \"label\": {\n            \"en\": \"Api Portal Link\",\n            \"it\": \"Link ad API Portal\"\n          },\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hiddenOnUpdate\": true,\n            \"hiddenOnInsert\": true,\n            \"placeholder\": {\n              \"en\": \"Add a Api Portal link\",\n              \"it\": \"Aggiungi un link ad API Portal\"\n            }\n          }\n        },\n        \"linkDocumentation\": {\n          \"type\": \"string\",\n          \"format\": \"link\",\n          \"label\": {\n            \"en\": \"Documentation Link\",\n            \"it\": \"Link alla Documentazione\"\n          },\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"placeholder\": {\n              \"en\": \"Add a documentation link\",\n              \"it\": \"Aggiungi un link alla documentazione\"\n            }\n          }\n        },\n        \"mediaTitle\": {\n          \"type\": \"form-addon\",\n          \"format\": \"title\",\n          \"excludeFromSearch\": true,\n          \"label\": {\n            \"en\": \"Media\",\n            \"it\": \"Media\"\n          },\n          \"formOptions\": {\n            \"hiddenOnInsert\": true\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"icon\": {\n          \"type\": \"object\",\n          \"format\": \"file\",\n          \"excludeFromSearch\": true,\n          \"label\": {\n            \"en\": \"Icon\",\n            \"it\": \"Icona\"\n          },\n          \"formOptions\": {\n            \"hiddenOnInsert\": true,\n            \"placeholder\": {\n              \"en\": \"Add an icon\",\n              \"it\": \"Aggiungi un' icona\"\n            }\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"supporterName\": {\n          \"type\": \"string\",\n          \"label\": {\n            \"en\": \"Supporter\",\n            \"it\": \"Supporter\"\n          },\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"placeholder\": {\n              \"en\": \"Add a supporter\",\n              \"it\": \"Aggiungi un supporter\"\n            }\n          }\n        },\n        \"supporterIcon\": {\n          \"type\": \"object\",\n          \"format\": \"file\",\n          \"excludeFromSearch\": true,\n          \"label\": {\n            \"en\": \"Supporter Icon\",\n            \"it\": \"Icona del Supporter\"\n          },\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hiddenOnInsert\": true,\n            \"placeholder\": {\n              \"en\": \"Add a supporter icon\",\n              \"it\": \"Aggiungi un' icona per il supporter\"\n            }\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"__STATE__\": {\n          \"type\": \"string\",\n          \"format\": \"text\",\n          \"excludeFromSearch\": true,\n          \"label\": {\n            \"en\": \"State\",\n            \"it\": \"Stato\"\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"visualizationOptions\": {\n            \"iconMap\": {\n              \"PUBLIC\": {\n                \"shape\": \"roundedSquare\",\n                \"color\": \"#52C41A\"\n              },\n              \"DRAFT\": {\n                \"shape\": \"roundedSquare\",\n                \"color\": \"#CDCDCE\"\n              }\n            }\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        }\n      },\n      \"required\": [\n        \"title\",\n        \"type\",\n        \"category\"\n      ]\n    }\n  },\n  \"content\": {\n    \"content\": [\n      {\n        \"content\": [\n          {\n            \"content\": [\n              {\n                \"properties\": {\n                  \"content\": {\n                    \"en\": \"Marketplace\",\n                    \"it\": \"Marketplace\"\n                  }\n                },\n                \"tag\": \"bk-title\",\n                \"attributes\": {}\n              },\n              {\n                \"tag\": \"bk-refresh-button\",\n                \"attributes\": {}\n              }\n            ],\n            \"tag\": \"div\",\n            \"attributes\": {\n              \"style\": \"display: flex; flex-direction: row; align-items: center; gap: 1vw;\"\n            }\n          },\n          {\n            \"properties\": {\n              \"placeholder\": {\n                \"en\": \"Search...\",\n                \"it\": \"Cerca...\"\n              }\n            },\n            \"tag\": \"bk-search-bar\",\n            \"attributes\": {}\n          },\n          {\n            \"content\": [\n              {\n                \"properties\": {\n                  \"initialValues\": {\n                    \"description\": \"<h3>Overview</h3>\\n<p>In this section, you can write a simple overview of your component. This information can help your clients understand its main purpose and capabilities.</p>\\n<p><br></p>\\n\\n<h3>Introduction</h3>\\n<p>After a brief description, you can add further details regarding your component, including popular use cases and which problems it helps to solve. In addition, you can include details regarding the team behind its implementation, the interfaces it provides, and also how it performs in terms of speed and reliability.</p>\\n<p><br></p>\\n\\n<h3>Pricing</h3>\\n<p>Here you can structure a pricing plan where you analyze in detail every requirement linked to your component usage. Popular pricing frameworks include different subscription plans, composed for example of free and professional tiers.</p>\\n<p><br></p>\\n\\n<h3>Documentation</h3>\\n<p>In this section, you can describe all the technical details regarding your component, including the routes it offers and some related examples.</p>\\n<p>Furthermore, you can add links directed to the <a href='https://docs.mia-platform.eu/' rel='noopener noreferrer' target='_blank'>official documentation</a> where your component is described exhaustively.</p>\\n<p><br></p>\\n\\n<h4>Routes</h4>\\n<p>Here you can define all the possible ways your component can be accessed from the outside and their relative interfaces.</p>\\n<p><br></p>\\n\\n<h4>Examples</h4>\\n<p>Once you have defined how your component can be accessed, you can use the following section to provide examples including specific pieces of code:</p>\\n<pre class='ql-syntax' spellcheck='false'>\\n  module.exports = function toDate (value, fieldName, logger) {\\n    const date = new Date(value)\\n    if (date.toString() !== 'Invalid Date') {\\n      return date\\n    }\\n    logger.debug({fieldName}, 'cannot be converted to date')\\n    return undefined\\n  }\\n</pre>\\n<p><br></p>\\n\\n<h3>Support</h3>\\n<p>Here you can include a link redirecting to your customer support service: <a href='https://docs.mia-platform.eu/' rel='noopener noreferrer' target='_blank'>Learn more</a>.</p>\\n<p><br></p>\\n\\n<h3>Terms of service</h3>\\n<p>In this section you can specify all the terms and conditions of the software license associated with your component. <a href='https://docs.mia-platform.eu/' rel='noopener noreferrer' target='_blank'>Terms of service</a>.</p>\\n<p><br></p>\\n\"\n                  }\n                },\n                \"tag\": \"bk-add-new-button\",\n                \"attributes\": {}\n              },\n              {\n                \"tag\": \"bk-add-filter-button\",\n                \"attributes\": {}\n              }\n            ],\n            \"tag\": \"div\",\n            \"attributes\": {\n              \"style\": \"display: flex; flex-direction: row; align-items: center; gap: 1vw;\"\n            }\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: row; justify-content: space-between; margin: 1vw 2vw 0.5vw 2vw; align-items: center;\"\n        }\n      },\n      {\n        \"content\": [\n          {\n            \"properties\": {\n              \"tabs\": [\n                {\n                  \"filters\": [\n                    {\n                      \"property\": \"__STATE__\",\n                      \"operator\": \"includeSome\",\n                      \"value\": [\n                        \"PUBLIC\",\n                        \"DRAFT\"\n                      ]\n                    }\n                  ],\n                  \"title\": {\n                    \"en\": \"All\",\n                    \"it\": \"Tutte\"\n                  }\n                },\n                {\n                  \"filters\": [\n                    {\n                      \"property\": \"__STATE__\",\n                      \"operator\": \"equal\",\n                      \"value\": \"DRAFT\"\n                    }\n                  ],\n                  \"title\": {\n                    \"en\": \"Draft\",\n                    \"it\": \"Da Pubblicare\"\n                  }\n                },\n                {\n                  \"filters\": [\n                    {\n                      \"property\": \"__STATE__\",\n                      \"operator\": \"equal\",\n                      \"value\": \"PUBLIC\"\n                    }\n                  ],\n                  \"title\": {\n                    \"en\": \"Public\",\n                    \"it\": \"Pubbliche\"\n                  }\n                }\n              ]\n            },\n            \"tag\": \"bk-tabs\",\n            \"attributes\": {\n              \"style\": \"flex-grow: 1;\"\n            }\n          },\n          {\n            \"properties\": {\n              \"filters\": []\n            },\n            \"tag\": \"bk-filters-manager\",\n            \"attributes\": {}\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: row; margin: 0 2vw; gap: 2vw; align-items: center;\"\n        }\n      },\n      {\n        \"content\": [\n          {\n            \"content\": [\n              {\n                \"properties\": {\n                  \"dataSchema\": {\n                    \"$ref\": \"#/definitions/dataSchema\"\n                  },\n                  \"rowActions\": {\n                    \"kind\": \"icons\",\n                    \"actions\": [\n                      {\n                        \"label\": {\n                          \"en\": \"Download Icon\",\n                          \"it\": \"Scarica Icona\"\n                        },\n                        \"icon\": \"fas fa-download\",\n                        \"kind\": \"event\",\n                        \"content\": \"download-file\",\n                        \"meta\": {\n                          \"property\": \"icon\"\n                        }\n                      },\n                      {\n                        \"label\": {\n                          \"en\": \"Delete\",\n                          \"it\": \"Elimina\"\n                        },\n                        \"icon\": \"far fa-trash-alt\",\n                        \"kind\": \"event\",\n                        \"content\": \"delete-data\",\n                        \"requireConfirm\": {\n                          \"cancelText\": {\n                            \"en\": \"Cancel\",\n                            \"it\": \"Annulla\"\n                          },\n                          \"content\": \"Are you sure you want to delete this component?\",\n                          \"okText\": {\n                            \"en\": \"Delete\",\n                            \"it\": \"Elimina\"\n                          },\n                          \"title\": \"Delete Component\"\n                        }\n                      }\n                    ]\n                  }\n                },\n                \"tag\": \"bk-table\",\n                \"attributes\": {\n                  \"style\": \"height: 90%\"\n                }\n              },\n              {\n                \"properties\": {\n                  \"dataSchema\": {\n                    \"$ref\": \"#/definitions/dataSchema\"\n                  },\n                  \"requireConfirm\": {\n                    \"cancelText\": {\n                      \"en\": \"Keep editing\",\n                      \"it\": \"Continua a modificare\"\n                    },\n                    \"content\": \"Your changes will be lost if you don't save them.\",\n                    \"okText\": {\n                      \"en\": \"Close without saving\",\n                      \"it\": \"Esci senza salvare\"\n                    },\n                    \"title\": \"Save changes before closing?\"\n                  }\n                },\n                \"tag\": \"bk-form-modal\",\n                \"attributes\": {\n                  \"height\": \"65vh\",\n                  \"width\": \"80vw\"\n                }\n              },\n              {\n                \"properties\": {\n                  \"dataSchema\": {\n                    \"$ref\": \"#/definitions/dataSchema\"\n                  },\n                  \"width\": \"400\"\n                },\n                \"tag\": \"bk-filter-drawer\",\n                \"attributes\": {}\n              },\n              {\n                \"tag\": \"bk-file-picker-drawer\",\n                \"attributes\": {}\n              }\n            ],\n            \"tag\": \"div\",\n            \"attributes\": {\n              \"style\": \"display: flex; flex-direction: column; background-color: #f0f2f5; padding: 1.2vw 2vw; flex-grow: 1; position:relative; overflow:hidden;\"\n            }\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: column; flex-grow: 1;position:relative;\"\n        }\n      },\n      {\n        \"content\": [\n          {\n            \"tag\": \"bk-footer\",\n            \"attributes\": {\n              \"style\": \"margin: auto 0;\"\n            }\n          },\n          {\n            \"tag\": \"bk-pagination\",\n            \"attributes\": {\n              \"style\": \"margin: auto 0;\"\n            }\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: row; position: sticky; justify-content: space-between; margin: 0.5vw 2vw; background-color: white; z-index: 10; bottom: 0; max-height: 64px;\"\n        }\n      },\n      {\n        \"tag\": \"bk-confirmation-modal\",\n        \"attributes\": {}\n      },\n      {\n        \"properties\": {\n          \"rootElementSelectors\": \".composer-body\",\n          \"errorEventMap\": {\n            \"update-data\": {\n              \"type\": \"error\",\n              \"content\": {\n                \"en\": \"The data has not been updated correctly\",\n                \"it\": \"I dati non sono stati aggiornati correttamente\"\n              }\n            }\n          }\n        },\n        \"tag\": \"bk-notifications\",\n        \"attributes\": {}\n      },\n      {\n        \"properties\": {\n          \"basePath\": \"/v2/components\",\n          \"dataSchema\": {\n            \"$ref\": \"#/definitions/dataSchema\"\n          },\n          \"enableDefinitiveDelete\": true\n        },\n        \"tag\": \"bk-crud-client\",\n        \"attributes\": {}\n      },\n      {\n        \"properties\": {\n          \"basePath\": \"/v2\",\n          \"lookupDefaultState\": [\n            \"PUBLIC\"\n          ],\n          \"dataSchema\": {\n            \"$ref\": \"#/definitions/dataSchema\"\n          }\n        },\n        \"tag\": \"bk-crud-lookup-client\",\n        \"attributes\": {}\n      },\n      {\n        \"properties\": {\n          \"basePath\": \"/files-service\"\n        },\n        \"tag\": \"bk-file-client\",\n        \"attributes\": {}\n      },\n      {\n        \"tag\": \"bk-file-manager\",\n        \"attributes\": {}\n      }\n    ],\n    \"tag\": \"div\",\n    \"attributes\": {\n      \"style\": \"display: flex; flex-direction: column; height: calc(100vh - 64px); background: white;\"\n    }\n  },\n  \"sources\": [\n    \"https://cdn.mia-platform.eu/backoffice/bk-web-components/1.5.9/dist/bk-web-components.esm.js\"\n  ]\n}\n"
+              },
+              {
+                "name": "requests.config.json",
+                "content": "{\n  \"definitions\": {\n    \"dataSchema\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"_id\": {\n          \"type\": \"string\",\n          \"excludeFromSearch\": true,\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"userName\": {\n          \"type\": \"string\",\n          \"label\": {\n            \"en\": \"User name\",\n            \"it\": \"Nome utente\"\n          },\n          \"formOptions\": {\n            \"readOnly\": true\n          }\n        },\n        \"userEmail\": {\n          \"type\": \"string\",\n          \"format\": \"email\",\n          \"label\": {\n            \"en\": \"User e-mail\",\n            \"it\": \"E-Mail utente\"\n          },\n          \"formOptions\": {\n            \"readOnly\": true\n          }\n        },\n        \"userOrganization\": {\n          \"type\": \"string\",\n          \"format\": \"email\",\n          \"label\": {\n            \"en\": \"Organization\",\n            \"it\": \"Organizzazione\"\n          },\n          \"formOptions\": {\n            \"readOnly\": true\n          }\n        },\n        \"publicKey\": {\n          \"type\": \"string\",\n          \"label\": {\n            \"en\": \"Public Key\",\n            \"it\": \"Chiave Pubblica\"\n          },\n          \"formOptions\": {\n            \"readOnly\": true\n          },\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"additionalDescription\": {\n          \"type\": \"string\",\n          \"label\": {\n            \"en\": \"Details\",\n            \"it\": \"Dettagli\"\n          },\n          \"formOptions\": {\n            \"readOnly\": true\n          },\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"requestedComponentId\": {\n          \"type\": \"string\",\n          \"format\": \"lookup\",\n          \"formOptions\": {\n            \"readOnly\": true\n          },\n          \"label\": {\n            \"en\": \"Component name\",\n            \"it\": \"Nome component\"\n          },\n          \"lookupOptions\": {\n            \"lookupValue\": \"_id\",\n            \"lookupFields\": [\n              \"title\"\n            ],\n            \"lookupDataSource\": \"components\"\n          }\n        },\n        \"createdAt\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"dateOptions\": {\n            \"displayFormat\": \"LLLL\"\n          },\n          \"label\": {\n            \"en\": \"Insert date\",\n            \"it\": \"Data inserimento\"\n          },\n          \"formOptions\": {\n            \"readOnly\": true\n          }\n        },\n        \"managePermissions\": {\n          \"type\": \"form-addon\",\n          \"format\": \"link\",\n          \"excludeFromSearch\": true,\n          \"formOptions\": {\n            \"readOnly\": true\n          },\n          \"label\": {\n            \"en\": \"Manage Permissions\",\n            \"it\": \"Gestione Permessi\"\n          },\n          \"formLinkOptions\": {\n            \"href\": \"https://www.mia-platform.eu/\",\n            \"target\": \"_blank\",\n            \"icon\": \"fas fa-key\"\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"status\": {\n          \"type\": \"string\",\n          \"format\": \"text\",\n          \"enum\": [\n            \"PENDING\",\n            \"APPROVED\",\n            \"DENIED\",\n            \"ARCHIVED\"\n          ],\n          \"label\": {\n            \"en\": \"Request status\",\n            \"it\": \"Stato richiesta\"\n          },\n          \"visualizationOptions\": {\n            \"hidden\": true\n          }\n        }\n      },\n      \"required\": []\n    }\n  },\n  \"content\": {\n    \"content\": [\n      {\n        \"content\": [\n          {\n            \"content\": [\n              {\n                \"properties\": {\n                  \"content\": {\n                    \"en\": \"Requests\",\n                    \"it\": \"Richieste\"\n                  }\n                },\n                \"tag\": \"bk-title\",\n                \"attributes\": {}\n              },\n              {\n                \"tag\": \"bk-refresh-button\",\n                \"attributes\": {}\n              }\n            ],\n            \"tag\": \"div\",\n            \"attributes\": {\n              \"style\": \"display: flex; flex-direction: row; align-items: center; gap: 1vw;\"\n            }\n          },\n          {\n            \"properties\": {\n              \"placeholder\": {\n                \"en\": \"Search...\",\n                \"it\": \"Cerca...\"\n              }\n            },\n            \"tag\": \"bk-search-bar\",\n            \"attributes\": {}\n          },\n          {\n            \"tag\": \"bk-add-filter-button\",\n            \"attributes\": {}\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin: 1vw 2vw 0.5vw 2vw;\"\n        }\n      },\n      {\n        \"content\": [\n          {\n            \"properties\": {\n              \"tabs\": [\n                {\n                  \"filters\": [\n                    {\n                      \"property\": \"status\",\n                      \"operator\": \"equal\",\n                      \"value\": \"PENDING\"\n                    },\n                    {\n                      \"property\": \"__STATE__\",\n                      \"operator\": \"includeSome\",\n                      \"value\": [\n                        \"PUBLIC\",\n                        \"DRAFT\"\n                      ]\n                    }\n                  ],\n                  \"title\": {\n                    \"en\": \"Pending\",\n                    \"it\": \"In sospeso\"\n                  }\n                },\n                {\n                  \"filters\": [\n                    {\n                      \"property\": \"status\",\n                      \"operator\": \"equal\",\n                      \"value\": \"APPROVED\"\n                    },\n                    {\n                      \"property\": \"__STATE__\",\n                      \"operator\": \"includeSome\",\n                      \"value\": [\n                        \"PUBLIC\",\n                        \"DRAFT\"\n                      ]\n                    }\n                  ],\n                  \"title\": {\n                    \"en\": \"Approved\",\n                    \"it\": \"Approvato\"\n                  }\n                },\n                {\n                  \"filters\": [\n                    {\n                      \"property\": \"status\",\n                      \"operator\": \"equal\",\n                      \"value\": \"DENIED\"\n                    },\n                    {\n                      \"property\": \"__STATE__\",\n                      \"operator\": \"includeSome\",\n                      \"value\": [\n                        \"PUBLIC\",\n                        \"DRAFT\"\n                      ]\n                    }\n                  ],\n                  \"title\": {\n                    \"en\": \"Denied\",\n                    \"it\": \"Rifiutato\"\n                  }\n                },\n                {\n                  \"filters\": [\n                    {\n                      \"property\": \"status\",\n                      \"operator\": \"equal\",\n                      \"value\": \"ARCHIVED\"\n                    },\n                    {\n                      \"property\": \"__STATE__\",\n                      \"operator\": \"includeSome\",\n                      \"value\": [\n                        \"PUBLIC\",\n                        \"DRAFT\"\n                      ]\n                    }\n                  ],\n                  \"title\": {\n                    \"en\": \"Archived\",\n                    \"it\": \"Archiviato\"\n                  }\n                }\n              ]\n            },\n            \"tag\": \"bk-tabs\",\n            \"attributes\": {\n              \"style\": \"flex-grow: 1;\"\n            }\n          },\n          {\n            \"properties\": {\n              \"filters\": []\n            },\n            \"tag\": \"bk-filters-manager\",\n            \"attributes\": {}\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: row; margin: 0 2vw; gap: 2vw; align-items: center;\"\n        }\n      },\n      {\n        \"content\": [\n          {\n            \"content\": [\n              {\n                \"properties\": {\n                  \"dataSchema\": {\n                    \"$ref\": \"#/definitions/dataSchema\"\n                  },\n                  \"rowActions\": {\n                    \"kind\": \"icons\",\n                    \"actions\": [\n                      {\n                        \"label\": {\n                          \"en\": \"Delete\",\n                          \"it\": \"Elimina\"\n                        },\n                        \"icon\": \"far fa-trash-alt\",\n                        \"kind\": \"event\",\n                        \"content\": \"delete-data\",\n                        \"requireConfirm\": {\n                          \"cancelText\": {\n                            \"en\": \"Cancel\",\n                            \"it\": \"Annulla\"\n                          },\n                          \"content\": \"Are you sure you want to delete this request?\",\n                          \"okText\": {\n                            \"en\": \"Delete\",\n                            \"it\": \"Elimina\"\n                          },\n                          \"title\": \"Delete Request\"\n                        }\n                      }\n                    ]\n                  }\n                },\n                \"tag\": \"bk-table\",\n                \"attributes\": {\n                  \"style\": \"height: 90%\"\n                }\n              },\n              {\n                \"properties\": {\n                  \"dataSchema\": {\n                    \"$ref\": \"#/definitions/dataSchema\"\n                  },\n                  \"width\": \"60vw\",\n                  \"requireConfirm\": {\n                    \"cancelText\": {\n                      \"en\": \"Keep editing\",\n                      \"it\": \"Continua a modificare\"\n                    },\n                    \"content\": \"Your changes will be lost if you don't save them.\",\n                    \"okText\": {\n                      \"en\": \"Close without saving\",\n                      \"it\": \"Esci senza salvare\"\n                    },\n                    \"title\": \"Save changes before closing?\"\n                  }\n                },\n                \"tag\": \"bk-form-modal\",\n                \"attributes\": {}\n              },\n              {\n                \"properties\": {\n                  \"dataSchema\": {\n                    \"$ref\": \"#/definitions/dataSchema\"\n                  },\n                  \"width\": \"400\"\n                },\n                \"tag\": \"bk-filter-drawer\",\n                \"attributes\": {}\n              },\n              {\n                \"tag\": \"bk-file-picker-drawer\",\n                \"attributes\": {}\n              }\n            ],\n            \"tag\": \"div\",\n            \"attributes\": {\n              \"style\": \"display: flex; flex-direction: column; background-color: #f0f2f5; padding: 1.2vw 2vw; flex-grow: 1; position:relative; overflow:hidden;\"\n            }\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: column; flex-grow: 1;position:relative;\"\n        }\n      },\n      {\n        \"content\": [\n          {\n            \"properties\": {\n              \"disableStateChange\": true\n            },\n            \"tag\": \"bk-footer\",\n            \"attributes\": {\n              \"style\": \"margin: auto 0;\"\n            }\n          },\n          {\n            \"tag\": \"bk-pagination\",\n            \"attributes\": {\n              \"style\": \"margin: auto 0;\"\n            }\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: row; position: sticky; justify-content: space-between; margin: 0.5vw 2vw; background-color: white; z-index: 10; bottom: 0; max-height: 64px;\"\n        }\n      },\n      {\n        \"tag\": \"bk-confirmation-modal\",\n        \"attributes\": {}\n      },\n      {\n        \"properties\": {\n          \"rootElementSelectors\": \".composer-body\",\n          \"errorEventMap\": {\n            \"update-data\": {\n              \"type\": \"error\",\n              \"content\": {\n                \"en\": \"The data has not been updated correctly\",\n                \"it\": \"I dati non sono stati aggiornati correttamente\"\n              }\n            }\n          }\n        },\n        \"tag\": \"bk-notifications\",\n        \"attributes\": {}\n      },\n      {\n        \"properties\": {\n          \"basePath\": \"/v2/requests\",\n          \"dataSchema\": {\n            \"$ref\": \"#/definitions/dataSchema\"\n          },\n          \"enableDefinitiveDelete\": true\n        },\n        \"tag\": \"bk-crud-client\",\n        \"attributes\": {}\n      },\n      {\n        \"properties\": {\n          \"basePath\": \"/v2\",\n          \"dataSchema\": {\n            \"$ref\": \"#/definitions/dataSchema\"\n          }\n        },\n        \"tag\": \"bk-crud-lookup-client\",\n        \"attributes\": {}\n      }\n    ],\n    \"tag\": \"div\",\n    \"attributes\": {\n      \"style\": \"display: flex; flex-direction: column; height: calc(100vh - 64px); background: white;\"\n    }\n  },\n  \"sources\": [\n    \"https://cdn.mia-platform.eu/backoffice/bk-web-components/1.5.9/dist/bk-web-components.esm.js\"\n  ]\n}\n"
+              },
+              {
+                "name": "tags.config.json",
+                "content": "{\n  \"definitions\": {\n    \"dataSchema\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"_id\": {\n          \"type\": \"string\",\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"name\": {\n          \"type\": \"string\",\n          \"label\": {\n            \"en\": \"Name\",\n            \"it\": \"Nome\"\n          },\n          \"formOptions\": {\n            \"placeholder\": {\n              \"en\": \"Select a name\",\n              \"it\": \"Seleziona un nome\"\n            }\n          }\n        },\n        \"description\": {\n          \"type\": \"string\",\n          \"format\": \"text-area\",\n          \"label\": {\n            \"en\": \"Description\",\n            \"it\": \"Descrizione\"\n          },\n          \"formOptions\": {\n            \"placeholder\": {\n              \"en\": \"Add a description\",\n              \"it\": \"Aggiungi una descrizione\"\n            }\n          }\n        },\n        \"creatorId\": {\n          \"type\": \"string\",\n          \"excludeFromSearch\": true,\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"createdAt\": {\n          \"type\": \"string\",\n          \"excludeFromSearch\": true,\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"updaterId\": {\n          \"type\": \"string\",\n          \"excludeFromSearch\": true,\n          \"visualizationOptions\": {\n            \"hidden\": true\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"updatedAt\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"dateOptions\": {\n            \"displayFormat\": \"LLLL\"\n          },\n          \"label\": {\n            \"en\": \"Last Update\",\n            \"it\": \"Ultima modifica\"\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          }\n        },\n        \"__STATE__\": {\n          \"type\": \"string\",\n          \"format\": \"text\",\n          \"excludeFromSearch\": true,\n          \"label\": {\n            \"en\": \"State\",\n            \"it\": \"Stato\"\n          },\n          \"formOptions\": {\n            \"hidden\": true\n          },\n          \"visualizationOptions\": {\n            \"iconMap\": {\n              \"PUBLIC\": {\n                \"shape\": \"roundedSquare\",\n                \"color\": \"#52C41A\"\n              },\n              \"DRAFT\": {\n                \"shape\": \"roundedSquare\",\n                \"color\": \"#CDCDCE\"\n              }\n            }\n          },\n          \"filtersOptions\": {\n            \"hidden\": true\n          }\n        }\n      },\n      \"required\": [\n        \"name\"\n      ]\n    }\n  },\n  \"content\": {\n    \"content\": [\n      {\n        \"content\": [\n          {\n            \"content\": [\n              {\n                \"properties\": {\n                  \"content\": {\n                    \"en\": \"Tags\",\n                    \"it\": \"Tags\"\n                  }\n                },\n                \"tag\": \"bk-title\",\n                \"attributes\": {}\n              },\n              {\n                \"tag\": \"bk-refresh-button\",\n                \"attributes\": {}\n              }\n            ],\n            \"tag\": \"div\",\n            \"attributes\": {\n              \"style\": \"display: flex; flex-direction: row; align-items: center; gap: 1vw;\"\n            }\n          },\n          {\n            \"properties\": {\n              \"placeholder\": {\n                \"en\": \"Search...\",\n                \"it\": \"Cerca...\"\n              }\n            },\n            \"tag\": \"bk-search-bar\",\n            \"attributes\": {}\n          },\n          {\n            \"content\": [\n              {\n                \"tag\": \"bk-add-new-button\",\n                \"attributes\": {}\n              },\n              {\n                \"tag\": \"bk-add-filter-button\",\n                \"attributes\": {}\n              }\n            ],\n            \"tag\": \"div\",\n            \"attributes\": {\n              \"style\": \"display: flex; flex-direction: row; align-items: center; gap: 1vw;\"\n            }\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: row; justify-content: space-between; margin: 1vw 2vw 0.5vw 2vw; align-items: center;\"\n        }\n      },\n      {\n        \"content\": [\n          {\n            \"properties\": {\n              \"tabs\": [\n                {\n                  \"filters\": [\n                    {\n                      \"property\": \"__STATE__\",\n                      \"operator\": \"includeSome\",\n                      \"value\": [\n                        \"PUBLIC\",\n                        \"DRAFT\"\n                      ]\n                    }\n                  ],\n                  \"title\": {\n                    \"en\": \"All\",\n                    \"it\": \"Tutte\"\n                  }\n                },\n                {\n                  \"filters\": [\n                    {\n                      \"property\": \"__STATE__\",\n                      \"operator\": \"equal\",\n                      \"value\": \"DRAFT\"\n                    }\n                  ],\n                  \"title\": {\n                    \"en\": \"Draft\",\n                    \"it\": \"Da Pubblicare\"\n                  }\n                },\n                {\n                  \"filters\": [\n                    {\n                      \"property\": \"__STATE__\",\n                      \"operator\": \"equal\",\n                      \"value\": \"PUBLIC\"\n                    }\n                  ],\n                  \"title\": {\n                    \"en\": \"Public\",\n                    \"it\": \"Pubbliche\"\n                  }\n                }\n              ]\n            },\n            \"tag\": \"bk-tabs\",\n            \"attributes\": {\n              \"style\": \"flex-grow: 1;\"\n            }\n          },\n          {\n            \"properties\": {\n              \"filters\": []\n            },\n            \"tag\": \"bk-filters-manager\",\n            \"attributes\": {}\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: row; margin: 0 2vw; align-items: center;\"\n        }\n      },\n      {\n        \"content\": [\n          {\n            \"content\": [\n              {\n                \"properties\": {\n                  \"dataSchema\": {\n                    \"$ref\": \"#/definitions/dataSchema\"\n                  },\n                  \"rowActions\": {\n                    \"kind\": \"icons\",\n                    \"actions\": [\n                      {\n                        \"label\": {\n                          \"en\": \"Delete\",\n                          \"it\": \"Elimina\"\n                        },\n                        \"icon\": \"far fa-trash-alt\",\n                        \"kind\": \"event\",\n                        \"content\": \"delete-data\",\n                        \"requireConfirm\": {\n                          \"cancelText\": {\n                            \"en\": \"Cancel\",\n                            \"it\": \"Annulla\"\n                          },\n                          \"content\": \"Are you sure you want to delete this tag?\",\n                          \"okText\": {\n                            \"en\": \"Delete\",\n                            \"it\": \"Elimina\"\n                          },\n                          \"title\": \"Delete Tag\"\n                        }\n                      }\n                    ]\n                  }\n                },\n                \"tag\": \"bk-table\",\n                \"attributes\": {\n                  \"style\": \"height: 90%\"\n                }\n              },\n              {\n                \"properties\": {\n                  \"dataSchema\": {\n                    \"$ref\": \"#/definitions/dataSchema\"\n                  },\n                  \"width\": \"60vw\",\n                  \"requireConfirm\": {\n                    \"cancelText\": {\n                      \"en\": \"Keep editing\",\n                      \"it\": \"Continua a modificare\"\n                    },\n                    \"content\": \"Your changes will be lost if you don't save them.\",\n                    \"okText\": {\n                      \"en\": \"Close without saving\",\n                      \"it\": \"Esci senza salvare\"\n                    },\n                    \"title\": \"Save changes before closing?\"\n                  }\n                },\n                \"tag\": \"bk-form-modal\",\n                \"attributes\": {}\n              },\n              {\n                \"properties\": {\n                  \"dataSchema\": {\n                    \"$ref\": \"#/definitions/dataSchema\"\n                  },\n                  \"width\": \"400\"\n                },\n                \"tag\": \"bk-filter-drawer\",\n                \"attributes\": {}\n              }\n            ],\n            \"tag\": \"div\",\n            \"attributes\": {\n              \"style\": \"display: flex; flex-direction: column; background-color: #f0f2f5; padding: 1.2vw 2vw; flex-grow: 1; position:relative; overflow:hidden;\"\n            }\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: column; flex-grow: 1;position:relative;\"\n        }\n      },\n      {\n        \"content\": [\n          {\n            \"tag\": \"bk-footer\",\n            \"attributes\": {\n              \"style\": \"margin: auto 0;\"\n            }\n          },\n          {\n            \"tag\": \"bk-pagination\",\n            \"attributes\": {\n              \"style\": \"margin: auto 0;\"\n            }\n          }\n        ],\n        \"tag\": \"div\",\n        \"attributes\": {\n          \"style\": \"display: flex; flex-direction: row; position: sticky; justify-content: space-between; margin: 0.5vw 2vw; background-color: white; z-index: 10; bottom: 0; max-height: 64px;\"\n        }\n      },\n      {\n        \"tag\": \"bk-confirmation-modal\",\n        \"attributes\": {}\n      },\n      {\n        \"properties\": {\n          \"rootElementSelectors\": \".composer-body\",\n          \"errorEventMap\": {\n            \"update-data\": {\n              \"type\": \"error\",\n              \"content\": {\n                \"en\": \"Data haven't been updated correctly\",\n                \"it\": \"I dati non sono stati aggiornati correttamente\"\n              }\n            }\n          }\n        },\n        \"tag\": \"bk-notifications\",\n        \"attributes\": {}\n      },\n      {\n        \"properties\": {\n          \"basePath\": \"/v2/tags\",\n          \"dataSchema\": {\n            \"$ref\": \"#/definitions/dataSchema\"\n          },\n          \"enableDefinitiveDelete\": true\n        },\n        \"tag\": \"bk-crud-client\",\n        \"attributes\": {}\n      }\n    ],\n    \"tag\": \"div\",\n    \"attributes\": {\n      \"style\": \"display: flex; flex-direction: column; height: calc(100vh - 64px); background: white;\"\n    }\n  },\n  \"sources\": [\n    \"https://cdn.mia-platform.eu/backoffice/bk-web-components/1.5.9/dist/bk-web-components.esm.js\"\n  ]\n}\n"
+              }
+            ]
+          },
+          {
+            "name": "backoffice-server-configuration",
+            "mountPath": "/usr/src/app/config",
+            "viewAsReadOnly": true,
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\n  \"publicHeadersMap\": {\n    \"/public/index.html\": {\n      \"content-security-policy\": [\n        [\n          \"script-src 'nonce-**CSP_NONCE**' 'strict-dynamic' 'unsafe-eval'\",\n          \"style-src 'self' 'unsafe-inline'\",\n          \"img-src 'self' https:\",\n          \"object-src 'none'\",\n          \"font-src 'self'\",\n          \"worker-src 'self' blob:\",\n          \"base-uri 'self'\"\n        ]\n      ],\n      \"link\": [\n        \"</dev-portal-backoffice-configurations/config.json>; rel=preload; as=fetch; crossorigin\",\n        \"</dev-portal-backoffice/assets/style.css>; rel=preload; as=style; nonce=**CSP_NONCE**\",\n        \"<https://cdn.mia-platform.eu/micro-lc/orchestrator/2.4.2/dist/micro-lc.production.js>; rel=modulepreload; as=script; nonce=**CSP_NONCE**\",\n        \"<https://cdn.mia-platform.eu/micro-lc/orchestrator/2.4.2/dist/composer.js>; rel=preload; as=fetch; crossorigin\",\n        \"<https://cdn.mia-platform.eu/backoffice/bk-web-components/1.5.9/dist/bk-web-components.esm.js>; rel=preload; as=fetch; crossorigin\",\n        \"<https://cdn.mia-platform.eu/backoffice/bk-web-components/1.5.9/dist/bk-loading-animation.esm.js; rel=preload; as=fetch; crossorigin\"\n      ]\n    }\n  }\n}\n"
+              }
+            ]
+          },
+          {
+            "name": "backoffice-assets",
+            "mountPath": "/usr/static/public/assets",
+            "files": [
+              {
+                "name": "style.css",
+                "content": "html,\nbody {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n}\n"
+              }
+            ]
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 5,
+            "failureThreshold": 1
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "20m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "60Mi"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "",
+        "links": [
+          {
+            "label": "Microfrontend Composer",
+            "targetSection": "microfrontend-composer",
+            "enableIf": "ENABLE_BACKOFFICE_CONFIGURATOR"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    },
+    "endpoints": {
+      "/components": {
+        "defaultBasePath": "/components",
+        "defaultPathRewrite": "/components",
+        "description": "Endpoint /components",
+        "type": "crud",
+        "tags": [
+          "crud"
+        ],
+        "collectionId": "components",
+        "pathName": "/",
+        "public": true,
+        "showInDocumentation": true,
+        "secreted": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      },
+      "/categories": {
+        "defaultBasePath": "/categories",
+        "defaultPathRewrite": "/categories",
+        "description": "Endpoint /categories",
+        "type": "crud",
+        "tags": [
+          "crud"
+        ],
+        "collectionId": "categories",
+        "pathName": "/",
+        "public": true,
+        "showInDocumentation": true,
+        "secreted": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      },
+      "/tags": {
+        "defaultBasePath": "/tags",
+        "defaultPathRewrite": "/tags",
+        "description": "Endpoint /tags",
+        "type": "crud",
+        "tags": [
+          "crud"
+        ],
+        "collectionId": "tags",
+        "pathName": "/",
+        "public": true,
+        "showInDocumentation": true,
+        "secreted": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      },
+      "/requests": {
+        "defaultBasePath": "/requests",
+        "defaultPathRewrite": "/requests",
+        "description": "Endpoint /requests",
+        "type": "crud",
+        "tags": [
+          "crud"
+        ],
+        "collectionId": "requests",
+        "pathName": "/",
+        "public": true,
+        "showInDocumentation": true,
+        "secreted": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      },
+      "/files-service": {
+        "defaultBasePath": "/files-service",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /files-service",
+        "type": "custom",
+        "tags": [
+          "files"
+        ],
+        "public": true,
+        "showInDocumentation": false,
+        "secreted": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "files-service"
+      },
+      "/documentations/api-portal": {
+        "service": "swagger-aggregator",
+        "defaultBasePath": "/documentations/api-portal",
+        "defaultPathRewrite": "/swagger",
+        "type": "custom",
+        "description": "",
+        "tags": [
+          "api-docs"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": true,
+        "allowUnknownResponseContentType": true,
+        "forceMicroserviceGatewayProxy": false
+      },
+      "/api/openapi": {
+        "service": "swagger-aggregator",
+        "defaultBasePath": "/api/openapi",
+        "defaultPathRewrite": "/openapi/v3-1",
+        "type": "custom",
+        "description": "",
+        "tags": [
+          "api-docs"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      },
+      "/api/openapi/raw": {
+        "service": "swagger-aggregator",
+        "defaultBasePath": "/api/openapi/raw",
+        "defaultPathRewrite": "/",
+        "type": "custom",
+        "description": "",
+        "tags": [
+          "api-docs"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      },
+      "/dev-portal-marketplace-bff": {
+        "defaultBasePath": "/dev-portal-marketplace-bff",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /dev-portal-marketplace-bff",
+        "type": "custom",
+        "tags": [
+          "dev-portal"
+        ],
+        "public": true,
+        "showInDocumentation": false,
+        "secreted": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "dev-portal-marketplace-bff"
+      },
+      "/dev-portal": {
+        "defaultBasePath": "/dev-portal",
+        "defaultPathRewrite": "/",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "dev-portal"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "dev-portal-frontend"
+      },
+      "/dev-portal-home": {
+        "defaultBasePath": "/dev-portal-home",
+        "defaultPathRewrite": "/dev-portal-home",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "dev-portal"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "dev-portal-frontend"
+      },
+      "/dev-portal-documentation": {
+        "defaultBasePath": "/dev-portal-documentation",
+        "defaultPathRewrite": "/dev-portal-documentation",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "dev-portal"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "dev-portal-frontend"
+      },
+      "/dev-portal/documentation/assets": {
+        "defaultBasePath": "/dev-portal/documentation/assets",
+        "defaultPathRewrite": "/dev-portal-documentation/assets",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "dev-portal"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "dev-portal-frontend"
+      },
+      "/dev-portal/documentation/img": {
+        "defaultBasePath": "/dev-portal/documentation/img",
+        "defaultPathRewrite": "/dev-portal-documentation/img",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "dev-portal"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "dev-portal-frontend"
+      },
+      "/dev-portal-marketplace": {
+        "defaultBasePath": "/dev-portal-marketplace",
+        "defaultPathRewrite": "/dev-portal-marketplace",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "dev-portal"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "dev-portal-frontend"
+      },
+      "/dev-portal/marketplace/assets": {
+        "defaultBasePath": "/dev-portal/marketplace/assets",
+        "defaultPathRewrite": "/dev-portal-marketplace/assets",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "dev-portal"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "dev-portal-frontend"
+      },
+      "/dev-portal/marketplace/img": {
+        "defaultBasePath": "/dev-portal/marketplace/img",
+        "defaultPathRewrite": "/dev-portal-marketplace/img",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "dev-portal"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "dev-portal-frontend"
+      },
+      "/dev-portal-backoffice": {
+        "defaultBasePath": "/dev-portal-backoffice",
+        "defaultPathRewrite": "/public",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "backoffice"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "dev-portal-backoffice"
+      },
+      "/dev-portal-backoffice-configurations": {
+        "defaultBasePath": "/dev-portal-backoffice-configurations",
+        "defaultPathRewrite": "/configurations",
+        "description": "",
+        "type": "custom",
+        "tags": [
+          "backoffice"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false,
+        "service": "dev-portal-backoffice"
+      }
+    },
+    "collections": {
+      "file_records": {
+        "id": "file_records",
+        "description": "Collection of file records implementing the JS File interface",
+        "defaultName": "file_records",
+        "type": "collection",
+        "tags": [
+          "files"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "file",
+            "type": "string",
+            "required": false,
+            "nullable": false
+          },
+          {
+            "name": "location",
+            "type": "string",
+            "required": false,
+            "nullable": false
+          },
+          {
+            "name": "size",
+            "type": "number",
+            "required": true,
+            "nullable": false
+          }
+        ],
+        "indexes": [
+          {
+            "name": "_id",
+            "type": "normal",
+            "unique": true,
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ]
+          },
+          {
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "createdAt",
+                "order": -1
+              }
+            ]
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/file-records",
+            "defaultState": "PUBLIC"
+          }
+        ]
+      },
+      "components": {
+        "id": "components",
+        "description": "Collection of components",
+        "defaultName": "components",
+        "type": "collection",
+        "tags": [
+          "dev portal"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "required": true,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "icon",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "category",
+            "type": "string",
+            "required": true,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "required": true,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "linkApiPortal",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "linkDocumentation",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "supporterName",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "supporterIcon",
+            "type": "RawObject",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "tags",
+            "type": "Array_string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          }
+        ],
+        "indexes": [
+          {
+            "name": "_id",
+            "type": "normal",
+            "unique": true,
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ]
+          },
+          {
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "createdAt",
+                "order": -1
+              }
+            ]
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/components",
+            "defaultState": "PUBLIC"
+          }
+        ]
+      },
+      "categories": {
+        "id": "categories",
+        "description": "Collection of categories",
+        "defaultName": "categories",
+        "type": "collection",
+        "tags": [
+          "dev portal"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": true,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          }
+        ],
+        "indexes": [
+          {
+            "name": "_id",
+            "type": "normal",
+            "unique": true,
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ]
+          },
+          {
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "createdAt",
+                "order": -1
+              }
+            ]
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/categories",
+            "defaultState": "PUBLIC"
+          }
+        ]
+      },
+      "tags": {
+        "id": "tags",
+        "description": "Collection of tags",
+        "defaultName": "tags",
+        "type": "collection",
+        "tags": [
+          "dev portal"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": true,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          }
+        ],
+        "indexes": [
+          {
+            "name": "_id",
+            "type": "normal",
+            "unique": true,
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ]
+          },
+          {
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "createdAt",
+                "order": -1
+              }
+            ]
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/tags",
+            "defaultState": "PUBLIC"
+          }
+        ]
+      },
+      "requests": {
+        "id": "requests",
+        "description": "Collection of requests",
+        "defaultName": "requests",
+        "type": "collection",
+        "tags": [
+          "dev portal"
+        ],
+        "fields": [
+          {
+            "name": "_id",
+            "description": "_id",
+            "type": "ObjectId",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "creatorId",
+            "description": "creatorId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "createdAt",
+            "description": "createdAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updaterId",
+            "description": "updaterId",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "updatedAt",
+            "description": "updatedAt",
+            "type": "Date",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "__STATE__",
+            "description": "__STATE__",
+            "type": "string",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "name": "userEmail",
+            "description": "E-mail of the user that is requesting access",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": true,
+            "encryptionSearchable": true
+          },
+          {
+            "name": "userName",
+            "description": "Name of the user that is requesting access",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "status",
+            "description": "Request status",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "userOrganization",
+            "description": "Organization the user belongs to",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "requestedComponentId",
+            "type": "ObjectId",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "publicKey",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityDescription": "Public key of the user that is requesting the access",
+            "sensitivityValue": 2,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          },
+          {
+            "name": "additionalDescription",
+            "description": "Additional description provided by the requestor user",
+            "type": "string",
+            "required": false,
+            "nullable": false,
+            "sensitivityValue": 0,
+            "encryptionEnabled": false,
+            "encryptionSearchable": false
+          }
+        ],
+        "indexes": [
+          {
+            "name": "_id",
+            "type": "normal",
+            "unique": true,
+            "fields": [
+              {
+                "name": "_id",
+                "order": 1
+              }
+            ]
+          },
+          {
+            "name": "createdAt",
+            "type": "normal",
+            "unique": false,
+            "fields": [
+              {
+                "name": "createdAt",
+                "order": -1
+              }
+            ]
+          }
+        ],
+        "internalEndpoints": [
+          {
+            "basePath": "/requests",
+            "defaultState": "PUBLIC"
+          }
+        ]
+      }
+    },
+    "listeners": {
+      "frontend": {
+        "description": "Default listener for frontend API",
+        "name": "frontend",
+        "ownedBy": {
+          "componentIds": [
+            "api-gateway-envoy"
+          ]
+        },
+        "port": "8080",
+        "selectedByDefault": true
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "application",
+  "visibility": {
+    "public": true
+  }
+}

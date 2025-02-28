@@ -1,0 +1,157 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "utility",
+  "description": "The Pharma Ecommerce Backend is a Mia-Care plugin that provides APIs that can be used to create your own pharmaceutical e-commerce.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/pharma-ecommerce-backend/overview"
+  },
+  "image": {
+    "localPath": "../../assets/pharma-ecommerce-backend-plugin.png"
+  },
+  "itemId": "pharma-ecommerce-backend",
+  "name": "Pharma Ecommerce Backend",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/pharma-ecommerce-backend",
+  "resources": {
+    "services": {
+      "pharma-ecommerce-backend": {
+        "type": "plugin",
+        "name": "pharma-ecommerce-backend",
+        "description": "The Pharma Ecommerce Backend is a Mia-Care plugin that provides APIs that can be used to create your own pharmaceutical e-commerce.",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/pharma-ecommerce-backend:1.0.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE",
+            "valueType": "plain",
+            "value": "crud-service"
+          },
+          {
+            "name": "PRESCRIPTION_MANAGER",
+            "valueType": "plain",
+            "value": "prescription-manager"
+          },
+          {
+            "name": "PHARMAPRIME_PARTNER_TOKEN",
+            "valueType": "plain",
+            "value": "CHANGE ME"
+          },
+          {
+            "name": "PHARMAPRIME_BASE_PATH",
+            "valueType": "plain",
+            "value": "CHANGE ME"
+          },
+          {
+            "name": "DOWNLOAD_PRESCRIPTION_PDF_ENDPOINT",
+            "valueType": "plain",
+            "value": "/prescriptions/download"
+          },
+          {
+            "name": "PRESCRIPTION_ENDPOINT",
+            "valueType": "plain",
+            "value": "/prescriptions/items"
+          },
+          {
+            "name": "MIA_USERS_CRUD_ENDPOINT",
+            "valueType": "plain",
+            "value": "/users"
+          },
+          {
+            "name": "MIA_ORDERS_CRUD_ENDPOINT",
+            "valueType": "plain",
+            "value": "/pharma-ecommerce-orders"
+          },
+          {
+            "name": "LANGUAGE",
+            "valueType": "plain",
+            "value": "it-IT"
+          },
+          {
+            "name": "ORDERS_MAX_COUNTER",
+            "valueType": "plain",
+            "value": "100"
+          },
+          {
+            "name": "ACTIVE_PROVIDERS",
+            "valueType": "plain",
+            "value": "CHANGE ME"
+          },
+          {
+            "name": "DEFAULT_LATITUDE",
+            "valueType": "plain",
+            "value": "45.464664"
+          },
+          {
+            "name": "DEFAULT_LONGITUDE",
+            "valueType": "plain",
+            "value": "9.188540"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
+  }
+}

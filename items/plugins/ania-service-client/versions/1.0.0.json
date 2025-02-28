@@ -1,0 +1,62 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "insurance",
+  "description": "This plugins provides the REST API to query ANIA (Associazione Nazionale Italiana fra le Imprese Assicuratrici).",
+  "image": {
+    "localPath": "../../assets/ania-service-client-plugin-transparent.png"
+  },
+  "itemId": "ania-service-client",
+  "name": "ANIA Service Client",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/ania-service",
+  "resources": {
+    "services": {
+      "ania-service-client": {
+        "type": "plugin",
+        "name": "ania-service-client",
+        "description": "This plugins provides the REST API to query ANIA (Associazione Nazionale Italiana fra le Imprese Assicuratrici).",
+        "dockerImage": "nexus.mia-platform.eu/plugins/ania-service:4.0.1",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "ANIA_BACKEND",
+            "value": "CHANGE_WITH_YOUR_ANIA_BACKEND",
+            "valueType": "plain"
+          },
+          {
+            "name": "ANIA_USERNAME",
+            "value": "CHANGE_WITH_YOUR_ANIA_USERNAME",
+            "valueType": "plain"
+          },
+          {
+            "name": "ANIA_PASSWORD",
+            "value": "CHANGE_WITH_YOUR_ANIA_PASSWORD",
+            "valueType": "plain"
+          },
+          {
+            "name": "IMPRESA_LOGIN",
+            "value": "CHANGE_WITH_YOUR_IMPRESA_LOGIN",
+            "valueType": "plain"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

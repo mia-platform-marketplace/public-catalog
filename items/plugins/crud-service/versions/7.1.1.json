@@ -1,0 +1,118 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "database",
+  "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/crud-service/overview_and_usage"
+  },
+  "image": {
+    "localPath": "../../assets/crud-service-plugin-transparent.png"
+  },
+  "itemId": "crud-service",
+  "name": "CRUD Service",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/mia-platform/crud-service",
+  "resources": {
+    "services": {
+      "crud-service": {
+        "type": "plugin",
+        "name": "crud-service",
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.1.1",
+        "componentId": "crud-service",
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "type": "folder",
+            "envName": "COLLECTION_DEFINITION_FOLDER"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+            "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "70Mi"
+          },
+          "cpuLimits": {
+            "max": "400m",
+            "min": "100m"
+          }
+        },
+        "defaultConfigMaps": [
+          {
+            "name": "crud-service-collections",
+            "mountPath": "/home/node/app/collections",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "collections"
+            }
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "7.1.1",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

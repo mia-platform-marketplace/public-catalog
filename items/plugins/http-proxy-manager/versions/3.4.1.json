@@ -1,0 +1,100 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "addonsecurity",
+  "description": "A simple yet blazing fast proxy service that can be used to centralize request proxying.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/http-proxy-manager/overview"
+  },
+  "image": {
+    "localPath": "../../assets/proxy-manager-plugin-transparent.png"
+  },
+  "itemId": "http-proxy-manager",
+  "name": "HTTP Proxy Manager",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/proxy-manager",
+  "resources": {
+    "services": {
+      "http-proxy-manager": {
+        "type": "plugin",
+        "name": "http-proxy-manager",
+        "description": "A simple yet blazing fast proxy service that can be used to centralize request proxying.",
+        "dockerImage": "nexus.mia-platform.eu/core/proxy-manager:3.4.1",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_MANAGEMENT_APIS",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/configs",
+            "description": "Path to the configuration directory (use a ConfigMap to mount a file in this position)",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_FILE_NAME",
+            "value": "config",
+            "description": "File name, without extension, where the configuration is located (use a ConfigMap file with the same name and .json extension)",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "20m"
+          },
+          "memoryLimits": {
+            "max": "80Mi",
+            "min": "20Mi"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultDocumentationPath": "",
+        "defaultConfigMaps": [
+          {
+            "name": "http-proxy-config",
+            "mountPath": "/configs",
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\n  \"proxies\": [\n  ]\n}"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "3.4.1",
+    "releaseNote": "### Updated\n\n - better patch request payload validation."
+  },
+  "visibility": {
+    "public": true
+  }
+}

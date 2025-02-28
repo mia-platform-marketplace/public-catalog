@@ -1,0 +1,60 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "microfrontend",
+  "description": "Use this template to set up a micro-lc Vue 3 plugin project",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/micro-lc/vue3-template/refs/tags/v1.0.0/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/micro-lc-vue3-template.png"
+  },
+  "itemId": "micro-lc-vue-3-template",
+  "name": "micro-lc Vue 3 Template",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/micro-lc/vue3-template",
+  "resources": {
+    "services": {
+      "micro-lc-vue-3-template": {
+        "type": "template",
+        "name": "micro-lc-vue-3-template",
+        "description": "Use this template to set up a micro-lc Vue 3 plugin project",
+        "archiveUrl": "https://github.com/micro-lc/vue3-template/archive/v1.0.0.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Freact-app.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

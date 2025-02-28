@@ -1,0 +1,47 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "data-catalog",
+  "description": "Utilities to fetch metadata from DB-like datasources",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite_templates/data-catalog-agent/overview"
+  },
+  "image": {
+    "localPath": "../../assets/schema-retriever-application.png"
+  },
+  "itemId": "data-catalog-agent",
+  "name": "Data Catalog Agent",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/data-catalog-agent",
+  "resources": {
+    "services": {
+      "data-catalog-agent": {
+        "type": "template",
+        "name": "data-catalog-agent",
+        "archiveUrl": "https://git.tools.mia-platform.eu/platform/data-catalog/agent/template/-/archive/v0.6.4/template-v0.6.4.tar.gz",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

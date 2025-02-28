@@ -1,0 +1,90 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "stream",
+  "description": "Use this is plugin to convert kafka messages into Firebase push notification.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/kafka2firebase/overview"
+  },
+  "image": {
+    "localPath": "../../assets/kafka2firebase-plugin-transparent.png"
+  },
+  "itemId": "kafka2firebase",
+  "name": "Kafka2Firebase",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/kafka2firebase",
+  "resources": {
+    "services": {
+      "kafka2firebase": {
+        "type": "plugin",
+        "name": "kafka2firebase",
+        "description": "Use this is plugin to convert kafka messages into Firebase push notification.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/kafka2firebase:1.2.1",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_HOST",
+            "value": "CHANGE_WITH_YOUR_KAFKA_HOST",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_TOPICS",
+            "value": "CHANGE_WITH_YOUR_KAFKA_TOPICS",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_CONSUMER_GROUP_ID",
+            "value": "CHANGE_WITH_YOUR_KAFKA_CONSUMER_GROUP_ID",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTO_OFFSET_RESET",
+            "value": "CHANGE_WITH_YOUR_AUTO_OFFSET_RESET",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEADERS_TO_PROXY",
+            "value": "CHANGE_WITH_YOUR_HEADERS_TO_PROXY",
+            "valueType": "plain"
+          },
+          {
+            "name": "OK_URL",
+            "value": "CHANGE_WITH_YOUR_OK_URL",
+            "valueType": "plain"
+          },
+          {
+            "name": "KO_URL",
+            "value": "CHANGE_WITH_YOUR_KO_URL",
+            "valueType": "plain"
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.2.1",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

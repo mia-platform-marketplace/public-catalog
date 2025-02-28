@@ -1,0 +1,259 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "devportal",
+  "description": "This application groups the plugins API Portal and Swagger Aggregator in order to aggregate the individual Open APIs of all the microservices and show them through a graphical interface. Endpoints are exposed via NGINX API Gateway",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/api-documentation-aggregator/overview"
+  },
+  "image": {
+    "localPath": "../../assets/api-documentation-aggregator-nginx-application-transparent.png"
+  },
+  "itemId": "api-documentation-aggregator-nginx",
+  "name": "API Documentation Aggregator NGINX",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/api-documentation-aggregator-application",
+  "resources": {
+    "services": {
+      "api-gateway": {
+        "name": "api-gateway",
+        "type": "plugin",
+        "description": "Use this service to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "nexus.mia-platform.eu/core/api-gateway:5.0.2",
+        "componentId": "api-gateway",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "frontend",
+            "from": 8080,
+            "to": 8080
+          },
+          {
+            "name": "backoffice",
+            "from": 8081,
+            "to": 8081
+          }
+        ],
+        "tags": [
+          "microgateway"
+        ],
+        "defaultEnvironmentVariables": [],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "25Mi",
+            "min": "5Mi"
+          },
+          "cpuLimits": {
+            "min": "10m"
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "defaultProbes": {
+          "liveness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20
+          },
+          "readiness": {
+            "port": "frontend",
+            "path": "/healthz",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10
+          }
+        },
+        "execPreStop": [
+          "sh",
+          "-c",
+          "sleep 5 && /usr/sbin/nginx -s quit"
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "api-gateway-server",
+            "mountPath": "/etc/nginx/conf.d",
+            "files": [],
+            "viewAsReadOnly": true
+          },
+          {
+            "name": "api-gateway-platform",
+            "mountPath": "/etc/nginx/platform.d",
+            "files": [],
+            "viewAsReadOnly": true
+          },
+          {
+            "name": "api-gateway-customization",
+            "mountPath": "/etc/nginx/customization.d",
+            "files": [],
+            "viewAsReadOnly": true,
+            "link": {
+              "targetSection": "endpoints"
+            }
+          },
+          {
+            "name": "api-gateway-backoffice",
+            "mountPath": "/etc/nginx/backoffice.d",
+            "files": [],
+            "viewAsReadOnly": true
+          }
+        ],
+        "additionalContainers": [
+          {
+            "name": "dnsmasq",
+            "dockerImage": "nexus.mia-platform.eu/core/dnsmasq:1.0.3",
+            "defaultEnvironmentVariables": [],
+            "defaultResources": {
+              "memoryLimits": {
+                "max": "20Mi",
+                "min": "5Mi"
+              },
+              "cpuLimits": {
+                "min": "10m"
+              }
+            },
+            "args": [
+              "--listen",
+              "127.0.0.1:53",
+              "--default-resolver",
+              "--enable-search",
+              "--hostsfile=/etc/hosts"
+            ],
+            "defaultProbes": {
+              "liveness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 15,
+                "periodSeconds": 20
+              },
+              "readiness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 5,
+                "periodSeconds": 10
+              }
+            }
+          }
+        ]
+      },
+      "swagger-aggregator": {
+        "name": "swagger-aggregator",
+        "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
+        "tags": [
+          "api-docs"
+        ],
+        "type": "plugin",
+        "componentId": "swagger-aggregator",
+        "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.1",
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "/home/node/app/configs/config.json",
+            "valueType": "plain"
+          }
+        ],
+        "mapEnvVarToMountPath": {
+          "swagger-aggregator-config": {
+            "type": "file",
+            "envName": "CONFIG_FILE_PATH"
+          }
+        },
+        "defaultConfigMaps": [
+          {
+            "name": "swagger-aggregator-config",
+            "mountPath": "/home/node/app/configs",
+            "files": [],
+            "viewAsReadOnly": true
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    },
+    "endpoints": {
+      "/documentations/api-portal": {
+        "service": "swagger-aggregator",
+        "defaultBasePath": "/documentations/api-portal",
+        "defaultPathRewrite": "/swagger",
+        "type": "custom",
+        "description": "",
+        "tags": [
+          "api-docs"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": false,
+        "allowUnknownRequestContentType": true,
+        "allowUnknownResponseContentType": true,
+        "forceMicroserviceGatewayProxy": false
+      },
+      "/api/openapi": {
+        "service": "swagger-aggregator",
+        "defaultBasePath": "/api/openapi",
+        "defaultPathRewrite": "/openapi/v3-1",
+        "type": "custom",
+        "description": "",
+        "tags": [
+          "api-docs"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      },
+      "/api/openapi/raw": {
+        "service": "swagger-aggregator",
+        "defaultBasePath": "/api/openapi/raw",
+        "defaultPathRewrite": "/",
+        "type": "custom",
+        "description": "",
+        "tags": [
+          "api-docs"
+        ],
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "forceMicroserviceGatewayProxy": false
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "application",
+  "visibility": {
+    "public": true
+  }
+}

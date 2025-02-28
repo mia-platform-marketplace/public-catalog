@@ -1,0 +1,73 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "microfrontend",
+  "description": "micro-lc enables you to create applications composed by micro-frontends integrated at runtime.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://micro-lc.io"
+  },
+  "image": {
+    "localPath": "../../assets/microlc-plugin-transparent.png"
+  },
+  "itemId": "micro-lc",
+  "name": "micro-lc",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/micro-lc/micro-lc",
+  "resources": {
+    "services": {
+      "micro-lc": {
+        "type": "plugin",
+        "name": "micro-lc",
+        "description": "micro-lc enables you to create applications composed by micro-frontends integrated at runtime.",
+        "dockerImage": "nexus.mia-platform.eu/microlc/micro-lc:2.4.2",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "50m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "50Mi",
+            "min": "30Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": ""
+          },
+          "readiness": {
+            "path": ""
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "2.4.2",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

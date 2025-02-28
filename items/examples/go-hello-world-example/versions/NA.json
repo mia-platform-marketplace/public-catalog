@@ -1,0 +1,49 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "golang",
+  "description": "Example of a simple Go 1.20 application.",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Go-Hello-World-Microservice-Example/refs/heads/1.20/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/go-hello-world-example-transparent.png"
+  },
+  "itemId": "go-hello-world-example",
+  "name": "Go 1.20 Hello World Example",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Go-Hello-World-Microservice-Example/tree/1.20",
+  "resources": {
+    "services": {
+      "go-120-hello-world-example": {
+        "type": "example",
+        "name": "go-120-hello-world-example",
+        "description": "Example of a simple Go 1.20 application.",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Go-Hello-World-Microservice-Example/archive/refs/heads/1.20.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fgo-app.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "example",
+  "visibility": {
+    "public": true
+  }
+}

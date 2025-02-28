@@ -1,0 +1,125 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "fast-data-connectors",
+  "description": "Debezium is an open source distributed platform for change data capture",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc"
+  },
+  "image": {
+    "localPath": "../../assets/debezium-server-generic-template-transparent.png"
+  },
+  "itemId": "debezium-server-generic-template",
+  "name": "Debezium Server Generic Template",
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-generic-template",
+  "resources": {
+    "services": {
+      "debezium-server-generic-template": {
+        "type": "template",
+        "name": "debezium-server-generic-template",
+        "description": "Debezium is an open source distributed platform for change data capture",
+        "archiveUrl": "https://git.tools.mia-platform.eu/api/v4/projects/72186/repository/archive.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "v4/projects/platform%2Ffast-data%2Fconnectors%2Fsource%2Fdebezium-server-generic-template/repository/files/.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "METRICS_HTTP_PORT",
+            "value": "3001",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "INFO",
+            "valueType": "plain",
+            "description": "JVM Level to use for logging - e.g. INFO"
+          },
+          {
+            "name": "REDIS_PORT",
+            "value": "6379",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "400Mi",
+            "max": "900Mi"
+          },
+          "cpuLimits": {
+            "min": "100m",
+            "max": "500m"
+          }
+        },
+        "defaultMonitoring": {
+          "endpoints": [
+            {
+              "path": "/metrics",
+              "port": "metrics",
+              "interval": "60s"
+            }
+          ]
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/q/health/live",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 3,
+            "successThreshold": 1,
+            "failureThreshold": 2
+          },
+          "readiness": {
+            "path": "/q/health/ready",
+            "initialDelaySeconds": 20,
+            "periodSeconds": 10,
+            "timeoutSeconds": 3,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-plain",
+        "defaultConfigMaps": [
+          {
+            "name": "debezium-generic-conf",
+            "mountPath": "/debezium/conf",
+            "files": [
+              {
+                "name": "application.properties",
+                "content": "# Application Configuration\n# Insert here Debezium specific configuration\n\n# EXAMPLE\n# database.hostname={{DEBEZIUM_DATABASE_HOSTNAME}}\n"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          },
+          {
+            "name": "metrics",
+            "from": 8080,
+            "to": 3001
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Community",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/debezium.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "visibility": {
+    "public": true
+  }
+}

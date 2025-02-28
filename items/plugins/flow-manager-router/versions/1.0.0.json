@@ -1,0 +1,151 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "orchestrators",
+  "description": "This plugin helps to manage a set of flow manager services",
+  "image": {
+    "localPath": "../../assets/flow-manager-router-plugin.png"
+  },
+  "itemId": "flow-manager-router",
+  "name": "Flow Manager Router",
+  "releaseStage": "stable",
+  "resources": {
+    "services": {
+      "flow-manager-router": {
+        "type": "plugin",
+        "name": "flow-manager-router",
+        "description": "This plugin helps to manage a set of flow manager services",
+        "dockerImage": "nexus.mia-platform.eu/plugins/flow-manager-router:1.0.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_LOG_LEVEL",
+            "value": "NONE",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAIN_FLOW_MANAGER_URL",
+            "description": "URL of the flow manager service that manages the main flow",
+            "value": "CHANGE-ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAIN_SAGA_CRUD_URL",
+            "description": "URL of the crud service collection containing the main saga data",
+            "value": "CHANGE-ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXTERNAL_SERVICE_URL",
+            "description": "URL of a service you want to notify (optional)",
+            "value": "CHANGE-ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "SUB_FLOW_CONFIGURATION_FILE_PATH",
+            "description": "Path of the file containing sub flows configurations",
+            "value": "CHANGE-ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAX_RETRIES",
+            "description": "Maximum number of retries in http calls",
+            "value": "5",
+            "valueType": "plain"
+          },
+          {
+            "name": "RETRIES_DELAY_MS",
+            "description": "Delay in milliseconds between retry calls",
+            "value": "1500",
+            "valueType": "plain"
+          },
+          {
+            "name": "MODE",
+            "description": "Comunication protocol ",
+            "value": "REST",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_CONFIGURATION_FILE_PATH",
+            "description": "Path of the file containing kafka configurations",
+            "value": "CHANGE-ME",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAIN_FLOW_ID_KEY",
+            "description": "Key used on sub flow to store main flow sagaId",
+            "value": "mainFlowId",
+            "valueType": "plain"
+          },
+          {
+            "name": "MAIN_FLOW_DATA_KEY",
+            "description": "Key used on sub flow to retrieve main flow metadata",
+            "value": "mainFlowData",
+            "valueType": "plain"
+          },
+          {
+            "name": "SUB_FLOW_ID_KEY",
+            "description": "Key used on main flow to store sub flow sagaId",
+            "value": "subFlowId",
+            "valueType": "plain"
+          },
+          {
+            "name": "SUB_FLOW_CREATED_EVENT",
+            "description": "Event's label sent after sub flow creation",
+            "value": "subFlowCreated",
+            "valueType": "plain"
+          },
+          {
+            "name": "ARRAY_MERGE_MODE",
+            "description": "Array merge strategy",
+            "value": "SHA",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-plain",
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultConfigMaps": [
+          {
+            "name": "flow-manager-router",
+            "mountPath": "/configs",
+            "files": [
+              {
+                "name": "rules.json",
+                "content": "[{\"id\":\"default\",\"info\":{\"flowManagerUrl\":\"change-me\",\"crudServiceUrl\":\"change-me\"},\"rules\":{}}]"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-FinTech",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

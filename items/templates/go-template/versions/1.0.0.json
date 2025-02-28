@@ -1,0 +1,53 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "golang",
+  "description": "This is the best template to start creating a service in Go 1.22 integrated inside the Platform",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Go-Template/refs/heads/1.22/README.md"
+  },
+  "image": {
+    "localPath": "../../assets/go-template-transparent.png"
+  },
+  "itemId": "go-template",
+  "name": "Go 1.22 Template",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/Go-Template/tree/1.22",
+  "resources": {
+    "services": {
+      "go-122-template": {
+        "type": "template",
+        "name": "go-122-template",
+        "description": "This is the best template to start creating a service in Go 1.22 integrated inside the Platform",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/Go-Template/archive/refs/heads/1.22.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fgo-app.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "template",
+  "version": {
+    "name": "1.0.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

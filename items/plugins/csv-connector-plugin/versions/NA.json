@@ -1,0 +1,156 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "fast-data-connectors",
+  "description": "Fetch data from CSV files and deliver it with validation to the Fast Data.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/csv-connector/configuration"
+  },
+  "image": {
+    "localPath": "../../assets/csv-connector-plugin-transparent.png"
+  },
+  "itemId": "csv-connector-plugin",
+  "name": "CSV Connector Plugin",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/csv-connector",
+  "resources": {
+    "services": {
+      "csv-connector-plugin": {
+        "type": "plugin",
+        "name": "csv-connector-plugin",
+        "description": "Fetch data from CSV files and deliver it with validation to the Fast Data.",
+        "dockerImage": "nexus.mia-platform.eu/fast-data/connectors/source/csv-connector:1.0.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "FILES_NAMES_REGEXES",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_REGEX",
+            "valueType": "plain"
+          },
+          {
+            "name": "SCHEMA_FOLDER",
+            "value": "/app/config/schema/CHANGE_WITH_YOUR_CUSTOM_SCHEMA_FOLDER_PATH",
+            "valueType": "plain"
+          },
+          {
+            "name": "LAUNCH_MECHANISM",
+            "value": "polling",
+            "valueType": "plain"
+          },
+          {
+            "name": "SCHEDULING",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_SCHEDULING",
+            "valueType": "plain"
+          },
+          {
+            "name": "FILES_SERVICE",
+            "value": "http://files-service/",
+            "valueType": "plain"
+          },
+          {
+            "name": "INPUT_FILES_SCOPE",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_INPUT_SCOPE",
+            "valueType": "plain"
+          },
+          {
+            "name": "OUTPUT_FILES_SCOPE",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_OUTPUT_SCOPE",
+            "valueType": "plain"
+          },
+          {
+            "name": "TOPIC_MAP",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_TOPIC_MAP",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "{{HTTP_PORT}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_BROKERS",
+            "value": "{{KAFKA_BROKERS}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_GROUP_ID",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_GROUP_ID",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_CLIENT_ID",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_CLIENT_ID",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_USERNAME",
+            "value": "{{KAFKA_SASL_USERNAME}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_PASSWORD",
+            "value": "{{KAFKA_SASL_PASSWORD}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "KAFKA_SASL_MECHANISM",
+            "value": "{{KAFKA_SASL_MECHANISM}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "1500m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "70Mi"
+          }
+        },
+        "defaultProbes": {
+          "readiness": {
+            "path": "/-/health/ready",
+            "port": "http",
+            "initialDelaySeconds": 30,
+            "periodSeconds": 10,
+            "timeoutSeconds": 1,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          },
+          "liveness": {
+            "path": "/-/health/live",
+            "port": "http",
+            "initialDelaySeconds": 30,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "visibility": {
+    "public": true
+  }
+}

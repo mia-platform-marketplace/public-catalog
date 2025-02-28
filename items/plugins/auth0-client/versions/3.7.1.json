@@ -1,0 +1,145 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "auth",
+  "description": "Integrate with your Auth0 tenant using Mia-Platform core service Auth0 Client.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/auth0-client/configuration"
+  },
+  "image": {
+    "localPath": "../../assets/auth0-client-plugin-transparent.png"
+  },
+  "itemId": "auth0-client",
+  "name": "Auth0 Client",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/auth0-client",
+  "resources": {
+    "services": {
+      "auth0-client": {
+        "type": "plugin",
+        "name": "auth0-client",
+        "description": "Integrate with your Auth0 tenant using Mia-Platform core service Auth0 Client.",
+        "dockerImage": "nexus.mia-platform.eu/core/auth0-client:3.7.1",
+        "componentId": "auth0-client",
+        "mapEnvVarToMountPath": {
+          "auth0-client-config": {
+            "type": "folder",
+            "envName": "SERVICE_CONFIG_PATH"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "SESSION_SCOPE",
+            "value": "CHANGE_WITH_YOUR_OPTIONAL_SESSION_SCOPE",
+            "valueType": "plain"
+          },
+          {
+            "name": "ORIGINAL_PROTOCOL_HEADER",
+            "value": "CHANGE_WITH_YOUR_ORIGINAL_PROTOCOL_HEADER",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_CONFIG_FILE_NAME",
+            "value": "config",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_CONFIG_PATH",
+            "value": "/configs",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_HOSTS",
+            "value": "CHANGE_WITH_YOUR_REDIS_HOSTS",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_MODE",
+            "value": "CHANGE_WITH_YOUR_REDIS_MODE",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_MASTER_NAME",
+            "value": "CHANGE_WITH_YOUR_REDIS_MASTER_NAME",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_TLS",
+            "value": "CHANGE_WITH_YOUR_REDIS_TLS",
+            "valueType": "plain"
+          },
+          {
+            "name": "REDIS_TLS_CACERT",
+            "value": "CHANGE_WITH_YOUR_REDIS_TLS_CACERT",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGO_DB_URL",
+            "value": "CHANGE_WITH_YOUR_MONGO_DB_URL",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERS_DATABASE_NAME",
+            "value": "CHANGE_WITH_YOUR_USERS_DATABASE_NAME",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERS_COLLECTION_NAME",
+            "value": "CHANGE_WITH_YOUR_USERS_COLLECTION_NAME",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERS_PROPERTIES_TO_SAVE",
+            "value": "CHANGE_WITH_YOUR_USERS_PROPERTIES_TO_SAVE",
+            "valueType": "plain"
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultConfigMaps": [
+          {
+            "name": "auth0-client-config",
+            "mountPath": "/configs",
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\n \"clients\": {\n  \"cms\": {\n   \"auth0Url\": \"CHANGE_WITH_YOUR_AUTH0_URL\",\n   \"clientId\": \"{{AUTH0_CLIENT_ID}}\",\n   \"clientSecret\": \"{{AUTH0_CLIENT_SECRET}}\",\n   \"redirectUrl\": \"CHANGE_WITH_YOUR_REDIRECT_URL\",\n   \"scopes\": [\n    \"offline_access\",\n    \"profile\",\n    \"email\",\n    \"website\"\n   ],\n   \"audience\": \"CHANGE_WITH_YOUR_AUDIENCE\",\n   \"supportedConnections\": [],\n   \"defaultConnection\": \"\"\n  }\n },\n \"defaultClient\": \"\",\n \"managementClient\": {\n  \"auth0Url\": \"CHANGE_WITH_YOUR_AUTH0_URL\",\n  \"clientId\": \"{{AUTH0_MANAGEMENT_CLIENT_ID}}\",\n  \"clientSecret\": \"{{AUTH0_MANAGEMENT_CLIENT_SECRET}}\",\n  \"supportedConnectionsMap\": {\n  \"foo\": { \"connectionId\": \"bar\"  }\n },\n  \"defaultManagementConnectionName\": \"foo\"\n },\n \"customClaimsNamespaces\": [\n  \"https://mia-platform.eu/app_metadata\",\n  \"https://mia-platform.eu/user_metadata\"\n ]\n}"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "3.7.1",
+    "releaseNote": "Fix logout redirect when query parameters are set in the redirect path"
+  },
+  "visibility": {
+    "public": true
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "frontendbuilder",
+  "description": "Web component library to build your frontend pages.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/business_suite/backoffice/overview"
+  },
+  "image": {
+    "localPath": "../../assets/back-kit-plugin-transparent.png"
+  },
+  "itemId": "back-kit",
+  "name": "Back Kit",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/microfrontend-composer/back-kit",
+  "resources": {
+    "services": {
+      "back-kit": {
+        "type": "plugin",
+        "name": "back-kit",
+        "description": "Web component library to build your frontend pages.",
+        "dockerImage": "nexus.mia-platform.eu/back-kit/bk-web-components:1.5.9",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "50m",
+            "min": "30m"
+          },
+          "memoryLimits": {
+            "max": "50Mi",
+            "min": "30Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": ""
+          },
+          "readiness": {
+            "path": ""
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.5.9",
+    "releaseNote": "Added new key `$dateNow` in handlebars to retrieve current date time in ISO format in http requests."
+  },
+  "visibility": {
+    "public": true
+  }
+}

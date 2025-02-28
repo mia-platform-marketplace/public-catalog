@@ -1,0 +1,81 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "utility",
+  "description": "The Mia FHIR Server implements the FHIR standard and is based on HAPI FHIR, an open-source Java implementation of the FHIR standard",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://hapifhir.io/hapi-fhir/docs/v/7.6.0/"
+  },
+  "image": {
+    "localPath": "../../assets/fhir-api-server-plugin.png"
+  },
+  "itemId": "fhir-api-server",
+  "name": "FHIR Server",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-api-server",
+  "resources": {
+    "services": {
+      "fhir-server": {
+        "type": "plugin",
+        "name": "fhir-server",
+        "description": "The Mia FHIR Server implements the FHIR standard and is based on HAPI FHIR, an open-source Java implementation of the FHIR standard",
+        "dockerImage": "hapiproject/hapi:v7.6.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "SPRING_CONFIG_LOCATION",
+            "value": "file:///etc/hapi/config.yaml",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "300m",
+            "min": "150m"
+          },
+          "memoryLimits": {
+            "max": "2000Mi",
+            "min": "1000Mi"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "config",
+            "mountPath": "/etc/hapi",
+            "files": [
+              {
+                "name": "config.yaml",
+                "content": "Fill with starter template available at https://github.com/hapifhir/hapi-fhir-jpaserver-starter/blob/master/src/main/resources/application.yaml"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "2.0.0",
+    "releaseNote": "Switch to HAPI FHIR Docker image (v7.6.0)"
+  },
+  "visibility": {
+    "public": true
+  }
+}

@@ -1,0 +1,1268 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "healthcare",
+  "description": "This application allows to quickly setup the necessary services in order to handle forms and medical reports.",
+  "image": {
+    "localPath": "../../assets/ehr-module.png"
+  },
+  "itemId": "ehr-module",
+  "name": "EHR Module",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/ehr-module/application",
+  "resources": {
+    "collections": {
+      "ehr_clinical_diaries": {
+        "defaultName": "ehr_clinical_diaries",
+        "description": "Collection of ehr_clinical_diaries",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Date of the clinical diary record",
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "date",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "description": "The group of the creator of the diary record",
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "role",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "description": "Type of diary note. It can be \"free note\" or \"event\".",
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "annotationType",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "description": "Type of event. It is filled only when annotationType is set to \"event\".",
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "eventType",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "description": "Patient reported outcomes and info. It is a long text about the patient.",
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "patientReportedOutcomes",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "clinicalNotes",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "decisions",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "description": "The role of the user that writes the diary notes.",
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "userGroup",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "description": "The id of the patient of the clinical diary.",
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "patientId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "ehr_clinical_diaries",
+        "internalEndpoints": [
+          {
+            "basePath": "/ehr-clinical-diaries",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "tags": [
+          "collection"
+        ],
+        "type": "collection"
+      },
+      "ehr_fs_filled_forms": {
+        "defaultName": "ehr_fs_filled_forms",
+        "description": "Collection of ehr_fs_form_anamnesis",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "data",
+            "nullable": false,
+            "required": false,
+            "schema": {
+              "additionalProperties": true,
+              "properties": {
+                "patientId": {
+                  "type": "string"
+                }
+              }
+            },
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "formSchemaId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "hasDraft",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isValid",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          }
+        ],
+        "id": "ehr_fs_filled_forms",
+        "internalEndpoints": [
+          {
+            "basePath": "/ehr-fs-filled-forms",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "ehr_fs_form_drafts": {
+        "defaultName": "ehr_fs_form_drafts",
+        "description": "Collection of ehr_fs_form_drafts",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "data",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "formSchemaId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "stableFormId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "ehr_fs_form_drafts",
+        "internalEndpoints": [
+          {
+            "basePath": "/ehr-fs-form-drafts",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "ehr_fs_form_schema_maps": {
+        "defaultName": "ehr_fs_form_schema_maps",
+        "description": "Collection of ehr_fs_form_schema_maps",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "the id of the form data seved in the formSubmitUrl CRUD endpoint",
+            "name": "formDataId",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "the id of the form schema in the form_schemas CRUD",
+            "name": "formSchemaId",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "options for the form visualizer: eg: readOnly, noAlerts... ",
+            "name": "options",
+            "nullable": false,
+            "required": false,
+            "type": "RawObject"
+          }
+        ],
+        "id": "ehr_fs_form_schema_maps",
+        "internalEndpoints": [
+          {
+            "basePath": "/ehr-fs-form-schema-maps",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "ehr_fs_form_schemas": {
+        "defaultName": "ehr_fs_form_schemas",
+        "description": "Collection of ehr_fs_form_schemas",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "the name of the form",
+            "name": "name",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "the URL to call on form submission",
+            "name": "formSubmitUrl",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "the JSON schema of the form",
+            "name": "formSchema",
+            "nullable": false,
+            "required": true,
+            "type": "RawObject"
+          },
+          {
+            "description": "",
+            "name": "category",
+            "nullable": true,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "name": "audience",
+            "nullable": true,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Form's expiration date",
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "formExpirationDate",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isPrivate",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "isEditable",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          },
+          {
+            "description": "Email template to send to the users when form is submitted",
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "emailTemplateId",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "ObjectId"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "emailCarbonCopies",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "emailBlindCarbonCopies",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "emailEnabled",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "boolean"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "formExpirationMessage",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "emailSender",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "formAvailabilityDate",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "enabledUserGroups",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "Array_string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "formVisualizerOptions",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "RawObject"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "parent",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "ehr_fs_form_schemas",
+        "internalEndpoints": [
+          {
+            "basePath": "/ehr-fs-form-schemas",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      },
+      "ehr_medical_reports": {
+        "defaultName": "ehr_medical_reports",
+        "description": "Collection of ehr_medical_reports",
+        "fields": [
+          {
+            "description": "_id",
+            "name": "_id",
+            "nullable": false,
+            "required": true,
+            "type": "ObjectId"
+          },
+          {
+            "description": "creatorId",
+            "name": "creatorId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "createdAt",
+            "name": "createdAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "updaterId",
+            "name": "updaterId",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "updatedAt",
+            "name": "updatedAt",
+            "nullable": false,
+            "required": true,
+            "type": "Date"
+          },
+          {
+            "description": "__STATE__",
+            "name": "__STATE__",
+            "nullable": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "role",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "examDate",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "Date"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "examType",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "clinicalQuestion",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "clinicalNotes",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "outcome",
+            "nullable": false,
+            "required": false,
+            "sensitivityValue": 0,
+            "type": "string"
+          },
+          {
+            "encryptionEnabled": false,
+            "encryptionSearchable": false,
+            "name": "patientId",
+            "nullable": false,
+            "required": true,
+            "sensitivityValue": 0,
+            "type": "string"
+          }
+        ],
+        "id": "ehr_medical_reports",
+        "internalEndpoints": [
+          {
+            "basePath": "/ehr-medical-reports",
+            "defaultState": "PUBLIC"
+          }
+        ],
+        "type": "collection"
+      }
+    },
+    "endpoints": {
+      "/api/v1/forms": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/api/v1/forms",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /api/v1/forms",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "form-service-backend",
+        "tags": [
+          "form-service-backend"
+        ],
+        "type": "custom"
+      },
+      "/ehr-clinical-diaries": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "collectionId": "ehr_clinical_diaries",
+        "defaultBasePath": "/ehr-clinical-diaries",
+        "defaultPathRewrite": "/ehr-clinical-diaries",
+        "description": "Endpoint /ehr-clinical-diaries",
+        "forceMicroserviceGatewayProxy": false,
+        "pathName": "/",
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "tags": [
+          "crud"
+        ],
+        "type": "crud"
+      },
+      "/ehr-medical-reports": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "collectionId": "ehr_medical_reports",
+        "defaultBasePath": "/ehr-medical-reports",
+        "defaultPathRewrite": "/ehr-medical-reports",
+        "description": "Endpoint /ehr-medical-reports",
+        "forceMicroserviceGatewayProxy": false,
+        "pathName": "/",
+        "public": true,
+        "secreted": false,
+        "showInDocumentation": true,
+        "tags": [
+          "crud"
+        ],
+        "type": "crud"
+      },
+      "/form-service": {
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "defaultBasePath": "/form-service",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint /form-service",
+        "forceMicroserviceGatewayProxy": false,
+        "public": true,
+        "secreted": false,
+        "service": "form-service-frontend",
+        "tags": [
+          "form-service-frontend"
+        ],
+        "type": "custom"
+      }
+    },
+    "services": {
+      "api-gateway": {
+        "additionalContainers": [
+          {
+            "args": [
+              "--listen",
+              "127.0.0.1:53",
+              "--default-resolver",
+              "--enable-search",
+              "--hostsfile=/etc/hosts"
+            ],
+            "defaultEnvironmentVariables": [
+              {
+                "name": "LOG_LEVEL",
+                "value": "{{LOG_LEVEL}}",
+                "valueType": "plain"
+              },
+              {
+                "name": "TRUSTED_PROXIES",
+                "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+                "valueType": "plain"
+              },
+              {
+                "name": "HTTP_PORT",
+                "value": "3000",
+                "valueType": "plain"
+              },
+              {
+                "name": "USERID_HEADER_KEY",
+                "value": "miauserid",
+                "valueType": "plain"
+              },
+              {
+                "name": "GROUPS_HEADER_KEY",
+                "value": "miausergroups",
+                "valueType": "plain"
+              },
+              {
+                "name": "CLIENTTYPE_HEADER_KEY",
+                "value": "client-type",
+                "valueType": "plain"
+              },
+              {
+                "name": "BACKOFFICE_HEADER_KEY",
+                "value": "isbackoffice",
+                "valueType": "plain"
+              },
+              {
+                "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+                "value": "microservice-gateway",
+                "valueType": "plain"
+              },
+              {
+                "name": "USER_PROPERTIES_HEADER_KEY",
+                "value": "miauserproperties",
+                "valueType": "plain"
+              }
+            ],
+            "defaultProbes": {
+              "liveness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 15,
+                "periodSeconds": 20
+              },
+              "readiness": {
+                "cmd": [
+                  "/bin/sh",
+                  "-c",
+                  "netstat -lutan | grep LISTEN | grep 53"
+                ],
+                "initialDelaySeconds": 5,
+                "periodSeconds": 10
+              }
+            },
+            "defaultResources": {
+              "cpuLimits": {
+                "min": "10m"
+              },
+              "memoryLimits": {
+                "max": "20Mi",
+                "min": "5Mi"
+              }
+            },
+            "dockerImage": "nexus.mia-platform.eu/core/dnsmasq:1.0.3",
+            "name": "dnsmasq"
+          }
+        ],
+        "componentId": "api-gateway",
+        "containerPorts": [
+          {
+            "from": 8080,
+            "name": "frontend",
+            "to": 8080
+          },
+          {
+            "from": 8081,
+            "name": "backoffice",
+            "to": 8081
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "mountPath": "/etc/nginx/conf.d",
+            "name": "api-gateway-server",
+            "viewAsReadOnly": true
+          },
+          {
+            "files": [],
+            "mountPath": "/etc/nginx/platform.d",
+            "name": "api-gateway-platform",
+            "viewAsReadOnly": true
+          },
+          {
+            "files": [],
+            "link": {
+              "targetSection": "endpoints"
+            },
+            "mountPath": "/etc/nginx/customization.d",
+            "name": "api-gateway-customization",
+            "viewAsReadOnly": true
+          },
+          {
+            "files": [],
+            "mountPath": "/etc/nginx/backoffice.d",
+            "name": "api-gateway-backoffice",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [],
+        "defaultLogParser": "mia-nginx",
+        "defaultProbes": {
+          "liveness": {
+            "initialDelaySeconds": 15,
+            "path": "/healthz",
+            "periodSeconds": 20,
+            "port": "frontend"
+          },
+          "readiness": {
+            "initialDelaySeconds": 5,
+            "path": "/healthz",
+            "periodSeconds": 10,
+            "port": "frontend"
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "25Mi",
+            "min": "5Mi"
+          }
+        },
+        "description": "Use this service to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "nexus.mia-platform.eu/core/api-gateway:5.0.2",
+        "execPreStop": [
+          "sh",
+          "-c",
+          "sleep 5 && /usr/sbin/nginx -s quit"
+        ],
+        "name": "api-gateway",
+        "type": "plugin"
+      },
+      "crud-service": {
+        "componentId": "crud-service",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "collections"
+            },
+            "mountPath": "/home/node/app/collections",
+            "name": "crud-service-collections",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "COLLECTION_DEFINITION_FOLDER",
+            "value": "/home/node/app/collections",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+            "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "EXPOSE_METRICS",
+            "value": "false",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "secretKey": "url",
+            "secretName": "mongodb",
+            "valueType": "secret"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "300m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "300Mi",
+            "min": "70Mi"
+          }
+        },
+        "defaultSecrets": [
+          {
+            "mountPath": "/home/node/app/secrets/mongodb",
+            "name": "mongodb"
+          }
+        ],
+        "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:{{CRUD_SERVICE_VERSION}}",
+        "mapEnvVarToMountPath": {
+          "collections": {
+            "envName": "COLLECTION_DEFINITION_FOLDER",
+            "type": "folder"
+          }
+        },
+        "name": "crud-service",
+        "type": "plugin"
+      },
+      "form-service-backend": {
+        "componentId": "form-service-backend",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [
+              {
+                "content": "{\n  \"theming\": {\n    \"primaryColor\": \"#00b359\"\n  },\n  \"formSchemasCrud\": \"/ehr-fs-form-schemas\",\n  \"formSchemaMapCrud\": \"/ehr-fs-form-schema-maps\",\n  \"formDraftsCrud\": \"/ehr-fs-form-drafts\",\n  \"formMetadata\": [],\n  \"formSubmitUrls\": [\n    {\n      \"id\": \"ehr-fs-filled-forms\",\n      \"submitUrl\": \"http://crud-service/ehr-fs-filled-forms\",\n      \"label\": \"EHR module - filled forms collection\"\n    }\n  ],\n  \"formVisualizerOptions\": {\n    \"autosaveIntervalValueMs\": 10000,\n    \"messageToBeShownOnExpiredForm\": \"This form is expired!\",\n    \"language\": \"it\"\n  },\n  \"formBuilderCustomProperties\": {\n    \"formAvailabilityDateFormat\": \"DD-MM-YYYY\",\n    \"formExpirationDateFormat\": \"DD-MM-YYYY\"\n  },\n  \"formBuilderOptions\": {\n    \"builder\": {\n      \"premium\": {\n        \"ignore\": true\n      }\n    },\n    \"editForm\": {\n      \"textfield\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"textArea\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"number\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"password\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"checkbox\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"selectBoxes\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"select\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"radio\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"button\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"email\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"url\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"phoneNumber\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"tags\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"address\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"dateTime\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"day\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"survey\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"signature\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"hidden\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"container\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"datamap\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"dataGrid\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"editGrid\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ],\n      \"tree\": [\n        {\n          \"key\": \"data\",\n          \"ignore\": false,\n          \"components\": [\n            {\n              \"key\": \"persistent\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"protected\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"encrypted\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"dbIndex\",\n              \"ignore\": true\n            },\n            {\n              \"key\": \"calculateServer\",\n              \"ignore\": true\n            }\n          ]\n        }\n      ]\n    },\n    \"i18n\": {\n      \"it\": {\n        \"Submit\": \"Invia\"\n      }\n    }\n  },\n  \"userGroups\": [\n    {\n      \"group\": \"customer\",\n      \"label\": \"Customer\"\n    },\n    {\n      \"group\": \"admin\",\n      \"label\": \"Administrator\"\n    },\n    {\n      \"group\": \"superadmin\",\n      \"label\": \"Superadmin\"\n    }\n  ]\n}",
+                "name": "config.json"
+              }
+            ],
+            "mountPath": "/home/node/app/form-service",
+            "name": "form-service-config"
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "trace",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "DRAFT_COLLECTION_ENDPOINT",
+            "value": "/ehr-fs-form-drafts",
+            "valueType": "plain"
+          },
+          {
+            "name": "FORM_SERVICE_CONFIG_PATH",
+            "value": "/home/node/app/form-service/config.json",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "150Mi"
+          }
+        },
+        "description": "This is a backend for frontend to be used for building and managing forms.",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/form-service-backend:{{FORM_SERVICE_BE_VERSION}}",
+        "name": "form-service-backend",
+        "type": "plugin"
+      },
+      "form-service-frontend": {
+        "componentId": "form-service-frontend",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultDocumentationPath": "/documentation/json",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/-/healthz",
+            "periodSeconds": 20,
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/-/ready",
+            "periodSeconds": 10,
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          }
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "150Mi",
+            "min": "150Mi"
+          }
+        },
+        "description": "Build and manage custom forms.",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/form-service-frontend:{{FORM_SERVICE_FE_VERSION}}",
+        "name": "form-service-frontend",
+        "type": "plugin"
+      }
+    },
+    "unsecretedVariables": {
+      "CRUD_SERVICE_VERSION": {
+        "noProductionEnv": "7.1.0",
+        "productionEnv": "7.1.0"
+      },
+      "FORM_SERVICE_BE_VERSION": {
+        "noProductionEnv": "2.1.0",
+        "productionEnv": "2.1.0"
+      },
+      "FORM_SERVICE_FE_VERSION": {
+        "noProductionEnv": "2.1.0",
+        "productionEnv": "2.1.0"
+      }
+    }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "application",
+  "visibility": {
+    "public": true
+  }
+}

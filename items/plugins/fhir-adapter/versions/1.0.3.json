@@ -1,0 +1,144 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "utility",
+  "description": "The FHIR Adapter provides a configurable interface to communicate systems which implement FHIR standard with systems which do not implement it.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/fhir-adapter/overview"
+  },
+  "image": {
+    "localPath": "../../assets/fhir-adapter-plugin.png"
+  },
+  "itemId": "fhir-adapter",
+  "name": "FHIR Adapter",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-adapter",
+  "resources": {
+    "services": {
+      "fhir-adapter": {
+        "type": "plugin",
+        "name": "fhir-adapter",
+        "description": "The FHIR Adapter provides a configurable interface to communicate systems which implement FHIR standard with systems which do not implement it.",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/fhir-adapter:1.0.3",
+        "componentId": "fhir-adapter",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_PATH",
+            "value": "/home/config/mapping-config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "FHIR_SERVER_BASE_PATH",
+            "value": "http://fhir-api-server/fhir/api",
+            "valueType": "plain"
+          },
+          {
+            "name": "FHIR_ENCRYPTION_KEY",
+            "value": "{{FHIR_ENCRYPTION_KEY}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "FHIR_ENCRYPTION_IV",
+            "value": "{{FHIR_ENCRYPTION_IV}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "FILE_DOWNLOAD_BASE_PATH",
+            "value": "/fhir-adapter",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "50m",
+            "min": "10m"
+          },
+          "memoryLimits": {
+            "max": "60Mi",
+            "min": "45Mi"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "mapping-config",
+            "mountPath": "/home/config",
+            "files": [
+              {
+                "name": "mapping-config.json",
+                "content": "{}"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.0.3",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

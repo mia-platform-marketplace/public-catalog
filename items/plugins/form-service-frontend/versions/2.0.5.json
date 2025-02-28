@@ -1,0 +1,55 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "frontendbuilder",
+  "description": "Build and manage custom forms.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
+  },
+  "image": {
+    "localPath": "../../assets/form-service-frontend-plugin-transparent.png"
+  },
+  "itemId": "form-service-frontend",
+  "name": "Form Service Frontend",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-frontend",
+  "resources": {
+    "services": {
+      "form-service-frontend": {
+        "type": "plugin",
+        "name": "form-service-frontend",
+        "description": "Build and manage custom forms.",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/form-service-frontend:2.0.5",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "2.0.5",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}

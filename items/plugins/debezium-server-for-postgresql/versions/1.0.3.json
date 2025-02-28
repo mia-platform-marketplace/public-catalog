@@ -1,0 +1,125 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "fast-data-connectors",
+  "description": "Debezium is an open source distributed platform for change data capture. This plugins offers the Debezium server application with the addition of JMX Prometheus exporter to expose server metrics",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc#postgresql"
+  },
+  "image": {
+    "localPath": "../../assets/debezium-server-for-postgresql-plugin-transparent.png"
+  },
+  "itemId": "debezium-server-for-postgresql",
+  "name": "Debezium Server for PostgreSQL",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-with-prometheus-metrics",
+  "resources": {
+    "services": {
+      "debezium-server-for-postgresql": {
+        "type": "plugin",
+        "name": "debezium-server-for-postgresql",
+        "description": "Debezium is an open source distributed platform for change data capture. This plugins offers the Debezium server application with the addition of JMX Prometheus exporter to expose server metrics",
+        "dockerImage": "nexus.mia-platform.eu/fast-data/connectors/debezium-server:1.0.3",
+        "componentId": "debezium-server-postgre-sql",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "METRICS_HTTP_PORT",
+            "value": "3001",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "INFO",
+            "valueType": "plain",
+            "description": "JVM Level to use for logging - e.g. INFO"
+          },
+          {
+            "name": "REDIS_PORT",
+            "value": "6379",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "400Mi",
+            "max": "900Mi"
+          },
+          "cpuLimits": {
+            "min": "100m",
+            "max": "500m"
+          }
+        },
+        "defaultMonitoring": {
+          "endpoints": [
+            {
+              "path": "/metrics",
+              "port": "metrics",
+              "interval": "60s"
+            }
+          ]
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/q/health/live",
+            "initialDelaySeconds": 60,
+            "periodSeconds": 20,
+            "timeoutSeconds": 3,
+            "successThreshold": 1,
+            "failureThreshold": 2
+          },
+          "readiness": {
+            "path": "/q/health/ready",
+            "initialDelaySeconds": 60,
+            "periodSeconds": 10,
+            "timeoutSeconds": 3,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-plain",
+        "defaultConfigMaps": [
+          {
+            "name": "debezium-postgres-cdc-conf",
+            "mountPath": "/debezium/conf",
+            "files": [
+              {
+                "name": "application.properties",
+                "content": "# Application Configuration\nquarkus.http.port = ${HTTP_PORT:3000}\nquarkus.log.level = ${LOG_LEVEL:INFO}\nquarkus.log.console.json = false\nquarkus.log.console.json.excluded-keys = sequence,loggerClassName\n\n# Source Configuration\ndebezium.source.name = {{DEBEZIUM_SOURCE_TASK_NAME}}\ndebezium.source.tasks.max = 1\ndebezium.source.connector.class = io.debezium.connector.postgresql.PostgresConnector\ndebezium.source.offset.flush.interval.ms = 15000\ndebezium.source.offset.storage = io.debezium.storage.redis.offset.RedisOffsetBackingStore\ndebezium.source.offset.storage.redis.address = {{REDIS_HOSTNAME}}:${REDIS_PORT}\ndebezium.source.offset.storage.redis.user = {{DEBEZIUM_REDIS_USERNAME}}\ndebezium.source.offset.storage.redis.password = {{DEBEZIUM_REDIS_PASSWORD}}\ndebezium.source.offset.storage.redis.key = metadata::debezium-postgres::offsets\n\ndebezium.source.schema.history.internal = io.debezium.storage.redis.history.RedisSchemaHistory\ndebezium.source.schema.history.internal.redis.address = {{REDIS_HOSTNAME}}:${REDIS_PORT}\ndebezium.source.schema.history.internal.redis.user = {{DEBEZIUM_REDIS_USERNAME}}\ndebezium.source.schema.history.internal.redis.password = {{DEBEZIUM_REDIS_PASSWORD}} \n\ndebezium.source.database.hostname = {{DATABASE_HOSTNAME}}\ndebezium.source.database.port = {{DATABASE_PORT}}\ndebezium.source.database.user = {{DEBEZIUM_DB_USERNAME}}\ndebezium.source.database.password = {{DEBEZIUM_DB_PASSWORD}}\n\ndebezium.source.database.server.id = 1\ndebezium.source.database.ssl.mode = <CONFIGURE_ME>\ndebezium.source.topic.prefix = {{TOPIC_PREFIX}}\ndebezium.source.topic.naming.strategy = io.debezium.schema.DefaultTopicNamingStrategy\n\ndebezium.source.database.dbname = {{DATABASE_NAME}}\ndebezium.source.schema.include.list = {{SCHEMAS_LIST}}\ndebezium.source.table.include.list = {{TABLES_LIST}}\n\ndebezium.source.include.schema.changes = false\ndebezium.source.include.schema.comments = false\n\ndebezium.source.key.converter = org.apache.kafka.connect.json.JsonConverter\ndebezium.source.key.converter.schemas.enable = false\n\ndebezium.source.value.converter = org.apache.kafka.connect.json.JsonConverter\ndebezium.source.value.converter.schemas.enable = false\n\ndebezium.source.poll.interval.ms = 500\ndebezium.source.max.batch.size = 2048\ndebezium.source.max.queue.size = 8192\n\ndebezium.source.tombstones.on.delete = true\n\n# Sink Configuration\ndebezium.sink.type = kafka\ndebezium.sink.name = {{DEBEZIUM_SINK_TASK_NAME}}\ndebezium.sink.kafka.producer.bootstrap.servers={{KAFKA_BROKERS}}\ndebezium.sink.kafka.producer.client.id = dz-cdc-mysql-producer-{{ENVIRONMENT_TO_DEPLOY}}\n\ndebezium.sink.kafka.producer.ssl.endpoint.identification.algorithm = HTTPS\ndebezium.sink.kafka.producer.security.protocol = SASL_SSL\ndebezium.sink.kafka.producer.sasl.mechanism = SCRAM-SHA-256\ndebezium.sink.kafka.producer.sasl.jaas.config = org.apache.kafka.common.security.scram.ScramLoginModule required username=\"{{KAFKA_USERNAME}}\" password=\"{{KAFKA_PASSWORD}}\";\n\ndebezium.sink.kafka.producer.key.serializer = org.apache.kafka.common.serialization.StringSerializer\ndebezium.sink.kafka.producer.value.serializer = org.apache.kafka.common.serialization.StringSerializer\n\ndebezium.sink.kafka.producer.acks = all\ndebezium.sink.kafka.producer.max.in.flight.requests.per.connection = 5\ndebezium.sink.kafka.producer.enable.idempotence = true\ndebezium.sink.kafka.producer.min.insync.replicas = 2\ndebezium.sink.kafka.producer.retries = 2147483647\ndebezium.sink.kafka.producer.compression.type = snappy\n\n\n# Format Configuration\ndebezium.format.key = json\ndebezium.format.value = json\n\n# Transforms\ndebezium.transforms=Reroute\ndebezium.transforms.Reroute.type=io.debezium.transforms.ByLogicalTableRouter\ndebezium.transforms.Reroute.topic.regex=(.+)\n\ndebezium.transforms.Reroute.topic.replacement=$1.ingestion\n\ndebezium.transforms.Reroute.key.enforce.uniqueness=false\n"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          },
+          {
+            "name": "metrics",
+            "from": 8080,
+            "to": 3001
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Community",
+  "supportedByImage": {
+    "localPath": "../../../../../assets/img/debezium.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "1.0.3",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  }
+}
