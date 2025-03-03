@@ -539,15 +539,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stylistic/eslint-plugin-js@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "@stylistic/eslint-plugin-js@npm:4.1.0"
+"@stylistic/eslint-plugin-js@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "@stylistic/eslint-plugin-js@npm:4.2.0"
   dependencies:
     eslint-visitor-keys: "npm:^4.2.0"
     espree: "npm:^10.3.0"
   peerDependencies:
     eslint: ">=9.0.0"
-  checksum: 10/46c3ba0b5b8fead9e1966cc72b9322e943c053e1293d48d67500fa0d5103797c3d625e1596c91702a1d32c560fbf116234f32c26a86ae1e584193a57617e7020
+  checksum: 10/129cb1a9adeaebd71997fe5ba036ee751326abff37bc3c697a48d1edb8c7b8d3bedb4cac373278d4c712237fad3dba8c11e23f0efb1dcd1068d688c46a3dcdf0
   languageName: node
   linkType: hard
 
@@ -4060,7 +4060,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.21.0"
     "@mia-platform/console-types": "npm:^0.30.2"
-    "@stylistic/eslint-plugin-js": "npm:^4.1.0"
+    "@stylistic/eslint-plugin-js": "npm:^4.2.0"
     "@stylistic/eslint-plugin-ts": "npm:^4.1.0"
     "@types/lodash-es": "npm:^4.17.12"
     "@types/node": "npm:^22.13.6"
