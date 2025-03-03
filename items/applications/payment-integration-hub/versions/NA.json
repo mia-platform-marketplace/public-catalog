@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/payment-integration-hub/overview"
   },
   "image": {
-    "localPath": "../../assets/payment-integration-hub-application-transparent.png"
+    "localPath": "../assets/payment-integration-hub-application-transparent.png"
   },
   "itemId": "payment-integration-hub",
   "name": "Payment Integration Hub",
@@ -3098,7 +3098,7 @@
   },
   "supportedBy": "Mia-FinTech",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+    "localPath": "../../../../assets/img/MIA-FinTech.png"
   },
   "tenantId": "mia-platform",
   "type": "application",

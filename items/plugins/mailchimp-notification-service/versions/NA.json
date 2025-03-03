@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/mailchimp-mandrill-mail-notification-service/overview"
   },
   "image": {
-    "localPath": "../../assets/mailchimp-notification-service-plugin-transparent.png"
+    "localPath": "../assets/mailchimp-notification-service-plugin-transparent.png"
   },
   "itemId": "mailchimp-notification-service",
   "name": "Mailchimp Notification Service",
@@ -91,7 +91,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

@@ -3,7 +3,7 @@
   "categoryId": "stream",
   "description": "This is an example of using our library Kafka2Rest. It takes messages from Kafka broker and sends POST request after filter and process the messages.",
   "image": {
-    "localPath": "../../assets/kafka2rest-example-transparent.png"
+    "localPath": "../assets/kafka2rest-example-transparent.png"
   },
   "itemId": "kafka2rest-example",
   "name": "Kafka2Rest Example",
@@ -57,7 +57,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

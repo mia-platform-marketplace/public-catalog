@@ -17,6 +17,7 @@
  */
 
 import type { Dirent } from 'node:fs'
+import { createReadStream } from 'node:fs'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
@@ -25,6 +26,7 @@ import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 import chalk from 'chalk'
 import { Command } from 'commander'
+import { fileTypeFromStream } from 'file-type'
 import type { JSONSchema } from 'json-schema-to-ts'
 import type { ListrError, ListrTaskWrapper } from 'listr2'
 import { Listr } from 'listr2'
@@ -100,21 +102,33 @@ const validateManifest = (task: Task, manifest: unknown, schema: JSONSchema) => 
 
 /** @throws Error */
 const assertValidImageFile = async (manifest: Manifest, manifestPath: string) => {
-  const imageAbsPath = path.resolve(manifestPath, manifest.image.localPath)
+  const imageAbsPath = path.resolve(path.dirname(manifestPath), manifest.image.localPath)
+
   try {
-    await fs.access(imageAbsPath)
-  } catch {
-    throw new Error(`Invalid "image" property: file does not exist`)
+    const fileStream = createReadStream(imageAbsPath) as unknown as ReadableStream
+    const fileData = await fileTypeFromStream(fileStream)
+
+    if (fileData?.ext !== 'png' || fileData.mime !== 'image/png') {
+      throw new Error(`Invalid "image" property: file must extension and MIME type of a PNG`)
+    }
+  } catch (error) {
+    throw (error as NodeJS.ErrnoException).code === 'ENOENT' ? new Error(`Invalid "image" property: file does not exist`) : error
   }
 }
 
 /** @throws Error */
 const assertValidSupportedByImageFile = async (manifest: Manifest, manifestPath: string) => {
-  const imageAbsPath = path.resolve(manifestPath, manifest.supportedByImage.localPath)
+  const imageAbsPath = path.resolve(path.dirname(manifestPath), manifest.supportedByImage.localPath)
+
   try {
-    await fs.access(imageAbsPath)
-  } catch {
-    throw new Error(`Invalid "supportedByImage" property: file does not exist`)
+    const fileStream = createReadStream(imageAbsPath) as unknown as ReadableStream
+    const fileData = await fileTypeFromStream(fileStream)
+
+    if (fileData?.ext !== 'png' || fileData.mime !== 'image/png') {
+      throw new Error(`Invalid "supportedByImage" property: file must extension and MIME type of a PNG`)
+    }
+  } catch (error) {
+    throw (error as NodeJS.ErrnoException).code === 'ENOENT' ? new Error(`Invalid "supportedByImage" property: file does not exist`) : error
   }
 
   const filename = path.basename(imageAbsPath)

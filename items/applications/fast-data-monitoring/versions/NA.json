@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/monitoring/overview"
   },
   "image": {
-    "localPath": "../../assets/fast-data-monitoring-application-transparent.png"
+    "localPath": "../assets/fast-data-monitoring-application-transparent.png"
   },
   "itemId": "fast-data-monitoring",
   "name": "Fast Data Monitoring",
@@ -171,7 +171,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "application",

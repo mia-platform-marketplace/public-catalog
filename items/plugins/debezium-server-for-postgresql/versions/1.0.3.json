@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc#postgresql"
   },
   "image": {
-    "localPath": "../../assets/debezium-server-for-postgresql-plugin-transparent.png"
+    "localPath": "../assets/debezium-server-for-postgresql-plugin-transparent.png"
   },
   "itemId": "debezium-server-for-postgresql",
   "name": "Debezium Server for PostgreSQL",
@@ -111,7 +111,7 @@
   },
   "supportedBy": "Community",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/debezium.png"
+    "localPath": "../../../../assets/img/debezium.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

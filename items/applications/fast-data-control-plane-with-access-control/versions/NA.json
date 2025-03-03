@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/control-plane/overview"
   },
   "image": {
-    "localPath": "../../assets/fast-data-control-plane-with-access-control-application-transparent.png"
+    "localPath": "../assets/fast-data-control-plane-with-access-control-application-transparent.png"
   },
   "itemId": "fast-data-control-plane-with-access-control",
   "name": "Fast Data Control Plane With Access Control",
@@ -1810,7 +1810,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "application",

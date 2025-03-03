@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/scoring-manager/overview"
   },
   "image": {
-    "localPath": "../../assets/scoring-manager-application.png"
+    "localPath": "../assets/scoring-manager-application.png"
   },
   "itemId": "scoring-manager",
   "name": "Scoring Manager",
@@ -977,7 +977,7 @@
   },
   "supportedBy": "Mia-FinTech",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+    "localPath": "../../../../assets/img/MIA-FinTech.png"
   },
   "tenantId": "mia-platform",
   "type": "application",

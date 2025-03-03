@@ -3,7 +3,7 @@
   "categoryId": "addgeo",
   "description": "The Geofences Service Plugin handles geofences and related resources and actions.",
   "image": {
-    "localPath": "../../assets/geofences-service-plugin-transparent.png"
+    "localPath": "../assets/geofences-service-plugin-transparent.png"
   },
   "itemId": "geofences-service",
   "name": "Geofences Service",
@@ -42,7 +42,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

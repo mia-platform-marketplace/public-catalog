@@ -3,7 +3,7 @@
   "categoryId": "insurance",
   "description": "This plugins provides the REST API to query ANIA (Associazione Nazionale Italiana fra le Imprese Assicuratrici).",
   "image": {
-    "localPath": "../../assets/ania-service-client-plugin-transparent.png"
+    "localPath": "../assets/ania-service-client-plugin-transparent.png"
   },
   "itemId": "ania-service-client",
   "name": "ANIA Service Client",
@@ -48,7 +48,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

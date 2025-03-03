@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/node.js-daemon-template/main/README.md"
   },
   "image": {
-    "localPath": "../../assets/nodejs-daemon-template-transparent.png"
+    "localPath": "../assets/nodejs-daemon-template-transparent.png"
   },
   "itemId": "node-js-daemon-template",
   "name": "Node.js Daemon Template",
@@ -33,7 +33,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "template",

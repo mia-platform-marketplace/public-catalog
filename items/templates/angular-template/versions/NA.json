@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Angular-App-Template/master/README.md"
   },
   "image": {
-    "localPath": "../../assets/angular-template-transparent.png"
+    "localPath": "../assets/angular-template-transparent.png"
   },
   "itemId": "angular-template",
   "name": "Angular 10 Template",
@@ -47,7 +47,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "template",

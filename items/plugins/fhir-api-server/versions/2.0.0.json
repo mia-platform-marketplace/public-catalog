@@ -7,7 +7,7 @@
     "url": "https://hapifhir.io/hapi-fhir/docs/v/7.6.0/"
   },
   "image": {
-    "localPath": "../../assets/fhir-api-server-plugin.png"
+    "localPath": "../assets/fhir-api-server-plugin.png"
   },
   "itemId": "fhir-api-server",
   "name": "FHIR Server",
@@ -67,7 +67,7 @@
   },
   "supportedBy": "Mia-Care",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
+    "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

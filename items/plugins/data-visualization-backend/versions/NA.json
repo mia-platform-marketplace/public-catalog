@@ -3,7 +3,7 @@
   "categoryId": "business",
   "description": "This is a backend for frontend to be used to configure Data Visualization dashboards.",
   "image": {
-    "localPath": "../../assets/data-visualization-backend-plugin-transparent.png"
+    "localPath": "../assets/data-visualization-backend-plugin-transparent.png"
   },
   "itemId": "data-visualization-backend",
   "name": "Data Visualization Backend",
@@ -75,7 +75,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/scratch-template/main/README.md"
   },
   "image": {
-    "localPath": "../../assets/scratch-template-transparent.png"
+    "localPath": "../assets/scratch-template-transparent.png"
   },
   "itemId": "scratch-template",
   "name": "Scratch Template",
@@ -33,7 +33,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "template",

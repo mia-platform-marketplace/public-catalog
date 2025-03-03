@@ -3,7 +3,7 @@
   "categoryId": "business",
   "description": "Visualize events on a timeline",
   "image": {
-    "localPath": "../../assets/timeline-viewer-plugin-transparent.png"
+    "localPath": "../assets/timeline-viewer-plugin-transparent.png"
   },
   "itemId": "timeline-viewer",
   "name": "Timeline Viewer",
@@ -38,7 +38,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

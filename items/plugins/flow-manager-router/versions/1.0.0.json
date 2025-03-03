@@ -3,7 +3,7 @@
   "categoryId": "orchestrators",
   "description": "This plugin helps to manage a set of flow manager services",
   "image": {
-    "localPath": "../../assets/flow-manager-router-plugin.png"
+    "localPath": "../assets/flow-manager-router-plugin.png"
   },
   "itemId": "flow-manager-router",
   "name": "Flow Manager Router",
@@ -137,7 +137,7 @@
   },
   "supportedBy": "Mia-FinTech",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+    "localPath": "../../../../assets/img/MIA-FinTech.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

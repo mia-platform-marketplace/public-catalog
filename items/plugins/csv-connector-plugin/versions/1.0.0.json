@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/csv-connector/configuration"
   },
   "image": {
-    "localPath": "../../assets/csv-connector-plugin-transparent.png"
+    "localPath": "../assets/csv-connector-plugin-transparent.png"
   },
   "itemId": "csv-connector-plugin",
   "name": "CSV Connector Plugin",
@@ -146,7 +146,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

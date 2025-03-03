@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/microfrontend-composer-on-prem-toolkit-application/overview"
   },
   "image": {
-    "localPath": "../../assets/microfrontend-composer-onprem-toolkit-application-transparent.png"
+    "localPath": "../assets/microfrontend-composer-onprem-toolkit-application-transparent.png"
   },
   "itemId": "microfrontend-composer-on-prem-toolkit",
   "name": "Microfrontend Composer On Prem Toolkit",
@@ -355,7 +355,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "application",

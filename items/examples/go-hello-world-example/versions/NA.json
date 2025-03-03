@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Go-Hello-World-Microservice-Example/refs/heads/1.20/README.md"
   },
   "image": {
-    "localPath": "../../assets/go-hello-world-example-transparent.png"
+    "localPath": "../assets/go-hello-world-example-transparent.png"
   },
   "itemId": "go-hello-world-example",
   "name": "Go 1.20 Hello World Example",
@@ -39,7 +39,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

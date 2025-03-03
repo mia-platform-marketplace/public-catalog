@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc#db2"
   },
   "image": {
-    "localPath": "../../assets/debezium-server-db2-template-transparent.png"
+    "localPath": "../assets/debezium-server-db2-template-transparent.png"
   },
   "itemId": "debezium-server-db2-template",
   "name": "Debezium Server DB2 Template",
@@ -115,7 +115,7 @@
   },
   "supportedBy": "Community",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/debezium.png"
+    "localPath": "../../../../assets/img/debezium.png"
   },
   "tenantId": "mia-platform",
   "type": "template",

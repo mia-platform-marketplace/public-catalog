@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Ktor-Template/refs/heads/1.6.x_jdk-11/README.md"
   },
   "image": {
-    "localPath": "../../assets/ktor-template-transparent.png"
+    "localPath": "../assets/ktor-template-transparent.png"
   },
   "itemId": "ktor-template",
   "name": "Ktor 1.6 Java 11 Template",
@@ -72,7 +72,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "template",

@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Go-Template/refs/heads/1.22/README.md"
   },
   "image": {
-    "localPath": "../../assets/go-template-transparent.png"
+    "localPath": "../assets/go-template-transparent.png"
   },
   "itemId": "go-template",
   "name": "Go 1.22 Template",
@@ -39,7 +39,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "template",

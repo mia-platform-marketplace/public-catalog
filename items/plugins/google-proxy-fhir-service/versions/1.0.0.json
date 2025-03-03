@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/proxy-google-fhir/overview"
   },
   "image": {
-    "localPath": "../../assets/google-proxy-fhir-service-plugin.png"
+    "localPath": "../assets/google-proxy-fhir-service-plugin.png"
   },
   "itemId": "google-proxy-fhir-service",
   "name": "Google Proxy FHIR Service",
@@ -91,7 +91,7 @@
   },
   "supportedBy": "Mia-Care",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
+    "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

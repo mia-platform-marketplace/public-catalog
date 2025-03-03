@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/identification-manager/overview"
   },
   "image": {
-    "localPath": "../../assets/identification-manager-application.png"
+    "localPath": "../assets/identification-manager-application.png"
   },
   "itemId": "identification-manager",
   "name": "Identification Manager",
@@ -1040,7 +1040,7 @@
   },
   "supportedBy": "Mia-FinTech",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+    "localPath": "../../../../assets/img/MIA-FinTech.png"
   },
   "tenantId": "mia-platform",
   "type": "application",

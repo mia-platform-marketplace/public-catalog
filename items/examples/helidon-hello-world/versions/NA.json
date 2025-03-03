@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/helidon-hello-world-example/main/README.md"
   },
   "image": {
-    "localPath": "../../assets/helidon-hello-world-example-transparent.png"
+    "localPath": "../assets/helidon-hello-world-example-transparent.png"
   },
   "itemId": "helidon-hello-world",
   "name": "Helidon Hello World",
@@ -65,7 +65,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

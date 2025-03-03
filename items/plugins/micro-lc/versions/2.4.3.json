@@ -7,7 +7,7 @@
     "url": "https://micro-lc.io"
   },
   "image": {
-    "localPath": "../../assets/microlc-plugin-transparent.png"
+    "localPath": "../assets/microlc-plugin-transparent.png"
   },
   "itemId": "micro-lc",
   "name": "micro-lc",
@@ -59,7 +59,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

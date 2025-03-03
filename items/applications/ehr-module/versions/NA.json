@@ -3,7 +3,7 @@
   "categoryId": "healthcare",
   "description": "This application allows to quickly setup the necessary services in order to handle forms and medical reports.",
   "image": {
-    "localPath": "../../assets/ehr-module.png"
+    "localPath": "../assets/ehr-module.png"
   },
   "itemId": "ehr-module",
   "name": "EHR Module",
@@ -1258,7 +1258,7 @@
   },
   "supportedBy": "Mia-Care",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
+    "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
   "type": "application",

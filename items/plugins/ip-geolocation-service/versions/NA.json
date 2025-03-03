@@ -3,7 +3,7 @@
   "categoryId": "addgeo",
   "description": "Reverse geocoding service to obtain geolocation information based on request IP relying on ipgeolocation.io",
   "image": {
-    "localPath": "../../assets/ip-geolocation-service-plugin-transparent.png"
+    "localPath": "../assets/ip-geolocation-service-plugin-transparent.png"
   },
   "itemId": "ip-geolocation-service",
   "name": "IP Geolocation Service",
@@ -46,7 +46,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

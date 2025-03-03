@@ -3,7 +3,7 @@
   "categoryId": "healthcare",
   "description": "This application allows to quickly setup the necessary services in order to send messages, across the most widely used notification channels (email, sms, push, voice, whatsapp).",
   "image": {
-    "localPath": "../../assets/notification-module.png"
+    "localPath": "../assets/notification-module.png"
   },
   "itemId": "notification-module",
   "name": "Notification Module",
@@ -1891,7 +1891,7 @@
   },
   "supportedBy": "Mia-Care",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
+    "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
   "type": "application",

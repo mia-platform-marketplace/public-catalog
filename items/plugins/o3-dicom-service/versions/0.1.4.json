@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/o3-dicom-service/overview"
   },
   "image": {
-    "localPath": "../../assets/o3-dicom-service-plugin.png"
+    "localPath": "../assets/o3-dicom-service-plugin.png"
   },
   "itemId": "o3-dicom-service",
   "name": "O3 DICOM Service",
@@ -117,7 +117,7 @@
   },
   "supportedBy": "Mia-Care",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
+    "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

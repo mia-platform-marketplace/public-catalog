@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/micro-lc/vue3-template/refs/tags/v1.0.0/README.md"
   },
   "image": {
-    "localPath": "../../assets/micro-lc-vue3-template.png"
+    "localPath": "../assets/micro-lc-vue3-template.png"
   },
   "itemId": "micro-lc-vue-3-template",
   "name": "micro-lc Vue 3 Template",
@@ -46,7 +46,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "template",

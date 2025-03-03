@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/doctor-service/configuration"
   },
   "image": {
-    "localPath": "../../assets/doctor-service-plugin-transparent.png"
+    "localPath": "../assets/doctor-service-plugin-transparent.png"
   },
   "itemId": "doctor-service",
   "name": "Doctor Service",
@@ -33,7 +33,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

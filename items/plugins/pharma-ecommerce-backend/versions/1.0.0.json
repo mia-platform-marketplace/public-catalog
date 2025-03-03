@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/pharma-ecommerce-backend/overview"
   },
   "image": {
-    "localPath": "../../assets/pharma-ecommerce-backend-plugin.png"
+    "localPath": "../assets/pharma-ecommerce-backend-plugin.png"
   },
   "itemId": "pharma-ecommerce-backend",
   "name": "Pharma Ecommerce Backend",
@@ -147,7 +147,7 @@
   },
   "supportedBy": "Mia-Care",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
+    "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

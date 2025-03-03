@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/python-tornado-hello-world-microservice-example/master/README.md"
   },
   "image": {
-    "localPath": "../../assets/python-tornado-example-transparent.png"
+    "localPath": "../assets/python-tornado-example-transparent.png"
   },
   "itemId": "python-tornado-hello-world",
   "name": "Python Tornado Hello World",
@@ -37,7 +37,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

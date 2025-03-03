@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/notification-manager/overview"
   },
   "image": {
-    "localPath": "../../assets/notification-manager-service-plugin-transparent.png"
+    "localPath": "../assets/notification-manager-service-plugin-transparent.png"
   },
   "itemId": "notification-manager-service",
   "name": "Notification Manager Service",
@@ -139,7 +139,7 @@
   },
   "supportedBy": "Mia-Care",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
+    "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

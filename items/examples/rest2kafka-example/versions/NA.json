@@ -3,7 +3,7 @@
   "categoryId": "stream",
   "description": "This is an example of using our library Rest2Kafka. It takes the body of a POST and create a Kafka message.",
   "image": {
-    "localPath": "../../assets/rest2kafka-example-transparent.png"
+    "localPath": "../assets/rest2kafka-example-transparent.png"
   },
   "itemId": "rest2kafka-example",
   "name": "Rest2Kafka Example",
@@ -70,7 +70,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

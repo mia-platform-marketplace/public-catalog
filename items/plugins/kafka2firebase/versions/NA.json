@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/kafka2firebase/overview"
   },
   "image": {
-    "localPath": "../../assets/kafka2firebase-plugin-transparent.png"
+    "localPath": "../assets/kafka2firebase-plugin-transparent.png"
   },
   "itemId": "kafka2firebase",
   "name": "Kafka2Firebase",
@@ -76,7 +76,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

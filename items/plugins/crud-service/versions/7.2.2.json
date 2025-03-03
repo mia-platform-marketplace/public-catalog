@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/crud-service/overview_and_usage"
   },
   "image": {
-    "localPath": "../../assets/crud-service-plugin-transparent.png"
+    "localPath": "../assets/crud-service-plugin-transparent.png"
   },
   "itemId": "crud-service",
   "name": "CRUD Service",
@@ -104,7 +104,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

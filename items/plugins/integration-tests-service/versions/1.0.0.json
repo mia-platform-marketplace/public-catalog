@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/integration-tests-service/overview"
   },
   "image": {
-    "localPath": "../../assets/integration-test-service-plugin.png"
+    "localPath": "../assets/integration-test-service-plugin.png"
   },
   "itemId": "integration-tests-service",
   "name": "Integration Tests Service",
@@ -91,7 +91,7 @@
   },
   "supportedBy": "Mia-Care",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
+    "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

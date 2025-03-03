@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Custom-Plugin-Mongo-Example/master/README.md"
   },
   "image": {
-    "localPath": "../../assets/nodejs-custom-plugin-with-mongo-example-transparent.png"
+    "localPath": "../assets/nodejs-custom-plugin-with-mongo-example-transparent.png"
   },
   "itemId": "node-js-custom-plugin-with-mongo-example",
   "name": "Node.js Custom Plugin with Mongo Example",
@@ -37,7 +37,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

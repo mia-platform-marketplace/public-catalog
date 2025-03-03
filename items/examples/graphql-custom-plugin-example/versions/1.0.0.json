@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/GraphQL-Custom-Plugin-Example/master/README.md"
   },
   "image": {
-    "localPath": "../../assets/graphql-custom-plugin-example-transparent.png"
+    "localPath": "../assets/graphql-custom-plugin-example-transparent.png"
   },
   "itemId": "graphql-custom-plugin-example",
   "name": "GraphQL-Custom-Plugin-Example",
@@ -58,7 +58,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

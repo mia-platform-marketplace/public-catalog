@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/realtime_updater"
   },
   "image": {
-    "localPath": "../../assets/real-time-updater-plugin.png"
+    "localPath": "../assets/real-time-updater-plugin.png"
   },
   "itemId": "real-time-updater",
   "name": "Real-Time Updater",
@@ -250,7 +250,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",
