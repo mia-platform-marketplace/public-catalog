@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/authorization-service/overview"
   },
   "image": {
-    "localPath": "../../assets/authorization-service-plugin-transparent.png"
+    "localPath": "../assets/authorization-service-plugin-transparent.png"
   },
   "itemId": "authorization-service",
   "name": "Authorization Service",
@@ -137,7 +137,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

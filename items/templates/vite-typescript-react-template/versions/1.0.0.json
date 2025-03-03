@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Vite-Typescript-React-App-Template/refs/heads/18.x/README.md"
   },
   "image": {
-    "localPath": "../../assets/vite-typescript-react-template-transparent.png"
+    "localPath": "../assets/vite-typescript-react-template-transparent.png"
   },
   "itemId": "vite-typescript-react-template",
   "name": "Vite TypeScript React 18 Template",
@@ -46,7 +46,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "template",

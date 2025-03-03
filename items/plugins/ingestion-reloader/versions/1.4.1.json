@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/bucket_storage_support/configuration/ingestion_reloader_configuration"
   },
   "image": {
-    "localPath": "../../assets/ingestion-reloader-plugin-transparent.png"
+    "localPath": "../assets/ingestion-reloader-plugin-transparent.png"
   },
   "itemId": "ingestion-reloader",
   "name": "Ingestion Reloader",
@@ -144,7 +144,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

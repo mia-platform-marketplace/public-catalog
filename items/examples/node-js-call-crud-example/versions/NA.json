@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Call-CRUD-Example/master/README.md"
   },
   "image": {
-    "localPath": "../../assets/nodejs-call-crud-example-transparent.png"
+    "localPath": "../assets/nodejs-call-crud-example-transparent.png"
   },
   "itemId": "node-js-call-crud-example",
   "name": "Node.js Call CRUD Example",
@@ -89,7 +89,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

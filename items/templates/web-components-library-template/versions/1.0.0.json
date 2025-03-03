@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/micro-lc/wc-library-template/refs/tags/v1.0.0/README.md"
   },
   "image": {
-    "localPath": "../../assets/web-components-library-template-transparent.png"
+    "localPath": "../assets/web-components-library-template-transparent.png"
   },
   "itemId": "web-components-library-template",
   "name": "Web Components Library Template",
@@ -51,7 +51,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "template",

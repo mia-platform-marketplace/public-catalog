@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-access-sync/overview"
   },
   "image": {
-    "localPath": "../../assets/user-access-sync-plugin.png"
+    "localPath": "../assets/user-access-sync-plugin.png"
   },
   "itemId": "user-access-sync",
   "name": "User Access Sync",
@@ -86,7 +86,7 @@
   },
   "supportedBy": "Mia-FinTech",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+    "localPath": "../../../../assets/img/MIA-FinTech.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

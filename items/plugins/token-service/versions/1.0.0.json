@@ -3,7 +3,7 @@
   "categoryId": "addonsecurity",
   "description": "Use this service for custom token generation and validation",
   "image": {
-    "localPath": "../../assets/token-service-plugin-transparent.png"
+    "localPath": "../assets/token-service-plugin-transparent.png"
   },
   "itemId": "token-service",
   "name": "Token Service",
@@ -76,7 +76,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

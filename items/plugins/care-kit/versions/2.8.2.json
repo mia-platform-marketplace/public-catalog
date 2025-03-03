@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/care-kit/overview"
   },
   "image": {
-    "localPath": "../../assets/care-kit-plugin.png"
+    "localPath": "../assets/care-kit-plugin.png"
   },
   "itemId": "care-kit",
   "name": "Care Kit",
@@ -52,7 +52,7 @@
   },
   "supportedBy": "Mia-Care",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
+    "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

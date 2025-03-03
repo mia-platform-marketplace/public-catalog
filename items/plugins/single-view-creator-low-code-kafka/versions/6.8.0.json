@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/single-view-creator/configuration"
   },
   "image": {
-    "localPath": "../../assets/single-view-creator-low-code-kafka-plugin-transparent.png"
+    "localPath": "../assets/single-view-creator-low-code-kafka-plugin-transparent.png"
   },
   "itemId": "single-view-creator-low-code-kafka",
   "name": "Single View Creator Low Code - Kafka",
@@ -263,7 +263,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

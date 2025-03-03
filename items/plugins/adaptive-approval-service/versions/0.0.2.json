@@ -3,7 +3,7 @@
   "categoryId": "utility",
   "description": "This service allow to define and verify rules",
   "image": {
-    "localPath": "../../assets/adaptive-approval-plugin.png"
+    "localPath": "../assets/adaptive-approval-plugin.png"
   },
   "itemId": "adaptive-approval-service",
   "name": "Adaptive Approval Service",
@@ -74,7 +74,7 @@
   },
   "supportedBy": "Mia-FinTech",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/MIA-FinTech.png"
+    "localPath": "../../../../assets/img/MIA-FinTech.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

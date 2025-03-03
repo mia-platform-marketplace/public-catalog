@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/kafka2rest/overview"
   },
   "image": {
-    "localPath": "../../assets/kafka2rest-service-plugin-transparent.png"
+    "localPath": "../assets/kafka2rest-service-plugin-transparent.png"
   },
   "itemId": "kafka2rest-service",
   "name": "Kafka2Rest service",
@@ -152,7 +152,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

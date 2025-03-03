@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/rust-hello-world-example/master/README.md"
   },
   "image": {
-    "localPath": "../../assets/rust-hello-world-example-transparent.png"
+    "localPath": "../assets/rust-hello-world-example-transparent.png"
   },
   "itemId": "rust-hello-world",
   "name": "Rust Hello World",
@@ -37,7 +37,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

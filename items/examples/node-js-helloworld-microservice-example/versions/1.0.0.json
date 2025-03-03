@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Hello-World-Microservice-Example/refs/heads/16.x/README.md"
   },
   "image": {
-    "localPath": "../../assets/nodejs-hello-world-example-transparent.png"
+    "localPath": "../assets/nodejs-hello-world-example-transparent.png"
   },
   "itemId": "node-js-helloworld-microservice-example",
   "name": "Node.js 16 HelloWorld Microservice Example",
@@ -42,7 +42,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

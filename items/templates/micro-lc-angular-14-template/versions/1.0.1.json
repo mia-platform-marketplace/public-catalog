@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/micro-lc/angular14-template/refs/tags/v1.0.1/README.md"
   },
   "image": {
-    "localPath": "../../assets/micro-lc-angular-template.png"
+    "localPath": "../assets/micro-lc-angular-template.png"
   },
   "itemId": "micro-lc-angular-14-template",
   "name": "micro-lc Angular 14 Template",
@@ -46,7 +46,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "template",

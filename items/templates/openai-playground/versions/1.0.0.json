@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/open-ai-showcase/master/README.md"
   },
   "image": {
-    "localPath": "../../assets/openai-playground-example-transparent.png"
+    "localPath": "../assets/openai-playground-example-transparent.png"
   },
   "itemId": "openai-playground",
   "name": "OpenAI Playground",
@@ -89,7 +89,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "template",

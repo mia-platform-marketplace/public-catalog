@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/go-echo-template/master/README.md"
   },
   "image": {
-    "localPath": "../../assets/go-echo-template-transparent.png"
+    "localPath": "../assets/go-echo-template-transparent.png"
   },
   "itemId": "go-echo-template",
   "name": "Go Echo Template",
@@ -39,7 +39,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "template",

@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/rest2kafka/overview"
   },
   "image": {
-    "localPath": "../../assets/rest2kafka-service-plugin-transparent.png"
+    "localPath": "../assets/rest2kafka-service-plugin-transparent.png"
   },
   "itemId": "rest2kafka-service",
   "name": "Rest2Kafka service",
@@ -129,7 +129,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

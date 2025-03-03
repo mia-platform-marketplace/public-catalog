@@ -7,7 +7,7 @@
     "url": "https://hub.docker.com/r/jboss/drools-workbench/"
   },
   "image": {
-    "localPath": "../../assets/drools-application.png"
+    "localPath": "../assets/drools-application.png"
   },
   "itemId": "drools-and-kie-server",
   "name": "Drools and Kie Server",
@@ -133,7 +133,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "application",

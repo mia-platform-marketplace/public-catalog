@@ -3,7 +3,7 @@
   "categoryId": "artificial-intelligence",
   "description": "Similar to the AI RAG Chat, this application includes the API service in customizable template to create a tailored RAG application.",
   "image": {
-    "localPath": "../../assets/ai-rag-chat-template-transparent.png"
+    "localPath": "../assets/ai-rag-chat-template-transparent.png"
   },
   "itemId": "ai-rag-chat-template",
   "name": "AI RAG Chat Template",
@@ -310,7 +310,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "application",

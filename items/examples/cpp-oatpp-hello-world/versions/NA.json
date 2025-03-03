@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/cpp-oatpp-hello-world-microservice-example/master/README.md"
   },
   "image": {
-    "localPath": "../../assets/cpp-oatpp-hello-world-example-transparent.png"
+    "localPath": "../assets/cpp-oatpp-hello-world-example-transparent.png"
   },
   "itemId": "cpp-oatpp-hello-world",
   "name": "Cpp Oatpp Hello World",
@@ -49,7 +49,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

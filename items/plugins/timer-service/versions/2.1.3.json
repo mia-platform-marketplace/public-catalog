@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/timer-service/overview"
   },
   "image": {
-    "localPath": "../../assets/timer-service-plugin-transparent.png"
+    "localPath": "../assets/timer-service-plugin-transparent.png"
   },
   "itemId": "timer-service",
   "name": "Timer Service",
@@ -116,7 +116,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

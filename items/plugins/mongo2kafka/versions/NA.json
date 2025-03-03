@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/mongo2kafka/configuration"
   },
   "image": {
-    "localPath": "../../assets/mongo2kafka-plugin-transparent.png"
+    "localPath": "../assets/mongo2kafka-plugin-transparent.png"
   },
   "itemId": "mongo2kafka",
   "name": "Mongo2Kafka",
@@ -68,7 +68,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

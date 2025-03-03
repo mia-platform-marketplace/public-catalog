@@ -6,7 +6,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/sms-service/configuration"
   },
   "image": {
-    "localPath": "../../assets/sms-service-plugin.png"
+    "localPath": "../assets/sms-service-plugin.png"
   },
   "itemId": "sms-service",
   "name": "SMS Service",
@@ -95,7 +95,7 @@
   },
   "supportedBy": "Mia-Care",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
+    "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

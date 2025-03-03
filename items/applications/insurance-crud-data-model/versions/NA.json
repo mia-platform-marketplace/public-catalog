@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/csv-connector/configuration"
   },
   "image": {
-    "localPath": "../../assets/insurance-crud-data-model-application-transparent.png"
+    "localPath": "../assets/insurance-crud-data-model-application-transparent.png"
   },
   "itemId": "insurance-crud-data-model",
   "name": "Insurance CRUD Data Model",
@@ -4754,7 +4754,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "application",

@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Typescript-LC39-Template/refs/heads/16.x/README.md"
   },
   "image": {
-    "localPath": "../../assets/typescript-template-transparent.png"
+    "localPath": "../assets/typescript-template-transparent.png"
   },
   "itemId": "typescript-template",
   "name": "Node.js 16 TypeScript Template",
@@ -37,7 +37,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "template",

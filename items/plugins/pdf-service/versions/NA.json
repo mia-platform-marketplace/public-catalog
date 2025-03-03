@@ -3,7 +3,7 @@
   "categoryId": "utility",
   "description": "The PDF Services provides various functionalities to programmatically generate and manipulate pdf documents.",
   "image": {
-    "localPath": "../../assets/pdf-service-plugin-transparent.png"
+    "localPath": "../assets/pdf-service-plugin-transparent.png"
   },
   "itemId": "pdf-service",
   "name": "PDF Service",
@@ -49,7 +49,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

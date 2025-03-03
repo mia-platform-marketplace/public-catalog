@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/cron-scheduler/overview"
   },
   "image": {
-    "localPath": "../../assets/cron-scheduler-plugin-transparent.png"
+    "localPath": "../assets/cron-scheduler-plugin-transparent.png"
   },
   "itemId": "cron-scheduler",
   "name": "Cron Scheduler",
@@ -38,7 +38,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

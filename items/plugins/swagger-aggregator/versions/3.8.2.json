@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/swagger-aggregator/overview"
   },
   "image": {
-    "localPath": "../../assets/swagger-aggregator-plugin-transparent.png"
+    "localPath": "../assets/swagger-aggregator-plugin-transparent.png"
   },
   "itemId": "swagger-aggregator",
   "name": "Swagger Aggregator",
@@ -71,7 +71,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

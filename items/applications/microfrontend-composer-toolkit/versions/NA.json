@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/microfrontend-composer-toolkit/overview"
   },
   "image": {
-    "localPath": "../../assets/microfrontend-composer-toolkit-application-transparent.png"
+    "localPath": "../assets/microfrontend-composer-toolkit-application-transparent.png"
   },
   "itemId": "microfrontend-composer-toolkit",
   "name": "Microfrontend Composer Toolkit",
@@ -300,7 +300,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "application",

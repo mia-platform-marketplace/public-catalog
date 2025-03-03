@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/chat-service-frontend/overview"
   },
   "image": {
-    "localPath": "../../assets/chat-service-frontend-plugin.png"
+    "localPath": "../assets/chat-service-frontend-plugin.png"
   },
   "itemId": "chat-service-frontend",
   "name": "Chat Service Frontend",
@@ -42,7 +42,7 @@
   },
   "supportedBy": "Mia-Care",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
+    "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

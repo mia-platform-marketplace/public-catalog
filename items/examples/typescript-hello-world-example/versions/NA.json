@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Typescript-LC39-Hello-World-Example/master/README.md"
   },
   "image": {
-    "localPath": "../../assets/typescript-hello-world-example-transparent.png"
+    "localPath": "../assets/typescript-hello-world-example-transparent.png"
   },
   "itemId": "typescript-hello-world-example",
   "name": "TypeScript Hello World Example",
@@ -36,7 +36,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

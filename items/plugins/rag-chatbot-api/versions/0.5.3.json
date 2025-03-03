@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/rag-chatbot-api/overview_and_usage"
   },
   "image": {
-    "localPath": "../../assets/rag-chatbot-api-transparent.png"
+    "localPath": "../assets/rag-chatbot-api-transparent.png"
   },
   "itemId": "rag-chatbot-api",
   "name": "RAG Chatbot API",
@@ -105,7 +105,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

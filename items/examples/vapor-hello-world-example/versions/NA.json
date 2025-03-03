@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Vapor-Hello-World-Example/master/README.md"
   },
   "image": {
-    "localPath": "../../assets/vapor-hello-world-example.png"
+    "localPath": "../assets/vapor-hello-world-example.png"
   },
   "itemId": "vapor-hello-world-example",
   "name": "Vapor Hello World Example",
@@ -76,7 +76,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

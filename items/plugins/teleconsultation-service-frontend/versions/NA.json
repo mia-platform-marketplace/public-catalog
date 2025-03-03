@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/teleconsultation-service-frontend/overview"
   },
   "image": {
-    "localPath": "../../assets/teleconsultation-service-frontend-plugin.png"
+    "localPath": "../assets/teleconsultation-service-frontend-plugin.png"
   },
   "itemId": "teleconsultation-service-frontend",
   "name": "Teleconsultation Service Frontend",
@@ -42,7 +42,7 @@
   },
   "supportedBy": "Mia-Care",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-care.png"
+    "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

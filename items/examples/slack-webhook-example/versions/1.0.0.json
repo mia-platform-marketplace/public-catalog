@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-PrePost-Microservice-Example/master/README.md"
   },
   "image": {
-    "localPath": "../../assets/slack-webhook-example-transparent.png"
+    "localPath": "../assets/slack-webhook-example-transparent.png"
   },
   "itemId": "slack-webhook-example",
   "name": "Slack Webhook Example",
@@ -94,7 +94,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

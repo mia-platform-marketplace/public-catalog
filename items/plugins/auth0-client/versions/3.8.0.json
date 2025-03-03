@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/auth0-client/configuration"
   },
   "image": {
-    "localPath": "../../assets/auth0-client-plugin-transparent.png"
+    "localPath": "../assets/auth0-client-plugin-transparent.png"
   },
   "itemId": "auth0-client",
   "name": "Auth0 Client",
@@ -131,7 +131,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "plugin",

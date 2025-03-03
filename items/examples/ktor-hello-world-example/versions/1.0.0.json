@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Ktor-Hello-World-Example/refs/heads/1.6.x_jdk-11/README.md"
   },
   "image": {
-    "localPath": "../../assets/kotlin-example-transparent.png"
+    "localPath": "../assets/kotlin-example-transparent.png"
   },
   "itemId": "ktor-hello-world-example",
   "name": "Ktor 1.6 Java 11 Hello World Example",
@@ -72,7 +72,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "example",

@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/data-catalog/overview"
   },
   "image": {
-    "localPath": "../../assets/data-catalog-application.png"
+    "localPath": "../assets/data-catalog-application.png"
   },
   "itemId": "data-catalog-application",
   "name": "Data Catalog",
@@ -3909,7 +3909,7 @@
   },
   "supportedBy": "Mia-Platform",
   "supportedByImage": {
-    "localPath": "../../../../../assets/img/mia-platform-logo-2023.png"
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
   "type": "application",
