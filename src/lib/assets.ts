@@ -1,0 +1,144 @@
+import fs from 'node:fs'
+import path from 'node:path'
+
+import type { Collection, Filter, UpdateFilter, UpdateOptions, WithId } from 'mongodb'
+
+import type { DbFile, DbItemFileData, Manifest, SyncCtx } from './types'
+import { __STATE__, CREATOR_ID } from './utils'
+
+type FilesServiceResponse = {
+  file: string
+  location: string
+  name: string
+  size: number
+}
+
+const uploadToFileService = async (ctx: SyncCtx, imagePath: string): Promise<FilesServiceResponse> => {
+  ctx.logger.debug('Uploading image on Files Service')
+
+  const imageName = path.basename(imagePath)
+
+  const formdata = new FormData()
+
+  // @ts-expect-error doesn't need to be a Blob
+  formdata.append('file', fs.createReadStream(imagePath), imageName)
+
+  const res = await globalThis.fetch(ctx.env.FILES_SERVICE_URL, { body: formdata, method: 'POST' })
+  if (!res.ok) {
+    throw new Error(`Files Service responded with a ${res.status} status code`)
+  }
+
+  const payload = await res.json() as FilesServiceResponse
+  ctx.logger.debug({ payload }, 'Image successfully uploaded on Files Service')
+
+  return payload
+}
+
+const patchFilesCollection = async (ctx: SyncCtx, collection: Collection<DbFile>, data: FilesServiceResponse): Promise<WithId<DbFile>> => {
+  const fileData: DbFile = {
+    __STATE__,
+    createdAt: new Date(),
+    creatorId: CREATOR_ID,
+    file: data.file,
+    location: data.location,
+    name: data.name,
+    size: data.size,
+  }
+
+  const filter: Filter<DbFile> = { name: data.name }
+  const payload: UpdateFilter<DbFile> = { $set: fileData }
+  const options: UpdateOptions = { upsert: true }
+
+  ctx.logger.debug({ filter, options, payload }, 'Patching files collection')
+
+  const result = await collection.updateOne(filter, payload, options)
+
+  if (!result.acknowledged || !result.upsertedId) {
+    throw new Error(`Error patching files collection`)
+  }
+
+  ctx.logger.debug({ result }, 'Patched files collection')
+
+  return { ...fileData, _id: result.upsertedId }
+}
+
+const uploadImageFile = async (ctx: SyncCtx, imagePath: string): Promise<DbItemFileData[]> => {
+  const imageName = path.basename(imagePath)
+  ctx.logger.debug({ image: imageName }, 'Uploading image')
+
+  const filesCollection = ctx.mongoClient
+    .db()
+    .collection<DbFile>(ctx.env.FILES_COLLECTION_NAME)
+
+  let dbFile: WithId<DbFile> | null = null
+
+  try {
+    const filter: Filter<DbFile> = { __STATE__: 'PUBLIC', name: imageName }
+    ctx.logger.debug({ filter }, 'Searching image on DB')
+
+    const existingFile = await filesCollection.findOne(filter)
+    if (existingFile) {
+      ctx.logger.debug({ file: existingFile }, 'Image is already uploaded on DB')
+      dbFile = existingFile
+    }
+  } catch (err) {
+    ctx.logger.error({ err }, 'Error searching image on DB')
+    throw new Error('Error searching image on DB')
+  }
+
+  if (!dbFile) {
+    ctx.logger.debug('Image not found on DB: uploading')
+
+    let fileData: FilesServiceResponse
+    try {
+      fileData = await uploadToFileService(ctx, imagePath)
+    } catch (err) {
+      ctx.logger.error({ err, imageName }, 'Error uploading image on Files Service')
+      throw new Error('Error uploading image on Files Service')
+    }
+
+    try {
+      dbFile = await patchFilesCollection(ctx, filesCollection, fileData)
+    } catch (err) {
+      ctx.logger.error({ err, imageName }, 'Error patching files collection')
+      throw new Error('Error patching files collection')
+    }
+  }
+
+  const { _id, ...fileData } = dbFile
+  return [{ id: _id.toString(), ...fileData }]
+}
+
+export const uploadImage = async (ctx: SyncCtx, manifestPath: string, manifest: Manifest): Promise<DbItemFileData[] | null> => {
+  ctx.logger.debug({ image: manifest.image.localPath }, 'Uploading asset for field "image"')
+
+  try {
+    const manifestDir = path.dirname(manifestPath)
+    const imageAbsPath = path.resolve(manifestDir, manifest.image.localPath)
+
+    const data = await uploadImageFile(ctx, imageAbsPath)
+    ctx.logger.debug({ data }, 'Uploaded asset for field "image"')
+
+    return data
+  } catch (err) {
+    ctx.logger.error({ err, image: manifest.image.localPath }, 'Error uploading asset for field "image": field will be unset')
+    return null
+  }
+}
+
+export const uploadSupportedByImage = async (ctx: SyncCtx, manifestPath: string, manifest: Manifest): Promise<DbItemFileData[] | null> => {
+  ctx.logger.debug({ image: manifest.supportedByImage.localPath }, 'Uploading asset for field "supportedByImage"')
+
+  try {
+    const manifestDir = path.dirname(manifestPath)
+    const imageAbsPath = path.resolve(manifestDir, manifest.supportedByImage.localPath)
+
+    const data = await uploadImageFile(ctx, imageAbsPath)
+    ctx.logger.debug({ data }, 'Uploaded asset for field "image"')
+
+    return data
+  } catch (err) {
+    ctx.logger.error({ err, image: manifest.supportedByImage.localPath }, 'Error uploading asset for field "supportedByImage": field will be unset')
+    return null
+  }
+}

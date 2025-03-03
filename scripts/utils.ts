@@ -19,14 +19,6 @@
 import type { CatalogCRDManifest, CatalogItemManifest } from '@mia-platform/console-types'
 import type { JSONSchema } from 'json-schema-to-ts'
 
-// export const logger = pino({
-//   transport: {
-//     options: { colorize: true, ignore: 'pid,hostname' },
-//     target: 'pino-pretty',
-//   },
-// })
-
-
 export type ItemTypeData = {
   crd: CatalogCRDManifest
   schema: JSONSchema
