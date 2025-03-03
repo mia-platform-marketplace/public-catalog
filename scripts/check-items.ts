@@ -37,6 +37,8 @@ import supporters from '../assets/supporters.json' with { type: 'json' }
 import logger from './logger'
 import type { ItemTypeData, ItemTypeModule, Manifest } from './utils'
 
+// TODO: check that images are PNG (extension + MIME type)
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Task = ListrTaskWrapper<any, any, any>
 
