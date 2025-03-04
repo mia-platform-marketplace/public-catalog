@@ -41,7 +41,7 @@ const main = async () => {
 
   const syncCtx: SyncCtx = { env, logger, mongoClient }
 
-  // await syncCategories(syncCtx)
+  await syncCategories(syncCtx)
   await syncItems(syncCtx)
 
   await mongoClient.close()
