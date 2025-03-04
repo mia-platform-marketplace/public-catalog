@@ -29,17 +29,20 @@ const insertNewManifest = async (ctx: SyncCtx, itemsCollection: Collection<DbIte
   ctx.logger.info({ item: itemTriple }, 'Inserting new item in DB')
 
   try {
-    const imageData = await uploadImage(ctx, manifestAbsPath, manifest)
-    const supportedByImageData = await uploadSupportedByImage(ctx, manifestAbsPath, manifest)
+    const { image, supportedByImage, ...manifestData } = manifest
 
     const newDoc: DbItem = {
-      ...manifest,
+      ...manifestData,
       __STATE__: 'PUBLIC',
       createdAt: new Date(),
       creatorId: CREATOR_ID,
-      image: imageData ?? undefined,
-      supportedByImage: supportedByImageData ?? undefined,
     }
+
+    const imageData = await uploadImage(ctx, manifestAbsPath, manifest)
+    if (imageData !== null) { newDoc.image = imageData }
+
+    const supportedByImageData = await uploadSupportedByImage(ctx, manifestAbsPath, manifest)
+    if (supportedByImageData !== null) { newDoc.supportedByImage = supportedByImageData }
 
     const result = await itemsCollection.insertOne(newDoc)
     if (!result.acknowledged) {

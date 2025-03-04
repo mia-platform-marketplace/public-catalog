@@ -22,7 +22,7 @@ import type { FromSchema, JSONSchema } from 'json-schema-to-ts'
 
 import { logLevels } from './logger'
 
-const defaultItemTypesFilter = [
+export const defaultItemTypesFilter = [
   catalogApplication.type,
   catalogExample.type,
   catalogInfrastructureResource.type,

@@ -18,13 +18,14 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { blob } from 'node:stream/consumers'
 
 import type { Collection, Filter, UpdateFilter, UpdateOptions, WithId } from 'mongodb'
 
 import type { DbFile, DbItemFileData, Manifest, SyncCtx } from './types'
 import { __STATE__, CREATOR_ID } from './utils'
 
-type FilesServiceResponse = {
+export type FilesServiceResponse = {
   file: string
   location: string
   name: string
@@ -35,11 +36,10 @@ const uploadToFileService = async (ctx: SyncCtx, imagePath: string): Promise<Fil
   ctx.logger.debug('Uploading image on Files Service')
 
   const imageName = path.basename(imagePath)
+  const imageBlob = await blob(fs.createReadStream(imagePath)) as Blob
 
   const formdata = new FormData()
-
-  // @ts-expect-error doesn't need to be a Blob
-  formdata.append('file', fs.createReadStream(imagePath), imageName)
+  formdata.append('file', imageBlob, imageName)
 
   const res = await globalThis.fetch(ctx.env.FILES_SERVICE_URL, { body: formdata, method: 'POST' })
   if (!res.ok) {
