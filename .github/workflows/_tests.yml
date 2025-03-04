@@ -24,3 +24,6 @@ jobs:
 
       - name: Check items validity
         run: yarn check:items
+      
+      - name: Test sync script
+        run: yarn test
