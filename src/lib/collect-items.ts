@@ -1,3 +1,21 @@
+/**
+ * Copyright 2025 Mia srl
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
@@ -75,6 +93,8 @@ const collectItems = async (ctx: SyncCtx, itemTypesToCollect: string[]): Promise
   const manifests: ReleaseData[] = []
 
   for (const itemType of itemTypesToCollect) {
+    if (itemType !== 'application') { continue }
+
     ctx.logger.debug(`Collecting manifests for items of type "${itemType}"`)
 
     const itemsManifests: ReleaseData[] = []
@@ -90,6 +110,8 @@ const collectItems = async (ctx: SyncCtx, itemTypesToCollect: string[]): Promise
     ctx.logger.debug(`Found ${itemDirs.length} items of type "${itemType}"`)
 
     for (const itemDirent of itemDirs) {
+      if (itemDirent.name !== 'microfrontend-composer-toolkit') { continue }
+
       ctx.logger.debug(`Collecting manifests for item "${itemDirent.name}"`)
 
       const itemDirPath = path.resolve(itemDirent.parentPath, itemDirent.name)
