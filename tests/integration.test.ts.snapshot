@@ -477,6 +477,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
