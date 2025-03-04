@@ -16,38 +16,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { MongoClient } from 'mongodb'
 import pino from 'pino'
 
+import main from './lib'
 import { buildLoggerOpts } from './lib/logger'
 import { parseArgs, parseEnv } from './lib/process'
-import syncCategories from './lib/sync-categories'
-import syncItems from './lib/sync-items'
-import type { SyncCtx } from './lib/types'
 
 const env = parseEnv()
 const args = parseArgs()
 
 const logger = pino(buildLoggerOpts(env.LOG_LEVEL, args.pretty))
 
-const main = async () => {
-  if (env.ITEM_TYPES_FILTER === '') {
-    logger.info('Environment variable "ITEM_TYPES_FILTER" set to empty string: the script will not be executed')
-    process.exit(0)
-  }
-
-  const mongoClient = new MongoClient(env.MONGODB_URL)
-  await mongoClient.connect()
-
-  const syncCtx: SyncCtx = { env, logger, mongoClient }
-
-  await syncCategories(syncCtx)
-  await syncItems(syncCtx)
-
-  await mongoClient.close()
-}
-
-main().catch((err: Error) => {
+main(env, logger).catch((err: Error) => {
   logger.error({ err }, 'Unexpected error executing the script')
   process.exit(1)
 })

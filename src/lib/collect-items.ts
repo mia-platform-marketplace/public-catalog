@@ -20,7 +20,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 
 import type { CatalogPlugin } from '@mia-platform/console-types'
-import { get, set } from 'lodash-es'
+import { get, set, unset } from 'lodash-es'
 
 import type { ReleaseData, Manifest, SyncCtx } from './types'
 import { findLatestRelease, replaceMiaPlatformDockerImageHost } from './utils'
@@ -77,9 +77,8 @@ const setContainerRegistry = (ctx: SyncCtx, manifest: Manifest) => {
   }
 }
 
+// TODO: fix latest
 const setIsLatest = (manifests: Manifest[]) => {
-  manifests.forEach((manifest) => { set(manifest, 'isLatest', null) })
-
   const latestManifest = findLatestRelease(manifests)
 
   if (latestManifest) {
@@ -122,6 +121,7 @@ const collectItems = async (ctx: SyncCtx, itemTypesToCollect: string[]): Promise
       for await (const manifestPath of manifestPaths) {
         const { default: manifest } = await import(manifestPath, { with: { type: 'json' } }) as { default: Manifest }
 
+        unset(manifest, '$schema')
         setTenantId(ctx, manifest)
         setContainerRegistry(ctx, manifest)
 
