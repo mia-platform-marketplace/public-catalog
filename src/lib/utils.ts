@@ -40,7 +40,7 @@ const findLatestVersionBySemVer = (releases: CatalogItemManifest[]): CatalogItem
 
   for (const release of releases) {
     const isVersionSemver = semver.valid(release.version?.name)
-    const isVersionNa = release.version?.name.toUpperCase() === NA_VERSION
+    const isVersionNa = release.version?.name === undefined
 
     if (!isVersionSemver && !isVersionNa) { continue }
 
