@@ -6,7 +6,7 @@ services:
     ports:
       - '27017:27017'
     volumes:
-      - mongo:/data/db
+      - db-data:/data/db
     networks:
       - ring
     healthcheck:
@@ -25,7 +25,6 @@ services:
       - ./crud-service/service.env
     volumes:
       - ./crud-service/collections:/home/node/app/collections
-      - ./crud-service/healthcheck.js:/home/node/app/healthcheck/healthcheck.js
     networks:
       - ring
     depends_on:
@@ -47,7 +46,8 @@ services:
         condition: service_started
 
 volumes:
-  mongo:
+  db-data:
+    name: catalog-sync-dev-db-data
 
 networks:
   ring:
