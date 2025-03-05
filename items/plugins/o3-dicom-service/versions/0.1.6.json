@@ -1,28 +1,30 @@
 {
   "$schema": "../../manifest.schema.json",
   "categoryId": "utility",
+  "description": "The O3 DICOM Service is a microservice that allows you to interact with a DICOM PACS, in order to manage worklists, exams, notification coming from the PACS and OTP for the DICOM Viewer.",
   "documentation": {
     "type": "externalLink",
-    "url": "https://docs.mia-platform.eu/docs/runtime_suite/appointment-manager/overview"
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/o3-dicom-service/overview"
   },
   "image": {
-    "localPath": "../assets/appointment-manager-plugin.png"
+    "localPath": "../assets/o3-dicom-service-plugin.png"
   },
-  "itemId": "appointment-manager",
-  "name": "Appointment Manager",
+  "itemId": "o3-dicom-service",
+  "name": "O3 DICOM Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/o3-dicom-service",
   "resources": {
     "services": {
-      "appointment-manager": {
+      "o3-dicom-service": {
         "type": "plugin",
-        "name": "appointment-manager",
-        "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager:2.3.0",
+        "name": "o3-dicom-service",
+        "description": "The O3 DICOM Service is a microservice that allows you to interact with a DICOM PACS, in order to manage worklists, exams, notification coming from the PACS and OTP for the DICOM Viewer.",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/o3-dicom-service:0.1.6",
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",
-            "value": "info",
+            "value": "{{LOG_LEVEL}}",
             "valueType": "plain"
           },
           {
@@ -66,44 +68,42 @@
             "valueType": "plain"
           },
           {
-            "name": "CRUD_SERVICE_NAME",
-            "value": "crud-service",
-            "valueType": "plain"
+            "name": "PACS_SERVICE_URL",
+            "valueType": "plain",
+            "value": "CHANGE ME"
           },
           {
-            "name": "APPOINTMENTS_CRUD_NAME",
-            "value": "CHANGE VALUE",
-            "valueType": "plain"
+            "name": "PACS_POST_EXAM_ENDPOINT",
+            "valueType": "plain",
+            "value": "CHANGE ME"
           },
           {
-            "name": "CONFIGURATION_PATH",
-            "value": "/home/node/app/appointment-manager/config.json",
-            "valueType": "plain"
+            "name": "PACS_AUTHORIZATION_TOKEN",
+            "valueType": "plain",
+            "value": "CHANGE ME"
           },
           {
-            "name": "RESOURCE_ID_FIELD_NAME",
-            "value": "CHANGE VALUE",
-            "valueType": "plain"
+            "name": "DICOM_VIEWER_URL",
+            "valueType": "plain",
+            "value": "CHANGE ME"
           },
           {
-            "name": "DEFAULT_TIME_ZONE",
-            "value": "Europe/Rome",
-            "valueType": "plain"
+            "name": "VIEWER_GET_TOKEN_ENDPOINT",
+            "valueType": "plain",
+            "value": "CHANGE ME"
+          },
+          {
+            "name": "DICOM_UID_ROOT",
+            "valueType": "plain",
+            "value": "CHANGE ME"
+          },
+          {
+            "name": "CRUD_SERVICE",
+            "valueType": "plain",
+            "value": "crud-service"
           }
         ],
         "defaultLogParser": "mia-json",
-        "defaultConfigMaps": [
-          {
-            "name": "appointment-manager",
-            "mountPath": "/home/node/app/appointment-manager",
-            "files": [
-              {
-                "name": "config.json",
-                "content": "{\n\"users\": {},\n\"channels\": [],\n\"isTeleconsultationAvailable\": false,\n\"isMessagingAvailable\": false,\n\"isTimerAvailable\": false,\n\"isUserAvailable\": false,\n\"isFlexibleSlotAvailable\": false,\n\"isParticipantStatusAvailable\": false\n}"
-              }
-            ]
-          }
-        ],
         "containerPorts": [
           {
             "name": "http",
@@ -122,8 +122,8 @@
   "tenantId": "mia-platform",
   "type": "plugin",
   "version": {
-    "name": "2.3.0",
-    "releaseNote": "-"
+    "name": "0.1.6",
+    "releaseNote": "Upgrade base Docker image"
   },
   "visibility": {
     "public": true

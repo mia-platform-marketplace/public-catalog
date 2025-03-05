@@ -20,7 +20,7 @@
         "type": "plugin",
         "name": "teleconsultation-service-frontend",
         "description": "Start your videocall application leveraging Bandyer APIs",
-        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/teleconsultation-service-frontend:1.5.1",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/teleconsultation-service-frontend:2.0.2",
         "defaultEnvironmentVariables": [
           {
             "name": "HTTP_PORT",
@@ -47,8 +47,8 @@
   "tenantId": "mia-platform",
   "type": "plugin",
   "version": {
-    "name": "1.5.1",
-    "releaseNote": "-"
+    "name": "2.0.2",
+    "releaseNote": "Upgrade dependencies, fix localization and security issues"
   },
   "visibility": {
     "public": true

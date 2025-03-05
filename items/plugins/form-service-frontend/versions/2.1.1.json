@@ -19,7 +19,7 @@
         "type": "plugin",
         "name": "form-service-frontend",
         "description": "Build and manage custom forms.",
-        "dockerImage": "nexus.mia-platform.eu/backoffice/form-service-frontend:2.0.5",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/form-service-frontend:2.1.1",
         "defaultEnvironmentVariables": [
           {
             "name": "HTTP_PORT",
@@ -46,8 +46,8 @@
   "tenantId": "mia-platform",
   "type": "plugin",
   "version": {
-    "name": "2.0.5",
-    "releaseNote": "-"
+    "name": "2.1.1",
+    "releaseNote": "Upgrade dependencies, add custom title to expired modal, form metadata can be edited after form is expired"
   },
   "visibility": {
     "public": true

@@ -1,28 +1,29 @@
 {
   "$schema": "../../manifest.schema.json",
   "categoryId": "utility",
+  "description": "The User Manager Service combines the Authentication Service (e.g. Auth0 Client) and the CRUD into a unique service for user management.",
   "documentation": {
     "type": "externalLink",
-    "url": "https://docs.mia-platform.eu/docs/runtime_suite/appointment-manager/overview"
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-manager-service/overview"
   },
   "image": {
-    "localPath": "../assets/appointment-manager-plugin.png"
+    "localPath": "../assets/user-manager-service-plugin.png"
   },
-  "itemId": "appointment-manager",
-  "name": "Appointment Manager",
-  "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
+  "itemId": "user-manager-service",
+  "name": "User Manager Service",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/user-manager-service",
   "resources": {
     "services": {
-      "appointment-manager": {
+      "user-manager-service": {
         "type": "plugin",
-        "name": "appointment-manager",
-        "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager:2.3.0",
+        "name": "user-manager-service",
+        "description": "The User Manager Service combines the Authentication Service (e.g. Auth0 Client) and the CRUD into a unique service for user management.",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/user-manager-service:1.5.2",
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",
-            "value": "info",
+            "value": "{{LOG_LEVEL}}",
             "valueType": "plain"
           },
           {
@@ -66,44 +67,54 @@
             "valueType": "plain"
           },
           {
-            "name": "CRUD_SERVICE_NAME",
-            "value": "crud-service",
+            "name": "AUTH_SERVICE",
+            "value": "auth0-client",
             "valueType": "plain"
           },
           {
-            "name": "APPOINTMENTS_CRUD_NAME",
+            "name": "UMS_CONFIG_CRUD_ENDPOINT",
             "value": "CHANGE VALUE",
             "valueType": "plain"
           },
           {
-            "name": "CONFIGURATION_PATH",
-            "value": "/home/node/app/appointment-manager/config.json",
-            "valueType": "plain"
-          },
-          {
-            "name": "RESOURCE_ID_FIELD_NAME",
+            "name": "USERS_CRUD_ENDPOINT",
             "value": "CHANGE VALUE",
             "valueType": "plain"
           },
           {
-            "name": "DEFAULT_TIME_ZONE",
-            "value": "Europe/Rome",
+            "name": "AUTH_CONNECTION",
+            "value": "Username-Password-Authentication",
             "valueType": "plain"
           }
         ],
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "50m",
+            "min": "50m"
+          },
+          "memoryLimits": {
+            "max": "70Mi",
+            "min": "50Mi"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 15,
+            "periodSeconds": 20,
+            "timeoutSeconds": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 10,
+            "timeoutSeconds": 1,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
         "defaultLogParser": "mia-json",
-        "defaultConfigMaps": [
-          {
-            "name": "appointment-manager",
-            "mountPath": "/home/node/app/appointment-manager",
-            "files": [
-              {
-                "name": "config.json",
-                "content": "{\n\"users\": {},\n\"channels\": [],\n\"isTeleconsultationAvailable\": false,\n\"isMessagingAvailable\": false,\n\"isTimerAvailable\": false,\n\"isUserAvailable\": false,\n\"isFlexibleSlotAvailable\": false,\n\"isParticipantStatusAvailable\": false\n}"
-              }
-            ]
-          }
-        ],
         "containerPorts": [
           {
             "name": "http",
@@ -122,8 +133,8 @@
   "tenantId": "mia-platform",
   "type": "plugin",
   "version": {
-    "name": "2.3.0",
-    "releaseNote": "-"
+    "name": "1.5.2",
+    "releaseNote": "Upgrade custom-plugin-lib (v6) and fix bug in user bulk activation"
   },
   "visibility": {
     "public": true
