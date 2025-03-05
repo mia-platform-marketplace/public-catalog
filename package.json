@@ -15,10 +15,10 @@
     "start": "node build/index.cjs",
     "test": "node --import=tsx --test tests/**/*.test.ts",
     "test:snapshot": "node --import=tsx --test --test-update-snapshots tests/**/*.test.ts",
+    "lint": "eslint .",
     "check:items": "tsx --no-warnings scripts/check-items.ts",
     "check:types": "tsc --noEmit --skipLibCheck",
-    "lint": "eslint .",
-    "check-license": "addlicense -c 'Mia srl' -check -s items/**/*.ts scripts/**/*.ts src/**/*.ts"
+    "check:license": "addlicense -c 'Mia srl' -check -s items/**/*.ts scripts/**/*.ts src/**/*.ts"
   },
   "dependencies": {
     "env-schema": "^6.0.1",
