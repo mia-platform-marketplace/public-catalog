@@ -12,7 +12,7 @@ on:
 
 jobs:
   lint:
-    uses: ./.github/workflows/_lint.yml
+    uses: ./.github/workflows/_checks.yml
 
   build:
     uses: ./.github/workflows/_build.yml
