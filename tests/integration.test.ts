@@ -79,7 +79,10 @@ describe('Sync script', async () => {
         return res
       })
 
-    await sync(envs, logger)
+    const metricsReport = await sync(envs, logger)
+
+    assert.equal(metricsReport.categories.errors, 0)
+    assert.equal(metricsReport.items.errors, 0)
 
     const insertedCategories = await mongoClient
       .db()
