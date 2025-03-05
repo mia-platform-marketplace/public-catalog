@@ -1,28 +1,30 @@
 {
   "$schema": "../../manifest.schema.json",
-  "categoryId": "utility",
+  "categoryId": "notification",
+  "description": "Send messages to your users through various channels",
   "documentation": {
     "type": "externalLink",
-    "url": "https://docs.mia-platform.eu/docs/runtime_suite/appointment-manager/overview"
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/messaging-service/overview"
   },
   "image": {
-    "localPath": "../assets/appointment-manager-plugin.png"
+    "localPath": "../assets/messaging-service-plugin.png"
   },
-  "itemId": "appointment-manager",
-  "name": "Appointment Manager",
+  "itemId": "messaging-service",
+  "name": "Messaging Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/messaging-service",
   "resources": {
     "services": {
-      "appointment-manager": {
+      "messaging-service": {
         "type": "plugin",
-        "name": "appointment-manager",
-        "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager:2.3.0",
+        "name": "messaging-service",
+        "description": "Send messages to your users through various channels",
+        "dockerImage": "nexus.mia-platform.eu/plugins/messaging-service:1.7.1",
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",
-            "value": "info",
+            "value": "{{LOG_LEVEL}}",
             "valueType": "plain"
           },
           {
@@ -71,39 +73,27 @@
             "valueType": "plain"
           },
           {
-            "name": "APPOINTMENTS_CRUD_NAME",
+            "name": "USERS_CRUD_NAME",
+            "value": "CHANGE VALUE",
+            "valueType": "plain"
+          },
+          {
+            "name": "TEMPLATES_CRUD_NAME",
+            "value": "CHANGE VALUE",
+            "valueType": "plain"
+          },
+          {
+            "name": "SMS_SERVICE_NAME",
             "value": "CHANGE VALUE",
             "valueType": "plain"
           },
           {
             "name": "CONFIGURATION_PATH",
-            "value": "/home/node/app/appointment-manager/config.json",
-            "valueType": "plain"
-          },
-          {
-            "name": "RESOURCE_ID_FIELD_NAME",
-            "value": "CHANGE VALUE",
-            "valueType": "plain"
-          },
-          {
-            "name": "DEFAULT_TIME_ZONE",
-            "value": "Europe/Rome",
+            "value": "/home/node/app/messaging-service/config.json",
             "valueType": "plain"
           }
         ],
         "defaultLogParser": "mia-json",
-        "defaultConfigMaps": [
-          {
-            "name": "appointment-manager",
-            "mountPath": "/home/node/app/appointment-manager",
-            "files": [
-              {
-                "name": "config.json",
-                "content": "{\n\"users\": {},\n\"channels\": [],\n\"isTeleconsultationAvailable\": false,\n\"isMessagingAvailable\": false,\n\"isTimerAvailable\": false,\n\"isUserAvailable\": false,\n\"isFlexibleSlotAvailable\": false,\n\"isParticipantStatusAvailable\": false\n}"
-              }
-            ]
-          }
-        ],
         "containerPorts": [
           {
             "name": "http",
@@ -122,8 +112,8 @@
   "tenantId": "mia-platform",
   "type": "plugin",
   "version": {
-    "name": "2.3.0",
-    "releaseNote": "-"
+    "name": "1.7.1",
+    "releaseNote": "Replace newline escape sequences with HTML line break element in HTML email messages"
   },
   "visibility": {
     "public": true

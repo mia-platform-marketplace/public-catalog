@@ -1,35 +1,28 @@
 {
   "$schema": "../../manifest.schema.json",
   "categoryId": "utility",
-  "description": "The Chat Service Backend is a Mia-Platform plugin acting as a proxy between your project's microservices and the Stream Chat APIs, introducing a Token Provider to validate and generate a token for your users.",
   "documentation": {
     "type": "externalLink",
-    "url": "https://docs.mia-platform.eu/docs/runtime_suite/chat-service-backend/overview"
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/appointment-manager/overview"
   },
   "image": {
-    "localPath": "../assets/chat-service-backend-plugin.png"
+    "localPath": "../assets/appointment-manager-plugin.png"
   },
-  "itemId": "chat-service-backend",
-  "name": "Chat Service Backend",
+  "itemId": "appointment-manager",
+  "name": "Appointment Manager",
   "publishOnMiaDocumentation": true,
   "releaseStage": "deprecated",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/chat-service-backend",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
   "resources": {
     "services": {
-      "chat-service-backend": {
+      "appointment-manager": {
         "type": "plugin",
-        "name": "chat-service-backend",
-        "description": "The Chat Service Backend is a Mia-Platform plugin acting as a proxy between your project's microservices and the Stream Chat APIs, introducing a Token Provider to validate and generate a token for your users.",
-        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/chat-service-backend:1.0.1",
+        "name": "appointment-manager",
+        "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager:2.5.0",
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",
-            "value": "{{LOG_LEVEL}}",
-            "valueType": "plain"
-          },
-          {
-            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
-            "value": "microservice-gateway",
+            "value": "info",
             "valueType": "plain"
           },
           {
@@ -63,45 +56,50 @@
             "valueType": "plain"
           },
           {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
             "name": "USER_PROPERTIES_HEADER_KEY",
             "value": "miauserproperties",
             "valueType": "plain"
           },
           {
-            "name": "STREAM_API_KEY",
+            "name": "CRUD_SERVICE_NAME",
+            "value": "crud-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "APPOINTMENTS_CRUD_NAME",
             "value": "CHANGE VALUE",
             "valueType": "plain"
           },
           {
-            "name": "STREAM_API_SECRET",
+            "name": "CONFIGURATION_PATH",
+            "value": "/home/node/app/appointment-manager/config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "RESOURCE_ID_FIELD_NAME",
             "value": "CHANGE VALUE",
             "valueType": "plain"
           },
           {
-            "name": "STREAM_AUTH_TOKEN",
-            "value": "CHANGE VALUE",
-            "valueType": "plain"
-          },
-          {
-            "name": "STYLE_CONFIG",
-            "value": "/config/styles/style.json",
-            "valueType": "plain"
-          },
-          {
-            "name": "EXPIRATION_TOKEN_DURATION",
-            "value": "3600",
+            "name": "DEFAULT_TIME_ZONE",
+            "value": "Europe/Rome",
             "valueType": "plain"
           }
         ],
         "defaultLogParser": "mia-json",
         "defaultConfigMaps": [
           {
-            "name": "chat-service-backend-styles",
-            "mountPath": "/config/styles",
+            "name": "appointment-manager",
+            "mountPath": "/home/node/app/appointment-manager",
             "files": [
               {
-                "name": "style.json",
-                "content": "{\n  \"web\": {\n    \"errors\": {\n      \"title\": \"Chat not available\",\n      \"message\": \"You currently don't have any available chat. Please come back later to start messaging.\"\n    },\n    \"stylesheet\": {\n      \"--white-snow\": \"#F0F0EC\"\n    },\n    \"options\": {\n      \"showUnreadBadge\": true,\n      \"showLastMessageTimestamp\": true,\n      \"disableEmojiPicker\": true,\n      \"theme\": {\n        \"--white-snow\": \"#F0F0EC\"\n      }\n    }\n  }\n}"
+                "name": "config.json",
+                "content": "{\n\"users\": {},\n\"channels\": [],\n\"isTeleconsultationAvailable\": false,\n\"isMessagingAvailable\": false,\n\"isTimerAvailable\": false,\n\"isUserAvailable\": false,\n\"isFlexibleSlotAvailable\": false,\n\"isParticipantStatusAvailable\": false,\n\"isNotificationManagerAsync\": false\n}"
               }
             ]
           }
@@ -124,8 +122,8 @@
   "tenantId": "mia-platform",
   "type": "plugin",
   "version": {
-    "name": "1.0.1",
-    "releaseNote": "-"
+    "name": "2.5.0",
+    "releaseNote": "Automatically truncate startDate and endDate of exceptions to the second"
   },
   "visibility": {
     "public": true

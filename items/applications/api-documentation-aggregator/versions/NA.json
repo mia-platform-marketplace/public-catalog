@@ -102,7 +102,7 @@
         ],
         "type": "plugin",
         "componentId": "swagger-aggregator",
-        "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.1",
+        "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.2",
         "defaultDocumentationPath": "",
         "defaultEnvironmentVariables": [
           {

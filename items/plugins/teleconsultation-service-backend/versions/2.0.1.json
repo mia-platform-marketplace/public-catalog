@@ -18,7 +18,7 @@
       "teleconsultation-service-backend": {
         "type": "plugin",
         "name": "teleconsultation-service-backend",
-        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/teleconsultation-service-backend:1.7.0",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/teleconsultation-service-backend:2.0.1",
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",
@@ -132,8 +132,8 @@
   "tenantId": "mia-platform",
   "type": "plugin",
   "version": {
-    "name": "1.7.0",
-    "releaseNote": "-"
+    "name": "2.0.1",
+    "releaseNote": "Update Kaleyra API (from v1 to v2), remove endpoint POST /teleconsultation/:roomId/participants/data"
   },
   "visibility": {
     "public": true

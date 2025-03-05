@@ -1,0 +1,66 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "frontendbuilder",
+  "description": "This plugin exposes a bundle of web components, designed by Mia Care, that can be used within your Backoffice.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/care-kit/overview"
+  },
+  "image": {
+    "localPath": "../assets/care-kit-plugin.png"
+  },
+  "itemId": "care-kit",
+  "name": "Care Kit",
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/mia-care-web-components",
+  "resources": {
+    "services": {
+      "care-kit": {
+        "type": "plugin",
+        "name": "care-kit",
+        "description": "This plugin exposes a bundle of web components, designed by Mia Care, that can be used within your Backoffice.",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/mia-care-web-components:2.9.3",
+        "componentId": "care-kit",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultProbes": {
+          "readiness": {
+            "path": "/mia-care-web-components.esm.js"
+          },
+          "liveness": {
+            "path": "/mia-care-web-components.esm.js"
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "2.9.3",
+    "releaseNote": "See https://docs.mia-platform.eu/docs/runtime_suite/care-kit/changelog#293"
+  },
+  "visibility": {
+    "public": true
+  }
+}

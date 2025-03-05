@@ -20,7 +20,7 @@
         "type": "plugin",
         "name": "therapy-and-monitoring-manager",
         "description": "The Therapy and Monitoring Manager (TMM) is a service that enables health care professionals to manage patients therapies and monitor patients health conditions, adherence and compliance to therapy.",
-        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/therapy-monitoring-manager:0.3.0",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/therapy-monitoring-manager:0.5.1",
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",
@@ -84,7 +84,7 @@
           },
           {
             "name": "DETECTIONS_CRUD_NAME",
-            "value": "observations",
+            "value": "detections",
             "valueType": "plain"
           },
           {
@@ -108,33 +108,18 @@
             "valueType": "plain"
           },
           {
+            "name": "VALIDATION_SERVICE",
+            "value": "integrated",
+            "valueType": "plain"
+          },
+          {
             "name": "DEFAULT_ADHERENCE_STATUS",
-            "value": "change-me",
-            "valueType": "plain"
-          },
-          {
-            "name": "DEFAULT_ADHERENCE_TOLERANCE_FREQUENCY",
-            "value": "2",
-            "valueType": "plain"
-          },
-          {
-            "name": "DEFAULT_ADHERENCE_TOLERANCE_TIME",
-            "value": "1",
-            "valueType": "plain"
-          },
-          {
-            "name": "DEFAULT_ADHERENCE_MINIMUM_PERCENTAGE",
-            "value": "20%",
+            "value": "disabled",
             "valueType": "plain"
           },
           {
             "name": "DEFAULT_COMPLIANCE_STATUS",
             "value": "disabled",
-            "valueType": "plain"
-          },
-          {
-            "name": "DEFAULT_COMPLIANCE_MINIMUM_PERCENTAGE",
-            "value": "20%",
             "valueType": "plain"
           }
         ],
@@ -169,8 +154,8 @@
   "tenantId": "mia-platform",
   "type": "plugin",
   "version": {
-    "name": "0.3.0",
-    "releaseNote": "-"
+    "name": "0.5.1",
+    "releaseNote": "Update Node.js (v20), custom-plugin-lib (v7.0.0) and fastify-cron (v1.3.1), update prototype and threshold schemas, save threshold validation results"
   },
   "visibility": {
     "public": true
