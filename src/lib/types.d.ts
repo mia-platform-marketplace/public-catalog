@@ -20,11 +20,13 @@ import type { CatalogItemManifest } from '@mia-platform/console-types'
 import type { MongoClient } from 'mongodb'
 import type { Logger } from 'pino'
 
+import type Metrics from './metrics'
 import type { Env } from './process'
 
 export type SyncCtx = {
   env: Env
   logger: Logger
+  metrics: Metrics
   mongoClient: MongoClient
 }
 

@@ -19,26 +19,37 @@
 import { MongoClient } from 'mongodb'
 import type { Logger } from 'pino'
 
+import type { MetricsReport } from './metrics'
+import Metrics from './metrics'
 import type { Env } from './process'
 import syncCategories from './sync-categories'
 import syncItems from './sync-items'
 import type { SyncCtx } from './types'
 
-const main = async (env: Env, logger: Logger) => {
+const main = async (env: Env, logger: Logger): Promise<MetricsReport> => {
   if (env.ITEM_TYPES_FILTER === '') {
     logger.info('Environment variable "ITEM_TYPES_FILTER" set to empty string: the script will not be executed')
     process.exit(0)
   }
 
+  const metrics = new Metrics()
+
   const mongoClient = new MongoClient(env.MONGODB_URL)
   await mongoClient.connect()
 
-  const syncCtx: SyncCtx = { env, logger, mongoClient }
+  const syncCtx: SyncCtx = {
+    env,
+    logger,
+    metrics,
+    mongoClient,
+  }
 
   await syncCategories(syncCtx)
   await syncItems(syncCtx)
 
   await mongoClient.close()
+
+  return syncCtx.metrics.getReport()
 }
 
 export default main

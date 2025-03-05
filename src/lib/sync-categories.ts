@@ -16,8 +16,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import type { Collection, Filter, OptionalId, UpdateFilter, UpdateOptions } from 'mongodb'
-import type { Logger } from 'pino'
+import type { Collection, Filter, UpdateFilter, UpdateOptions } from 'mongodb'
 
 import { categories } from '../../assets/categories.json' with { type: 'json' }
 
@@ -31,43 +30,28 @@ type Category = {
 }
 
 /** @throws Error */
-const dumpDefaultCategories = async (collection: Collection<Category>, logger: Logger) => {
-  logger.info('No existing categories found, inserting default ones')
-
-  const payload: OptionalId<Category>[] = categories.map((category) => ({ ...category, __STATE__ }))
-  logger.debug({ payload }, 'Performing an "insertMany" database operation')
-
-  const result = await collection.insertMany(payload)
-
-  if (!result.acknowledged) {
-    throw new Error('Error inserting default categories')
-  }
-
-  logger.info({ insertedCount: result.insertedCount }, 'Successfully inserted default categories')
-  logger.debug({ result }, 'Performed an "insertMany" database operation')
-}
-
-/** @throws Error */
-const upsertDefaultCategories = async (collection: Collection<Category>, logger: Logger) => {
+const upsertDefaultCategories = async (ctx: SyncCtx, collection: Collection<Category>) => {
   for (const category of categories) {
     const filter: Filter<Category> = { categoryId: category.categoryId }
-    const payload: UpdateFilter<Category> = { $set: { __STATE__: 'PUBLIC', label: category.label } }
+    const payload: UpdateFilter<Category> = { $set: { __STATE__, label: category.label } }
     const options: UpdateOptions = { upsert: true }
 
-    logger.debug({ filter, options, payload }, 'Performing an "updateOne" database operation')
+    ctx.logger.debug({ filter, options }, 'Upserting default category')
 
     const result = await collection.updateOne(filter, payload, { upsert: true })
 
     if (!result.acknowledged) {
-      throw new Error(`Error upserting category "${category.categoryId}"`)
+      ctx.metrics.incCategoriesErrors()
+      throw new Error('DB returned an unacknowledged result')
     }
 
-    logger.info(
+    ctx.logger.info(
       { matchedCount: result.matchedCount, modifiedCount: result.modifiedCount, upsertedCount: result.upsertedCount },
       `Successfully upserted category "${category.categoryId}"`
     )
 
-    logger.debug({ result }, 'Performed an "updateOne" database operation')
+    if (result.upsertedCount === 1) { ctx.metrics.incCategoriesCreated() }
+    if (result.modifiedCount === 1) { ctx.metrics.incCategoriesUpdated() }
   }
 }
 
@@ -79,11 +63,7 @@ const syncCategories = async (ctx: SyncCtx) => {
       .db()
       .collection<Category>(ctx.env.CATEGORIES_COLLECTION_NAME)
 
-    const existingCategoriesCount = await categoriesCollection.countDocuments()
-    ctx.logger.debug(`Found ${existingCategoriesCount} categories in database`)
-
-    const operation = existingCategoriesCount === 0 ? dumpDefaultCategories : upsertDefaultCategories
-    await operation(categoriesCollection, ctx.logger)
+    await upsertDefaultCategories(ctx, categoriesCollection)
 
     ctx.logger.info('Finished syncing catalog categories')
   } catch (err) {

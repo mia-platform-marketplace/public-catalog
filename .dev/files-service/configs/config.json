@@ -1,7 +1,7 @@
 {
   "type": "mongodb",
   "options": {
-    "url": "mongodb://localhost:27017/catalog",
+    "url": "mongodb://mongodb:27017/catalog",
     "bucketName": "catalog-files"
   }
 }

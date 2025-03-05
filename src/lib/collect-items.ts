@@ -92,8 +92,6 @@ const collectItems = async (ctx: SyncCtx, itemTypesToCollect: string[]): Promise
   const manifests: ReleaseData[] = []
 
   for (const itemType of itemTypesToCollect) {
-    if (itemType !== 'application') { continue }
-
     ctx.logger.debug(`Collecting manifests for items of type "${itemType}"`)
 
     const itemsManifests: ReleaseData[] = []
@@ -109,8 +107,6 @@ const collectItems = async (ctx: SyncCtx, itemTypesToCollect: string[]): Promise
     ctx.logger.debug(`Found ${itemDirs.length} items of type "${itemType}"`)
 
     for (const itemDirent of itemDirs) {
-      if (itemDirent.name !== 'microfrontend-composer-toolkit') { continue }
-
       ctx.logger.debug(`Collecting manifests for item "${itemDirent.name}"`)
 
       const itemDirPath = path.resolve(itemDirent.parentPath, itemDirent.name)
