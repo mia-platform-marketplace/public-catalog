@@ -2,40 +2,52 @@ name: catalog-sync-dev
 
 services:
   mongodb:
-    image: mongo:7.0
+    image: mongo:8
     ports:
       - '27017:27017'
-    environment:
-      MONGO_INITDB_DATABASE: catalog
+    volumes:
+      - mongo:/data/db
     networks:
       - ring
+    healthcheck:
+      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
 
   crud-service:
-    image: ghcr.io/mia-platform/crud-service
-    environment:
-      - MONGODB_URL=mongodb://mongodb:27017/catalog
-      - COLLECTION_DEFINITION_FOLDER=/home/node/app/collections
-      - USER_ID_HEADER_KEY=userid
+    image: ghcr.io/mia-platform/crud-service:latest
+    platform: linux/amd64
+    ports:
+      - '3000:3000'
+    env_file:
+      - ./crud-service/service.env
     volumes:
-      - ./crud-service:/home/node/app/collections
+      - ./crud-service/collections:/home/node/app/collections
+      - ./crud-service/healthcheck.js:/home/node/app/healthcheck/healthcheck.js
     networks:
       - ring
+    depends_on:
+      mongodb:
+        condition: service_healthy
 
-  # files-service:
-  #   image: nexus.mia-platform.eu/plugins/files-service
-  #   ports:
-  #     - '3000:3000'
-  #   environment:
-  #     - CONFIG_FILE_PATH=/home/node/app/configs/config.json
-  #     - CRUD_URL=http://crud-service:3000/files/
-  #     - HEADERS_TO_PROXY=userid
-  #     - PATH_PREFIX=/files/
-  #   volumes:
-  #     - ./files-service:/home/node/app/configs
-  #   extra_hosts:
-  #     - host.docker.internal:host-gateway
-  #   networks:
-  #     - ring
+  files-service:
+    image: nexus.mia-platform.eu/plugins/files-service:latest
+    ports:
+      - '3001:3000'
+    env_file:
+      - ./files-service/service.env
+    volumes:
+      - ./files-service/configs:/home/node/app/configs
+    networks:
+      - ring
+    depends_on:
+      crud-service:
+        condition: service_started
+
+volumes:
+  mongo:
 
 networks:
   ring:

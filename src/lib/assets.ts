@@ -20,7 +20,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { blob } from 'node:stream/consumers'
 
-import type { Collection, Filter, UpdateFilter, UpdateOptions, WithId } from 'mongodb'
+import type { Collection, Filter, FindOneAndUpdateOptions, UpdateFilter, WithId } from 'mongodb'
 
 import type { DbFile, DbItemFileData, Manifest, SyncCtx } from './types'
 import { __STATE__, CREATOR_ID } from './utils'
@@ -65,19 +65,18 @@ const patchFilesCollection = async (ctx: SyncCtx, collection: Collection<DbFile>
 
   const filter: Filter<DbFile> = { name: data.name }
   const payload: UpdateFilter<DbFile> = { $set: fileData }
-  const options: UpdateOptions = { upsert: true }
+  const options: FindOneAndUpdateOptions = { upsert: true }
 
   ctx.logger.debug({ filter, options, payload }, 'Patching files collection')
 
-  const result = await collection.updateOne(filter, payload, options)
+  const result = await collection.findOneAndUpdate(filter, payload, options)
+  ctx.logger.debug({ result }, 'Patched files collection')
 
-  if (!result.acknowledged || !result.upsertedId) {
+  if (result === null) {
     throw new Error(`Error patching files collection`)
   }
 
-  ctx.logger.debug({ result }, 'Patched files collection')
-
-  return { ...fileData, _id: result.upsertedId }
+  return { ...fileData, _id: result._id }
 }
 
 const uploadImageFile = async (ctx: SyncCtx, imagePath: string): Promise<DbItemFileData[]> => {

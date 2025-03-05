@@ -16,20 +16,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import pino from 'pino'
+const main = async () => {
+  try {
+    await this.fetch('http://localhost:3000/-/healthz')
+  } catch {
+    this.process.exitCode = 1
+  }
+}
 
-import main from './lib'
-import { buildLoggerOpts } from './lib/logger'
-import { parseArgs, parseEnv } from './lib/process'
-
-const env = parseEnv()
-const args = parseArgs()
-
-const logger = pino(buildLoggerOpts(env.LOG_LEVEL, args.pretty))
-
-main(env, logger)
-  .then((metrics) => logger.info({ ...metrics }, 'Finished sync script'))
-  .catch((err: Error) => {
-    logger.error({ err }, 'Unexpected error executing the script')
-    process.exit(1)
-  })
+main()

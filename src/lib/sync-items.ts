@@ -49,9 +49,13 @@ const insertNewManifest = async (ctx: SyncCtx, itemsCollection: Collection<DbIte
       throw new Error('DB returned an unacknowledged result')
     }
 
-    ctx.logger.debug({ item: itemTriple, result }, 'Inserted item in DB')
+    ctx.logger.debug({ item: itemTriple, result }, 'Item inserted in DB')
+    ctx.logger.info({ item: itemTriple }, 'Item inserted in DB')
+
+    ctx.metrics.incItemsCreated()
   } catch (err) {
     ctx.logger.error({ err, item: itemTriple }, 'Error inserting item in DB')
+    ctx.metrics.incItemsErrors()
   }
 }
 
@@ -72,6 +76,12 @@ const patchExistingUnknownItem = async (ctx: SyncCtx, itemsCollection: Collectio
     }
 
     ctx.logger.debug({ item: itemTriple, result }, 'Patched existing unknown item')
+
+    if (result.modifiedCount === 1) {
+      ctx.logger.info({ item: itemTriple }, 'Set default properties')
+    } else {
+      ctx.logger.info({ item: itemTriple }, 'Nothing to set')
+    }
   } catch (err) {
     ctx.logger.error({ err, item: itemTriple }, 'Error setting default properties for retro-compatibility')
   }
@@ -80,7 +90,7 @@ const patchExistingUnknownItem = async (ctx: SyncCtx, itemsCollection: Collectio
 const applyNewManifestToExistingItem = async (ctx: SyncCtx, itemsCollection: Collection<DbItem>, item: WithId<DbItem>, { manifestAbsPath, manifest }: ReleaseData) => {
   const itemTriple = getItemTriple(item)
 
-  ctx.logger.info({ item: itemTriple }, 'Updating existing item in DB')
+  ctx.logger.info({ item: itemTriple }, 'Updating existing item on DB')
 
   const filter: Filter<WithId<DbItem>> = { _id: item._id }
   ctx.logger.debug({ filter }, 'Patching existing item')
@@ -107,9 +117,20 @@ const applyNewManifestToExistingItem = async (ctx: SyncCtx, itemsCollection: Col
       throw new Error('DB returned an unacknowledged result')
     }
 
-    ctx.logger.debug({ item: itemTriple, result }, 'Updated existing item')
+    ctx.logger.debug(
+      { item: itemTriple, matchedCount: result.matchedCount, modifiedCount: result.modifiedCount, upsertedCount: result.upsertedCount },
+      'Updated existing item'
+    )
+
+    if (result.modifiedCount === 1) {
+      ctx.logger.info({ item: itemTriple }, 'Item updated')
+      ctx.metrics.incItemsUpdated()
+    } else {
+      ctx.logger.info({ item: itemTriple }, 'Nothing to update')
+    }
   } catch (err) {
-    ctx.logger.error({ err, item: itemTriple }, 'Error updating existing item')
+    ctx.logger.error({ err, item: itemTriple }, 'Error updating existing item on DB')
+    ctx.metrics.incItemsErrors()
   }
 }
 

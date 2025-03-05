@@ -11,7 +11,7 @@
     "build:manifest-schemas": "tsx scripts/build-manifest-schemas.ts",
     "build:script": "tsx scripts/build-script.ts",
     "build": "yarn build:manifest-schemas && yarn build:script",
-    "dev": "tsx --env-file=./.dev/local.env src/index.ts --pretty",
+    "dev": "tsx --env-file=./.dev/local.env src/index.ts",
     "start": "node build/index.cjs",
     "test": "node --import=tsx --test tests/**/*.test.ts",
     "test:snapshot": "node --import=tsx --test --test-update-snapshots tests/**/*.test.ts",
