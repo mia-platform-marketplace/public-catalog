@@ -1,0 +1,7 @@
+{
+  "type": "mongodb",
+  "options": {
+    "url": "mongodb://mongodb:27017/catalog",
+    "bucketName": "catalog-files"
+  }
+}

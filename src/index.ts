@@ -16,25 +16,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import type { CatalogCRDManifest, CatalogItemManifest } from '@mia-platform/console-types'
-import type { JSONSchema } from 'json-schema-to-ts'
+import pino from 'pino'
 
-export type ItemTypeData = {
-  crd: CatalogCRDManifest
-  schema: JSONSchema
-  type: string
-}
+import main from './lib'
+import { buildLoggerOpts } from './lib/logger'
+import { parseArgs, parseEnv } from './lib/process'
 
-export type ItemTypeModule = {
-  default: {
-    schema: JSONSchema
-    type: string
-  }
-}
+const env = parseEnv()
+const args = parseArgs()
 
-export type ImageFileData = { localPath: string }
+const logger = pino(buildLoggerOpts(env.LOG_LEVEL, args.pretty))
 
-export type Manifest = CatalogItemManifest & {
-  image: ImageFileData
-  supportedByImage: ImageFileData
-}
+main(env, logger)
+  .then((metrics) => logger.info({ ...metrics }, 'Finished sync script'))
+  .catch((err: Error) => {
+    logger.error({ err }, 'Unexpected error executing the script')
+    process.exit(1)
+  })

@@ -1,6 +1,9 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
-    "addlicense"
+    "addlicense",
+    "reqheaders",
+    "upserted",
+    "Upserting"
   ]
 }
