@@ -11,7 +11,7 @@
   "itemId": "appointment-manager",
   "name": "Appointment Manager",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
   "resources": {
     "services": {

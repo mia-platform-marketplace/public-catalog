@@ -11,7 +11,7 @@
   },
   "itemId": "form-service-frontend",
   "name": "Form Service Frontend",
-  "releaseStage": "deprecated",
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-frontend",
   "resources": {
     "services": {
