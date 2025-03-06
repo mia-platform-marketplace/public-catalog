@@ -1994,7 +1994,7 @@ exports[`Sync script > should match snapshot 2`] = `
           ],
           "type": "plugin",
           "componentId": "swagger-aggregator",
-          "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.1",
+          "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.2",
           "defaultDocumentationPath": "",
           "defaultEnvironmentVariables": [
             {
@@ -2281,7 +2281,7 @@ exports[`Sync script > should match snapshot 2`] = `
           ],
           "type": "plugin",
           "componentId": "swagger-aggregator",
-          "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.1",
+          "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.2",
           "defaultDocumentationPath": "",
           "defaultEnvironmentVariables": [
             {
@@ -3241,6 +3241,299 @@ exports[`Sync script > should match snapshot 2`] = `
         "appointment-manager": {
           "type": "plugin",
           "name": "appointment-manager",
+          "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager:2.5.0",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "info",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_SERVICE_NAME",
+              "value": "crud-service",
+              "valueType": "plain"
+            },
+            {
+              "name": "APPOINTMENTS_CRUD_NAME",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "CONFIGURATION_PATH",
+              "value": "/home/node/app/appointment-manager/config.json",
+              "valueType": "plain"
+            },
+            {
+              "name": "RESOURCE_ID_FIELD_NAME",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "DEFAULT_TIME_ZONE",
+              "value": "Europe/Rome",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultConfigMaps": [
+            {
+              "name": "appointment-manager",
+              "mountPath": "/home/node/app/appointment-manager",
+              "files": [
+                {
+                  "name": "config.json",
+                  "content": "{\\n\\"users\\": {},\\n\\"channels\\": [],\\n\\"isTeleconsultationAvailable\\": false,\\n\\"isMessagingAvailable\\": false,\\n\\"isTimerAvailable\\": false,\\n\\"isUserAvailable\\": false,\\n\\"isFlexibleSlotAvailable\\": false,\\n\\"isParticipantStatusAvailable\\": false,\\n\\"isNotificationManagerAsync\\": false\\n}"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "2.5.0",
+      "releaseNote": "Automatically truncate startDate and endDate of exceptions to the second"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "appointment-manager-plugin.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-appointment-manager-plugin.png",
+        "location": "location-appointment-manager-plugin.png",
+        "size": 30
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-care.png",
+        "location": "location-mia-care.png",
+        "size": 12
+      }
+    ]
+  },
+  {
+    "categoryId": "utility",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/appointment-manager/overview"
+    },
+    "itemId": "appointment-manager",
+    "name": "Appointment Manager",
+    "publishOnMiaDocumentation": true,
+    "releaseStage": "stable",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
+    "resources": {
+      "services": {
+        "appointment-manager": {
+          "type": "plugin",
+          "name": "appointment-manager",
+          "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager:2.4.0",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "info",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_SERVICE_NAME",
+              "value": "crud-service",
+              "valueType": "plain"
+            },
+            {
+              "name": "APPOINTMENTS_CRUD_NAME",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "CONFIGURATION_PATH",
+              "value": "/home/node/app/appointment-manager/config.json",
+              "valueType": "plain"
+            },
+            {
+              "name": "RESOURCE_ID_FIELD_NAME",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "DEFAULT_TIME_ZONE",
+              "value": "Europe/Rome",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultConfigMaps": [
+            {
+              "name": "appointment-manager",
+              "mountPath": "/home/node/app/appointment-manager",
+              "files": [
+                {
+                  "name": "config.json",
+                  "content": "{\\n\\"users\\": {},\\n\\"channels\\": [],\\n\\"isTeleconsultationAvailable\\": false,\\n\\"isMessagingAvailable\\": false,\\n\\"isTimerAvailable\\": false,\\n\\"isUserAvailable\\": false,\\n\\"isFlexibleSlotAvailable\\": false,\\n\\"isParticipantStatusAvailable\\": false,\\n\\"isNotificationManagerAsync\\": false\\n}"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "2.4.0",
+      "releaseNote": "Add configuration option 'isNotificationManagerAsync' (default to false) and update Node.js to v20"
+    },
+    "visibility": {
+      "public": true
+    },
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "appointment-manager-plugin.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-appointment-manager-plugin.png",
+        "location": "location-appointment-manager-plugin.png",
+        "size": 30
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-care.png",
+        "location": "location-mia-care.png",
+        "size": 12
+      }
+    ]
+  },
+  {
+    "categoryId": "utility",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/appointment-manager/overview"
+    },
+    "itemId": "appointment-manager",
+    "name": "Appointment Manager",
+    "publishOnMiaDocumentation": true,
+    "releaseStage": "deprecated",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
+    "resources": {
+      "services": {
+        "appointment-manager": {
+          "type": "plugin",
+          "name": "appointment-manager",
           "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager:2.3.0",
           "defaultEnvironmentVariables": [
             {
@@ -3348,7 +3641,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "supportedByImage": [
@@ -5937,6 +6229,95 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "back-kit",
           "description": "Web component library to build your frontend pages.",
+          "dockerImage": "nexus.mia-platform.eu/back-kit/bk-web-components:1.5.16",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "8080",
+              "valueType": "plain"
+            }
+          ],
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "50m",
+              "min": "30m"
+            },
+            "memoryLimits": {
+              "max": "50Mi",
+              "min": "30Mi"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": ""
+            },
+            "readiness": {
+              "path": ""
+            }
+          },
+          "defaultLogParser": "mia-nginx",
+          "defaultDocumentationPath": "",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "1.5.16",
+      "releaseNote": "Revert \`&\` character escaping in \`editor\` and \`html-editor\`"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "back-kit-plugin-transparent.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-back-kit-plugin-transparent.png",
+        "location": "location-back-kit-plugin-transparent.png",
+        "size": 31
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-platform-logo-2023.png",
+        "location": "location-mia-platform-logo-2023.png",
+        "size": 26
+      }
+    ]
+  },
+  {
+    "categoryId": "frontendbuilder",
+    "description": "Web component library to build your frontend pages.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/business_suite/backoffice/overview"
+    },
+    "itemId": "back-kit",
+    "name": "Back Kit",
+    "releaseStage": "stable",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/microfrontend-composer/back-kit",
+    "resources": {
+      "services": {
+        "back-kit": {
+          "type": "plugin",
+          "name": "back-kit",
+          "description": "Web component library to build your frontend pages.",
           "dockerImage": "nexus.mia-platform.eu/back-kit/bk-web-components:1.5.14",
           "defaultEnvironmentVariables": [
             {
@@ -5985,7 +6366,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -9446,6 +9826,88 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "care-kit",
           "description": "This plugin exposes a bundle of web components, designed by Mia Care, that can be used within your Backoffice.",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/mia-care-web-components:2.9.3",
+          "componentId": "care-kit",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "8080",
+              "valueType": "plain"
+            }
+          ],
+          "defaultProbes": {
+            "readiness": {
+              "path": "/mia-care-web-components.esm.js"
+            },
+            "liveness": {
+              "path": "/mia-care-web-components.esm.js"
+            }
+          },
+          "defaultLogParser": "mia-nginx",
+          "defaultDocumentationPath": "",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "2.9.3",
+      "releaseNote": "See https://docs.mia-platform.eu/docs/runtime_suite/care-kit/changelog#293"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "care-kit-plugin.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-care-kit-plugin.png",
+        "location": "location-care-kit-plugin.png",
+        "size": 19
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-care.png",
+        "location": "location-mia-care.png",
+        "size": 12
+      }
+    ]
+  },
+  {
+    "categoryId": "frontendbuilder",
+    "description": "This plugin exposes a bundle of web components, designed by Mia Care, that can be used within your Backoffice.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/care-kit/overview"
+    },
+    "itemId": "care-kit",
+    "name": "Care Kit",
+    "publishOnMiaDocumentation": true,
+    "releaseStage": "stable",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/mia-care-web-components",
+    "resources": {
+      "services": {
+        "care-kit": {
+          "type": "plugin",
+          "name": "care-kit",
+          "description": "This plugin exposes a bundle of web components, designed by Mia Care, that can be used within your Backoffice.",
           "dockerImage": "nexus.mia-platform.eu/mia-care/mia-care-web-components:2.8.2",
           "componentId": "care-kit",
           "defaultEnvironmentVariables": [
@@ -9486,7 +9948,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "supportedByImage": [
@@ -9588,6 +10049,155 @@ exports[`Sync script > should match snapshot 2`] = `
     "name": "Chat Service Backend",
     "publishOnMiaDocumentation": true,
     "releaseStage": "stable",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/chat-service-backend",
+    "resources": {
+      "services": {
+        "chat-service-backend": {
+          "type": "plugin",
+          "name": "chat-service-backend",
+          "description": "The Chat Service Backend is a Mia-Platform plugin acting as a proxy between your project's microservices and the Stream Chat APIs, introducing a Token Provider to validate and generate a token for your users.",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/chat-service-backend:1.0.2",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "STREAM_API_KEY",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "STREAM_API_SECRET",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "STREAM_AUTH_TOKEN",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "STYLE_CONFIG",
+              "value": "/config/styles/style.json",
+              "valueType": "plain"
+            },
+            {
+              "name": "EXPIRATION_TOKEN_DURATION",
+              "value": "3600",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultConfigMaps": [
+            {
+              "name": "chat-service-backend-styles",
+              "mountPath": "/config/styles",
+              "files": [
+                {
+                  "name": "style.json",
+                  "content": "{\\n  \\"web\\": {\\n    \\"errors\\": {\\n      \\"title\\": \\"Chat not available\\",\\n      \\"message\\": \\"You currently don't have any available chat. Please come back later to start messaging.\\"\\n    },\\n    \\"stylesheet\\": {\\n      \\"--white-snow\\": \\"#F0F0EC\\"\\n    },\\n    \\"options\\": {\\n      \\"showUnreadBadge\\": true,\\n      \\"showLastMessageTimestamp\\": true,\\n      \\"disableEmojiPicker\\": true,\\n      \\"theme\\": {\\n        \\"--white-snow\\": \\"#F0F0EC\\"\\n      }\\n    }\\n  }\\n}"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "1.0.2",
+      "releaseNote": "Update Node.js to v20"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "chat-service-backend-plugin.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-chat-service-backend-plugin.png",
+        "location": "location-chat-service-backend-plugin.png",
+        "size": 31
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-care.png",
+        "location": "location-mia-care.png",
+        "size": 12
+      }
+    ]
+  },
+  {
+    "categoryId": "utility",
+    "description": "The Chat Service Backend is a Mia-Platform plugin acting as a proxy between your project's microservices and the Stream Chat APIs, introducing a Token Provider to validate and generate a token for your users.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/chat-service-backend/overview"
+    },
+    "itemId": "chat-service-backend",
+    "name": "Chat Service Backend",
+    "publishOnMiaDocumentation": true,
+    "releaseStage": "deprecated",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/chat-service-backend",
     "resources": {
       "services": {
@@ -9702,7 +10312,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "supportedByImage": [
@@ -30935,6 +31544,70 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "form-service-backend",
           "description": "This is a backend for frontend to be used for building and managing forms.",
+          "dockerImage": "nexus.mia-platform.eu/backoffice/form-service-backend:2.1.1",
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "2.1.1",
+      "releaseNote": "Update Node.js (v20) and custom-plugin-lib (v6), form metadata can be edited after form is expired"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "form-service-backend-plugin-transparent.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-form-service-backend-plugin-transparent.png",
+        "location": "location-form-service-backend-plugin-transparent.png",
+        "size": 43
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-care.png",
+        "location": "location-mia-care.png",
+        "size": 12
+      }
+    ]
+  },
+  {
+    "categoryId": "frontendbuilder",
+    "description": "This is a backend for frontend to be used for building and managing forms.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
+    },
+    "itemId": "form-service-backend",
+    "name": "Form Service Backend",
+    "releaseStage": "deprecated",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-backend",
+    "resources": {
+      "services": {
+        "form-service-backend": {
+          "type": "plugin",
+          "name": "form-service-backend",
+          "description": "This is a backend for frontend to be used for building and managing forms.",
           "dockerImage": "nexus.mia-platform.eu/backoffice/form-service-backend:2.0.2",
           "defaultLogParser": "mia-json",
           "containerPorts": [
@@ -30958,7 +31631,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "supportedByImage": [
@@ -31048,6 +31720,77 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "form-service-frontend",
           "description": "Build and manage custom forms.",
+          "dockerImage": "nexus.mia-platform.eu/backoffice/form-service-frontend:2.1.1",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "8080",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-nginx",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "2.1.1",
+      "releaseNote": "Upgrade dependencies, add custom title to expired modal, form metadata can be edited after form is expired"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "form-service-frontend-plugin-transparent.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-form-service-frontend-plugin-transparent.png",
+        "location": "location-form-service-frontend-plugin-transparent.png",
+        "size": 44
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-care.png",
+        "location": "location-mia-care.png",
+        "size": 12
+      }
+    ]
+  },
+  {
+    "categoryId": "frontendbuilder",
+    "description": "Build and manage custom forms.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
+    },
+    "itemId": "form-service-frontend",
+    "name": "Form Service Frontend",
+    "releaseStage": "deprecated",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-frontend",
+    "resources": {
+      "services": {
+        "form-service-frontend": {
+          "type": "plugin",
+          "name": "form-service-frontend",
+          "description": "Build and manage custom forms.",
           "dockerImage": "nexus.mia-platform.eu/backoffice/form-service-frontend:2.0.5",
           "defaultEnvironmentVariables": [
             {
@@ -31078,7 +31821,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "supportedByImage": [
@@ -43925,6 +44667,143 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "messaging-service",
           "description": "Send messages to your users through various channels",
+          "dockerImage": "nexus.mia-platform.eu/plugins/messaging-service:1.7.1",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_SERVICE_NAME",
+              "value": "crud-service",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERS_CRUD_NAME",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "TEMPLATES_CRUD_NAME",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "SMS_SERVICE_NAME",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "CONFIGURATION_PATH",
+              "value": "/home/node/app/messaging-service/config.json",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "1.7.1",
+      "releaseNote": "Replace newline escape sequences with HTML line break element in HTML email messages"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "messaging-service-plugin.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-messaging-service-plugin.png",
+        "location": "location-messaging-service-plugin.png",
+        "size": 28
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-care.png",
+        "location": "location-mia-care.png",
+        "size": 12
+      }
+    ]
+  },
+  {
+    "categoryId": "notification",
+    "description": "Send messages to your users through various channels",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/messaging-service/overview"
+    },
+    "itemId": "messaging-service",
+    "name": "Messaging Service",
+    "publishOnMiaDocumentation": true,
+    "releaseStage": "stable",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/messaging-service",
+    "resources": {
+      "services": {
+        "messaging-service": {
+          "type": "plugin",
+          "name": "messaging-service",
+          "description": "Send messages to your users through various channels",
           "dockerImage": "nexus.mia-platform.eu/plugins/messaging-service:1.7.0",
           "defaultEnvironmentVariables": [
             {
@@ -44020,7 +44899,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "supportedByImage": [
@@ -45631,7 +46509,7 @@ exports[`Sync script > should match snapshot 2`] = `
       },
       "unsecretedVariables": {
         "MFE_TOOLKIT_VERSION": {
-          "productionEnv": "1.3.2",
+          "productionEnv": "1.3.3",
           "noProductionEnv": "latest"
         },
         "BACK_KIT_SOURCE": {
@@ -45955,8 +46833,8 @@ exports[`Sync script > should match snapshot 2`] = `
       },
       "unsecretedVariables": {
         "BACK_KIT_VERSION": {
-          "productionEnv": "1.5.15",
-          "noProductionEnv": "1.5.15"
+          "productionEnv": "1.5.16",
+          "noProductionEnv": "1.5.16"
         }
       },
       "listeners": {
@@ -47596,6 +48474,181 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "notification-manager-service",
           "description": "The Notification Manager provides an HTTP and Kafka interface to send notifications to users through various channels, namely e-mail, SMS, push notification, voice and whatsapp.",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/notification-manager:2.4.3",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "TEMPLATES_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "EVENTS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "EVENTS_SETTINGS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "NOTIFICATIONS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "NOTIFICATIONS_SETTINGS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "NOTIFICATIONS_MESSAGES_VIEW_NAME",
+              "value": "",
+              "valueType": "plain",
+              "description": "Require MongoDB view, otherwise remove the env var"
+            }
+          ],
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "100m",
+              "min": "50m"
+            },
+            "memoryLimits": {
+              "max": "120Mi",
+              "min": "50Mi"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20,
+              "timeoutSeconds": 1,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 10,
+              "timeoutSeconds": 1,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "2.4.3",
+      "releaseNote": "Add optional notification messages (MongoDB view required), fix several reminder bugs related to both scheduling and aborting, fix logs potentially leaking sensitive information"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "notification-manager-service-plugin-transparent.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-notification-manager-service-plugin-transparent.png",
+        "location": "location-notification-manager-service-plugin-transparent.png",
+        "size": 51
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-care.png",
+        "location": "location-mia-care.png",
+        "size": 12
+      }
+    ]
+  },
+  {
+    "categoryId": "notification",
+    "description": "The Notification Manager provides an HTTP and Kafka interface to send notifications to users through various channels, namely e-mail, SMS, push notification, voice and whatsapp.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/notification-manager/overview"
+    },
+    "itemId": "notification-manager-service",
+    "name": "Notification Manager Service",
+    "publishOnMiaDocumentation": true,
+    "releaseStage": "stable",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/notification-manager",
+    "resources": {
+      "services": {
+        "notification-manager-service": {
+          "type": "plugin",
+          "name": "notification-manager-service",
+          "description": "The Notification Manager provides an HTTP and Kafka interface to send notifications to users through various channels, namely e-mail, SMS, push notification, voice and whatsapp.",
           "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/notification-manager:2.3.0",
           "defaultEnvironmentVariables": [
             {
@@ -47723,7 +48776,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "supportedByImage": [
@@ -49826,6 +50878,153 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "o3-dicom-service",
           "description": "The O3 DICOM Service is a microservice that allows you to interact with a DICOM PACS, in order to manage worklists, exams, notification coming from the PACS and OTP for the DICOM Viewer.",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/o3-dicom-service:0.1.6",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "PACS_SERVICE_URL",
+              "valueType": "plain",
+              "value": "CHANGE ME"
+            },
+            {
+              "name": "PACS_POST_EXAM_ENDPOINT",
+              "valueType": "plain",
+              "value": "CHANGE ME"
+            },
+            {
+              "name": "PACS_AUTHORIZATION_TOKEN",
+              "valueType": "plain",
+              "value": "CHANGE ME"
+            },
+            {
+              "name": "DICOM_VIEWER_URL",
+              "valueType": "plain",
+              "value": "CHANGE ME"
+            },
+            {
+              "name": "VIEWER_GET_TOKEN_ENDPOINT",
+              "valueType": "plain",
+              "value": "CHANGE ME"
+            },
+            {
+              "name": "DICOM_UID_ROOT",
+              "valueType": "plain",
+              "value": "CHANGE ME"
+            },
+            {
+              "name": "CRUD_SERVICE",
+              "valueType": "plain",
+              "value": "crud-service"
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "0.1.6",
+      "releaseNote": "Upgrade base Docker image"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "o3-dicom-service-plugin.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-o3-dicom-service-plugin.png",
+        "location": "location-o3-dicom-service-plugin.png",
+        "size": 27
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-care.png",
+        "location": "location-mia-care.png",
+        "size": 12
+      }
+    ]
+  },
+  {
+    "categoryId": "utility",
+    "description": "The O3 DICOM Service is a microservice that allows you to interact with a DICOM PACS, in order to manage worklists, exams, notification coming from the PACS and OTP for the DICOM Viewer.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/o3-dicom-service/overview"
+    },
+    "itemId": "o3-dicom-service",
+    "name": "O3 DICOM Service",
+    "publishOnMiaDocumentation": true,
+    "releaseStage": "stable",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/o3-dicom-service",
+    "resources": {
+      "services": {
+        "o3-dicom-service": {
+          "type": "plugin",
+          "name": "o3-dicom-service",
+          "description": "The O3 DICOM Service is a microservice that allows you to interact with a DICOM PACS, in order to manage worklists, exams, notification coming from the PACS and OTP for the DICOM Viewer.",
           "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/o3-dicom-service:0.1.4",
           "defaultEnvironmentVariables": [
             {
@@ -49931,7 +51130,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "supportedByImage": [
@@ -68163,6 +69361,107 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "swagger-aggregator",
           "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
+          "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.2",
+          "componentId": "swagger-aggregator",
+          "mapEnvVarToMountPath": {
+            "swagger-aggregator-config": {
+              "type": "file",
+              "envName": "CONFIG_FILE_PATH"
+            }
+          },
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "CONFIG_FILE_PATH",
+              "value": "/home/node/app/configs/config.json",
+              "valueType": "plain"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "swagger-aggregator-config",
+              "mountPath": "/home/node/app/configs",
+              "files": [],
+              "viewAsReadOnly": true
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "3.9.2",
+      "releaseNote": "### Changed\\n\\n- Properties \`example\` and \`examples\` are removed from \`parameters\` object inside \`paths.\\n"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "swagger-aggregator-plugin-transparent.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-swagger-aggregator-plugin-transparent.png",
+        "location": "location-swagger-aggregator-plugin-transparent.png",
+        "size": 41
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-platform-logo-2023.png",
+        "location": "location-mia-platform-logo-2023.png",
+        "size": 26
+      }
+    ]
+  },
+  {
+    "categoryId": "devportal",
+    "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/swagger-aggregator/overview"
+    },
+    "itemId": "swagger-aggregator",
+    "name": "Swagger Aggregator",
+    "publishOnMiaDocumentation": true,
+    "releaseStage": "stable",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
+    "resources": {
+      "services": {
+        "swagger-aggregator": {
+          "type": "plugin",
+          "name": "swagger-aggregator",
+          "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
           "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.1",
           "componentId": "swagger-aggregator",
           "mapEnvVarToMountPath": {
@@ -68222,7 +69521,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -68548,6 +69846,163 @@ exports[`Sync script > should match snapshot 2`] = `
         "teleconsultation-service-backend": {
           "type": "plugin",
           "name": "teleconsultation-service-backend",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/teleconsultation-service-backend:2.0.1",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "trace",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "ADDITIONAL_HEADERS_TO_PROXY",
+              "value": "x-forwarded-for,x-request-id,x-forwarded-host,cookie,client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "DEFAULT_CLIENT_TYPE",
+              "value": "backoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "BANDYER_API_SECRET_KEY",
+              "value": "{{CHANGE}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "TELECONSULTATION_SERVICE_CONFIG_PATH",
+              "value": "/home/node/app/teleconsultation-service/config.json",
+              "valueType": "plain"
+            },
+            {
+              "name": "TELECONSULTATIONS_CRUD_NAME",
+              "value": "{{CHANGE-INSERT_VALUE}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_ID_MAP_CRUD_NAME",
+              "value": "{{CHANGE-INSERT_VALUE}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "BANDYER_BASE_URL",
+              "value": "{{CHANGE-INSERT_VALUE}}",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultConfigMaps": [
+            {
+              "name": "teleconsultation-service",
+              "mountPath": "/home/node/app/teleconsultation-service",
+              "files": [
+                {
+                  "name": "config.json",
+                  "content": "{\\n\\"privileges\\": {\\n\\"basic\\": {\\n\\"groups\\": [\\n\\"customer\\"\\n],\\n\\"tools\\": {\\n\\"chat\\": true,\\n\\"screen_sharing\\": true,\\n\\"file_upload\\": true,\\n\\"whiteboard\\": true,\\n\\"snapshot\\": true,\\n\\"live_edit\\": true,\\n\\"live_pointer\\": true,\\n\\"present_to_everyone\\": true\\n}\\n},\\n\\"plus\\": {\\n\\"groups\\": [\\n\\"doctor\\",\\n\\"admin\\"\\n],\\n\\"tools\\": {\\n\\"chat\\": true,\\n\\"screen_sharing\\": true,\\n\\"file_upload\\": true,\\n\\"whiteboard\\": true,\\n\\"snapshot\\": true,\\n\\"live_edit\\": true,\\n\\"live_pointer\\": true,\\n\\"present_to_everyone\\": true\\n}\\n}\\n},\\n\\"theme\\": {\\n\\"light\\": {\\n\\"primaryColor\\": \\"#fff\\",\\n\\"accentColor\\": \\"#480ca8\\"\\n},\\n\\"dark\\": {\\n\\"primaryColor\\": \\"#003049\\",\\n\\"accentColor\\": \\"#d62828\\"\\n}\\n},\\n\\"environment\\": \\"sandbox\\",\\n\\"mode\\": \\"window\\",\\n\\"companyLogo\\": {\\n\\"url\\": \\"https://www.insert.url.it\\"\\n}\\n}"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "2.0.1",
+      "releaseNote": "Update Kaleyra API (from v1 to v2), remove endpoint POST /teleconsultation/:roomId/participants/data"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "teleconsultation-service-backend-plugin.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-teleconsultation-service-backend-plugin.png",
+        "location": "location-teleconsultation-service-backend-plugin.png",
+        "size": 43
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-care.png",
+        "location": "location-mia-care.png",
+        "size": 12
+      }
+    ]
+  },
+  {
+    "categoryId": "utility",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/teleconsultation-service-backend/overview"
+    },
+    "itemId": "teleconsultation-service-backend",
+    "name": "Teleconsultation Service Backend",
+    "publishOnMiaDocumentation": true,
+    "releaseStage": "deprecated",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-backend",
+    "resources": {
+      "services": {
+        "teleconsultation-service-backend": {
+          "type": "plugin",
+          "name": "teleconsultation-service-backend",
           "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/teleconsultation-service-backend:1.7.0",
           "defaultEnvironmentVariables": [
             {
@@ -68665,7 +70120,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "supportedByImage": [
@@ -68849,6 +70303,78 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "teleconsultation-service-frontend",
           "description": "Start your videocall application leveraging Bandyer APIs",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/teleconsultation-service-frontend:2.0.2",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "8080",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-nginx",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "2.0.2",
+      "releaseNote": "Upgrade dependencies, fix localization and security issues"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "teleconsultation-service-frontend-plugin.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-teleconsultation-service-frontend-plugin.png",
+        "location": "location-teleconsultation-service-frontend-plugin.png",
+        "size": 44
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-care.png",
+        "location": "location-mia-care.png",
+        "size": 12
+      }
+    ]
+  },
+  {
+    "categoryId": "utility",
+    "description": "Start your videocall application leveraging Bandyer APIs",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/teleconsultation-service-frontend/overview"
+    },
+    "itemId": "teleconsultation-service-frontend",
+    "name": "Teleconsultation Service Frontend",
+    "publishOnMiaDocumentation": true,
+    "releaseStage": "deprecated",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-frontend",
+    "resources": {
+      "services": {
+        "teleconsultation-service-frontend": {
+          "type": "plugin",
+          "name": "teleconsultation-service-frontend",
+          "description": "Start your videocall application leveraging Bandyer APIs",
           "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/teleconsultation-service-frontend:1.5.1",
           "defaultEnvironmentVariables": [
             {
@@ -68879,7 +70405,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "supportedByImage": [
@@ -69213,6 +70738,185 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "therapy-and-monitoring-manager",
           "description": "The Therapy and Monitoring Manager (TMM) is a service that enables health care professionals to manage patients therapies and monitor patients health conditions, adherence and compliance to therapy.",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/therapy-monitoring-manager:0.5.1",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "trace",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_SERVICE_URL",
+              "value": "http://crud-service",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONITORINGS_CRUD_NAME",
+              "value": "monitorings",
+              "valueType": "plain"
+            },
+            {
+              "name": "THERAPIES_CRUD_NAME",
+              "value": "therapies",
+              "valueType": "plain"
+            },
+            {
+              "name": "DETECTIONS_CRUD_NAME",
+              "value": "detections",
+              "valueType": "plain"
+            },
+            {
+              "name": "DETECTIONS_GRACE_PERIOD",
+              "value": "30",
+              "valueType": "plain"
+            },
+            {
+              "name": "DETECTIONS_TIME_ZONE",
+              "value": "UTC",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRON_SCHEDULE",
+              "value": "0 0 * * *",
+              "valueType": "plain"
+            },
+            {
+              "name": "PROTOTYPES_CONFIG_FILE_PATH",
+              "value": "/home/config/prototypes-definition.json",
+              "valueType": "plain"
+            },
+            {
+              "name": "VALIDATION_SERVICE",
+              "value": "integrated",
+              "valueType": "plain"
+            },
+            {
+              "name": "DEFAULT_ADHERENCE_STATUS",
+              "value": "disabled",
+              "valueType": "plain"
+            },
+            {
+              "name": "DEFAULT_COMPLIANCE_STATUS",
+              "value": "disabled",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultConfigMaps": [
+            {
+              "name": "prototypes",
+              "mountPath": "/home/config/",
+              "files": [
+                {
+                  "name": "prototypes-definition.json",
+                  "content": "[]"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "0.5.1",
+      "releaseNote": "Update Node.js (v20), custom-plugin-lib (v7.0.0) and fastify-cron (v1.3.1), update prototype and threshold schemas, save threshold validation results"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "therapy-and-monitoring-manager-plugin.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-therapy-and-monitoring-manager-plugin.png",
+        "location": "location-therapy-and-monitoring-manager-plugin.png",
+        "size": 41
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-care.png",
+        "location": "location-mia-care.png",
+        "size": 12
+      }
+    ]
+  },
+  {
+    "categoryId": "utility",
+    "description": "The Therapy and Monitoring Manager (TMM) is a service that enables health care professionals to manage patients therapies and monitor patients health conditions, adherence and compliance to therapy.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/therapy-and-monitoring-manager/overview"
+    },
+    "itemId": "therapy-and-monitoring-manager",
+    "name": "Therapy and Monitoring Manager",
+    "publishOnMiaDocumentation": true,
+    "releaseStage": "deprecated",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/therapy-monitoring-manager",
+    "resources": {
+      "services": {
+        "therapy-and-monitoring-manager": {
+          "type": "plugin",
+          "name": "therapy-and-monitoring-manager",
+          "description": "The Therapy and Monitoring Manager (TMM) is a service that enables health care professionals to manage patients therapies and monitor patients health conditions, adherence and compliance to therapy.",
           "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/therapy-monitoring-manager:0.3.0",
           "defaultEnvironmentVariables": [
             {
@@ -69365,7 +71069,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "supportedByImage": [
@@ -73956,6 +75659,164 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "user-manager-service",
           "description": "The User Manager Service combines the Authentication Service (e.g. Auth0 Client) and the CRUD into a unique service for user management.",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/user-manager-service:1.5.2",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "AUTH_SERVICE",
+              "value": "auth0-client",
+              "valueType": "plain"
+            },
+            {
+              "name": "UMS_CONFIG_CRUD_ENDPOINT",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERS_CRUD_ENDPOINT",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "AUTH_CONNECTION",
+              "value": "Username-Password-Authentication",
+              "valueType": "plain"
+            }
+          ],
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "50m",
+              "min": "50m"
+            },
+            "memoryLimits": {
+              "max": "70Mi",
+              "min": "50Mi"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20,
+              "timeoutSeconds": 1,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 10,
+              "timeoutSeconds": 1,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "1.5.2",
+      "releaseNote": "Upgrade custom-plugin-lib (v6) and fix bug in user bulk activation"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "user-manager-service-plugin.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-user-manager-service-plugin.png",
+        "location": "location-user-manager-service-plugin.png",
+        "size": 31
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-care.png",
+        "location": "location-mia-care.png",
+        "size": 12
+      }
+    ]
+  },
+  {
+    "categoryId": "utility",
+    "description": "The User Manager Service combines the Authentication Service (e.g. Auth0 Client) and the CRUD into a unique service for user management.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-manager-service/overview"
+    },
+    "itemId": "user-manager-service",
+    "name": "User Manager Service",
+    "releaseStage": "stable",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/user-manager-service",
+    "resources": {
+      "services": {
+        "user-manager-service": {
+          "type": "plugin",
+          "name": "user-manager-service",
+          "description": "The User Manager Service combines the Authentication Service (e.g. Auth0 Client) and the CRUD into a unique service for user management.",
           "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/user-manager-service:1.5.1",
           "defaultEnvironmentVariables": [
             {
@@ -74073,7 +75934,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "supportedByImage": [
