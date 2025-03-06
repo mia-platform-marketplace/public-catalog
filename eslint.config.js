@@ -25,7 +25,7 @@ export default tsEslint.config(
   {
     name: 'Base config',
     files: ['**/*.{mjs,cjs,js,ts}'],
-    languageOptions: { ecmaVersion: 12 },
+    languageOptions: { ecmaVersion: 2025 },
     linterOptions: { reportUnusedDisableDirectives: 'warn' },
     plugins: {
       '@stylistic/js': stylisticJs,

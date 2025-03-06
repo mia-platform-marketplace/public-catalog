@@ -18,7 +18,7 @@
 
 import type { Collection, Filter, UpdateFilter, UpdateOptions } from 'mongodb'
 
-import { categories } from '../../assets/categories.json' with { type: 'json' }
+import categoriesModule from '../../assets/categories.json' with { type: 'json' }
 
 import type { SyncCtx } from './types'
 import { __STATE__ } from './utils'
@@ -31,7 +31,7 @@ type Category = {
 
 /** @throws Error */
 const upsertDefaultCategories = async (ctx: SyncCtx, collection: Collection<Category>) => {
-  for (const category of categories) {
+  for (const category of categoriesModule.categories) {
     const filter: Filter<Category> = { categoryId: category.categoryId }
     const payload: UpdateFilter<Category> = { $set: { __STATE__, label: category.label } }
     const options: UpdateOptions = { upsert: true }

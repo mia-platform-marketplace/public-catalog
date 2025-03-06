@@ -38,7 +38,7 @@ const buildItemTypeToDirPathMap = async (ctx: SyncCtx): Promise<Map<string, stri
     const itemTypeDirPath = path.resolve(itemTypeDirent.parentPath, itemTypeDirent.name)
 
     try {
-      const itemTypeModule = await import(`${itemTypeDirPath}/index.ts`) as { default: { type: string }}
+      const itemTypeModule = await import(`${itemTypeDirPath}/index.js`) as { default: { type: string }}
       map.set(itemTypeModule.default.type, itemTypeDirPath)
     } catch (err) {
       ctx.logger.error({ err }, `Could not load module "index.ts" for item type directory ${itemTypeDirent.name}: skipping directory`)
@@ -77,7 +77,6 @@ const setContainerRegistry = (ctx: SyncCtx, manifest: Manifest) => {
   }
 }
 
-// TODO: fix latest
 const setIsLatest = (manifests: Manifest[]) => {
   const latestManifest = findLatestRelease(manifests)
 
