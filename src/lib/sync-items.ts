@@ -149,7 +149,7 @@ const syncItems = async (ctx: SyncCtx) => {
     const filter: Filter<DbItem> = { __STATE__: 'PUBLIC', type: { $in: itemTypesToCollect } }
     ctx.logger.debug({ filter }, 'Retrieving existing item from DB')
 
-    dbItems = await itemsCollection.find().toArray()
+    dbItems = await itemsCollection.find(filter).toArray()
     ctx.logger.debug(`Found ${dbItems.length} existing item on DB`)
   } catch (err) {
     ctx.logger.error({ err }, 'Error retrieving existing items from DB')
