@@ -1,4 +1,5 @@
-name: Code Scanning
+name: Code scan
+
 on:
   push:
     branches:

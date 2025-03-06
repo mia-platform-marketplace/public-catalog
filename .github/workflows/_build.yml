@@ -1,3 +1,5 @@
+name: Build
+
 on:
   workflow_call:
 
@@ -20,5 +22,5 @@ jobs:
       - name: Install
         run: yarn install --immutable
 
-      - name: Compile file and build
+      - name: Compile files and build
         run: yarn build
