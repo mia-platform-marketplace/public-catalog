@@ -20,7 +20,7 @@
         "type": "plugin",
         "name": "chat-service-backend",
         "description": "The Chat Service Backend is a Mia-Platform plugin acting as a proxy between your project's microservices and the Stream Chat APIs, introducing a Token Provider to validate and generate a token for your users.",
-        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/chat-service-backend:1.0.1",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/chat-service-backend:1.0.2",
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",
@@ -124,8 +124,8 @@
   "tenantId": "mia-platform",
   "type": "plugin",
   "version": {
-    "name": "1.0.1",
-    "releaseNote": "-"
+    "name": "1.0.2",
+    "releaseNote": "Update Node.js to v20"
   },
   "visibility": {
     "public": true

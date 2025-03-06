@@ -19,7 +19,7 @@
         "type": "plugin",
         "name": "form-service-backend",
         "description": "This is a backend for frontend to be used for building and managing forms.",
-        "dockerImage": "nexus.mia-platform.eu/backoffice/form-service-backend:2.0.2",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/form-service-backend:2.1.1",
         "defaultLogParser": "mia-json",
         "containerPorts": [
           {
@@ -39,8 +39,8 @@
   "tenantId": "mia-platform",
   "type": "plugin",
   "version": {
-    "name": "2.0.2",
-    "releaseNote": "-"
+    "name": "2.1.1",
+    "releaseNote": "Update Node.js (v20) and custom-plugin-lib (v6), form metadata can be edited after form is expired"
   },
   "visibility": {
     "public": true
