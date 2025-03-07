@@ -1,0 +1,53 @@
+name: catalog-sync-dev
+
+services:
+  mongodb:
+    image: mongo:8
+    ports:
+      - '27017:27017'
+    volumes:
+      - db-data:/data/db
+    networks:
+      - ring
+    healthcheck:
+      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  crud-service:
+    image: ghcr.io/mia-platform/crud-service:latest
+    platform: linux/amd64
+    ports:
+      - '3000:3000'
+    env_file:
+      - ./crud-service/service.env
+    volumes:
+      - ./crud-service/collections:/home/node/app/collections
+    networks:
+      - ring
+    depends_on:
+      mongodb:
+        condition: service_healthy
+
+  files-service:
+    image: nexus.mia-platform.eu/plugins/files-service:latest
+    ports:
+      - '3001:3000'
+    env_file:
+      - ./files-service/service.env
+    volumes:
+      - ./files-service/configs:/home/node/app/configs
+    networks:
+      - ring
+    depends_on:
+      crud-service:
+        condition: service_started
+
+volumes:
+  db-data:
+    name: catalog-sync-dev-db-data
+
+networks:
+  ring:

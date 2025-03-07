@@ -1,3 +1,5 @@
+name: Build
+
 on:
   workflow_call:
 
@@ -5,7 +7,7 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           show-progress: false
@@ -20,5 +22,5 @@ jobs:
       - name: Install
         run: yarn install --immutable
 
-      - name: Compile file and build
+      - name: Compile files and build
         run: yarn build

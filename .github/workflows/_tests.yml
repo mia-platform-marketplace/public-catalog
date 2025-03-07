@@ -1,4 +1,4 @@
-name: Tests
+name: Test
 
 on:
   workflow_call:
@@ -6,8 +6,13 @@ on:
 jobs:
   checks:
     runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        mongodb-version: ["5.0", "6.0", "7.0"]
+    
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           show-progress: false
@@ -19,8 +24,13 @@ jobs:
           check-latest: true
           cache: yarn
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Check items validity
-        run: yarn check:items
+      - name: start MongoDB instance
+        uses: supercharge/mongodb-github-action@5a87bd81f88e2a8b195f8b7b656f5cda1350815a # v1.11.0
+        with:
+          mongodb-version: ${{ matrix.mongodb-version }}
+      
+      - name: Run tests
+        run: yarn test
