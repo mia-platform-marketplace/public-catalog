@@ -49,7 +49,6 @@ const schema = {
     'FILES_COLLECTION_NAME',
     'FILES_SERVICE_URL',
     'ITEMS_COLLECTION_NAME',
-    'LOG_LEVEL',
     'MONGODB_URL',
     'TENANT_ID_TO_SET',
   ],
