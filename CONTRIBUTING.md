@@ -4,7 +4,7 @@ What follows are important information on how to work with this repository, whet
 
 ## Conventions
 
-For **commits** and **pull requests titles** always follow the [Conventional Commit](https://www.conventionalcommits.org/) standard of `<type>(<scope>): <subject>` (e.g. `feat(core): Add new feature`).
+For **commits** and **pull requests titles** always follow the [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/) standard of `<type>(<scope>): <subject>` (e.g. `feat(core): Add new feature`).
 
 Pull request titles and labels are automatically used as entries in the release note, so please pay extra attention when setting one up and follow the guidelines provided in the next sections. You can find the complete mapping between pull request labels and release note categories [here](./.github/release.yml). Unlabeled PRs will be automatically assigned the `Other changes` category in the release note.
 
