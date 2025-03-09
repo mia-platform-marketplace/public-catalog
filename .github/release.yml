@@ -2,36 +2,16 @@ changelog:
   exclude:
     authors:
       - dependabot
+
   categories:
-    - title: Breaking Changes 💢
+    - title: Changes to the Catalog content
       labels:
-        - breaking
+        - catalog content
 
-    - title: New Items 🍾
+    - title: Changes to the sync script
       labels:
-        - new item
-        - new item release
+        - sync script
 
-    - title: Edited items 🔧
-      labels:
-        - edit item
-
-    - title: Exciting New Features 🎉
-      labels:
-        - enhancement
-
-    - title: Bug fixes 🐛
-      labels:
-        - bug
-
-    - title: Security Fixes 🔐
-      labels:
-        - security
-
-    - title: Refactor 💅
-      labels:
-        - refactor
-
-    - title: Other Changes 🛠
+    - title: Other changes
       labels:
         - "*"
