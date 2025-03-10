@@ -42186,6 +42186,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "integration-connector-agent",
           "componentId": "integration-connector-agent",
           "dockerImage": "nexus.mia-platform.eu/plugins/integration-connector-agent:0.2.0",
+          "defaultDocumentationPath": "",
           "defaultEnvironmentVariables": [
             {
               "name": "CONFIGURATION_PATH",
@@ -42214,7 +42215,25 @@ exports[`Sync script > should match snapshot 2`] = `
                 }
               ]
             }
-          ]
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ],
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "port": "http"
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "port": "http"
+            }
+          }
         }
       }
     },
