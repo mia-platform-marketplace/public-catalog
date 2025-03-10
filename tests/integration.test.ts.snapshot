@@ -24615,38 +24615,6 @@ exports[`Sync script > should match snapshot 2`] = `
               },
               "verb": "GET"
             },
-            "GET/namespaces/usage": {
-              "acl": {
-                "inherited": false,
-                "value": "permissions[\\"read:pipelines\\"]"
-              },
-              "allowUnknownRequestContentType": {
-                "inherited": true
-              },
-              "allowUnknownResponseContentType": {
-                "inherited": true
-              },
-              "backofficeAcl": {
-                "inherited": true
-              },
-              "id": "GET/namespaces/usage",
-              "path": "/namespaces/usage",
-              "postDecorators": [],
-              "preDecorators": [],
-              "public": {
-                "inherited": true
-              },
-              "rateLimit": {
-                "inherited": true
-              },
-              "secreted": {
-                "inherited": true
-              },
-              "showInDocumentation": {
-                "inherited": true
-              },
-              "verb": "GET"
-            },
             "GET/runtimes/items": {
               "acl": {
                 "inherited": false,
@@ -24724,6 +24692,38 @@ exports[`Sync script > should match snapshot 2`] = `
               "postDecorators": [],
               "preDecorators": [],
               "public": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "verb": "GET"
+            },
+            "GET/runtimes/namespaces/usage": {
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"read:pipelines\\"]"
+              },
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "id": "GET/runtimes/namespaces/usage",
+              "path": "/runtimes/namespaces/usage",
+              "postDecorators": [],
+              "preDecorators": [],
+              "public": {
+                "inherited": true
+              },
+              "rateLimit": {
                 "inherited": true
               },
               "secreted": {
@@ -25471,6 +25471,58 @@ exports[`Sync script > should match snapshot 2`] = `
           ],
           "type": "crud"
         },
+        "/control_plane_fabric.RuntimeManagement": {
+          "acl": "clientType == \\"control_plane_operator\\"",
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "backofficeAcl": {
+            "inherited": true
+          },
+          "defaultBasePath": "/control_plane_fabric.RuntimeManagement",
+          "defaultPathRewrite": "/control_plane_fabric.RuntimeManagement",
+          "description": "Endpoint /control_plane_fabric.RuntimeManagement",
+          "forceMicroserviceGatewayProxy": false,
+          "listeners": {
+            "frontend": false,
+            "grpc": true
+          },
+          "port": "50051",
+          "public": true,
+          "secreted": true,
+          "service": "control-plane",
+          "showInDocumentation": true,
+          "tags": [
+            "control-plane"
+          ],
+          "type": "custom",
+          "useDownstreamProtocol": true
+        },
+        "/control_plane_intercomm.ControlPlane": {
+          "acl": "clientType == \\"control_plane_operator\\"",
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "backofficeAcl": {
+            "inherited": true
+          },
+          "defaultBasePath": "/control_plane_intercomm.ControlPlane",
+          "defaultPathRewrite": "/control_plane_intercomm.ControlPlane",
+          "description": "Endpoint /control_plane_intercomm.ControlPlane",
+          "forceMicroserviceGatewayProxy": false,
+          "listeners": {
+            "frontend": false,
+            "grpc": true
+          },
+          "port": "50051",
+          "public": true,
+          "secreted": true,
+          "service": "control-plane",
+          "showInDocumentation": true,
+          "tags": [
+            "control-plane"
+          ],
+          "type": "custom",
+          "useDownstreamProtocol": true
+        },
         "/control-plane": {
           "acl": "true",
           "allowUnknownRequestContentType": false,
@@ -25545,58 +25597,6 @@ exports[`Sync script > should match snapshot 2`] = `
             "control-plane-fe"
           ],
           "type": "custom"
-        },
-        "/control_plane_fabric.RuntimeManagement": {
-          "acl": "clientType == \\"control_plane_operator\\"",
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "backofficeAcl": {
-            "inherited": true
-          },
-          "defaultBasePath": "/control_plane_fabric.RuntimeManagement",
-          "defaultPathRewrite": "/control_plane_fabric.RuntimeManagement",
-          "description": "Endpoint /control_plane_fabric.RuntimeManagement",
-          "forceMicroserviceGatewayProxy": false,
-          "listeners": {
-            "frontend": false,
-            "grpc": true
-          },
-          "port": "50051",
-          "public": true,
-          "secreted": true,
-          "service": "control-plane",
-          "showInDocumentation": true,
-          "tags": [
-            "control-plane"
-          ],
-          "type": "custom",
-          "useDownstreamProtocol": true
-        },
-        "/control_plane_intercomm.ControlPlane": {
-          "acl": "clientType == \\"control_plane_operator\\"",
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "backofficeAcl": {
-            "inherited": true
-          },
-          "defaultBasePath": "/control_plane_intercomm.ControlPlane",
-          "defaultPathRewrite": "/control_plane_intercomm.ControlPlane",
-          "description": "Endpoint /control_plane_intercomm.ControlPlane",
-          "forceMicroserviceGatewayProxy": false,
-          "listeners": {
-            "frontend": false,
-            "grpc": true
-          },
-          "port": "50051",
-          "public": true,
-          "secreted": true,
-          "service": "control-plane",
-          "showInDocumentation": true,
-          "tags": [
-            "control-plane"
-          ],
-          "type": "custom",
-          "useDownstreamProtocol": true
         },
         "/grpc.reflection.v1.ServerReflection": {
           "acl": "clientType == \\"control_plane_operator\\"",
