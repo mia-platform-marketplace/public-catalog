@@ -6,7 +6,7 @@
 
 - [ ] Changes are covered by tests.
 - [ ] Any new `.js` or `.ts` file includes the Apache 2.0 License disclaimer heading.
-- [ ] Pull request title and label(s) is compliant with the [contributing guidelines](https://github.com/mia-platform-marketplace/public-catalog/blob/main/CONTRIBUTING.md#work-with-the-sync-script).
+- [ ] Pull request title and label(s) are compliant with the [contributing guidelines](https://github.com/mia-platform-marketplace/public-catalog/blob/main/CONTRIBUTING.md#work-with-the-sync-script).
 
 ### Addressed issue
 

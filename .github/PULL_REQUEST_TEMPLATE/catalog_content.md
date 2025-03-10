@@ -5,7 +5,7 @@
 ### Checklist
 
 - [ ] Changes made to the Catalog are compliant with the [contributing guidelines](https://github.com/mia-platform-marketplace/public-catalog/blob/main/CONTRIBUTING.md#rules--conventions).
-- [ ] Pull request title and label(s) is compliant with the [contributing guidelines](https://github.com/mia-platform-marketplace/public-catalog/blob/main/CONTRIBUTING.md#common-operations).
+- [ ] Pull request title and label(s) are compliant with the [contributing guidelines](https://github.com/mia-platform-marketplace/public-catalog/blob/main/CONTRIBUTING.md#common-operations).
 
 ### Addressed issue
 
