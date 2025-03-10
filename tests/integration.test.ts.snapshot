@@ -42175,6 +42175,100 @@ exports[`Sync script > should match snapshot 2`] = `
     ]
   },
   {
+    "type": "plugin",
+    "categoryId": "integrations",
+    "tenantId": "mia-platform",
+    "supportedBy": "Mia-Platform",
+    "resources": {
+      "services": {
+        "integration-connector-agent": {
+          "type": "plugin",
+          "name": "integration-connector-agent",
+          "componentId": "integration-connector-agent",
+          "dockerImage": "nexus.mia-platform.eu/plugins/integration-connector-agent:0.2.0",
+          "defaultDocumentationPath": "",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "CONFIGURATION_PATH",
+              "value": "/configs/config.json",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "integration-connector-config",
+              "mountPath": "/configs",
+              "files": [
+                {
+                  "name": "config.json",
+                  "content": "{\\n  \\"integrations\\": []\\n}"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ],
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "port": "http"
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "port": "http"
+            }
+          }
+        }
+      }
+    },
+    "description": "The Integration Connector Agent connects to external sources and keeps changes synchronized between the source and one or more sinks.",
+    "publishOnMiaDocumentation": true,
+    "repositoryUrl": "https://github.com/mia-platform/integration-connector-agent",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/integration-connector-agent/overview"
+    },
+    "name": "Integration Connector Agent",
+    "itemId": "integration-connector-agent",
+    "releaseStage": "beta",
+    "version": {
+      "name": "0.2.0",
+      "releaseNote": "Add support to Console Events"
+    },
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "__STATE__": "PUBLIC",
+        "creatorId": "marketplace-sync",
+        "file": "file-mia-platform-logo-2023.png",
+        "location": "location-mia-platform-logo-2023.png",
+        "size": 26
+      }
+    ]
+  },
+  {
     "categoryId": "utility",
     "description": "Perform integration tests via Newman in a dedicated microservice",
     "documentation": {
@@ -77900,6 +77994,14 @@ exports[`Sync script > should match snapshot 3`] = `
     "file": "file-insurance-crud-data-model-application-transparent.png",
     "location": "location-insurance-crud-data-model-application-transparent.png",
     "size": 53
+  },
+  {
+    "name": "integration-connector-agent.png",
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "file": "file-integration-connector-agent.png",
+    "location": "location-integration-connector-agent.png",
+    "size": 31
   },
   {
     "name": "integration-test-service-plugin.png",
