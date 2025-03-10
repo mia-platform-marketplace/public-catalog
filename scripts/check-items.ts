@@ -21,7 +21,8 @@ import { createReadStream } from 'node:fs'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import { CatalogReleaseStage, catalogWellKnownItemsCustomResourceDefinitions, NA_VERSION } from '@mia-platform/console-types'
+import type { CatalogApplicationManifest } from '@mia-platform/console-types'
+import { catalogApplication, CatalogReleaseStage, catalogWellKnownItemsCustomResourceDefinitions, NA_VERSION } from '@mia-platform/console-types'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 import chalk from 'chalk'
@@ -101,6 +102,68 @@ const validateManifest = (task: Task, manifest: unknown, schema: JSONSchema) => 
 }
 
 /** @throws Error */
+const validateApplicationManifest = (manifest: CatalogApplicationManifest) => {
+  let canHaveEndpoints = false
+  let shouldHaveListeners = false
+  let canHaveCollections = false
+
+  for (const [serviceKey, serviceConfig] of Object.entries(manifest.resources.services)) {
+    if (serviceKey === manifest.name) {
+      throw new Error('There could not be a "resources.service" which name is equal to the application name')
+    }
+
+    if (serviceKey !== serviceConfig.name) {
+      throw new Error(`Key and name of "resources.services.${serviceKey}" do not match: found key "${serviceKey}" and name "${serviceConfig.name}"`)
+    }
+
+    if (serviceConfig.componentId === 'api-gateway-envoy') {
+      canHaveEndpoints = true
+      shouldHaveListeners = true
+    }
+
+    if (serviceConfig.componentId === 'api-gateway') {
+      canHaveEndpoints = true
+    }
+
+    if (serviceConfig.componentId === 'crud-service') {
+      canHaveCollections = true
+    }
+  }
+
+  // TODO: check coherence between endpoints and relative resources (e.g., a custom endpoint must reference an existing service)
+  const endpoints = Object.entries(manifest.resources.endpoints ?? {})
+  if (endpoints.length) {
+    if (!canHaveEndpoints) {
+      throw new Error('An application can have "resources.endpoints" only if at least one of "resources.services" has "componentId" equal to "api-gateway-envoy" or "api-gateway"')
+    }
+
+    for (const [endpointKey, endpointConfig] of endpoints) {
+      if (endpointKey !== endpointConfig.defaultBasePath) {
+        throw new Error(`Key and default base path of "resources.endpoints.${endpointKey}" do not match: found key "${endpointKey}" and default base path "${endpointConfig.defaultBasePath}"`)
+      }
+    }
+  }
+
+  const collections = Object.entries(manifest.resources.collections ?? {})
+  if (collections.length) {
+    if (!canHaveCollections) {
+      throw new Error('An application can have "resources.collections" only if at least one of "resources.services" has "componentId" equal to "crud-service"')
+    }
+
+    for (const [collectionKey, collectionConfig] of collections) {
+      if (collectionKey !== collectionConfig.defaultName) {
+        throw new Error(`Key and default name of "resources.collections.${collectionKey}" do not match: found key "${collectionKey}" and default name "${collectionConfig.defaultName}"`)
+      }
+    }
+  }
+
+  const listener = Object.keys(manifest.resources.listeners ?? {})
+  if (!listener.length && shouldHaveListeners) {
+    throw new Error('An application with a "resources.services" with "componentId" equal to "api-gateway-envoy" must have at least one "resources.listener"')
+  }
+}
+
+/** @throws Error */
 const assertValidImageFile = async (manifest: Manifest, manifestPath: string) => {
   const imageAbsPath = path.resolve(path.dirname(manifestPath), manifest.image.localPath)
 
@@ -145,6 +208,10 @@ const assertVersionValid = async (task: Task, manifestPath: string, typeData: It
   const manifest = manifestModule.default
 
   validateManifest(task, manifest, typeData.schema)
+
+  if (typeData.type === catalogApplication.type) {
+    validateApplicationManifest(manifest as unknown as CatalogApplicationManifest)
+  }
 
   const itemFolderName = manifestPath.split('/').at(-3)
   if (manifest.itemId !== itemFolderName) {
@@ -257,7 +324,6 @@ const assertItemValid = async (task: Task, itemDirPath: string): Promise<Listr> 
   return subTask
 }
 
-// TODO: check that services, endpoints, and collections have `name` equal to `key`
 /**
  * @throws CheckError
  * @throws Error

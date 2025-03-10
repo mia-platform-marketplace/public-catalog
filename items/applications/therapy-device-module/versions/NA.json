@@ -1855,6 +1855,19 @@
         "noProductionEnv": "http://user-manager-service.user-auth-module-development.svc.cluster.local",
         "productionEnv": "http://user-manager-service.user-auth-module-preproduction.svc.cluster.local"
       }
+    },
+    "listeners": {
+      "frontend": {
+        "name": "frontend",
+        "port": "8080",
+        "selectedByDefault": true,
+        "description": "Default listener for frontend API",
+        "ownedBy": {
+          "componentIds": [
+            "api-gateway-envoy"
+          ]
+        }
+      }
     }
   },
   "supportedBy": "Mia-Care",
