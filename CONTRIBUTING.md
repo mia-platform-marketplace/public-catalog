@@ -34,7 +34,7 @@ Everything you need to know about items and manifests is written in the official
 
 ### Rules & conventions
 
-The content of the directory must adhere to a strict set of rules. To check if the Catalog is valid run `yarn check-items`. You can restrict the checks by passing a list of items with the `-i, --item` flag (e.g., `yarn check-items -i crud-service files-service`).
+The content of the directory must adhere to a strict set of rules. To check if the Catalog is valid run `yarn check:items`. You can restrict the checks by passing a list of items with the `-i, --item` flag (e.g., `yarn check:items -i crud-service files-service`).
 
 It is also recommended to reference the manifest JSON schema by placing `"$schema": "../../manifest.schema.json"` in every file (this will validate the content of the file against the schema specific to the item type).
 
