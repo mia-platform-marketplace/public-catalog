@@ -34989,6 +34989,84 @@ exports[`Sync script > should match snapshot 2`] = `
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/identification-manager",
     "resources": {
       "services": {
+        "api-gateway": {
+          "name": "api-gateway",
+          "type": "plugin",
+          "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+          "dockerImage": "envoyproxy/envoy:v1.29.2",
+          "componentId": "api-gateway-envoy",
+          "defaultDocumentationPath": "",
+          "defaultArgs": [
+            "-c",
+            "/etc/envoy/envoy.json",
+            "-l",
+            "{{LOG_LEVEL}}",
+            "--log-format",
+            "{\\"level\\":\\"%l\\",\\"time\\":\\"%Y-%m-%dT%T.%fZ\\",\\"scope\\":\\"%n\\",\\"message\\":\\"%j\\"}",
+            "--drain-time-s",
+            "50"
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultEnvironmentVariables": [],
+          "defaultResources": {
+            "memoryLimits": {
+              "max": "250Mi",
+              "min": "150Mi"
+            },
+            "cpuLimits": {
+              "min": "150m",
+              "max": "200m"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "port": "frontend",
+              "path": "/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20
+            },
+            "readiness": {
+              "port": "frontend",
+              "path": "/healthz",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 10
+            }
+          },
+          "containerPorts": [
+            {
+              "name": "frontend",
+              "from": 8080,
+              "to": 8080
+            },
+            {
+              "name": "backoffice",
+              "from": 8081,
+              "to": 8081
+            },
+            {
+              "name": "admin",
+              "from": 9901,
+              "to": 9901
+            }
+          ],
+          "execPreStop": [
+            "bash",
+            "-c",
+            "echo -e 'POST /drain_listeners?graceful HTTP/1.1\\r\\nHost: localhost:9901\\r\\n\\r' > /dev/tcp/localhost/9901 && sleep 55s"
+          ],
+          "defaultTerminationGracePeriodSeconds": 60,
+          "defaultConfigMaps": [
+            {
+              "name": "api-gateway-envoy-config",
+              "mountPath": "/etc/envoy",
+              "files": [],
+              "viewAsReadOnly": true,
+              "link": {
+                "targetSection": "endpoints"
+              }
+            }
+          ]
+        },
         "crud-service": {
           "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
           "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.1.1",
@@ -36008,6 +36086,19 @@ exports[`Sync script > should match snapshot 2`] = `
         "FLOW_MANAGER_CONFIG_PATH": {
           "productionEnv": "/sagaConfiguration/kafka.json",
           "noProductionEnv": "/sagaConfiguration/rest.json"
+        }
+      },
+      "listeners": {
+        "frontend": {
+          "name": "frontend",
+          "port": "8080",
+          "selectedByDefault": true,
+          "description": "Default listener for frontend API",
+          "ownedBy": {
+            "componentIds": [
+              "api-gateway-envoy"
+            ]
+          }
         }
       }
     },
@@ -37098,6 +37189,84 @@ exports[`Sync script > should match snapshot 2`] = `
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/insurance-crud-data-model-application",
     "resources": {
       "services": {
+        "api-gateway": {
+          "name": "api-gateway",
+          "type": "plugin",
+          "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+          "dockerImage": "envoyproxy/envoy:v1.29.2",
+          "componentId": "api-gateway-envoy",
+          "defaultDocumentationPath": "",
+          "defaultArgs": [
+            "-c",
+            "/etc/envoy/envoy.json",
+            "-l",
+            "{{LOG_LEVEL}}",
+            "--log-format",
+            "{\\"level\\":\\"%l\\",\\"time\\":\\"%Y-%m-%dT%T.%fZ\\",\\"scope\\":\\"%n\\",\\"message\\":\\"%j\\"}",
+            "--drain-time-s",
+            "50"
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultEnvironmentVariables": [],
+          "defaultResources": {
+            "memoryLimits": {
+              "max": "250Mi",
+              "min": "150Mi"
+            },
+            "cpuLimits": {
+              "min": "150m",
+              "max": "200m"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "port": "frontend",
+              "path": "/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20
+            },
+            "readiness": {
+              "port": "frontend",
+              "path": "/healthz",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 10
+            }
+          },
+          "containerPorts": [
+            {
+              "name": "frontend",
+              "from": 8080,
+              "to": 8080
+            },
+            {
+              "name": "backoffice",
+              "from": 8081,
+              "to": 8081
+            },
+            {
+              "name": "admin",
+              "from": 9901,
+              "to": 9901
+            }
+          ],
+          "execPreStop": [
+            "bash",
+            "-c",
+            "echo -e 'POST /drain_listeners?graceful HTTP/1.1\\r\\nHost: localhost:9901\\r\\n\\r' > /dev/tcp/localhost/9901 && sleep 55s"
+          ],
+          "defaultTerminationGracePeriodSeconds": 60,
+          "defaultConfigMaps": [
+            {
+              "name": "api-gateway-envoy-config",
+              "mountPath": "/etc/envoy",
+              "files": [],
+              "viewAsReadOnly": true,
+              "link": {
+                "targetSection": "endpoints"
+              }
+            }
+          ]
+        },
         "crud-service": {
           "type": "plugin",
           "name": "crud-service",
@@ -41831,6 +42000,19 @@ exports[`Sync script > should match snapshot 2`] = `
               ]
             }
           ]
+        }
+      },
+      "listeners": {
+        "frontend": {
+          "name": "frontend",
+          "port": "8080",
+          "selectedByDefault": true,
+          "description": "Default listener for frontend API",
+          "ownedBy": {
+            "componentIds": [
+              "api-gateway-envoy"
+            ]
+          }
         }
       }
     },
@@ -51742,1053 +51924,85 @@ exports[`Sync script > should match snapshot 2`] = `
     "releaseStage": "stable",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/payment-gateway-backoffice",
     "resources": {
-      "collections": {
-        "fm_subscriptions": {
-          "defaultName": "fm_subscriptions",
-          "description": "Collection of fm_subscriptions",
-          "fields": [
-            {
-              "description": "_id",
-              "name": "_id",
-              "nullable": false,
-              "required": true,
-              "type": "ObjectId"
-            },
-            {
-              "description": "creatorId",
-              "name": "creatorId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "createdAt",
-              "name": "createdAt",
-              "nullable": false,
-              "required": true,
-              "type": "Date"
-            },
-            {
-              "description": "updaterId",
-              "name": "updaterId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "updatedAt",
-              "name": "updatedAt",
-              "nullable": false,
-              "required": true,
-              "type": "Date"
-            },
-            {
-              "description": "__STATE__",
-              "name": "__STATE__",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "",
-              "name": "sagaId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "metadata",
-              "nullable": false,
-              "required": true,
-              "schema": {
-                "properties": {
-                  "additionalData": {
-                    "type": "object"
-                  },
-                  "amount": {
-                    "type": "number"
-                  },
-                  "currency": {
-                    "type": "string"
-                  },
-                  "expirationDate": {
-                    "type": "string"
-                  },
-                  "expireRequested": {
-                    "type": "boolean"
-                  },
-                  "interval": {
-                    "type": "string"
-                  },
-                  "intervalCount": {
-                    "type": "number"
-                  },
-                  "nextPaymentDate": {
-                    "nullable": true,
-                    "type": "string"
-                  },
-                  "paymentMethod": {
-                    "type": "string"
-                  },
-                  "provider": {
-                    "type": "string"
-                  },
-                  "providerData": {
-                    "type": "object"
-                  },
-                  "shopSubscriptionId": {
-                    "type": "string"
-                  },
-                  "transactions": {
-                    "items": {
-                      "type": "string"
-                    },
-                    "type": "array"
-                  }
-                }
-              },
-              "sensitivityValue": 0,
-              "type": "RawObject"
-            },
-            {
-              "description": "",
-              "name": "isFinal",
-              "nullable": false,
-              "required": true,
-              "type": "boolean"
-            },
-            {
-              "description": "",
-              "name": "currentState",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "",
-              "name": "latestEvent",
-              "nullable": false,
-              "required": true,
-              "type": "RawObject"
-            },
-            {
-              "description": "",
-              "name": "associatedEntityId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "",
-              "name": "events",
-              "nullable": false,
-              "required": false,
-              "type": "Array_string"
-            },
-            {
-              "description": "",
-              "name": "history",
-              "nullable": false,
-              "required": false,
-              "type": "RawObject"
-            },
-            {
-              "description": "",
-              "name": "businessStateId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "",
-              "name": "businessStateDescription",
-              "nullable": false,
-              "required": false,
-              "type": "string"
-            }
-          ],
-          "id": "fm_subscriptions",
-          "internalEndpoints": [
-            {
-              "basePath": "/fm-subscriptions",
-              "defaultState": "PUBLIC"
-            }
-          ],
-          "tags": [
-            "collection"
-          ],
-          "type": "collection"
-        },
-        "fm_transactions": {
-          "defaultName": "fm_transactions",
-          "description": "Collection of fm_transactions",
-          "fields": [
-            {
-              "description": "_id",
-              "name": "_id",
-              "nullable": false,
-              "required": true,
-              "type": "ObjectId"
-            },
-            {
-              "description": "creatorId",
-              "name": "creatorId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "createdAt",
-              "name": "createdAt",
-              "nullable": false,
-              "required": true,
-              "type": "Date"
-            },
-            {
-              "description": "updaterId",
-              "name": "updaterId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "updatedAt",
-              "name": "updatedAt",
-              "nullable": false,
-              "required": true,
-              "type": "Date"
-            },
-            {
-              "description": "__STATE__",
-              "name": "__STATE__",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "",
-              "name": "sagaId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "metadata",
-              "nullable": false,
-              "required": true,
-              "schema": {
-                "properties": {
-                  "additionalData": {
-                    "properties": {
-                      "channel": {
-                        "type": "string"
-                      },
-                      "items": {
-                        "items": {
-                          "properties": {
-                            "amount": {
-                              "type": "number"
-                            },
-                            "description": {
-                              "type": "string"
-                            },
-                            "itemId": {
-                              "type": "string"
-                            },
-                            "quantity": {
-                              "type": "number"
-                            }
-                          },
-                          "type": "object"
-                        },
-                        "type": "array"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "amount": {
-                    "type": "number"
-                  },
-                  "buyer": {
-                    "type": "object"
-                  },
-                  "currency": {
-                    "type": "string"
-                  },
-                  "isRecurrent": {
-                    "type": "boolean"
-                  },
-                  "paymentID": {
-                    "type": "string"
-                  },
-                  "paymentMethod": {
-                    "type": "string"
-                  },
-                  "paymentToken": {
-                    "type": "string"
-                  },
-                  "payRequestData": {
-                    "type": "object"
-                  },
-                  "provider": {
-                    "type": "string"
-                  },
-                  "providerData": {
-                    "type": "object"
-                  },
-                  "recurrenceDetails": {
-                    "type": "object"
-                  },
-                  "refundDetails": {
-                    "type": "object"
-                  },
-                  "refundRequestData": {
-                    "type": "object"
-                  },
-                  "sessionToken": {
-                    "type": "string"
-                  },
-                  "shopTransactionID": {
-                    "type": "string"
-                  },
-                  "subscriptionId": {
-                    "type": "string"
-                  }
-                }
-              },
-              "sensitivityValue": 0,
-              "type": "RawObject"
-            },
-            {
-              "description": "",
-              "name": "isFinal",
-              "nullable": false,
-              "required": true,
-              "type": "boolean"
-            },
-            {
-              "description": "",
-              "name": "currentState",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "",
-              "name": "latestEvent",
-              "nullable": false,
-              "required": true,
-              "type": "RawObject"
-            },
-            {
-              "description": "",
-              "name": "associatedEntityId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "",
-              "name": "events",
-              "nullable": false,
-              "required": false,
-              "type": "Array_string"
-            },
-            {
-              "description": "",
-              "name": "history",
-              "nullable": false,
-              "required": false,
-              "type": "RawObject"
-            },
-            {
-              "description": "",
-              "name": "businessStateId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "",
-              "name": "businessStateDescription",
-              "nullable": false,
-              "required": false,
-              "type": "string"
-            }
-          ],
-          "id": "fm_transactions",
-          "internalEndpoints": [
-            {
-              "basePath": "/fm-transactions",
-              "defaultState": "PUBLIC"
-            }
-          ],
-          "tags": [
-            "collection"
-          ],
-          "type": "collection"
-        },
-        "invoices": {
-          "defaultName": "invoices",
-          "description": "Collection of invoices",
-          "fields": [
-            {
-              "description": "_id",
-              "name": "_id",
-              "nullable": false,
-              "required": true,
-              "type": "ObjectId"
-            },
-            {
-              "description": "creatorId",
-              "name": "creatorId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "createdAt",
-              "name": "createdAt",
-              "nullable": false,
-              "required": true,
-              "type": "Date"
-            },
-            {
-              "description": "updaterId",
-              "name": "updaterId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "updatedAt",
-              "name": "updatedAt",
-              "nullable": false,
-              "required": true,
-              "type": "Date"
-            },
-            {
-              "description": "__STATE__",
-              "name": "__STATE__",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "name",
-              "nullable": false,
-              "required": true,
-              "sensitivityValue": 0,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "file",
-              "nullable": false,
-              "required": true,
-              "sensitivityValue": 0,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "size",
-              "nullable": false,
-              "required": true,
-              "sensitivityValue": 0,
-              "type": "number"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "location",
-              "nullable": false,
-              "required": true,
-              "sensitivityValue": 0,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "sagaId",
-              "nullable": false,
-              "required": false,
-              "sensitivityValue": 0,
-              "type": "string"
-            }
-          ],
-          "id": "invoices",
-          "internalEndpoints": [
-            {
-              "basePath": "/invoices",
-              "defaultState": "PUBLIC"
-            }
-          ],
-          "tags": [
-            "collection"
-          ],
-          "type": "collection"
-        },
-        "notification_templates": {
-          "defaultName": "notification_templates",
-          "description": "Collection of notification_templates",
-          "fields": [
-            {
-              "description": "_id",
-              "name": "_id",
-              "nullable": false,
-              "required": true,
-              "type": "ObjectId"
-            },
-            {
-              "description": "creatorId",
-              "name": "creatorId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "createdAt",
-              "name": "createdAt",
-              "nullable": false,
-              "required": true,
-              "type": "Date"
-            },
-            {
-              "description": "updaterId",
-              "name": "updaterId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "updatedAt",
-              "name": "updatedAt",
-              "nullable": false,
-              "required": true,
-              "type": "Date"
-            },
-            {
-              "description": "__STATE__",
-              "name": "__STATE__",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "name",
-              "nullable": false,
-              "required": false,
-              "sensitivityValue": 0,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "emailTitle",
-              "nullable": false,
-              "required": false,
-              "sensitivityValue": 0,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "emailMessage",
-              "nullable": false,
-              "required": false,
-              "sensitivityValue": 0,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "emailHtmlMessage",
-              "nullable": false,
-              "required": false,
-              "sensitivityValue": 0,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "smsMessage",
-              "nullable": false,
-              "required": false,
-              "sensitivityValue": 0,
-              "type": "string"
-            }
-          ],
-          "id": "notification_templates",
-          "internalEndpoints": [
-            {
-              "basePath": "/notification-templates",
-              "defaultState": "PUBLIC"
-            }
-          ],
-          "tags": [
-            "collection"
-          ],
-          "type": "collection"
-        },
-        "rules": {
-          "defaultName": "rules",
-          "description": "Collection of rules",
-          "fields": [
-            {
-              "description": "_id",
-              "name": "_id",
-              "nullable": false,
-              "required": true,
-              "type": "ObjectId"
-            },
-            {
-              "description": "creatorId",
-              "name": "creatorId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "createdAt",
-              "name": "createdAt",
-              "nullable": false,
-              "required": true,
-              "type": "Date"
-            },
-            {
-              "description": "updaterId",
-              "name": "updaterId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "updatedAt",
-              "name": "updatedAt",
-              "nullable": false,
-              "required": true,
-              "type": "Date"
-            },
-            {
-              "description": "__STATE__",
-              "name": "__STATE__",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "priority",
-              "nullable": false,
-              "required": true,
-              "sensitivityValue": 0,
-              "type": "number"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "ruleId",
-              "nullable": false,
-              "required": true,
-              "sensitivityValue": 0,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "type",
-              "nullable": false,
-              "required": true,
-              "sensitivityValue": 0,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "rules",
-              "nullable": false,
-              "required": true,
-              "sensitivityValue": 0,
-              "type": "Array_RawObject"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "response",
-              "nullable": false,
-              "required": true,
-              "sensitivityValue": 0,
-              "type": "Array_RawObject"
-            }
-          ],
-          "id": "rules",
-          "internalEndpoints": [
-            {
-              "basePath": "/rules",
-              "defaultState": "PUBLIC"
-            }
-          ],
-          "tags": [
-            "collection"
-          ],
-          "type": "collection"
-        },
-        "users": {
-          "defaultName": "users",
-          "description": "Collection of users",
-          "fields": [
-            {
-              "description": "_id",
-              "name": "_id",
-              "nullable": false,
-              "required": true,
-              "type": "ObjectId"
-            },
-            {
-              "description": "creatorId",
-              "name": "creatorId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "createdAt",
-              "name": "createdAt",
-              "nullable": false,
-              "required": true,
-              "type": "Date"
-            },
-            {
-              "description": "updaterId",
-              "name": "updaterId",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "description": "updatedAt",
-              "name": "updatedAt",
-              "nullable": false,
-              "required": true,
-              "type": "Date"
-            },
-            {
-              "description": "__STATE__",
-              "name": "__STATE__",
-              "nullable": false,
-              "required": true,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "emailAddress",
-              "nullable": false,
-              "required": false,
-              "sensitivityValue": 0,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "phoneNumber",
-              "nullable": false,
-              "required": false,
-              "sensitivityValue": 0,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "clusters",
-              "nullable": false,
-              "required": false,
-              "sensitivityValue": 0,
-              "type": "Array_string"
-            }
-          ],
-          "id": "users",
-          "internalEndpoints": [
-            {
-              "basePath": "/users",
-              "defaultState": "PUBLIC"
-            }
-          ],
-          "tags": [
-            "collection"
-          ],
-          "type": "collection"
-        }
-      },
-      "endpoints": {
-        "/": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/",
-          "defaultPathRewrite": "/",
-          "description": "Endpoint /",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": true,
-          "service": "pgm-bff",
-          "tags": [
-            "pgm-bff"
-          ],
-          "type": "custom"
-        },
-        "/adaptive-checkout": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/adaptive-checkout",
-          "defaultPathRewrite": "/rules",
-          "description": "Endpoint /adaptive-checkout",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": false,
-          "tags": [
-            "crud"
-          ],
-          "type": "crud",
-          "collectionId": "rules"
-        },
-        "/analytics": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/analytics",
-          "defaultPathRewrite": "/",
-          "description": "Endpoint /analytics",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": false,
-          "service": "analytics-transactions",
-          "tags": [
-            "analytics"
-          ],
-          "type": "custom"
-        },
-        "/api/charts/dashboards": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/api/charts/dashboards",
-          "defaultPathRewrite": "/",
-          "description": "Endpoint /api/charts/dashboards",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": false,
-          "service": "data-visualization-backend",
-          "tags": [
-            "data-visualization-backend"
-          ],
-          "type": "custom"
-        },
-        "/callback-adyen": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/callback-adyen",
-          "defaultPathRewrite": "/v3/adyen/callback",
-          "description": "Endpoint /callback-adyen",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": false,
-          "service": "payment-gateway-manager",
-          "tags": [
-            "payment-gateway-manager"
-          ],
-          "type": "custom"
-        },
-        "/callback-axerve": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/callback-axerve",
-          "defaultPathRewrite": "/v3/axerve/callback",
-          "description": "Endpoint /callback-axerve",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": false,
-          "service": "payment-gateway-manager",
-          "tags": [
-            "payment-gateway-manager"
-          ],
-          "type": "custom"
-        },
-        "/callback-braintree": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/callback-braintree",
-          "defaultPathRewrite": "/v3/braintree/callback",
-          "description": "Endpoint /callback-braintree",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": false,
-          "service": "payment-gateway-manager",
-          "tags": [
-            "payment-gateway-manager"
-          ],
-          "type": "custom"
-        },
-        "/callback-flowpay": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/callback-flowpay",
-          "defaultPathRewrite": "/v3/flowpay/callback",
-          "description": "Endpoint /callback-flowpay",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": false,
-          "service": "payment-gateway-manager",
-          "tags": [
-            "payment-gateway-manager"
-          ],
-          "type": "custom"
-        },
-        "/callback-nexi": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/callback-nexi",
-          "defaultPathRewrite": "/v3/nexi/callback",
-          "description": "Endpoint /callback-nexi",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": false,
-          "service": "payment-gateway-manager",
-          "tags": [
-            "payment-gateway-manager"
-          ],
-          "type": "custom"
-        },
-        "/callback-satispay": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/callback-satispay",
-          "defaultPathRewrite": "/v3/satispay/callback",
-          "description": "Endpoint /callback-satispay",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": false,
-          "service": "payment-gateway-manager",
-          "tags": [
-            "payment-gateway-manager"
-          ],
-          "type": "custom"
-        },
-        "/callback-scalapay": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/callback-scalapay",
-          "defaultPathRewrite": "/v3/scalapay/callback",
-          "description": "Endpoint /callback-scalapay",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": false,
-          "service": "payment-gateway-manager",
-          "tags": [
-            "payment-gateway-manager"
-          ],
-          "type": "custom"
-        },
-        "/callback-soisy": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/callback-soisy",
-          "defaultPathRewrite": "/v3/soisy/callback",
-          "description": "Endpoint /callback-soisy",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": false,
-          "service": "payment-gateway-manager",
-          "tags": [
-            "payment-gateway-manager"
-          ],
-          "type": "custom"
-        },
-        "/callback-stripe": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/callback-stripe",
-          "defaultPathRewrite": "/v3/stripe/callback",
-          "description": "Endpoint /callback-stripe",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": false,
-          "service": "payment-gateway-manager",
-          "tags": [
-            "payment-gateway-manager"
-          ],
-          "type": "custom"
-        },
-        "/data-visualization": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/data-visualization",
-          "defaultPathRewrite": "/",
-          "description": "Endpoint /data-visualization",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": false,
-          "service": "data-visualization-frontend",
-          "tags": [
-            "data-visualization-frontend"
-          ],
-          "type": "custom"
-        },
-        "/demo": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/demo",
-          "defaultPathRewrite": "/",
-          "description": "Endpoint /demo",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": false,
-          "service": "payment-front-end",
-          "tags": [
-            "payment-front-end"
-          ],
-          "type": "custom"
-        },
-        "/export": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/export",
-          "defaultPathRewrite": "/export",
-          "description": "Endpoint /export",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": true,
-          "service": "export-service",
-          "tags": [
-            "export-service"
-          ],
-          "type": "custom"
-        },
-        "/fm": {
-          "allowUnknownRequestContentType": false,
-          "allowUnknownResponseContentType": false,
-          "defaultBasePath": "/fm",
-          "defaultPathRewrite": "/",
-          "description": "Endpoint /fm",
-          "forceMicroserviceGatewayProxy": false,
-          "public": true,
-          "secreted": true,
-          "service": "flow-manager-service",
-          "tags": [
-            "flow-manager-service"
-          ],
-          "type": "custom"
-        }
-      },
       "services": {
+        "api-gateway": {
+          "name": "api-gateway",
+          "type": "plugin",
+          "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+          "dockerImage": "envoyproxy/envoy:v1.29.2",
+          "componentId": "api-gateway-envoy",
+          "defaultDocumentationPath": "",
+          "defaultArgs": [
+            "-c",
+            "/etc/envoy/envoy.json",
+            "-l",
+            "{{LOG_LEVEL}}",
+            "--log-format",
+            "{\\"level\\":\\"%l\\",\\"time\\":\\"%Y-%m-%dT%T.%fZ\\",\\"scope\\":\\"%n\\",\\"message\\":\\"%j\\"}",
+            "--drain-time-s",
+            "50"
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultEnvironmentVariables": [],
+          "defaultResources": {
+            "memoryLimits": {
+              "max": "250Mi",
+              "min": "150Mi"
+            },
+            "cpuLimits": {
+              "min": "150m",
+              "max": "200m"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "port": "frontend",
+              "path": "/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20
+            },
+            "readiness": {
+              "port": "frontend",
+              "path": "/healthz",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 10
+            }
+          },
+          "containerPorts": [
+            {
+              "name": "frontend",
+              "from": 8080,
+              "to": 8080
+            },
+            {
+              "name": "backoffice",
+              "from": 8081,
+              "to": 8081
+            },
+            {
+              "name": "admin",
+              "from": 9901,
+              "to": 9901
+            }
+          ],
+          "execPreStop": [
+            "bash",
+            "-c",
+            "echo -e 'POST /drain_listeners?graceful HTTP/1.1\\r\\nHost: localhost:9901\\r\\n\\r' > /dev/tcp/localhost/9901 && sleep 55s"
+          ],
+          "defaultTerminationGracePeriodSeconds": 60,
+          "defaultConfigMaps": [
+            {
+              "name": "api-gateway-envoy-config",
+              "mountPath": "/etc/envoy",
+              "files": [],
+              "viewAsReadOnly": true,
+              "link": {
+                "targetSection": "endpoints"
+              }
+            }
+          ]
+        },
         "adaptive-approval": {
           "containerPorts": [
             {
@@ -54760,6 +53974,1052 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin"
         }
       },
+      "collections": {
+        "fm_subscriptions": {
+          "defaultName": "fm_subscriptions",
+          "description": "Collection of fm_subscriptions",
+          "fields": [
+            {
+              "description": "_id",
+              "name": "_id",
+              "nullable": false,
+              "required": true,
+              "type": "ObjectId"
+            },
+            {
+              "description": "creatorId",
+              "name": "creatorId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "createdAt",
+              "name": "createdAt",
+              "nullable": false,
+              "required": true,
+              "type": "Date"
+            },
+            {
+              "description": "updaterId",
+              "name": "updaterId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "updatedAt",
+              "name": "updatedAt",
+              "nullable": false,
+              "required": true,
+              "type": "Date"
+            },
+            {
+              "description": "__STATE__",
+              "name": "__STATE__",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "",
+              "name": "sagaId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "metadata",
+              "nullable": false,
+              "required": true,
+              "schema": {
+                "properties": {
+                  "additionalData": {
+                    "type": "object"
+                  },
+                  "amount": {
+                    "type": "number"
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "expirationDate": {
+                    "type": "string"
+                  },
+                  "expireRequested": {
+                    "type": "boolean"
+                  },
+                  "interval": {
+                    "type": "string"
+                  },
+                  "intervalCount": {
+                    "type": "number"
+                  },
+                  "nextPaymentDate": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "paymentMethod": {
+                    "type": "string"
+                  },
+                  "provider": {
+                    "type": "string"
+                  },
+                  "providerData": {
+                    "type": "object"
+                  },
+                  "shopSubscriptionId": {
+                    "type": "string"
+                  },
+                  "transactions": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                }
+              },
+              "sensitivityValue": 0,
+              "type": "RawObject"
+            },
+            {
+              "description": "",
+              "name": "isFinal",
+              "nullable": false,
+              "required": true,
+              "type": "boolean"
+            },
+            {
+              "description": "",
+              "name": "currentState",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "",
+              "name": "latestEvent",
+              "nullable": false,
+              "required": true,
+              "type": "RawObject"
+            },
+            {
+              "description": "",
+              "name": "associatedEntityId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "",
+              "name": "events",
+              "nullable": false,
+              "required": false,
+              "type": "Array_string"
+            },
+            {
+              "description": "",
+              "name": "history",
+              "nullable": false,
+              "required": false,
+              "type": "RawObject"
+            },
+            {
+              "description": "",
+              "name": "businessStateId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "",
+              "name": "businessStateDescription",
+              "nullable": false,
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "id": "fm_subscriptions",
+          "internalEndpoints": [
+            {
+              "basePath": "/fm-subscriptions",
+              "defaultState": "PUBLIC"
+            }
+          ],
+          "tags": [
+            "collection"
+          ],
+          "type": "collection"
+        },
+        "fm_transactions": {
+          "defaultName": "fm_transactions",
+          "description": "Collection of fm_transactions",
+          "fields": [
+            {
+              "description": "_id",
+              "name": "_id",
+              "nullable": false,
+              "required": true,
+              "type": "ObjectId"
+            },
+            {
+              "description": "creatorId",
+              "name": "creatorId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "createdAt",
+              "name": "createdAt",
+              "nullable": false,
+              "required": true,
+              "type": "Date"
+            },
+            {
+              "description": "updaterId",
+              "name": "updaterId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "updatedAt",
+              "name": "updatedAt",
+              "nullable": false,
+              "required": true,
+              "type": "Date"
+            },
+            {
+              "description": "__STATE__",
+              "name": "__STATE__",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "",
+              "name": "sagaId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "metadata",
+              "nullable": false,
+              "required": true,
+              "schema": {
+                "properties": {
+                  "additionalData": {
+                    "properties": {
+                      "channel": {
+                        "type": "string"
+                      },
+                      "items": {
+                        "items": {
+                          "properties": {
+                            "amount": {
+                              "type": "number"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "itemId": {
+                              "type": "string"
+                            },
+                            "quantity": {
+                              "type": "number"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "amount": {
+                    "type": "number"
+                  },
+                  "buyer": {
+                    "type": "object"
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "isRecurrent": {
+                    "type": "boolean"
+                  },
+                  "paymentID": {
+                    "type": "string"
+                  },
+                  "paymentMethod": {
+                    "type": "string"
+                  },
+                  "paymentToken": {
+                    "type": "string"
+                  },
+                  "payRequestData": {
+                    "type": "object"
+                  },
+                  "provider": {
+                    "type": "string"
+                  },
+                  "providerData": {
+                    "type": "object"
+                  },
+                  "recurrenceDetails": {
+                    "type": "object"
+                  },
+                  "refundDetails": {
+                    "type": "object"
+                  },
+                  "refundRequestData": {
+                    "type": "object"
+                  },
+                  "sessionToken": {
+                    "type": "string"
+                  },
+                  "shopTransactionID": {
+                    "type": "string"
+                  },
+                  "subscriptionId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "sensitivityValue": 0,
+              "type": "RawObject"
+            },
+            {
+              "description": "",
+              "name": "isFinal",
+              "nullable": false,
+              "required": true,
+              "type": "boolean"
+            },
+            {
+              "description": "",
+              "name": "currentState",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "",
+              "name": "latestEvent",
+              "nullable": false,
+              "required": true,
+              "type": "RawObject"
+            },
+            {
+              "description": "",
+              "name": "associatedEntityId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "",
+              "name": "events",
+              "nullable": false,
+              "required": false,
+              "type": "Array_string"
+            },
+            {
+              "description": "",
+              "name": "history",
+              "nullable": false,
+              "required": false,
+              "type": "RawObject"
+            },
+            {
+              "description": "",
+              "name": "businessStateId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "",
+              "name": "businessStateDescription",
+              "nullable": false,
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "id": "fm_transactions",
+          "internalEndpoints": [
+            {
+              "basePath": "/fm-transactions",
+              "defaultState": "PUBLIC"
+            }
+          ],
+          "tags": [
+            "collection"
+          ],
+          "type": "collection"
+        },
+        "invoices": {
+          "defaultName": "invoices",
+          "description": "Collection of invoices",
+          "fields": [
+            {
+              "description": "_id",
+              "name": "_id",
+              "nullable": false,
+              "required": true,
+              "type": "ObjectId"
+            },
+            {
+              "description": "creatorId",
+              "name": "creatorId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "createdAt",
+              "name": "createdAt",
+              "nullable": false,
+              "required": true,
+              "type": "Date"
+            },
+            {
+              "description": "updaterId",
+              "name": "updaterId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "updatedAt",
+              "name": "updatedAt",
+              "nullable": false,
+              "required": true,
+              "type": "Date"
+            },
+            {
+              "description": "__STATE__",
+              "name": "__STATE__",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "name",
+              "nullable": false,
+              "required": true,
+              "sensitivityValue": 0,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "file",
+              "nullable": false,
+              "required": true,
+              "sensitivityValue": 0,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "size",
+              "nullable": false,
+              "required": true,
+              "sensitivityValue": 0,
+              "type": "number"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "location",
+              "nullable": false,
+              "required": true,
+              "sensitivityValue": 0,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "sagaId",
+              "nullable": false,
+              "required": false,
+              "sensitivityValue": 0,
+              "type": "string"
+            }
+          ],
+          "id": "invoices",
+          "internalEndpoints": [
+            {
+              "basePath": "/invoices",
+              "defaultState": "PUBLIC"
+            }
+          ],
+          "tags": [
+            "collection"
+          ],
+          "type": "collection"
+        },
+        "notification_templates": {
+          "defaultName": "notification_templates",
+          "description": "Collection of notification_templates",
+          "fields": [
+            {
+              "description": "_id",
+              "name": "_id",
+              "nullable": false,
+              "required": true,
+              "type": "ObjectId"
+            },
+            {
+              "description": "creatorId",
+              "name": "creatorId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "createdAt",
+              "name": "createdAt",
+              "nullable": false,
+              "required": true,
+              "type": "Date"
+            },
+            {
+              "description": "updaterId",
+              "name": "updaterId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "updatedAt",
+              "name": "updatedAt",
+              "nullable": false,
+              "required": true,
+              "type": "Date"
+            },
+            {
+              "description": "__STATE__",
+              "name": "__STATE__",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "name",
+              "nullable": false,
+              "required": false,
+              "sensitivityValue": 0,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "emailTitle",
+              "nullable": false,
+              "required": false,
+              "sensitivityValue": 0,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "emailMessage",
+              "nullable": false,
+              "required": false,
+              "sensitivityValue": 0,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "emailHtmlMessage",
+              "nullable": false,
+              "required": false,
+              "sensitivityValue": 0,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "smsMessage",
+              "nullable": false,
+              "required": false,
+              "sensitivityValue": 0,
+              "type": "string"
+            }
+          ],
+          "id": "notification_templates",
+          "internalEndpoints": [
+            {
+              "basePath": "/notification-templates",
+              "defaultState": "PUBLIC"
+            }
+          ],
+          "tags": [
+            "collection"
+          ],
+          "type": "collection"
+        },
+        "rules": {
+          "defaultName": "rules",
+          "description": "Collection of rules",
+          "fields": [
+            {
+              "description": "_id",
+              "name": "_id",
+              "nullable": false,
+              "required": true,
+              "type": "ObjectId"
+            },
+            {
+              "description": "creatorId",
+              "name": "creatorId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "createdAt",
+              "name": "createdAt",
+              "nullable": false,
+              "required": true,
+              "type": "Date"
+            },
+            {
+              "description": "updaterId",
+              "name": "updaterId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "updatedAt",
+              "name": "updatedAt",
+              "nullable": false,
+              "required": true,
+              "type": "Date"
+            },
+            {
+              "description": "__STATE__",
+              "name": "__STATE__",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "priority",
+              "nullable": false,
+              "required": true,
+              "sensitivityValue": 0,
+              "type": "number"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "ruleId",
+              "nullable": false,
+              "required": true,
+              "sensitivityValue": 0,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "type",
+              "nullable": false,
+              "required": true,
+              "sensitivityValue": 0,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "rules",
+              "nullable": false,
+              "required": true,
+              "sensitivityValue": 0,
+              "type": "Array_RawObject"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "response",
+              "nullable": false,
+              "required": true,
+              "sensitivityValue": 0,
+              "type": "Array_RawObject"
+            }
+          ],
+          "id": "rules",
+          "internalEndpoints": [
+            {
+              "basePath": "/rules",
+              "defaultState": "PUBLIC"
+            }
+          ],
+          "tags": [
+            "collection"
+          ],
+          "type": "collection"
+        },
+        "users": {
+          "defaultName": "users",
+          "description": "Collection of users",
+          "fields": [
+            {
+              "description": "_id",
+              "name": "_id",
+              "nullable": false,
+              "required": true,
+              "type": "ObjectId"
+            },
+            {
+              "description": "creatorId",
+              "name": "creatorId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "createdAt",
+              "name": "createdAt",
+              "nullable": false,
+              "required": true,
+              "type": "Date"
+            },
+            {
+              "description": "updaterId",
+              "name": "updaterId",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "description": "updatedAt",
+              "name": "updatedAt",
+              "nullable": false,
+              "required": true,
+              "type": "Date"
+            },
+            {
+              "description": "__STATE__",
+              "name": "__STATE__",
+              "nullable": false,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "emailAddress",
+              "nullable": false,
+              "required": false,
+              "sensitivityValue": 0,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "phoneNumber",
+              "nullable": false,
+              "required": false,
+              "sensitivityValue": 0,
+              "type": "string"
+            },
+            {
+              "encryptionEnabled": false,
+              "encryptionSearchable": false,
+              "name": "clusters",
+              "nullable": false,
+              "required": false,
+              "sensitivityValue": 0,
+              "type": "Array_string"
+            }
+          ],
+          "id": "users",
+          "internalEndpoints": [
+            {
+              "basePath": "/users",
+              "defaultState": "PUBLIC"
+            }
+          ],
+          "tags": [
+            "collection"
+          ],
+          "type": "collection"
+        }
+      },
+      "endpoints": {
+        "/": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/",
+          "defaultPathRewrite": "/",
+          "description": "Endpoint /",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": true,
+          "service": "pgm-bff",
+          "tags": [
+            "pgm-bff"
+          ],
+          "type": "custom"
+        },
+        "/adaptive-checkout": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/adaptive-checkout",
+          "defaultPathRewrite": "/rules",
+          "description": "Endpoint /adaptive-checkout",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": false,
+          "tags": [
+            "crud"
+          ],
+          "type": "crud",
+          "collectionId": "rules"
+        },
+        "/analytics": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/analytics",
+          "defaultPathRewrite": "/",
+          "description": "Endpoint /analytics",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": false,
+          "service": "analytics-transactions",
+          "tags": [
+            "analytics"
+          ],
+          "type": "custom"
+        },
+        "/api/charts/dashboards": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/api/charts/dashboards",
+          "defaultPathRewrite": "/",
+          "description": "Endpoint /api/charts/dashboards",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": false,
+          "service": "data-visualization-backend",
+          "tags": [
+            "data-visualization-backend"
+          ],
+          "type": "custom"
+        },
+        "/callback-adyen": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/callback-adyen",
+          "defaultPathRewrite": "/v3/adyen/callback",
+          "description": "Endpoint /callback-adyen",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": false,
+          "service": "payment-gateway-manager",
+          "tags": [
+            "payment-gateway-manager"
+          ],
+          "type": "custom"
+        },
+        "/callback-axerve": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/callback-axerve",
+          "defaultPathRewrite": "/v3/axerve/callback",
+          "description": "Endpoint /callback-axerve",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": false,
+          "service": "payment-gateway-manager",
+          "tags": [
+            "payment-gateway-manager"
+          ],
+          "type": "custom"
+        },
+        "/callback-braintree": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/callback-braintree",
+          "defaultPathRewrite": "/v3/braintree/callback",
+          "description": "Endpoint /callback-braintree",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": false,
+          "service": "payment-gateway-manager",
+          "tags": [
+            "payment-gateway-manager"
+          ],
+          "type": "custom"
+        },
+        "/callback-flowpay": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/callback-flowpay",
+          "defaultPathRewrite": "/v3/flowpay/callback",
+          "description": "Endpoint /callback-flowpay",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": false,
+          "service": "payment-gateway-manager",
+          "tags": [
+            "payment-gateway-manager"
+          ],
+          "type": "custom"
+        },
+        "/callback-nexi": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/callback-nexi",
+          "defaultPathRewrite": "/v3/nexi/callback",
+          "description": "Endpoint /callback-nexi",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": false,
+          "service": "payment-gateway-manager",
+          "tags": [
+            "payment-gateway-manager"
+          ],
+          "type": "custom"
+        },
+        "/callback-satispay": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/callback-satispay",
+          "defaultPathRewrite": "/v3/satispay/callback",
+          "description": "Endpoint /callback-satispay",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": false,
+          "service": "payment-gateway-manager",
+          "tags": [
+            "payment-gateway-manager"
+          ],
+          "type": "custom"
+        },
+        "/callback-scalapay": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/callback-scalapay",
+          "defaultPathRewrite": "/v3/scalapay/callback",
+          "description": "Endpoint /callback-scalapay",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": false,
+          "service": "payment-gateway-manager",
+          "tags": [
+            "payment-gateway-manager"
+          ],
+          "type": "custom"
+        },
+        "/callback-soisy": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/callback-soisy",
+          "defaultPathRewrite": "/v3/soisy/callback",
+          "description": "Endpoint /callback-soisy",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": false,
+          "service": "payment-gateway-manager",
+          "tags": [
+            "payment-gateway-manager"
+          ],
+          "type": "custom"
+        },
+        "/callback-stripe": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/callback-stripe",
+          "defaultPathRewrite": "/v3/stripe/callback",
+          "description": "Endpoint /callback-stripe",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": false,
+          "service": "payment-gateway-manager",
+          "tags": [
+            "payment-gateway-manager"
+          ],
+          "type": "custom"
+        },
+        "/data-visualization": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/data-visualization",
+          "defaultPathRewrite": "/",
+          "description": "Endpoint /data-visualization",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": false,
+          "service": "data-visualization-frontend",
+          "tags": [
+            "data-visualization-frontend"
+          ],
+          "type": "custom"
+        },
+        "/demo": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/demo",
+          "defaultPathRewrite": "/",
+          "description": "Endpoint /demo",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": false,
+          "service": "payment-front-end",
+          "tags": [
+            "payment-front-end"
+          ],
+          "type": "custom"
+        },
+        "/export": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/export",
+          "defaultPathRewrite": "/export",
+          "description": "Endpoint /export",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": true,
+          "service": "export-service",
+          "tags": [
+            "export-service"
+          ],
+          "type": "custom"
+        },
+        "/fm": {
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "defaultBasePath": "/fm",
+          "defaultPathRewrite": "/",
+          "description": "Endpoint /fm",
+          "forceMicroserviceGatewayProxy": false,
+          "public": true,
+          "secreted": true,
+          "service": "flow-manager-service",
+          "tags": [
+            "flow-manager-service"
+          ],
+          "type": "custom"
+        }
+      },
       "unsecretedVariables": {
         "ANALYTICS_TRANSACTIONS_VERSION": {
           "noProductionEnv": "2.1.0",
@@ -54820,6 +55080,19 @@ exports[`Sync script > should match snapshot 2`] = `
         "SUB_HANDLER_VERSION": {
           "noProductionEnv": "1.1.1",
           "productionEnv": "1.1.1"
+        }
+      },
+      "listeners": {
+        "frontend": {
+          "name": "frontend",
+          "port": "8080",
+          "selectedByDefault": true,
+          "description": "Default listener for frontend API",
+          "ownedBy": {
+            "componentIds": [
+              "api-gateway-envoy"
+            ]
+          }
         }
       }
     },
@@ -73123,6 +73396,19 @@ exports[`Sync script > should match snapshot 2`] = `
         "USER_MANAGER_SERVICE_URL": {
           "noProductionEnv": "http://user-manager-service.user-auth-module-development.svc.cluster.local",
           "productionEnv": "http://user-manager-service.user-auth-module-preproduction.svc.cluster.local"
+        }
+      },
+      "listeners": {
+        "frontend": {
+          "name": "frontend",
+          "port": "8080",
+          "selectedByDefault": true,
+          "description": "Default listener for frontend API",
+          "ownedBy": {
+            "componentIds": [
+              "api-gateway-envoy"
+            ]
+          }
         }
       }
     },
