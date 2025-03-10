@@ -71,6 +71,16 @@ It is also recommended to reference the manifest JSON schema by placing `"$schem
   - property `version.name` MUST be equal to the manifest file name;
   - property `releaseStage` MUST be equal to `deprecated` in `NA` manifests.
 
+The following set of extra rules **applies only to application** items:
+
+- each service declared in `resources.services` MUST have its `name` property equal to the object key;
+- each service name declared in `resources.services` MUST differ from the first-level `name` property of the application itself;
+- an application that declares a service with `componentId` equal to `api-gateway-envoy` MUST have at least one listener declared in `resources.listeners`;
+- an application that declares endpoints in `resources.endpoints` MUST have at least one service declared in `resources.services` with `componentId` equal to `api-gateway-envoy` or `api-gateway`;
+- each endpoint declared in `resources.endpoints` MUST have its `defaultBasePath` property equal to the object key;
+- an application that declares collections in `resources.collections` MUST have at least one service declared in `resources.services` with `componentId` equal to `crud-service`;
+- each collection declared in `resources.collections` MUST have its `defaultName` property equal to the object key.
+
 ### Common operations
 
 Below are listed some common operations you may want to perform on the catalog. For each of them, we provide the *title* and *label(s)* that the corresponding **atomic pull request** MUST have.
