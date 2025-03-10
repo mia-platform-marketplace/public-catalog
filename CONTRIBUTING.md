@@ -28,7 +28,7 @@ yarn build
 >
 > Generally speaking, pull requests regarding the Catalog content MUST have a title following the format `feat(catalog): <description of the changes>` and MUST have the label `catalog content`.
 
-If you want to edit the Catalog, chances are that you will have to write or edit a **manifest**. A manifest is a JSON representation of an item version that defines its *metadata* and *resources*. The manifests are contained in the `/items` directory, which follows a [hierarchical structure](./README.md#catalog-items) of `item type > item id > item versions`.
+If you want to edit the Catalog, chances are that you will have to write or edit a **manifest**. A manifest is a JSON representation of an item version that defines its *metadata* and *resources*. The manifests are contained in the `/items/` directory, which follows a [hierarchical structure](./README.md#catalog-items) of `item type > item id > item versions`.
 
 Everything you need to know about items and manifests is written in the official [Mia-Platform documentation](https://docs.mia-platform.eu/docs/software-catalog/manage-items/overview-manage-items).
 
@@ -178,6 +178,18 @@ An item is considered deprecated if all of its versions are deprecated.
   - **title**: `feat(catalog): deprecate <item-type> <item-id>` (e.g., `feat(catalog): deprecate plugin my-awesome-service`)
   - **label**: `catalog-content`
 
+#### Add or edit a new category
+
+> ‼ **IMPORTANT NOTICE**
+>
+> You cannot edit the `categoryId` of an existing category since there may be other items using it outside the ones declared here.
+
+- Add the new category or edit the exiling one in `/assets/categories.json`.
+- Update the manifest JSON schemas running `yarn build:manifest-schemas`
+- Open a pull request with:
+  - **title**: `feat(catalog): [add | edit] category <category-id>` (e.g., `feat(catalog): add category my-awesome-category`)
+  - **label**: `catalog-content`
+
 ### Test your changes
 
 Whenever you make a change to the Catalog content remember to:
@@ -191,15 +203,15 @@ Whenever you make a change to the Catalog content remember to:
 >
 > To ensure that release notes are properly formatted, changes to the sync script content MUST be submitted through pull requests with the title following the format `<type>(sync): <description of the changes>` and MUST have the label `sync script`.
 
-The source code for the sync script is in the `/src` directory and can be built running `yarn build:script`.
+The source code for the sync script is in the `/src/` directory and can be built running `yarn build:script`.
 
 ### Run the script
 
-To spin up the stack needed to [run the script](./README.md#running-the-script) locally, you can use the Docker Compose in the `/.dev` directory, which will start
+To spin up the stack needed to [run the script](./README.md#running-the-script) locally, you can use the Docker Compose in the `/.dev/` directory, which will start
 
 - a MongoDB instance,
 - a Mia-Platform [Crud Service](https://github.com/mia-platform/crud-service) instance, and
-- a Mia-Platform [Files Service]((https://docs.mia-platform.eu/docs/runtime_suite/files-service/configuration)) instance.
+- a Mia-Platform [Files Service](https://docs.mia-platform.eu/docs/runtime_suite/files-service/configuration) instance.
 
 > ⚠ **Warning**
 >
