@@ -2,8 +2,17 @@ changelog:
   exclude:
     authors:
       - dependabot
+    labels:
+      - documentation
+      - dependencies
+      - github_actions
+      - refactor
 
   categories:
+    - title: Breaking Changes
+      labels:
+        - breaking
+
     - title: Changes to the Catalog content
       labels:
         - catalog content
