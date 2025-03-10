@@ -138,6 +138,13 @@ An item is considered deprecated if all of its versions are deprecated.
   - **title**: `feat(catalog): deprecate <item-type> <item-id>` (e.g., `feat(catalog): deprecate plugin my-awesome-service`)
   - **label**: `catalog-content`
 
+### Test your changes
+
+Whenever you make a change to the Catalog content remember to:
+
+- run check script with `yarn check-items -i <changed-item-itemId>`, and
+- re-generate snapshots running `yarn test:snapshot` (you can spin up the needed MongoDB instance with `make test-up`, and stop it with `make test-down`).
+
 ## Work with the sync script
 
 > ‼ **IMPORTANT NOTICE**
