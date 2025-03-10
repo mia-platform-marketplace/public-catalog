@@ -96,6 +96,11 @@ exports[`Sync script > should match snapshot 1`] = `
     "label": "Add-ons - Insurance"
   },
   {
+    "categoryId": "integrations",
+    "__STATE__": "PUBLIC",
+    "label": "Integrations"
+  },
+  {
     "categoryId": "kotlin",
     "__STATE__": "PUBLIC",
     "label": "Start From Code - Java/Kotlin"
