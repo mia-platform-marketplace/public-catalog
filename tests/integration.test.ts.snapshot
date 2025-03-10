@@ -76944,7 +76944,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "archiveUrl": "https://github.com/mia-platform-marketplace/Vite-Typescript-React-App-Template/archive/refs/heads/18.x.tar.gz",
           "pipelines": {
             "gitlab-ci": {
-              "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Freact-app.gitlab-ci.yml/raw"
+              "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Freact-app-vitest.gitlab-ci.yml/raw"
             }
           },
           "defaultEnvironmentVariables": [
