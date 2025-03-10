@@ -92,6 +92,14 @@ Below are listed some common operations you may want to perform on the catalog. 
 - Create the first manifest JSON file under the `versions` directory. Name the file as the version you want to create (`NA` if the item type does not support versioning, a valid semver if the item type supports versioning).
 - Write the manifest content following the JSON schema in the item type directory (i.e., `"$schema": "../../manifest.schema.json"`).
 - Validate your work running `yarn check:items -i <item-id>`.
+- Re-generate the snapshots running
+
+  ```sh
+  make test-up
+  yarn test:snapshot
+  make test-down  
+  ```
+
 - Open a pull request with:
   - **title**: `feat(catalog): add new <item-type> <item-id>` (e.g., `feat(catalog): add new plugin my-awesome-service`)
   - **label**: `catalog-content`
@@ -105,6 +113,14 @@ Below are listed some common operations you may want to perform on the catalog. 
 - Create a new manifest JSON file under the `versions` directory of the item (i.e. `/items/<item-type>/<item-id>/versions/`). Name the file as the version you want to create.
 - Write the manifest content following the JSON schema in the item type directory (i.e., `"$schema": "../../manifest.schema.json"`).
 - Validate your work running `yarn check:items -i <item-id>`.
+- Re-generate the snapshots running
+
+  ```sh
+  make test-up
+  yarn test:snapshot
+  make test-down  
+  ```
+
 - Open a pull request with:
   - **title**: `feat(catalog): add version <version-name> to <item-type> <item-id>` (e.g., `feat(catalog): add version 1.0.0 to plugin my-awesome-service`)
   - **label**: `catalog-content`
@@ -114,6 +130,14 @@ Below are listed some common operations you may want to perform on the catalog. 
 - Locate the manifest JSON file you want to edit (i.e., `/items/<item-type>/<item-id>/versions/<version-name>.json`).
 - Edit the manifest content following the JSON schema in the item type directory (i.e., `"$schema": "../../manifest.schema.json"`).
 - Validate your work running `yarn check:items -i <item-id>`.
+- Re-generate the snapshots running
+
+  ```sh
+  make test-up
+  yarn test:snapshot
+  make test-down  
+  ```
+
 - Open a pull request with:
   - **title**: `feat(catalog): update version <version-name> of <item-type> <item-id>` (e.g., `feat(catalog): update version 1.0.0 of plugin my-awesome-service`)
   - **label**: `catalog-content`
@@ -123,6 +147,14 @@ Below are listed some common operations you may want to perform on the catalog. 
 - Locate the manifest JSON file you want to deprecate (i.e., `/items/<item-type>/<item-id>/versions/<version-name>.json`).
 - Set the `releaseStage` property to `deprecated`.
 - Validate your work running `yarn check:items -i <item-id>`.
+- Re-generate the snapshots running
+
+  ```sh
+  make test-up
+  yarn test:snapshot
+  make test-down  
+  ```
+
 - Open a pull request with:
   - **title**: `feat(catalog): deprecate <version-name> of <item-type> <item-id>` (e.g., `feat(catalog): deprecate version 1.0.0 of plugin my-awesome-service`)
   - **label**: `catalog-content`
@@ -134,6 +166,14 @@ An item is considered deprecated if all of its versions are deprecated.
 - Locate the item you want to deprecate (i.e., `/items/<item-type>/<item-id>/`).
 - [Deprecate](#deprecate-an-item-version) each version of the item.
 - Validate your work running `yarn check:items -i <item-id>`.
+- Re-generate the snapshots running
+
+  ```sh
+  make test-up
+  yarn test:snapshot
+  make test-down  
+  ```
+
 - Open a pull request with:
   - **title**: `feat(catalog): deprecate <item-type> <item-id>` (e.g., `feat(catalog): deprecate plugin my-awesome-service`)
   - **label**: `catalog-content`
