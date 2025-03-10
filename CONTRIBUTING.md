@@ -163,3 +163,14 @@ The Docker Compose can be started running `make dev-up` and stop running `make d
 ### Test the script
 
 The script comes with a suite of integration tests, that will execute it on an empty database and confront the results against a snapshot. To run the tests first spin up a MongoDB Docker container with `make test-up`, and then run `yarn test` (remember to stop the container afterwards with `make test-down`).
+
+## Housekeeping
+
+### Tag the repository
+
+To tag the repository run:
+
+```sh
+npm version <semver>
+git push main && git push origin v<semver>
+```
