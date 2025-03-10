@@ -136,6 +136,10 @@
     {
       "categoryId": "healthcare",
       "label": "Healthcare"
+    },
+    {
+      "categoryId": "integrations",
+      "label": "Integrations"
     }
   ]
 }

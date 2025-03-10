@@ -39,7 +39,8 @@
         "scoring",
         "data-catalog",
         "artificial-intelligence",
-        "healthcare"
+        "healthcare",
+        "integrations"
       ],
       "type": "string"
     },
