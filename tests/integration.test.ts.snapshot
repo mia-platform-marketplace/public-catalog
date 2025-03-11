@@ -98,7 +98,7 @@ exports[`Sync script > should match snapshot 1`] = `
   {
     "categoryId": "integrations",
     "__STATE__": "PUBLIC",
-    "label": "Integrations"
+    "label": "Application Integration"
   },
   {
     "categoryId": "kotlin",
