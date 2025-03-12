@@ -7,6 +7,8 @@ on:
         required: true
       docker_token:
         required: true
+      github_cr_token:
+          required: true
       nexus_username:
         required: true
       nexus_token:
@@ -35,6 +37,13 @@ jobs:
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         show-progress: false
+
+    - name: Login to GitHub registry
+      uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.github_cr_token }}
     
     - name: Login to DockerHub
       uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
@@ -50,41 +59,44 @@ jobs:
         password: ${{ secrets.nexus_token }}
 
     - name: Install Cosign
-      uses: sigstore/cosign-installer@dc72c7d5c4d10cd6bcb8cf6e3fd625a9e5e537da # v3.7.0
+      uses: sigstore/cosign-installer@d7d6bc7722e3daa8354c50bcb52f4837da5e9b6a # v3.8.1 
 
     - name: Set up QEMU
-      uses: docker/setup-qemu-action@49b3bc8e6bdd4a60e6116a5414239cba5943d3cf # v3.2.0
+      uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3.6.0
       with:
         platforms: amd64,arm64
   
     - name: Configure Docker metadata
       id: meta
-      uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81 # v5.5.1
+      uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0
       env:
         DOCKER_METADATA_ANNOTATIONS_LEVELS: manifest,index
       with:
         images: |
-          docker.io/miaplatform/public-software-catalog-sync
-          nexus.mia-platform.eu/console/scripts/public-software-catalog-sync
+          ghcr.io/mia-platform/software-catalog-sync
+          docker.io/miaplatform/software-catalog-sync
+          nexus.mia-platform.eu/console/scripts/software-catalog-sync
         tags: |
           type=raw,value=latest,enable={{is_default_branch}}
           type=semver,pattern={{version}}
         labels: |
+          org.opencontainers.image.authors=Mia Platform Core Team<core@mia-platform.eu>
           org.opencontainers.image.documentation=https://docs.mia-platform.eu/
           org.opencontainers.image.vendor=Mia s.r.l.
         annotations: |
+          org.opencontainers.image.authors=Mia Platform Core Team<core@mia-platform.eu>
           org.opencontainers.image.documentation=https://docs.mia-platform.eu/
           org.opencontainers.image.vendor=Mia s.r.l.
  
     - name: Setup Buildx context
-      uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db # v3.6.1
+      uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3.10.0
       id: buildx
       with:
         platforms: linux/amd64,linux/arm64
  
     - name: Build Docker image
       id: docker-build
-      uses: docker/build-push-action@4f58ea79222b3b9dc2c8bbdd6debcef730109a75 # v6.9.0
+      uses: docker/build-push-action@471d1dc4e07e5cdedd4c2171150001c434f0b7a4 # v6.15.0
       with:
         context: .
         push: true
@@ -98,7 +110,7 @@ jobs:
     - name: Scan image
       uses: sysdiglabs/scan-action@0065d3b93bd4115371b55720251adb1d228fe188 # v5.1.1
       with:
-        image-tag: nexus.mia-platform.eu/console/scripts/public-software-catalog-sync:${{ steps.meta.output.version.main }}
+        image-tag: nexus.mia-platform.eu/console/scripts/software-catalog-sync:${{ steps.meta.output.version.main }}
         sysdig-secure-url: "https://eu1.app.sysdig.com"
         sysdig-secure-token: ${{ secrets.sysdig_token }}
         registry-user: ${{ secrets.nexus_username }}
@@ -106,16 +118,16 @@ jobs:
         stop-on-processing-error: true
  
     - name: Generate SBOM
-      uses: anchore/sbom-action@f5e124a5e5e1d497a692818ae907d3c45829d033 # v0.17.3
+      uses: anchore/sbom-action@f325610c9f50a54015d37c8d16cb3b0e2c8f4de0 # v0.18.0
       if: github.ref_type == 'tag'
       with:
-        artifact-name: public-software-catalog-sync-sbom.spdx.json
-        output-file: ./public-software-catalog-sync-sbom.spdx.json
-        image: nexus.mia-platform.eu/console/scripts/public-software-catalog-sync:${{ steps.meta.output.version.main }}
+        artifact-name: software-catalog-sync-sbom.spdx.json
+        output-file: ./software-catalog-sync-sbom.spdx.json
+        image: nexus.mia-platform.eu/console/scripts/software-catalog-sync:${{ steps.meta.output.version.main }}
         upload-release-assets: true
  
     - name: GCP auth
-      uses: google-github-actions/auth@8254fb75a33b976a221574d287e93919e6a36f70 # v2.1.6
+      uses: google-github-actions/auth@71f986410dfbc7added4569d411d040a91dc6935 # v2.1.8
       if: github.ref_type == 'tag'
       with:
         project_id: ${{ secrets.kms_gcp_project }}
@@ -128,11 +140,12 @@ jobs:
         for tag in ${TAGS}; do
           image="${tag}@${DIGEST}"
           cosign sign --recursive --yes --key "${COSIGN_PRIVATE_KEY}" "${image}"
-          cosign attest --recursive --yes --key "${COSIGN_PRIVATE_KEY}" --predicate "public-software-catalog-sync-sbom.spdx.json" --type="spdxjson" "${image}"
+          cosign attest --recursive --yes --key "${COSIGN_PRIVATE_KEY}" --predicate "software-catalog-sync-sbom.spdx.json" --type="spdxjson" "${image}"
         done
       env:
         TAGS: |
-          docker.io/miaplatform/public-software-catalog-sync:${{ steps.meta.output.version.main }}
-          nexus.mia-platform.eu/console/scripts/public-software-catalog-sync:${{ steps.meta.output.version.main }}
+          ghcr.io/mia-platform/software-catalog-sync:${{ steps.meta.output.version.main }}
+          docker.io/miaplatform/software-catalog-sync:${{ steps.meta.output.version.main }}
+          nexus.mia-platform.eu/console/scripts/software-catalog-sync:${{ steps.meta.output.version.main }}
         DIGEST: ${{ steps.docker-build.outputs.digest }}
         COSIGN_PRIVATE_KEY: ${{ secrets.cosign_key }}
