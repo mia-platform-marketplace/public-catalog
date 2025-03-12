@@ -21,6 +21,7 @@ import path from 'node:path'
 
 import type { CatalogPlugin } from '@mia-platform/console-types'
 import { get, set, unset } from 'lodash-es'
+import YAML from 'yaml'
 
 import type { ReleaseData, Manifest, SyncCtx } from './types'
 import { findLatestRelease, replaceMiaPlatformDockerImageHost } from './utils'
@@ -109,12 +110,14 @@ const collectItems = async (ctx: SyncCtx, itemTypesToCollect: string[]): Promise
       ctx.logger.debug(`Collecting manifests for item "${itemDirent.name}"`)
 
       const itemDirPath = path.resolve(itemDirent.parentPath, itemDirent.name)
-      const manifestPaths = fs.glob(`${itemDirPath}/versions/*.json`)
+      const manifestPaths = fs.glob(`${itemDirPath}/versions/*.{json,yaml,yml}`)
 
       const releasesManifests: ReleaseData[] = []
 
       for await (const manifestPath of manifestPaths) {
-        const { default: manifest } = await import(manifestPath, { with: { type: 'json' } }) as { default: Manifest }
+        const { ext: fileExtension } = path.parse(path.basename(manifestPath))
+        const manifestRaw = await fs.readFile(manifestPath, 'utf-8')
+        const manifest = fileExtension === '.json' ? JSON.parse(manifestRaw) as Manifest : YAML.parse(manifestRaw) as Manifest
 
         unset(manifest, '$schema')
         setTenantId(ctx, manifest)

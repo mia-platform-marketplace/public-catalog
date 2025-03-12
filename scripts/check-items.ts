@@ -32,6 +32,7 @@ import type { JSONSchema } from 'json-schema-to-ts'
 import type { ListrError, ListrTaskWrapper } from 'listr2'
 import { Listr } from 'listr2'
 import semver from 'semver'
+import YAML from 'yaml'
 
 import supporters from '../assets/supporters.json' with { type: 'json' }
 
@@ -204,8 +205,10 @@ const assertValidSupportedByImageFile = async (manifest: Manifest, manifestPath:
 
 /** @throws Error */
 const assertVersionValid = async (task: Task, manifestPath: string, typeData: ItemTypeData) => {
-  const manifestModule = await import(manifestPath, { with: { type: 'json' } }) as { default: Manifest }
-  const manifest = manifestModule.default
+  const { ext: fileExtension, name: filename } = path.parse(path.basename(manifestPath))
+
+  const manifestRaw = await fs.readFile(manifestPath, 'utf-8')
+  const manifest = fileExtension === '.json' ? JSON.parse(manifestRaw) as Manifest : YAML.parse(manifestRaw) as Manifest
 
   validateManifest(task, manifest, typeData.schema)
 
@@ -217,8 +220,6 @@ const assertVersionValid = async (task: Task, manifestPath: string, typeData: It
   if (manifest.itemId !== itemFolderName) {
     throw new Error(`Property "itemId" has wrong value: expected "${itemFolderName}", found "${manifest.itemId}"`)
   }
-
-  const filename = path.basename(manifestPath, '.json')
 
   if (filename === NA_VERSION) {
     if (manifest.version) {
@@ -262,8 +263,9 @@ const computeAndValidateReleaseFilesPaths = async (itemDirPath: string, typeData
     const fileAbsPath = path.resolve(versionDirent.parentPath, versionDirent.name)
     const parsedFilename = path.parse(versionDirent.name)
 
-    if (parsedFilename.ext !== '.json') {
-      throw new Error(`Found unexpected non-json file "versions/${versionDirent.name}"`)
+    const supportedFileExtensions = ['.json', '.yaml', '.yml']
+    if (!supportedFileExtensions.includes(parsedFilename.ext)) {
+      throw new Error(`Found unexpected file forma "versions/${versionDirent.name}": supported formats are "${supportedFileExtensions.join(', ')}"`)
     }
 
     if (parsedFilename.name === NA_VERSION) {
@@ -285,7 +287,7 @@ const computeAndValidateReleaseFilesPaths = async (itemDirPath: string, typeData
   }
 
   if (!typeData.crd.isVersioningSupported && (hasSemver || !hasNa)) {
-    throw new Error(`Items of type "${typeData.type}" must have only a single "NA.json" file`)
+    throw new Error(`Items of type "${typeData.type}" must have only a single "NA" file`)
   }
 
   if (typeData.crd.isVersioningSupported && !hasSemver) {
@@ -312,7 +314,7 @@ const assertItemValid = async (task: Task, itemDirPath: string): Promise<Listr> 
   const subTask = task.newListr([])
 
   for (const manifestPath of manifestPaths) {
-    const versionName = path.basename(manifestPath, '.json')
+    const versionName = path.parse(path.basename(manifestPath)).name
 
     subTask.add({
       rendererOptions: { outputBar: Infinity, persistentOutput: true },
