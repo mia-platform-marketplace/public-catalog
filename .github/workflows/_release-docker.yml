@@ -8,7 +8,7 @@ on:
       docker_token:
         required: true
       github_cr_token:
-          required: true
+        required: true
       nexus_username:
         required: true
       nexus_token:
