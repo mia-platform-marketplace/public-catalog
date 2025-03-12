@@ -13,7 +13,7 @@ Please refer to the [official guidelines](./CONTRIBUTING.md) if you want to cont
 
 ## Catalog items
 
-The Catalog items are described by *manifests*: JSON representations of their metadata and resources. The manifests are collected inside the [items](./items/) directory.
+The Catalog items are described by *manifests*: JSON or YAML representations of their metadata and resources. The manifests are collected inside the [items](./items/) directory.
 
 Each item has a *type*, at least one *version*, and, possibly, some *assets*. These entities are represented with the following folders hierarchical structure:
 
@@ -26,6 +26,7 @@ items
 |   |   |   └── ...
 │   |   └── versions
 |   |       ├── <version-name>.json
+|   |       ├── <version-name>.yaml
 |   |       └── ...
 |   └── ...
 └── ...

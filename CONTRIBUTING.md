@@ -28,7 +28,7 @@ yarn build
 >
 > Generally speaking, pull requests regarding the Catalog content MUST have a title following the format `feat(catalog): <description of the changes>` and MUST have the label `catalog content`.
 
-If you want to edit the Catalog, chances are that you will have to write or edit a **manifest**. A manifest is a JSON representation of an item version that defines its *metadata* and *resources*. The manifests are contained in the `/items/` directory, which follows a [hierarchical structure](./README.md#catalog-items) of `item type > item id > item versions`.
+If you want to edit the Catalog, chances are that you will have to write or edit a **manifest**. A manifest is a JSON or YAML representation of an item version that defines its *metadata* and *resources*. The manifests are contained in the `/items/` directory, which follows a [hierarchical structure](./README.md#catalog-items) of `item type > item id > item versions`.
 
 Everything you need to know about items and manifests is written in the official [Mia-Platform documentation](https://docs.mia-platform.eu/docs/software-catalog/manage-items/overview-manage-items).
 
@@ -36,7 +36,10 @@ Everything you need to know about items and manifests is written in the official
 
 The content of the directory must adhere to a strict set of rules. To check if the Catalog is valid run `yarn check:items`. You can restrict the checks by passing a list of items with the `-i, --item` flag (e.g., `yarn check:items -i crud-service files-service`).
 
-It is also recommended to reference the manifest JSON schema by placing `"$schema": "../../manifest.schema.json"` in every file (this will validate the content of the file against the schema specific to the item type).
+It is also recommended to instruct you IDE to validate the manifest against its JSON schema. Each item type has its own schema placed at the root of the type directory (i.e., `/<item-type>/manifest.schema.json`).
+
+- For **JSON manifests**, reference the schema in the file adding `"$schema": "../../manifest.schema.json"`.
+- For **YAML manifests**, instruct your IDE to perform the validation. For Visual Studio Code we recommend you install the [YAML extension by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml): the workspace is already configured to use the correct schema (see `/.vscode/settings.json`).
 
 > ‼ **IMPORTANT NOTICE**
 >
@@ -52,9 +55,9 @@ It is also recommended to reference the manifest JSON schema by placing `"$schem
 - Each item directory MUST have a `versions` subdirectory containing the versions manifests.
 - Each item directory SHOULD have a `assets` subdirectory containing any useful asset (e.g., the logo of the item).
 - Each item MUST have at least one manifest.
-- Each manifest MUST be a JSON file.
+- Each manifest MUST be a JSON (`.json`) or YAML (`.yaml`, `.yml`) file.
 - Each manifest file MUST be named as the version it's describing (i.e., a valid semver or the string `NA`).
-- Items of types that do not support versioning MUST have only one `NA.json` manifest.
+- Items of types that do not support versioning MUST have only one `NA` manifest.
 - Items of types that support versioning MUST have at least one versioned manifest.
 
 #### Manifests rules
@@ -89,7 +92,7 @@ Below are listed some common operations you may want to perform on the catalog. 
 
 - Create a new directory named as the item `itemId` under the directory of the item type (i.e. `/items/<item-type>/<item-id>/`).
 - Create a `versions` directory and, optionally, a `assets` directory in the item directory.
-- Create the first manifest JSON file under the `versions` directory. Name the file as the version you want to create (`NA` if the item type does not support versioning, a valid semver if the item type supports versioning).
+- Create the first manifest file under the `versions` directory. Name the file as the version you want to create (`NA` if the item type does not support versioning, a valid semver if the item type supports versioning).
 - Write the manifest content following the JSON schema in the item type directory (i.e., `"$schema": "../../manifest.schema.json"`).
 - Validate your work running `yarn check:items -i <item-id>`.
 - Re-generate the snapshots running
@@ -110,7 +113,7 @@ Below are listed some common operations you may want to perform on the catalog. 
 >
 > This operation can be performed only for items of types supporting versioning.
 
-- Create a new manifest JSON file under the `versions` directory of the item (i.e. `/items/<item-type>/<item-id>/versions/`). Name the file as the version you want to create.
+- Create a new manifest file under the `versions` directory of the item (i.e. `/items/<item-type>/<item-id>/versions/`). Name the file as the version you want to create.
 - Write the manifest content following the JSON schema in the item type directory (i.e., `"$schema": "../../manifest.schema.json"`).
 - Validate your work running `yarn check:items -i <item-id>`.
 - Re-generate the snapshots running
@@ -127,7 +130,7 @@ Below are listed some common operations you may want to perform on the catalog. 
 
 #### Update an item existing version
 
-- Locate the manifest JSON file you want to edit (i.e., `/items/<item-type>/<item-id>/versions/<version-name>.json`).
+- Locate the manifest file you want to edit (i.e., `/items/<item-type>/<item-id>/versions/<version-name>.json`).
 - Edit the manifest content following the JSON schema in the item type directory (i.e., `"$schema": "../../manifest.schema.json"`).
 - Validate your work running `yarn check:items -i <item-id>`.
 - Re-generate the snapshots running
@@ -144,7 +147,7 @@ Below are listed some common operations you may want to perform on the catalog. 
 
 #### Deprecate an item version
 
-- Locate the manifest JSON file you want to deprecate (i.e., `/items/<item-type>/<item-id>/versions/<version-name>.json`).
+- Locate the manifest file you want to deprecate (i.e., `/items/<item-type>/<item-id>/versions/<version-name>.json`).
 - Set the `releaseStage` property to `deprecated`.
 - Validate your work running `yarn check:items -i <item-id>`.
 - Re-generate the snapshots running

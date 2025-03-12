@@ -5,5 +5,15 @@
     "reqheaders",
     "upserted",
     "Upserting"
-  ]
+  ],
+  "yaml.schemas": {
+    "items/applications/manifest.schema.json": "items/applications/**/versions/*.{yaml,yml}",
+    "items/examples/manifest.schema.json": "items/examples/**/versions/*.{yaml,yml}",
+    "items/extensions/manifest.schema.json": "items/extensions/**/versions/*.{yaml,yml}",
+    "items/infrastructure-resources/manifest.schema.json": "items/infrastructure-resources/**/versions/*.{yaml,yml}",
+    "items/plugins/manifest.schema.json": "items/plugins/**/versions/*.{yaml,yml}",
+    "items/proxies/manifest.schema.json": "items/proxies/**/versions/*.{yaml,yml}",
+    "items/sidecars/manifest.schema.json": "items/sidecars/**/versions/*.{yaml,yml}",
+    "items/templates/manifest.schema.json": "items/templates/**/versions/*.{yaml,yml}"
+  }
 }
