@@ -19,3 +19,21 @@ jobs:
 
   tests:
     uses: ./.github/workflows/_tests.yml
+
+  docker-build:
+    if: github.event_name == 'push'
+    needs:
+      - lint
+      - build
+      - tests
+    uses: ./.github/workflows/_release-docker.yml
+    secrets:
+      docker_username: ${{ secrets.BOT_DOCKER_USERNAME }}
+      docker_token: ${{ secrets.BOT_DOCKER_TOKEN }}
+      github_cr_token: ${{ secrets.GITHUB_TOKEN }}
+      nexus_username: ${{ secrets.NEXUS_USER }}
+      nexus_token: ${{ secrets.NEXUS_TOKEN }}
+      sysdig_token: ${{ secrets.SYSDIG_SECURE_TOKEN }}
+      kms_gcp_project: ${{ secrets.MIA_PLATFORM_KMS_GCP_PROJECT }}
+      gcp_wif: ${{ secrets.MIA_PLATFORM_WIF }}
+      cosign_key: ${{ secrets.MIA_PLATFORM_KEY_KMS }}
