@@ -16,7 +16,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import assert from 'node:assert'
+import assert, { fail } from 'node:assert'
 import { afterEach, beforeEach, describe, it } from 'node:test'
 
 import { MongoClient } from 'mongodb'
@@ -26,6 +26,7 @@ import pino from 'pino'
 import sync from '../src/lib'
 import type { FilesServiceResponse } from '../src/lib/assets'
 import { defaultItemTypesFilter, type Env } from '../src/lib/process'
+import { __STATE__ } from '../src/lib/utils'
 
 import { cleanCategorySnap, cleanFileSnap, cleanItemSnap, getFilenameFromFilesServiceReq } from './utils.test'
 
@@ -109,5 +110,48 @@ describe('Sync script', async () => {
     test.assert.snapshot(insertedFiles.map(cleanFileSnap))
 
     assert.ok(filesServiceScope.isDone())
+  })
+
+  await it('should behave correctly if the DB is not empty', async () => {
+    const tenantId = 'mia-platform'
+    const itemId = 'micro-lc'
+    const versionName = '2.4.2'
+
+    const mockPlugin = {
+      __STATE__,
+      isLatest: true,
+      itemId,
+      name: 'micro-lc',
+      releaseStage: 'stable',
+      resources: {
+        services: {
+          'micro-lc': { dockerImage: 'foo', name: 'micro-lc', type: 'plugin' },
+        },
+      },
+      tenantId,
+      type: 'plugin',
+      version: { name: versionName, releaseNote: '-' },
+    }
+
+    const itemsCollection = mongoClient.db().collection(envs.ITEMS_COLLECTION_NAME)
+
+    const insertResult = await itemsCollection.insertOne(mockPlugin)
+    if (!insertResult.acknowledged) { fail('Error setting up DB') }
+
+    const metricsReport = await sync(envs, logger)
+
+    assert.equal(metricsReport.items.updated, 1)
+
+    const mockPluginAfterSync = await itemsCollection.findOne({ itemId, tenantId, 'version.name': versionName })
+    if (!mockPluginAfterSync) { fail('Mock item disappeared after sync') }
+
+    assert.equal(mockPluginAfterSync.isLatest, undefined)
+
+    const latestPluginAfterSync = await itemsCollection
+      .find({ isLatest: true, itemId, tenantId })
+      .toArray()
+
+    assert.equal(latestPluginAfterSync.length, 1)
+    assert.notEqual(latestPluginAfterSync.at(0)?.version.name, versionName)
   })
 })

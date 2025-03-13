@@ -79,6 +79,9 @@ const setContainerRegistry = (ctx: SyncCtx, manifest: Manifest) => {
 }
 
 const setIsLatest = (manifests: Manifest[]) => {
+  // This is needed to unset "isLatest" to all but the latest release
+  manifests.forEach((manifest) => { set(manifest, 'isLatest', null) })
+
   const latestManifest = findLatestRelease(manifests)
 
   if (latestManifest) {
