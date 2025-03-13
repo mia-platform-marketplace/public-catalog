@@ -100,7 +100,7 @@ const applyNewManifestToExistingItem = async (ctx: SyncCtx, itemsCollection: Col
   ctx.logger.debug({ filter }, 'Patching existing item')
 
   const setPayload: UpdateFilter<DbItem>['$set'] = {}
-  const unsetPayload: UpdateFilter<DbItem>['$unset'] = { pippo: true }
+  const unsetPayload: UpdateFilter<DbItem>['$unset'] = {}
 
   try {
     const imageData = await uploadImage(ctx, manifestAbsPath, manifest)
