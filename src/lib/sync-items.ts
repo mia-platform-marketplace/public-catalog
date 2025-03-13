@@ -16,6 +16,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { unset } from 'lodash-es'
 import type { Collection, Filter, UpdateFilter, WithId } from 'mongodb'
 
 import { uploadImage, uploadSupportedByImage } from './assets'
@@ -37,6 +38,9 @@ const insertNewManifest = async (ctx: SyncCtx, itemsCollection: Collection<DbIte
       createdAt: new Date(),
       creatorId: CREATOR_ID,
     }
+
+    // This is needed to avoid having "isLatest" set to "null" (just for aesthetics)
+    if (newDoc.isLatest !== true) { unset(newDoc, 'isLatest') }
 
     const imageData = await uploadImage(ctx, manifestAbsPath, manifest)
     if (imageData !== null) { newDoc.image = imageData }
@@ -96,7 +100,7 @@ const applyNewManifestToExistingItem = async (ctx: SyncCtx, itemsCollection: Col
   ctx.logger.debug({ filter }, 'Patching existing item')
 
   const setPayload: UpdateFilter<DbItem>['$set'] = {}
-  const unsetPayload: UpdateFilter<DbItem>['$unset'] = {}
+  const unsetPayload: UpdateFilter<DbItem>['$unset'] = { pippo: true }
 
   try {
     const imageData = await uploadImage(ctx, manifestAbsPath, manifest)
