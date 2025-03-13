@@ -82,8 +82,8 @@ describe('Sync script', async () => {
 
     const metricsReport = await sync(envs, logger)
 
-    assert.equal(metricsReport.categories.errors, 0)
-    assert.equal(metricsReport.items.errors, 0)
+    assert.equal(metricsReport.categories.errors.count, 0)
+    assert.equal(metricsReport.items.errors.count, 0)
 
     const insertedCategories = await mongoClient
       .db()
@@ -140,7 +140,7 @@ describe('Sync script', async () => {
 
     const metricsReport = await sync(envs, logger)
 
-    assert.equal(metricsReport.items.updated, 1)
+    assert.equal(metricsReport.items.updated.count, 1)
 
     const mockPluginAfterSync = await itemsCollection.findOne({ itemId, tenantId, 'version.name': versionName })
     if (!mockPluginAfterSync) { fail('Mock item disappeared after sync') }

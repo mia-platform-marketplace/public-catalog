@@ -16,27 +16,55 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import type { ItemTriple } from './utils'
+
+type CategoryMetric = { count: number; data: { categoryId: string }[] }
+type ItemMetric = { count: number; data: ItemTriple[] }
+
 export type MetricsReport = {
-  categories: { created: number; errors: number; updated: number }
-  items: { created: number; errors: number; updated: number }
+  categories: { created: CategoryMetric; errors: CategoryMetric; updated: CategoryMetric }
+  items: { created: ItemMetric; errors: ItemMetric; updated: ItemMetric }
 }
 
 class Metrics {
-  private _categoriesCreated = 0
-  private _categoriesUpdated = 0
-  private _categoriesErrors = 0
+  private _categoriesCreated: CategoryMetric = { count: 0, data: [] }
+  private _categoriesUpdated: CategoryMetric = { count: 0, data: [] }
+  private _categoriesErrors: CategoryMetric = { count: 0, data: [] }
 
-  private _itemsCreated = 0
-  private _itemsUpdated = 0
-  private _itemsErrors = 0
+  private _itemsCreated: ItemMetric = { count: 0, data: [] }
+  private _itemsUpdated: ItemMetric = { count: 0, data: [] }
+  private _itemsErrors: ItemMetric = { count: 0, data: [] }
 
-  incCategoriesCreated() { this._categoriesCreated += 1 }
-  incCategoriesUpdated() { this._categoriesUpdated += 1 }
-  incCategoriesErrors() { this._categoriesErrors += 1 }
+  incCategoriesCreated(data: { categoryId: string }) {
+    this._categoriesCreated.count += 1
+    this._categoriesCreated.data.push(data)
+  }
 
-  incItemsCreated() { this._itemsCreated += 1 }
-  incItemsUpdated() { this._itemsUpdated += 1 }
-  incItemsErrors() { this._itemsErrors += 1 }
+  incCategoriesUpdated(data: { categoryId: string }) {
+    this._categoriesUpdated.count += 1
+    this._categoriesUpdated.data.push(data)
+  }
+
+  incCategoriesErrors(data: { categoryId: string }) {
+    this._categoriesErrors.count += 1
+    this._categoriesErrors.data.push(data)
+  }
+
+  incItemsCreated(data: ItemTriple) {
+    this._itemsCreated.count += 1
+    this._itemsCreated.data.push(data)
+  }
+
+  incItemsUpdated(data: ItemTriple) {
+    this._itemsUpdated.count += 1
+    this._itemsUpdated.data.push(data)
+  }
+
+  incItemsErrors(data: ItemTriple) {
+    this._itemsErrors.count += 1
+    this._itemsErrors.data.push(data)
+  }
+
 
   getReport(): MetricsReport {
     return {

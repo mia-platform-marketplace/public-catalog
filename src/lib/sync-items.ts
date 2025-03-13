@@ -56,10 +56,10 @@ const insertNewManifest = async (ctx: SyncCtx, itemsCollection: Collection<DbIte
     ctx.logger.debug({ item: itemTriple, result }, 'Item inserted in DB')
     ctx.logger.info({ item: itemTriple }, 'Item inserted in DB')
 
-    ctx.metrics.incItemsCreated()
+    ctx.metrics.incItemsCreated(itemTriple)
   } catch (err) {
     ctx.logger.error({ err, item: itemTriple }, 'Error inserting item in DB')
-    ctx.metrics.incItemsErrors()
+    ctx.metrics.incItemsErrors(itemTriple)
   }
 }
 
@@ -128,13 +128,13 @@ const applyNewManifestToExistingItem = async (ctx: SyncCtx, itemsCollection: Col
 
     if (result.modifiedCount === 1) {
       ctx.logger.info({ item: itemTriple }, 'Item updated')
-      ctx.metrics.incItemsUpdated()
+      ctx.metrics.incItemsUpdated(itemTriple)
     } else {
       ctx.logger.info({ item: itemTriple }, 'Nothing to update')
     }
   } catch (err) {
     ctx.logger.error({ err, item: itemTriple }, 'Error updating existing item on DB')
-    ctx.metrics.incItemsErrors()
+    ctx.metrics.incItemsErrors(itemTriple)
   }
 }
 
