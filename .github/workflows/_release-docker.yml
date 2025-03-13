@@ -7,8 +7,6 @@ on:
         required: true
       docker_token:
         required: true
-      github_cr_token:
-        required: true
       nexus_username:
         required: true
       nexus_token:
@@ -37,13 +35,6 @@ jobs:
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         show-progress: false
-
-    - name: Login to GitHub registry
-      uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.github_cr_token }}
     
     - name: Login to DockerHub
       uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
@@ -73,7 +64,6 @@ jobs:
         DOCKER_METADATA_ANNOTATIONS_LEVELS: manifest,index
       with:
         images: |
-          ghcr.io/mia-platform/software-catalog-sync
           docker.io/miaplatform/software-catalog-sync
           nexus.mia-platform.eu/console/scripts/software-catalog-sync
         tags: |
@@ -144,7 +134,6 @@ jobs:
         done
       env:
         TAGS: |
-          ghcr.io/mia-platform/software-catalog-sync:${{ steps.meta.output.version.main }}
           docker.io/miaplatform/software-catalog-sync:${{ steps.meta.output.version.main }}
           nexus.mia-platform.eu/console/scripts/software-catalog-sync:${{ steps.meta.output.version.main }}
         DIGEST: ${{ steps.docker-build.outputs.digest }}
