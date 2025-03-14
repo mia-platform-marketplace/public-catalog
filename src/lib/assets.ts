@@ -20,10 +20,10 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { blob } from 'node:stream/consumers'
 
-import type { Collection, Filter, FindOneAndUpdateOptions, UpdateFilter, WithId } from 'mongodb'
+import { ReturnDocument, type Collection, type Filter, type FindOneAndUpdateOptions, type MatchKeysAndValues, type UpdateFilter, type WithId } from 'mongodb'
 
 import type { DbFile, DbItemFileData, Manifest, SyncCtx } from './types'
-import { __STATE__, CREATOR_ID } from './utils'
+import { CREATOR_ID } from './utils'
 
 export type FilesServiceResponse = {
   file: string
@@ -53,19 +53,11 @@ const uploadToFileService = async (ctx: SyncCtx, imagePath: string): Promise<Fil
 }
 
 const patchFilesCollection = async (ctx: SyncCtx, collection: Collection<DbFile>, data: FilesServiceResponse): Promise<WithId<DbFile>> => {
-  const fileData: DbFile = {
-    __STATE__,
-    createdAt: new Date(),
-    creatorId: CREATOR_ID,
-    file: data.file,
-    location: data.location,
-    name: data.name,
-    size: data.size,
-  }
+  const fileData: MatchKeysAndValues<DbFile> = { creatorId: CREATOR_ID, updaterId: CREATOR_ID }
 
   const filter: Filter<DbFile> = { name: data.name }
   const payload: UpdateFilter<DbFile> = { $set: fileData }
-  const options: FindOneAndUpdateOptions = { upsert: true }
+  const options: FindOneAndUpdateOptions = { returnDocument: ReturnDocument.AFTER, upsert: true }
 
   ctx.logger.debug({ filter, options, payload }, 'Patching files collection')
 
@@ -76,7 +68,7 @@ const patchFilesCollection = async (ctx: SyncCtx, collection: Collection<DbFile>
     throw new Error(`Error patching files collection`)
   }
 
-  return { ...fileData, _id: result._id }
+  return result
 }
 
 const uploadImageFile = async (ctx: SyncCtx, imagePath: string): Promise<DbItemFileData[]> => {
@@ -110,20 +102,26 @@ const uploadImageFile = async (ctx: SyncCtx, imagePath: string): Promise<DbItemF
     try {
       fileData = await uploadToFileService(ctx, imagePath)
     } catch (err) {
-      ctx.logger.error({ err, imageName }, 'Error uploading image on Files Service')
-      throw new Error('Error uploading image on Files Service')
+      const error = 'Error uploading image on Files Service'
+      ctx.logger.error({ err, imageName }, error)
+      ctx.metrics.incFilesErrors({ entity: { name: imageName }, error })
+      throw new Error(error)
     }
 
     try {
       dbFile = await patchFilesCollection(ctx, filesCollection, fileData)
     } catch (err) {
-      ctx.logger.error({ err, imageName }, 'Error patching files collection')
-      throw new Error('Error patching files collection')
+      const error = 'Error patching files collection'
+      ctx.logger.error({ err, imageName }, error)
+      ctx.metrics.incFilesErrors({ entity: { name: imageName }, error })
+      throw new Error(error)
     }
+
+    ctx.metrics.incFilesCreated({ name: imageName })
   }
 
-  const { _id, ...fileData } = dbFile
-  return [{ id: _id.toString(), ...fileData }]
+  const { _id, ...dbFileData } = dbFile
+  return [{ id: _id.toString(), ...dbFileData }]
 }
 
 export const uploadImage = async (ctx: SyncCtx, manifestPath: string, manifest: Manifest): Promise<DbItemFileData[] | null> => {

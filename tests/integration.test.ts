@@ -113,6 +113,22 @@ describe('Sync script', async () => {
   })
 
   await it('should behave correctly if the DB is not empty', async () => {
+    nock(envs.FILES_SERVICE_URL, { reqheaders: { 'content-type': (header) => header.includes('multipart/form-data') } })
+      .persist()
+      .post('/')
+      .reply(200, (_, reqBody) => {
+        const fileName = getFilenameFromFilesServiceReq(reqBody)
+
+        const res: FilesServiceResponse = {
+          file: `file-${fileName}`,
+          location: `location-${fileName}`,
+          name: fileName,
+          size: fileName?.length,
+        }
+
+        return res
+      })
+
     const tenantId = 'mia-platform'
     const itemId = 'micro-lc'
     const versionName = '2.4.2'

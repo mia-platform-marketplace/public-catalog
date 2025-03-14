@@ -41,8 +41,9 @@ const upsertDefaultCategories = async (ctx: SyncCtx, collection: Collection<Cate
     const result = await collection.updateOne(filter, payload, { upsert: true })
 
     if (!result.acknowledged) {
-      ctx.metrics.incCategoriesErrors({ categoryId: category.categoryId })
-      throw new Error('DB returned an unacknowledged result')
+      const error = 'DB returned an unacknowledged result'
+      ctx.metrics.incCategoriesErrors({ entity: { categoryId: category.categoryId }, error })
+      throw new Error(error)
     }
 
     ctx.logger.info(

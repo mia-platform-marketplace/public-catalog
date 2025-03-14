@@ -18,51 +18,84 @@
 
 import type { ItemTriple } from './utils'
 
-type CategoryMetric = { count: number; data: { categoryId: string }[] }
-type ItemMetric = { count: number; data: ItemTriple[] }
+type CategoryEntity = { categoryId: string }
+type ItemEntity = ItemTriple
+type FileEntity = { name: string }
+
+type CategoriesCreatedMetric = { count: number; data: CategoryEntity[] }
+type CategoriesUpdatedMetric = { count: number; data: CategoryEntity[] }
+type CategoriesErrorMetric = { count: number; data: { entity: CategoryEntity; error: string }[] }
+
+type ItemsCreatedMetric = { count: number; data: ItemEntity[] }
+type ItemsUpdatedMetric = { count: number; data: { diff: object; entity: ItemEntity }[] }
+type ItemsPatchedMetric = { count: number; data: ItemEntity[] }
+type ItemsErrorMetric = { count: number; data: { entity: ItemEntity; error: string }[] }
+
+type FilesCreatedMetric = { count: number; data: FileEntity[] }
+type FilesErrorMetric = { count: number; data: { entity: FileEntity; error: string }[] }
 
 export type MetricsReport = {
-  categories: { created: CategoryMetric; errors: CategoryMetric; updated: CategoryMetric }
-  items: { created: ItemMetric; errors: ItemMetric; updated: ItemMetric }
+  categories: { created: CategoriesCreatedMetric; errors: CategoriesErrorMetric; updated: CategoriesUpdatedMetric }
+  files: { created:FilesCreatedMetric; errors: FilesErrorMetric }
+  items: { created: ItemsCreatedMetric; errors: ItemsErrorMetric; patched: ItemsPatchedMetric; updated: ItemsUpdatedMetric }
 }
 
 class Metrics {
-  private _categoriesCreated: CategoryMetric = { count: 0, data: [] }
-  private _categoriesUpdated: CategoryMetric = { count: 0, data: [] }
-  private _categoriesErrors: CategoryMetric = { count: 0, data: [] }
+  private _categoriesCreated: CategoriesCreatedMetric = { count: 0, data: [] }
+  private _categoriesUpdated: CategoriesUpdatedMetric = { count: 0, data: [] }
+  private _categoriesErrors: CategoriesErrorMetric = { count: 0, data: [] }
 
-  private _itemsCreated: ItemMetric = { count: 0, data: [] }
-  private _itemsUpdated: ItemMetric = { count: 0, data: [] }
-  private _itemsErrors: ItemMetric = { count: 0, data: [] }
+  private _itemsCreated: ItemsCreatedMetric = { count: 0, data: [] }
+  private _itemsUpdated: ItemsUpdatedMetric = { count: 0, data: [] }
+  private _itemsPatched: ItemsPatchedMetric = { count: 0, data: [] }
+  private _itemsErrors: ItemsErrorMetric = { count: 0, data: [] }
 
-  incCategoriesCreated(data: { categoryId: string }) {
+  private _filesCreated: FilesCreatedMetric = { count: 0, data: [] }
+  private _filesErrors: FilesErrorMetric = { count: 0, data: [] }
+
+  incCategoriesCreated(data: CategoryEntity) {
     this._categoriesCreated.count += 1
     this._categoriesCreated.data.push(data)
   }
 
-  incCategoriesUpdated(data: { categoryId: string }) {
+  incCategoriesUpdated(data: CategoryEntity) {
     this._categoriesUpdated.count += 1
     this._categoriesUpdated.data.push(data)
   }
 
-  incCategoriesErrors(data: { categoryId: string }) {
+  incCategoriesErrors(data: { entity: CategoryEntity; error: string }) {
     this._categoriesErrors.count += 1
     this._categoriesErrors.data.push(data)
   }
 
-  incItemsCreated(data: ItemTriple) {
+  incItemsCreated(data: ItemEntity) {
     this._itemsCreated.count += 1
     this._itemsCreated.data.push(data)
   }
 
-  incItemsUpdated(data: ItemTriple) {
+  incItemsUpdated(data: { diff: object; entity: ItemEntity }) {
     this._itemsUpdated.count += 1
     this._itemsUpdated.data.push(data)
   }
 
-  incItemsErrors(data: ItemTriple) {
+  incItemsPatched(data: ItemEntity) {
+    this._itemsPatched.count += 1
+    this._itemsPatched.data.push(data)
+  }
+
+  incItemsErrors(data: { entity: ItemEntity; error: string }) {
     this._itemsErrors.count += 1
     this._itemsErrors.data.push(data)
+  }
+
+  incFilesCreated(data: FileEntity) {
+    this._filesCreated.count += 1
+    this._filesCreated.data.push(data)
+  }
+
+  incFilesErrors(data: { entity: FileEntity; error: string }) {
+    this._filesErrors.count += 1
+    this._filesErrors.data.push(data)
   }
 
 
@@ -73,9 +106,14 @@ class Metrics {
         errors: this._categoriesErrors,
         updated: this._categoriesUpdated,
       },
+      files: {
+        created: this._filesCreated,
+        errors: this._filesErrors,
+      },
       items: {
         created: this._itemsCreated,
         errors: this._itemsErrors,
+        patched: this._itemsPatched,
         updated: this._itemsUpdated,
       },
     }
