@@ -82,8 +82,8 @@ describe('Sync script', async () => {
 
     const metricsReport = await sync(envs, logger)
 
-    assert.equal(metricsReport.categories.errors, 0)
-    assert.equal(metricsReport.items.errors, 0)
+    assert.equal(metricsReport.categories.errors.count, 0)
+    assert.equal(metricsReport.items.errors.count, 0)
 
     const insertedCategories = await mongoClient
       .db()
@@ -113,6 +113,22 @@ describe('Sync script', async () => {
   })
 
   await it('should behave correctly if the DB is not empty', async () => {
+    nock(envs.FILES_SERVICE_URL, { reqheaders: { 'content-type': (header) => header.includes('multipart/form-data') } })
+      .persist()
+      .post('/')
+      .reply(200, (_, reqBody) => {
+        const fileName = getFilenameFromFilesServiceReq(reqBody)
+
+        const res: FilesServiceResponse = {
+          file: `file-${fileName}`,
+          location: `location-${fileName}`,
+          name: fileName,
+          size: fileName?.length,
+        }
+
+        return res
+      })
+
     const tenantId = 'mia-platform'
     const itemId = 'micro-lc'
     const versionName = '2.4.2'
@@ -140,7 +156,7 @@ describe('Sync script', async () => {
 
     const metricsReport = await sync(envs, logger)
 
-    assert.equal(metricsReport.items.updated, 1)
+    assert.equal(metricsReport.items.updated.count, 1)
 
     const mockPluginAfterSync = await itemsCollection.findOne({ itemId, tenantId, 'version.name': versionName })
     if (!mockPluginAfterSync) { fail('Mock item disappeared after sync') }

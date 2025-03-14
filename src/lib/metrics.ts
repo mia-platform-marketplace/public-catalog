@@ -16,27 +16,88 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import type { ItemTriple } from './utils'
+
+type CategoryEntity = { categoryId: string }
+type ItemEntity = ItemTriple
+type FileEntity = { name: string }
+
+type CategoriesCreatedMetric = { count: number; data: CategoryEntity[] }
+type CategoriesUpdatedMetric = { count: number; data: CategoryEntity[] }
+type CategoriesErrorMetric = { count: number; data: { entity: CategoryEntity; error: string }[] }
+
+type ItemsCreatedMetric = { count: number; data: ItemEntity[] }
+type ItemsUpdatedMetric = { count: number; data: { diff: object; entity: ItemEntity }[] }
+type ItemsPatchedMetric = { count: number; data: ItemEntity[] }
+type ItemsErrorMetric = { count: number; data: { entity: ItemEntity; error: string }[] }
+
+type FilesCreatedMetric = { count: number; data: FileEntity[] }
+type FilesErrorMetric = { count: number; data: { entity: FileEntity; error: string }[] }
+
 export type MetricsReport = {
-  categories: { created: number; errors: number; updated: number }
-  items: { created: number; errors: number; updated: number }
+  categories: { created: CategoriesCreatedMetric; errors: CategoriesErrorMetric; updated: CategoriesUpdatedMetric }
+  files: { created:FilesCreatedMetric; errors: FilesErrorMetric }
+  items: { created: ItemsCreatedMetric; errors: ItemsErrorMetric; patched: ItemsPatchedMetric; updated: ItemsUpdatedMetric }
 }
 
 class Metrics {
-  private _categoriesCreated = 0
-  private _categoriesUpdated = 0
-  private _categoriesErrors = 0
+  private _categoriesCreated: CategoriesCreatedMetric = { count: 0, data: [] }
+  private _categoriesUpdated: CategoriesUpdatedMetric = { count: 0, data: [] }
+  private _categoriesErrors: CategoriesErrorMetric = { count: 0, data: [] }
 
-  private _itemsCreated = 0
-  private _itemsUpdated = 0
-  private _itemsErrors = 0
+  private _itemsCreated: ItemsCreatedMetric = { count: 0, data: [] }
+  private _itemsUpdated: ItemsUpdatedMetric = { count: 0, data: [] }
+  private _itemsPatched: ItemsPatchedMetric = { count: 0, data: [] }
+  private _itemsErrors: ItemsErrorMetric = { count: 0, data: [] }
 
-  incCategoriesCreated() { this._categoriesCreated += 1 }
-  incCategoriesUpdated() { this._categoriesUpdated += 1 }
-  incCategoriesErrors() { this._categoriesErrors += 1 }
+  private _filesCreated: FilesCreatedMetric = { count: 0, data: [] }
+  private _filesErrors: FilesErrorMetric = { count: 0, data: [] }
 
-  incItemsCreated() { this._itemsCreated += 1 }
-  incItemsUpdated() { this._itemsUpdated += 1 }
-  incItemsErrors() { this._itemsErrors += 1 }
+  incCategoriesCreated(data: CategoryEntity) {
+    this._categoriesCreated.count += 1
+    this._categoriesCreated.data.push(data)
+  }
+
+  incCategoriesUpdated(data: CategoryEntity) {
+    this._categoriesUpdated.count += 1
+    this._categoriesUpdated.data.push(data)
+  }
+
+  incCategoriesErrors(data: { entity: CategoryEntity; error: string }) {
+    this._categoriesErrors.count += 1
+    this._categoriesErrors.data.push(data)
+  }
+
+  incItemsCreated(data: ItemEntity) {
+    this._itemsCreated.count += 1
+    this._itemsCreated.data.push(data)
+  }
+
+  incItemsUpdated(data: { diff: object; entity: ItemEntity }) {
+    this._itemsUpdated.count += 1
+    this._itemsUpdated.data.push(data)
+  }
+
+  incItemsPatched(data: ItemEntity) {
+    this._itemsPatched.count += 1
+    this._itemsPatched.data.push(data)
+  }
+
+  incItemsErrors(data: { entity: ItemEntity; error: string }) {
+    this._itemsErrors.count += 1
+    this._itemsErrors.data.push(data)
+  }
+
+  incFilesCreated(data: FileEntity) {
+    this._filesCreated.count += 1
+    this._filesCreated.data.push(data)
+  }
+
+  incFilesErrors(data: { entity: FileEntity; error: string }) {
+    this._filesErrors.count += 1
+    this._filesErrors.data.push(data)
+  }
+
 
   getReport(): MetricsReport {
     return {
@@ -45,9 +106,14 @@ class Metrics {
         errors: this._categoriesErrors,
         updated: this._categoriesUpdated,
       },
+      files: {
+        created: this._filesCreated,
+        errors: this._filesErrors,
+      },
       items: {
         created: this._itemsCreated,
         errors: this._itemsErrors,
+        patched: this._itemsPatched,
         updated: this._itemsUpdated,
       },
     }

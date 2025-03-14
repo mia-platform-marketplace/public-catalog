@@ -28,7 +28,7 @@ const args = parseArgs()
 const logger = pino(buildLoggerOpts(env.LOG_LEVEL, args.pretty))
 
 main(env, logger)
-  .then((metrics) => logger.info({ ...metrics }, 'Finished sync script'))
+  .then((metrics) => logger.info({ results: metrics }, 'Finished sync script'))
   .catch((err: Error) => {
     logger.error({ err }, 'Unexpected error executing the script')
     process.exit(1)

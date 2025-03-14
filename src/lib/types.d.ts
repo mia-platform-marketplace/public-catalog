@@ -72,6 +72,6 @@ export type DbFile = {
   location: string
   name: string
   size: number
-  updatedAt?:Date
-  updaterId?: string
+  updatedAt: Date
+  updaterId: string
 }

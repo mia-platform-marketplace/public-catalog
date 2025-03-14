@@ -107,8 +107,8 @@ export const findLatestRelease = (releases: CatalogItemManifest[]): CatalogItemM
 
 
 interface ItemWithTriple { itemId: string; tenantId: string; version?: { name: string } }
-
-export const getItemTriple = (item: ItemWithTriple): { itemId: string; tenantId: string; version: string } => {
+export type ItemTriple = { itemId: string; tenantId: string; version: string }
+export const getItemTriple = (item: ItemWithTriple): ItemTriple => {
   return {
     itemId: item.itemId,
     tenantId: item.tenantId,

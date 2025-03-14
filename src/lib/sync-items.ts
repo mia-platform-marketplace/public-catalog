@@ -16,6 +16,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import jsonDiff from 'json-diff'
 import { unset } from 'lodash-es'
 import type { Collection, Filter, UpdateFilter, WithId } from 'mongodb'
 
@@ -39,7 +40,7 @@ const insertNewManifest = async (ctx: SyncCtx, itemsCollection: Collection<DbIte
       creatorId: CREATOR_ID,
     }
 
-    // This is needed to avoid having "isLatest" set to "null" (just for aesthetics)
+    // This is needed to avoid having "isLatest" set to "null" (merely for aesthetics)
     if (newDoc.isLatest !== true) { unset(newDoc, 'isLatest') }
 
     const imageData = await uploadImage(ctx, manifestAbsPath, manifest)
@@ -56,10 +57,11 @@ const insertNewManifest = async (ctx: SyncCtx, itemsCollection: Collection<DbIte
     ctx.logger.debug({ item: itemTriple, result }, 'Item inserted in DB')
     ctx.logger.info({ item: itemTriple }, 'Item inserted in DB')
 
-    ctx.metrics.incItemsCreated()
+    ctx.metrics.incItemsCreated(itemTriple)
   } catch (err) {
-    ctx.logger.error({ err, item: itemTriple }, 'Error inserting item in DB')
-    ctx.metrics.incItemsErrors()
+    const error = 'Error inserting item in DB'
+    ctx.logger.error({ err, item: itemTriple }, error)
+    ctx.metrics.incItemsErrors({ entity: itemTriple, error })
   }
 }
 
@@ -83,11 +85,14 @@ const patchExistingUnknownItem = async (ctx: SyncCtx, itemsCollection: Collectio
 
     if (result.modifiedCount === 1) {
       ctx.logger.info({ item: itemTriple }, 'Set default properties')
+      ctx.metrics.incItemsPatched(itemTriple)
     } else {
       ctx.logger.info({ item: itemTriple }, 'Nothing to set')
     }
   } catch (err) {
-    ctx.logger.error({ err, item: itemTriple }, 'Error setting default properties for retro-compatibility')
+    const error = 'Error setting default properties for retro-compatibility'
+    ctx.logger.error({ err, item: itemTriple }, error)
+    ctx.metrics.incItemsErrors({ entity: itemTriple, error })
   }
 }
 
@@ -128,13 +133,18 @@ const applyNewManifestToExistingItem = async (ctx: SyncCtx, itemsCollection: Col
 
     if (result.modifiedCount === 1) {
       ctx.logger.info({ item: itemTriple }, 'Item updated')
-      ctx.metrics.incItemsUpdated()
+
+      const newItem = await itemsCollection.findOne(filter)
+      const diff = jsonDiff.diff(item, newItem) as object
+
+      ctx.metrics.incItemsUpdated({ diff, entity: itemTriple })
     } else {
       ctx.logger.info({ item: itemTriple }, 'Nothing to update')
     }
   } catch (err) {
-    ctx.logger.error({ err, item: itemTriple }, 'Error updating existing item on DB')
-    ctx.metrics.incItemsErrors()
+    const error = 'Error updating existing item on DB'
+    ctx.logger.error({ err, item: itemTriple }, error)
+    ctx.metrics.incItemsErrors({ entity: itemTriple, error })
   }
 }
 
