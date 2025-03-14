@@ -2744,15 +2744,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-type@npm:^20.4.0":
-  version: 20.4.0
-  resolution: "file-type@npm:20.4.0"
+"file-type@npm:^20.4.1":
+  version: 20.4.1
+  resolution: "file-type@npm:20.4.1"
   dependencies:
     "@tokenizer/inflate": "npm:^0.2.6"
     strtok3: "npm:^10.2.0"
     token-types: "npm:^6.0.0"
     uint8array-extras: "npm:^1.4.0"
-  checksum: 10/065aac0c3004d3c29dfad91acb2a4f835d9df21ddd6cf26bfd8bfa3763ce27fa6f80ac2874cd9703e6d48842bf045894d9d39125aad49965971e4cc528de5929
+  checksum: 10/efbb81c69c84ea4d83ea86dc1c95a45bc6830d5455deb7666e0dbefde2dbfe2bcee4e5398bfc5a8fc1ac55a80a27a3ec4f2bff4b53d4af20be799db4fae324b6
   languageName: node
   linkType: hard
 
@@ -4584,7 +4584,7 @@ __metadata:
     eslint-plugin-sort-keys-fix: "npm:^1.1.2"
     eslint-plugin-typescript-sort-keys: "npm:^3.3.0"
     eslint-visitor-keys: "npm:^4.2.0"
-    file-type: "npm:^20.4.0"
+    file-type: "npm:^20.4.1"
     json-schema-to-ts: "npm:^3.1.1"
     listr2: "npm:^8.2.5"
     lodash-es: "npm:^4.17.21"
