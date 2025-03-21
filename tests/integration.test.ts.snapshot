@@ -3786,6 +3786,63 @@ exports[`Sync script > should match snapshot 2`] = `
     ]
   },
   {
+    "itemId": "audit-trail",
+    "name": "Audit Trail",
+    "categoryId": "healthcare",
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "visibility": {
+      "public": true
+    },
+    "description": "Collect audit logs from your microservice",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/audit-trail/overview"
+    },
+    "publishOnMiaDocumentation": true,
+    "releaseStage": "preview",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/audit-trail",
+    "type": "sidecar",
+    "resources": {
+      "name": "audit-trail",
+      "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/audit-trail:1.0.0",
+      "defaultEnvironmentVariables": [
+        {
+          "name": "LOG_LEVEL",
+          "value": "{{LOG_LEVEL}}",
+          "valueType": "plain"
+        }
+      ],
+      "defaultResources": {
+        "cpuLimits": {
+          "max": "100m",
+          "min": "50m"
+        },
+        "memoryLimits": {
+          "max": "100Mi",
+          "min": "50Mi"
+        }
+      }
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "audit-trail-logo.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
     "categoryId": "auth",
     "description": "Integrate with your Auth0 tenant using Mia-Platform core service Auth0 Client.",
     "documentation": {
@@ -77305,6 +77362,11 @@ exports[`Sync script > should match snapshot 3`] = `
   },
   {
     "name": "appointment-manager-plugin.png",
+    "creatorId": "marketplace-sync",
+    "updaterId": "marketplace-sync"
+  },
+  {
+    "name": "audit-trail-logo.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },

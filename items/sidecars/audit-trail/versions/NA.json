@@ -1,0 +1,46 @@
+{
+  "itemId": "audit-trail",
+  "name": "Audit Trail",
+  "categoryId": "healthcare",
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "image": {
+    "localPath": "../assets/audit-trail-logo.png"
+  },
+  "description": "Collect audit logs from your microservice",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/audit-trail/overview"
+  },
+  "publishOnMiaDocumentation": true,
+  "releaseStage": "preview",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/audit-trail",
+  "type": "sidecar",
+  "resources": {
+    "name": "audit-trail",
+    "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/audit-trail:1.0.0",
+    "defaultEnvironmentVariables": [
+      {
+        "name": "LOG_LEVEL",
+        "value": "{{LOG_LEVEL}}",
+        "valueType": "plain"
+      }
+    ],
+    "defaultResources": {
+      "cpuLimits": {
+        "max": "100m",
+        "min": "50m"
+      },
+      "memoryLimits": {
+        "max": "100Mi",
+        "min": "50Mi"
+      }
+    }
+  }
+}
