@@ -14528,7 +14528,7 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "data-catalog",
     "name": "Data Catalog",
-    "publishOnMiaDocumentation": true,
+    "publishOnMiaDocumentation": false,
     "releaseStage": "deprecated",
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/data-catalog",
     "resources": {
