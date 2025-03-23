@@ -16,11 +16,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { catalogPlugin } from '@mia-platform/console-types'
+// @ts-check
+
+import { catalogWellKnownItems } from '@mia-platform/console-types'
 
 import manifestSchema from './manifest.schema.json' with { type: 'json' }
 
 export default {
   schema: manifestSchema,
-  type: catalogPlugin.type,
+  type: catalogWellKnownItems.plugin.type,
 }
