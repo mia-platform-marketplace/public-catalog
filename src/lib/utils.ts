@@ -16,7 +16,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { CatalogReleaseStage, NA_VERSION } from '@mia-platform/console-types'
+import { CatalogItemReleaseStage, CATALOG_ITEM_NA_VERSION } from '@mia-platform/console-types'
 import type { CatalogItemManifest } from '@mia-platform/console-types'
 import semver from 'semver'
 
@@ -71,7 +71,7 @@ const findLatestReleaseBySemVer = (releases: CatalogItemManifest[], matchers: { 
 export const findLatestRelease = (releases: CatalogItemManifest[]): CatalogItemManifest | undefined => {
   if (releases.length === 0) { return undefined }
 
-  const isReleaseStable = (release: CatalogItemManifest) => (!release.releaseStage || release.releaseStage === CatalogReleaseStage.STABLE)
+  const isReleaseStable = (release: CatalogItemManifest) => (!release.releaseStage || release.releaseStage === CatalogItemReleaseStage.STABLE)
   const isReleaseComingSoon = (release: CatalogItemManifest) => Boolean(release.comingSoon)
 
   const latestStable = findLatestReleaseBySemVer(
@@ -112,7 +112,7 @@ export const getItemTriple = (item: ItemWithTriple): ItemTriple => {
   return {
     itemId: item.itemId,
     tenantId: item.tenantId,
-    version: item.version?.name ?? NA_VERSION,
+    version: item.version?.name ?? CATALOG_ITEM_NA_VERSION,
   }
 }
 

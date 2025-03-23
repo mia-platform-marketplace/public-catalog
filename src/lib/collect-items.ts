@@ -19,7 +19,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import type { CatalogPlugin } from '@mia-platform/console-types'
+import type { ICatalogPlugin } from '@mia-platform/console-types'
 import { get, set, unset } from 'lodash-es'
 import YAML from 'yaml'
 
@@ -55,7 +55,7 @@ const setTenantId = (ctx: SyncCtx, manifest: Manifest) => { manifest.tenantId = 
 const setContainerRegistry = (ctx: SyncCtx, manifest: Manifest) => {
   if (!ctx.env.DOCKER_IMAGE_REGISTRY_TO_SET) { return }
 
-  type Services = Record<string, CatalogPlugin> | undefined
+  type Services = Record<string, ICatalogPlugin.Service> | undefined
 
   const services = get(manifest, ['resources', 'services']) as Services
 

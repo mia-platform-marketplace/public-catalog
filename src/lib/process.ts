@@ -16,20 +16,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { catalogApplication, catalogExample, catalogInfrastructureResource, catalogPlugin, catalogProxy, catalogSidecar, catalogTemplate } from '@mia-platform/console-types'
+import { catalogWellKnownItems } from '@mia-platform/console-types'
 import envSchema from 'env-schema'
 import type { FromSchema, JSONSchema } from 'json-schema-to-ts'
 
 import { logLevels } from './logger'
 
 export const defaultItemTypesFilter = [
-  catalogApplication.type,
-  catalogExample.type,
-  catalogInfrastructureResource.type,
-  catalogPlugin.type,
-  catalogProxy.type,
-  catalogSidecar.type,
-  catalogTemplate.type,
+  catalogWellKnownItems.application.type,
+  catalogWellKnownItems.example.type,
+  catalogWellKnownItems['custom-resource'].type,
+  catalogWellKnownItems.plugin.type,
+  catalogWellKnownItems.proxy.type,
+  catalogWellKnownItems.sidecar.type,
+  catalogWellKnownItems.template.type,
 ]
 
 const schema = {

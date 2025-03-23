@@ -21,8 +21,8 @@ import { createReadStream } from 'node:fs'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import type { CatalogApplicationManifest } from '@mia-platform/console-types'
-import { catalogApplication, CatalogReleaseStage, catalogWellKnownItemsCustomResourceDefinitions, NA_VERSION } from '@mia-platform/console-types'
+import type { ICatalogApplication } from '@mia-platform/console-types'
+import { CatalogItemReleaseStage, catalogWellKnownItems, CATALOG_ITEM_NA_VERSION } from '@mia-platform/console-types'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 import chalk from 'chalk'
@@ -103,7 +103,7 @@ const validateManifest = (task: Task, manifest: unknown, schema: JSONSchema) => 
 }
 
 /** @throws Error */
-const validateApplicationManifest = (manifest: CatalogApplicationManifest) => {
+const validateApplicationManifest = (manifest: ICatalogApplication.Manifest) => {
   let canHaveEndpoints = false
   let shouldHaveListeners = false
   let canHaveCollections = false
@@ -212,8 +212,8 @@ const assertVersionValid = async (task: Task, manifestPath: string, typeData: It
 
   validateManifest(task, manifest, typeData.schema)
 
-  if (typeData.type === catalogApplication.type) {
-    validateApplicationManifest(manifest as unknown as CatalogApplicationManifest)
+  if (typeData.type === catalogWellKnownItems.application.type) {
+    validateApplicationManifest(manifest as unknown as ICatalogApplication.Manifest)
   }
 
   const itemFolderName = manifestPath.split('/').at(-3)
@@ -221,17 +221,17 @@ const assertVersionValid = async (task: Task, manifestPath: string, typeData: It
     throw new Error(`Property "itemId" has wrong value: expected "${itemFolderName}", found "${manifest.itemId}"`)
   }
 
-  if (filename === NA_VERSION) {
+  if (filename === CATALOG_ITEM_NA_VERSION) {
     if (manifest.version) {
       throw new Error(`Manifests for "NA" versions must not have property "version"`)
     }
 
-    if (typeData.crd.isVersioningSupported && manifest.releaseStage !== CatalogReleaseStage.DEPRECATED) {
+    if (typeData.crd.isVersioningSupported && manifest.releaseStage !== CatalogItemReleaseStage.DEPRECATED) {
       throw new Error(`Manifests for "NA" versions must have "releaseStage" set to "deprecated"`)
     }
   }
 
-  if (filename !== NA_VERSION && filename !== manifest.version?.name) {
+  if (filename !== CATALOG_ITEM_NA_VERSION && filename !== manifest.version?.name) {
     throw new Error(`Property "version.name" must be equal to filename: expected "${filename}", found "${manifest.version?.name}"`)
   }
 
@@ -268,7 +268,7 @@ const computeAndValidateReleaseFilesPaths = async (itemDirPath: string, typeData
       throw new Error(`Found unexpected file forma "versions/${versionDirent.name}": supported formats are "${supportedFileExtensions.join(', ')}"`)
     }
 
-    if (parsedFilename.name === NA_VERSION) {
+    if (parsedFilename.name === CATALOG_ITEM_NA_VERSION) {
       paths.push(fileAbsPath)
       hasNa = true
       continue
@@ -302,7 +302,7 @@ const assertItemValid = async (task: Task, itemDirPath: string): Promise<Listr> 
   const typeDir = path.dirname(itemDirPath)
   const typeDataModule = await import(typeDir) as ItemTypeModule
 
-  const crd = catalogWellKnownItemsCustomResourceDefinitions[typeDataModule.default.type]
+  const { crd } = catalogWellKnownItems[typeDataModule.default.type]
   if (!crd) {
     throw new Error(`Could not find a Custom Resource Definition for the item's type "${typeDataModule.default.type}"`)
   }
