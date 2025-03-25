@@ -2402,12 +2402,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:^4.2.2":
-  version: 4.2.2
-  resolution: "eslint-import-resolver-typescript@npm:4.2.2"
+"eslint-import-resolver-typescript@npm:^4.2.3":
+  version: 4.2.3
+  resolution: "eslint-import-resolver-typescript@npm:4.2.3"
   dependencies:
     debug: "npm:^4.4.0"
     get-tsconfig: "npm:^4.10.0"
+    is-bun-module: "npm:^2.0.0"
     rspack-resolver: "npm:^1.2.2"
     stable-hash: "npm:^0.0.5"
     tinyglobby: "npm:^0.2.12"
@@ -2415,15 +2416,12 @@ __metadata:
     eslint: "*"
     eslint-plugin-import: "*"
     eslint-plugin-import-x: "*"
-    is-bun-module: "*"
   peerDependenciesMeta:
     eslint-plugin-import:
       optional: true
     eslint-plugin-import-x:
       optional: true
-    is-bun-module:
-      optional: true
-  checksum: 10/ba465d2a0bc1d9812e7a38ee9a0d891be1510e8c3ef6a3c9d07059443c40bdb6cdf1d32e75ff73e1d229f8be8f7d6aa74209fd83e5f34280d8f477c49ba37962
+  checksum: 10/636093137b0d35e01dda59e0735811cca653896733717af32e3e6f86a8ee3c221caf3650ed334a7a2322f93e0bc41756ee5fc334f344be3504337a9e01132197
   languageName: node
   linkType: hard
 
@@ -3513,6 +3511,15 @@ __metadata:
     call-bound: "npm:^1.0.3"
     has-tostringtag: "npm:^1.0.2"
   checksum: 10/051fa95fdb99d7fbf653165a7e6b2cba5d2eb62f7ffa81e793a790f3fb5366c91c1b7b6af6820aa2937dd86c73aa3ca9d9ca98f500988457b1c59692c52ba911
+  languageName: node
+  linkType: hard
+
+"is-bun-module@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "is-bun-module@npm:2.0.0"
+  dependencies:
+    semver: "npm:^7.7.1"
+  checksum: 10/cded5a1a58368b847872d08617975d620ad94426d76a932f3e08d55b4574d199e0a62a4fb024fa2dc444200b71719eb0bffc5d3d1e1cc82e29b293bb8d66a990
   languageName: node
   linkType: hard
 
@@ -4750,7 +4757,7 @@ __metadata:
     esbuild: "npm:^0.25.1"
     eslint: "npm:^9.22.0"
     eslint-config-esnext: "npm:^4.1.0"
-    eslint-import-resolver-typescript: "npm:^4.2.2"
+    eslint-import-resolver-typescript: "npm:^4.2.3"
     eslint-plugin-import: "npm:^2.31.0"
     eslint-plugin-n: "npm:^17.16.2"
     eslint-plugin-sort-keys-fix: "npm:^1.1.2"
