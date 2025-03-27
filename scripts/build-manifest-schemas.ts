@@ -21,7 +21,7 @@ import path from 'node:path'
 
 import { catalogWellKnownItems, catalogItemManifestSchema } from '@mia-platform/console-types'
 import type { JSONSchema } from 'json-schema-to-ts'
-import { cloneDeep, set, unset } from 'lodash-es'
+import { cloneDeep, get, set, unset } from 'lodash-es'
 
 import categories from '../assets/categories.json' with { type: 'json' }
 import supporters from '../assets/supporters.json' with { type: 'json' }
@@ -56,6 +56,24 @@ const visibilitySchema: JSONSchema = {
   properties: { public: { const: true } },
   required: ['public'],
   type: 'object',
+}
+
+/** @modifies Edits the input manifest */
+const makeContainerPortsRequired = (manifest: object) => {
+  const potentialServiceSchemaPath = [
+    'properties',
+    'resources',
+    'properties',
+    'services',
+    'patternProperties',
+    '^[a-z]([-a-z0-9]*[a-z0-9])?$',
+  ]
+
+  const hasHttpPortsInService = get(manifest, [...potentialServiceSchemaPath, 'properties', 'containerPorts']) !== undefined
+  if (!hasHttpPortsInService) { return }
+
+  const serviceRequiredProps = get(manifest, [...potentialServiceSchemaPath, 'required']) as string[]
+  set(manifest, [...potentialServiceSchemaPath, 'required'], [...serviceRequiredProps, 'containerPorts'])
 }
 
 const requiredProps = [
@@ -106,6 +124,8 @@ const main = async () => {
     unset(manifest, ['properties', 'resources', '$id'])
     unset(manifest, ['properties', 'resources', '$schema'])
     unset(manifest, ['properties', 'resources', 'title'])
+
+    makeContainerPortsRequired(manifest)
 
     await fs.writeFile(
       path.resolve(typeDirent.parentPath, typeDirent.name, 'manifest.schema.json'),

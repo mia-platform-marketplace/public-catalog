@@ -1329,11 +1329,13 @@
               "required": [
                 "name",
                 "type",
-                "dockerImage"
+                "dockerImage",
+                "containerPorts"
               ],
               "type": "object"
             }
           },
+          "additionalProperties": false,
           "type": "object"
         }
       },
