@@ -9,7 +9,7 @@
   "name": "Therapy Device Module",
   "publishOnMiaDocumentation": true,
   "releaseStage": "stable",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/therapy-device-module/therapy-device-application",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/therapy-device-module",
   "resources": {
     "collections": {
       "tdm_dm_devices": {
