@@ -1311,11 +1311,6 @@
                   "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
                   "type": "string"
                 },
-                "repositoryUrl": {
-                  "format": "uri-reference",
-                  "type": "string",
-                  "deprecated": true
-                },
                 "tags": {
                   "items": {
                     "type": "string"
@@ -1334,6 +1329,7 @@
               "type": "object"
             }
           },
+          "additionalProperties": false,
           "type": "object"
         }
       },
