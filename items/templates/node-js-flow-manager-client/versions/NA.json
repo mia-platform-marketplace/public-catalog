@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Flow-Manager-Client-Template/refs/heads/16.x/README.md"
   },
   "image": {
-    "localPath": "../assets/nodejs-flow-manager-client-template.png"
+    "localPath": "../assets/node-js-flow-manager-client.png"
   },
   "itemId": "node-js-flow-manager-client",
   "name": "Node.js 16 Flow Manager Client",

@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/SpringBoot-Custom-Plugin-Template/refs/heads/2.x_jdk-11/README.md"
   },
   "image": {
-    "localPath": "../assets/springboot-template-transparent.png"
+    "localPath": "../assets/springboot-template.png"
   },
   "itemId": "springboot-template",
   "name": "Springboot 2 Java 11 Template",

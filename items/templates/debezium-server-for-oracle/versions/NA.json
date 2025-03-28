@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc#oracle-db"
   },
   "image": {
-    "localPath": "../assets/debezium-server-for-oracle-template-transparent.png"
+    "localPath": "../assets/debezium-server-for-oracle.png"
   },
   "itemId": "debezium-server-for-oracle",
   "name": "Debezium Server for Oracle",

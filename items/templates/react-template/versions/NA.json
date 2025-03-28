@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/React-App-Template/master/README.md"
   },
   "image": {
-    "localPath": "../assets/react-template-transparent.png"
+    "localPath": "../assets/react-template.png"
   },
   "itemId": "react-template",
   "name": "React Template",
