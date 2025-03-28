@@ -918,13 +918,11 @@
               "required": [
                 "name",
                 "type",
-                "archiveUrl",
-                "containerPorts"
+                "archiveUrl"
               ],
               "type": "object"
             }
           },
-          "additionalProperties": false,
           "type": "object"
         }
       },
