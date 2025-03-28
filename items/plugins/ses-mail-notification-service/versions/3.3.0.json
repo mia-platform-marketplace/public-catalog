@@ -21,6 +21,13 @@
         "name": "ses-mail-notification-service",
         "description": "Send custom email using an Amazon SES.",
         "dockerImage": "nexus.mia-platform.eu/plugins/ses-mail-notification-service:3.3.0",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ],
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",

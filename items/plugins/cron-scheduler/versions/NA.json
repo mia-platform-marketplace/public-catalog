@@ -21,6 +21,13 @@
         "name": "cron-scheduler",
         "description": "This service can be configured in order to execute custom scripts with crontab-like configuration.",
         "dockerImage": "nexus.mia-platform.eu/core/cron-scheduler:3.4.7",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ],
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",

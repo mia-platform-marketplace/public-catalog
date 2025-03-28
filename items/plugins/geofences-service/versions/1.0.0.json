@@ -15,6 +15,13 @@
         "name": "geofences-service",
         "description": "The Geofences Service Plugin handles geofences and related resources and actions.",
         "dockerImage": "nexus.mia-platform.eu/plugins/geofences-service:1.0.0",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080
+          }
+        ],
         "defaultEnvironmentVariables": [
           {
             "name": "PORT",

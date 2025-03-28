@@ -545,6 +545,27 @@
                       "pattern": "(^[\\w-]+$)",
                       "type": "string"
                     },
+                    "defaultPipeline": {
+                      "anyOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": true
+                          }
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "deprecated": true
+                    },
+                    "defaultSource": {
+                      "maxLength": 80,
+                      "pattern": "(^[\\w-]+$)",
+                      "type": "string",
+                      "deprecated": true
+                    },
                     "description": {
                       "type": "string"
                     },
@@ -952,14 +973,14 @@
                   "required": [
                     "type",
                     "defaultName",
-                    "internalEndpoints",
-                    "startingCollection"
+                    "internalEndpoints"
                   ],
                   "type": "object"
                 }
               ]
             }
           },
+          "additionalProperties": false,
           "type": "object"
         },
         "endpoints": {
@@ -1851,6 +1872,7 @@
               ]
             }
           },
+          "additionalProperties": false,
           "type": "object"
         },
         "listeners": {
@@ -3052,11 +3074,6 @@
                       "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
                       "type": "string"
                     },
-                    "repositoryUrl": {
-                      "format": "uri-reference",
-                      "type": "string",
-                      "deprecated": true
-                    },
                     "tags": {
                       "items": {
                         "type": "string"
@@ -3070,7 +3087,8 @@
                   "required": [
                     "name",
                     "type",
-                    "dockerImage"
+                    "dockerImage",
+                    "containerPorts"
                   ],
                   "type": "object"
                 },
@@ -3733,6 +3751,10 @@
                     "description": {
                       "type": "string"
                     },
+                    "dockerImage": {
+                      "pattern": "^(?:[a-z0-9.\\-\\/:]+\\/)?([\\w.}{\\-\\/]+)(:[\\w.}{\\-]+)?$",
+                      "type": "string"
+                    },
                     "mapEnvVarToMountPath": {
                       "type": "object",
                       "additionalProperties": {
@@ -3862,11 +3884,6 @@
                         }
                       },
                       "type": "object"
-                    },
-                    "repositoryUrl": {
-                      "format": "uri-reference",
-                      "type": "string",
-                      "deprecated": true
                     },
                     "type": {
                       "const": "example"
@@ -3875,7 +3892,8 @@
                   "required": [
                     "name",
                     "type",
-                    "archiveUrl"
+                    "archiveUrl",
+                    "containerPorts"
                   ],
                   "type": "object"
                 },
@@ -4538,6 +4556,10 @@
                     "description": {
                       "type": "string"
                     },
+                    "dockerImage": {
+                      "pattern": "^(?:[a-z0-9.\\-\\/:]+\\/)?([\\w.}{\\-\\/]+)(:[\\w.}{\\-]+)?$",
+                      "type": "string"
+                    },
                     "mapEnvVarToMountPath": {
                       "type": "object",
                       "additionalProperties": {
@@ -4668,11 +4690,6 @@
                       },
                       "type": "object"
                     },
-                    "repositoryUrl": {
-                      "format": "uri-reference",
-                      "type": "string",
-                      "deprecated": true
-                    },
                     "type": {
                       "const": "template"
                     }
@@ -4680,13 +4697,15 @@
                   "required": [
                     "name",
                     "type",
-                    "archiveUrl"
+                    "archiveUrl",
+                    "containerPorts"
                   ],
                   "type": "object"
                 }
               ]
             }
           },
+          "additionalProperties": false,
           "minProperties": 1,
           "type": "object"
         },

@@ -1776,6 +1776,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "ania-service-client",
           "description": "This plugins provides the REST API to query ANIA (Associazione Nazionale Italiana fra le Imprese Assicuratrici).",
           "dockerImage": "nexus.mia-platform.eu/plugins/ania-service:4.0.1",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
@@ -1848,6 +1855,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "ania-service-client",
           "description": "This plugins provides the REST API to query ANIA (Associazione Nazionale Italiana fra le Imprese Assicuratrici).",
           "dockerImage": "nexus.mia-platform.eu/plugins/ania-service:4.0.1",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
@@ -11511,6 +11525,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "cron-scheduler",
           "description": "This service can be configured in order to execute custom scripts with crontab-like configuration.",
           "dockerImage": "nexus.mia-platform.eu/core/cron-scheduler:3.4.7",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
@@ -11573,6 +11594,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "cron-scheduler",
           "description": "This service can be configured in order to execute custom scripts with crontab-like configuration.",
           "dockerImage": "nexus.mia-platform.eu/core/cron-scheduler:3.4.7",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
@@ -22155,6 +22183,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "doctor-service",
           "description": "This plugin reports status of the running microservices in your project.",
           "dockerImage": "nexus.mia-platform.eu/core/doctor-service:2.0.2",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "SERVICES_LIST_PATH",
@@ -22212,6 +22247,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "doctor-service",
           "description": "This plugin reports status of the running microservices in your project.",
           "dockerImage": "nexus.mia-platform.eu/core/doctor-service:2.0.2",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "SERVICES_LIST_PATH",
@@ -32081,6 +32123,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "geofences-service",
           "description": "The Geofences Service Plugin handles geofences and related resources and actions.",
           "dockerImage": "nexus.mia-platform.eu/plugins/geofences-service:1.0.0",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "PORT",
@@ -32147,6 +32196,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "geofences-service",
           "description": "The Geofences Service Plugin handles geofences and related resources and actions.",
           "dockerImage": "nexus.mia-platform.eu/plugins/geofences-service:1.0.0",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "PORT",
@@ -43306,6 +43362,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "kafka2rest-example",
           "description": "This is an example of using our library Kafka2Rest. It takes messages from Kafka broker and sends POST request after filter and process the messages.",
           "archiveUrl": "https://git.tools.mia-platform.eu/api/v4/projects/943/repository/archive.tar.gz",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "KAFKA_HOST",
@@ -43387,6 +43450,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "kafka2rest-example",
           "description": "This is an example of using our library Kafka2Rest. It takes messages from Kafka broker and sends POST request after filter and process the messages.",
           "archiveUrl": "https://git.tools.mia-platform.eu/api/v4/projects/943/repository/archive.tar.gz",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "KAFKA_HOST",
@@ -47182,6 +47252,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "mongo2kafka",
           "description": "Stream your MongoDB changes to Kafka",
           "dockerImage": "nexus.mia-platform.eu/core/mongo2kafka:1.1.2",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "MONGO_URL",
@@ -47274,6 +47351,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "mongo2kafka",
           "description": "Stream your MongoDB changes to Kafka",
           "dockerImage": "nexus.mia-platform.eu/core/mongo2kafka:1.1.2",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "MONGO_URL",
@@ -63110,6 +63194,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "ses-mail-notification-service",
           "description": "Send custom email using an Amazon SES.",
           "dockerImage": "nexus.mia-platform.eu/plugins/ses-mail-notification-service:3.5.0",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
@@ -63177,6 +63268,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "ses-mail-notification-service",
           "description": "Send custom email using an Amazon SES.",
           "dockerImage": "nexus.mia-platform.eu/plugins/ses-mail-notification-service:3.3.0",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
@@ -63243,6 +63341,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "ses-mail-notification-service",
           "description": "Send custom email using an Amazon SES.",
           "dockerImage": "nexus.mia-platform.eu/plugins/ses-mail-notification-service:3.3.0",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
@@ -68988,6 +69093,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "smtp-mail-notification-service",
           "description": "Send custom email using configured SMTP server",
           "dockerImage": "nexus.mia-platform.eu/plugins/smtp-mail-notification-service:3.5.0",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "HOST",
@@ -69074,6 +69186,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "smtp-mail-notification-service",
           "description": "Send custom email using configured SMTP server",
           "dockerImage": "nexus.mia-platform.eu/plugins/smtp-mail-notification-service:3.3.0",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "HOST",
@@ -69159,6 +69278,13 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "smtp-mail-notification-service",
           "description": "Send custom email using configured SMTP server",
           "dockerImage": "nexus.mia-platform.eu/plugins/smtp-mail-notification-service:3.3.0",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
           "defaultEnvironmentVariables": [
             {
               "name": "HOST",
