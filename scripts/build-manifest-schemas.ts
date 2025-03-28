@@ -60,10 +60,22 @@ const visibilitySchema: JSONSchema = {
 }
 
 /** @modifies Edits the input manifest */
-const makeContainerPortsRequired = (manifest: object) => {
+const makeContainerPortsRequired = (manifest: object, type: string) => {
+  const typesToPatch = [
+    catalogWellKnownItems.application.type,
+    catalogWellKnownItems.example.type,
+    catalogWellKnownItems.plugin.type,
+    catalogWellKnownItems.template.type,
+  ]
+
+  if (!typesToPatch.includes(type)) { return }
+
   const editRequired = (containerPortsPropPath: string) => {
     const arrayPath = containerPortsPropPath.split('/')
     const parentPath = arrayPath.slice(1, -1)
+
+    // Skip plugin sidecars
+    if (parentPath.includes('additionalContainers')) { return }
 
     const required = get(manifest, [...parentPath, 'required']) as string[] | undefined
     if (required) { required.push('containerPorts') }
@@ -127,7 +139,7 @@ const main = async () => {
     unset(manifest, ['properties', 'resources', '$schema'])
     unset(manifest, ['properties', 'resources', 'title'])
 
-    makeContainerPortsRequired(manifest)
+    makeContainerPortsRequired(manifest, typeData.type)
 
     await fs.writeFile(
       path.resolve(typeDirent.parentPath, typeDirent.name, 'manifest.schema.json'),

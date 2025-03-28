@@ -698,8 +698,7 @@
         }
       },
       "required": [
-        "name",
-        "containerPorts"
+        "name"
       ],
       "type": "object"
     },

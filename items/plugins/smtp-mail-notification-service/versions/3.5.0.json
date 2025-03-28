@@ -15,6 +15,13 @@
         "name": "smtp-mail-notification-service",
         "description": "Send custom email using configured SMTP server",
         "dockerImage": "nexus.mia-platform.eu/plugins/smtp-mail-notification-service:3.5.0",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ],
         "defaultEnvironmentVariables": [
           {
             "name": "HOST",

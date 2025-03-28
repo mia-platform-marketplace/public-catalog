@@ -21,6 +21,13 @@
         "name": "doctor-service",
         "description": "This plugin reports status of the running microservices in your project.",
         "dockerImage": "nexus.mia-platform.eu/core/doctor-service:2.0.2",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ],
         "defaultEnvironmentVariables": [
           {
             "name": "SERVICES_LIST_PATH",

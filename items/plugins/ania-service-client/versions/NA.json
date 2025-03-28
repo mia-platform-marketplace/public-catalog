@@ -16,6 +16,13 @@
         "name": "ania-service-client",
         "description": "This plugins provides the REST API to query ANIA (Associazione Nazionale Italiana fra le Imprese Assicuratrici).",
         "dockerImage": "nexus.mia-platform.eu/plugins/ania-service:4.0.1",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ],
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",

@@ -21,6 +21,13 @@
         "name": "mongo2kafka",
         "description": "Stream your MongoDB changes to Kafka",
         "dockerImage": "nexus.mia-platform.eu/core/mongo2kafka:1.1.2",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ],
         "defaultEnvironmentVariables": [
           {
             "name": "MONGO_URL",
