@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/secure-apigateway/overview"
   },
   "image": {
-    "localPath": "../assets/secure-api-gateway-application-transparent.png"
+    "localPath": "../assets/secure-api-gateway.png"
   },
   "itemId": "secure-api-gateway",
   "name": "Secure API Gateway",

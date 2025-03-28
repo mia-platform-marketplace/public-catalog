@@ -3,7 +3,7 @@
   "categoryId": "artificial-intelligence",
   "description": "Create a retrieval augmented generation (RAG) app, with a plugin to generate embeddings and train your LLM and a front-end template with a UI to get the chatbot ready in minutes.",
   "image": {
-    "localPath": "../assets/ai-rag-chat-transparent.png"
+    "localPath": "../assets/ai-rag-chat.png"
   },
   "itemId": "ai-rag-chat",
   "name": "AI RAG Chat",
