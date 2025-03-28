@@ -9,7 +9,7 @@
   "name": "EHR Module",
   "publishOnMiaDocumentation": true,
   "releaseStage": "stable",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/ehr-module/application",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/ehr-module",
   "resources": {
     "collections": {
       "ehr_clinical_diaries": {
