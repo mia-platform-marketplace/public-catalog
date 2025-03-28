@@ -52,26 +52,26 @@ services:
         condition: service_started
 
   # Uncomment to start the sync job from the remote Docker image
-  # software-catalog-sync:
-  #   # image: miaplatform/software-catalog-sync
-  #   image: nexus.mia-platform.eu/console/scripts/software-catalog-sync:latest
-  #   environment:
-  #     - LOG_LEVEL=info
-  #     - MONGODB_URL=mongodb://mongodb:27017/catalog
-  #     - FILES_SERVICE_URL=http://files-service:3000/
-  #     - CATEGORIES_COLLECTION_NAME=categories
-  #     - ITEMS_COLLECTION_NAME=items
-  #     - FILES_COLLECTION_NAME=files
-  #     - TENANT_ID_TO_SET=mia-platform
-  #   networks:
-  #     - ring
-  #   depends_on:
-  #     mongodb:
-  #       condition: service_healthy
-  #     crud-service:
-  #       condition: service_started
-  #     files-service:
-  #       condition: service_healthy
+  software-catalog-sync:
+    # image: miaplatform/software-catalog-sync
+    image: nexus.mia-platform.eu/console/scripts/software-catalog-sync:latest
+    environment:
+      - LOG_LEVEL=info
+      - MONGODB_URL=mongodb://mongodb:27017/catalog
+      - FILES_SERVICE_URL=http://files-service:3000/
+      - CATEGORIES_COLLECTION_NAME=categories
+      - ITEMS_COLLECTION_NAME=items
+      - FILES_COLLECTION_NAME=files
+      - TENANT_ID_TO_SET=mia-platform
+    networks:
+      - ring
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      crud-service:
+        condition: service_started
+      files-service:
+        condition: service_healthy
 
 volumes:
   db-data:

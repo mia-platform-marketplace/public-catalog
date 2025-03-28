@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Go-Call-CRUD-Template/master/README.md"
   },
   "image": {
-    "localPath": "../assets/go-call-crud-example-transparent.png"
+    "localPath": "../assets/go-call-crud-example.png"
   },
   "itemId": "go-call-crud-example",
   "name": "Go Call CRUD Example",
