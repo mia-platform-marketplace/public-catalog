@@ -49095,7 +49095,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "name": "Notification Module",
     "publishOnMiaDocumentation": true,
     "releaseStage": "stable",
-    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/notification-module/notification-application",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/notification-module",
     "resources": {
       "collections": {
         "nm_fs_files": {
