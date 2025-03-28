@@ -3,7 +3,7 @@
   "categoryId": "idm",
   "description": "This is the best template to start creating a verifiable credential service for your IDM project",
   "image": {
-    "localPath": "../assets/verifiable-credentia-generator-template-transparent.png"
+    "localPath": "../assets/verifiable-credential-generator.png"
   },
   "itemId": "verifiable-credential-generator",
   "name": "Verifiable Credential Generator",

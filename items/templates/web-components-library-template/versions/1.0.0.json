@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/micro-lc/wc-library-template/refs/tags/v1.0.0/README.md"
   },
   "image": {
-    "localPath": "../assets/web-components-library-template-transparent.png"
+    "localPath": "../assets/web-components-library-template.png"
   },
   "itemId": "web-components-library-template",
   "name": "Web Components Library Template",
