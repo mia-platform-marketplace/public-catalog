@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/go-echo-template/master/README.md"
   },
   "image": {
-    "localPath": "../assets/go-echo-template-transparent.png"
+    "localPath": "../assets/go-echo-template.png"
   },
   "itemId": "go-echo-template",
   "name": "Go Echo Template",
