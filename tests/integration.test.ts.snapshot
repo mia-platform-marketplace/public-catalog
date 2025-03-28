@@ -6778,7 +6778,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "name": "Booking Module",
     "publishOnMiaDocumentation": true,
     "releaseStage": "stable",
-    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/booking-module/application",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/booking-module",
     "resources": {
       "collections": {
         "bk_am_appointments": {
