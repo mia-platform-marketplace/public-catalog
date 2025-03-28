@@ -596,7 +596,8 @@
                     },
                     "required": [
                       "name",
-                      "dockerImage"
+                      "dockerImage",
+                      "containerPorts"
                     ],
                     "type": "object"
                   },
@@ -1324,7 +1325,8 @@
               "required": [
                 "name",
                 "type",
-                "dockerImage"
+                "dockerImage",
+                "containerPorts"
               ],
               "type": "object"
             }

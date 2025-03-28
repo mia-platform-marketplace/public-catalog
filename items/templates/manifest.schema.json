@@ -917,7 +917,8 @@
               "required": [
                 "name",
                 "type",
-                "archiveUrl"
+                "archiveUrl",
+                "containerPorts"
               ],
               "type": "object"
             }

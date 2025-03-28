@@ -21,6 +21,7 @@ import path from 'node:path'
 
 import { catalogWellKnownItems, catalogItemManifestSchema } from '@mia-platform/console-types'
 import type { JSONSchema } from 'json-schema-to-ts'
+import { JSONPath } from 'jsonpath-plus'
 import { cloneDeep, get, set, unset } from 'lodash-es'
 
 import categories from '../assets/categories.json' with { type: 'json' }
@@ -60,20 +61,21 @@ const visibilitySchema: JSONSchema = {
 
 /** @modifies Edits the input manifest */
 const makeContainerPortsRequired = (manifest: object) => {
-  const potentialServiceSchemaPath = [
-    'properties',
-    'resources',
-    'properties',
-    'services',
-    'patternProperties',
-    '^[a-z]([-a-z0-9]*[a-z0-9])?$',
-  ]
+  const editRequired = (containerPortsPropPath: string) => {
+    const arrayPath = containerPortsPropPath.split('/')
+    const parentPath = arrayPath.slice(1, -1)
 
-  const hasHttpPortsInService = get(manifest, [...potentialServiceSchemaPath, 'properties', 'containerPorts']) !== undefined
-  if (!hasHttpPortsInService) { return }
+    const required = get(manifest, [...parentPath, 'required']) as string[] | undefined
+    if (required) { required.push('containerPorts') }
+  }
 
-  const serviceRequiredProps = get(manifest, [...potentialServiceSchemaPath, 'required']) as string[]
-  set(manifest, [...potentialServiceSchemaPath, 'required'], [...serviceRequiredProps, 'containerPorts'])
+  JSONPath({
+    callback: editRequired,
+    json: manifest,
+    // Find any object containing a property named "containerPorts"
+    path: '$..[?(@.containerPorts)]',
+    resultType: 'pointer',
+  })
 }
 
 const requiredProps = [
@@ -93,7 +95,7 @@ const main = async () => {
 
     const data = await import(path.resolve(typeDirent.parentPath, typeDirent.name)) as ItemTypeModule
 
-    const typeData = catalogWellKnownItems[data.default.type]
+    const typeData = cloneDeep(catalogWellKnownItems[data.default.type])
     if (!typeData) {
       throw new Error(`Directory '${typeDirent.name}' with items of type '${data.default.type}' does not correspond to any well-known catalog item type`)
     }
