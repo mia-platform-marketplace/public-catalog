@@ -9,7 +9,7 @@
   "name": "User Manager Module",
   "publishOnMiaDocumentation": true,
   "releaseStage": "stable",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/user-auth-module/application",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/user-manager-module",
   "resources": {
     "collections": {
       "uam_user_manager_configs": {
