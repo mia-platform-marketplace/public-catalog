@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/api-documentation-aggregator/overview"
   },
   "image": {
-    "localPath": "../assets/api-documentation-aggregator-nginx-application-transparent.png"
+    "localPath": "../assets/api-documentation-aggregator-nginx.png"
   },
   "itemId": "api-documentation-aggregator-nginx",
   "name": "API Documentation Aggregator NGINX",

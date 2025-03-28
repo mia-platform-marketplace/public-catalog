@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/dev_portal/overview"
   },
   "image": {
-    "localPath": "../assets/dev-portal-application-transparent.png"
+    "localPath": "../assets/dev-portal.png"
   },
   "itemId": "dev-portal",
   "name": "Dev Portal",
