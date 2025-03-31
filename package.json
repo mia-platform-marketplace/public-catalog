@@ -41,7 +41,7 @@
     "ajv-formats": "^3.0.1",
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
-    "esbuild": "^0.25.1",
+    "esbuild": "^0.25.2",
     "eslint": "^9.23.0",
     "eslint-config-esnext": "^4.1.0",
     "eslint-import-resolver-typescript": "^4.2.7",
