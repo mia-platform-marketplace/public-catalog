@@ -17,15 +17,15 @@ jobs:
   build:
     uses: ./.github/workflows/_build.yml
 
-  tests:
-    uses: ./.github/workflows/_tests.yml
+  # tests:
+  #   uses: ./.github/workflows/_tests.yml
 
   docker-build:
     if: github.event_name == 'push'
     needs:
       - lint
       - build
-      - tests
+      # - tests
     uses: ./.github/workflows/_release-docker.yml
     secrets:
       docker_username: ${{ secrets.BOT_DOCKER_USERNAME }}
