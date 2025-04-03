@@ -267,6 +267,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.064Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -368,6 +369,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -465,6 +467,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.012Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -559,6 +562,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-10-24T09:00:53.763Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -887,6 +891,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-08-01T16:26:53.341Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -1217,6 +1222,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-06T16:53:44.938Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -1349,6 +1355,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-06T16:53:44.926Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -1481,6 +1488,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.663Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -1608,6 +1616,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-05-30T16:08:43.683Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -1678,6 +1687,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.885Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -1745,6 +1755,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-02-12T10:50:24.328Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -1823,6 +1834,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.062Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -1898,6 +1910,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -2142,6 +2155,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-11-17T14:38:17.976Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -2411,6 +2425,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-02-01T17:26:43.723Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -2577,6 +2592,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.026Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -2739,6 +2755,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-08-31T12:03:34.674Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -2819,6 +2836,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T17:06:06.476Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -2900,6 +2918,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.012Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -2976,6 +2995,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-06-01T12:55:53.057Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -3102,6 +3122,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.008Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -3225,6 +3246,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-02-27T14:12:45.071Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -3365,6 +3387,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.535Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -3506,6 +3529,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.527Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -3646,6 +3670,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.013Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -3782,6 +3807,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-10-14T12:22:38.267Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -3838,6 +3864,7 @@ exports[`Sync script > should match snapshot 2`] = `
         }
       }
     },
+    "releaseDate": "2025-04-03T13:02:51.888Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -3993,6 +4020,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.033Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -4148,6 +4176,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.870Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -4302,6 +4331,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.874Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -4446,6 +4476,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-10-10T16:15:06.850Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -4590,6 +4621,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-10-10T16:15:06.849Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -4730,6 +4762,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -4861,6 +4894,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-11-18T17:09:39.906Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -4992,6 +5026,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.534Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -5124,6 +5159,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.013Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -5255,6 +5291,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-11-18T17:09:39.873Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -5382,6 +5419,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -5542,6 +5580,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.866Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -5703,6 +5742,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.865Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -5863,6 +5903,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.865Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -6019,6 +6060,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-07-07T08:27:12.389Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -6101,6 +6143,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-11-18T17:09:39.902Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -6183,6 +6226,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.013Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -6265,6 +6309,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.530Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -6348,6 +6393,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-06T16:53:44.954Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -6430,6 +6476,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.669Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -6512,6 +6559,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.671Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -6594,6 +6642,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-19T17:04:05.872Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -6676,6 +6725,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.866Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -6754,6 +6804,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-10-14T10:33:27.318Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -8435,6 +8486,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.670Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -9108,6 +9160,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-07-12T14:22:54.461Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -9768,6 +9821,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-08-31T16:13:56.276Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -9844,6 +9898,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.529Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -9920,6 +9975,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.016Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -9991,6 +10047,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-11-11T16:35:31.016Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -10133,6 +10190,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.589Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -10276,6 +10334,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.015Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -10414,6 +10473,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-10-27T14:30:41.971Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -10479,6 +10539,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.015Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -10541,6 +10602,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-10-27T15:45:58.211Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -10676,6 +10738,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.871Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -10812,6 +10875,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.888Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -10947,6 +11011,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.870Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -11082,6 +11147,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.868Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -11217,6 +11283,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.868Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -11348,6 +11415,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -11420,6 +11488,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.092Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -11489,6 +11558,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-05-05T19:00:15.908Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -11557,6 +11627,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.032Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -11622,6 +11693,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -11752,6 +11824,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-19T17:04:05.913Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -11883,6 +11956,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.027Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -12009,6 +12083,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-02-21T14:43:22.336Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -12139,6 +12214,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-19T17:04:05.912Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -12270,6 +12346,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-19T17:04:05.873Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -12401,6 +12478,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.014Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -12527,6 +12605,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-02-21T16:06:21.499Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -12654,6 +12733,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.025Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -12782,6 +12862,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.664Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -12909,6 +12990,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-10-24T16:13:01.050Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -13036,6 +13118,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-10-10T16:15:06.830Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -13163,6 +13246,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.014Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -13290,6 +13374,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.664Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -13413,6 +13498,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -13549,6 +13635,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.012Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -13682,6 +13769,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-02-22T13:14:58.402Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -14251,6 +14339,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-04-13T16:06:00.631Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -14421,6 +14510,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.021Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -14587,6 +14677,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-04-13T16:06:00.702Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -14643,6 +14734,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.881Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -14696,6 +14788,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-02-15T18:43:24.698Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -14752,6 +14845,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.878Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -14805,6 +14899,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-10-10T16:15:06.826Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -18733,6 +18828,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-10-10T16:15:06.843Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -18794,6 +18890,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.016Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -18851,6 +18948,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -18949,6 +19047,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.015Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -19044,6 +19143,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -19182,6 +19282,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.014Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -19317,6 +19418,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-05-25T16:10:21.008Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -19451,6 +19553,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.018Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -19582,6 +19685,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-03-30T16:19:49.295Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -19720,6 +19824,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.008Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -19855,6 +19960,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-03-30T16:19:49.326Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -19989,6 +20095,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.018Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -20120,6 +20227,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-04-13T16:06:00.697Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -20258,6 +20366,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.009Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -20393,6 +20502,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-05-04T16:45:12.459Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -21971,6 +22081,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-08-31T07:46:09.508Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -22146,6 +22257,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.018Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -22210,6 +22322,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.011Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -22270,6 +22383,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -22422,6 +22536,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-02-14T08:23:50.713Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -23700,6 +23815,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.670Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -23766,6 +23882,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.020Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -23900,6 +24017,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.022Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -24030,6 +24148,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-04-07T16:19:37.098Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -24146,6 +24265,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.017Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -24259,6 +24379,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-01-11T09:18:15.101Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -26916,6 +27037,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-01-18T17:32:50.569Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -27038,6 +27160,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.022Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -27160,6 +27283,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-19T17:04:05.875Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -27281,6 +27405,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-19T17:04:05.874Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -27398,6 +27523,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-10-10T16:15:06.834Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -29227,6 +29353,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-05-30T16:08:43.656Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -29418,6 +29545,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-10-22T08:52:38.031Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -29572,6 +29700,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.531Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -29726,6 +29855,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.530Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -29879,6 +30009,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.019Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -30028,6 +30159,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-02-22T17:30:21.362Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -30118,6 +30250,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.531Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -30559,6 +30692,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-05-14T14:07:38.602Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -30660,6 +30794,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-19T17:04:05.876Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -30761,6 +30896,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.872Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -30861,6 +30997,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.891Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -30957,6 +31094,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -31117,6 +31255,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.022Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -31274,6 +31413,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-02-27T09:26:23.169Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -31404,6 +31544,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.665Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -31531,6 +31672,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-09-11T13:21:38.380Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -31588,6 +31730,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.532Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -31646,6 +31789,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.021Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -31699,6 +31843,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-06-30T09:02:33.583Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -31763,6 +31908,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.532Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -31828,6 +31974,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.023Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -31888,6 +32035,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-06-30T09:02:33.582Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -31992,6 +32140,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.061Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -32093,6 +32242,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-09-11T13:10:35.508Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -32165,6 +32315,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.023Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -32234,6 +32385,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -32347,6 +32499,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.091Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -32457,6 +32610,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-05-16T16:55:40.746Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -32519,6 +32673,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.874Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -32578,6 +32733,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-07-07T16:19:55.298Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -32640,6 +32796,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.039Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -32699,6 +32856,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-06-24T13:13:06.440Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -32761,6 +32919,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.007Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -32820,6 +32979,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-02-12T10:42:08.854Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -32934,6 +33094,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.989Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -33045,6 +33206,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-02-01T17:26:43.753Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -33126,6 +33288,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.089Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -33204,6 +33367,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-02-12T10:51:21.318Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -33292,6 +33456,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.088Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -33377,6 +33542,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-08-31T15:00:42.788Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -33486,6 +33652,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-28T11:36:11.794Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -33596,6 +33763,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-06T16:53:44.928Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -33705,6 +33873,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-06T16:53:44.927Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -33814,6 +33983,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-06T16:53:44.959Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -33923,6 +34093,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-11T12:00:59.270Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -34032,6 +34203,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-19T17:04:05.878Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -34141,6 +34313,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-02T11:23:45.727Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -34250,6 +34423,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-11-27T14:35:10.700Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -34359,6 +34533,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-11-27T14:35:10.700Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -34468,6 +34643,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-11-27T11:05:39.571Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -34577,6 +34753,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-19T17:04:05.877Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -34681,6 +34858,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.871Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -34785,6 +34963,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.022Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -34885,6 +35064,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-04-13T07:05:36.770Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -36035,6 +36215,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-03-21T15:00:45.631Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -36203,6 +36384,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-06T16:53:44.928Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -36371,6 +36553,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.023Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -36534,6 +36717,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-03-07T17:30:55.965Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -36718,6 +36902,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-06T16:53:44.930Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -36903,6 +37088,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.024Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -37083,6 +37269,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-03-07T17:30:55.965Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -41947,6 +42134,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-09-28T17:03:32.894Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -42045,6 +42233,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.976Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -42160,6 +42349,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.975Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -42271,6 +42461,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-11-24T14:49:22.611Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -42408,6 +42599,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.024Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -42542,6 +42734,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-11-09T14:27:48.512Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -42611,6 +42804,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.973Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -42677,6 +42871,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -42757,6 +42952,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.039Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -42834,6 +43030,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-05-16T15:02:06.328Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -42936,6 +43133,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.665Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -43039,6 +43237,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.024Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -43137,6 +43336,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-09-09T08:38:47.213Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -43236,6 +43436,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.024Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -43332,6 +43533,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -43419,6 +43621,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.086Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -43503,6 +43706,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-02-18T11:16:10.970Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -43678,6 +43882,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.024Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -43850,6 +44055,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-10-27T12:40:30.891Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -43945,6 +44151,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.038Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -44037,6 +44244,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-02-02T16:26:32.584Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -44132,6 +44340,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.039Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -44224,6 +44433,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-02-02T16:26:32.594Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -44319,6 +44529,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.008Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -44411,6 +44622,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-02-02T16:26:32.592Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -44506,6 +44718,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.008Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -44598,6 +44811,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-02-02T16:26:32.575Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -44712,6 +44926,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.025Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -44823,6 +45038,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -44953,6 +45169,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.533Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -45084,6 +45301,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.025Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -45210,6 +45428,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-10-14T12:21:35.727Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -45292,6 +45511,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.874Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -45375,6 +45595,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.038Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -45453,6 +45674,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-02-16T17:10:25.261Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -45522,6 +45744,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.870Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -45588,6 +45811,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-06-01T11:04:24.489Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -45657,6 +45881,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.868Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -45723,6 +45948,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-06-01T11:04:24.489Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -45792,6 +46018,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.011Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -45858,6 +46085,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-06-01T11:04:24.454Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -46035,6 +46263,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.670Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -46105,6 +46334,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.011Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -46171,6 +46401,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-06-01T11:04:24.452Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -46240,6 +46471,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.011Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -46306,6 +46538,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-11-30T17:52:19.189Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -46680,6 +46913,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-11-30T17:52:19.222Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -47000,6 +47234,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-11-30T17:52:19.189Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -47110,6 +47345,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.025Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -47216,6 +47452,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-06-28T10:42:03.677Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -47314,6 +47551,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.964Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -47409,6 +47647,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -47508,6 +47747,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.963Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -47604,6 +47844,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -47716,6 +47957,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.082Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -47825,6 +48067,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-02-12T10:46:40.409Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -47885,6 +48128,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.081Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -47942,6 +48186,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-02-12T10:48:17.090Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -47998,6 +48243,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.864Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -48051,6 +48297,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-06-09T16:11:46.097Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -48194,6 +48441,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.009Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -48334,6 +48582,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-11-15T17:35:10.281Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -48399,6 +48648,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.039Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -48461,6 +48711,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-02-12T10:44:46.459Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -48523,6 +48774,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.010Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -48582,6 +48834,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-02-25T08:56:54.353Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -48750,6 +49003,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.533Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -48913,6 +49167,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.025Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -49071,6 +49326,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-02-15T18:43:24.673Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -50981,6 +51237,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.686Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -51122,6 +51379,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.534Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -51263,6 +51521,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.026Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -51399,6 +51658,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-04-04T08:59:05.748Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -51511,6 +51771,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.861Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -51620,6 +51881,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-05-25T16:10:21.012Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -51731,6 +51993,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.025Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -51839,6 +52102,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-02-09T15:35:48.199Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -55047,6 +55311,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-10-27T10:51:07.127Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -55120,6 +55385,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.026Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -55189,6 +55455,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-05-12T16:10:51.036Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -55359,6 +55626,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.957Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -55526,6 +55794,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-02-22T17:30:21.329Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -55631,6 +55900,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.026Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -55737,6 +56007,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.666Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -55842,6 +56113,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.874Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -55947,6 +56219,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.872Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -56052,6 +56325,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-11-18T17:09:39.874Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -56157,6 +56431,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-10-10T16:15:06.841Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -56262,6 +56537,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.027Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -56363,6 +56639,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-11-30T17:52:19.221Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -56482,6 +56759,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.027Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -56598,6 +56876,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -56702,6 +56981,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.027Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -56803,6 +57083,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -56863,6 +57144,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.078Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -56920,6 +57202,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-05-16T20:52:01.377Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -56980,6 +57263,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.077Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -57037,6 +57321,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-05-18T17:02:02.649Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -57203,6 +57488,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.873Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -57370,6 +57656,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.873Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -57536,6 +57823,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.029Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -57698,6 +57986,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-03-24T17:06:02.377Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -57826,6 +58115,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T17:06:06.550Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -57955,6 +58245,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.039Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -58083,6 +58374,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-06T16:53:44.934Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -58211,6 +58503,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-06T16:53:44.931Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -58351,6 +58644,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.029Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -58488,6 +58782,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-04-07T16:19:37.099Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -58557,6 +58852,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.860Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -58623,6 +58919,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-02-12T10:49:22.178Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -58896,6 +59193,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.666Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -59169,6 +59467,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.029Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -59442,6 +59741,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.534Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -59716,6 +60016,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.028Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -59989,6 +60290,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.027Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -60262,6 +60564,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.027Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -60531,6 +60834,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-10-12T16:07:37.171Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -60624,6 +60928,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.075Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -60714,6 +61019,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-02-12T10:41:16.076Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -60866,6 +61172,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.028Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -61015,6 +61322,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-10-27T10:59:37.415Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -61075,6 +61383,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.074Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -61132,6 +61441,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-05-17T09:02:36.847Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -61545,6 +61855,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-04-26T08:12:31.833Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -62542,6 +62853,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-09-29T10:24:15.261Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -62599,6 +62911,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.010Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -62652,6 +62965,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-11-08T17:43:44.956Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -63157,6 +63471,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-10-20T16:30:41.556Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -63231,6 +63546,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.028Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -63305,6 +63621,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.028Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -63374,6 +63691,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -63595,6 +63913,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.667Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -63813,6 +64132,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-04-20T12:18:27.904Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -64063,6 +64383,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.926Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -64310,6 +64631,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-11-22T15:43:44.133Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -64596,6 +64918,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.924Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -64883,6 +65206,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.032Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -65169,6 +65493,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.031Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -65455,6 +65780,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.667Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -65741,6 +66067,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.030Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -66023,6 +66350,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-02-22T17:30:21.330Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -66285,6 +66613,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.921Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -66548,6 +66877,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.032Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -66810,6 +67140,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.034Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -67072,6 +67403,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.668Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -67334,6 +67666,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.033Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -67592,6 +67925,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-02-22T17:30:21.361Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -67794,6 +68128,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.035Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -67997,6 +68332,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.055Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -68199,6 +68535,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.668Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -68401,6 +68738,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.033Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -68599,6 +68937,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-03-07T17:30:55.921Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -68716,6 +69055,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.073Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -68830,6 +69170,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-02-12T10:43:53.643Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -68948,6 +69289,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.031Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -69063,6 +69405,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-10-14T12:20:28.007Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -69155,6 +69498,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.031Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -69248,6 +69592,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.030Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -69336,6 +69681,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -69415,6 +69761,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.069Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -69491,6 +69838,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-08-31T08:53:22.514Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -69571,6 +69919,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.010Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -69648,6 +69997,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-09-23T14:51:29.917Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -69706,6 +70056,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.911Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -69761,6 +70112,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -69850,6 +70202,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.910Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -69936,6 +70289,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -70030,6 +70384,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.909Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -70125,6 +70480,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T17:06:06.528Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -70219,6 +70575,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.686Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -70313,6 +70670,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.669Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -70403,6 +70761,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-06-01T07:27:50.186Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -70553,6 +70912,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.535Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -70704,6 +71064,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.035Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -70850,6 +71211,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-12-02T14:43:51.687Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -70915,6 +71277,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.575Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -70981,6 +71344,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.033Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -71042,6 +71406,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-12-02T14:41:04.333Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -71160,6 +71525,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.903Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -71275,6 +71641,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -71447,6 +71814,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.535Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -71635,6 +72003,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.035Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -71818,6 +72187,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-01-16T10:18:22.999Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -73709,6 +74079,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.671Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -73771,6 +74142,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.036Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -73829,6 +74201,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -73968,6 +74341,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.034Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -74104,6 +74478,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-05-28T13:19:05.392Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -74203,6 +74578,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.891Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -74299,6 +74675,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2020-08-05T08:24:02.500Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -74358,6 +74735,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.068Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -74414,6 +74792,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-11-08T17:43:44.934Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -74483,6 +74862,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:51.858Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -74549,6 +74929,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-03-30T10:38:16.178Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -74609,6 +74990,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.009Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -74666,6 +75048,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-11-08T17:43:44.956Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -74775,6 +75158,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.035Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -74881,6 +75265,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-05-30T16:08:43.680Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -76195,6 +76580,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-01-16T17:17:52.671Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -76347,6 +76733,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-03-20T16:42:16.535Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -76499,6 +76886,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.039Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -76646,6 +77034,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2022-05-04T08:19:20.540Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -76745,6 +77134,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-04-03T13:02:52.066Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -76841,6 +77231,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2021-07-15T16:31:36.237Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -76979,6 +77370,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.011Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -77114,6 +77506,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2023-03-20T14:03:58.062Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -77183,6 +77576,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.010Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -77249,6 +77643,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-06-10T16:10:21.405Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -77323,6 +77718,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2025-02-20T16:47:48.010Z",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -77394,6 +77790,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
+    "releaseDate": "2024-12-05T17:09:02.864Z",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [

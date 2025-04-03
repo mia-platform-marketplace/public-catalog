@@ -97,6 +97,7 @@ const requiredProps = [
   'supportedBy',
   'supportedByImage',
   'visibility',
+  'releaseDate',
 ]
 
 const main = async () => {

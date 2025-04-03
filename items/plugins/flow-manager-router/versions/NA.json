@@ -143,5 +143,6 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2023-02-27T09:26:23.169Z"
 }
