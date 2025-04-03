@@ -120,5 +120,6 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2022-11-09T14:27:48.512Z"
 }

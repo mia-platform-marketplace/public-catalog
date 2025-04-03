@@ -149,5 +149,6 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2022-03-24T17:06:02.377Z"
 }
