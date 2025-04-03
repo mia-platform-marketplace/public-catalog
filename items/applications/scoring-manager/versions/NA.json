@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/scoring-manager/overview"
   },
   "image": {
-    "localPath": "../assets/scoring-manager-application.png"
+    "localPath": "../assets/scoring-manager.png"
   },
   "itemId": "scoring-manager",
   "name": "Scoring Manager",

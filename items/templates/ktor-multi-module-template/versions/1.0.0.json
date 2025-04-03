@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Ktor-Multi-Module-Template/refs/heads/1.6.x_jdk-11/README.md"
   },
   "image": {
-    "localPath": "../assets/ktor-multi-module-template-transparent.png"
+    "localPath": "../assets/ktor-multi-module-template.png"
   },
   "itemId": "ktor-multi-module-template",
   "name": "Ktor 1.6 Java 11 Multi Module Template",

@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform/ai-rag-template/main/README.md"
   },
   "image": {
-    "localPath": "../assets/ai-rag-template-transparent.png"
+    "localPath": "../assets/ai-rag-template.png"
   },
   "itemId": "ai-rag-template",
   "name": "AI RAG Template",

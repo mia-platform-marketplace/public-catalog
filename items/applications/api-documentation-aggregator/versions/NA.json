@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/api-documentation-aggregator/overview"
   },
   "image": {
-    "localPath": "../assets/api-documentation-aggregator-envoy-application-transparent.png"
+    "localPath": "../assets/api-documentation-aggregator.png"
   },
   "itemId": "api-documentation-aggregator",
   "name": "API Documentation Aggregator",

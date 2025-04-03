@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/salesforce-streaming-api-connector/overview"
   },
   "image": {
-    "localPath": "../assets/connectionSalesforce-kafka-1.png"
+    "localPath": "../assets/salesforce-streaming-api-connector.png"
   },
   "itemId": "salesforce-streaming-api-connector",
   "name": "Salesforce Streaming API Connector",

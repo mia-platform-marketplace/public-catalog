@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Custom-Plugin-Template/refs/heads/16.x/README.md"
   },
   "image": {
-    "localPath": "../assets/nodejs-template-transparent.png"
+    "localPath": "../assets/node-js-template.png"
   },
   "itemId": "node-js-template",
   "name": "Node.js 16 Template",
