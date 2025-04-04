@@ -17,8 +17,11 @@ jobs:
   build:
     uses: ./.github/workflows/_build.yml
 
-  # tests:
-  #   uses: ./.github/workflows/_tests.yml
+  tests:
+    uses: ./.github/workflows/_tests.yml
+    secrets:
+      harbor_username: ${{ secrets.HARBOR_USERNAME }}
+      harbor_token: ${{ secrets.HARBOR_TOKEN }}
 
   docker-build:
     if: github.event_name == 'push'
