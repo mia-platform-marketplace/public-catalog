@@ -30,7 +30,7 @@
     "yaml": "^2.7.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.23.0",
+    "@eslint/js": "^9.24.0",
     "@stylistic/eslint-plugin-js": "^4.2.0",
     "@stylistic/eslint-plugin-ts": "^4.2.0",
     "@types/json-diff": "^1.0.3",
