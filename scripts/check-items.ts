@@ -226,7 +226,7 @@ const assertVersionValid = async (task: Task, manifestPath: string, typeData: It
       throw new Error(`Manifests for "NA" versions must not have property "version"`)
     }
 
-    if (typeData.crd.isVersioningSupported && manifest.releaseStage !== CatalogItemReleaseStage.DEPRECATED) {
+    if (typeData.crd.resources.isVersioningSupported && manifest.releaseStage !== CatalogItemReleaseStage.DEPRECATED) {
       throw new Error(`Manifests for "NA" versions must have "releaseStage" set to "deprecated"`)
     }
   }
@@ -286,11 +286,11 @@ const computeAndValidateReleaseFilesPaths = async (itemDirPath: string, typeData
     throw new Error(`Unexpected empty directory "versions"`)
   }
 
-  if (!typeData.crd.isVersioningSupported && (hasSemver || !hasNa)) {
+  if (!typeData.crd.resources.isVersioningSupported && (hasSemver || !hasNa)) {
     throw new Error(`Items of type "${typeData.type}" must have only a single "NA" file`)
   }
 
-  if (typeData.crd.isVersioningSupported && !hasSemver) {
+  if (typeData.crd.resources.isVersioningSupported && !hasSemver) {
     throw new Error(`Items of type "${typeData.type}" must have at least one versioned manifest`)
   }
 
