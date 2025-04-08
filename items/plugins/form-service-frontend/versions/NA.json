@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
   },
   "image": {
-    "localPath": "../assets/form-service-frontend-plugin-transparent.png"
+    "localPath": "../assets/form-service-frontend.png"
   },
   "itemId": "form-service-frontend",
   "name": "Form Service Frontend",

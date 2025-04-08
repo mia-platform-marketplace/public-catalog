@@ -7,7 +7,7 @@
     "url": "https://rond-authz.io/"
   },
   "image": {
-    "localPath": "../assets/rond-plugin-transparent.png"
+    "localPath": "../assets/r-nd.png"
   },
   "itemId": "r-nd",
   "name": "Rönd",

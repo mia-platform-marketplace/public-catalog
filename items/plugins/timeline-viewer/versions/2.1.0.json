@@ -3,7 +3,7 @@
   "categoryId": "business",
   "description": "Visualize events on a timeline",
   "image": {
-    "localPath": "../assets/timeline-viewer-plugin-transparent.png"
+    "localPath": "../assets/timeline-viewer.png"
   },
   "itemId": "timeline-viewer",
   "name": "Timeline Viewer",

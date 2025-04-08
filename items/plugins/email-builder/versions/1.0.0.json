@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/email-builder/overview"
   },
   "image": {
-    "localPath": "../assets/email-builder-plugin-transparent.png"
+    "localPath": "../assets/email-builder.png"
   },
   "itemId": "email-builder",
   "name": "Email Builder",

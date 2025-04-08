@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/crud-sql/overview"
   },
   "image": {
-    "localPath": "../assets/crud-oracle-plugin.png"
+    "localPath": "../assets/crud-oracle.png"
   },
   "itemId": "crud-oracle",
   "name": "CRUD Oracle DB",

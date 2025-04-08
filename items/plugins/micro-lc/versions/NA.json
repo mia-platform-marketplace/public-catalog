@@ -7,7 +7,7 @@
     "url": "https://micro-lc.io"
   },
   "image": {
-    "localPath": "../assets/microlc-plugin-transparent.png"
+    "localPath": "../assets/micro-lc.png"
   },
   "itemId": "micro-lc",
   "name": "micro-lc",

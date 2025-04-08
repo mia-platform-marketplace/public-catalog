@@ -7,7 +7,7 @@
     "url": "https://hapifhir.io/hapi-fhir/docs/v/7.6.0/"
   },
   "image": {
-    "localPath": "../assets/fhir-api-server-plugin.png"
+    "localPath": "../assets/fhir-api-server.png"
   },
   "itemId": "fhir-api-server",
   "name": "FHIR Server",

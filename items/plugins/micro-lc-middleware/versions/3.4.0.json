@@ -7,7 +7,7 @@
     "url": "https://micro-lc.io/add-ons/backend/middleware"
   },
   "image": {
-    "localPath": "../assets/microlc-plugin-transparent.png"
+    "localPath": "../assets/micro-lc-middleware.png"
   },
   "itemId": "micro-lc-middleware",
   "name": "micro-lc Middleware",

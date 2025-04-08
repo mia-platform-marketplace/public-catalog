@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/ses-mail-notification-service/configuration"
   },
   "image": {
-    "localPath": "../assets/ses-mail-notification-service-plugin-transparent.png"
+    "localPath": "../assets/ses-mail-notification-service.png"
   },
   "itemId": "ses-mail-notification-service",
   "name": "SES Mail Notification Service",

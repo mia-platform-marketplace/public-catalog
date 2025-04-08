@@ -3,7 +3,7 @@
   "categoryId": "orchestrators",
   "description": "This plugin helps to manage a set of flow manager services",
   "image": {
-    "localPath": "../assets/flow-manager-router-plugin.png"
+    "localPath": "../assets/flow-manager-router.png"
   },
   "itemId": "flow-manager-router",
   "name": "Flow Manager Router",

@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/runtime_management/overview"
   },
   "image": {
-    "localPath": "../assets/control-plane-operator-plugin.png"
+    "localPath": "../assets/fast-data-control-plane-operator.png"
   },
   "itemId": "fast-data-control-plane-operator",
   "name": "Fast Data Control Plane Operator",

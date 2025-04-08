@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/projection_storer"
   },
   "image": {
-    "localPath": "../assets/projection-storer-plugin.png"
+    "localPath": "../assets/projection-storer.png"
   },
   "itemId": "projection-storer",
   "name": "Projection Storer",

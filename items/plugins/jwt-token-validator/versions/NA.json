@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/jwt-token-validator/overview_and_usage"
   },
   "image": {
-    "localPath": "../assets/jwt-token-validator-plugin-transparent.png"
+    "localPath": "../assets/jwt-token-validator.png"
   },
   "itemId": "jwt-token-validator",
   "name": "JWT Token Validator",
