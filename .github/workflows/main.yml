@@ -28,7 +28,7 @@ jobs:
     needs:
       - lint
       - build
-      # - tests
+      - tests
     uses: ./.github/workflows/_release-docker.yml
     secrets:
       docker_username: ${{ secrets.BOT_DOCKER_USERNAME }}
