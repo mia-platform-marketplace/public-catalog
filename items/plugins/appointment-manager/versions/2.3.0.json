@@ -6,7 +6,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/appointment-manager/overview"
   },
   "image": {
-    "localPath": "../assets/appointment-manager-plugin.png"
+    "localPath": "../assets/appointment-manager.png"
   },
   "itemId": "appointment-manager",
   "name": "Appointment Manager",

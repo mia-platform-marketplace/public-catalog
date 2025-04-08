@@ -3,7 +3,7 @@
   "categoryId": "utility",
   "description": "This service allow to define and verify rules",
   "image": {
-    "localPath": "../assets/adaptive-approval-plugin.png"
+    "localPath": "../assets/adaptive-approval-service.png"
   },
   "itemId": "adaptive-approval-service",
   "name": "Adaptive Approval Service",

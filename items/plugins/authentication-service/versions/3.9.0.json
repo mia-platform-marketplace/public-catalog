@@ -3,7 +3,7 @@
   "categoryId": "auth",
   "description": "Use Mia-Platform core Authentication Service to provide OAuth2 compliant user authentication API.",
   "image": {
-    "localPath": "../assets/authentication-service-plugin-transparent.png"
+    "localPath": "../assets/authentication-service.png"
   },
   "itemId": "authentication-service",
   "name": "Authentication Service",
