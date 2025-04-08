@@ -39,12 +39,6 @@ jobs:
           username: ${{ secrets.harbor_username }}
           password: ${{ secrets.harbor_token }}
 
-      # - name: start MongoDB instance
-      #   uses: supercharge/mongodb-github-action@90004df786821b6308fb02299e5835d0dae05d0d # v1.12.0
-      #   with:
-      #     mongodb-image: 'registry.mia-platform.eu/proxy-cache/mongo'
-      #     mongodb-version: ${{ matrix.mongodb-version }}
-
       - name: start MongoDB instance
         run: docker run --rm --name mongo -p 27017:27017 -d registry.mia-platform.eu/proxy-cache/mongo:${{ matrix.mongodb-version }}
       
