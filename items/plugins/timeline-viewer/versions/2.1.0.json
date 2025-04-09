@@ -7,7 +7,6 @@
   },
   "itemId": "timeline-viewer",
   "name": "Timeline Viewer",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/backoffice/timeline",
   "resources": {
     "services": {
@@ -49,5 +48,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.036Z"
+  "releaseDate": "2025-02-20T16:47:48.036Z",
+  "lifecycleStatus": "published"
 }

@@ -45,10 +45,6 @@
       ],
       "type": "string"
     },
-    "comingSoon": {
-      "description": "Flag that will prevent the use of the item",
-      "type": "boolean"
-    },
     "description": {
       "description": "Brief description of the item",
       "type": "string"
@@ -80,6 +76,18 @@
       "pattern": "^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?$",
       "type": "string"
     },
+    "lifecycleStatus": {
+      "description": "Lifecycle status of the item",
+      "enum": [
+        "coming-soon",
+        "draft",
+        "published",
+        "maintenance",
+        "deprecated",
+        "archived"
+      ],
+      "type": "string"
+    },
     "name": {
       "description": "Human-readable name of the item",
       "minLength": 1,
@@ -96,17 +104,6 @@
     "releaseDate": {
       "description": "Creation date of this item's release",
       "format": "date-time",
-      "type": "string"
-    },
-    "releaseStage": {
-      "description": "Release stage of the item",
-      "enum": [
-        "beta",
-        "deprecated",
-        "",
-        "preview",
-        "stable"
-      ],
       "type": "string"
     },
     "repositoryUrl": {
@@ -344,6 +341,7 @@
     "tenantId",
     "type",
     "resources",
+    "lifecycleStatus",
     "categoryId",
     "image",
     "supportedBy",

@@ -11,7 +11,6 @@
   },
   "itemId": "crud-postgresql",
   "name": "CRUD PostgreSQL",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/crud-sql",
   "resources": {
     "services": {
@@ -114,5 +113,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2024-02-21T16:06:21.499Z"
+  "releaseDate": "2024-02-21T16:06:21.499Z",
+  "lifecycleStatus": "published"
 }

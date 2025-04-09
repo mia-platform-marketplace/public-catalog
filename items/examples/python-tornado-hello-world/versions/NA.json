@@ -11,7 +11,6 @@
   },
   "itemId": "python-tornado-hello-world",
   "name": "Python Tornado Hello World",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "python-tornado-hello-world": {
@@ -44,5 +43,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2020-05-18T17:02:02.649Z"
+  "releaseDate": "2020-05-18T17:02:02.649Z",
+  "lifecycleStatus": "deprecated"
 }

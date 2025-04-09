@@ -11,7 +11,6 @@
   },
   "itemId": "http-proxy-manager",
   "name": "HTTP Proxy Manager",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/proxy-manager",
   "resources": {
     "services": {
@@ -88,5 +87,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2021-04-13T07:05:36.770Z"
+  "releaseDate": "2021-04-13T07:05:36.770Z",
+  "lifecycleStatus": "published"
 }

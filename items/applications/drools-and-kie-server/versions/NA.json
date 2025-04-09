@@ -11,7 +11,6 @@
   },
   "itemId": "drools-and-kie-server",
   "name": "Drools and Kie Server",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "drools-workbench": {
@@ -140,5 +139,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2022-02-14T08:23:50.713Z"
+  "releaseDate": "2022-02-14T08:23:50.713Z",
+  "lifecycleStatus": "deprecated"
 }

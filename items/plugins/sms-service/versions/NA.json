@@ -11,7 +11,6 @@
   "itemId": "sms-service",
   "name": "SMS Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/sms-service",
   "resources": {
     "services": {
@@ -102,5 +101,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2021-10-14T12:20:28.007Z"
+  "releaseDate": "2021-10-14T12:20:28.007Z",
+  "lifecycleStatus": "published"
 }

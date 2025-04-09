@@ -12,7 +12,6 @@
   "itemId": "cron-scheduler",
   "name": "Cron Scheduler",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/cron-scheduler",
   "resources": {
     "services": {
@@ -56,5 +55,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:52.032Z"
+  "releaseDate": "2025-04-03T13:02:52.032Z",
+  "lifecycleStatus": "published"
 }

@@ -11,7 +11,6 @@
   },
   "itemId": "node-js-call-crud-example",
   "name": "Node.js Call CRUD Example",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "nodejs-call-crud-example": {
@@ -96,5 +95,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2020-02-12T10:46:40.409Z"
+  "releaseDate": "2020-02-12T10:46:40.409Z",
+  "lifecycleStatus": "deprecated"
 }

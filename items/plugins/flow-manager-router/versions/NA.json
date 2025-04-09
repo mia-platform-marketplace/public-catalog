@@ -7,7 +7,6 @@
   },
   "itemId": "flow-manager-router",
   "name": "Flow Manager Router",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "flow-manager-router": {
@@ -144,5 +143,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-02-27T09:26:23.169Z"
+  "releaseDate": "2023-02-27T09:26:23.169Z",
+  "lifecycleStatus": "published"
 }

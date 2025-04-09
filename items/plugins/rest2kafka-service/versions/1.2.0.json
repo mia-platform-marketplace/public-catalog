@@ -12,7 +12,6 @@
   "itemId": "rest2kafka-service",
   "name": "Rest2Kafka service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "beta",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/rest2kafka",
   "resources": {
     "services": {
@@ -140,5 +139,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.028Z"
+  "releaseDate": "2025-02-20T16:47:48.028Z",
+  "lifecycleStatus": "published"
 }

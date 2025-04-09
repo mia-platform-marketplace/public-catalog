@@ -11,7 +11,6 @@
   },
   "itemId": "dev-portal",
   "name": "Dev Portal",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/dev-portal/dev-portal-application",
   "resources": {
     "services": {
@@ -1566,5 +1565,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2021-08-31T07:46:09.508Z"
+  "releaseDate": "2021-08-31T07:46:09.508Z",
+  "lifecycleStatus": "published"
 }

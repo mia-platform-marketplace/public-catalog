@@ -12,7 +12,6 @@
   "itemId": "api-gateway",
   "name": "Nginx API Gateway",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/api-gateway",
   "resources": {
     "services": {
@@ -149,5 +148,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2021-08-31T12:03:34.674Z"
+  "releaseDate": "2021-08-31T12:03:34.674Z",
+  "lifecycleStatus": "published"
 }

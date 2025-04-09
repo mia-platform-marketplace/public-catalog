@@ -11,7 +11,6 @@
   },
   "itemId": "openai-playground",
   "name": "OpenAI Playground",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/open-ai-showcase",
   "resources": {
     "services": {
@@ -96,5 +95,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-05-25T16:10:21.012Z"
+  "releaseDate": "2023-05-25T16:10:21.012Z",
+  "lifecycleStatus": "deprecated"
 }

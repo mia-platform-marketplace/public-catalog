@@ -12,7 +12,6 @@
   "itemId": "fhir-adapter",
   "name": "FHIR Adapter",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-adapter",
   "resources": {
     "services": {
@@ -141,5 +140,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.019Z"
+  "releaseDate": "2025-02-20T16:47:48.019Z",
+  "lifecycleStatus": "published"
 }

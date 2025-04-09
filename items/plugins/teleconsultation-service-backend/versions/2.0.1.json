@@ -11,7 +11,6 @@
   "itemId": "teleconsultation-service-backend",
   "name": "Teleconsultation Service Backend",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-backend",
   "resources": {
     "services": {
@@ -138,5 +137,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-03-20T16:42:16.535Z"
+  "releaseDate": "2025-03-20T16:42:16.535Z",
+  "lifecycleStatus": "published"
 }

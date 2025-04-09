@@ -7,7 +7,6 @@
   },
   "itemId": "kafka2rest-example",
   "name": "Kafka2Rest Example",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "kafka2rest-example": {
@@ -71,5 +70,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2020-02-18T11:16:10.970Z"
+  "releaseDate": "2020-02-18T11:16:10.970Z",
+  "lifecycleStatus": "deprecated"
 }

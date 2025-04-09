@@ -11,7 +11,6 @@
   },
   "itemId": "debezium-server-db2-template",
   "name": "Debezium Server DB2 Template",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-db2-template",
   "resources": {
     "services": {
@@ -122,5 +121,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-05-25T16:10:21.008Z"
+  "releaseDate": "2023-05-25T16:10:21.008Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -12,7 +12,6 @@
   "itemId": "crud-sql-template",
   "name": "CRUD SQL Template",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/crud-sql-template/tree/0.1.0",
   "resources": {
     "services": {
@@ -124,5 +123,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.012Z"
+  "releaseDate": "2025-02-20T16:47:48.012Z",
+  "lifecycleStatus": "published"
 }

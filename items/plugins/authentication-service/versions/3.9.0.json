@@ -7,7 +7,6 @@
   },
   "itemId": "authentication-service",
   "name": "Authentication Service",
-  "releaseStage": "stable",
   "resources": {
     "services": {
       "authentication-service": {
@@ -119,5 +118,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2024-11-18T17:09:39.906Z"
+  "releaseDate": "2024-11-18T17:09:39.906Z",
+  "lifecycleStatus": "published"
 }
