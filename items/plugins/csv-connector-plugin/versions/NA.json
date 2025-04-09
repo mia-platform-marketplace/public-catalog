@@ -12,6 +12,7 @@
   "itemId": "csv-connector-plugin",
   "name": "CSV Connector Plugin",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/csv-connector",
   "resources": {
     "services": {
@@ -152,6 +153,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-04-13T16:06:00.702Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2023-04-13T16:06:00.702Z"
 }

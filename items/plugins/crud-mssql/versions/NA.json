@@ -11,6 +11,7 @@
   },
   "itemId": "crud-mssql",
   "name": "CRUD MSSQL",
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/crud-sql",
   "resources": {
     "services": {
@@ -113,6 +114,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2024-02-21T14:43:22.336Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2024-02-21T14:43:22.336Z"
 }

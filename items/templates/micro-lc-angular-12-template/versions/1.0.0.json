@@ -11,6 +11,7 @@
   },
   "itemId": "micro-lc-angular-12-template",
   "name": "micro-lc Angular 12 Template",
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/micro-lc/angular12-template",
   "resources": {
     "services": {
@@ -56,6 +57,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:51.870Z",
-  "lifecycleStatus": "deprecated"
+  "releaseDate": "2025-04-03T13:02:51.870Z"
 }

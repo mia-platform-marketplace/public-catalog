@@ -11,6 +11,7 @@
   },
   "itemId": "micro-lc-angular-14-template",
   "name": "micro-lc Angular 14 Template",
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/micro-lc/angular14-template",
   "resources": {
     "services": {
@@ -52,6 +53,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-06-01T11:04:24.454Z",
-  "lifecycleStatus": "deprecated"
+  "releaseDate": "2023-06-01T11:04:24.454Z"
 }

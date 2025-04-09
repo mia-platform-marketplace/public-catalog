@@ -11,6 +11,7 @@
   "itemId": "device-manager",
   "name": "Device Manager",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/device-manager",
   "resources": {
     "services": {
@@ -161,6 +162,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.018Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.018Z"
 }

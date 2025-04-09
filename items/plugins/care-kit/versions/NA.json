@@ -12,6 +12,7 @@
   "itemId": "care-kit",
   "name": "Care Kit",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/mia-care-web-components",
   "resources": {
     "services": {
@@ -58,6 +59,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2022-11-11T16:35:31.016Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2022-11-11T16:35:31.016Z"
 }

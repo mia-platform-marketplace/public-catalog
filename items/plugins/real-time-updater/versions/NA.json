@@ -12,6 +12,7 @@
   "itemId": "real-time-updater",
   "name": "Real-Time Updater",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/real-time-updater",
   "resources": {
     "services": {
@@ -256,6 +257,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-10-12T16:07:37.171Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2023-10-12T16:07:37.171Z"
 }

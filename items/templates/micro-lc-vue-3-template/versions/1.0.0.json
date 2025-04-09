@@ -11,6 +11,7 @@
   },
   "itemId": "micro-lc-vue-3-template",
   "name": "micro-lc Vue 3 Template",
+  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/micro-lc/vue3-template",
   "resources": {
     "services": {
@@ -56,6 +57,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.011Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.011Z"
 }

@@ -7,6 +7,7 @@
   },
   "itemId": "smtp-mail-notification-service",
   "name": "SMTP Mail Notification Service",
+  "releaseStage": "stable",
   "resources": {
     "services": {
       "smtp-mail-notification-service": {
@@ -79,6 +80,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.031Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.031Z"
 }

@@ -11,6 +11,7 @@
   },
   "itemId": "react-template",
   "name": "React Template",
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/React-App-Template",
   "resources": {
     "services": {
@@ -52,6 +53,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2020-02-12T10:49:22.178Z",
-  "lifecycleStatus": "deprecated"
+  "releaseDate": "2020-02-12T10:49:22.178Z"
 }

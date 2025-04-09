@@ -7,6 +7,7 @@
   },
   "itemId": "data-visualization-backend",
   "name": "Data Visualization Backend",
+  "releaseStage": "stable",
   "resources": {
     "services": {
       "data-visualization-backend": {
@@ -85,6 +86,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.015Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.015Z"
 }

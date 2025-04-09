@@ -11,6 +11,7 @@
   },
   "itemId": "java-hello-world",
   "name": "Springboot 2 Java 11 Hello World",
+  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/springboot-hello-world-example/tree/2.x_jdk-11",
   "resources": {
     "services": {
@@ -67,6 +68,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.039Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.039Z"
 }

@@ -7,6 +7,7 @@
   },
   "itemId": "application-service-adapter",
   "name": "Application Service Adapter",
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/template/service-adapter-template",
   "resources": {
     "services": {
@@ -109,6 +110,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-02-27T14:12:45.071Z",
-  "lifecycleStatus": "deprecated"
+  "releaseDate": "2023-02-27T14:12:45.071Z"
 }

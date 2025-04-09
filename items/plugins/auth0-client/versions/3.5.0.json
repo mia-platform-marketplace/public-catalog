@@ -12,6 +12,7 @@
   "itemId": "auth0-client",
   "name": "Auth0 Client",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/auth0-client",
   "resources": {
     "services": {
@@ -131,6 +132,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2024-10-10T16:15:06.849Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2024-10-10T16:15:06.849Z"
 }

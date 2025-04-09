@@ -12,6 +12,7 @@
   "itemId": "envoy-api-gateway",
   "name": "Envoy API Gateway",
   "publishOnMiaDocumentation": false,
+  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "api-gateway": {
@@ -116,6 +117,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2022-04-07T16:19:37.098Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2022-04-07T16:19:37.098Z"
 }

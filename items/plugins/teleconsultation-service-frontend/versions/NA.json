@@ -12,6 +12,7 @@
   "itemId": "teleconsultation-service-frontend",
   "name": "Teleconsultation Service Frontend",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-frontend",
   "resources": {
     "services": {
@@ -48,6 +49,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2021-12-02T14:41:04.333Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2021-12-02T14:41:04.333Z"
 }

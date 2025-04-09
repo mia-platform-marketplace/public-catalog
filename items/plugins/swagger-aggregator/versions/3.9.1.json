@@ -12,6 +12,7 @@
   "itemId": "swagger-aggregator",
   "name": "Swagger Aggregator",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
   "resources": {
     "services": {
@@ -81,6 +82,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T17:06:06.528Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T17:06:06.528Z"
 }

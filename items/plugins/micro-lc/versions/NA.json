@@ -11,6 +11,7 @@
   },
   "itemId": "micro-lc",
   "name": "micro-lc",
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/micro-lc/micro-lc",
   "resources": {
     "services": {
@@ -65,6 +66,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-02-16T17:10:25.261Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2023-02-16T17:10:25.261Z"
 }

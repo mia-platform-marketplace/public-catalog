@@ -11,6 +11,7 @@
   },
   "itemId": "single-view-creator-low-code-kafka",
   "name": "Single View Creator Low Code - Kafka",
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
   "resources": {
     "services": {
@@ -273,6 +274,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.030Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.030Z"
 }

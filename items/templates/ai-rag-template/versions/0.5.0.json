@@ -12,6 +12,7 @@
   "itemId": "ai-rag-template",
   "name": "AI RAG Template",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
   "resources": {
     "services": {
@@ -118,6 +119,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-06T16:53:44.926Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-06T16:53:44.926Z"
 }

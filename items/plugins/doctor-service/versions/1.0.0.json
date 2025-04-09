@@ -12,6 +12,7 @@
   "itemId": "doctor-service",
   "name": "Doctor Service",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/doctor-service",
   "resources": {
     "services": {
@@ -50,6 +51,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:52.011Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-04-03T13:02:52.011Z"
 }

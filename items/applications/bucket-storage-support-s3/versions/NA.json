@@ -12,6 +12,7 @@
   "itemId": "bucket-storage-support-s3",
   "name": "Bucket Storage Support - S3",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/bucket-storage-support-application",
   "resources": {
     "services": {
@@ -646,6 +647,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-08-31T16:13:56.276Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2023-08-31T16:13:56.276Z"
 }

@@ -12,6 +12,7 @@
   "itemId": "authorization-service",
   "name": "Authorization Service",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/authorization-service",
   "resources": {
     "services": {
@@ -147,6 +148,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2024-12-05T17:09:02.865Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2024-12-05T17:09:02.865Z"
 }

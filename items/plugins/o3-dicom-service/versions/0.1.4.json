@@ -12,6 +12,7 @@
   "itemId": "o3-dicom-service",
   "name": "O3 DICOM Service",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/o3-dicom-service",
   "resources": {
     "services": {
@@ -127,6 +128,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.026Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.026Z"
 }

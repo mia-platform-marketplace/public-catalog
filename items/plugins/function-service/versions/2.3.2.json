@@ -12,6 +12,7 @@
   "itemId": "function-service",
   "name": "Function Service",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/function-service",
   "resources": {
     "services": {
@@ -91,6 +92,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.061Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.061Z"
 }

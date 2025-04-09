@@ -12,6 +12,7 @@
   "itemId": "client-credentials",
   "name": "Client Credentials",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/client-credentials",
   "resources": {
     "services": {
@@ -122,6 +123,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2024-12-05T17:09:02.888Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2024-12-05T17:09:02.888Z"
 }

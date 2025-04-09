@@ -11,6 +11,7 @@
   },
   "itemId": "go-template",
   "name": "Go 1.22 Template",
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Go-Template/tree/1.22",
   "resources": {
     "services": {
@@ -45,6 +46,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2020-02-12T10:42:08.854Z",
-  "lifecycleStatus": "deprecated"
+  "releaseDate": "2020-02-12T10:42:08.854Z"
 }

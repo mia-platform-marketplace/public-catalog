@@ -12,6 +12,7 @@
   "itemId": "salesforce-streaming-api-connector",
   "name": "Salesforce Streaming API Connector",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/salesforce-streaming-api-connector",
   "resources": {
     "services": {
@@ -400,6 +401,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2022-04-26T08:12:31.833Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2022-04-26T08:12:31.833Z"
 }

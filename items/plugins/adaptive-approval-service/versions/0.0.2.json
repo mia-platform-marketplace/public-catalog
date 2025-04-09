@@ -8,6 +8,7 @@
   "itemId": "adaptive-approval-service",
   "name": "Adaptive Approval Service",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "resources": {
     "services": {
       "adaptive-approval-service": {
@@ -84,6 +85,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.012Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.012Z"
 }

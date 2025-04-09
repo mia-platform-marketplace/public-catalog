@@ -12,6 +12,7 @@
   "itemId": "invoice-service",
   "name": "Invoice Service",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/plugins/invoice-service",
   "resources": {
     "services": {
@@ -120,6 +121,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2022-11-09T14:27:48.512Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2022-11-09T14:27:48.512Z"
 }

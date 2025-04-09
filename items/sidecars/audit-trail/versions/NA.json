@@ -19,6 +19,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/audit-trail/overview"
   },
   "publishOnMiaDocumentation": true,
+  "releaseStage": "preview",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/audit-trail",
   "type": "sidecar",
   "resources": {
@@ -42,6 +43,5 @@
       }
     }
   },
-  "releaseDate": "2025-04-03T13:02:51.888Z",
-  "lifecycleStatus": "draft"
+  "releaseDate": "2025-04-03T13:02:51.888Z"
 }

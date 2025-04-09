@@ -11,6 +11,7 @@
   },
   "itemId": "typescript-hello-world-example",
   "name": "TypeScript Hello World Example",
+  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "typescript-hello-world-example": {
@@ -42,6 +43,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2021-11-08T17:43:44.934Z",
-  "lifecycleStatus": "deprecated"
+  "releaseDate": "2021-11-08T17:43:44.934Z"
 }

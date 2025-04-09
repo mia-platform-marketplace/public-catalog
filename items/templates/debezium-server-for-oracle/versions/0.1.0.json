@@ -11,6 +11,7 @@
   },
   "itemId": "debezium-server-for-oracle",
   "name": "Debezium Server for Oracle",
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-template",
   "resources": {
     "services": {
@@ -125,6 +126,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.008Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.008Z"
 }

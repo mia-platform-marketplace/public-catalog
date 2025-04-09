@@ -12,6 +12,7 @@
   "itemId": "bucket-storage-support-gcp",
   "name": "Bucket Storage Support - GCP",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/bucket-storage-support-application",
   "resources": {
     "services": {
@@ -659,6 +660,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-07-12T14:22:54.461Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2023-07-12T14:22:54.461Z"
 }

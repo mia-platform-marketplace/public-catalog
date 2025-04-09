@@ -11,6 +11,7 @@
   },
   "itemId": "debezium-server-generic-template",
   "name": "Debezium Server Generic Template",
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-generic-template",
   "resources": {
     "services": {
@@ -125,6 +126,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.009Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.009Z"
 }

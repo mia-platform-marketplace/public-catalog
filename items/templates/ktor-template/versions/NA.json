@@ -11,6 +11,7 @@
   },
   "itemId": "ktor-template",
   "name": "Ktor 1.6 Java 11 Template",
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Ktor-Template/tree/1.6.x_jdk-11",
   "resources": {
     "services": {
@@ -78,6 +79,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2021-02-02T16:26:32.575Z",
-  "lifecycleStatus": "deprecated"
+  "releaseDate": "2021-02-02T16:26:32.575Z"
 }

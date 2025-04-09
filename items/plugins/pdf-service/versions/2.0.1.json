@@ -7,6 +7,7 @@
   },
   "itemId": "pdf-service",
   "name": "PDF Service",
+  "releaseStage": "beta",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/pdf-service",
   "resources": {
     "services": {
@@ -59,6 +60,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.026Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.026Z"
 }

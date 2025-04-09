@@ -11,6 +11,7 @@
   },
   "itemId": "vite-typescript-react-template",
   "name": "Vite TypeScript React 18 Template",
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Vite-Typescript-React-App-Template/tree/18.x",
   "resources": {
     "services": {
@@ -52,6 +53,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2024-06-10T16:10:21.405Z",
-  "lifecycleStatus": "deprecated"
+  "releaseDate": "2024-06-10T16:10:21.405Z"
 }

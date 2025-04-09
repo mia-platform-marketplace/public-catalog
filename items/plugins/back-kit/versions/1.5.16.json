@@ -11,6 +11,7 @@
   },
   "itemId": "back-kit",
   "name": "Back Kit",
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/microfrontend-composer/back-kit",
   "resources": {
     "services": {
@@ -69,6 +70,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-03-20T16:42:16.530Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-03-20T16:42:16.530Z"
 }

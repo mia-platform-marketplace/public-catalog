@@ -11,6 +11,7 @@
   },
   "itemId": "helidon-hello-world",
   "name": "Helidon Hello World",
+  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "helidon-hello-world": {
@@ -75,6 +76,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:52.088Z",
-  "lifecycleStatus": "deprecated"
+  "releaseDate": "2025-04-03T13:02:52.088Z"
 }

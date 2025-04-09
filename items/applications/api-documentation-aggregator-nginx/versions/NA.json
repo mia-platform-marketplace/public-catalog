@@ -11,6 +11,7 @@
   },
   "itemId": "api-documentation-aggregator-nginx",
   "name": "API Documentation Aggregator NGINX",
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/api-documentation-aggregator-application",
   "resources": {
     "services": {
@@ -255,6 +256,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2024-02-01T17:26:43.723Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2024-02-01T17:26:43.723Z"
 }

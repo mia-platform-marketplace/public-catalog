@@ -11,6 +11,7 @@
   },
   "itemId": "user-manager-service",
   "name": "User Manager Service",
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/user-manager-service",
   "resources": {
     "services": {
@@ -134,6 +135,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2022-05-04T08:19:20.540Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2022-05-04T08:19:20.540Z"
 }

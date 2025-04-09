@@ -12,6 +12,7 @@
   "itemId": "flow-manager-service",
   "name": "Flow Manager Service",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/flow-manager/flow-manager",
   "resources": {
     "services": {
@@ -117,6 +118,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-01-16T17:17:52.665Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-01-16T17:17:52.665Z"
 }

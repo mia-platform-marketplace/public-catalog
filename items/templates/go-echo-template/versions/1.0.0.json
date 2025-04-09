@@ -11,6 +11,7 @@
   },
   "itemId": "go-echo-template",
   "name": "Go Echo Template",
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/go-echo-template",
   "resources": {
     "services": {
@@ -49,6 +50,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:51.874Z",
-  "lifecycleStatus": "deprecated"
+  "releaseDate": "2025-04-03T13:02:51.874Z"
 }

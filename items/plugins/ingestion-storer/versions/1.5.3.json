@@ -12,6 +12,7 @@
   "itemId": "ingestion-storer",
   "name": "Ingestion Storer",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/historical-data/ingestion-storer",
   "resources": {
     "services": {
@@ -171,6 +172,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-06T16:53:44.930Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-06T16:53:44.930Z"
 }

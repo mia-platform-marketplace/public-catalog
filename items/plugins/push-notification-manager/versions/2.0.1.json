@@ -12,6 +12,7 @@
   "itemId": "push-notification-manager",
   "name": "Push Notification Manager",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/notifications-manager",
   "resources": {
     "services": {
@@ -106,6 +107,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.027Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.027Z"
 }

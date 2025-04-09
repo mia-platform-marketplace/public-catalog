@@ -8,6 +8,7 @@
   "itemId": "notification-module",
   "name": "Notification Module",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/notification-module",
   "resources": {
     "collections": {
@@ -1897,6 +1898,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-01-16T17:17:52.686Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-01-16T17:17:52.686Z"
 }

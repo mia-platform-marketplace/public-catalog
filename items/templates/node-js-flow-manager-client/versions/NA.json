@@ -11,6 +11,7 @@
   },
   "itemId": "node-js-flow-manager-client",
   "name": "Node.js 16 Flow Manager Client",
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Node.js-Flow-Manager-Client-Template/tree/16.x",
   "resources": {
     "services": {
@@ -126,6 +127,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2021-11-15T17:35:10.281Z",
-  "lifecycleStatus": "deprecated"
+  "releaseDate": "2021-11-15T17:35:10.281Z"
 }

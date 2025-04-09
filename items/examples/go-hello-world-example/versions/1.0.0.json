@@ -11,6 +11,7 @@
   },
   "itemId": "go-hello-world-example",
   "name": "Go 1.20 Hello World Example",
+  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Go-Hello-World-Microservice-Example/tree/1.20",
   "resources": {
     "services": {
@@ -49,6 +50,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.039Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.039Z"
 }

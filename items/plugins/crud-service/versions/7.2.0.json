@@ -12,6 +12,7 @@
   "itemId": "crud-service",
   "name": "CRUD Service",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/mia-platform/crud-service",
   "resources": {
     "services": {
@@ -114,6 +115,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2024-10-10T16:15:06.830Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2024-10-10T16:15:06.830Z"
 }

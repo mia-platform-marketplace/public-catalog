@@ -12,6 +12,7 @@
   "itemId": "api-portal",
   "name": "API Portal",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/api-portal/website",
   "resources": {
     "services": {
@@ -67,6 +68,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T17:06:06.476Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T17:06:06.476Z"
 }

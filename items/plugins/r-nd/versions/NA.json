@@ -11,6 +11,7 @@
   },
   "itemId": "r-nd",
   "name": "Rönd",
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/rond-authz/rond/",
   "resources": {
     "services": {
@@ -149,6 +150,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2022-03-24T17:06:02.377Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2022-03-24T17:06:02.377Z"
 }

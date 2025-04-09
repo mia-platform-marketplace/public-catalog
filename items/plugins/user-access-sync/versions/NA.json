@@ -12,6 +12,7 @@
   "itemId": "user-access-sync",
   "name": "User Access Sync",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/fintech/middleware-permissions",
   "resources": {
     "services": {
@@ -92,6 +93,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2024-05-30T16:08:43.680Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2024-05-30T16:08:43.680Z"
 }

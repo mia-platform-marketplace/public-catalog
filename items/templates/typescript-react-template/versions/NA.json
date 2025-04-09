@@ -11,6 +11,7 @@
   },
   "itemId": "typescript-react-template",
   "name": "TypeScript React Template",
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Typescript-React-App-Template",
   "resources": {
     "services": {
@@ -52,6 +53,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2022-03-30T10:38:16.178Z",
-  "lifecycleStatus": "deprecated"
+  "releaseDate": "2022-03-30T10:38:16.178Z"
 }

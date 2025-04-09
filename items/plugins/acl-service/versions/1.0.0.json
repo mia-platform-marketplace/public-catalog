@@ -12,6 +12,7 @@
   "itemId": "acl-service",
   "name": "ACL Service",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/acl-service",
   "resources": {
     "services": {
@@ -91,6 +92,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:52.064Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-04-03T13:02:52.064Z"
 }

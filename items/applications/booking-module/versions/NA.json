@@ -8,6 +8,7 @@
   "itemId": "booking-module",
   "name": "Booking Module",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/booking-module",
   "resources": {
     "collections": {
@@ -1668,6 +1669,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-01-16T17:17:52.670Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-01-16T17:17:52.670Z"
 }

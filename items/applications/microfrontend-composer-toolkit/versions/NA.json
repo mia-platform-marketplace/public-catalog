@@ -12,6 +12,7 @@
   "itemId": "microfrontend-composer-toolkit",
   "name": "Microfrontend Composer Toolkit",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/microfrontend-composer-toolkit-application",
   "resources": {
     "services": {
@@ -306,6 +307,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-11-30T17:52:19.189Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2023-11-30T17:52:19.189Z"
 }

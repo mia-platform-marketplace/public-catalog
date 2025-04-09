@@ -12,6 +12,7 @@
   "itemId": "files-service",
   "name": "Files Service",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/files-service",
   "resources": {
     "services": {
@@ -87,6 +88,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2024-12-19T17:04:05.876Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2024-12-19T17:04:05.876Z"
 }

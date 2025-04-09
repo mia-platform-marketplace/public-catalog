@@ -7,6 +7,7 @@
   },
   "itemId": "data-visualization",
   "name": "Data Visualization",
+  "releaseStage": "stable",
   "resources": {
     "services": {
       "data-visualization": {
@@ -47,6 +48,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.016Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.016Z"
 }

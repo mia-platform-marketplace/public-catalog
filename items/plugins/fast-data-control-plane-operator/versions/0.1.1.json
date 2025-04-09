@@ -12,6 +12,7 @@
   "itemId": "fast-data-control-plane-operator",
   "name": "Fast Data Control Plane Operator",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/control-plane-operator-plugin",
   "resources": {
     "services": {
@@ -108,6 +109,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2024-12-19T17:04:05.875Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2024-12-19T17:04:05.875Z"
 }

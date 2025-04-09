@@ -12,6 +12,7 @@
   "itemId": "timer-service",
   "name": "Timer Service",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/timer-service",
   "resources": {
     "services": {
@@ -126,6 +127,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.034Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.034Z"
 }

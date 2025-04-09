@@ -11,6 +11,7 @@
   },
   "itemId": "export-service",
   "name": "Export Service",
+  "releaseStage": "stable",
   "resources": {
     "services": {
       "export-service": {
@@ -103,6 +104,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.017Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.017Z"
 }

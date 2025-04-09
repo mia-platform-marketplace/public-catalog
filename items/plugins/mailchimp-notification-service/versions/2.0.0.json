@@ -12,6 +12,7 @@
   "itemId": "mailchimp-notification-service",
   "name": "Mailchimp Notification Service",
   "publishOnMiaDocumentation": true,
+  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mailchimp-plugin",
   "resources": {
     "services": {
@@ -101,6 +102,5 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.025Z",
-  "lifecycleStatus": "published"
+  "releaseDate": "2025-02-20T16:47:48.025Z"
 }
