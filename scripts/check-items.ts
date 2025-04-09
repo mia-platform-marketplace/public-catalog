@@ -22,7 +22,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 
 import type { ICatalogApplication } from '@mia-platform/console-types'
-import { CatalogItemReleaseStage, catalogWellKnownItems, CATALOG_ITEM_NA_VERSION } from '@mia-platform/console-types'
+import { catalogWellKnownItems, CATALOG_ITEM_NA_VERSION, catalogItemLifecycleStatusEnum } from '@mia-platform/console-types'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 import chalk from 'chalk'
@@ -226,7 +226,7 @@ const assertVersionValid = async (task: Task, manifestPath: string, typeData: It
       throw new Error(`Manifests for "NA" versions must not have property "version"`)
     }
 
-    if (typeData.crd.resources.isVersioningSupported && manifest.releaseStage !== CatalogItemReleaseStage.DEPRECATED) {
+    if (typeData.crd.resources.isVersioningSupported && manifest.lifecycleStatus !== catalogItemLifecycleStatusEnum.DEPRECATED) {
       throw new Error(`Manifests for "NA" versions must have "releaseStage" set to "deprecated"`)
     }
   }
