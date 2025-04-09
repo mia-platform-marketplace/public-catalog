@@ -11,7 +11,6 @@
   },
   "itemId": "go-call-crud-example",
   "name": "Go Call CRUD Example",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "go-call-crud-example": {
@@ -101,5 +100,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:52.091Z"
+  "releaseDate": "2025-04-03T13:02:52.091Z",
+  "lifecycleStatus": "deprecated"
 }

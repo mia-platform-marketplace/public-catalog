@@ -12,7 +12,6 @@
   "itemId": "single-view-creator",
   "name": "Single View Creator",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
   "resources": {
     "services": {
@@ -205,5 +204,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2021-04-20T12:18:27.904Z"
+  "releaseDate": "2021-04-20T12:18:27.904Z",
+  "lifecycleStatus": "deprecated"
 }

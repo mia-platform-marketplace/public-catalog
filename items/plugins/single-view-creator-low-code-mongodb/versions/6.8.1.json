@@ -11,7 +11,6 @@
   },
   "itemId": "single-view-creator-low-code-mongodb",
   "name": "Single View Creator Low Code - MongoDB",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
   "resources": {
     "services": {
@@ -250,5 +249,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:51.921Z"
+  "releaseDate": "2025-04-03T13:02:51.921Z",
+  "lifecycleStatus": "published"
 }

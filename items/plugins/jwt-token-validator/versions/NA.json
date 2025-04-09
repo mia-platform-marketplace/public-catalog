@@ -12,7 +12,6 @@
   "itemId": "jwt-token-validator",
   "name": "JWT Token Validator",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/jwt-token-validator",
   "resources": {
     "services": {
@@ -86,5 +85,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2021-09-09T08:38:47.213Z"
+  "releaseDate": "2021-09-09T08:38:47.213Z",
+  "lifecycleStatus": "deprecated"
 }

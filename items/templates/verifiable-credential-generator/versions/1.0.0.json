@@ -7,7 +7,6 @@
   },
   "itemId": "verifiable-credential-generator",
   "name": "Verifiable Credential Generator",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/template/vc-generator-template",
   "resources": {
     "services": {
@@ -126,5 +125,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.011Z"
+  "releaseDate": "2025-02-20T16:47:48.011Z",
+  "lifecycleStatus": "published"
 }

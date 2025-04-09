@@ -12,7 +12,6 @@
   "itemId": "api-documentation-aggregator",
   "name": "API Documentation Aggregator",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/api-documentation-aggregator-application",
   "resources": {
     "services": {
@@ -232,5 +231,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2022-11-17T14:38:17.976Z"
+  "releaseDate": "2022-11-17T14:38:17.976Z",
+  "lifecycleStatus": "published"
 }

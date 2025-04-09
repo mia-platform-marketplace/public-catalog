@@ -12,7 +12,6 @@
   "itemId": "payment-gateway-manager",
   "name": "Payment Gateway Manager",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/payment-gateway-manager",
   "resources": {
     "services": {
@@ -95,5 +94,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2021-02-09T15:35:48.199Z"
+  "releaseDate": "2021-02-09T15:35:48.199Z",
+  "lifecycleStatus": "deprecated"
 }

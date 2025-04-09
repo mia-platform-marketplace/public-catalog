@@ -12,7 +12,6 @@
   "itemId": "push-notification-sender",
   "name": "Push Notification Sender",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/notifications-service",
   "resources": {
     "services": {
@@ -92,5 +91,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.027Z"
+  "releaseDate": "2025-02-20T16:47:48.027Z",
+  "lifecycleStatus": "published"
 }

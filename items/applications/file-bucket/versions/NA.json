@@ -12,7 +12,6 @@
   "itemId": "file-bucket",
   "name": "File Bucket",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/file-bucket-application",
   "resources": {
     "services": {
@@ -428,5 +427,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-05-14T14:07:38.602Z"
+  "releaseDate": "2023-05-14T14:07:38.602Z",
+  "lifecycleStatus": "deprecated"
 }

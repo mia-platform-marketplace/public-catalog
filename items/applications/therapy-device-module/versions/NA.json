@@ -8,7 +8,6 @@
   "itemId": "therapy-device-module",
   "name": "Therapy Device Module",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/therapy-device-module",
   "resources": {
     "collections": {
@@ -1879,5 +1878,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-01-16T17:17:52.671Z"
+  "releaseDate": "2025-01-16T17:17:52.671Z",
+  "lifecycleStatus": "published"
 }

@@ -11,7 +11,6 @@
   },
   "itemId": "micro-lc-react-template",
   "name": "micro-lc React 18 Template",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/micro-lc/react-template/tree/18.x",
   "resources": {
     "services": {
@@ -53,5 +52,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-06-01T11:04:24.452Z"
+  "releaseDate": "2023-06-01T11:04:24.452Z",
+  "lifecycleStatus": "deprecated"
 }

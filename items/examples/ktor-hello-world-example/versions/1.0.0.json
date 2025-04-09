@@ -11,7 +11,6 @@
   },
   "itemId": "ktor-hello-world-example",
   "name": "Ktor 1.6 Java 11 Hello World Example",
-  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Ktor-Hello-World-Example/tree/1.6.x_jdk-11",
   "resources": {
     "services": {
@@ -83,5 +82,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.038Z"
+  "releaseDate": "2025-02-20T16:47:48.038Z",
+  "lifecycleStatus": "published"
 }

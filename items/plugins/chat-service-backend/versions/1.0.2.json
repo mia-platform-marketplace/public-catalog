@@ -12,7 +12,6 @@
   "itemId": "chat-service-backend",
   "name": "Chat Service Backend",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/chat-service-backend",
   "resources": {
     "services": {
@@ -130,5 +129,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-03-20T16:42:16.589Z"
+  "releaseDate": "2025-03-20T16:42:16.589Z",
+  "lifecycleStatus": "published"
 }

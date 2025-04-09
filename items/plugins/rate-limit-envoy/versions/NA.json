@@ -7,7 +7,6 @@
   },
   "itemId": "rate-limit-envoy",
   "name": "Rate Limit Envoy",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "rate-limit-envoy": {
@@ -124,5 +123,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2022-04-07T16:19:37.099Z"
+  "releaseDate": "2022-04-07T16:19:37.099Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -8,7 +8,6 @@
   "itemId": "adaptive-approval-service",
   "name": "Adaptive Approval Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "adaptive-approval-service": {
@@ -81,5 +80,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-10-24T09:00:53.763Z"
+  "releaseDate": "2023-10-24T09:00:53.763Z",
+  "lifecycleStatus": "deprecated"
 }

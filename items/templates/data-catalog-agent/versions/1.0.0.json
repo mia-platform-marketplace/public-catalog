@@ -12,7 +12,6 @@
   "itemId": "data-catalog-agent",
   "name": "Data Catalog Agent",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/data-catalog-agent",
   "resources": {
     "services": {
@@ -44,5 +43,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:51.878Z"
+  "releaseDate": "2025-04-03T13:02:51.878Z",
+  "lifecycleStatus": "deprecated"
 }

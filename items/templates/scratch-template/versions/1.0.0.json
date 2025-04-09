@@ -11,7 +11,6 @@
   },
   "itemId": "scratch-template",
   "name": "Scratch Template",
-  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/scratch-template",
   "resources": {
     "services": {
@@ -44,5 +43,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.010Z"
+  "releaseDate": "2025-02-20T16:47:48.010Z",
+  "lifecycleStatus": "published"
 }

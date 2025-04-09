@@ -12,7 +12,6 @@
   "itemId": "ingestion-reloader",
   "name": "Ingestion Reloader",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/historical-data/ingestion-reloader",
   "resources": {
     "services": {
@@ -155,5 +154,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-06T16:53:44.928Z"
+  "releaseDate": "2025-02-06T16:53:44.928Z",
+  "lifecycleStatus": "published"
 }
