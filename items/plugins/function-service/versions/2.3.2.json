@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/function-service/configuration"
   },
   "image": {
-    "localPath": "../assets/function-service-plugin-transparent.png"
+    "localPath": "../assets/function-service.png"
   },
   "itemId": "function-service",
   "name": "Function Service",

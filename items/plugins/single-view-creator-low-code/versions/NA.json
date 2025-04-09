@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/single-view-creator/configuration"
   },
   "image": {
-    "localPath": "../assets/singleViewCreator-Plugin.png"
+    "localPath": "../assets/single-view-creator-low-code.png"
   },
   "itemId": "single-view-creator-low-code",
   "name": "Single View Creator Low Code",

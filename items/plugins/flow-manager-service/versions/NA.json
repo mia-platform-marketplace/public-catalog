@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/flow-manager-service/overview"
   },
   "image": {
-    "localPath": "../assets/flow-manager-service-plugin-transparent.png"
+    "localPath": "../assets/flow-manager-service.png"
   },
   "itemId": "flow-manager-service",
   "name": "Flow Manager Service",

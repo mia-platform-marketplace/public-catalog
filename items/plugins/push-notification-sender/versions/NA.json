@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/push-notification-sender/overview"
   },
   "image": {
-    "localPath": "../assets/push-notification-sender-plugin-transparent.png"
+    "localPath": "../assets/push-notification-sender.png"
   },
   "itemId": "push-notification-sender",
   "name": "Push Notification Sender",

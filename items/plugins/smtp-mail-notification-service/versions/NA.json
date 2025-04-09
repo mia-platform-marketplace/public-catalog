@@ -3,7 +3,7 @@
   "categoryId": "notification",
   "description": "Send custom email using configured SMTP server",
   "image": {
-    "localPath": "../assets/smtp-mail-notification-plugin-service-transparent.png"
+    "localPath": "../assets/smtp-mail-notification-service.png"
   },
   "itemId": "smtp-mail-notification-service",
   "name": "SMTP Mail Notification Service",

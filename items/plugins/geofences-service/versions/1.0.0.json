@@ -3,7 +3,7 @@
   "categoryId": "addgeo",
   "description": "The Geofences Service Plugin handles geofences and related resources and actions.",
   "image": {
-    "localPath": "../assets/geofences-service-plugin-transparent.png"
+    "localPath": "../assets/geofences-service.png"
   },
   "itemId": "geofences-service",
   "name": "Geofences Service",

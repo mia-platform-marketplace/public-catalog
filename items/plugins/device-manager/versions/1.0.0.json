@@ -6,7 +6,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/device-manager/overview"
   },
   "image": {
-    "localPath": "../assets/device-manager-plugin.png"
+    "localPath": "../assets/device-manager.png"
   },
   "itemId": "device-manager",
   "name": "Device Manager",

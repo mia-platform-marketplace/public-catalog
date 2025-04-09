@@ -3,7 +3,7 @@
   "categoryId": "orchestrators",
   "description": "The Go/gRPC service to enable global rate limit on your Envoy API Gateway",
   "image": {
-    "localPath": "../assets/rate-limit-envoy-plugin-transparent.png"
+    "localPath": "../assets/rate-limit-envoy.png"
   },
   "itemId": "rate-limit-envoy",
   "name": "Rate Limit Envoy",

@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/files-service/configuration"
   },
   "image": {
-    "localPath": "../assets/file-service-plugin-transparent.png"
+    "localPath": "../assets/files-service.png"
   },
   "itemId": "files-service",
   "name": "Files Service",

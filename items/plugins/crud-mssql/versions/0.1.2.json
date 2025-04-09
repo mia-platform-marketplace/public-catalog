@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/crud-sql/overview"
   },
   "image": {
-    "localPath": "../assets/crud-mssql-plugin.png"
+    "localPath": "../assets/crud-mssql.png"
   },
   "itemId": "crud-mssql",
   "name": "CRUD MSSQL",

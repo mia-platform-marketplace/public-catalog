@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/business_suite/backoffice/overview"
   },
   "image": {
-    "localPath": "../assets/back-kit-plugin-transparent.png"
+    "localPath": "../assets/back-kit.png"
   },
   "itemId": "back-kit",
   "name": "Back Kit",

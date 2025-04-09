@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc#mysql"
   },
   "image": {
-    "localPath": "../assets/debezium-server-for-mysql-plugin-transparent.png"
+    "localPath": "../assets/debezium-server-for-mysql.png"
   },
   "itemId": "debezium-server-for-mysql",
   "name": "Debezium Server for MySQL",

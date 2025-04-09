@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/payment-gateway-manager/overview"
   },
   "image": {
-    "localPath": "../assets/payment-gateway-plugin-transparent.png"
+    "localPath": "../assets/payment-gateway-manager.png"
   },
   "itemId": "payment-gateway-manager",
   "name": "Payment Gateway Manager",

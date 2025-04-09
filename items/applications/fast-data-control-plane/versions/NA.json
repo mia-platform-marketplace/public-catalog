@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/control-plane/overview"
   },
   "image": {
-    "localPath": "../assets/fast-data-control-plane-application-transparent.png"
+    "localPath": "../assets/fast-data-control-plane.png"
   },
   "itemId": "fast-data-control-plane",
   "name": "Fast Data Control Plane",

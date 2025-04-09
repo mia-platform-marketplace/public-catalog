@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/envoy-api-gateway/overview"
   },
   "image": {
-    "localPath": "../assets/envoy-api-gateway-plugin-transparent.png"
+    "localPath": "../assets/envoy-api-gateway.png"
   },
   "itemId": "envoy-api-gateway",
   "name": "Envoy API Gateway",

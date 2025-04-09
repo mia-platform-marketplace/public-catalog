@@ -11,7 +11,7 @@
     "public": true
   },
   "image": {
-    "localPath": "../assets/audit-trail-logo.png"
+    "localPath": "../assets/audit-trail.png"
   },
   "description": "Collect audit logs from your microservice",
   "documentation": {

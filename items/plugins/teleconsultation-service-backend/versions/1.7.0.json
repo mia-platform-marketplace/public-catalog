@@ -6,7 +6,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/teleconsultation-service-backend/overview"
   },
   "image": {
-    "localPath": "../assets/teleconsultation-service-backend-plugin.png"
+    "localPath": "../assets/teleconsultation-service-backend.png"
   },
   "itemId": "teleconsultation-service-backend",
   "name": "Teleconsultation Service Backend",

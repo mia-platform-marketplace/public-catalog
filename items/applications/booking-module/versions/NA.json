@@ -3,7 +3,7 @@
   "categoryId": "healthcare",
   "description": "This application allows to quickly setup the necessary services in order to manage appointments and availabilities.",
   "image": {
-    "localPath": "../assets/booking-module.png"
+    "localPath": "../assets/booking-module-new.png"
   },
   "itemId": "booking-module",
   "name": "Booking Module",

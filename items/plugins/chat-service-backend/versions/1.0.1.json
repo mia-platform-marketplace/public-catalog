@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/chat-service-backend/overview"
   },
   "image": {
-    "localPath": "../assets/chat-service-backend-plugin.png"
+    "localPath": "../assets/chat-service-backend.png"
   },
   "itemId": "chat-service-backend",
   "name": "Chat Service Backend",
