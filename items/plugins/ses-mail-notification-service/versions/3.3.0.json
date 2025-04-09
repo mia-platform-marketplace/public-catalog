@@ -12,7 +12,6 @@
   "itemId": "ses-mail-notification-service",
   "name": "SES Mail Notification Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mail-notification-service",
   "resources": {
     "services": {
@@ -61,5 +60,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.028Z"
+  "releaseDate": "2025-02-20T16:47:48.028Z",
+  "lifecycleStatus": "published"
 }

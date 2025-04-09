@@ -12,7 +12,6 @@
   "itemId": "flow-manager-service",
   "name": "Flow Manager Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/flow-manager/flow-manager",
   "resources": {
     "services": {
@@ -114,5 +113,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2020-09-11T13:21:38.380Z"
+  "releaseDate": "2020-09-11T13:21:38.380Z",
+  "lifecycleStatus": "deprecated"
 }

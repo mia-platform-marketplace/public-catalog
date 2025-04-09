@@ -11,7 +11,6 @@
   },
   "itemId": "slack-webhook-example",
   "name": "Slack Webhook Example",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "slack-webhook-example": {
@@ -105,5 +104,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:52.073Z"
+  "releaseDate": "2025-04-03T13:02:52.073Z",
+  "lifecycleStatus": "deprecated"
 }

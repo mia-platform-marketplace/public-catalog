@@ -11,7 +11,6 @@
   },
   "itemId": "node-js-helloworld-microservice-example",
   "name": "Node.js 16 HelloWorld Microservice Example",
-  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Node.js-Hello-World-Microservice-Example/tree/16.x",
   "resources": {
     "services": {
@@ -53,5 +52,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.039Z"
+  "releaseDate": "2025-02-20T16:47:48.039Z",
+  "lifecycleStatus": "published"
 }

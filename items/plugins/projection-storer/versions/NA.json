@@ -12,7 +12,6 @@
   "itemId": "projection-storer",
   "name": "Projection Storer",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/projection-storer",
   "resources": {
     "services": {
@@ -89,5 +88,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-11-30T17:52:19.221Z"
+  "releaseDate": "2023-11-30T17:52:19.221Z",
+  "lifecycleStatus": "deprecated"
 }

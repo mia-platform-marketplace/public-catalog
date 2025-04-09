@@ -11,7 +11,6 @@
   },
   "itemId": "web-components-library-template",
   "name": "Web Components Library Template",
-  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/micro-lc/wc-library-template",
   "resources": {
     "services": {
@@ -62,5 +61,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.010Z"
+  "releaseDate": "2025-02-20T16:47:48.010Z",
+  "lifecycleStatus": "published"
 }

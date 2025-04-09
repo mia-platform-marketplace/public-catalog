@@ -12,7 +12,6 @@
   "itemId": "function-service",
   "name": "Function Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/function-service",
   "resources": {
     "services": {
@@ -88,5 +87,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2020-09-11T13:10:35.508Z"
+  "releaseDate": "2020-09-11T13:10:35.508Z",
+  "lifecycleStatus": "deprecated"
 }

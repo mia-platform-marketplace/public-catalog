@@ -7,7 +7,6 @@
   },
   "itemId": "ip-geolocation-service",
   "name": "IP Geolocation Service",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/ip-geolocation-service",
   "resources": {
     "services": {
@@ -57,5 +56,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:51.973Z"
+  "releaseDate": "2025-04-03T13:02:51.973Z",
+  "lifecycleStatus": "deprecated"
 }

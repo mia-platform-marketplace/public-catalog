@@ -11,7 +11,6 @@
   },
   "itemId": "node-js-daemon-template",
   "name": "Node.js Daemon Template",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/node.js-daemon-template",
   "resources": {
     "services": {
@@ -44,5 +43,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:51.864Z"
+  "releaseDate": "2025-04-03T13:02:51.864Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -12,7 +12,6 @@
   "itemId": "identification-manager",
   "name": "Identification Manager",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/identification-manager",
   "resources": {
     "services": {
@@ -1138,5 +1137,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2023-03-21T15:00:45.631Z"
+  "releaseDate": "2023-03-21T15:00:45.631Z",
+  "lifecycleStatus": "published"
 }

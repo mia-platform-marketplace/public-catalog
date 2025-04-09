@@ -11,7 +11,6 @@
   },
   "itemId": "python-falcon-hello-world",
   "name": "Python Falcon Hello World",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "python-falcon-hello-world": {
@@ -48,5 +47,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:52.078Z"
+  "releaseDate": "2025-04-03T13:02:52.078Z",
+  "lifecycleStatus": "deprecated"
 }

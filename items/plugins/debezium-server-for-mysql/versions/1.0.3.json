@@ -11,7 +11,6 @@
   },
   "itemId": "debezium-server-for-mysql",
   "name": "Debezium Server for MySQL",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-with-prometheus-metrics",
   "resources": {
     "services": {
@@ -122,5 +121,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.018Z"
+  "releaseDate": "2025-02-20T16:47:48.018Z",
+  "lifecycleStatus": "published"
 }

@@ -11,7 +11,6 @@
   },
   "itemId": "springboot-decorator-example",
   "name": "Springboot Decorator Example",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "springboot-decorator-example": {
@@ -67,5 +66,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:52.069Z"
+  "releaseDate": "2025-04-03T13:02:52.069Z",
+  "lifecycleStatus": "deprecated"
 }

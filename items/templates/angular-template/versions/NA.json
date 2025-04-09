@@ -11,7 +11,6 @@
   },
   "itemId": "angular-template",
   "name": "Angular 10 Template",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Angular-App-Template",
   "resources": {
     "services": {
@@ -54,5 +53,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2020-02-12T10:50:24.328Z"
+  "releaseDate": "2020-02-12T10:50:24.328Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -12,7 +12,6 @@
   "itemId": "therapy-and-monitoring-manager",
   "name": "Therapy and Monitoring Manager",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/therapy-monitoring-manager",
   "resources": {
     "services": {
@@ -160,5 +159,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-03-20T16:42:16.535Z"
+  "releaseDate": "2025-03-20T16:42:16.535Z",
+  "lifecycleStatus": "published"
 }

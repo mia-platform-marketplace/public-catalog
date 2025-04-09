@@ -8,7 +8,6 @@
   "itemId": "ai-rag-chat",
   "name": "AI RAG Chat",
   "publishOnMiaDocumentation": false,
-  "releaseStage": "stable",
   "resources": {
     "services": {
       "api-gateway": {
@@ -316,5 +315,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2024-08-01T16:26:53.341Z"
+  "releaseDate": "2024-08-01T16:26:53.341Z",
+  "lifecycleStatus": "published"
 }

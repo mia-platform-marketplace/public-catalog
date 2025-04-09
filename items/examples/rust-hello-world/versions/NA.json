@@ -11,7 +11,6 @@
   },
   "itemId": "rust-hello-world",
   "name": "Rust Hello World",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "rust-hello-world": {
@@ -44,5 +43,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2020-05-17T09:02:36.847Z"
+  "releaseDate": "2020-05-17T09:02:36.847Z",
+  "lifecycleStatus": "deprecated"
 }

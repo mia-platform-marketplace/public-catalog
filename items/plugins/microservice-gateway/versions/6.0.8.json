@@ -12,7 +12,6 @@
   "itemId": "microservice-gateway",
   "name": "Microservice Gateway",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/microservice-gateway",
   "resources": {
     "services": {
@@ -97,5 +96,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-02-20T16:47:48.025Z"
+  "releaseDate": "2025-02-20T16:47:48.025Z",
+  "lifecycleStatus": "published"
 }

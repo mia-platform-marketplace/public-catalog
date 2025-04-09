@@ -11,7 +11,6 @@
   },
   "itemId": "cpp-oatpp-hello-world",
   "name": "Cpp Oatpp Hello World",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "cpp-oatpp-hello-world": {
@@ -60,5 +59,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-04-03T13:02:52.092Z"
+  "releaseDate": "2025-04-03T13:02:52.092Z",
+  "lifecycleStatus": "deprecated"
 }

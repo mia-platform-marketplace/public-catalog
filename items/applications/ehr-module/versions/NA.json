@@ -8,7 +8,6 @@
   "itemId": "ehr-module",
   "name": "EHR Module",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/ehr-module",
   "resources": {
     "collections": {
@@ -1265,5 +1264,6 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-01-16T17:17:52.670Z"
+  "releaseDate": "2025-01-16T17:17:52.670Z",
+  "lifecycleStatus": "published"
 }
