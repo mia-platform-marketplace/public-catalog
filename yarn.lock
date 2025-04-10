@@ -4200,9 +4200,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"listr2@npm:^8.3.1":
-  version: 8.3.1
-  resolution: "listr2@npm:8.3.1"
+"listr2@npm:^8.3.2":
+  version: 8.3.2
+  resolution: "listr2@npm:8.3.2"
   dependencies:
     cli-truncate: "npm:^4.0.0"
     colorette: "npm:^2.0.20"
@@ -4210,7 +4210,7 @@ __metadata:
     log-update: "npm:^6.1.0"
     rfdc: "npm:^1.4.1"
     wrap-ansi: "npm:^9.0.0"
-  checksum: 10/361975bf24ef029c37b1679e1ef9372762697178392ee00bbb5aff3cd63ac0b4d5cff67f36b04918f499ebea24012d9665b96b14aa761b3bba67328576907730
+  checksum: 10/4f07e2e05e322fd6458339ee2460b337477089b87882b29afa3cc5c1eacfaa04006d99b370756bd3cf0c9d64823d5a063646583878b459468c173df8476f03c5
   languageName: node
   linkType: hard
 
@@ -5056,7 +5056,7 @@ __metadata:
     json-diff: "npm:^1.0.6"
     json-schema-to-ts: "npm:^3.1.1"
     jsonpath-plus: "npm:^10.3.0"
-    listr2: "npm:^8.3.1"
+    listr2: "npm:^8.3.2"
     lodash-es: "npm:^4.17.21"
     mongodb: "npm:^6.15.0"
     nock: "npm:^14.0.3"
