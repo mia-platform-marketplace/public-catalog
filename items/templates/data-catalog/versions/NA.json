@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_templates/data-catalog-agent/overview"
   },
   "image": {
-    "localPath": "../assets/data-catalog.png"
+    "localPath": "../assets/data-catalog_logo_20250410.png"
   },
   "itemId": "data-catalog",
   "name": "Data Catalog",

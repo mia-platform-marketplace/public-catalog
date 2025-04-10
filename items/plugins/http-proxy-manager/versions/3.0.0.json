@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/http-proxy-manager/overview"
   },
   "image": {
-    "localPath": "../assets/http-proxy-manager.png"
+    "localPath": "../assets/http-proxy-manager_logo_20250410.png"
   },
   "itemId": "http-proxy-manager",
   "name": "HTTP Proxy Manager",

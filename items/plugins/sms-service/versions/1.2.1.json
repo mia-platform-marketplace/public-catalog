@@ -6,7 +6,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/sms-service/configuration"
   },
   "image": {
-    "localPath": "../assets/sms-service.png"
+    "localPath": "../assets/sms-service_logo_20250410.png"
   },
   "itemId": "sms-service",
   "name": "SMS Service",

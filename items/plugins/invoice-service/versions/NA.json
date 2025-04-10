@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/invoice-service/overview"
   },
   "image": {
-    "localPath": "../assets/invoice-service.png"
+    "localPath": "../assets/invoice-service_logo_20250410.png"
   },
   "itemId": "invoice-service",
   "name": "Invoice Service",
