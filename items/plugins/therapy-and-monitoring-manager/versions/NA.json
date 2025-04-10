@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/therapy-and-monitoring-manager/overview"
   },
   "image": {
-    "localPath": "../assets/therapy-and-monitoring-manager-plugin.png"
+    "localPath": "../assets/therapy-and-monitoring-manager_logo_20250410.png"
   },
   "itemId": "therapy-and-monitoring-manager",
   "name": "Therapy and Monitoring Manager",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/therapy-monitoring-manager",
   "resources": {
     "services": {
@@ -170,5 +169,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2023-01-16T10:18:22.999Z",
+  "lifecycleStatus": "deprecated"
 }

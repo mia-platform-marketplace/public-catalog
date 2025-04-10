@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Custom-Plugin-Template/refs/heads/16.x/README.md"
   },
   "image": {
-    "localPath": "../assets/nodejs-template-transparent.png"
+    "localPath": "../assets/node-js-template.png"
   },
   "itemId": "node-js-template",
   "name": "Node.js 16 Template",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Node.js-Custom-Plugin-Template/tree/16.x",
   "resources": {
     "services": {
@@ -45,5 +44,7 @@
   "type": "template",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2020-02-25T08:56:54.353Z",
+  "lifecycleStatus": "deprecated"
 }

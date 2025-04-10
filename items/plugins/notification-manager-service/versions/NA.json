@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/notification-manager/overview"
   },
   "image": {
-    "localPath": "../assets/notification-manager-service-plugin-transparent.png"
+    "localPath": "../assets/notification-manager-service_logo_20250410.png"
   },
   "itemId": "notification-manager-service",
   "name": "Notification Manager Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/notification-manager",
   "resources": {
     "services": {
@@ -145,5 +144,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2024-02-15T18:43:24.673Z",
+  "lifecycleStatus": "deprecated"
 }

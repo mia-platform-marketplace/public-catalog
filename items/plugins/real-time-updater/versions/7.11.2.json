@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/realtime_updater"
   },
   "image": {
-    "localPath": "../assets/real-time-updater-plugin.png"
+    "localPath": "../assets/real-time-updater_logo_20250410.png"
   },
   "itemId": "real-time-updater",
   "name": "Real-Time Updater",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/real-time-updater",
   "resources": {
     "services": {
@@ -260,5 +259,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-03-20T16:42:16.534Z",
+  "lifecycleStatus": "published"
 }

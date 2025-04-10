@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc#mysql"
   },
   "image": {
-    "localPath": "../assets/debezium-server-for-mysql-plugin-transparent.png"
+    "localPath": "../assets/debezium-server-for-mysql.png"
   },
   "itemId": "debezium-server-for-mysql",
   "name": "Debezium Server for MySQL",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-with-prometheus-metrics",
   "resources": {
     "services": {
@@ -121,5 +120,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.018Z",
+  "lifecycleStatus": "published"
 }

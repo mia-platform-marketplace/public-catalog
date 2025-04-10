@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/runtime_management/overview"
   },
   "image": {
-    "localPath": "../assets/control-plane-operator-plugin.png"
+    "localPath": "../assets/fast-data-control-plane-operator.png"
   },
   "itemId": "fast-data-control-plane-operator",
   "name": "Fast Data Control Plane Operator",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/control-plane-operator-plugin",
   "resources": {
     "services": {
@@ -108,5 +107,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.022Z",
+  "lifecycleStatus": "published"
 }

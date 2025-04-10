@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/fhir-adapter/overview"
   },
   "image": {
-    "localPath": "../assets/fhir-adapter-plugin.png"
+    "localPath": "../assets/fhir-adapter.png"
   },
   "itemId": "fhir-adapter",
   "name": "FHIR Adapter",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-adapter",
   "resources": {
     "services": {
@@ -136,5 +135,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2024-02-22T17:30:21.362Z",
+  "lifecycleStatus": "deprecated"
 }

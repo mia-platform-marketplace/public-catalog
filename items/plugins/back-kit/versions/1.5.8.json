@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/business_suite/backoffice/overview"
   },
   "image": {
-    "localPath": "../assets/back-kit-plugin-transparent.png"
+    "localPath": "../assets/back-kit.png"
   },
   "itemId": "back-kit",
   "name": "Back Kit",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/microfrontend-composer/back-kit",
   "resources": {
     "services": {
@@ -69,5 +68,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.013Z",
+  "lifecycleStatus": "published"
 }

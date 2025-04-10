@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/microfrontend-composer-on-prem-toolkit-application/overview"
   },
   "image": {
-    "localPath": "../assets/microfrontend-composer-onprem-toolkit-application-transparent.png"
+    "localPath": "../assets/microfrontend-composer-on-prem-toolkit_logo_20250410.png"
   },
   "itemId": "microfrontend-composer-on-prem-toolkit",
   "name": "Microfrontend Composer On Prem Toolkit",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/microfrontend-composer-on-prem-toolkit-application",
   "resources": {
     "services": {
@@ -361,5 +360,7 @@
   "type": "application",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2023-11-30T17:52:19.222Z",
+  "lifecycleStatus": "published"
 }

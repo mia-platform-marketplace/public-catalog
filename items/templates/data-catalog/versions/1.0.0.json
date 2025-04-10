@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_templates/data-catalog-agent/overview"
   },
   "image": {
-    "localPath": "../assets/schema-retriever-application.png"
+    "localPath": "../assets/data-catalog_logo_20250410.png"
   },
   "itemId": "data-catalog",
   "name": "Data Catalog",
   "publishOnMiaDocumentation": false,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/data-catalog",
   "resources": {
     "services": {
@@ -43,5 +42,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-04-03T13:02:51.881Z",
+  "lifecycleStatus": "deprecated"
 }

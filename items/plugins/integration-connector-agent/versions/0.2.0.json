@@ -77,12 +77,13 @@
   },
   "name": "Integration Connector Agent",
   "itemId": "integration-connector-agent",
-  "releaseStage": "beta",
   "version": {
     "name": "0.2.0",
     "releaseNote": "Add support to Console Events"
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-04-03T13:02:51.976Z",
+  "lifecycleStatus": "draft"
 }

@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/bucket_storage_support/configuration/ingestion_reloader_configuration"
   },
   "image": {
-    "localPath": "../assets/ingestion-reloader-plugin-transparent.png"
+    "localPath": "../assets/ingestion-reloader_logo_20250410.png"
   },
   "itemId": "ingestion-reloader",
   "name": "Ingestion Reloader",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/historical-data/ingestion-reloader",
   "resources": {
     "services": {
@@ -150,5 +149,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2023-03-07T17:30:55.965Z",
+  "lifecycleStatus": "deprecated"
 }

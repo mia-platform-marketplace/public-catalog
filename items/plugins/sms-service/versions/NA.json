@@ -6,12 +6,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/sms-service/configuration"
   },
   "image": {
-    "localPath": "../assets/sms-service-plugin.png"
+    "localPath": "../assets/sms-service_logo_20250410.png"
   },
   "itemId": "sms-service",
   "name": "SMS Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/sms-service",
   "resources": {
     "services": {
@@ -101,5 +100,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2021-10-14T12:20:28.007Z",
+  "lifecycleStatus": "deprecated"
 }

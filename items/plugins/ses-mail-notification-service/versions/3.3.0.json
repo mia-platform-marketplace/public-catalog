@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/ses-mail-notification-service/configuration"
   },
   "image": {
-    "localPath": "../assets/ses-mail-notification-service-plugin-transparent.png"
+    "localPath": "../assets/ses-mail-notification-service.png"
   },
   "itemId": "ses-mail-notification-service",
   "name": "SES Mail Notification Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mail-notification-service",
   "resources": {
     "services": {
@@ -21,6 +20,13 @@
         "name": "ses-mail-notification-service",
         "description": "Send custom email using an Amazon SES.",
         "dockerImage": "nexus.mia-platform.eu/plugins/ses-mail-notification-service:3.3.0",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ],
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",
@@ -53,5 +59,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.028Z",
+  "lifecycleStatus": "published"
 }

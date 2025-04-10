@@ -7,11 +7,10 @@
     "url": "https://micro-lc.io/add-ons/backend/middleware"
   },
   "image": {
-    "localPath": "../assets/microlc-plugin-transparent.png"
+    "localPath": "../assets/micro-lc-middleware.png"
   },
   "itemId": "micro-lc-middleware",
   "name": "micro-lc Middleware",
-  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/micro-lc/middleware",
   "resources": {
     "services": {
@@ -164,5 +163,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-01-16T17:17:52.670Z",
+  "lifecycleStatus": "published"
 }

@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/api-portal/overview"
   },
   "image": {
-    "localPath": "../assets/api-portal-plugin-transparent.png"
+    "localPath": "../assets/api-portal_logo_20250410.png"
   },
   "itemId": "api-portal",
   "name": "API Portal",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/api-portal/website",
   "resources": {
     "services": {
@@ -63,5 +62,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2021-06-01T12:55:53.057Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/files-service/configuration"
   },
   "image": {
-    "localPath": "../assets/file-service-plugin-transparent.png"
+    "localPath": "../assets/files-service.png"
   },
   "itemId": "files-service",
   "name": "Files Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/files-service",
   "resources": {
     "services": {
@@ -83,5 +82,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2020-08-05T08:24:02.500Z",
+  "lifecycleStatus": "deprecated"
 }

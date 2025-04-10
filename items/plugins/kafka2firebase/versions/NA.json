@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/kafka2firebase/overview"
   },
   "image": {
-    "localPath": "../assets/kafka2firebase-plugin-transparent.png"
+    "localPath": "../assets/kafka2firebase_logo_20250410.png"
   },
   "itemId": "kafka2firebase",
   "name": "Kafka2Firebase",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/kafka2firebase",
   "resources": {
     "services": {
@@ -82,5 +81,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2020-08-05T08:24:02.500Z",
+  "lifecycleStatus": "deprecated"
 }

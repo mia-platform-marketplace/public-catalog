@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/scratch-template/main/README.md"
   },
   "image": {
-    "localPath": "../assets/scratch-template-transparent.png"
+    "localPath": "../assets/scratch-template_logo_20250410.png"
   },
   "itemId": "scratch-template",
   "name": "Scratch Template",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/scratch-template",
   "resources": {
     "services": {
@@ -39,5 +38,7 @@
   "type": "template",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2021-11-08T17:43:44.956Z",
+  "lifecycleStatus": "deprecated"
 }

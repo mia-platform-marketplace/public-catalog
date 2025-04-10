@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/export-service/overview"
   },
   "image": {
-    "localPath": "../assets/export-service-plugin-transparent.png"
+    "localPath": "../assets/export-service_logo_20250410.png"
   },
   "itemId": "export-service",
   "name": "Export Service",
-  "releaseStage": "stable",
   "resources": {
     "services": {
       "export-service": {
@@ -103,5 +102,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.017Z",
+  "lifecycleStatus": "published"
 }

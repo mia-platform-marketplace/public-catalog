@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/care-kit/overview"
   },
   "image": {
-    "localPath": "../assets/care-kit-plugin.png"
+    "localPath": "../assets/care-kit_logo_20250410.png"
   },
   "itemId": "care-kit",
   "name": "Care Kit",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/mia-care-web-components",
   "resources": {
     "services": {
@@ -62,5 +61,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.016Z",
+  "lifecycleStatus": "published"
 }

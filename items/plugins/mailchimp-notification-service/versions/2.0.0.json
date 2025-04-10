@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/mailchimp-mandrill-mail-notification-service/overview"
   },
   "image": {
-    "localPath": "../assets/mailchimp-notification-service-plugin-transparent.png"
+    "localPath": "../assets/mailchimp-notification-service.png"
   },
   "itemId": "mailchimp-notification-service",
   "name": "Mailchimp Notification Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mailchimp-plugin",
   "resources": {
     "services": {
@@ -101,5 +100,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.025Z",
+  "lifecycleStatus": "published"
 }

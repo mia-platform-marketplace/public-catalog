@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/rest2kafka/overview"
   },
   "image": {
-    "localPath": "../assets/rest2kafka-service-plugin-transparent.png"
+    "localPath": "../assets/rest2kafka-service_logo_20250410.png"
   },
   "itemId": "rest2kafka-service",
   "name": "Rest2Kafka service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "beta",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/rest2kafka",
   "resources": {
     "services": {
@@ -139,5 +138,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.028Z",
+  "lifecycleStatus": "draft"
 }

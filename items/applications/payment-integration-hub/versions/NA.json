@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/payment-integration-hub/overview"
   },
   "image": {
-    "localPath": "../assets/payment-integration-hub-application-transparent.png"
+    "localPath": "../assets/payment-integration-hub.png"
   },
   "itemId": "payment-integration-hub",
   "name": "Payment Integration Hub",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/payment-gateway-backoffice",
   "resources": {
     "services": {
@@ -3195,5 +3194,7 @@
   "type": "application",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2022-10-27T10:51:07.127Z",
+  "lifecycleStatus": "published"
 }

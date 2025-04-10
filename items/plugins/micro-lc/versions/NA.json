@@ -7,11 +7,10 @@
     "url": "https://micro-lc.io"
   },
   "image": {
-    "localPath": "../assets/microlc-plugin-transparent.png"
+    "localPath": "../assets/micro-lc.png"
   },
   "itemId": "micro-lc",
   "name": "micro-lc",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/micro-lc/micro-lc",
   "resources": {
     "services": {
@@ -65,5 +64,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2023-02-16T17:10:25.261Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -3,13 +3,12 @@
   "categoryId": "healthcare",
   "description": "This module provides a ready-to-use system for the user management and authentication services.",
   "image": {
-    "localPath": "../assets/user-manager-module.png"
+    "localPath": "../assets/user-manager-module-new.png"
   },
   "itemId": "user-manager-module",
   "name": "User Manager Module",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/user-auth-module/application",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/user-manager-module",
   "resources": {
     "collections": {
       "uam_user_manager_configs": {
@@ -1301,5 +1300,7 @@
   "type": "application",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-01-16T17:17:52.671Z",
+  "lifecycleStatus": "published"
 }

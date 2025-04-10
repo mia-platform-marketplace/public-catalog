@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Go-Call-CRUD-Template/master/README.md"
   },
   "image": {
-    "localPath": "../assets/go-call-crud-example-transparent.png"
+    "localPath": "../assets/go-call-crud-example.png"
   },
   "itemId": "go-call-crud-example",
   "name": "Go Call CRUD Example",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "go-call-crud-example": {
@@ -96,5 +95,7 @@
   "type": "example",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2020-05-16T16:55:40.746Z",
+  "lifecycleStatus": "deprecated"
 }

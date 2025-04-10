@@ -7,11 +7,10 @@
     "url": "https://hapifhir.io/hapi-fhir/docs/v/7.6.0/"
   },
   "image": {
-    "localPath": "../assets/fhir-api-server-plugin.png"
+    "localPath": "../assets/fhir-api-server.png"
   },
   "itemId": "fhir-api-server",
   "name": "FHIR Server",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-api-server",
   "resources": {
     "services": {
@@ -77,5 +76,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-03-20T16:42:16.531Z",
+  "lifecycleStatus": "published"
 }

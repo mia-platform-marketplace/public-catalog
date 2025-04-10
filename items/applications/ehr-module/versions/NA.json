@@ -3,13 +3,12 @@
   "categoryId": "healthcare",
   "description": "This application allows to quickly setup the necessary services in order to handle forms and medical reports.",
   "image": {
-    "localPath": "../assets/ehr-module.png"
+    "localPath": "../assets/ehr-module_logo_20250410.png"
   },
   "itemId": "ehr-module",
   "name": "EHR Module",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
-  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/clients/health-composable-platform/ehr-module/application",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/ehr-module",
   "resources": {
     "collections": {
       "ehr_clinical_diaries": {
@@ -1264,5 +1263,7 @@
   "type": "application",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-01-16T17:17:52.670Z",
+  "lifecycleStatus": "published"
 }

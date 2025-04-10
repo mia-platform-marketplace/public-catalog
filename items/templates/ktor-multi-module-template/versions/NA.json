@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Ktor-Multi-Module-Template/refs/heads/1.6.x_jdk-11/README.md"
   },
   "image": {
-    "localPath": "../assets/ktor-multi-module-template-transparent.png"
+    "localPath": "../assets/ktor-multi-module-template.png"
   },
   "itemId": "ktor-multi-module-template",
   "name": "Ktor 1.6 Java 11 Multi Module Template",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Ktor-Multi-Module-Template/tree/1.6.x_jdk-11",
   "resources": {
     "services": {
@@ -78,5 +77,7 @@
   "type": "template",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2021-02-02T16:26:32.592Z",
+  "lifecycleStatus": "deprecated"
 }

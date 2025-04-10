@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/api-documentation-aggregator/overview"
   },
   "image": {
-    "localPath": "../assets/api-documentation-aggregator-envoy-application-transparent.png"
+    "localPath": "../assets/api-documentation-aggregator_logo_20250410.png"
   },
   "itemId": "api-documentation-aggregator",
   "name": "API Documentation Aggregator",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/api-documentation-aggregator-application",
   "resources": {
     "services": {
@@ -231,5 +230,7 @@
   "type": "application",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2022-11-17T14:38:17.976Z",
+  "lifecycleStatus": "published"
 }

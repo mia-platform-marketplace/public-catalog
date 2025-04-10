@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/push-notification-sender/overview"
   },
   "image": {
-    "localPath": "../assets/push-notification-sender-plugin-transparent.png"
+    "localPath": "../assets/push-notification-sender_logo_20250410.png"
   },
   "itemId": "push-notification-sender",
   "name": "Push Notification Sender",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/notifications-service",
   "resources": {
     "services": {
@@ -87,5 +86,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2020-08-05T08:24:02.500Z",
+  "lifecycleStatus": "deprecated"
 }

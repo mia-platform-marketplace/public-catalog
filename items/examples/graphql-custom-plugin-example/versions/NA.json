@@ -11,7 +11,6 @@
   },
   "itemId": "graphql-custom-plugin-example",
   "name": "GraphQL-Custom-Plugin-Example",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "graphql-custom-plugin-example": {
@@ -64,5 +63,7 @@
   "type": "example",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2020-02-12T10:51:21.318Z",
+  "lifecycleStatus": "deprecated"
 }

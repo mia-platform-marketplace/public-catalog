@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Ktor-Hello-World-Example/refs/heads/1.6.x_jdk-11/README.md"
   },
   "image": {
-    "localPath": "../assets/kotlin-example-transparent.png"
+    "localPath": "../assets/ktor-hello-world-example.png"
   },
   "itemId": "ktor-hello-world-example",
   "name": "Ktor 1.6 Java 11 Hello World Example",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Ktor-Hello-World-Example/tree/1.6.x_jdk-11",
   "resources": {
     "services": {
@@ -78,5 +77,7 @@
   "type": "example",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2021-02-02T16:26:32.584Z",
+  "lifecycleStatus": "deprecated"
 }

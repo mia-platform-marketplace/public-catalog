@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Go-Hello-World-Microservice-Example/refs/heads/1.20/README.md"
   },
   "image": {
-    "localPath": "../assets/go-hello-world-example-transparent.png"
+    "localPath": "../assets/go-hello-world-example.png"
   },
   "itemId": "go-hello-world-example",
   "name": "Go 1.20 Hello World Example",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Go-Hello-World-Microservice-Example/tree/1.20",
   "resources": {
     "services": {
@@ -45,5 +44,7 @@
   "type": "example",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2020-06-24T13:13:06.440Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc"
   },
   "image": {
-    "localPath": "../assets/debezium-server-generic-template-transparent.png"
+    "localPath": "../assets/debezium-server-generic-template.png"
   },
   "itemId": "debezium-server-generic-template",
   "name": "Debezium Server Generic Template",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-generic-template",
   "resources": {
     "services": {
@@ -121,5 +120,7 @@
   "type": "template",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2023-05-04T16:45:12.459Z",
+  "lifecycleStatus": "deprecated"
 }

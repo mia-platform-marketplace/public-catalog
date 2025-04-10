@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_templates/crud-sql-template/overview"
   },
   "image": {
-    "localPath": "../assets/crud-sql-template.png"
+    "localPath": "../assets/crud-sql-template_logo_20250410.png"
   },
   "itemId": "crud-sql-template",
   "name": "CRUD SQL Template",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/crud-sql-template/tree/0.1.0",
   "resources": {
     "services": {
@@ -119,5 +118,7 @@
   "type": "template",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2024-02-22T13:14:58.402Z",
+  "lifecycleStatus": "deprecated"
 }

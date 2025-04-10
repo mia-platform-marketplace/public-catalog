@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Flow-Manager-Client-Template/refs/heads/16.x/README.md"
   },
   "image": {
-    "localPath": "../assets/nodejs-flow-manager-client-template.png"
+    "localPath": "../assets/node-js-flow-manager-client.png"
   },
   "itemId": "node-js-flow-manager-client",
   "name": "Node.js 16 Flow Manager Client",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Node.js-Flow-Manager-Client-Template/tree/16.x",
   "resources": {
     "services": {
@@ -126,5 +125,7 @@
   "type": "template",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2021-11-15T17:35:10.281Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -12,7 +12,6 @@
   "itemId": "mongodb-reader",
   "name": "MongoDB Reader",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/mongodb-reader",
   "resources": {
     "services": {
@@ -86,5 +85,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-04-03T13:02:51.963Z",
+  "lifecycleStatus": "deprecated"
 }

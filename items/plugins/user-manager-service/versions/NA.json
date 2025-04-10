@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-manager-service/overview"
   },
   "image": {
-    "localPath": "../assets/user-manager-service-plugin.png"
+    "localPath": "../assets/user-manager-service.png"
   },
   "itemId": "user-manager-service",
   "name": "User Manager Service",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/user-manager-service",
   "resources": {
     "services": {
@@ -134,5 +133,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2022-05-04T08:19:20.540Z",
+  "lifecycleStatus": "deprecated"
 }

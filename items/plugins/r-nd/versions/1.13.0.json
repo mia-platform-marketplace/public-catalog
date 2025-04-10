@@ -7,11 +7,10 @@
     "url": "https://rond-authz.io/"
   },
   "image": {
-    "localPath": "../assets/rond-plugin-transparent.png"
+    "localPath": "../assets/r-nd.png"
   },
   "itemId": "r-nd",
   "name": "Rönd",
-  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/rond-authz/rond/",
   "resources": {
     "services": {
@@ -153,5 +152,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2024-12-05T17:09:02.873Z",
+  "lifecycleStatus": "published"
 }

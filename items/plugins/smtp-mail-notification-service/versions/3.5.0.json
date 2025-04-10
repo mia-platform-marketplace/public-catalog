@@ -3,11 +3,10 @@
   "categoryId": "notification",
   "description": "Send custom email using configured SMTP server",
   "image": {
-    "localPath": "../assets/smtp-mail-notification-plugin-service-transparent.png"
+    "localPath": "../assets/smtp-mail-notification-service.png"
   },
   "itemId": "smtp-mail-notification-service",
   "name": "SMTP Mail Notification Service",
-  "releaseStage": "stable",
   "resources": {
     "services": {
       "smtp-mail-notification-service": {
@@ -15,6 +14,13 @@
         "name": "smtp-mail-notification-service",
         "description": "Send custom email using configured SMTP server",
         "dockerImage": "nexus.mia-platform.eu/plugins/smtp-mail-notification-service:3.5.0",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ],
         "defaultEnvironmentVariables": [
           {
             "name": "HOST",
@@ -72,5 +78,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.031Z",
+  "lifecycleStatus": "published"
 }

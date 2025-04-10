@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/function-service/configuration"
   },
   "image": {
-    "localPath": "../assets/function-service-plugin-transparent.png"
+    "localPath": "../assets/function-service.png"
   },
   "itemId": "function-service",
   "name": "Function Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/function-service",
   "resources": {
     "services": {
@@ -91,5 +90,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.061Z",
+  "lifecycleStatus": "published"
 }

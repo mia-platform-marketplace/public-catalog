@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Ktor-Multi-Module-Hello-World-Example/refs/heads/1.6.x_jdk-11/README.md"
   },
   "image": {
-    "localPath": "../assets/kotlin-multi-module-example-transparent.png"
+    "localPath": "../assets/ktor-multi-module-hello-world-example.png"
   },
   "itemId": "ktor-multi-module-hello-world-example",
   "name": "Ktor 1.6 Java 11 Multi Module Hello World Example",
-  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Ktor-Multi-Module-Hello-World-Example/tree/1.6.x_jdk-11",
   "resources": {
     "services": {
@@ -82,5 +81,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.039Z",
+  "lifecycleStatus": "published"
 }

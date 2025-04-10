@@ -3,12 +3,11 @@
   "categoryId": "utility",
   "description": "This service allow to define and verify rules",
   "image": {
-    "localPath": "../assets/adaptive-approval-plugin.png"
+    "localPath": "../assets/adaptive-approval-service.png"
   },
   "itemId": "adaptive-approval-service",
   "name": "Adaptive Approval Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "resources": {
     "services": {
       "adaptive-approval-service": {
@@ -84,5 +83,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.012Z",
+  "lifecycleStatus": "published"
 }

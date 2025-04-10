@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/http-proxy-manager/overview"
   },
   "image": {
-    "localPath": "../assets/proxy-manager-plugin-transparent.png"
+    "localPath": "../assets/http-proxy-manager_logo_20250410.png"
   },
   "itemId": "http-proxy-manager",
   "name": "HTTP Proxy Manager",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/proxy-manager",
   "resources": {
     "services": {
@@ -96,5 +95,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-06T16:53:44.928Z",
+  "lifecycleStatus": "published"
 }

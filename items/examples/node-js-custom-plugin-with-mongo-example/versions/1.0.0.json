@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Custom-Plugin-Mongo-Example/master/README.md"
   },
   "image": {
-    "localPath": "../assets/nodejs-custom-plugin-with-mongo-example-transparent.png"
+    "localPath": "../assets/node-js-custom-plugin-with-mongo-example.png"
   },
   "itemId": "node-js-custom-plugin-with-mongo-example",
   "name": "Node.js Custom Plugin with Mongo Example",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "nodejs-custom-plugin-with-mongo-example": {
@@ -47,5 +46,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-04-03T13:02:52.081Z",
+  "lifecycleStatus": "deprecated"
 }

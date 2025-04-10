@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Call-CRUD-Example/master/README.md"
   },
   "image": {
-    "localPath": "../assets/nodejs-call-crud-example-transparent.png"
+    "localPath": "../assets/node-js-call-crud-example.png"
   },
   "itemId": "node-js-call-crud-example",
   "name": "Node.js Call CRUD Example",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "nodejs-call-crud-example": {
@@ -95,5 +94,7 @@
   "type": "example",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2020-02-12T10:46:40.409Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/micro-lc/react-template/refs/heads/18.x/README.md"
   },
   "image": {
-    "localPath": "../assets/micro-lc-react-template.png"
+    "localPath": "../assets/micro-lc-react-template-new.png"
   },
   "itemId": "micro-lc-react-template",
   "name": "micro-lc React 18 Template",
-  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/micro-lc/react-template/tree/18.x",
   "resources": {
     "services": {
@@ -56,5 +55,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.011Z",
+  "lifecycleStatus": "published"
 }

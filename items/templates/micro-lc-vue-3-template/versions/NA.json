@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/micro-lc/vue3-template/refs/tags/v1.0.0/README.md"
   },
   "image": {
-    "localPath": "../assets/micro-lc-vue3-template.png"
+    "localPath": "../assets/micro-lc-vue-3-template.png"
   },
   "itemId": "micro-lc-vue-3-template",
   "name": "micro-lc Vue 3 Template",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/micro-lc/vue3-template",
   "resources": {
     "services": {
@@ -52,5 +51,7 @@
   "type": "template",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2023-11-30T17:52:19.189Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -11,7 +11,7 @@
     "public": true
   },
   "image": {
-    "localPath": "../assets/audit-trail-logo.png"
+    "localPath": "../assets/audit-trail_logo_20250410.png"
   },
   "description": "Collect audit logs from your microservice",
   "documentation": {
@@ -19,7 +19,6 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/audit-trail/overview"
   },
   "publishOnMiaDocumentation": true,
-  "releaseStage": "preview",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/audit-trail",
   "type": "sidecar",
   "resources": {
@@ -42,5 +41,7 @@
         "min": "50Mi"
       }
     }
-  }
+  },
+  "releaseDate": "2025-04-03T13:02:51.888Z",
+  "lifecycleStatus": "draft"
 }

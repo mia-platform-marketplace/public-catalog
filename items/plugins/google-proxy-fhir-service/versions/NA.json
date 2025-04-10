@@ -11,7 +11,6 @@
   },
   "itemId": "google-proxy-fhir-service",
   "name": "Google Proxy FHIR Service",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/proxy-google-fhir",
   "resources": {
     "services": {
@@ -97,5 +96,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2024-02-01T17:26:43.753Z",
+  "lifecycleStatus": "deprecated"
 }

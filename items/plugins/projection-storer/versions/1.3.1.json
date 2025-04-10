@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/projection_storer"
   },
   "image": {
-    "localPath": "../assets/projection-storer-plugin.png"
+    "localPath": "../assets/projection-storer_logo_20250410.png"
   },
   "itemId": "projection-storer",
   "name": "Projection Storer",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/projection-storer",
   "resources": {
     "services": {
@@ -92,5 +91,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2024-10-10T16:15:06.841Z",
+  "lifecycleStatus": "published"
 }

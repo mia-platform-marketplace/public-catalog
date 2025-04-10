@@ -7,7 +7,6 @@
   },
   "itemId": "kafka2rest-example",
   "name": "Kafka2Rest Example",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "kafka2rest-example": {
@@ -15,6 +14,13 @@
         "name": "kafka2rest-example",
         "description": "This is an example of using our library Kafka2Rest. It takes messages from Kafka broker and sends POST request after filter and process the messages.",
         "archiveUrl": "https://git.tools.mia-platform.eu/api/v4/projects/943/repository/archive.tar.gz",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ],
         "defaultEnvironmentVariables": [
           {
             "name": "KAFKA_HOST",
@@ -67,5 +73,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-04-03T13:02:52.086Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc#postgresql"
   },
   "image": {
-    "localPath": "../assets/debezium-server-for-postgresql-plugin-transparent.png"
+    "localPath": "../assets/debezium-server-for-postgresql.png"
   },
   "itemId": "debezium-server-for-postgresql",
   "name": "Debezium Server for PostgreSQL",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-with-prometheus-metrics",
   "resources": {
     "services": {
@@ -117,5 +116,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2023-04-13T16:06:00.697Z",
+  "lifecycleStatus": "deprecated"
 }

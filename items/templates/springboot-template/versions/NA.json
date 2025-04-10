@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/SpringBoot-Custom-Plugin-Template/refs/heads/2.x_jdk-11/README.md"
   },
   "image": {
-    "localPath": "../assets/springboot-template-transparent.png"
+    "localPath": "../assets/springboot-template.png"
   },
   "itemId": "springboot-template",
   "name": "Springboot 2 Java 11 Template",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/SpringBoot-Custom-Plugin-Template/tree/2.x_jdk-11",
   "resources": {
     "services": {
@@ -63,5 +62,7 @@
   "type": "template",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2020-09-23T14:51:29.917Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -12,7 +12,6 @@
   "itemId": "messaging-service",
   "name": "Messaging Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/messaging-service",
   "resources": {
     "services": {
@@ -113,5 +112,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2021-10-14T12:21:35.727Z",
+  "lifecycleStatus": "deprecated"
 }

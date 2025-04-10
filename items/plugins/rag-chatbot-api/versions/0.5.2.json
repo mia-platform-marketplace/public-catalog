@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/rag-chatbot-api/overview_and_usage"
   },
   "image": {
-    "localPath": "../assets/rag-chatbot-api-transparent.png"
+    "localPath": "../assets/rag-chatbot-api.png"
   },
   "itemId": "rag-chatbot-api",
   "name": "RAG Chatbot API",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
   "resources": {
     "services": {
@@ -115,5 +114,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.039Z",
+  "lifecycleStatus": "published"
 }

@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Typescript-LC39-Template/refs/heads/16.x/README.md"
   },
   "image": {
-    "localPath": "../assets/typescript-template-transparent.png"
+    "localPath": "../assets/typescript-template.png"
   },
   "itemId": "typescript-template",
   "name": "Node.js 16 TypeScript Template",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Typescript-LC39-Template/tree/16.x",
   "resources": {
     "services": {
@@ -43,5 +42,7 @@
   "type": "template",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2021-11-08T17:43:44.956Z",
+  "lifecycleStatus": "deprecated"
 }

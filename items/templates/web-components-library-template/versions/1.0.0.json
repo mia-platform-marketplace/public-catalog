@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/micro-lc/wc-library-template/refs/tags/v1.0.0/README.md"
   },
   "image": {
-    "localPath": "../assets/web-components-library-template-transparent.png"
+    "localPath": "../assets/web-components-library-template.png"
   },
   "itemId": "web-components-library-template",
   "name": "Web Components Library Template",
-  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/micro-lc/wc-library-template",
   "resources": {
     "services": {
@@ -61,5 +60,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.010Z",
+  "lifecycleStatus": "published"
 }

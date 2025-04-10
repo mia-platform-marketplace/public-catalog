@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/scoring-manager/overview"
   },
   "image": {
-    "localPath": "../assets/scoring-manager-application.png"
+    "localPath": "../assets/scoring-manager_logo_20250410.png"
   },
   "itemId": "scoring-manager",
   "name": "Scoring Manager",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/scoring-manager",
   "resources": {
     "services": {
@@ -983,5 +982,7 @@
   "type": "application",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2023-09-29T10:24:15.261Z",
+  "lifecycleStatus": "published"
 }

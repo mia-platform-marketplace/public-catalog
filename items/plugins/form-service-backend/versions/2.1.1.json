@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
   },
   "image": {
-    "localPath": "../assets/form-service-backend-plugin-transparent.png"
+    "localPath": "../assets/form-service-backend_logo_20250410.png"
   },
   "itemId": "form-service-backend",
   "name": "Form Service Backend",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-backend",
   "resources": {
     "services": {
@@ -44,5 +43,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-03-20T16:42:16.532Z",
+  "lifecycleStatus": "published"
 }

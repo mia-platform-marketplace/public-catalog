@@ -21,7 +21,8 @@ import path from 'node:path'
 
 import { catalogWellKnownItems, catalogItemManifestSchema } from '@mia-platform/console-types'
 import type { JSONSchema } from 'json-schema-to-ts'
-import { cloneDeep, set, unset } from 'lodash-es'
+import { JSONPath } from 'jsonpath-plus'
+import { cloneDeep, get, set, unset } from 'lodash-es'
 
 import categories from '../assets/categories.json' with { type: 'json' }
 import supporters from '../assets/supporters.json' with { type: 'json' }
@@ -58,6 +59,37 @@ const visibilitySchema: JSONSchema = {
   type: 'object',
 }
 
+/** @modifies Edits the input manifest */
+const makeContainerPortsRequired = (manifest: object, type: string) => {
+  const typesToPatch = [
+    catalogWellKnownItems.application.type,
+    catalogWellKnownItems.example.type,
+    catalogWellKnownItems.plugin.type,
+    catalogWellKnownItems.template.type,
+  ]
+
+  if (!typesToPatch.includes(type)) { return }
+
+  const editRequired = (containerPortsPropPath: string) => {
+    const arrayPath = containerPortsPropPath.split('/')
+    const parentPath = arrayPath.slice(1, -1)
+
+    // Skip plugin sidecars
+    if (parentPath.includes('additionalContainers')) { return }
+
+    const required = get(manifest, [...parentPath, 'required']) as string[] | undefined
+    if (required) { required.push('containerPorts') }
+  }
+
+  JSONPath({
+    callback: editRequired,
+    json: manifest,
+    // Find any object containing a property named "containerPorts"
+    path: '$..[?(@.containerPorts)]',
+    resultType: 'pointer',
+  })
+}
+
 const requiredProps = [
   ...catalogItemManifestSchema.required,
   'categoryId',
@@ -65,6 +97,7 @@ const requiredProps = [
   'supportedBy',
   'supportedByImage',
   'visibility',
+  'releaseDate',
 ]
 
 const main = async () => {
@@ -75,7 +108,7 @@ const main = async () => {
 
     const data = await import(path.resolve(typeDirent.parentPath, typeDirent.name)) as ItemTypeModule
 
-    const typeData = catalogWellKnownItems[data.default.type]
+    const typeData = cloneDeep(catalogWellKnownItems[data.default.type])
     if (!typeData) {
       throw new Error(`Directory '${typeDirent.name}' with items of type '${data.default.type}' does not correspond to any well-known catalog item type`)
     }
@@ -106,6 +139,8 @@ const main = async () => {
     unset(manifest, ['properties', 'resources', '$id'])
     unset(manifest, ['properties', 'resources', '$schema'])
     unset(manifest, ['properties', 'resources', 'title'])
+
+    makeContainerPortsRequired(manifest, typeData.type)
 
     await fs.writeFile(
       path.resolve(typeDirent.parentPath, typeDirent.name, 'manifest.schema.json'),

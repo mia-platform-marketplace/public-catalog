@@ -6,12 +6,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/device-manager/overview"
   },
   "image": {
-    "localPath": "../assets/device-manager-plugin.png"
+    "localPath": "../assets/device-manager_logo_20250410.png"
   },
   "itemId": "device-manager",
   "name": "Device Manager",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/device-manager",
   "resources": {
     "services": {
@@ -161,5 +160,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.018Z",
+  "lifecycleStatus": "published"
 }

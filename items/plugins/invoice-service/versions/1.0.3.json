@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/invoice-service/overview"
   },
   "image": {
-    "localPath": "../assets/invoice-pdf-service-plugin-transparent.png"
+    "localPath": "../assets/invoice-service_logo_20250410.png"
   },
   "itemId": "invoice-service",
   "name": "Invoice Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/plugins/invoice-service",
   "resources": {
     "services": {
@@ -124,5 +123,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.024Z",
+  "lifecycleStatus": "published"
 }

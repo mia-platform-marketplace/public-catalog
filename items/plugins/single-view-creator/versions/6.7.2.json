@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/single-view-creator/configuration"
   },
   "image": {
-    "localPath": "../assets/single-view-creator-plugin-transparent.png"
+    "localPath": "../assets/single-view-creator.png"
   },
   "itemId": "single-view-creator",
   "name": "Single View Creator",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
   "resources": {
     "services": {
@@ -208,5 +207,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-01-16T17:17:52.667Z",
+  "lifecycleStatus": "deprecated"
 }

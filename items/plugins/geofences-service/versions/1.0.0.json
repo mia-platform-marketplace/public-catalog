@@ -3,11 +3,10 @@
   "categoryId": "addgeo",
   "description": "The Geofences Service Plugin handles geofences and related resources and actions.",
   "image": {
-    "localPath": "../assets/geofences-service-plugin-transparent.png"
+    "localPath": "../assets/geofences-service.png"
   },
   "itemId": "geofences-service",
   "name": "Geofences Service",
-  "releaseStage": "stable",
   "resources": {
     "services": {
       "geofences-service": {
@@ -15,6 +14,13 @@
         "name": "geofences-service",
         "description": "The Geofences Service Plugin handles geofences and related resources and actions.",
         "dockerImage": "nexus.mia-platform.eu/plugins/geofences-service:1.0.0",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080
+          }
+        ],
         "defaultEnvironmentVariables": [
           {
             "name": "PORT",
@@ -52,5 +58,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.023Z",
+  "lifecycleStatus": "published"
 }

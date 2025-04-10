@@ -6,12 +6,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/appointment-manager/overview"
   },
   "image": {
-    "localPath": "../assets/appointment-manager-plugin.png"
+    "localPath": "../assets/appointment-manager.png"
   },
   "itemId": "appointment-manager",
   "name": "Appointment Manager",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
   "resources": {
     "services": {
@@ -127,5 +126,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-03-20T16:42:16.535Z",
+  "lifecycleStatus": "published"
 }

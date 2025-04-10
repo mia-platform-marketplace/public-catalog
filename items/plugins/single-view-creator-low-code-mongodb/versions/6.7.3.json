@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/single-view-creator/configuration"
   },
   "image": {
-    "localPath": "../assets/single-view-creator-low-code-mongodb-plugin-transparent.png"
+    "localPath": "../assets/single-view-creator-low-code-mongodb.png"
   },
   "itemId": "single-view-creator-low-code-mongodb",
   "name": "Single View Creator Low Code - MongoDB",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
   "resources": {
     "services": {
@@ -249,5 +248,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.034Z",
+  "lifecycleStatus": "published"
 }

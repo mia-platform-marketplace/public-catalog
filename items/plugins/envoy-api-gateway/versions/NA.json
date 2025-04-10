@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/envoy-api-gateway/overview"
   },
   "image": {
-    "localPath": "../assets/envoy-api-gateway-plugin-transparent.png"
+    "localPath": "../assets/envoy-api-gateway_logo_20250410.png"
   },
   "itemId": "envoy-api-gateway",
   "name": "Envoy API Gateway",
   "publishOnMiaDocumentation": false,
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "api-gateway": {
@@ -116,5 +115,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2022-04-07T16:19:37.098Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/configuration/single_view_trigger_generator"
   },
   "image": {
-    "localPath": "../assets/single-view-trigger-plugin-transparent.png"
+    "localPath": "../assets/single-view-trigger-generator.png"
   },
   "itemId": "single-view-trigger-generator",
   "name": "Single View Trigger Generator",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-trigger-generator-service",
   "resources": {
     "services": {
@@ -189,5 +188,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-01-16T17:17:52.668Z",
+  "lifecycleStatus": "published"
 }

@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/single-view-creator/configuration"
   },
   "image": {
-    "localPath": "../assets/singleViewCreator-Plugin.png"
+    "localPath": "../assets/single-view-creator-low-code.png"
   },
   "itemId": "single-view-creator-low-code",
   "name": "Single View Creator Low Code",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
   "resources": {
     "services": {
@@ -233,5 +232,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2021-11-22T15:43:44.133Z",
+  "lifecycleStatus": "deprecated"
 }

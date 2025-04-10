@@ -3,11 +3,10 @@
   "categoryId": "code",
   "description": "This is the best template to start creating an adapter service for your project",
   "image": {
-    "localPath": "../assets/application-service-adapter-template.png"
+    "localPath": "../assets/application-service-adapter_logo_20250410.png"
   },
   "itemId": "application-service-adapter",
   "name": "Application Service Adapter",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/template/service-adapter-template",
   "resources": {
     "services": {
@@ -113,5 +112,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.008Z",
+  "lifecycleStatus": "published"
 }

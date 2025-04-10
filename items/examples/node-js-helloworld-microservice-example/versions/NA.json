@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/mia-platform-marketplace/Node.js-Hello-World-Microservice-Example/refs/heads/16.x/README.md"
   },
   "image": {
-    "localPath": "../assets/nodejs-hello-world-example-transparent.png"
+    "localPath": "../assets/node-js-helloworld-microservice-example.png"
   },
   "itemId": "node-js-helloworld-microservice-example",
   "name": "Node.js 16 HelloWorld Microservice Example",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform-marketplace/Node.js-Hello-World-Microservice-Example/tree/16.x",
   "resources": {
     "services": {
@@ -48,5 +47,7 @@
   "type": "example",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2020-02-12T10:44:46.459Z",
+  "lifecycleStatus": "deprecated"
 }

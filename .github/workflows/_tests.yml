@@ -2,6 +2,11 @@ name: Test
 
 on:
   workflow_call:
+    secrets:
+      harbor_username:
+        required: true
+      harbor_token:
+        required: true
 
 jobs:
   checks:
@@ -18,7 +23,7 @@ jobs:
           show-progress: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
+        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
         with:
           node-version-file: .nvmrc
           check-latest: true
@@ -27,10 +32,15 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: start MongoDB instance
-        uses: supercharge/mongodb-github-action@90004df786821b6308fb02299e5835d0dae05d0d # v1.12.0
+      - name: Login to Mia-Platform Harbor registry
+        uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
         with:
-          mongodb-version: ${{ matrix.mongodb-version }}
+          registry: registry.mia-platform.eu
+          username: ${{ secrets.harbor_username }}
+          password: ${{ secrets.harbor_token }}
+
+      - name: start MongoDB instance
+        run: docker run --rm --name mongo -p 27017:27017 -d registry.mia-platform.eu/proxy-cache/mongo:${{ matrix.mongodb-version }}
       
       - name: Run tests
         run: yarn test

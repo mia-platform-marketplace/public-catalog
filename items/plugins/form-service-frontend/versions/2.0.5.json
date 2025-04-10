@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
   },
   "image": {
-    "localPath": "../assets/form-service-frontend-plugin-transparent.png"
+    "localPath": "../assets/form-service-frontend_logo_20250410.png"
   },
   "itemId": "form-service-frontend",
   "name": "Form Service Frontend",
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-frontend",
   "resources": {
     "services": {
@@ -51,5 +50,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.023Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/api-documentation-aggregator/overview"
   },
   "image": {
-    "localPath": "../assets/api-documentation-aggregator-nginx-application-transparent.png"
+    "localPath": "../assets/api-documentation-aggregator-nginx_logo_20250410.png"
   },
   "itemId": "api-documentation-aggregator-nginx",
   "name": "API Documentation Aggregator NGINX",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/api-documentation-aggregator-application",
   "resources": {
     "services": {
@@ -255,5 +254,7 @@
   "type": "application",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2024-02-01T17:26:43.723Z",
+  "lifecycleStatus": "published"
 }

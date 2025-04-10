@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/crud-sql/overview"
   },
   "image": {
-    "localPath": "../assets/crud-oracle-plugin.png"
+    "localPath": "../assets/crud-oracle.png"
   },
   "itemId": "crud-oracle",
   "name": "CRUD Oracle DB",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/crud-sql",
   "resources": {
     "services": {
@@ -117,5 +116,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2024-12-19T17:04:05.912Z",
+  "lifecycleStatus": "published"
 }

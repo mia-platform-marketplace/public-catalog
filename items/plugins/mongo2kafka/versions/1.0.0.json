@@ -12,7 +12,6 @@
   "itemId": "mongo2kafka",
   "name": "Mongo2Kafka",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/mongo2kafka",
   "resources": {
     "services": {
@@ -21,6 +20,13 @@
         "name": "mongo2kafka",
         "description": "Stream your MongoDB changes to Kafka",
         "dockerImage": "nexus.mia-platform.eu/core/mongo2kafka:1.1.2",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000
+          }
+        ],
         "defaultEnvironmentVariables": [
           {
             "name": "MONGO_URL",
@@ -78,5 +84,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-04-03T13:02:51.964Z",
+  "lifecycleStatus": "deprecated"
 }

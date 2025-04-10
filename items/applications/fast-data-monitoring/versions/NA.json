@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/monitoring/overview"
   },
   "image": {
-    "localPath": "../assets/fast-data-monitoring-application-transparent.png"
+    "localPath": "../assets/fast-data-monitoring.png"
   },
   "itemId": "fast-data-monitoring",
   "name": "Fast Data Monitoring",
   "publishOnMiaDocumentation": false,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/fast-data-monitoring-application",
   "resources": {
     "services": {
@@ -177,5 +176,7 @@
   "type": "application",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2021-10-22T08:52:38.031Z",
+  "lifecycleStatus": "published"
 }

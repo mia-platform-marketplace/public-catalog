@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/fast_data/connectors/debezium_cdc#db2"
   },
   "image": {
-    "localPath": "../assets/debezium-server-db2-template-transparent.png"
+    "localPath": "../assets/debezium-server-db2-template.png"
   },
   "itemId": "debezium-server-db2-template",
   "name": "Debezium Server DB2 Template",
-  "releaseStage": "preview",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/debezium-server-db2-template",
   "resources": {
     "services": {
@@ -125,5 +124,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.014Z",
+  "lifecycleStatus": "draft"
 }

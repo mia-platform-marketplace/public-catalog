@@ -3,11 +3,10 @@
   "categoryId": "business",
   "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
   "image": {
-    "localPath": "../assets/data-visualization-plugin-transparent.png"
+    "localPath": "../assets/data-visualization.png"
   },
   "itemId": "data-visualization",
   "name": "Data Visualization",
-  "releaseStage": "deprecated",
   "resources": {
     "services": {
       "data-visualization": {
@@ -43,5 +42,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2020-08-05T08:24:02.500Z",
+  "lifecycleStatus": "deprecated"
 }

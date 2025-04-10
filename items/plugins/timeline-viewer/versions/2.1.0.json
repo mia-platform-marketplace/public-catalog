@@ -3,11 +3,10 @@
   "categoryId": "business",
   "description": "Visualize events on a timeline",
   "image": {
-    "localPath": "../assets/timeline-viewer-plugin-transparent.png"
+    "localPath": "../assets/timeline-viewer.png"
   },
   "itemId": "timeline-viewer",
   "name": "Timeline Viewer",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/backoffice/timeline",
   "resources": {
     "services": {
@@ -48,5 +47,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.036Z",
+  "lifecycleStatus": "published"
 }

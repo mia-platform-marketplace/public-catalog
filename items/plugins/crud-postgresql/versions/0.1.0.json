@@ -7,11 +7,10 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/crud-postgresql/overview"
   },
   "image": {
-    "localPath": "../assets/crud-postgresql-plugin.png"
+    "localPath": "../assets/crud-postgresql.png"
   },
   "itemId": "crud-postgresql",
   "name": "CRUD PostgreSQL",
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/crud-sql",
   "resources": {
     "services": {
@@ -117,5 +116,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.014Z",
+  "lifecycleStatus": "published"
 }

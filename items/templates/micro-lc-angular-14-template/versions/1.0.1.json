@@ -7,11 +7,10 @@
     "url": "https://raw.githubusercontent.com/micro-lc/angular14-template/refs/tags/v1.0.1/README.md"
   },
   "image": {
-    "localPath": "../assets/micro-lc-angular-template.png"
+    "localPath": "../assets/micro-lc-angular-14-template.png"
   },
   "itemId": "micro-lc-angular-14-template",
   "name": "micro-lc Angular 14 Template",
-  "releaseStage": "stable",
   "repositoryUrl": "https://github.com/micro-lc/angular14-template",
   "resources": {
     "services": {
@@ -56,5 +55,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.011Z",
+  "lifecycleStatus": "published"
 }

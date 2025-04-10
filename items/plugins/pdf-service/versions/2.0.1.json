@@ -3,11 +3,10 @@
   "categoryId": "utility",
   "description": "The PDF Services provides various functionalities to programmatically generate and manipulate pdf documents.",
   "image": {
-    "localPath": "../assets/pdf-service-plugin-transparent.png"
+    "localPath": "../assets/pdf-service.png"
   },
   "itemId": "pdf-service",
   "name": "PDF Service",
-  "releaseStage": "beta",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/pdf-service",
   "resources": {
     "services": {
@@ -59,5 +58,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-02-20T16:47:48.026Z",
+  "lifecycleStatus": "draft"
 }

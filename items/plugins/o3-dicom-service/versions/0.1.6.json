@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/o3-dicom-service/overview"
   },
   "image": {
-    "localPath": "../assets/o3-dicom-service-plugin.png"
+    "localPath": "../assets/o3-dicom-service.png"
   },
   "itemId": "o3-dicom-service",
   "name": "O3 DICOM Service",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/o3-dicom-service",
   "resources": {
     "services": {
@@ -127,5 +126,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2025-03-20T16:42:16.534Z",
+  "lifecycleStatus": "published"
 }

@@ -7,12 +7,11 @@
     "url": "https://raw.githubusercontent.com/mia-platform/ai-rag-template/main/README.md"
   },
   "image": {
-    "localPath": "../assets/ai-rag-template-transparent.png"
+    "localPath": "../assets/ai-rag-template.png"
   },
   "itemId": "ai-rag-template",
   "name": "AI RAG Template",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
   "resources": {
     "services": {
@@ -114,5 +113,7 @@
   "type": "template",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2024-05-30T16:08:43.683Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -12,7 +12,6 @@
   "itemId": "pharma-ecommerce-backend",
   "name": "Pharma Ecommerce Backend",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/pharma-ecommerce-backend",
   "resources": {
     "services": {
@@ -153,5 +152,7 @@
   "type": "plugin",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2024-02-22T17:30:21.329Z",
+  "lifecycleStatus": "deprecated"
 }

@@ -7,12 +7,11 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/client-credentials/configuration"
   },
   "image": {
-    "localPath": "../assets/client-credentials-plugin-transparent.png"
+    "localPath": "../assets/client-credentials_logo_20250410.png"
   },
   "itemId": "client-credentials",
   "name": "Client Credentials",
   "publishOnMiaDocumentation": true,
-  "releaseStage": "stable",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/client-credentials",
   "resources": {
     "services": {
@@ -122,5 +121,7 @@
   },
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2024-12-05T17:09:02.868Z",
+  "lifecycleStatus": "published"
 }

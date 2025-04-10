@@ -12,7 +12,6 @@
   "itemId": "insurance-crud-data-model",
   "name": "Insurance CRUD Data Model",
   "publishOnMiaDocumentation": false,
-  "releaseStage": "deprecated",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/insurance-crud-data-model-application",
   "resources": {
     "services": {
@@ -4851,5 +4850,7 @@
   "type": "application",
   "visibility": {
     "public": true
-  }
+  },
+  "releaseDate": "2023-09-28T17:03:32.894Z",
+  "lifecycleStatus": "deprecated"
 }

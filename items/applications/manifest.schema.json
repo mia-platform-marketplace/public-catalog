@@ -45,10 +45,6 @@
       ],
       "type": "string"
     },
-    "comingSoon": {
-      "description": "Flag that will prevent the use of the item",
-      "type": "boolean"
-    },
     "description": {
       "description": "Brief description of the item",
       "type": "string"
@@ -80,6 +76,18 @@
       "pattern": "^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?$",
       "type": "string"
     },
+    "lifecycleStatus": {
+      "description": "Lifecycle status of the item",
+      "enum": [
+        "coming-soon",
+        "draft",
+        "published",
+        "maintenance",
+        "deprecated",
+        "archived"
+      ],
+      "type": "string"
+    },
     "name": {
       "description": "Human-readable name of the item",
       "minLength": 1,
@@ -93,15 +101,9 @@
       "description": "Flag stating if the resource documentation should be published on Mia-Platform public documentation",
       "type": "boolean"
     },
-    "releaseStage": {
-      "description": "Release stage of the item",
-      "enum": [
-        "beta",
-        "deprecated",
-        "",
-        "preview",
-        "stable"
-      ],
+    "releaseDate": {
+      "description": "Creation date of this item's release",
+      "format": "date-time",
       "type": "string"
     },
     "repositoryUrl": {
@@ -545,6 +547,27 @@
                       "pattern": "(^[\\w-]+$)",
                       "type": "string"
                     },
+                    "defaultPipeline": {
+                      "anyOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "additionalProperties": true
+                          }
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "deprecated": true
+                    },
+                    "defaultSource": {
+                      "maxLength": 80,
+                      "pattern": "(^[\\w-]+$)",
+                      "type": "string",
+                      "deprecated": true
+                    },
                     "description": {
                       "type": "string"
                     },
@@ -952,14 +975,14 @@
                   "required": [
                     "type",
                     "defaultName",
-                    "internalEndpoints",
-                    "startingCollection"
+                    "internalEndpoints"
                   ],
                   "type": "object"
                 }
               ]
             }
           },
+          "additionalProperties": false,
           "type": "object"
         },
         "endpoints": {
@@ -1851,6 +1874,7 @@
               ]
             }
           },
+          "additionalProperties": false,
           "type": "object"
         },
         "listeners": {
@@ -3052,11 +3076,6 @@
                       "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
                       "type": "string"
                     },
-                    "repositoryUrl": {
-                      "format": "uri-reference",
-                      "type": "string",
-                      "deprecated": true
-                    },
                     "tags": {
                       "items": {
                         "type": "string"
@@ -3070,7 +3089,8 @@
                   "required": [
                     "name",
                     "type",
-                    "dockerImage"
+                    "dockerImage",
+                    "containerPorts"
                   ],
                   "type": "object"
                 },
@@ -3733,6 +3753,10 @@
                     "description": {
                       "type": "string"
                     },
+                    "dockerImage": {
+                      "pattern": "^(?:[a-z0-9.\\-\\/:]+\\/)?([\\w.}{\\-\\/]+)(:[\\w.}{\\-]+)?$",
+                      "type": "string"
+                    },
                     "mapEnvVarToMountPath": {
                       "type": "object",
                       "additionalProperties": {
@@ -3862,11 +3886,6 @@
                         }
                       },
                       "type": "object"
-                    },
-                    "repositoryUrl": {
-                      "format": "uri-reference",
-                      "type": "string",
-                      "deprecated": true
                     },
                     "type": {
                       "const": "example"
@@ -3875,7 +3894,8 @@
                   "required": [
                     "name",
                     "type",
-                    "archiveUrl"
+                    "archiveUrl",
+                    "containerPorts"
                   ],
                   "type": "object"
                 },
@@ -4538,6 +4558,10 @@
                     "description": {
                       "type": "string"
                     },
+                    "dockerImage": {
+                      "pattern": "^(?:[a-z0-9.\\-\\/:]+\\/)?([\\w.}{\\-\\/]+)(:[\\w.}{\\-]+)?$",
+                      "type": "string"
+                    },
                     "mapEnvVarToMountPath": {
                       "type": "object",
                       "additionalProperties": {
@@ -4668,11 +4692,6 @@
                       },
                       "type": "object"
                     },
-                    "repositoryUrl": {
-                      "format": "uri-reference",
-                      "type": "string",
-                      "deprecated": true
-                    },
                     "type": {
                       "const": "template"
                     }
@@ -4680,13 +4699,15 @@
                   "required": [
                     "name",
                     "type",
-                    "archiveUrl"
+                    "archiveUrl",
+                    "containerPorts"
                   ],
                   "type": "object"
                 }
               ]
             }
           },
+          "additionalProperties": false,
           "minProperties": 1,
           "type": "object"
         },
@@ -4800,10 +4821,12 @@
     "tenantId",
     "type",
     "resources",
+    "lifecycleStatus",
     "categoryId",
     "image",
     "supportedBy",
     "supportedByImage",
-    "visibility"
+    "visibility",
+    "releaseDate"
   ]
 }
