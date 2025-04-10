@@ -3409,7 +3409,7 @@
           }
         },
         "description": "Backend for frontend communication proxy for Data Catalog services and other applications",
-        "dockerImage": "nexus.mia-platform.eu/data-fabric/fabric-bff:0.3.2",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/fabric-bff:0.3.3",
         "name": "fabric-bff",
         "tags": [
           "data-fabric"
