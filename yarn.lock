@@ -763,16 +763,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mia-platform/console-types@npm:^0.35.0":
-  version: 0.35.0
-  resolution: "@mia-platform/console-types@npm:0.35.0"
+"@mia-platform/console-types@npm:^0.35.2":
+  version: 0.35.2
+  resolution: "@mia-platform/console-types@npm:0.35.2"
   dependencies:
     "@types/json-schema": "npm:^7.0.9"
+    json-schema-to-ts: "npm:^2.9.2"
     ramda: "npm:^0.30.1"
   peerDependencies:
     "@fastify/swagger": ^8 || ^6
     fastify: ^4 || ^3
-  checksum: 10/d3b26c02152cef2bf4425a20cdc9d4d06109fd681b4715718ccb31ee282773f5c95e2a28f3513bd8b36d2afaa6e0fb2188f80465a98072cf82f2a0d6c8b74530
+  checksum: 10/4f783455fab0d19e5a78c29a1bc0132b70976e9d9e1df0b5364c509c708d66c490e098cfad22e0a1f0903be7096ea9499d2ca1784a99165679d964b147db24ff
   languageName: node
   linkType: hard
 
@@ -4101,6 +4102,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"json-schema-to-ts@npm:^2.9.2":
+  version: 2.12.0
+  resolution: "json-schema-to-ts@npm:2.12.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.18.3"
+    "@types/json-schema": "npm:^7.0.9"
+    ts-algebra: "npm:^1.2.2"
+  checksum: 10/6d608e039f5699cda503ced169bf966df21400da5591e312aef4ef563f8d2f5574ca205f8eb3e696fef7448996f676c799545895e0f1ffe91e34e76df40104cc
+  languageName: node
+  linkType: hard
+
 "json-schema-to-ts@npm:^3.1.1":
   version: 3.1.1
   resolution: "json-schema-to-ts@npm:3.1.1"
@@ -5031,7 +5043,7 @@ __metadata:
   resolution: "public-catalog@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.24.0"
-    "@mia-platform/console-types": "npm:^0.35.0"
+    "@mia-platform/console-types": "npm:^0.35.2"
     "@stylistic/eslint-plugin-js": "npm:^4.2.0"
     "@stylistic/eslint-plugin-ts": "npm:^4.2.0"
     "@types/json-diff": "npm:^1.0.3"
@@ -5972,6 +5984,13 @@ __metadata:
   dependencies:
     punycode: "npm:^2.3.1"
   checksum: 10/2f0249354018432250bc31287f857cb7a73c43a1753b0ddccc97d140d261fe5deddeb1bf1d77afbdb29f867721f46238e3f32e97b473ba0c7e29bc5c34ccc08f
+  languageName: node
+  linkType: hard
+
+"ts-algebra@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "ts-algebra@npm:1.2.2"
+  checksum: 10/198f1d6fdfec0e8ffacf96d3db6464546afd147e80fac06158744188a64809524bc6d5eccfdbe3510e83e665d36d39fc7900940e5e258516a2c57a94b4963102
   languageName: node
   linkType: hard
 
