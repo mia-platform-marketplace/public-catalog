@@ -3,7 +3,7 @@
   "categoryId": "healthcare",
   "description": "This application allows to quickly setup the necessary services in order to send messages, across the most widely used notification channels (email, sms, push, voice, whatsapp).",
   "image": {
-    "localPath": "../assets/notification-module-new.png"
+    "localPath": "../assets/notification-module_logo_20250410.png"
   },
   "itemId": "notification-module",
   "name": "Notification Module",

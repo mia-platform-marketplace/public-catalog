@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_templates/crud-sql-template/overview"
   },
   "image": {
-    "localPath": "../assets/crud-sql-template.png"
+    "localPath": "../assets/crud-sql-template_logo_20250410.png"
   },
   "itemId": "crud-sql-template",
   "name": "CRUD SQL Template",

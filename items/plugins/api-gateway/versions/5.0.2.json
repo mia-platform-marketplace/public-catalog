@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/api-gateway/overview"
   },
   "image": {
-    "localPath": "../assets/api-gateway.png"
+    "localPath": "../assets/api-gateway_logo_20250410.png"
   },
   "itemId": "api-gateway",
   "name": "Nginx API Gateway",

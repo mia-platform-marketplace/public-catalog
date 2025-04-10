@@ -3,7 +3,7 @@
   "categoryId": "healthcare",
   "description": "This application allows to quickly setup the necessary services in order to manage patient care plans and collect data from medical and wearable devices",
   "image": {
-    "localPath": "../assets/therapy-device-module-new.png"
+    "localPath": "../assets/therapy-device-module_logo_20250410.png"
   },
   "itemId": "therapy-device-module",
   "name": "Therapy Device Module",
