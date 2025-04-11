@@ -4,7 +4,7 @@
   "version": "0.3.0",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@4.8.0",
+  "packageManager": "yarn@4.9.1",
   "license": "SEE LICENSE IN LICENSE",
   "author": "Mia Platform Core Team <core@mia-platform.eu>",
   "scripts": {
@@ -21,7 +21,7 @@
     "check:license": "addlicense -c 'Mia srl' -check -s items/**/*.js scripts/**/*.ts src/**/*.ts"
   },
   "dependencies": {
-    "@mia-platform/console-types": "^0.35.0",
+    "@mia-platform/console-types": "^0.35.2",
     "env-schema": "^6.0.1",
     "json-diff": "^1.0.6",
     "mongodb": "^6.15.0",
@@ -61,6 +61,9 @@
     "tsx": "^4.19.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.29.1"
+  },
+  "resolutions": {
+    "json-schema-to-ts": "^3.1.1"
   },
   "engines": {
     "node": ">=v23"
