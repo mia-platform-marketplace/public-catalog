@@ -60,7 +60,7 @@
     "semver": "^7.7.1",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.29.1"
+    "typescript-eslint": "^8.30.1"
   },
   "resolutions": {
     "json-schema-to-ts": "^3.1.1"
