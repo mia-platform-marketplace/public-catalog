@@ -267,7 +267,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.064Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -369,7 +369,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -562,7 +562,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-10-24T09:00:53.763Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -1616,7 +1616,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-05-30T16:08:43.683Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -1687,7 +1687,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.885Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -1755,7 +1755,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-02-12T10:50:24.328Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -1834,7 +1834,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.062Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -1910,7 +1910,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -2755,7 +2755,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-08-31T12:03:34.674Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -2995,7 +2995,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-06-01T12:55:53.057Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -3246,7 +3246,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-02-27T14:12:45.071Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -3670,7 +3670,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-02-20T16:47:48.013Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -3807,7 +3807,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-10-14T12:22:38.267Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -4762,7 +4762,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -5419,7 +5419,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -6060,7 +6060,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-07-07T08:27:12.389Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -6804,7 +6804,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-10-14T10:33:27.318Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -10047,7 +10047,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-11-11T16:35:31.016Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -10334,7 +10334,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-02-20T16:47:48.015Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -10473,7 +10473,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-10-27T14:30:41.971Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -10602,7 +10602,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-10-27T15:45:58.211Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -11415,7 +11415,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -11488,7 +11488,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.092Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -11558,7 +11558,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-05-05T19:00:15.908Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -11627,7 +11627,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.032Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -11693,7 +11693,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -12083,7 +12083,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-02-21T14:43:22.336Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -12605,7 +12605,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-02-21T16:06:21.499Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -13498,7 +13498,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -13769,7 +13769,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-02-22T13:14:58.402Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -14339,7 +14339,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-04-13T16:06:00.631Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -14510,7 +14510,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.021Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -14677,7 +14677,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-04-13T16:06:00.702Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -14734,7 +14734,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.881Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -14788,7 +14788,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-02-15T18:43:24.698Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -14845,7 +14845,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.878Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -14899,7 +14899,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-10-10T16:15:06.826Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -18948,7 +18948,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -19143,7 +19143,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -19418,7 +19418,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-05-25T16:10:21.008Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -19685,7 +19685,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-03-30T16:19:49.295Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -19960,7 +19960,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-03-30T16:19:49.326Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -20227,7 +20227,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-04-13T16:06:00.697Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -20502,7 +20502,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-05-04T16:45:12.459Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -22322,7 +22322,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.011Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -22383,7 +22383,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -22536,7 +22536,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-02-14T08:23:50.713Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -24148,7 +24148,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-04-07T16:19:37.098Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -24379,7 +24379,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-01-11T09:18:15.101Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -27523,7 +27523,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-10-10T16:15:06.834Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -29353,7 +29353,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-05-30T16:08:43.656Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -30159,7 +30159,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-02-22T17:30:21.362Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -30692,7 +30692,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-05-14T14:07:38.602Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -31094,7 +31094,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -31413,7 +31413,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-02-27T09:26:23.169Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -31672,7 +31672,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-09-11T13:21:38.380Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -31789,7 +31789,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-02-20T16:47:48.021Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -31843,7 +31843,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-06-30T09:02:33.583Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -31974,7 +31974,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-02-20T16:47:48.023Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -32035,7 +32035,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-06-30T09:02:33.582Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -32242,7 +32242,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-09-11T13:10:35.508Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -32385,7 +32385,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -32499,7 +32499,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.091Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -32610,7 +32610,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-05-16T16:55:40.746Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -32673,7 +32673,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.874Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -32733,7 +32733,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-07-07T16:19:55.298Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -32856,7 +32856,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-06-24T13:13:06.440Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -32979,7 +32979,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-02-12T10:42:08.854Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -33094,7 +33094,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.989Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -33206,7 +33206,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-02-01T17:26:43.753Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -33288,7 +33288,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.089Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -33367,7 +33367,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-02-12T10:51:21.318Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -33456,7 +33456,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.088Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -33542,7 +33542,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-08-31T15:00:42.788Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -35064,7 +35064,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-04-13T07:05:36.770Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -36717,7 +36717,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-03-07T17:30:55.965Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -37269,7 +37269,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-03-07T17:30:55.965Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -42134,7 +42134,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-09-28T17:03:32.894Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -42349,7 +42349,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.975Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -42461,7 +42461,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-11-24T14:49:22.611Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -42734,7 +42734,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-11-09T14:27:48.512Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -42804,7 +42804,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.973Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -42871,7 +42871,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -43030,7 +43030,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-05-16T15:02:06.328Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -43336,7 +43336,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-09-09T08:38:47.213Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -43533,7 +43533,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -43621,7 +43621,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.086Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -43706,7 +43706,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-02-18T11:16:10.970Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -44055,7 +44055,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-10-27T12:40:30.891Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -44244,7 +44244,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-02-02T16:26:32.584Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -44433,7 +44433,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-02-02T16:26:32.594Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -44622,7 +44622,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-02-02T16:26:32.592Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -44811,7 +44811,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-02-02T16:26:32.575Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -45038,7 +45038,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -45428,7 +45428,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-10-14T12:21:35.727Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -45674,7 +45674,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-02-16T17:10:25.261Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -45744,7 +45744,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.870Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -45811,7 +45811,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-06-01T11:04:24.489Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -45881,7 +45881,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.868Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -45948,7 +45948,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-06-01T11:04:24.489Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -46085,7 +46085,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-06-01T11:04:24.454Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -46401,7 +46401,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-06-01T11:04:24.452Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -46538,7 +46538,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-11-30T17:52:19.189Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -47452,7 +47452,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-06-28T10:42:03.677Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -47551,7 +47551,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.964Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -47647,7 +47647,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -47747,7 +47747,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.963Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -47844,7 +47844,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -47957,7 +47957,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.082Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -48067,7 +48067,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-02-12T10:46:40.409Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -48128,7 +48128,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.081Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -48186,7 +48186,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-02-12T10:48:17.090Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -48243,7 +48243,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.864Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -48297,7 +48297,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-06-09T16:11:46.097Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -48582,7 +48582,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-11-15T17:35:10.281Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -48711,7 +48711,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-02-12T10:44:46.459Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -48834,7 +48834,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-02-25T08:56:54.353Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -49326,7 +49326,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-02-15T18:43:24.673Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -51658,7 +51658,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-04-04T08:59:05.748Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -51771,7 +51771,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.861Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -51881,7 +51881,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-05-25T16:10:21.012Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -52102,7 +52102,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-02-09T15:35:48.199Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -55455,7 +55455,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-05-12T16:10:51.036Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -55626,7 +55626,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.957Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -55794,7 +55794,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-02-22T17:30:21.329Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -56639,7 +56639,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-11-30T17:52:19.221Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -56876,7 +56876,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -57083,7 +57083,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -57144,7 +57144,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.078Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -57202,7 +57202,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-05-16T20:52:01.377Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -57263,7 +57263,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.077Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -57321,7 +57321,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-05-18T17:02:02.649Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -57986,7 +57986,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-03-24T17:06:02.377Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -58782,7 +58782,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-04-07T16:19:37.099Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -58852,7 +58852,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.860Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -58919,7 +58919,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-02-12T10:49:22.178Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -60834,7 +60834,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-10-12T16:07:37.171Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -60928,7 +60928,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.075Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -61019,7 +61019,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-02-12T10:41:16.076Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -61322,7 +61322,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-10-27T10:59:37.415Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -61383,7 +61383,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.074Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -61441,7 +61441,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-05-17T09:02:36.847Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -62965,7 +62965,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-11-08T17:43:44.956Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -63471,7 +63471,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-10-20T16:30:41.556Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -63691,7 +63691,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -63913,7 +63913,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-01-16T17:17:52.667Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -64132,7 +64132,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-04-20T12:18:27.904Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -64383,7 +64383,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.926Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -64631,7 +64631,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-11-22T15:43:44.133Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -66350,7 +66350,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-02-22T17:30:21.330Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -67925,7 +67925,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-02-22T17:30:21.361Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -69140,7 +69140,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-03-07T17:30:55.921Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -69258,7 +69258,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.073Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -69373,7 +69373,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-02-12T10:43:53.643Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -69608,7 +69608,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-10-14T12:20:28.007Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -69884,7 +69884,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -69964,7 +69964,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.069Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -70041,7 +70041,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-08-31T08:53:22.514Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -70200,7 +70200,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-09-23T14:51:29.917Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -70259,7 +70259,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.911Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -70315,7 +70315,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -70405,7 +70405,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.910Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -70492,7 +70492,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -70964,7 +70964,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-06-01T07:27:50.186Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -71267,7 +71267,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-02-20T16:47:48.035Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -71414,7 +71414,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-12-02T14:43:51.687Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -71547,7 +71547,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-02-20T16:47:48.033Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -71609,7 +71609,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-12-02T14:41:04.333Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -71728,7 +71728,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.903Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -71844,7 +71844,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -72206,7 +72206,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-02-20T16:47:48.035Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -72390,7 +72390,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-01-16T10:18:22.999Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -74404,7 +74404,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -74681,7 +74681,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-05-28T13:19:05.392Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -74781,7 +74781,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.891Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -74878,7 +74878,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2020-08-05T08:24:02.500Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -74938,7 +74938,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.068Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -74995,7 +74995,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-11-08T17:43:44.934Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -75065,7 +75065,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.858Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -75132,7 +75132,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-03-30T10:38:16.178Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -75251,7 +75251,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-11-08T17:43:44.956Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -75468,7 +75468,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-05-30T16:08:43.680Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -77237,7 +77237,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2022-05-04T08:19:20.540Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -77337,7 +77337,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:52.066Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
@@ -77434,7 +77434,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2021-07-15T16:31:36.237Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -77709,7 +77709,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2023-03-20T14:03:58.062Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -77846,7 +77846,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-06-10T16:10:21.405Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -77993,7 +77993,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-12-05T17:09:02.864Z",
-    "lifecycleStatus": "deprecated",
+    "lifecycleStatus": "archived",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
