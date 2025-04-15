@@ -226,8 +226,12 @@ const assertVersionValid = async (task: Task, manifestPath: string, typeData: It
       throw new Error(`Manifests for "NA" versions must not have property "version"`)
     }
 
-    if (typeData.crd.resources.isVersioningSupported && manifest.lifecycleStatus !== catalogItemLifecycleStatusEnum.DEPRECATED) {
-      throw new Error(`Manifests for "NA" versions must have "releaseStage" set to "deprecated"`)
+    if (
+      typeData.crd.resources.isVersioningSupported
+        && manifest.lifecycleStatus !== catalogItemLifecycleStatusEnum.DEPRECATED
+        && manifest.lifecycleStatus !== catalogItemLifecycleStatusEnum.ARCHIVED
+    ) {
+      throw new Error(`Manifests for "NA" versions must have "releaseStage" set to "deprecated" or "archived"`)
     }
   }
 
