@@ -93,7 +93,7 @@
           }
         },
         "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
-        "dockerImage": "envoyproxy/envoy:v1.31.1",
+        "dockerImage": "envoyproxy/envoy:v1.32.1",
         "execPreStop": [
           "bash",
           "-c",
