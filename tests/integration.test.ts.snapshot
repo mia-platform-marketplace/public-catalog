@@ -592,7 +592,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "api-gateway",
           "type": "plugin",
           "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
-          "dockerImage": "envoyproxy/envoy:v1.29.2",
+          "dockerImage": "envoyproxy/envoy:v1.32.1",
           "componentId": "api-gateway-envoy",
           "defaultDocumentationPath": "",
           "defaultArgs": [
@@ -922,7 +922,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "api-gateway",
           "type": "plugin",
           "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
-          "dockerImage": "envoyproxy/envoy:v1.29.2",
+          "dockerImage": "envoyproxy/envoy:v1.32.1",
           "componentId": "api-gateway-envoy",
           "defaultDocumentationPath": "",
           "defaultArgs": [
@@ -1945,7 +1945,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "api-gateway",
           "type": "plugin",
           "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
-          "dockerImage": "envoyproxy/envoy:v1.29.2",
+          "dockerImage": "envoyproxy/envoy:v1.32.1",
           "componentId": "api-gateway-envoy",
           "defaultDocumentationPath": "",
           "defaultArgs": [
@@ -20611,7 +20611,7 @@ exports[`Sync script > should match snapshot 2`] = `
             }
           },
           "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
-          "dockerImage": "envoyproxy/envoy:v1.31.1",
+          "dockerImage": "envoyproxy/envoy:v1.32.1",
           "execPreStop": [
             "bash",
             "-c",
@@ -27557,7 +27557,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "api-gateway",
           "type": "plugin",
           "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
-          "dockerImage": "envoyproxy/envoy:v1.29.3",
+          "dockerImage": "envoyproxy/envoy:v1.32.1",
           "componentId": "api-gateway-envoy",
           "defaultDocumentationPath": "",
           "defaultArgs": [
@@ -35099,7 +35099,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "api-gateway",
           "type": "plugin",
           "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
-          "dockerImage": "envoyproxy/envoy:v1.29.2",
+          "dockerImage": "envoyproxy/envoy:v1.32.1",
           "componentId": "api-gateway-envoy",
           "defaultDocumentationPath": "",
           "defaultArgs": [
@@ -37304,7 +37304,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "api-gateway",
           "type": "plugin",
           "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
-          "dockerImage": "envoyproxy/envoy:v1.29.2",
+          "dockerImage": "envoyproxy/envoy:v1.32.1",
           "componentId": "api-gateway-envoy",
           "defaultDocumentationPath": "",
           "defaultArgs": [
@@ -52137,7 +52137,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "api-gateway",
           "type": "plugin",
           "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
-          "dockerImage": "envoyproxy/envoy:v1.29.2",
+          "dockerImage": "envoyproxy/envoy:v1.32.1",
           "componentId": "api-gateway-envoy",
           "defaultDocumentationPath": "",
           "defaultArgs": [
@@ -73706,7 +73706,7 @@ exports[`Sync script > should match snapshot 2`] = `
           },
           "defaultTerminationGracePeriodSeconds": 60,
           "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
-          "dockerImage": "envoyproxy/envoy:v1.29.2",
+          "dockerImage": "envoyproxy/envoy:v1.32.1",
           "execPreStop": [
             "bash",
             "-c",
