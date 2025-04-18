@@ -18,7 +18,7 @@
         "type": "plugin",
         "name": "rond",
         "description": "Use Rönd as a standalone microservice to evaluate authorization security policies.",
-        "dockerImage": "ghcr.io/rond-authz/rond:1.12.6",
+        "dockerImage": "nexus.mia-platform.eu/rond-authz/rond:1.12.6",
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",
