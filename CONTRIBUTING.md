@@ -34,7 +34,7 @@ Everything you need to know about items and manifests is written in the official
 
 ### Rules & conventions
 
-The content of the directory must adhere to a strict set of rules. To check if the Catalog is valid run `yarn check:items`. You can restrict the checks by passing a list of items with the `-i, --item` flag (e.g., `yarn check:items -i crud-service files-service`).
+The content of the directory must adhere to a strict set of rules. To check if the Catalog is valid run `yarn check:items`. The command expects to be provided with a set of credentials to call the Mia-Platform Nexus registry API. You can do so with the required flag `-u` (or `--user`) that accepts the credentials in plaintext Basic Auth format (i.e., `user:password`). Moreover, you can restrict the items to check by passing a list of item IDs with the `-i, --item` flag (e.g., `yarn check:items -u nexus-user:nexus-password -i crud-service files-service`).
 
 It is also recommended to instruct you IDE to validate the manifest against its JSON schema. Each item type has its own schema placed at the root of the type directory (i.e., `/<item-type>/manifest.schema.json`).
 
@@ -72,7 +72,12 @@ It is also recommended to instruct you IDE to validate the manifest against its 
   - property `supportedByImage.localPath` MUST be one of the possible supporters images (see `/assets/supporters.json` and `/assets/img/`);
   - property `version` MUST be set in versioned manifests and MUST not be set in `NA` manifests;
   - property `version.name` MUST be equal to the manifest file name;
-  - property `releaseStage` MUST be equal to `deprecated` in `NA` manifests.
+  - property `lifecycleStatus` MUST be equal to `deprecated` or `archived` in `NA` manifests.
+
+Moreover, any **Docker image** referenced inside a manifest (e.g., property `dockerImage` in `resources.services` for some of the types):
+
+- MUST come from Mia-Platform Nexus registry (i.e., MUST start with `nexus.mia-platform.eu`), and
+- MUST actually be loaded on the registry.
 
 The following set of extra rules **applies only to application** items:
 
@@ -94,7 +99,7 @@ Below are listed some common operations you may want to perform on the catalog. 
 - Create a `versions` directory and, optionally, a `assets` directory in the item directory.
 - Create the first manifest file under the `versions` directory. Name the file as the version you want to create (`NA` if the item type does not support versioning, a valid semver if the item type supports versioning).
 - Write the manifest content following the JSON schema in the item type directory (i.e., `"$schema": "../../manifest.schema.json"`).
-- Validate your work running `yarn check:items -i <item-id>`.
+- Validate your work running `yarn check:items -u <nexus-user:nexus-password> -i <item-id>`.
 - Re-generate the snapshots running
 
   ```sh
@@ -115,7 +120,7 @@ Below are listed some common operations you may want to perform on the catalog. 
 
 - Create a new manifest file under the `versions` directory of the item (i.e. `/items/<item-type>/<item-id>/versions/`). Name the file as the version you want to create.
 - Write the manifest content following the JSON schema in the item type directory (i.e., `"$schema": "../../manifest.schema.json"`).
-- Validate your work running `yarn check:items -i <item-id>`.
+- Validate your work running `yarn check:items -u <nexus-user:nexus-password> -i <item-id>`.
 - Re-generate the snapshots running
 
   ```sh
@@ -132,7 +137,7 @@ Below are listed some common operations you may want to perform on the catalog. 
 
 - Locate the manifest file you want to edit (i.e., `/items/<item-type>/<item-id>/versions/<version-name>.json`).
 - Edit the manifest content following the JSON schema in the item type directory (i.e., `"$schema": "../../manifest.schema.json"`).
-- Validate your work running `yarn check:items -i <item-id>`.
+- Validate your work running `yarn check:items -u <nexus-user:nexus-password> -i <item-id>`.
 - Re-generate the snapshots running
 
   ```sh
@@ -145,11 +150,11 @@ Below are listed some common operations you may want to perform on the catalog. 
   - **title**: `feat(catalog): update version <version-name> of <item-type> <item-id>` (e.g., `feat(catalog): update version 1.0.0 of plugin my-awesome-service`)
   - **label**: `catalog-content`
 
-#### Deprecate an item version
+#### Deprecate or archive an item version
 
 - Locate the manifest file you want to deprecate (i.e., `/items/<item-type>/<item-id>/versions/<version-name>.json`).
-- Set the `releaseStage` property to `deprecated`.
-- Validate your work running `yarn check:items -i <item-id>`.
+- Set the `lifecycleStatus` property to `deprecated` or `archived`.
+- Validate your work running `yarn check:items -u <nexus-user:nexus-password> -i <item-id>`.
 - Re-generate the snapshots running
 
   ```sh
@@ -159,7 +164,7 @@ Below are listed some common operations you may want to perform on the catalog. 
   ```
 
 - Open a pull request with:
-  - **title**: `feat(catalog): deprecate <version-name> of <item-type> <item-id>` (e.g., `feat(catalog): deprecate version 1.0.0 of plugin my-awesome-service`)
+  - **title**: `feat(catalog): deprecate/archive <version-name> of <item-type> <item-id>` (e.g., `feat(catalog): deprecate version 1.0.0 of plugin my-awesome-service`)
   - **label**: `catalog-content`
 
 #### Deprecate an item
@@ -167,8 +172,8 @@ Below are listed some common operations you may want to perform on the catalog. 
 An item is considered deprecated if all of its versions are deprecated.
 
 - Locate the item you want to deprecate (i.e., `/items/<item-type>/<item-id>/`).
-- [Deprecate](#deprecate-an-item-version) each version of the item.
-- Validate your work running `yarn check:items -i <item-id>`.
+- [Deprecate](#deprecate-or-archive-an-item-version) each version of the item.
+- Validate your work running `yarn check:items -u <nexus-user:nexus-password> -i <item-id>`.
 - Re-generate the snapshots running
 
   ```sh
@@ -197,7 +202,7 @@ An item is considered deprecated if all of its versions are deprecated.
 
 Whenever you make a change to the Catalog content remember to:
 
-- run check script with `yarn check-items -i <changed-item-itemId>`, and
+- run check script with `yarn check:items -u <nexus-user:nexus-password> -i <changed-item-itemId>`, and
 - re-generate snapshots running `yarn test:snapshot` (you can spin up the needed MongoDB instance with `make test-up`, and stop it with `make test-down`).
 
 ## Work with the sync script

@@ -13,6 +13,9 @@ on:
 jobs:
   lint:
     uses: ./.github/workflows/_checks.yml
+    secrets:
+      nexus_username: ${{ secrets.NEXUS_USER }}
+      nexus_token: ${{ secrets.NEXUS_TOKEN }}
 
   build:
     uses: ./.github/workflows/_build.yml

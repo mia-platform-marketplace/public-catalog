@@ -23,7 +23,7 @@ import process from 'process'
 import { build } from 'esbuild'
 import { rimraf } from 'rimraf'
 
-import logger from './logger'
+import logger from './lib/logger'
 
 const outDir = path.resolve(process.cwd(), 'build')
 

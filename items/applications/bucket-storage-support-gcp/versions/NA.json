@@ -97,7 +97,7 @@
         "additionalContainers": [
           {
             "name": "dnsmasq",
-            "dockerImage": "fra.ocir.io/ufoc01/dih/core/dnsmasq:1.0.3",
+            "dockerImage": "nexus.mia-platform.eu/core/dnsmasq:1.0.3",
             "defaultEnvironmentVariables": [],
             "defaultResources": {
               "memoryLimits": {

@@ -36,11 +36,14 @@ import YAML from 'yaml'
 
 import supporters from '../assets/supporters.json' with { type: 'json' }
 
-import logger from './logger'
-import type { ItemTypeData, ItemTypeModule, Manifest } from './utils'
+import { assertValidDockerImage } from './lib/check-docker-images'
+import logger from './lib/logger'
+import type { ItemTypeData, ItemTypeModule, Manifest } from './lib/utils'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Task = ListrTaskWrapper<any, any, any>
+
+type Options = { items?: string[]; user: string }
 
 const ajv = new Ajv({ addUsedSchema: false, allErrors: true })
 addFormats(ajv)
@@ -204,7 +207,7 @@ const assertValidSupportedByImageFile = async (manifest: Manifest, manifestPath:
 }
 
 /** @throws Error */
-const assertVersionValid = async (task: Task, manifestPath: string, typeData: ItemTypeData) => {
+const assertVersionValid = async (task: Task, manifestPath: string, typeData: ItemTypeData, opts: Options) => {
   const { ext: fileExtension, name: filename } = path.parse(path.basename(manifestPath))
 
   const manifestRaw = await fs.readFile(manifestPath, 'utf-8')
@@ -231,7 +234,7 @@ const assertVersionValid = async (task: Task, manifestPath: string, typeData: It
         && manifest.lifecycleStatus !== catalogItemLifecycleStatusEnum.DEPRECATED
         && manifest.lifecycleStatus !== catalogItemLifecycleStatusEnum.ARCHIVED
     ) {
-      throw new Error(`Manifests for "NA" versions must have "releaseStage" set to "deprecated" or "archived"`)
+      throw new Error(`Manifests for "NA" versions must have "lifecycleStatus" set to "deprecated" or "archived"`)
     }
   }
 
@@ -241,6 +244,8 @@ const assertVersionValid = async (task: Task, manifestPath: string, typeData: It
 
   await assertValidImageFile(manifest, manifestPath)
   await assertValidSupportedByImageFile(manifest, manifestPath)
+
+  await assertValidDockerImage(manifest, opts.user)
 }
 
 /** @throws Error */
@@ -302,7 +307,7 @@ const computeAndValidateReleaseFilesPaths = async (itemDirPath: string, typeData
 }
 
 /** @throws Error */
-const assertItemValid = async (task: Task, itemDirPath: string): Promise<Listr> => {
+const assertItemValid = async (task: Task, itemDirPath: string, opts: Options): Promise<Listr> => {
   const typeDir = path.dirname(itemDirPath)
   const typeDataModule = await import(typeDir) as ItemTypeModule
 
@@ -322,7 +327,7 @@ const assertItemValid = async (task: Task, itemDirPath: string): Promise<Listr> 
 
     subTask.add({
       rendererOptions: { outputBar: Infinity, persistentOutput: true },
-      task: async (_, task) => { await assertVersionValid(task, manifestPath, typeData) },
+      task: async (_, task) => { await assertVersionValid(task, manifestPath, typeData, opts) },
       title: `Checking version "${chalk.bold(versionName)}"`,
     })
   }
@@ -337,10 +342,11 @@ const assertItemValid = async (task: Task, itemDirPath: string): Promise<Listr> 
 const main = async () => {
   const program = new Command()
 
+  program.requiredOption('-u, --user <user:password>', 'Mia-Platform Nexus user and password')
   program.option('-i, --items <value...>', 'ids of the items to check')
   program.parse()
 
-  const options = program.opts<{ items?: string[] }>()
+  const options = program.opts<Options>()
 
   const paths = await computePathsToCheck(options.items)
 
@@ -356,7 +362,7 @@ const main = async () => {
     const itemType = itemDirPath.split('/').at(-2)
 
     tasks.add({
-      task: async (_, task) => assertItemValid(task, itemDirPath),
+      task: async (_, task) => assertItemValid(task, itemDirPath, options),
       title: `Checking item "${chalk.bold(`${itemType}/${itemId}`)}"`,
     })
   }

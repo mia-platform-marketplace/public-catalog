@@ -197,7 +197,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "acl-service",
           "description": "This service provides REST API that can be configured to manage request ACL",
-          "dockerImage": "nexus.mia-platform.eu/core/acl-service:2.0.1",
+          "dockerImage": "nexus.mia-platform.eu/core/acl-service:1.0.2",
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
@@ -303,7 +303,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "acl-service",
           "description": "This service provides REST API that can be configured to manage request ACL",
-          "dockerImage": "nexus.mia-platform.eu/core/acl-service:2.0.1",
+          "dockerImage": "nexus.mia-platform.eu/core/acl-service:1.0.2",
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
@@ -8600,7 +8600,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "additionalContainers": [
             {
               "name": "dnsmasq",
-              "dockerImage": "fra.ocir.io/ufoc01/dih/core/dnsmasq:1.0.3",
+              "dockerImage": "nexus.mia-platform.eu/core/dnsmasq:1.0.3",
               "defaultEnvironmentVariables": [],
               "defaultResources": {
                 "memoryLimits": {
@@ -9274,7 +9274,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "additionalContainers": [
             {
               "name": "dnsmasq",
-              "dockerImage": "fra.ocir.io/ufoc01/dih/core/dnsmasq:1.0.3",
+              "dockerImage": "nexus.mia-platform.eu/core/dnsmasq:1.0.3",
               "defaultEnvironmentVariables": [],
               "defaultResources": {
                 "memoryLimits": {
@@ -57355,7 +57355,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "rond",
           "description": "Use Rönd as a standalone microservice to evaluate authorization security policies.",
-          "dockerImage": "ghcr.io/rond-authz/rond:1.13.0",
+          "dockerImage": "nexus.mia-platform.eu/rond-authz/rond:1.13.0",
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
@@ -57523,7 +57523,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "rond",
           "description": "Use Rönd as a standalone microservice to evaluate authorization security policies.",
-          "dockerImage": "ghcr.io/rond-authz/rond:1.12.9",
+          "dockerImage": "nexus.mia-platform.eu/rond-authz/rond:1.12.9",
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
@@ -57690,7 +57690,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "rond",
           "description": "Use Rönd as a standalone microservice to evaluate authorization security policies.",
-          "dockerImage": "ghcr.io/rond-authz/rond:1.12.6",
+          "dockerImage": "nexus.mia-platform.eu/rond-authz/rond:1.12.6",
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
@@ -57857,7 +57857,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "rond",
           "description": "Use Rönd as a standalone microservice to evaluate authorization security policies.",
-          "dockerImage": "ghcr.io/rond-authz/rond:1.12.6",
+          "dockerImage": "nexus.mia-platform.eu/rond-authz/rond:1.12.6",
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
