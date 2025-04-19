@@ -19,7 +19,7 @@
         "type": "plugin",
         "name": "acl-service",
         "description": "This service provides REST API that can be configured to manage request ACL",
-        "dockerImage": "nexus.mia-platform.eu/core/acl-service:2.0.1",
+        "dockerImage": "nexus.mia-platform.eu/core/acl-service:1.0.2",
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",
