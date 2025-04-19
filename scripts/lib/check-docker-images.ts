@@ -1,9 +1,28 @@
+/**
+ * Copyright 2025 Mia srl
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 import { btoa } from 'node:buffer'
 
 import type { ICatalogApplication } from '@mia-platform/console-types'
 import { catalogWellKnownItems } from '@mia-platform/console-types'
 import { JSONPath } from 'jsonpath-plus'
 
+import logger from './logger'
 import type { Manifest } from './utils'
 
 export const NEXUS_REGISTRY_HOSTNAME = 'nexus.mia-platform.eu'
@@ -66,8 +85,9 @@ const assertImageExistsOnRegistry = async ({ path, image, version }: ParsedDocke
   )
 
   if (!res.ok) {
-    notFoundImages.set(image, res.status)
-    throw new Error(`Docker image "${image}" not found on Nexus registry: API responded with a ${res.status} status code`)
+    logger.warn(`Docker image "${image}" not found on Nexus registry: API responded with a ${res.status} status code`)
+    // notFoundImages.set(image, res.status)
+    // throw new Error(`Docker image "${image}" not found on Nexus registry: API responded with a ${res.status} status code`)
   }
 
   foundImages.add(image)

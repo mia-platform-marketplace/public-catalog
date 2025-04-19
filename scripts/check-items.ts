@@ -234,7 +234,7 @@ const assertVersionValid = async (task: Task, manifestPath: string, typeData: It
         && manifest.lifecycleStatus !== catalogItemLifecycleStatusEnum.DEPRECATED
         && manifest.lifecycleStatus !== catalogItemLifecycleStatusEnum.ARCHIVED
     ) {
-      throw new Error(`Manifests for "NA" versions must have "releaseStage" set to "deprecated" or "archived"`)
+      throw new Error(`Manifests for "NA" versions must have "lifecycleStatus" set to "deprecated" or "archived"`)
     }
   }
 

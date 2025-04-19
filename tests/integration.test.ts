@@ -137,8 +137,8 @@ describe('Sync script', async () => {
       __STATE__,
       isLatest: true,
       itemId,
+      lifecycleStatus: 'published',
       name: 'micro-lc',
-      releaseStage: 'stable',
       resources: {
         services: {
           'micro-lc': { dockerImage: 'foo', name: 'micro-lc', type: 'plugin' },
