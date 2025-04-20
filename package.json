@@ -17,7 +17,7 @@
     "lint": "eslint .",
     "check:items": "tsx --no-warnings scripts/check-items.ts",
     "check:types": "tsc --noEmit --skipLibCheck",
-    "check:license": "addlicense -c 'Mia srl' -check -s items/**/*.js scripts/**/*.ts src/**/*.ts"
+    "check:license": "addlicense -c 'Mia srl' -check -s scripts/**/*.ts src/**/*.ts"
   },
   "dependencies": {
     "@mia-platform/console-types": "^0.37.0",
