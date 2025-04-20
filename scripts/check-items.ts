@@ -21,7 +21,7 @@ import { createReadStream } from 'node:fs'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import type { ICatalogApplication } from '@mia-platform/console-types'
+import type { CatalogWellKnownItemsType, ICatalogApplication } from '@mia-platform/console-types'
 import { catalogWellKnownItems, CATALOG_ITEM_NA_VERSION, catalogItemLifecycleStatusEnum } from '@mia-platform/console-types'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
@@ -38,7 +38,7 @@ import supporters from '../assets/supporters.json' with { type: 'json' }
 
 import { assertValidDockerImage } from './lib/check-docker-images'
 import logger from './lib/logger'
-import type { ItemTypeData, ItemTypeModule, Manifest } from './lib/utils'
+import type { ItemTypeData, Manifest } from './lib/utils'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Task = ListrTaskWrapper<any, any, any>
@@ -309,14 +309,20 @@ const computeAndValidateReleaseFilesPaths = async (itemDirPath: string, typeData
 /** @throws Error */
 const assertItemValid = async (task: Task, itemDirPath: string, opts: Options): Promise<Listr> => {
   const typeDir = path.dirname(itemDirPath)
-  const typeDataModule = await import(typeDir) as ItemTypeModule
+  const itemType = path.parse(typeDir).name as CatalogWellKnownItemsType
 
-  const { crd } = catalogWellKnownItems[typeDataModule.default.type]
+  const { crd } = catalogWellKnownItems[itemType]
   if (!crd) {
-    throw new Error(`Could not find a Custom Resource Definition for the item's type "${typeDataModule.default.type}"`)
+    throw new Error(`Could not find a Custom Resource Definition for the item's type "${itemType}"`)
   }
 
-  const typeData = { ...typeDataModule.default, crd }
+  const manifest = await import(path.resolve(typeDir, 'manifest.schema.json'), { with: { type: 'json' } }) as JSONSchema
+
+  const typeData: ItemTypeData = {
+    crd,
+    schema: manifest,
+    type: itemType,
+  }
 
   const manifestPaths = await computeAndValidateReleaseFilesPaths(itemDirPath, typeData)
 

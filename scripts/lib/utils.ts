@@ -25,13 +25,6 @@ export type ItemTypeData = {
   type: CatalogWellKnownItemsType
 }
 
-export type ItemTypeModule = {
-  default: {
-    schema: JSONSchema
-    type: CatalogWellKnownItemsType
-  }
-}
-
 export type ImageFileData = { localPath: string }
 
 export type Manifest = CatalogItemManifest & {
