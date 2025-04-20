@@ -8,9 +8,8 @@
   "license": "SEE LICENSE IN LICENSE",
   "author": "Mia Platform Core Team <core@mia-platform.eu>",
   "scripts": {
-    "build:manifest-schemas": "tsx scripts/build-manifest-schemas.ts",
+    "sync-crd": "tsx scripts/sync-crd.ts",
     "build:script": "tsx scripts/build-script.ts",
-    "build": "yarn build:manifest-schemas && yarn build:script",
     "dev": "tsx --env-file=./.dev/local.env src/index.ts",
     "start": "node build/index.cjs",
     "test": "node --import=tsx --test 'tests/**/*.test.ts'",

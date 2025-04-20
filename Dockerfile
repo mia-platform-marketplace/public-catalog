@@ -14,7 +14,8 @@ COPY ./yarn.lock yarn.lock
 
 RUN yarn install --immutable
 
-RUN yarn build
+RUN yarn sync-crd
+RUN yarn build:script
 
 ########################################################################################################################
 
