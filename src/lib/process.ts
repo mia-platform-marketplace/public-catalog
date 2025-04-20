@@ -22,15 +22,7 @@ import type { FromSchema, JSONSchema } from 'json-schema-to-ts'
 
 import { logLevels } from './logger'
 
-export const defaultItemTypesFilter = [
-  catalogWellKnownItems.application.type,
-  catalogWellKnownItems.example.type,
-  catalogWellKnownItems['custom-resource'].type,
-  catalogWellKnownItems.plugin.type,
-  catalogWellKnownItems.proxy.type,
-  catalogWellKnownItems.sidecar.type,
-  catalogWellKnownItems.template.type,
-]
+export const defaultItemTypesFilter = Object.keys(catalogWellKnownItems)
 
 const schema = {
   properties: {

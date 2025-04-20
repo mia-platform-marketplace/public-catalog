@@ -17,7 +17,8 @@ To set up the repository run:
 ```sh
 corepack enable
 yarn install
-yarn build
+yarn sync-crd
+yarn build:script
 ```
 
 ## Change the Catalog content
@@ -45,7 +46,7 @@ It is also recommended to instruct you IDE to validate the manifest against its 
 >
 > Item types JSON schemas are built on top of well-known items schemas shipped by [`@mia-platform/console-types` lib](https://github.com/mia-platform/console-sdk/tree/main/packages/console-types/src/types/catalog/well-known-items).
 >
-> Whenever you update that library, remember to run `yarn build:manifest-schemas` to re-create them.
+> Whenever you update that library, remember to run `yarn sync-crd` to re-create them.
 
 #### Files organization
 
@@ -193,7 +194,7 @@ An item is considered deprecated if all of its versions are deprecated.
 > You cannot edit the `categoryId` of an existing category since there may be other items using it outside the ones declared here.
 
 - Add the new category or edit the exiling one in `/assets/categories.json`.
-- Update the manifest JSON schemas running `yarn build:manifest-schemas`
+- Update the manifest JSON schemas running `yarn sync-crd`
 - Open a pull request with:
   - **title**: `feat(catalog): [add | edit] category <category-id>` (e.g., `feat(catalog): add category my-awesome-category`)
   - **label**: `catalog-content`

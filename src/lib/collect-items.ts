@@ -28,28 +28,6 @@ import { findLatestRelease, replaceMiaPlatformDockerImageHost } from './utils'
 
 const itemsDirPath = path.resolve(process.cwd(), 'items')
 
-const buildItemTypeToDirPathMap = async (ctx: SyncCtx): Promise<Map<string, string>> => {
-  const map = new Map<string, string>()
-
-  const itemTypesDirent = await fs.readdir(itemsDirPath, { withFileTypes: true })
-
-  for (const itemTypeDirent of itemTypesDirent) {
-    if (!itemTypeDirent.isDirectory()) { continue }
-
-    const itemTypeDirPath = path.resolve(itemTypeDirent.parentPath, itemTypeDirent.name)
-
-    try {
-      const itemTypeModule = await import(`${itemTypeDirPath}/index.js`) as { default: { type: string }}
-      map.set(itemTypeModule.default.type, itemTypeDirPath)
-    } catch (err) {
-      ctx.logger.error({ err }, `Could not load module "index.ts" for item type directory ${itemTypeDirent.name}: skipping directory`)
-      continue
-    }
-  }
-
-  return map
-}
-
 const setTenantId = (ctx: SyncCtx, manifest: Manifest) => { manifest.tenantId = ctx.env.TENANT_ID_TO_SET }
 
 const setContainerRegistry = (ctx: SyncCtx, manifest: Manifest) => {
@@ -90,8 +68,6 @@ const setIsLatest = (manifests: Manifest[]) => {
 }
 
 const collectItems = async (ctx: SyncCtx, itemTypesToCollect: string[]): Promise<ReleaseData[]> => {
-  const itemTypeToDirPathMap = await buildItemTypeToDirPathMap(ctx)
-
   const manifests: ReleaseData[] = []
 
   for (const itemType of itemTypesToCollect) {
@@ -99,8 +75,11 @@ const collectItems = async (ctx: SyncCtx, itemTypesToCollect: string[]): Promise
 
     const itemsManifests: ReleaseData[] = []
 
-    const itemTypeDirPath = itemTypeToDirPathMap.get(itemType)
-    if (!itemTypeDirPath) {
+    const itemTypeDirPath = path.resolve(itemsDirPath, itemType)
+
+    try {
+      await fs.access(itemTypeDirPath)
+    } catch {
       ctx.logger.info(`Could not find directory for type "${itemType}" specified in environment variable "ITEM_TYPES_FILTER": assuming there are not items of this type and skipping`)
       continue
     }

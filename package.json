@@ -8,9 +8,8 @@
   "license": "SEE LICENSE IN LICENSE",
   "author": "Mia Platform Core Team <core@mia-platform.eu>",
   "scripts": {
-    "build:manifest-schemas": "tsx scripts/build-manifest-schemas.ts",
+    "sync-crd": "tsx scripts/sync-crd.ts",
     "build:script": "tsx scripts/build-script.ts",
-    "build": "yarn build:manifest-schemas && yarn build:script",
     "dev": "tsx --env-file=./.dev/local.env src/index.ts",
     "start": "node build/index.cjs",
     "test": "node --import=tsx --test 'tests/**/*.test.ts'",
@@ -18,7 +17,7 @@
     "lint": "eslint .",
     "check:items": "tsx --no-warnings scripts/check-items.ts",
     "check:types": "tsc --noEmit --skipLibCheck",
-    "check:license": "addlicense -c 'Mia srl' -check -s items/**/*.js scripts/**/*.ts src/**/*.ts"
+    "check:license": "addlicense -c 'Mia srl' -check -s scripts/**/*.ts src/**/*.ts"
   },
   "dependencies": {
     "@mia-platform/console-types": "^0.37.0",
