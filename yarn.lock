@@ -786,9 +786,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mswjs/interceptors@npm:^0.38.1":
-  version: 0.38.1
-  resolution: "@mswjs/interceptors@npm:0.38.1"
+"@mswjs/interceptors@npm:^0.38.5":
+  version: 0.38.5
+  resolution: "@mswjs/interceptors@npm:0.38.5"
   dependencies:
     "@open-draft/deferred-promise": "npm:^2.2.0"
     "@open-draft/logger": "npm:^0.3.0"
@@ -797,7 +797,7 @@ __metadata:
     jsdom: "npm:^26.0.0"
     outvariant: "npm:^1.4.3"
     strict-event-emitter: "npm:^0.5.1"
-  checksum: 10/8bffe0b98c97d564d60049e7f541d5920a05ebac4982d79b5a0361fce2260a41fe39a230d97abb8bc9500504e17f9e3ef40403856d791b8ba50ca6af1ea3d48f
+  checksum: 10/ffb883d8abc626e045d8e272e1863c28757a242c7fc30553547d692c5b9804da8c9b460f5c72a4f56065c01a4644acfbf9953d08cd523c9133d18ad46461125c
   languageName: node
   linkType: hard
 
@@ -4569,14 +4569,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nock@npm:^14.0.3":
-  version: 14.0.3
-  resolution: "nock@npm:14.0.3"
+"nock@npm:^14.0.4":
+  version: 14.0.4
+  resolution: "nock@npm:14.0.4"
   dependencies:
-    "@mswjs/interceptors": "npm:^0.38.1"
+    "@mswjs/interceptors": "npm:^0.38.5"
     json-stringify-safe: "npm:^5.0.1"
     propagate: "npm:^2.0.0"
-  checksum: 10/e9f9599c43b38d10337b749d246bbdb4092c67a38c3c7211635975724e0fd2fc6a629acdbebbeffcc94a9d37704262b6be5cd4647e3bcc02874fa6449766ea94
+  checksum: 10/43ad012cbaf6062e500e1535ec2ef6e7e3f037289e3b2a88490204701b9434bb873f4f43fce603c47237d13ee7985ca949f5e6b55b68bc6446929ff1da1d0b53
   languageName: node
   linkType: hard
 
@@ -5060,7 +5060,7 @@ __metadata:
     listr2: "npm:^8.3.2"
     lodash-es: "npm:^4.17.21"
     mongodb: "npm:^6.15.0"
-    nock: "npm:^14.0.3"
+    nock: "npm:^14.0.4"
     pino: "npm:^9.6.0"
     pino-pretty: "npm:^13.0.0"
     rimraf: "npm:^6.0.1"
