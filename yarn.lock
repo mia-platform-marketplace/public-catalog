@@ -609,17 +609,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.25.1":
+"@eslint/js@npm:9.25.1, @eslint/js@npm:^9.25.1":
   version: 9.25.1
   resolution: "@eslint/js@npm:9.25.1"
   checksum: 10/ad5812889598de32d674ef60c0e61468ac5c7f3b6ecf98b0e29d1e88d7af8ba3aab255b8c0a46bbaf654047bbd2ee5aa033db9b53e330f97615093fcccde4cbb
-  languageName: node
-  linkType: hard
-
-"@eslint/js@npm:^9.25.0":
-  version: 9.25.0
-  resolution: "@eslint/js@npm:9.25.0"
-  checksum: 10/c00b5abc952d8d45efec12f7b84f143f168261f548cc218451fe14cbfcd801cae05e63013d26c3f7e255a85a164d95225b97441bb32ae1be6162473f3a2d9c71
   languageName: node
   linkType: hard
 
@@ -5054,7 +5047,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "public-catalog@workspace:."
   dependencies:
-    "@eslint/js": "npm:^9.25.0"
+    "@eslint/js": "npm:^9.25.1"
     "@mia-platform/console-types": "npm:^0.37.0"
     "@stylistic/eslint-plugin-js": "npm:^4.2.0"
     "@stylistic/eslint-plugin-ts": "npm:^4.2.0"
