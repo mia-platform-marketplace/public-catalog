@@ -897,7 +897,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "ai-rag-chat.png",
+        "name": "ai-rag-chat_logo_20250423.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -1361,7 +1361,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "ai-rag-template.png",
+        "name": "ai-rag-template_logo_20250423.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -1493,7 +1493,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "ai-rag-template.png",
+        "name": "ai-rag-template_logo_20250423.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -1621,7 +1621,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "ai-rag-template.png",
+        "name": "ai-rag-template_logo_20250423.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -10196,7 +10196,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "chat-service-backend.png",
+        "name": "chat-service-backend_logo_2025-04-23.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -10339,7 +10339,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "chat-service-backend.png",
+        "name": "chat-service-backend_logo_2025-04-23.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -10478,7 +10478,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "chat-service-backend.png",
+        "name": "chat-service-backend_logo_2025-04-23.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -10545,7 +10545,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "chat-service-frontend.png",
+        "name": "chat-service-frontend_logo_2025-04-23.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -10607,7 +10607,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "chat-service-frontend.png",
+        "name": "chat-service-frontend_logo_2025-04-23.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -42239,7 +42239,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "integration-connector-agent.png",
+        "name": "integration-connector-agent_logo_20250423.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -55391,7 +55391,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "pdf-service.png",
+        "name": "pdf-service_logo_20250423.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -55460,7 +55460,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "pdf-service.png",
+        "name": "pdf-service_logo_20250423.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -58650,7 +58650,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "rate-limit-envoy.png",
+        "name": "rate-limit-envoy_logo_20250423.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -58787,7 +58787,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "rate-limit-envoy.png",
+        "name": "rate-limit-envoy_logo_20250423.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -78037,12 +78037,12 @@ exports[`Sync script > should match snapshot 3`] = `
     "updaterId": "marketplace-sync"
   },
   {
-    "name": "ai-rag-chat.png",
+    "name": "ai-rag-chat_logo_20250423.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },
   {
-    "name": "ai-rag-template.png",
+    "name": "ai-rag-template_logo_20250423.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },
@@ -78137,12 +78137,12 @@ exports[`Sync script > should match snapshot 3`] = `
     "updaterId": "marketplace-sync"
   },
   {
-    "name": "chat-service-backend.png",
+    "name": "chat-service-backend_logo_2025-04-23.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },
   {
-    "name": "chat-service-frontend.png",
+    "name": "chat-service-frontend_logo_2025-04-23.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },
@@ -78417,7 +78417,7 @@ exports[`Sync script > should match snapshot 3`] = `
     "updaterId": "marketplace-sync"
   },
   {
-    "name": "integration-connector-agent.png",
+    "name": "integration-connector-agent_logo_20250423.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },
@@ -78617,7 +78617,7 @@ exports[`Sync script > should match snapshot 3`] = `
     "updaterId": "marketplace-sync"
   },
   {
-    "name": "pdf-service.png",
+    "name": "pdf-service_logo_20250423.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },
@@ -78662,7 +78662,7 @@ exports[`Sync script > should match snapshot 3`] = `
     "updaterId": "marketplace-sync"
   },
   {
-    "name": "rate-limit-envoy.png",
+    "name": "rate-limit-envoy_logo_20250423.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },
