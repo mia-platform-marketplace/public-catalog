@@ -3,7 +3,7 @@
   "categoryId": "utility",
   "description": "The PDF Services provides various functionalities to programmatically generate and manipulate pdf documents.",
   "image": {
-    "localPath": "../assets/pdf-service.png"
+    "localPath": "../assets/pdf-service_logo_20250423.png"
   },
   "itemId": "pdf-service",
   "name": "PDF Service",
