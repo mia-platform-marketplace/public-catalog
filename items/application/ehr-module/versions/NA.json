@@ -1246,12 +1246,12 @@
         "productionEnv": "7.1.0"
       },
       "FORM_SERVICE_BE_VERSION": {
-        "noProductionEnv": "2.1.0",
-        "productionEnv": "2.1.0"
+        "noProductionEnv": "2.1.1",
+        "productionEnv": "2.1.1"
       },
       "FORM_SERVICE_FE_VERSION": {
-        "noProductionEnv": "2.1.0",
-        "productionEnv": "2.1.0"
+        "noProductionEnv": "2.1.1",
+        "productionEnv": "2.1.1"
       }
     }
   },

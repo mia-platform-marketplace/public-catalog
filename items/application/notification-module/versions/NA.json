@@ -1871,8 +1871,8 @@
         "productionEnv": "nm-nm-notification-messages"
       },
       "NOTIFICATION_MANAGER_VERSION": {
-        "noProductionEnv": "2.4.0",
-        "productionEnv": "2.4.0"
+        "noProductionEnv": "2.4.3",
+        "productionEnv": "2.4.3"
       },
       "SMS_SERVICE_VERSION": {
         "noProductionEnv": "1.2.1",
