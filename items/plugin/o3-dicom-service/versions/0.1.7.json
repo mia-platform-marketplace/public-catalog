@@ -1,0 +1,132 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "utility",
+  "description": "The O3 DICOM Service is a microservice that allows you to interact with a DICOM PACS, in order to manage worklists, exams, notification coming from the PACS and OTP for the DICOM Viewer.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/o3-dicom-service/overview"
+  },
+  "image": {
+    "localPath": "../assets/o3-dicom-service.png"
+  },
+  "itemId": "o3-dicom-service",
+  "name": "O3 DICOM Service",
+  "publishOnMiaDocumentation": true,
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/o3-dicom-service",
+  "resources": {
+    "services": {
+      "o3-dicom-service": {
+        "type": "plugin",
+        "name": "o3-dicom-service",
+        "description": "The O3 DICOM Service is a microservice that allows you to interact with a DICOM PACS, in order to manage worklists, exams, notification coming from the PACS and OTP for the DICOM Viewer.",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/o3-dicom-service:0.1.7",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "PACS_SERVICE_URL",
+            "valueType": "plain",
+            "value": "CHANGE ME"
+          },
+          {
+            "name": "PACS_POST_EXAM_ENDPOINT",
+            "valueType": "plain",
+            "value": "CHANGE ME"
+          },
+          {
+            "name": "PACS_AUTHORIZATION_TOKEN",
+            "valueType": "plain",
+            "value": "CHANGE ME"
+          },
+          {
+            "name": "DICOM_VIEWER_URL",
+            "valueType": "plain",
+            "value": "CHANGE ME"
+          },
+          {
+            "name": "VIEWER_GET_TOKEN_ENDPOINT",
+            "valueType": "plain",
+            "value": "CHANGE ME"
+          },
+          {
+            "name": "DICOM_UID_ROOT",
+            "valueType": "plain",
+            "value": "CHANGE ME"
+          },
+          {
+            "name": "CRUD_SERVICE",
+            "valueType": "plain",
+            "value": "crud-service"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "0.1.7",
+    "releaseNote": "Modified the function that generates the StudyInstanceUID because it must be less than or equal to 64 characters in length."
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2025-03-20T16:42:16.534Z",
+  "lifecycleStatus": "published"
+}
