@@ -112,7 +112,7 @@
   "tenantId": "mia-platform",
   "type": "template",
   "version": {
-    "name": "0.5.0",
+    "name": "0.5.3",
     "releaseNote": "## What's Changed\n* fixed HTTP server failing to start\n* security updates in the code and the dependencies used"
   },
   "visibility": {
