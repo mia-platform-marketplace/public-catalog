@@ -8430,8 +8430,8 @@ exports[`Sync script > should match snapshot 2`] = `
           "productionEnv": "64ee0cd5f1d8f12eeb8a290e"
         },
         "APPOINTMENT_MANAGER_VERSION": {
-          "noProductionEnv": "2.4.0",
-          "productionEnv": "2.4.0"
+          "noProductionEnv": "2.5.0",
+          "productionEnv": "2.5.0"
         },
         "APPOINTMENT_REMINDER_DOCTOR_TEMPLATE_ID": {
           "noProductionEnv": "66ac98c268156d086570e091",
@@ -8458,8 +8458,8 @@ exports[`Sync script > should match snapshot 2`] = `
           "productionEnv": "user-auth-module.preprod.mia-care.io"
         },
         "TELECONSULTATION_SERVICE_BE_VERSION": {
-          "noProductionEnv": "2.0.1",
-          "productionEnv": "2.0.1"
+          "noProductionEnv": "2.1.0",
+          "productionEnv": "2.1.0"
         },
         "TELECONSULTATION_SERVICE_FE_VERSION": {
           "noProductionEnv": "2.0.2",
@@ -23799,12 +23799,12 @@ exports[`Sync script > should match snapshot 2`] = `
           "productionEnv": "7.1.0"
         },
         "FORM_SERVICE_BE_VERSION": {
-          "noProductionEnv": "2.1.0",
-          "productionEnv": "2.1.0"
+          "noProductionEnv": "2.1.1",
+          "productionEnv": "2.1.1"
         },
         "FORM_SERVICE_FE_VERSION": {
-          "noProductionEnv": "2.1.0",
-          "productionEnv": "2.1.0"
+          "noProductionEnv": "2.1.1",
+          "productionEnv": "2.1.1"
         }
       }
     },
@@ -51213,8 +51213,8 @@ exports[`Sync script > should match snapshot 2`] = `
           "productionEnv": "nm-nm-notification-messages"
         },
         "NOTIFICATION_MANAGER_VERSION": {
-          "noProductionEnv": "2.4.0",
-          "productionEnv": "2.4.0"
+          "noProductionEnv": "2.4.3",
+          "productionEnv": "2.4.3"
         },
         "SMS_SERVICE_VERSION": {
           "noProductionEnv": "1.2.1",
