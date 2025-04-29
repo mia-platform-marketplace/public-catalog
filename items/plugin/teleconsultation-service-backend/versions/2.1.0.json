@@ -1,0 +1,162 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "utility",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/teleconsultation-service-backend/overview"
+  },
+  "image": {
+    "localPath": "../assets/teleconsultation-service-backend.png"
+  },
+  "itemId": "teleconsultation-service-backend",
+  "name": "Teleconsultation Service Backend",
+  "publishOnMiaDocumentation": true,
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-backend",
+  "resources": {
+    "services": {
+      "teleconsultation-service-backend": {
+        "type": "plugin",
+        "name": "teleconsultation-service-backend",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/teleconsultation-service-backend:2.1.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "trace",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "ADDITIONAL_HEADERS_TO_PROXY",
+            "value": "x-forwarded-for,x-request-id,x-forwarded-host,cookie,client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_CLIENT_TYPE",
+            "value": "backoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "BANDYER_API_SECRET_KEY",
+            "value": "{{CHANGE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TELECONSULTATION_SERVICE_CONFIG_PATH",
+            "value": "/home/node/app/teleconsultation-service/config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "TELECONSULTATIONS_CRUD_NAME",
+            "value": "{{CHANGE-INSERT_VALUE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_ID_MAP_CRUD_NAME",
+            "value": "{{CHANGE-INSERT_VALUE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "BANDYER_BASE_URL",
+            "value": "{{CHANGE-INSERT_VALUE}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE_URL",
+            "value": "http://crud-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE",
+            "value": "crud-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_RECORDING_TYPE",
+            "value": "none",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRANSCRIPTION_MAX_FILE_SIZE",
+            "value": "50MB",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "teleconsultation-service",
+            "mountPath": "/home/node/app/teleconsultation-service",
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\n\"privileges\": {\n\"basic\": {\n\"groups\": [\n\"customer\"\n],\n\"tools\": {\n\"chat\": true,\n\"screen_sharing\": true,\n\"file_upload\": true,\n\"whiteboard\": true,\n\"snapshot\": true,\n\"live_edit\": true,\n\"live_pointer\": true,\n\"present_to_everyone\": true\n}\n},\n\"plus\": {\n\"groups\": [\n\"doctor\",\n\"admin\"\n],\n\"tools\": {\n\"chat\": true,\n\"screen_sharing\": true,\n\"file_upload\": true,\n\"whiteboard\": true,\n\"snapshot\": true,\n\"live_edit\": true,\n\"live_pointer\": true,\n\"present_to_everyone\": true\n}\n}\n},\n\"theme\": {\n\"light\": {\n\"primaryColor\": \"#fff\",\n\"accentColor\": \"#480ca8\"\n},\n\"dark\": {\n\"primaryColor\": \"#003049\",\n\"accentColor\": \"#d62828\"\n}\n},\n\"environment\": \"sandbox\",\n\"mode\": \"window\",\n\"companyLogo\": {\n\"url\": \"https://www.insert.url.it\"\n}\n}"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "2.1.0",
+    "releaseNote": "Added endpoint `GET /transcription/:roomId/:sessionId` to get Kaleyra session transcription"
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2025-03-20T16:42:16.535Z",
+  "lifecycleStatus": "published"
+}
