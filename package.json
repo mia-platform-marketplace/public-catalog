@@ -41,7 +41,7 @@
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
     "esbuild": "^0.25.3",
-    "eslint": "^9.25.1",
+    "eslint": "^9.26.0",
     "eslint-config-esnext": "^4.1.0",
     "eslint-import-resolver-typescript": "^4.3.4",
     "eslint-plugin-import": "^2.31.0",
