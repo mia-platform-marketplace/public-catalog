@@ -279,8 +279,8 @@
     },
     "unsecretedVariables": {
       "BACK_KIT_VERSION": {
-        "productionEnv": "1.5.16",
-        "noProductionEnv": "1.5.16"
+        "productionEnv": "1.5.17",
+        "noProductionEnv": "1.5.17"
       }
     },
     "listeners": {
