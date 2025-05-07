@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/messaging-service/overview"
   },
   "image": {
-    "localPath": "../assets/messaging-service-plugin.png"
+    "localPath": "../assets/messaging-service_logo_20250507.png"
   },
   "itemId": "messaging-service",
   "name": "Messaging Service",
@@ -118,5 +118,5 @@
     "public": true
   },
   "releaseDate": "2025-03-20T16:42:16.533Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "maintenance"
 }

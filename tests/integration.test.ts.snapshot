@@ -45384,13 +45384,13 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-03-20T16:42:16.533Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "maintenance",
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "messaging-service-plugin.png",
+        "name": "messaging-service_logo_20250507.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -45516,12 +45516,12 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-02-20T16:47:48.025Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "maintenance",
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "messaging-service-plugin.png",
+        "name": "messaging-service_logo_20250507.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -45648,7 +45648,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "creatorId": "marketplace-sync",
     "image": [
       {
-        "name": "messaging-service-plugin.png",
+        "name": "messaging-service_logo_20250507.png",
         "creatorId": "marketplace-sync",
         "updaterId": "marketplace-sync"
       }
@@ -79014,7 +79014,7 @@ exports[`Sync script > should match snapshot 3`] = `
     "updaterId": "marketplace-sync"
   },
   {
-    "name": "messaging-service-plugin.png",
+    "name": "messaging-service_logo_20250507.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },
