@@ -19,7 +19,7 @@
         "name": "api-gateway",
         "type": "plugin",
         "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
-        "dockerImage": "envoyproxy/envoy:v1.32.1",
+        "dockerImage": "nexus.mia-platform.eu/cache/envoyproxy/envoy:v1.32.1",
         "componentId": "api-gateway-envoy",
         "defaultDocumentationPath": "",
         "defaultArgs": [
@@ -97,7 +97,7 @@
         "type": "plugin",
         "name": "crud-service",
         "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
-        "dockerImage": "miaplatform/crud-service:{{CRUD_SERVICE_VERSION}}",
+        "dockerImage": "nexus.mia-platform.eu/core/crud-service:{{CRUD_SERVICE_VERSION}}",
         "componentId": "crud-service",
         "mapEnvVarToMountPath": {
           "collections": {

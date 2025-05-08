@@ -22,7 +22,6 @@ import type { ICatalogApplication } from '@mia-platform/console-types'
 import { catalogWellKnownItems } from '@mia-platform/console-types'
 import { JSONPath } from 'jsonpath-plus'
 
-import logger from './logger'
 import type { Manifest } from './utils'
 
 export const NEXUS_REGISTRY_HOSTNAME = 'nexus.mia-platform.eu'
@@ -85,9 +84,8 @@ const assertImageExistsOnRegistry = async ({ path, image, version }: ParsedDocke
   )
 
   if (!res.ok) {
-    logger.warn(`Docker image "${image}" not found on Nexus registry: API responded with a ${res.status} status code`)
-    // notFoundImages.set(image, res.status)
-    // throw new Error(`Docker image "${image}" not found on Nexus registry: API responded with a ${res.status} status code`)
+    notFoundImages.set(image, res.status)
+    throw new Error(`Docker image "${image}" not found on Nexus registry: API responded with a ${res.status} status code`)
   }
 
   foundImages.add(image)

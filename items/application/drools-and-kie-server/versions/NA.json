@@ -17,7 +17,7 @@
         "type": "plugin",
         "name": "drools-workbench",
         "description": "This is a ready to run Docker image for JBoss Drools Workbench. Just run it and try the Drools workbench!",
-        "dockerImage": "jboss/drools-workbench-showcase:latest",
+        "dockerImage": "nexus.mia-platform.eu/cache/jboss/drools-workbench-showcase:latest",
         "defaultEnvironmentVariables": [
           {
             "name": "HTTP_PORT",
