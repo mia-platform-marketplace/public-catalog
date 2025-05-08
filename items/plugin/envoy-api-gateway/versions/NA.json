@@ -18,7 +18,7 @@
         "name": "api-gateway",
         "type": "plugin",
         "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
-        "dockerImage": "envoyproxy/envoy:v1.29.2",
+        "dockerImage": "nexus.mia-platform.eu/cache/envoyproxy/envoy:v1.29.2",
         "componentId": "api-gateway-envoy",
         "defaultDocumentationPath": "",
         "defaultArgs": [

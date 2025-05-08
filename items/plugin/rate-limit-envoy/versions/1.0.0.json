@@ -13,7 +13,7 @@
         "type": "plugin",
         "name": "rate-limit-envoy",
         "description": "The Go/gRPC service to enable global rate limit on your Envoy API Gateway",
-        "dockerImage": "envoyproxy/ratelimit:8d6488ea",
+        "dockerImage": "nexus.mia-platform.eu/cache/envoyproxy/ratelimit:8d6488ea",
         "componentId": "rate-limit-envoy",
         "defaultEnvironmentVariables": [
           {

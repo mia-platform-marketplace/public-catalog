@@ -18,7 +18,7 @@
       "kafka-exporter": {
         "type": "plugin",
         "name": "kafka-exporter",
-        "dockerImage": "danielqsj/kafka-exporter:v1.8.0",
+        "dockerImage": "nexus.mia-platform.eu/cache/danielqsj/kafka-exporter:v1.8.0",
         "description": "Use this service to export metrics from Kafka for Prometheus",
         "defaultLogParser": "mia-plain",
         "defaultDocumentationPath": "",

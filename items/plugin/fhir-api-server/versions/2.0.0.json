@@ -18,7 +18,7 @@
         "type": "plugin",
         "name": "fhir-server",
         "description": "The Mia FHIR Server implements the FHIR standard and is based on HAPI FHIR, an open-source Java implementation of the FHIR standard",
-        "dockerImage": "hapiproject/hapi:v7.6.0",
+        "dockerImage": "nexus.mia-platform.eu/cache/hapiproject/hapi:v7.6.0",
         "defaultEnvironmentVariables": [
           {
             "name": "SPRING_CONFIG_LOCATION",

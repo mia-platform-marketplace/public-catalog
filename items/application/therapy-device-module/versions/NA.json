@@ -1300,7 +1300,7 @@
         },
         "defaultTerminationGracePeriodSeconds": 60,
         "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
-        "dockerImage": "envoyproxy/envoy:v1.32.1",
+        "dockerImage": "nexus.mia-platform.eu/cache/envoyproxy/envoy:v1.32.1",
         "execPreStop": [
           "bash",
           "-c",
