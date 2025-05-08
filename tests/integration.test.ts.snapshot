@@ -2159,7 +2159,7 @@ exports[`Sync script > should match snapshot 2`] = `
           ],
           "type": "plugin",
           "componentId": "swagger-aggregator",
-          "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.2",
+          "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.3",
           "defaultDocumentationPath": "",
           "defaultEnvironmentVariables": [
             {
@@ -2451,7 +2451,7 @@ exports[`Sync script > should match snapshot 2`] = `
           ],
           "type": "plugin",
           "componentId": "swagger-aggregator",
-          "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.2",
+          "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.3",
           "defaultDocumentationPath": "",
           "defaultEnvironmentVariables": [
             {
@@ -2922,6 +2922,88 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "api-portal",
           "description": "Use Mia-Platform core API Portal to expose the swagger documentation of your development services in one unique place.",
+          "dockerImage": "nexus.mia-platform.eu/api-portal/website:2.2.1",
+          "componentId": "api-portal",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "8080",
+              "valueType": "plain"
+            }
+          ],
+          "defaultResources": {
+            "memoryLimits": {
+              "max": "25Mi",
+              "min": "5Mi"
+            }
+          },
+          "defaultProbes": {
+            "readiness": {
+              "path": "/index.html"
+            },
+            "liveness": {
+              "path": "/index.html"
+            }
+          },
+          "defaultLogParser": "mia-nginx",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "2.2.1",
+      "releaseNote": "Fixed missing copies fallback language"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-05-08T10:00:00.000Z",
+    "lifecycleStatus": "published",
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "api-portal_logo_20250410.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "devportal",
+    "description": "Use Mia-Platform core API Portal to expose the swagger documentation of your development services in one unique place.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/api-portal/overview"
+    },
+    "itemId": "api-portal",
+    "name": "API Portal",
+    "publishOnMiaDocumentation": true,
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/api-portal/website",
+    "resources": {
+      "services": {
+        "api-portal": {
+          "type": "plugin",
+          "name": "api-portal",
+          "description": "Use Mia-Platform core API Portal to expose the swagger documentation of your development services in one unique place.",
           "dockerImage": "nexus.mia-platform.eu/api-portal/website:2.2.0",
           "componentId": "api-portal",
           "defaultEnvironmentVariables": [
@@ -2969,7 +3051,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "releaseDate": "2025-02-20T17:06:06.476Z",
     "lifecycleStatus": "published",
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -70883,6 +70964,102 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "swagger-aggregator",
           "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
+          "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.3",
+          "componentId": "swagger-aggregator",
+          "mapEnvVarToMountPath": {
+            "swagger-aggregator-config": {
+              "type": "file",
+              "envName": "CONFIG_FILE_PATH"
+            }
+          },
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "CONFIG_FILE_PATH",
+              "value": "/home/node/app/configs/config.json",
+              "valueType": "plain"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "swagger-aggregator-config",
+              "mountPath": "/home/node/app/configs",
+              "files": [],
+              "viewAsReadOnly": true
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "3.9.3",
+      "releaseNote": "### Changed\\n\\n- Removed simple-get package to fix socket hang up errors when downloading documentations.\\n\\n### Fixed\\n\\nUpdated Api Portal to version \`2.2.1\`\\n"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-05-08T10:00:00.000Z",
+    "lifecycleStatus": "published",
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "swagger-aggregator.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "devportal",
+    "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/swagger-aggregator/overview"
+    },
+    "itemId": "swagger-aggregator",
+    "name": "Swagger Aggregator",
+    "publishOnMiaDocumentation": true,
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
+    "resources": {
+      "services": {
+        "swagger-aggregator": {
+          "type": "plugin",
+          "name": "swagger-aggregator",
+          "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
           "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.2",
           "componentId": "swagger-aggregator",
           "mapEnvVarToMountPath": {
@@ -70944,7 +71121,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "releaseDate": "2025-04-03T13:02:51.909Z",
     "lifecycleStatus": "published",
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [

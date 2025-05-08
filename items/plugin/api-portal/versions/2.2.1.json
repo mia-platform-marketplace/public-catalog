@@ -1,0 +1,72 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "devportal",
+  "description": "Use Mia-Platform core API Portal to expose the swagger documentation of your development services in one unique place.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/api-portal/overview"
+  },
+  "image": {
+    "localPath": "../assets/api-portal_logo_20250410.png"
+  },
+  "itemId": "api-portal",
+  "name": "API Portal",
+  "publishOnMiaDocumentation": true,
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/api-portal/website",
+  "resources": {
+    "services": {
+      "api-portal": {
+        "type": "plugin",
+        "name": "api-portal",
+        "description": "Use Mia-Platform core API Portal to expose the swagger documentation of your development services in one unique place.",
+        "dockerImage": "nexus.mia-platform.eu/api-portal/website:2.2.1",
+        "componentId": "api-portal",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "25Mi",
+            "min": "5Mi"
+          }
+        },
+        "defaultProbes": {
+          "readiness": {
+            "path": "/index.html"
+          },
+          "liveness": {
+            "path": "/index.html"
+          }
+        },
+        "defaultLogParser": "mia-nginx",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "2.2.1",
+    "releaseNote": "Fixed missing copies fallback language"
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2025-05-08T10:00:00.000Z",
+  "lifecycleStatus": "published"
+}
