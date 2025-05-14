@@ -22,9 +22,12 @@ import type { ICatalogApplication } from '@mia-platform/console-types'
 import { catalogWellKnownItems } from '@mia-platform/console-types'
 import { JSONPath } from 'jsonpath-plus'
 
+import logger from './logger'
 import type { Manifest } from './utils'
 
-export const NEXUS_REGISTRY_HOSTNAME = 'nexus.mia-platform.eu'
+const NEXUS_REGISTRY_HOSTNAME = 'nexus.mia-platform.eu'
+
+const acceptedRegistries = [NEXUS_REGISTRY_HOSTNAME, 'ghcr.io']
 
 
 const foundImages = new Set<string>()
@@ -99,10 +102,13 @@ export const assertValidDockerImage = async (manifest: Manifest, nexusBasicAuth:
   if (dockerImagesData.length === 0) { return }
 
   for (const data of dockerImagesData) {
-    if (!data.value.startsWith(NEXUS_REGISTRY_HOSTNAME)) {
+    if (!acceptedRegistries.some((registry) => data.value.startsWith(registry))) {
+      logger.warn(`Invalid Docker image at "${data.pointer}": registry must be one of "[${acceptedRegistries.join(', ')}]"`)
       continue
       // throw new Error(`Invalid Docker image at "${data.pointer}": registry must be "nexus.mia-platform.eu"`)
     }
+
+    if (!data.value.startsWith(NEXUS_REGISTRY_HOSTNAME)) { continue }
 
     const resolvedDockerImages = expandDockerImage(data.value, manifest)
     for (const resolvedDockerImage of resolvedDockerImages) {
