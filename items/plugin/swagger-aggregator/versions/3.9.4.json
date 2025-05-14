@@ -1,0 +1,86 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "devportal",
+  "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/swagger-aggregator/overview"
+  },
+  "image": {
+    "localPath": "../assets/swagger-aggregator.png"
+  },
+  "itemId": "swagger-aggregator",
+  "name": "Swagger Aggregator",
+  "publishOnMiaDocumentation": true,
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
+  "resources": {
+    "services": {
+      "swagger-aggregator": {
+        "type": "plugin",
+        "name": "swagger-aggregator",
+        "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
+        "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.4",
+        "componentId": "swagger-aggregator",
+        "mapEnvVarToMountPath": {
+          "swagger-aggregator-config": {
+            "type": "file",
+            "envName": "CONFIG_FILE_PATH"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "/home/node/app/configs/config.json",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "swagger-aggregator-config",
+            "mountPath": "/home/node/app/configs",
+            "files": [],
+            "viewAsReadOnly": true
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "3.9.4",
+    "releaseNote": "### Changed\n\n- Removed simple-get package to fix socket hang up errors when downloading documentations.\n\n### Fixed\n\nUpdated Api Portal to version `2.2.1`\n"
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2025-05-08T10:00:00.000Z",
+  "lifecycleStatus": "published"
+}
