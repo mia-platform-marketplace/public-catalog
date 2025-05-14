@@ -11,7 +11,6 @@
   },
   "itemId": "api-documentation-aggregator",
   "name": "API Documentation Aggregator",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/api-documentation-aggregator-application",
   "resources": {
     "services": {
@@ -101,7 +100,7 @@
         ],
         "type": "plugin",
         "componentId": "swagger-aggregator",
-        "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.3",
+        "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.4",
         "defaultDocumentationPath": "",
         "defaultEnvironmentVariables": [
           {
