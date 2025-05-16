@@ -582,6 +582,633 @@ exports[`Sync script > should match snapshot 2`] = `
   },
   {
     "categoryId": "artificial-intelligence",
+    "description": "This application enable AI Compliance Chat, a conversational interface for data compliance working with Data Catalog product. It needs to be installed in a project with the Data Catalog already installed.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite_applications/data-catalog-ai-compliance/overview"
+    },
+    "itemId": "ai-compliance-chat",
+    "name": "AI Compliance",
+    "publishOnMiaDocumentation": true,
+    "resources": {
+      "collections": {
+        "assistant-catalog-documents": {
+          "id": "assistant-catalog-documents",
+          "defaultName": "assistant-catalog-documents",
+          "fields": [
+            {
+              "name": "_id",
+              "type": "ObjectId",
+              "required": true,
+              "nullable": false,
+              "description": "_id"
+            },
+            {
+              "name": "creatorId",
+              "type": "string",
+              "required": true,
+              "nullable": false,
+              "description": "creatorId"
+            },
+            {
+              "name": "createdAt",
+              "type": "Date",
+              "required": true,
+              "nullable": false,
+              "description": "createdAt"
+            },
+            {
+              "name": "updaterId",
+              "type": "string",
+              "required": true,
+              "nullable": false,
+              "description": "updaterId"
+            },
+            {
+              "name": "updatedAt",
+              "type": "Date",
+              "required": true,
+              "nullable": false,
+              "description": "updatedAt"
+            },
+            {
+              "name": "__STATE__",
+              "type": "string",
+              "required": true,
+              "nullable": false,
+              "description": "__STATE__"
+            },
+            {
+              "name": "content",
+              "type": "string",
+              "required": true,
+              "nullable": false,
+              "sensitivityValue": 0,
+              "encryptionEnabled": false,
+              "encryptionSearchable": false
+            },
+            {
+              "name": "tenantId",
+              "type": "string",
+              "required": false,
+              "nullable": false,
+              "sensitivityValue": 0,
+              "encryptionEnabled": false,
+              "encryptionSearchable": false
+            },
+            {
+              "name": "projectId",
+              "type": "string",
+              "required": false,
+              "nullable": false,
+              "sensitivityValue": 0,
+              "encryptionEnabled": false,
+              "encryptionSearchable": false
+            },
+            {
+              "name": "sor",
+              "type": "string",
+              "required": false,
+              "nullable": false,
+              "sensitivityValue": 0,
+              "encryptionEnabled": false,
+              "encryptionSearchable": false
+            },
+            {
+              "name": "table",
+              "type": "string",
+              "required": false,
+              "nullable": false,
+              "sensitivityValue": 0,
+              "encryptionEnabled": false,
+              "encryptionSearchable": false
+            }
+          ],
+          "internalEndpoints": [
+            {
+              "basePath": "/assistant-catalog-documents",
+              "defaultState": "PUBLIC"
+            }
+          ],
+          "type": "collection",
+          "indexes": [
+            {
+              "name": "_id",
+              "type": "normal",
+              "unique": true,
+              "fields": [
+                {
+                  "name": "_id",
+                  "order": 1
+                }
+              ]
+            },
+            {
+              "name": "createdAt",
+              "type": "normal",
+              "unique": false,
+              "fields": [
+                {
+                  "name": "createdAt",
+                  "order": -1
+                }
+              ]
+            },
+            {
+              "name": "stateIndex",
+              "type": "normal",
+              "unique": false,
+              "fields": [
+                {
+                  "name": "__STATE__",
+                  "order": 1
+                }
+              ]
+            },
+            {
+              "name": "unique_sor",
+              "type": "normal",
+              "unique": true,
+              "fields": [
+                {
+                  "name": "sor",
+                  "order": 1
+                },
+                {
+                  "name": "table",
+                  "order": 1
+                }
+              ]
+            }
+          ],
+          "description": "Collection of assistant-catalog-documents",
+          "tags": [
+            "collection"
+          ]
+        }
+      },
+      "endpoints": {
+        "/chat": {
+          "defaultBasePath": "/chat",
+          "type": "custom",
+          "public": false,
+          "showInDocumentation": true,
+          "secreted": false,
+          "acl": "true",
+          "service": "ai-chat-fe",
+          "port": "80",
+          "defaultPathRewrite": "/",
+          "description": "Expose frontend chat",
+          "tags": [
+            "ai"
+          ],
+          "backofficeAcl": {
+            "inherited": true
+          },
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "forceMicroserviceGatewayProxy": false,
+          "listeners": {
+            "frontend": true
+          },
+          "options": {
+            "iframePolicy": "all"
+          },
+          "useDownstreamProtocol": true
+        },
+        "/api/chat/completions": {
+          "defaultBasePath": "/api/chat/completions",
+          "type": "custom",
+          "public": false,
+          "showInDocumentation": true,
+          "secreted": false,
+          "acl": "true",
+          "service": "mia-assistant",
+          "port": "80",
+          "defaultPathRewrite": "/chat/completions",
+          "description": "Invoke llm and return response",
+          "tags": [
+            "ai"
+          ],
+          "backofficeAcl": {
+            "inherited": true
+          },
+          "allowUnknownRequestContentType": false,
+          "allowUnknownResponseContentType": false,
+          "forceMicroserviceGatewayProxy": false,
+          "listeners": {
+            "frontend": true
+          },
+          "useDownstreamProtocol": true
+        }
+      },
+      "listeners": {
+        "frontend": {
+          "description": "Default listener for frontend API",
+          "name": "frontend",
+          "ownedBy": {
+            "componentIds": [
+              "api-gateway-envoy"
+            ]
+          },
+          "port": "8080",
+          "selectedByDefault": true
+        }
+      },
+      "services": {
+        "api-gateway": {
+          "args": [
+            "-c",
+            "/etc/envoy/envoy.json",
+            "-l",
+            "{{LOG_LEVEL}}",
+            "--log-format",
+            "{\\"level\\":\\"%l\\",\\"time\\":\\"%Y-%m-%dT%T.%fZ\\",\\"scope\\":\\"%n\\",\\"message\\":\\"%j\\"}",
+            "--drain-time-s",
+            "50"
+          ],
+          "componentId": "api-gateway-envoy",
+          "containerPorts": [
+            {
+              "from": 8080,
+              "name": "frontend",
+              "to": 8080
+            },
+            {
+              "from": 8081,
+              "name": "backoffice",
+              "to": 8081
+            },
+            {
+              "from": 9901,
+              "name": "admin",
+              "to": 9901
+            },
+            {
+              "from": 50051,
+              "name": "grpc",
+              "protocol": "TCP",
+              "to": 50051
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "files": [],
+              "link": {
+                "targetSection": "endpoints"
+              },
+              "mountPath": "/etc/envoy",
+              "name": "api-gateway-envoy-config",
+              "viewAsReadOnly": true
+            }
+          ],
+          "defaultEnvironmentVariables": [],
+          "defaultLogParser": "mia-json",
+          "defaultProbes": {
+            "liveness": {
+              "failureThreshold": 3,
+              "initialDelaySeconds": 15,
+              "path": "/healthz",
+              "periodSeconds": 20,
+              "port": "frontend",
+              "timeoutSeconds": 1
+            },
+            "readiness": {
+              "failureThreshold": 3,
+              "initialDelaySeconds": 5,
+              "path": "/healthz",
+              "periodSeconds": 10,
+              "port": "frontend",
+              "successThreshold": 1,
+              "timeoutSeconds": 1
+            },
+            "startup": {}
+          },
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "200m",
+              "min": "100m"
+            },
+            "memoryLimits": {
+              "max": "100Mi",
+              "min": "30Mi"
+            }
+          },
+          "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+          "dockerImage": "nexus.mia-platform.eu/cache/envoyproxy/envoy:v1.32.1",
+          "execPreStop": [
+            "bash",
+            "-c",
+            "echo -e 'POST /drain_listeners?graceful HTTP/1.1\\r\\nHost: localhost:9901\\r\\n\\r' > /dev/tcp/localhost/9901 && sleep 55s"
+          ],
+          "name": "api-gateway",
+          "tags": [
+            "api"
+          ],
+          "type": "plugin"
+        },
+        "crud-service": {
+          "componentId": "crud-service",
+          "containerPorts": [
+            {
+              "from": 80,
+              "name": "http",
+              "protocol": "TCP",
+              "to": 3000
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "link": {
+                "targetSection": "collections"
+              },
+              "mountPath": "/home/node/app/collections",
+              "name": "crud-service-collections",
+              "viewAsReadOnly": true,
+              "files": [
+                {
+                  "content": "{\\n  \\"id\\": \\"users\\",\\n  \\"description\\": \\"Collection of users\\",\\n  \\"name\\": \\"users\\",\\n  \\"fields\\": [\\n    {\\n      \\"name\\": \\"_id\\",\\n      \\"type\\": \\"ObjectId\\",\\n      \\"required\\": true,\\n      \\"nullable\\": false,\\n      \\"description\\": \\"_id\\"\\n    },\\n    {\\n      \\"name\\": \\"creatorId\\",\\n      \\"type\\": \\"string\\",\\n      \\"required\\": true,\\n      \\"nullable\\": false,\\n      \\"description\\": \\"creatorId\\"\\n    },\\n    {\\n      \\"name\\": \\"createdAt\\",\\n      \\"type\\": \\"Date\\",\\n      \\"required\\": true,\\n      \\"nullable\\": false,\\n      \\"description\\": \\"createdAt\\"\\n    },\\n    {\\n      \\"name\\": \\"updaterId\\",\\n      \\"type\\": \\"string\\",\\n      \\"required\\": true,\\n      \\"nullable\\": false,\\n      \\"description\\": \\"updaterId\\"\\n    },\\n    {\\n      \\"name\\": \\"updatedAt\\",\\n      \\"type\\": \\"Date\\",\\n      \\"required\\": true,\\n      \\"nullable\\": false,\\n      \\"description\\": \\"updatedAt\\"\\n    },\\n    {\\n      \\"name\\": \\"__STATE__\\",\\n      \\"type\\": \\"string\\",\\n      \\"required\\": true,\\n      \\"nullable\\": false,\\n      \\"description\\": \\"__STATE__\\"\\n    },\\n    {\\n      \\"name\\": \\"name\\",\\n      \\"type\\": \\"string\\",\\n      \\"required\\": false,\\n      \\"nullable\\": false\\n    },\\n    {\\n      \\"name\\": \\"groups\\",\\n      \\"type\\": \\"Array\\",\\n      \\"required\\": false,\\n      \\"nullable\\": false,\\n      \\"items\\": {\\n        \\"type\\": \\"string\\"\\n      }\\n    },\\n    {\\n      \\"name\\": \\"username\\",\\n      \\"type\\": \\"string\\",\\n      \\"required\\": false,\\n      \\"nullable\\": false\\n    },\\n    {\\n      \\"name\\": \\"email\\",\\n      \\"type\\": \\"string\\",\\n      \\"required\\": false,\\n      \\"nullable\\": false\\n    },\\n    {\\n      \\"name\\": \\"providerId\\",\\n      \\"type\\": \\"string\\",\\n      \\"required\\": true,\\n      \\"nullable\\": false\\n    },\\n    {\\n      \\"name\\": \\"providerUserId\\",\\n      \\"type\\": \\"string\\",\\n      \\"required\\": true,\\n      \\"nullable\\": false\\n    },\\n    {\\n      \\"name\\": \\"realm\\",\\n      \\"type\\": \\"string\\",\\n      \\"required\\": false,\\n      \\"nullable\\": false\\n    },\\n    {\\n      \\"name\\": \\"metadata\\",\\n      \\"type\\": \\"RawObject\\",\\n      \\"required\\": false,\\n      \\"nullable\\": false,\\n      \\"schema\\": {\\n        \\"properties\\": {\\n          \\"permissions\\": {\\n            \\"type\\": \\"array\\",\\n            \\"items\\": {\\n              \\"type\\": \\"string\\",\\n              \\"enum\\": [\\n                \\"read:pipelines\\",\\n                \\"control:pipelines\\",\\n                \\"read:connections\\",\\n                \\"update:connections\\",\\n                \\"delete:connections\\",\\n                \\"read:runtimes\\",\\n                \\"update:runtimes\\",\\n                \\"read:data-assets\\",\\n                \\"update:metadata-assets\\",\\n                \\"read:users\\",\\n                \\"update:users\\"\\n              ]\\n            }\\n          }\\n        }\\n      }\\n    },\\n    {\\n      \\"name\\": \\"permissions\\",\\n      \\"type\\": \\"Array\\",\\n      \\"required\\": false,\\n      \\"nullable\\": false,\\n      \\"items\\": {\\n        \\"type\\": \\"string\\"\\n      }\\n    }\\n  ],\\n  \\"endpointBasePath\\": \\"/users\\",\\n  \\"defaultState\\": \\"PUBLIC\\",\\n  \\"indexes\\": [\\n    {\\n      \\"name\\": \\"_id\\",\\n      \\"type\\": \\"normal\\",\\n      \\"unique\\": true,\\n      \\"fields\\": [\\n        {\\n          \\"name\\": \\"_id\\",\\n          \\"order\\": 1\\n        }\\n      ]\\n    },\\n    {\\n      \\"name\\": \\"createdAt\\",\\n      \\"type\\": \\"normal\\",\\n      \\"unique\\": false,\\n      \\"fields\\": [\\n        {\\n          \\"name\\": \\"creatdAt\\",\\n          \\"order\\": -1\\n        }\\n      ]\\n    },\\n    {\\n      \\"name\\": \\"stateIndex\\",\\n      \\"type\\": \\"normal\\",\\n      \\"unique\\": false,\\n      \\"fields\\": [\\n        {\\n          \\"name\\": \\"__STATE__\\",\\n          \\"order\\": 1\\n        }\\n      ]\\n    },\\n    {\\n      \\"name\\": \\"nameSearch\\",\\n      \\"type\\": \\"normal\\",\\n      \\"unique\\": false,\\n      \\"fields\\": [\\n        {\\n          \\"name\\": \\"email\\",\\n          \\"order\\": 1\\n        },\\n        {\\n          \\"name\\": \\"name\\",\\n          \\"order\\": 1\\n        },\\n        {\\n          \\"name\\": \\"__STATE__\\",\\n          \\"order\\": 1\\n        }\\n      ]\\n    },\\n    {\\n      \\"name\\": \\"upsertSupport\\",\\n      \\"type\\": \\"normal\\",\\n      \\"unique\\": false,\\n      \\"fields\\": [\\n        {\\n          \\"name\\": \\"providerId\\",\\n          \\"order\\": 1\\n        },\\n        {\\n          \\"name\\": \\"providerUserId\\",\\n          \\"order\\": 1\\n        },\\n        {\\n          \\"name\\": \\"realm\\",\\n          \\"order\\": 1\\n        }\\n      ]\\n    }\\n  ],\\n  \\"tags\\": [\\n    \\"collection\\"\\n  ]\\n}",
+                  "name": "users-users.json"
+                }
+              ]
+            }
+          ],
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "COLLECTION_DEFINITION_FOLDER",
+              "value": "/home/node/app/collections",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_ID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+              "value": "true",
+              "valueType": "plain"
+            },
+            {
+              "name": "EXPOSE_METRICS",
+              "value": "true",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONGODB_URL",
+              "value": "<CONFIGURE_ME>",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultProbes": {
+            "liveness": {
+              "failureThreshold": 3,
+              "initialDelaySeconds": 15,
+              "path": "/-/healthz",
+              "periodSeconds": 20,
+              "port": "http",
+              "timeoutSeconds": 3
+            },
+            "readiness": {
+              "failureThreshold": 3,
+              "initialDelaySeconds": 15,
+              "path": "/-/ready",
+              "periodSeconds": 10,
+              "port": "http",
+              "successThreshold": 1,
+              "timeoutSeconds": 3
+            },
+            "startup": {}
+          },
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "500m",
+              "min": "100m"
+            },
+            "memoryLimits": {
+              "max": "300Mi",
+              "min": "70Mi"
+            }
+          },
+          "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+          "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.2.2",
+          "mapEnvVarToMountPath": {
+            "collections": {
+              "envName": "COLLECTION_DEFINITION_FOLDER",
+              "type": "folder"
+            }
+          },
+          "name": "crud-service",
+          "tags": [
+            "crud"
+          ],
+          "type": "plugin"
+        },
+        "ai-chat-fe": {
+          "type": "plugin",
+          "name": "ai-chat-fe",
+          "dockerImage": "nexus.mia-platform.eu/data-catalog/ai-chat-fe:0.2.0",
+          "defaultLogParser": "mia-json",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "valueType": "plain",
+              "value": "3000"
+            }
+          ],
+          "defaultProbes": {
+            "liveness": {
+              "port": "frontend",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20,
+              "timeoutSeconds": 1,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "port": "frontend",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 10,
+              "timeoutSeconds": 1,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            },
+            "startup": {}
+          },
+          "tags": [
+            "ai"
+          ],
+          "containerPorts": [
+            {
+              "name": "frontend",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ],
+          "defaultDocumentationPath": "",
+          "defaultTerminationGracePeriodSeconds": 30
+        },
+        "mia-assistant": {
+          "type": "plugin",
+          "name": "mia-assistant",
+          "dockerImage": "nexus.mia-platform.eu/console/mia-assistant:0.13.2",
+          "defaultLogParser": "mia-json",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "valueType": "plain",
+              "value": "INFO"
+            },
+            {
+              "name": "PORT",
+              "valueType": "plain",
+              "value": "3000"
+            },
+            {
+              "name": "CONFIGURATION_PATH",
+              "valueType": "plain",
+              "value": "/configs/config.json"
+            },
+            {
+              "name": "LLM_API_KEY",
+              "valueType": "secret",
+              "secretName": "mia-assistant-keys",
+              "secretKey": "llm.apiKey"
+            },
+            {
+              "name": "HEADERS_TO_PROXY",
+              "valueType": "plain",
+              "value": "miauserid,miausergroups,miauserproperties,isbackoffice,x-forwarded-for,x-forwarded-host,request-id,x-request-id"
+            },
+            {
+              "name": "DATA_CATALOG_URL",
+              "valueType": "plain",
+              "value": "http://fabric-bff"
+            },
+            {
+              "name": "MONGODB_CLUSTER_URI",
+              "valueType": "secret",
+              "secretName": "mia-assistant-keys",
+              "secretKey": "mongo.url"
+            },
+            {
+              "name": "EMBEDDINGS_API_KEY",
+              "valueType": "secret",
+              "secretName": "mia-assistant-keys",
+              "secretKey": "llm.embeddingsApiKey"
+            },
+            {
+              "name": "CONSOLE_URL",
+              "valueType": "plain",
+              "value": "{{CONSOLE_URL}}"
+            },
+            {
+              "name": "CONSOLE_CLIENT_ID",
+              "valueType": "plain",
+              "value": "{{CONSOLE_CLIENT_ID}}"
+            },
+            {
+              "name": "CONSOLE_CLIENT_SECRET",
+              "valueType": "secret",
+              "secretName": "mia-assistant-keys",
+              "secretKey": "console.clientSecret"
+            },
+            {
+              "name": "CRUD_SERVICE_DATA_CATALOG_DOCUMENT_URL",
+              "valueType": "plain",
+              "value": "http://crud-service/assistant-catalog-documents"
+            }
+          ],
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "300m",
+              "min": "100m"
+            },
+            "memoryLimits": {
+              "max": "1000Mi",
+              "min": "300Mi"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz"
+            },
+            "readiness": {
+              "path": "/-/ready"
+            },
+            "startup": {}
+          },
+          "tags": [
+            "ai"
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "mia-assistant-config",
+              "mountPath": "/configs/",
+              "files": [
+                {
+                  "name": "config.json",
+                  "content": "{\\n  \\"llm\\": {\\n    \\"type\\": \\"vertex\\",\\n    \\"name\\": \\"gemini-2.0-flash\\"\\n  },\\n  \\"embeddings\\": {\\n    \\"type\\": \\"vertex\\",\\n    \\"name\\": \\"text-embedding-004\\"\\n  },\\n  \\"vectorStore\\": {\\n    \\"collectionName\\": \\"assistant-documents\\",\\n    \\"relevanceScoreFn\\": \\"cosine\\",\\n    \\"maxDocumentsToRetrieve\\": 4,\\n    \\"minScoreDistance\\": 0.6,\\n    \\"ingestionMode\\": \\"transactional\\",\\n    \\"indexName\\": \\"preserve_vector_index\\"\\n  },\\n  \\"chain\\": {\\n    \\"aggregateMaxTokenNumber\\": 7200\\n  },\\n  \\"documentation\\": {\\n    \\"repository\\": {\\n      \\"baseUrl\\": \\"https://api.github.com/repos\\",\\n      \\"owner\\": \\"/mia-platform\\",\\n      \\"name\\": \\"/documentation\\",\\n      \\"baseDir\\": \\"docs\\",\\n      \\"supportedExtensions\\": [\\n        \\".md\\",\\n        \\".mdx\\"\\n      ],\\n      \\"requestTimeoutInSeconds\\": 30\\n    },\\n    \\"website\\": {\\n      \\"baseUrl\\": \\"https://docs.mia-platform.eu\\"\\n    }\\n  },\\n  \\"persistChat\\": {\\n    \\"enabled\\": false\\n  },\\n  \\"history\\": {\\n    \\"type\\": \\"mongo\\",\\n    \\"checkpointCollectionName\\": \\"assistant-checkpoints\\",\\n    \\"checkpointWritesCollectionName\\": \\"assistant-checkpoint-writes\\"\\n  }\\n}"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
+          "defaultDocumentationPath": "",
+          "defaultTerminationGracePeriodSeconds": 30
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "type": "application",
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2024-10-10T16:15:06.843Z",
+    "lifecycleStatus": "published",
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "ai-compliance-for-data-catalog-logo.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "artificial-intelligence",
     "description": "Create a retrieval augmented generation (RAG) app, with a plugin to generate embeddings and train your LLM and a front-end template with a UI to get the chatbot ready in minutes.",
     "itemId": "ai-rag-chat",
     "name": "AI RAG Chat",
@@ -79072,6 +79699,11 @@ exports[`Sync script > should match snapshot 3`] = `
   },
   {
     "name": "adaptive-approval-service.png",
+    "creatorId": "marketplace-sync",
+    "updaterId": "marketplace-sync"
+  },
+  {
+    "name": "ai-compliance-for-data-catalog-logo.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },
