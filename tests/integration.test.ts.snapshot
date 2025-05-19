@@ -19554,7 +19554,7 @@ exports[`Sync script > should match snapshot 2`] = `
               "min": "50Mi"
             }
           },
-          "dockerImage": "redis:7.2.5",
+          "dockerImage": "nexus.mia-platform.eu/cache/redis:7.2.5",
           "name": "fabric-cache",
           "tags": [
             "cache"
@@ -19602,7 +19602,7 @@ exports[`Sync script > should match snapshot 2`] = `
           },
           "defaultTerminationGracePeriodSeconds": 30,
           "description": "temporary UI for job-runner",
-          "dockerImage": "docker.io/fullstorydev/grpcui:v1.4.1",
+          "dockerImage": "nexus.mia-platform.eu/cache/fullstorydev/grpcui:v1.4.1",
           "name": "grpcui",
           "tags": [
             "utils"
@@ -23635,7 +23635,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "kie-server",
           "description": "This is a ready to run Docker image for Drools KIE Server. Just run it and try the Drools runtime execution server!",
-          "dockerImage": "jboss/kie-server-showcase:latest",
+          "dockerImage": "nexus.mia-platform.eu/cache/jboss/kie-server-showcase:latest",
           "defaultEnvironmentVariables": [
             {
               "name": "HTTP_PORT",
@@ -27966,7 +27966,7 @@ exports[`Sync script > should match snapshot 2`] = `
               "min": "50Mi"
             }
           },
-          "dockerImage": "redis:7.2.5",
+          "dockerImage": "nexus.mia-platform.eu/cache/redis:7.2.5",
           "name": "fabric-cache",
           "tags": [
             "custom"
@@ -28938,7 +28938,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "redis-auth",
           "description": "Control Plane Redis Database employed to support authentication flow",
-          "dockerImage": "redis:7.2.5",
+          "dockerImage": "nexus.mia-platform.eu/cache/redis:7.2.5",
           "containerPorts": [
             {
               "name": "http",
