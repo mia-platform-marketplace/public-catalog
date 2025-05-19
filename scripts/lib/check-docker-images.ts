@@ -22,7 +22,6 @@ import type { ICatalogApplication } from '@mia-platform/console-types'
 import { catalogWellKnownItems } from '@mia-platform/console-types'
 import { JSONPath } from 'jsonpath-plus'
 
-import logger from './logger'
 import type { Manifest } from './utils'
 
 const NEXUS_REGISTRY_HOSTNAME = 'nexus.mia-platform.eu'
@@ -103,9 +102,7 @@ export const assertValidDockerImage = async (manifest: Manifest, nexusBasicAuth:
 
   for (const data of dockerImagesData) {
     if (!acceptedRegistries.some((registry) => data.value.startsWith(registry))) {
-      logger.warn(`Invalid Docker image at "${data.pointer}": registry must be one of "[${acceptedRegistries.join(', ')}]"`)
-      continue
-      // throw new Error(`Invalid Docker image at "${data.pointer}": registry must be "nexus.mia-platform.eu"`)
+      throw new Error(`Invalid Docker image at "${data.pointer}": registry must be "nexus.mia-platform.eu"`)
     }
 
     if (!data.value.startsWith(NEXUS_REGISTRY_HOSTNAME)) { continue }

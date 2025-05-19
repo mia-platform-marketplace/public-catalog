@@ -2402,7 +2402,7 @@
             "min": "50Mi"
           }
         },
-        "dockerImage": "redis:7.2.5",
+        "dockerImage": "nexus.mia-platform.eu/cache/redis:7.2.5",
         "name": "fabric-cache",
         "tags": [
           "custom"

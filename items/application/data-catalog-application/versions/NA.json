@@ -3470,7 +3470,7 @@
             "min": "50Mi"
           }
         },
-        "dockerImage": "redis:7.2.5",
+        "dockerImage": "nexus.mia-platform.eu/cache/redis:7.2.5",
         "name": "fabric-cache",
         "tags": [
           "cache"
@@ -3518,7 +3518,7 @@
         },
         "defaultTerminationGracePeriodSeconds": 30,
         "description": "temporary UI for job-runner",
-        "dockerImage": "docker.io/fullstorydev/grpcui:v1.4.1",
+        "dockerImage": "nexus.mia-platform.eu/cache/fullstorydev/grpcui:v1.4.1",
         "name": "grpcui",
         "tags": [
           "utils"

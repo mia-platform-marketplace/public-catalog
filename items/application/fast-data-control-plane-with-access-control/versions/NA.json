@@ -230,7 +230,7 @@
         "type": "plugin",
         "name": "redis-auth",
         "description": "Control Plane Redis Database employed to support authentication flow",
-        "dockerImage": "redis:7.2.5",
+        "dockerImage": "nexus.mia-platform.eu/cache/redis:7.2.5",
         "containerPorts": [
           {
             "name": "http",

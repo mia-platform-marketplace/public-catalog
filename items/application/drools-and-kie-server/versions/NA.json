@@ -67,7 +67,7 @@
         "type": "plugin",
         "name": "kie-server",
         "description": "This is a ready to run Docker image for Drools KIE Server. Just run it and try the Drools runtime execution server!",
-        "dockerImage": "jboss/kie-server-showcase:latest",
+        "dockerImage": "nexus.mia-platform.eu/cache/jboss/kie-server-showcase:latest",
         "defaultEnvironmentVariables": [
           {
             "name": "HTTP_PORT",
