@@ -1,4 +1,4 @@
-FROM node:23-alpine AS build
+FROM node:24-alpine AS build
 
 WORKDIR /build-dir
 
@@ -19,7 +19,7 @@ RUN yarn build:script
 
 ########################################################################################################################
 
-FROM node:23-alpine AS deps
+FROM node:24-alpine AS deps
 
 WORKDIR /build-dir
 
@@ -32,7 +32,7 @@ RUN yarn workspaces focus --production
 
 ########################################################################################################################
 
-FROM node:23-alpine
+FROM node:24-alpine
 
 RUN apk add --no-cache tini
 

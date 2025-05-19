@@ -38,7 +38,7 @@ const main = async () => {
     outfile: path.resolve(outDir, 'index.cjs'),
     platform: 'node',
     sourcemap: true,
-    target: ['node23'],
+    target: ['node24'],
   })
 }
 

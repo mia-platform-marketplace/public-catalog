@@ -65,6 +65,6 @@
     "json-schema-to-ts": "^3.1.1"
   },
   "engines": {
-    "node": ">=v23"
+    "node": ">=v24"
   }
 }

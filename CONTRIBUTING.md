@@ -10,7 +10,7 @@ Pull request titles and labels are automatically used as entries in the release 
 
 ## Setup
 
-This repository requires Node.js 23 or higher. We recommend using [nvm](https://github.com/nvm-sh/nvm) to manage Node versions and running `nvm use` to install the correct version of Node.
+This repository requires Node.js 24 or higher. We recommend using [nvm](https://github.com/nvm-sh/nvm) to manage Node versions and running `nvm use` to install the correct version of Node.
 
 To set up the repository run:
 
