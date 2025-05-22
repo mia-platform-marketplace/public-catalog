@@ -70709,6 +70709,7 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "sms-service",
     "name": "SMS Service",
+    "description": "Send SMS using Kaleyra or Twilio",
     "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/sms-service",
     "resources": {
@@ -70829,6 +70830,7 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "sms-service",
     "name": "SMS Service",
+    "description": "Send SMS using Kaleyra or Twilio",
     "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/sms-service",
     "resources": {
