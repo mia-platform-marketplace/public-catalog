@@ -129,7 +129,7 @@
           {
             "name": "http",
             "from": 80,
-            "to": 8080,
+            "to": 3000,
             "protocol": "TCP"
           }
         ]
