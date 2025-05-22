@@ -10,6 +10,7 @@
   },
   "itemId": "appointment-manager",
   "name": "Appointment Manager",
+  "description": "Manage appointments, availabilities, slots and exceptions.",
   "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
   "resources": {
@@ -17,7 +18,7 @@
       "appointment-manager": {
         "type": "plugin",
         "name": "appointment-manager",
-        "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager:2.3.0",
+        "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager",
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",
@@ -98,7 +99,7 @@
             "files": [
               {
                 "name": "config.json",
-                "content": "{\n\"users\": {},\n\"channels\": [],\n\"isTeleconsultationAvailable\": false,\n\"isMessagingAvailable\": false,\n\"isTimerAvailable\": false,\n\"isUserAvailable\": false,\n\"isFlexibleSlotAvailable\": false,\n\"isParticipantStatusAvailable\": false\n}"
+                "content": "{\n\"users\": {},\n\"channels\": [],\n\"isTeleconsultationAvailable\": false,\n\"isMessagingAvailable\": false,\n\"isNotificationManagerAvailable\": false,\n\"isTimerAvailable\": false,\n\"isUserAvailable\": false,\n\"isFlexibleSlotAvailable\": false,\n\"isParticipantStatusAvailable\": false\n}"
               }
             ]
           }
