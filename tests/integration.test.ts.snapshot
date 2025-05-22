@@ -4358,6 +4358,7 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "appointment-manager",
     "name": "Appointment Manager",
+    "description": "Manage appointments, availabilities, slots and exceptions.",
     "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
     "resources": {
@@ -4446,7 +4447,7 @@ exports[`Sync script > should match snapshot 2`] = `
               "files": [
                 {
                   "name": "config.json",
-                  "content": "{\\n\\"users\\": {},\\n\\"channels\\": [],\\n\\"isTeleconsultationAvailable\\": false,\\n\\"isMessagingAvailable\\": false,\\n\\"isTimerAvailable\\": false,\\n\\"isUserAvailable\\": false,\\n\\"isFlexibleSlotAvailable\\": false,\\n\\"isParticipantStatusAvailable\\": false,\\n\\"isNotificationManagerAsync\\": false\\n}"
+                  "content": "{\\n\\"users\\": {},\\n\\"channels\\": [],\\n\\"isTeleconsultationAvailable\\": false,\\n\\"isMessagingAvailable\\": false,\\n\\"isNotificationManagerAvailable\\": false,\\n\\"isTimerAvailable\\": false,\\n\\"isUserAvailable\\": false,\\n\\"isFlexibleSlotAvailable\\": false,\\n\\"isParticipantStatusAvailable\\": false\\n}"
                 }
               ]
             }
@@ -4500,6 +4501,7 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "appointment-manager",
     "name": "Appointment Manager",
+    "description": "Manage appointments, availabilities, slots and exceptions.",
     "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
     "resources": {
@@ -4588,7 +4590,7 @@ exports[`Sync script > should match snapshot 2`] = `
               "files": [
                 {
                   "name": "config.json",
-                  "content": "{\\n\\"users\\": {},\\n\\"channels\\": [],\\n\\"isTeleconsultationAvailable\\": false,\\n\\"isMessagingAvailable\\": false,\\n\\"isTimerAvailable\\": false,\\n\\"isUserAvailable\\": false,\\n\\"isFlexibleSlotAvailable\\": false,\\n\\"isParticipantStatusAvailable\\": false,\\n\\"isNotificationManagerAsync\\": false\\n}"
+                  "content": "{\\n\\"users\\": {},\\n\\"channels\\": [],\\n\\"isTeleconsultationAvailable\\": false,\\n\\"isMessagingAvailable\\": false,\\n\\"isNotificationManagerAvailable\\": false,\\n\\"isTimerAvailable\\": false,\\n\\"isUserAvailable\\": false,\\n\\"isFlexibleSlotAvailable\\": false,\\n\\"isParticipantStatusAvailable\\": false\\n}"
                 }
               ]
             }
@@ -4641,6 +4643,7 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "appointment-manager",
     "name": "Appointment Manager",
+    "description": "Manage appointments, availabilities, slots and exceptions.",
     "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
     "resources": {
@@ -4729,7 +4732,7 @@ exports[`Sync script > should match snapshot 2`] = `
               "files": [
                 {
                   "name": "config.json",
-                  "content": "{\\n\\"users\\": {},\\n\\"channels\\": [],\\n\\"isTeleconsultationAvailable\\": false,\\n\\"isMessagingAvailable\\": false,\\n\\"isTimerAvailable\\": false,\\n\\"isUserAvailable\\": false,\\n\\"isFlexibleSlotAvailable\\": false,\\n\\"isParticipantStatusAvailable\\": false\\n}"
+                  "content": "{\\n\\"users\\": {},\\n\\"channels\\": [],\\n\\"isTeleconsultationAvailable\\": false,\\n\\"isMessagingAvailable\\": false,\\n\\"isNotificationManagerAvailable\\": false,\\n\\"isTimerAvailable\\": false,\\n\\"isUserAvailable\\": false,\\n\\"isFlexibleSlotAvailable\\": false,\\n\\"isParticipantStatusAvailable\\": false\\n}"
                 }
               ]
             }
@@ -4782,6 +4785,7 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "appointment-manager",
     "name": "Appointment Manager",
+    "description": "Manage appointments, availabilities, slots and exceptions.",
     "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
     "resources": {
@@ -4789,7 +4793,7 @@ exports[`Sync script > should match snapshot 2`] = `
         "appointment-manager": {
           "type": "plugin",
           "name": "appointment-manager",
-          "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager:2.3.0",
+          "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager",
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
@@ -4870,7 +4874,7 @@ exports[`Sync script > should match snapshot 2`] = `
               "files": [
                 {
                   "name": "config.json",
-                  "content": "{\\n\\"users\\": {},\\n\\"channels\\": [],\\n\\"isTeleconsultationAvailable\\": false,\\n\\"isMessagingAvailable\\": false,\\n\\"isTimerAvailable\\": false,\\n\\"isUserAvailable\\": false,\\n\\"isFlexibleSlotAvailable\\": false,\\n\\"isParticipantStatusAvailable\\": false\\n}"
+                  "content": "{\\n\\"users\\": {},\\n\\"channels\\": [],\\n\\"isTeleconsultationAvailable\\": false,\\n\\"isMessagingAvailable\\": false,\\n\\"isNotificationManagerAvailable\\": false,\\n\\"isTimerAvailable\\": false,\\n\\"isUserAvailable\\": false,\\n\\"isFlexibleSlotAvailable\\": false,\\n\\"isParticipantStatusAvailable\\": false\\n}"
                 }
               ]
             }
