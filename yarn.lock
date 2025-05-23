@@ -738,7 +738,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tokenizer/inflate@npm:^0.2.6":
+"@tokenizer/inflate@npm:^0.2.7":
   version: 0.2.7
   resolution: "@tokenizer/inflate@npm:0.2.7"
   dependencies:
@@ -2745,15 +2745,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-type@npm:^20.5.0":
-  version: 20.5.0
-  resolution: "file-type@npm:20.5.0"
+"file-type@npm:^21.0.0":
+  version: 21.0.0
+  resolution: "file-type@npm:21.0.0"
   dependencies:
-    "@tokenizer/inflate": "npm:^0.2.6"
-    strtok3: "npm:^10.2.0"
+    "@tokenizer/inflate": "npm:^0.2.7"
+    strtok3: "npm:^10.2.2"
     token-types: "npm:^6.0.0"
     uint8array-extras: "npm:^1.4.0"
-  checksum: 10/1cc1ccd7cf76086e10b65cba88c708e0653676fbae900107deeb91c46de011acd1492200bf47e75cddf395de27dbe8584ca042f4cfa4a1efdf933644b7143f1d
+  checksum: 10/6980e8b0ef870a98b51ab2eac5db94a1884de8476fe49dc02d2f7e0c1d1d7d44d42b6c59e67867ae90f321ddf4edd00fcfda01821591e2fa05385d0e438a9dc1
   languageName: node
   linkType: hard
 
@@ -4564,10 +4564,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"peek-readable@npm:^6.1.1":
-  version: 6.1.1
-  resolution: "peek-readable@npm:6.1.1"
-  checksum: 10/a2f377207f5fc8a4505f1818708c51ac0a74ef37074fc60af5c152b25d85c20479c2d7bedeb290d4dc6e974c69ebc3cd54833ff5fc7c352d371197c425ee7460
+"peek-readable@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "peek-readable@npm:7.0.0"
+  checksum: 10/e14d533c6a43f3991bb98b644101a55631e307f7fe70e26bd0fd0341bde1e6cdd60e205a66ec17c226b32cb8a4ad5c4e76c1a6173d37201f0bf466cbb617485c
   languageName: node
   linkType: hard
 
@@ -4737,7 +4737,7 @@ __metadata:
     eslint-plugin-sort-keys-fix: "npm:^1.1.2"
     eslint-plugin-typescript-sort-keys: "npm:^3.3.0"
     eslint-visitor-keys: "npm:^4.2.0"
-    file-type: "npm:^20.5.0"
+    file-type: "npm:^21.0.0"
     json-diff: "npm:^1.0.6"
     json-schema-to-ts: "npm:^3.1.1"
     jsonpath-plus: "npm:^10.3.0"
@@ -5479,13 +5479,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strtok3@npm:^10.2.0":
-  version: 10.2.1
-  resolution: "strtok3@npm:10.2.1"
+"strtok3@npm:^10.2.2":
+  version: 10.2.2
+  resolution: "strtok3@npm:10.2.2"
   dependencies:
     "@tokenizer/token": "npm:^0.3.0"
-    peek-readable: "npm:^6.1.1"
-  checksum: 10/40494ae551c5e797a5fed3e8d2359228f98bce9472157c18d04a99108899b3fc4cd3e4393e52b35041f6e32a23e03c73913eda6c8ddc6f12b43e25b42fddbd8f
+    peek-readable: "npm:^7.0.0"
+  checksum: 10/964e60d76576232803fc75572adfb8778b55a7ef021ecfa3a507dcdb426f1e2c42580e545ab18f882da8f2e9bfca05fb0659f56f71b18723e95c31c0512301fc
   languageName: node
   linkType: hard
 
