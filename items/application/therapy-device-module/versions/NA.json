@@ -242,15 +242,6 @@
           {
             "encryptionEnabled": false,
             "encryptionSearchable": false,
-            "name": "type",
-            "nullable": false,
-            "required": false,
-            "sensitivityValue": 0,
-            "type": "string"
-          },
-          {
-            "encryptionEnabled": false,
-            "encryptionSearchable": false,
             "name": "rawDataFormat",
             "nullable": false,
             "required": false,
@@ -384,15 +375,6 @@
             "required": false,
             "sensitivityValue": 0,
             "type": "RawObject"
-          },
-          {
-            "encryptionEnabled": false,
-            "encryptionSearchable": false,
-            "name": "canonicalForm",
-            "nullable": false,
-            "required": false,
-            "sensitivityValue": 0,
-            "type": "string"
           },
           {
             "encryptionEnabled": false,
@@ -1424,23 +1406,12 @@
             "to": 3000
           }
         ],
-        "defaultConfigMaps": [
-          {
-            "files": [
-              {
-                "content": "{\"medisante\": {\"name\": \"Medisanté\"}}",
-                "name": "config.json"
-              }
-            ],
-            "mountPath": "/home/node/app/providers/",
-            "name": "providers-config"
-          }
-        ],
+        "defaultConfigMaps": [],
         "defaultDocumentationPath": "/documentation/json",
         "defaultEnvironmentVariables": [
           {
             "name": "LOG_LEVEL",
-            "value": "trace",
+            "value": "info",
             "valueType": "plain"
           },
           {
@@ -1484,8 +1455,63 @@
             "valueType": "plain"
           },
           {
-            "name": "PROVIDERS_CONFIGURATION_PATH",
-            "value": "/home/node/app/providers/config.json",
+            "name": "CRUD_SERVICE_URL",
+            "value": "http://crud-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "TMM_SERVICE_URL",
+            "value": "http://therapy-monitoring-manager",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_DEVICES_ENDPOINT",
+            "value": "/tdm-dm-devices",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_HEALTH_DATA_ENDPOINT",
+            "value": "/tdm-dm-health-data",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_HEALTH_DATA_TYPE_ENDPOINT",
+            "value": "/tdm-dm-health-data-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "TMM_MONITORINGS_ENDPOINT",
+            "value": "/monitorings",
+            "valueType": "plain"
+          },
+          {
+            "name": "TMM_DETECTIONS_ENDPOINT",
+            "value": "/detections",
+            "valueType": "plain"
+          },
+          {
+            "name": "TMM_PROTOTYPES_ENDPOINT",
+            "value": "/prototypes",
+            "valueType": "plain"
+          },
+          {
+            "name": "MEDISANTE_PROVIDER",
+            "value": "medisante",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEALTHKIT_PROVIDER",
+            "value": "healthkit",
+            "valueType": "plain"
+          },
+          {
+            "name": "STANDARD_JSON_MEDISANTE",
+            "value": "medisante-standard-json",
+            "valueType": "plain"
+          },
+          {
+            "name": "STANDARD_JSON_HEALTHKIT",
+            "value": "healthkit-standard-json",
             "valueType": "plain"
           },
           {
@@ -1531,7 +1557,7 @@
             "min": "150Mi"
           }
         },
-        "description": "A plugin to collect health data from medical and wearable devices",
+        "description": "A plugin to collect, store and visualize patient health data from medical and wearable devices",
         "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/device-manager:{{DEVICE_MANAGER_VERSION}}",
         "name": "device-manager",
         "type": "plugin"
