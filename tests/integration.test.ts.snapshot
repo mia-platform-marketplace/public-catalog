@@ -32866,6 +32866,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
     },
+    "publishOnMiaDocumentation": true,
     "itemId": "form-service-backend",
     "name": "Form Service Backend",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-backend",
@@ -32925,6 +32926,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
     },
+    "publishOnMiaDocumentation": true,
     "itemId": "form-service-backend",
     "name": "Form Service Backend",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-backend",
@@ -32983,6 +32985,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
     },
+    "publishOnMiaDocumentation": true,
     "itemId": "form-service-backend",
     "name": "Form Service Backend",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-backend",
@@ -33037,6 +33040,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
     },
+    "publishOnMiaDocumentation": true,
     "itemId": "form-service-frontend",
     "name": "Form Service Frontend",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-frontend",
@@ -33103,6 +33107,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
     },
+    "publishOnMiaDocumentation": true,
     "itemId": "form-service-frontend",
     "name": "Form Service Frontend",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-frontend",
@@ -33168,6 +33173,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
     },
+    "publishOnMiaDocumentation": true,
     "itemId": "form-service-frontend",
     "name": "Form Service Frontend",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-frontend",
@@ -56643,6 +56649,11 @@ exports[`Sync script > should match snapshot 2`] = `
   {
     "categoryId": "utility",
     "description": "The PDF Services provides various functionalities to programmatically generate and manipulate pdf documents.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/pdf-service/overview"
+    },
+    "publishOnMiaDocumentation": true,
     "itemId": "pdf-service",
     "name": "PDF Service",
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/pdf-service",
@@ -56717,6 +56728,11 @@ exports[`Sync script > should match snapshot 2`] = `
   {
     "categoryId": "utility",
     "description": "The PDF Services provides various functionalities to programmatically generate and manipulate pdf documents.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/pdf-service/overview"
+    },
+    "publishOnMiaDocumentation": true,
     "itemId": "pdf-service",
     "name": "PDF Service",
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/pdf-service",
@@ -78480,6 +78496,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-manager-service/overview"
     },
+    "publishOnMiaDocumentation": true,
     "itemId": "user-manager-service",
     "name": "User Manager Service",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/user-manager-service",
@@ -78633,6 +78650,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-manager-service/overview"
     },
+    "publishOnMiaDocumentation": true,
     "itemId": "user-manager-service",
     "name": "User Manager Service",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/user-manager-service",
@@ -78785,6 +78803,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-manager-service/overview"
     },
+    "publishOnMiaDocumentation": true,
     "itemId": "user-manager-service",
     "name": "User Manager Service",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/user-manager-service",
