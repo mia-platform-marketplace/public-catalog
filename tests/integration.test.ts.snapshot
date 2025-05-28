@@ -50314,7 +50314,7 @@ exports[`Sync script > should match snapshot 2`] = `
             {
               "name": "http",
               "from": 80,
-              "to": 8080,
+              "to": 3000,
               "protocol": "TCP"
             }
           ]
@@ -50478,7 +50478,7 @@ exports[`Sync script > should match snapshot 2`] = `
             {
               "name": "http",
               "from": 80,
-              "to": 8080,
+              "to": 3000,
               "protocol": "TCP"
             }
           ]
@@ -50641,7 +50641,7 @@ exports[`Sync script > should match snapshot 2`] = `
             {
               "name": "http",
               "from": 80,
-              "to": 8080,
+              "to": 3000,
               "protocol": "TCP"
             }
           ]
