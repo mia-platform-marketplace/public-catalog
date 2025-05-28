@@ -23277,6 +23277,7 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "device-manager",
     "name": "Device Manager",
+    "description": "Collect, store and visualize patient health data from medical and wearable devices.",
     "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/device-manager",
     "resources": {
@@ -23398,7 +23399,7 @@ exports[`Sync script > should match snapshot 2`] = `
             },
             {
               "name": "DATA_ACQUISITION_JOB_COLLECTION",
-              "value": "",
+              "value": "tdm_dm_data_acquisition_jobs",
               "valueType": "plain"
             }
           ],
@@ -74491,15 +74492,6 @@ exports[`Sync script > should match snapshot 2`] = `
             {
               "encryptionEnabled": false,
               "encryptionSearchable": false,
-              "name": "type",
-              "nullable": false,
-              "required": false,
-              "sensitivityValue": 0,
-              "type": "string"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
               "name": "rawDataFormat",
               "nullable": false,
               "required": false,
@@ -74633,15 +74625,6 @@ exports[`Sync script > should match snapshot 2`] = `
               "required": false,
               "sensitivityValue": 0,
               "type": "RawObject"
-            },
-            {
-              "encryptionEnabled": false,
-              "encryptionSearchable": false,
-              "name": "canonicalForm",
-              "nullable": false,
-              "required": false,
-              "sensitivityValue": 0,
-              "type": "string"
             },
             {
               "encryptionEnabled": false,
@@ -75673,23 +75656,12 @@ exports[`Sync script > should match snapshot 2`] = `
               "to": 3000
             }
           ],
-          "defaultConfigMaps": [
-            {
-              "files": [
-                {
-                  "content": "{\\"medisante\\": {\\"name\\": \\"Medisanté\\"}}",
-                  "name": "config.json"
-                }
-              ],
-              "mountPath": "/home/node/app/providers/",
-              "name": "providers-config"
-            }
-          ],
+          "defaultConfigMaps": [],
           "defaultDocumentationPath": "/documentation/json",
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
-              "value": "trace",
+              "value": "info",
               "valueType": "plain"
             },
             {
@@ -75733,8 +75705,63 @@ exports[`Sync script > should match snapshot 2`] = `
               "valueType": "plain"
             },
             {
-              "name": "PROVIDERS_CONFIGURATION_PATH",
-              "value": "/home/node/app/providers/config.json",
+              "name": "CRUD_SERVICE_URL",
+              "value": "http://crud-service",
+              "valueType": "plain"
+            },
+            {
+              "name": "TMM_SERVICE_URL",
+              "value": "http://therapy-monitoring-manager",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_DEVICES_ENDPOINT",
+              "value": "/tdm-dm-devices",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_HEALTH_DATA_ENDPOINT",
+              "value": "/tdm-dm-health-data",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_HEALTH_DATA_TYPE_ENDPOINT",
+              "value": "/tdm-dm-health-data-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "TMM_MONITORINGS_ENDPOINT",
+              "value": "/monitorings",
+              "valueType": "plain"
+            },
+            {
+              "name": "TMM_DETECTIONS_ENDPOINT",
+              "value": "/detections",
+              "valueType": "plain"
+            },
+            {
+              "name": "TMM_PROTOTYPES_ENDPOINT",
+              "value": "/prototypes",
+              "valueType": "plain"
+            },
+            {
+              "name": "MEDISANTE_PROVIDER",
+              "value": "medisante",
+              "valueType": "plain"
+            },
+            {
+              "name": "HEALTHKIT_PROVIDER",
+              "value": "healthkit",
+              "valueType": "plain"
+            },
+            {
+              "name": "STANDARD_JSON_MEDISANTE",
+              "value": "medisante-standard-json",
+              "valueType": "plain"
+            },
+            {
+              "name": "STANDARD_JSON_HEALTHKIT",
+              "value": "healthkit-standard-json",
               "valueType": "plain"
             },
             {
@@ -75780,7 +75807,7 @@ exports[`Sync script > should match snapshot 2`] = `
               "min": "150Mi"
             }
           },
-          "description": "A plugin to collect health data from medical and wearable devices",
+          "description": "A plugin to collect, store and visualize patient health data from medical and wearable devices",
           "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/device-manager:{{DEVICE_MANAGER_VERSION}}",
           "name": "device-manager",
           "type": "plugin"

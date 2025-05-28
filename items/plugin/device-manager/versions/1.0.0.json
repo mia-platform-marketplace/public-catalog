@@ -10,6 +10,7 @@
   },
   "itemId": "device-manager",
   "name": "Device Manager",
+  "description": "Collect, store and visualize patient health data from medical and wearable devices.",
   "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/device-manager",
   "resources": {
@@ -131,7 +132,7 @@
           },
           {
             "name": "DATA_ACQUISITION_JOB_COLLECTION",
-            "value": "",
+            "value": "tdm_dm_data_acquisition_jobs",
             "valueType": "plain"
           }
         ],
