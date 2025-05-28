@@ -4793,7 +4793,7 @@ exports[`Sync script > should match snapshot 2`] = `
         "appointment-manager": {
           "type": "plugin",
           "name": "appointment-manager",
-          "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager",
+          "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager:2.3.0",
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
