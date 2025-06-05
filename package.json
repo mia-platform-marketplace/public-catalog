@@ -31,7 +31,7 @@
   "devDependencies": {
     "@eslint/js": "^9.28.0",
     "@stylistic/eslint-plugin-js": "^4.4.1",
-    "@stylistic/eslint-plugin-ts": "^4.4.0",
+    "@stylistic/eslint-plugin-ts": "^4.4.1",
     "@types/json-diff": "^1.0.3",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.15.30",
