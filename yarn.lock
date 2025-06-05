@@ -840,16 +840,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stylistic/eslint-plugin-ts@npm:^4.4.0":
-  version: 4.4.0
-  resolution: "@stylistic/eslint-plugin-ts@npm:4.4.0"
+"@stylistic/eslint-plugin-ts@npm:^4.4.1":
+  version: 4.4.1
+  resolution: "@stylistic/eslint-plugin-ts@npm:4.4.1"
   dependencies:
     "@typescript-eslint/utils": "npm:^8.32.1"
     eslint-visitor-keys: "npm:^4.2.0"
     espree: "npm:^10.3.0"
   peerDependencies:
     eslint: ">=9.0.0"
-  checksum: 10/2b330aa2c076f3c56bf6211e6a7db7030151c8fb2fcc95993db1443e89453a616ffdfe00b67786883538579f4c8565c73c779518189ef8fff40b233eb86f1b22
+  checksum: 10/d945c9f804ca488e1da01569cb9be2bfc76761018aeab830a5fde2c833b55b1193dbc405e7412015a598af6cc2dfdb59f271a8389db04c0b0a45d2097317b2f2
   languageName: node
   linkType: hard
 
@@ -4898,7 +4898,7 @@ __metadata:
     "@eslint/js": "npm:^9.28.0"
     "@mia-platform/console-types": "npm:^0.37.6"
     "@stylistic/eslint-plugin-js": "npm:^4.4.1"
-    "@stylistic/eslint-plugin-ts": "npm:^4.4.0"
+    "@stylistic/eslint-plugin-ts": "npm:^4.4.1"
     "@types/json-diff": "npm:^1.0.3"
     "@types/lodash-es": "npm:^4.17.12"
     "@types/node": "npm:^22.15.30"
