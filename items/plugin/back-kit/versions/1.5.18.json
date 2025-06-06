@@ -64,11 +64,11 @@
   "type": "plugin",
   "version": {
     "name": "1.5.18",
-    "releaseNote": "Added possibility to validate the form content when performing a custom footer action in `bk-dynamic-form-modal` component."
+    "releaseNote": "Fixed bk-table wrong column widths introduced with the new Chrome/Chromium version and added possibility to interpolate title and content of the bk-notifications component."
   },
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-05-20T16:42:16.530Z",
+  "releaseDate": "2025-06-06T16:42:16.530Z",
   "lifecycleStatus": "published"
 }
