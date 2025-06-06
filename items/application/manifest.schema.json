@@ -60,7 +60,6 @@
           "type": "string"
         },
         "url": {
-          "format": "uri-reference",
           "type": "string"
         }
       },
@@ -108,7 +107,6 @@
     },
     "repositoryUrl": {
       "description": "URL of the repository containing the source code of the resource created by the item",
-      "format": "uri-reference",
       "type": "string"
     },
     "resources": {
@@ -3266,7 +3264,6 @@
                   "additionalProperties": false,
                   "properties": {
                     "archiveUrl": {
-                      "format": "uri-reference",
                       "minLength": 1,
                       "type": "string"
                     },
@@ -4221,7 +4218,6 @@
                   "additionalProperties": false,
                   "properties": {
                     "archiveUrl": {
-                      "format": "uri-reference",
                       "minLength": 1,
                       "type": "string"
                     },
