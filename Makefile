@@ -39,7 +39,7 @@ dev-down:
 # Sync script test environment
 
 test-up:
-	docker run -d -p 27017:27017 --name catalog-mongo-test mongo:8.0
+	docker run -d -p 27017:27017 --name catalog-mongo-test mongo:8
 .PHONY: test-up
 
 test-down:
