@@ -1,0 +1,122 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "orchestrators",
+  "description": "The Flow Manager is a saga orchestrator, capable to manage flows structured by using the Architectural pattern named Saga Pattern",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/flow-manager-service/overview"
+  },
+  "image": {
+    "localPath": "../assets/flow-manager-service.png"
+  },
+  "itemId": "flow-manager-service",
+  "name": "Flow Manager Service",
+  "publishOnMiaDocumentation": true,
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/flow-manager/flow-manager",
+  "resources": {
+    "services": {
+      "flow-manager-service": {
+        "type": "plugin",
+        "name": "flow-manager-service",
+        "description": "The Flow Manager is a saga orchestrator, capable to manage flows structured by using the Architectural pattern named Saga Pattern",
+        "dockerImage": "nexus.mia-platform.eu/core/flow-manager:2.7.0",
+        "links": [
+          {
+            "label": "Flow Manager Configurator",
+            "targetSection": "flow-manager",
+            "hidePrefix": true
+          }
+        ],
+        "componentId": "flow-manager",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "miaclienttype",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATIONS_FILE_PATH",
+            "value": "/configuration/saga.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "SAGA_ID_PREFIX",
+            "value": "CHANGE_WITH_YOUR_SAGA_ID_PREFIX",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "flow-configuration",
+            "mountPath": "/configuration",
+            "files": [
+              {
+                "content": "{\n  \"persistencyManagement\": {\n    \"type\": \"crud\",\n    \"configurations\": {\n      \"protocol\": \"http\",\n      \"host\": \"crud-service\",\n      \"port\": 80,\n      \"collectionName\": \"change-with-your-collection\"\n    }\n  },\n  \"communicationProtocols\": [],\n  \"machineDefinition\": {\n    \"businessStates\": [\n      {\n        \"id\": 0,\n        \"description\": \"Default business state\"\n      }\n    ],\n    \"initialState\": \"State 1\",\n    \"creationEvent\": \"creation-event\",\n    \"states\": [\n      {\n        \"id\": \"State 1\",\n        \"businessStateId\": 0,\n        \"isFinal\": true\n      }\n    ]\n  }\n}\n",
+                "name": "saga.json"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "type": "plugin",
+  "version": {
+    "name": "2.7.0",
+    "releaseNote": "### Added\n\n- Added support for secrets interpolation in service config\n\n### Fixed\n\n- Errors raised by deep merge hook are now correctly logged\n"
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2025-06-10T12:00:00.000Z",
+  "lifecycleStatus": "published"
+}
