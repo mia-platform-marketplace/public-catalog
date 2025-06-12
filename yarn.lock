@@ -5020,7 +5020,7 @@ __metadata:
     pino-pretty: "npm:^13.0.0"
     rimraf: "npm:^6.0.1"
     semver: "npm:^7.7.2"
-    tsx: "npm:^4.20.1"
+    tsx: "npm:^4.20.2"
     typescript: "npm:^5.8.3"
     typescript-eslint: "npm:^8.34.0"
     yaml: "npm:^2.8.0"
@@ -5936,9 +5936,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.20.1":
-  version: 4.20.1
-  resolution: "tsx@npm:4.20.1"
+"tsx@npm:^4.20.2":
+  version: 4.20.2
+  resolution: "tsx@npm:4.20.2"
   dependencies:
     esbuild: "npm:~0.25.0"
     fsevents: "npm:~2.3.3"
@@ -5948,7 +5948,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10/fc6f3861f70975f0008d4ac28058e23fea0e9c033fed93234e7d72c65148e9368b4c6d5cd31b1cce3461a3aa50a34a87e1ba787e991d571e1c0e9d4b272909cd
+  checksum: 10/6e7636d9c7f98e6789a61379a01a8b3bc5224976b0f520e4371c85ae3d27dd689f3a232bbb17dcd394de12f9e1903f0e5e4b8742340755511fdf3966af0e1006
   languageName: node
   linkType: hard
 
