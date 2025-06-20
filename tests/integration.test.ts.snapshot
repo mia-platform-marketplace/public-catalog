@@ -45442,7 +45442,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "kafka2rest-service",
           "description": "A service that enables the conversion of Kafka messages into REST HTTP requests that are executed towards configured targets.",
-          "dockerImage": "nexus.mia-platform.eu/plugins/kafka2rest:1.1.1",
+          "dockerImage": "nexus.mia-platform.eu/plugins/kafka2rest:1.2.0",
           "defaultEnvironmentVariables": [
             {
               "name": "LOG_LEVEL",
