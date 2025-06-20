@@ -45442,6 +45442,183 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "kafka2rest-service",
           "description": "A service that enables the conversion of Kafka messages into REST HTTP requests that are executed towards configured targets.",
+          "dockerImage": "nexus.mia-platform.eu/plugins/kafka2rest:1.2.0",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "TOPICS_REST_CONFIG_PATH",
+              "value": "/configs/kafka2rest-config.json",
+              "valueType": "plain"
+            },
+            {
+              "name": "PATH_PROCESSORS_PATH",
+              "value": "/configs/pathGenerators.js",
+              "valueType": "plain"
+            },
+            {
+              "name": "BODY_PROCESSORS_PATH",
+              "value": "/configs/bodyGenerators.js",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_CLIENT_ID",
+              "value": "CHANGE WITH YOUR CLIENT_ID",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_GROUP_ID",
+              "value": "CHANGE WITH THE ID OF THE CONSUMER GROUP",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_BROKERS_LIST",
+              "value": "CHANGE WITH THE COMMA SEPARATED LIST OF BROKERS",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_AUTH_METHOD",
+              "value": "plain",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_SASL_USERNAME",
+              "value": "CHANGE WITH THE USERNAME",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_SASL_PASSWORD",
+              "value": "CHANGE WITH THE PASSWORD",
+              "valueType": "plain"
+            }
+          ],
+          "defaultResources": {
+            "memoryLimits": {
+              "max": "50Mi",
+              "min": "100Mi"
+            },
+            "cpuLimits": {
+              "min": "5m",
+              "max": "50m"
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "defaultDocumentationPath": "",
+          "defaultConfigMaps": [
+            {
+              "name": "kafka2rest-configs",
+              "mountPath": "/configs",
+              "files": [
+                {
+                  "name": "kafka2rest-config.json",
+                  "content": "{}"
+                },
+                {
+                  "name": "pathGenerators.js",
+                  "content": "'use strict'\\n\\nmodule.exports={}"
+                },
+                {
+                  "name": "bodyGenerators.js",
+                  "content": "'use strict'\\n\\nmodule.exports={}"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "1.2.0",
+      "releaseNote": "### Added\\n\\n- Added header processor file support to generate custom headers\\n\\n### Changed:\\n\\n- support query parameters returned from path processors\\n- messageSchema is now optional for those situation when body generator returns a non-json response."
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-02-20T16:47:48.024Z",
+    "lifecycleStatus": "draft",
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "kafka2rest-service_logo_20250410.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "stream",
+    "description": "A service that enables the conversion of Kafka messages into REST HTTP requests that are executed towards configured targets.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/kafka2rest/overview"
+    },
+    "itemId": "kafka2rest-service",
+    "name": "Kafka2Rest service",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/kafka2rest",
+    "resources": {
+      "services": {
+        "kafka2rest-service": {
+          "type": "plugin",
+          "name": "kafka2rest-service",
+          "description": "A service that enables the conversion of Kafka messages into REST HTTP requests that are executed towards configured targets.",
           "dockerImage": "nexus.mia-platform.eu/plugins/kafka2rest:1.1.1",
           "defaultEnvironmentVariables": [
             {
@@ -45585,7 +45762,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "releaseDate": "2025-02-20T16:47:48.024Z",
     "lifecycleStatus": "draft",
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
