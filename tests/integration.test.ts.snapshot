@@ -17431,7 +17431,7 @@ exports[`Sync script > should match snapshot 2`] = `
               },
               "verb": "PATCH"
             },
-            "POST/assets/export": {
+            "POST/assets/export/init": {
               "acl": {
                 "inherited": false,
                 "value": "permissions[\\"read:data-assets\\"]"
@@ -17445,8 +17445,8 @@ exports[`Sync script > should match snapshot 2`] = `
               "backofficeAcl": {
                 "inherited": true
               },
-              "id": "POST/assets/export",
-              "path": "/assets/export",
+              "id": "POST/assets/export/init",
+              "path": "/assets/export/init",
               "postDecorators": [],
               "preDecorators": [],
               "public": {
@@ -19584,7 +19584,7 @@ exports[`Sync script > should match snapshot 2`] = `
             }
           },
           "description": "This is the Data Catalog component for visualizing your data assets definitions and associated metadata",
-          "dockerImage": "nexus.mia-platform.eu/data-fabric/data-lineage/data-catalog-frontend:0.3.3",
+          "dockerImage": "nexus.mia-platform.eu/data-fabric/data-lineage/data-catalog-frontend:0.3.4",
           "name": "data-catalog-fe",
           "tags": [
             "data-fabric"
@@ -19826,7 +19826,7 @@ exports[`Sync script > should match snapshot 2`] = `
               "min": "50Mi"
             }
           },
-          "dockerImage": "nexus.mia-platform.eu/data-fabric/job-runner:0.2.3",
+          "dockerImage": "nexus.mia-platform.eu/data-fabric/job-runner:0.2.2",
           "name": "job-runner",
           "tags": [
             "data-fabric"
@@ -20094,7 +20094,7 @@ exports[`Sync script > should match snapshot 2`] = `
             }
           },
           "description": "Data Catalog component that allows reading your data assets definition and enrich them with ad-hoc metadata",
-          "dockerImage": "nexus.mia-platform.eu/data-fabric/open-lineage:0.3.6",
+          "dockerImage": "nexus.mia-platform.eu/data-fabric/open-lineage:0.3.7",
           "name": "open-lineage",
           "tags": [
             "data-fabric"

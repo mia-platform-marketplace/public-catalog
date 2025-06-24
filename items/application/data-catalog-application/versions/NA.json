@@ -1,5 +1,4 @@
 {
-  "$schema": "../../manifest.schema.json",
   "categoryId": "data-catalog",
   "description": "This application enable releasing Data Catalog components with ease",
   "documentation": {
@@ -1260,7 +1259,7 @@
             },
             "verb": "PATCH"
           },
-          "POST/assets/export": {
+          "POST/assets/export/init": {
             "acl": {
               "inherited": false,
               "value": "permissions[\"read:data-assets\"]"
@@ -1274,8 +1273,8 @@
             "backofficeAcl": {
               "inherited": true
             },
-            "id": "POST/assets/export",
-            "path": "/assets/export",
+            "id": "POST/assets/export/init",
+            "path": "/assets/export/init",
             "postDecorators": [],
             "preDecorators": [],
             "public": {
@@ -3413,7 +3412,7 @@
           }
         },
         "description": "This is the Data Catalog component for visualizing your data assets definitions and associated metadata",
-        "dockerImage": "nexus.mia-platform.eu/data-fabric/data-lineage/data-catalog-frontend:0.3.3",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/data-lineage/data-catalog-frontend:0.3.4",
         "name": "data-catalog-fe",
         "tags": [
           "data-fabric"
@@ -3655,7 +3654,7 @@
             "min": "50Mi"
           }
         },
-        "dockerImage": "nexus.mia-platform.eu/data-fabric/job-runner:0.2.3",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/job-runner:0.2.2",
         "name": "job-runner",
         "tags": [
           "data-fabric"
@@ -3923,7 +3922,7 @@
           }
         },
         "description": "Data Catalog component that allows reading your data assets definition and enrich them with ad-hoc metadata",
-        "dockerImage": "nexus.mia-platform.eu/data-fabric/open-lineage:0.3.6",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/open-lineage:0.3.7",
         "name": "open-lineage",
         "tags": [
           "data-fabric"
