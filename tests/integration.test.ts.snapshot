@@ -20094,7 +20094,7 @@ exports[`Sync script > should match snapshot 2`] = `
             }
           },
           "description": "Data Catalog component that allows reading your data assets definition and enrich them with ad-hoc metadata",
-          "dockerImage": "nexus.mia-platform.eu/data-fabric/open-lineage:0.3.7",
+          "dockerImage": "nexus.mia-platform.eu/data-fabric/open-lineage:0.3.8",
           "name": "open-lineage",
           "tags": [
             "data-fabric"
