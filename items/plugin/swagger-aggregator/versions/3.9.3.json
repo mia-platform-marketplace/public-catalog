@@ -21,6 +21,16 @@
         "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
         "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.3",
         "componentId": "swagger-aggregator",
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "150Mi",
+            "max": "300Mi"
+          },
+          "cpuLimits": {
+            "min": "150m",
+            "max": "300m"
+          }
+        },
         "mapEnvVarToMountPath": {
           "swagger-aggregator-config": {
             "type": "file",

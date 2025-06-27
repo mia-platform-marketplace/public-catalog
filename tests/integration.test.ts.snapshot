@@ -2787,6 +2787,16 @@ exports[`Sync script > should match snapshot 2`] = `
           "componentId": "swagger-aggregator",
           "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.4",
           "defaultDocumentationPath": "",
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "150Mi",
+              "max": "300Mi"
+            },
+            "cpuLimits": {
+              "min": "150m",
+              "max": "300m"
+            }
+          },
           "defaultEnvironmentVariables": [
             {
               "name": "HTTP_PORT",
@@ -3079,6 +3089,16 @@ exports[`Sync script > should match snapshot 2`] = `
           "componentId": "swagger-aggregator",
           "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.4",
           "defaultDocumentationPath": "",
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "150Mi",
+              "max": "300Mi"
+            },
+            "cpuLimits": {
+              "min": "150m",
+              "max": "300m"
+            }
+          },
           "defaultEnvironmentVariables": [
             {
               "name": "HTTP_PORT",
@@ -22093,6 +22113,16 @@ exports[`Sync script > should match snapshot 2`] = `
           "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
           "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.8.0",
           "componentId": "swagger-aggregator",
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "150Mi",
+              "max": "300Mi"
+            },
+            "cpuLimits": {
+              "min": "150m",
+              "max": "300m"
+            }
+          },
           "defaultEnvironmentVariables": [
             {
               "name": "HTTP_PORT",
@@ -72710,6 +72740,16 @@ exports[`Sync script > should match snapshot 2`] = `
           "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
           "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.4",
           "componentId": "swagger-aggregator",
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "150Mi",
+              "max": "300Mi"
+            },
+            "cpuLimits": {
+              "min": "150m",
+              "max": "300m"
+            }
+          },
           "mapEnvVarToMountPath": {
             "swagger-aggregator-config": {
               "type": "file",
@@ -72806,6 +72846,16 @@ exports[`Sync script > should match snapshot 2`] = `
           "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
           "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.3",
           "componentId": "swagger-aggregator",
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "150Mi",
+              "max": "300Mi"
+            },
+            "cpuLimits": {
+              "min": "150m",
+              "max": "300m"
+            }
+          },
           "mapEnvVarToMountPath": {
             "swagger-aggregator-config": {
               "type": "file",
@@ -72901,6 +72951,16 @@ exports[`Sync script > should match snapshot 2`] = `
           "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
           "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.2",
           "componentId": "swagger-aggregator",
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "150Mi",
+              "max": "300Mi"
+            },
+            "cpuLimits": {
+              "min": "150m",
+              "max": "300m"
+            }
+          },
           "mapEnvVarToMountPath": {
             "swagger-aggregator-config": {
               "type": "file",
@@ -72996,6 +73056,16 @@ exports[`Sync script > should match snapshot 2`] = `
           "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
           "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.1",
           "componentId": "swagger-aggregator",
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "150Mi",
+              "max": "300Mi"
+            },
+            "cpuLimits": {
+              "min": "150m",
+              "max": "300m"
+            }
+          },
           "mapEnvVarToMountPath": {
             "swagger-aggregator-config": {
               "type": "file",
@@ -73091,6 +73161,16 @@ exports[`Sync script > should match snapshot 2`] = `
           "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
           "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.8.3",
           "componentId": "swagger-aggregator",
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "150Mi",
+              "max": "300Mi"
+            },
+            "cpuLimits": {
+              "min": "150m",
+              "max": "300m"
+            }
+          },
           "mapEnvVarToMountPath": {
             "swagger-aggregator-config": {
               "type": "file",
@@ -73186,6 +73266,16 @@ exports[`Sync script > should match snapshot 2`] = `
           "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
           "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.8.2",
           "componentId": "swagger-aggregator",
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "150Mi",
+              "max": "300Mi"
+            },
+            "cpuLimits": {
+              "min": "150m",
+              "max": "300m"
+            }
+          },
           "mapEnvVarToMountPath": {
             "swagger-aggregator-config": {
               "type": "file",

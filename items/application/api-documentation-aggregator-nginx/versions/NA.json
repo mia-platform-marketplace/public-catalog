@@ -149,6 +149,16 @@
         "componentId": "swagger-aggregator",
         "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.4",
         "defaultDocumentationPath": "",
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "150Mi",
+            "max": "300Mi"
+          },
+          "cpuLimits": {
+            "min": "150m",
+            "max": "300m"
+          }
+        },
         "defaultEnvironmentVariables": [
           {
             "name": "HTTP_PORT",
