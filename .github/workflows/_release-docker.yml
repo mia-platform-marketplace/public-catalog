@@ -35,13 +35,13 @@ jobs:
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         show-progress: false
-    
+
     - name: Login to DockerHub
       uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
       with:
         username: ${{ secrets.docker_username }}
         password: ${{ secrets.docker_token }}
- 
+
     - name: Login to Mia-Platform registry
       uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
       with:
@@ -56,7 +56,7 @@ jobs:
       uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3.6.0
       with:
         platforms: amd64,arm64
-  
+
     - name: Configure Docker metadata
       id: meta
       uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0
@@ -77,13 +77,13 @@ jobs:
           org.opencontainers.image.authors=Mia Platform Core Team<core@mia-platform.eu>
           org.opencontainers.image.documentation=https://docs.mia-platform.eu/
           org.opencontainers.image.vendor=Mia s.r.l.
- 
+
     - name: Setup Buildx context
       uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3.10.0
       id: buildx
       with:
         platforms: linux/amd64,linux/arm64
- 
+
     - name: Build Docker image
       id: docker-build
       uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 # v6.18.0
@@ -96,7 +96,7 @@ jobs:
         platforms: ${{ steps.buildx.outputs.platforms }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
-  
+
     - name: Scan image
       uses: sysdiglabs/scan-action@0065d3b93bd4115371b55720251adb1d228fe188 # v5.1.1
       with:
@@ -106,7 +106,7 @@ jobs:
         registry-user: ${{ secrets.nexus_username }}
         registry-password: ${{ secrets.nexus_token }}
         stop-on-processing-error: true
- 
+
     - name: Generate SBOM
       uses: anchore/sbom-action@e11c554f704a0b820cbf8c51673f6945e0731532 # v0.20.0
       if: github.ref_type == 'tag'
@@ -115,7 +115,7 @@ jobs:
         output-file: ./software-catalog-sync-sbom.spdx.json
         image: nexus.mia-platform.eu/console/scripts/software-catalog-sync:${{ steps.meta.output.version.main }}
         upload-release-assets: true
- 
+
     - name: GCP auth
       uses: google-github-actions/auth@ba79af03959ebeac9769e648f473a284504d9193 # v2.1.10
       if: github.ref_type == 'tag'
@@ -123,14 +123,14 @@ jobs:
         project_id: ${{ secrets.kms_gcp_project }}
         workload_identity_provider: ${{ secrets.gcp_wif }}
         create_credentials_file: true
-  
+
     - name: Sign image with a key
       if: github.ref_type == 'tag'
       run: |
         for tag in ${TAGS}; do
           image="${tag}@${DIGEST}"
           cosign sign --recursive --yes --key "${COSIGN_PRIVATE_KEY}" "${image}"
-          cosign attest --recursive --yes --key "${COSIGN_PRIVATE_KEY}" --predicate "software-catalog-sync-sbom.spdx.json" --type="spdxjson" "${image}"
+          cosign attest --yes --key "${COSIGN_PRIVATE_KEY}" --predicate "software-catalog-sync-sbom.spdx.json" --type="spdxjson" "${image}"
         done
       env:
         TAGS: |
