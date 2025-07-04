@@ -57546,6 +57546,110 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "pdf-service",
           "description": "The PDF Services provides various functionalities to programmatically generate and manipulate pdf documents.",
+          "dockerImage": "nexus.mia-platform.eu/plugins/pdf-service:2.1.0",
+          "componentId": "pdf-service",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "HEADERS_TO_PROXY",
+              "value": "miauserid,miausergroups,miaclienttype,client-type,secret,cookie,accept-language",
+              "valueType": "plain"
+            },
+            {
+              "name": "DOCKER",
+              "value": "true",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_SERVICE",
+              "value": "crud-service",
+              "valueType": "plain"
+            },
+            {
+              "name": "PDF_TEMPLATE_ENDPOINT",
+              "value": "/pdf-template",
+              "valueType": "plain"
+            },
+            {
+              "name": "HEALTHINESS_CHECK",
+              "value": "false",
+              "valueType": "plain"
+            },
+            {
+              "name": "TIMEOUT_VALUE",
+              "value": "30000",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultConfigMaps": [],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "2.1.0",
+      "releaseNote": "- Upgrade Node.js (v22) and other dependencies\\n- Add env var TIMEOUT_VALUE to reboot automatically if container goes in timeout"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-06-16T10:00:00.000Z",
+    "lifecycleStatus": "draft",
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "pdf-service_logo_20250423.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "utility",
+    "description": "The PDF Services provides various functionalities to programmatically generate and manipulate pdf documents.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/pdf-service/overview"
+    },
+    "publishOnMiaDocumentation": true,
+    "itemId": "pdf-service",
+    "name": "PDF Service",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/pdf-service",
+    "resources": {
+      "services": {
+        "pdf-service": {
+          "type": "plugin",
+          "name": "pdf-service",
+          "description": "The PDF Services provides various functionalities to programmatically generate and manipulate pdf documents.",
           "dockerImage": "nexus.mia-platform.eu/plugins/pdf-service:2.0.1",
           "componentId": "pdf-service",
           "defaultEnvironmentVariables": [
@@ -57590,7 +57694,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "releaseDate": "2025-02-20T16:47:48.026Z",
     "lifecycleStatus": "draft",
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
