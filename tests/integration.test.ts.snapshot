@@ -19846,7 +19846,7 @@ exports[`Sync script > should match snapshot 2`] = `
               "min": "50Mi"
             }
           },
-          "dockerImage": "nexus.mia-platform.eu/data-fabric/job-runner:0.2.2",
+          "dockerImage": "nexus.mia-platform.eu/data-fabric/job-runner:0.2.3",
           "name": "job-runner",
           "tags": [
             "data-fabric"
