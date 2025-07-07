@@ -23,6 +23,8 @@ updates:
         update-types:
         - minor
         - patch
+    ignore:
+      - dependency-name: "sigstore/cosign-installer"
     commit-message:
       include: scope
       prefix: ci
