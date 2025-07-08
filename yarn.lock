@@ -954,12 +954,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.0.10":
-  version: 24.0.10
-  resolution: "@types/node@npm:24.0.10"
+"@types/node@npm:^24.0.11":
+  version: 24.0.11
+  resolution: "@types/node@npm:24.0.11"
   dependencies:
     undici-types: "npm:~7.8.0"
-  checksum: 10/ff8921c515d72fbc0a11ff282096e2d2e11ac04a2e9c7f765bcec5cb69cd367a88ab5dd556dc162ac98b9212957939b7ae80f12f3fc90db10c82135affd6d120
+  checksum: 10/cdef579ab2933fabd7d19ba8a05e0ff1f95e95dc2f68b7e4660a1bcff67799a3f537e436d27392138e7a46f8f9bc6411f3566e0ecded50e66d9e3dab854694f4
   languageName: node
   linkType: hard
 
@@ -4984,7 +4984,7 @@ __metadata:
     "@stylistic/eslint-plugin-ts": "npm:^4.4.1"
     "@types/json-diff": "npm:^1.0.3"
     "@types/lodash-es": "npm:^4.17.12"
-    "@types/node": "npm:^24.0.10"
+    "@types/node": "npm:^24.0.11"
     "@types/semver": "npm:^7.7.0"
     ajv: "npm:^8.17.1"
     ajv-formats: "npm:^3.0.1"
