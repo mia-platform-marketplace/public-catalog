@@ -79,7 +79,7 @@ jobs:
           org.opencontainers.image.vendor=Mia s.r.l.
 
     - name: Log version
-      run: echo "${{ steps.meta.output.version }}"
+      run: echo "${{ steps.meta.outputs.version }}"
 
     - name: Setup Buildx context
       uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3.11.1
@@ -95,7 +95,7 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
-        annotations: ${{ steps.meta.output.annotations }}
+        annotations: ${{ steps.meta.outputs.annotations }}
         platforms: ${{ steps.buildx.outputs.platforms }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
@@ -103,7 +103,7 @@ jobs:
     - name: Scan image
       uses: sysdiglabs/scan-action@0065d3b93bd4115371b55720251adb1d228fe188 # v5.1.1
       with:
-        image-tag: nexus.mia-platform.eu/console/scripts/software-catalog-sync:${{ steps.meta.output.version }}
+        image-tag: nexus.mia-platform.eu/console/scripts/software-catalog-sync:${{ steps.meta.outputs.version }}
         sysdig-secure-url: "https://eu1.app.sysdig.com"
         sysdig-secure-token: ${{ secrets.sysdig_token }}
         registry-user: ${{ secrets.nexus_username }}
@@ -116,7 +116,7 @@ jobs:
       with:
         artifact-name: software-catalog-sync-sbom.spdx.json
         output-file: ./software-catalog-sync-sbom.spdx.json
-        image: nexus.mia-platform.eu/console/scripts/software-catalog-sync:${{ steps.meta.output.version }}
+        image: nexus.mia-platform.eu/console/scripts/software-catalog-sync:${{ steps.meta.outputs.version }}
         upload-release-assets: true
 
     - name: GCP auth
@@ -137,7 +137,7 @@ jobs:
         done
       env:
         TAGS: |
-          docker.io/miaplatform/software-catalog-sync:${{ steps.meta.output.version }}
-          nexus.mia-platform.eu/console/scripts/software-catalog-sync:${{ steps.meta.output.version }}
+          docker.io/miaplatform/software-catalog-sync:${{ steps.meta.outputs.version }}
+          nexus.mia-platform.eu/console/scripts/software-catalog-sync:${{ steps.meta.outputs.version }}
         DIGEST: ${{ steps.docker-build.outputs.digest }}
         COSIGN_PRIVATE_KEY: ${{ secrets.cosign_key }}
