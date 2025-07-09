@@ -78,9 +78,6 @@ jobs:
           org.opencontainers.image.documentation=https://docs.mia-platform.eu/
           org.opencontainers.image.vendor=Mia s.r.l.
 
-    - name: Log version
-      run: echo "${{ steps.meta.outputs.version }}"
-
     - name: Setup Buildx context
       uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3.11.1
       id: buildx
@@ -133,7 +130,7 @@ jobs:
         for tag in ${TAGS}; do
           image="${tag}@${DIGEST}"
           cosign sign --recursive --yes --key "${COSIGN_PRIVATE_KEY}" "${image}"
-          cosign attest --recursive --yes --key "${COSIGN_PRIVATE_KEY}" --predicate "software-catalog-sync-sbom.spdx.json" --type="spdxjson" "${image}"
+          cosign attest --yes --key "${COSIGN_PRIVATE_KEY}" --predicate "software-catalog-sync-sbom.spdx.json" --type="spdxjson" "${image}"
         done
       env:
         TAGS: |
