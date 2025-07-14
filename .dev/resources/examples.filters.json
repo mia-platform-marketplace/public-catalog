@@ -1,0 +1,24 @@
+{
+  "dockerImageFilterList": [
+    {
+      "filter": "nexus.mia-platform.eu/cache/(.*)",
+      "replace": "my-registry-cache.com/$1"
+    },
+    {
+      "filter": "nexus.mia-platform.eu/cache/(.*)",
+      "replace": "SHOULD_SKIP_THIS/$1"
+    },
+    {
+      "filter": "nexus.mia-platform.eu/core/(.*)",
+      "replace": "my-registry-core.com/$1"
+    },
+    {
+      "filter": "nexus.mia-platform.eu/plugins/(.*)",
+      "replace": "my-registry-core-plugins.com/$1"
+    },
+    {
+      "filter": "nexus.mia-platform.eu/fast-data/(.*)/source/(.*)",
+      "replace": "my-registry-fast-data.com/$1/custom_source/$2"
+    }
+  ]
+}

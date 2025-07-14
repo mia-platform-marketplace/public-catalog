@@ -23,15 +23,21 @@ import type { ICatalogPlugin } from '@mia-platform/console-types'
 import { get, set, unset } from 'lodash-es'
 import YAML from 'yaml'
 
-import type { ReleaseData, Manifest, SyncCtx } from './types'
+import { getCustomFilters } from './override-items-fields'
+import type { ReleaseData, Manifest, SyncCtx, CustomFilters } from './types'
 import { findLatestRelease, replaceMiaPlatformDockerImageHost } from './utils'
 
 const itemsDirPath = path.resolve(process.cwd(), 'items')
 
 const setTenantId = (ctx: SyncCtx, manifest: Manifest) => { manifest.tenantId = ctx.env.TENANT_ID_TO_SET }
 
-const setContainerRegistry = (ctx: SyncCtx, manifest: Manifest) => {
-  if (!ctx.env.DOCKER_IMAGE_REGISTRY_TO_SET) { return }
+const setContainerRegistry = (ctx: SyncCtx, manifest: Manifest, customFilters: CustomFilters | undefined) => {
+  if (!ctx.env.DOCKER_IMAGE_REGISTRY_TO_SET && !ctx.env.CONFIG_MAP_ABSOLUTE_PATH) { return }
+
+  if (!ctx.env.DOCKER_IMAGE_REGISTRY_TO_SET && !customFilters) {
+    ctx.logger.info('Missing valid custom filters and Docker image registry to set, skipping Docker image host replacement')
+    return
+  }
 
   type Services = Record<string, ICatalogPlugin.Service> | undefined
 
@@ -41,7 +47,8 @@ const setContainerRegistry = (ctx: SyncCtx, manifest: Manifest) => {
     if (service.dockerImage) {
       service.dockerImage = replaceMiaPlatformDockerImageHost(
         service.dockerImage,
-        ctx.env.DOCKER_IMAGE_REGISTRY_TO_SET
+        ctx.env.DOCKER_IMAGE_REGISTRY_TO_SET,
+        customFilters
       )
     }
 
@@ -49,7 +56,8 @@ const setContainerRegistry = (ctx: SyncCtx, manifest: Manifest) => {
       if (additionalContainer.dockerImage) {
         additionalContainer.dockerImage = replaceMiaPlatformDockerImageHost(
           additionalContainer.dockerImage,
-          ctx.env.DOCKER_IMAGE_REGISTRY_TO_SET
+          ctx.env.DOCKER_IMAGE_REGISTRY_TO_SET,
+          customFilters
         )
       }
     }
@@ -69,6 +77,16 @@ const setIsLatest = (manifests: Manifest[]) => {
 
 const collectItems = async (ctx: SyncCtx, itemTypesToCollect: string[]): Promise<ReleaseData[]> => {
   const manifests: ReleaseData[] = []
+
+  let customFilters: CustomFilters | undefined
+
+  if (ctx.env.CONFIG_MAP_ABSOLUTE_PATH && ctx.env.CONFIG_MAP_ABSOLUTE_PATH !== '') {
+    customFilters = await getCustomFilters(ctx)
+
+    if (!customFilters) {
+      ctx.logger.info('No custom filters found, skipping Docker image host replacement')
+    }
+  }
 
   for (const itemType of itemTypesToCollect) {
     ctx.logger.debug(`Collecting manifests for items of type "${itemType}"`)
@@ -103,9 +121,7 @@ const collectItems = async (ctx: SyncCtx, itemTypesToCollect: string[]): Promise
 
         unset(manifest, '$schema')
         setTenantId(ctx, manifest)
-        setContainerRegistry(ctx, manifest)
-
-        // TODO: transform container ports?
+        setContainerRegistry(ctx, manifest, customFilters)
 
         releasesManifests.push({ manifest, manifestAbsPath: manifestPath })
       }

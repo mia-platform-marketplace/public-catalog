@@ -75,3 +75,12 @@ export type DbFile = {
   updatedAt: Date
   updaterId: string
 }
+
+export type CustomFilter = {
+  filter: string
+  replace: string
+}
+
+export type CustomFilters = {
+  dockerImageFilterList: Array<CustomFilter>
+}
