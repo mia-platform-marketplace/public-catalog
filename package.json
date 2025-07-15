@@ -34,7 +34,7 @@
     "@stylistic/eslint-plugin-ts": "^4.4.1",
     "@types/json-diff": "^1.0.3",
     "@types/lodash-es": "^4.17.12",
-    "@types/node": "^24.0.13",
+    "@types/node": "^24.0.14",
     "@types/semver": "^7.7.0",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
