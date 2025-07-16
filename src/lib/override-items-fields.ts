@@ -16,6 +16,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import fs from 'node:fs/promises'
+
 import Ajv from 'ajv'
 
 import jsonSchema from '../filters.schema.json' with { type: 'json' }
@@ -42,8 +44,8 @@ export const getCustomFilters = async (ctx: SyncCtx): Promise<CustomFilters | un
   // Load the custom filters from the JSON file
   ctx.logger.info(`Loading custom filters from: ${ctx.env.CONFIG_MAP_ABSOLUTE_PATH}`)
   try {
-    const importedJsonFilters = await import(ctx.env.CONFIG_MAP_ABSOLUTE_PATH, { with: { type: 'json' } }) as { default: CustomFilters }
-    const customFilters = importedJsonFilters.default
+    const importedJsonFiltersRaw = await fs.readFile(ctx.env.CONFIG_MAP_ABSOLUTE_PATH, 'utf-8')
+    const customFilters = JSON.parse(importedJsonFiltersRaw) as CustomFilters
     const validationResult = validateJsonWithSchema(customFilters, jsonSchema)
     if (!validationResult.valid) {
       ctx.logger.error(`Custom filters validation failed: ${JSON.stringify(validationResult.errors)}`)

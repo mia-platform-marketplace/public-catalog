@@ -71,3 +71,24 @@ The script accepts the following environment variables.
 | `ITEM_TYPES_FILTER`            |                                 `string`                                 |          |   All   | Comma-separated list of item types to sync.                                                                                                                       |
 | `TENANT_ID_TO_SET`             |                                 `string`                                 |    ✔     |         | Identifier of the Mia-Platform [company](https://docs.mia-platform.eu/docs/console/company-configuration/overview) to set as `tenantId` property of synced items. |
 | `DOCKER_IMAGE_REGISTRY_TO_SET` |                                 `string`                                 |          |         | Docker registry URL to set as `dockerImage` property of synced items.                                                                                             |
+| `CONFIG_MAP_ABSOLUTE_PATH`     |                                 `string`                                 |          |         | Absolute path to ConfigMap file containing a list of filters to fully customize `dockerImage`.|
+
+#### Docker image full customization
+
+The feature to fully customize each `dockerImage` based on regex expressions works providing a valid link to json file through this env `CONFIG_MAP_ABSOLUTE_PATH`.\
+The file inside must be in json format with a list of regex filters followed by their respective replace, below can be found a simple example.
+
+##### Example
+
+```json
+{
+  "dockerImageFilterList": [
+    {
+      "filter": "nexus.mia-platform.eu/cache/(.*)",
+      "replace": "my-registry-cache.com/$1"
+    },
+  ]
+}
+```
+
+More structured specifications can be found in the json schema in `src/filters.schema.json` that is used by the script to validate the json provided at startup.
