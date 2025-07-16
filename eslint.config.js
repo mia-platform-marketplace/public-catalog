@@ -298,7 +298,7 @@ export default tsEslint.config(
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       parser: tsEslint.parser,
-      parserOptions: { project: true },
+      parserOptions: { project: './tsconfig.json' },
     },
     plugins: {
       '@stylistic/ts': stylisticTs,
