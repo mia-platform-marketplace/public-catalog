@@ -44,9 +44,48 @@ describe('Sync script', async () => {
     TENANT_ID_TO_SET: 'mia-platform',
   }
 
+  const envsConfigMap: Env = {
+    ...envs,
+    CONFIG_MAP_ABSOLUTE_PATH: 'tests/resources/examples.filters.json',
+  }
+
   const logger = pino({ level: envs.LOG_LEVEL })
 
   let mongoClient: MongoClient
+
+  const aggregateAddFields = {
+    $addFields: {
+      serviceDetails: {
+        $let: {
+          in: '$$matchedService.v',
+          vars: {
+            matchedService: {
+              $arrayElemAt: [
+                {
+                  $filter: {
+                    as: 'service',
+                    cond: { $eq: ['$$service.k', '$itemId'] },
+                    input: { $objectToArray: '$resources.services' },
+                  },
+                },
+                0,
+              ],
+            },
+          },
+        },
+      },
+    },
+  }
+
+  const aggregateProject = {
+    $project: {
+      _id: 1,
+      dockerImage: '$serviceDetails.dockerImage',
+      itemId: 1,
+      serviceType: '$serviceDetails.type',
+      type: 1,
+    },
+  }
 
   beforeEach(async () => {
     mongoClient = new MongoClient(MONGODB_URL)
@@ -169,5 +208,170 @@ describe('Sync script', async () => {
 
     assert.equal(latestPluginAfterSync.length, 1)
     assert.notEqual(latestPluginAfterSync.at(0)?.version.name, versionName)
+  })
+
+  await it('should have at least one item with dockerImage defined and serviceType plugin', async () => {
+    await sync(envsConfigMap, logger)
+
+    // list all items with dockerImage defined and serviceType plugin
+    const itemsProjectionPlugin = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME)
+      .aggregate([
+        aggregateAddFields,
+        { $match: { 'serviceDetails.dockerImage': { $exists: true, $ne: null }, 'serviceDetails.type': 'plugin' } },
+        aggregateProject,
+      ]
+      )
+      .toArray()
+    assert.ok(itemsProjectionPlugin.length > 1)
+  })
+
+  await it('should have at least one item with dockerImage with subfolder core', async () => {
+    await sync(envsConfigMap, logger)
+
+    // list all items with dockerImage defined and serviceType plugin
+    const itemsProjectionPlugin = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME)
+      .aggregate([
+        aggregateAddFields,
+        { $match: { 'serviceDetails.dockerImage': { $exists: true, $ne: null, $regex: /^my-registry-core.com/ } } },
+        aggregateProject,
+      ]
+      )
+      .toArray()
+    assert.ok(itemsProjectionPlugin.length > 1)
+  })
+
+  await it('should have at least one item with dockerImage with subfolder cache', async () => {
+    await sync(envsConfigMap, logger)
+
+    // list all items with dockerImage defined and serviceType plugin
+    const itemsProjectionPlugin = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME)
+      .aggregate([
+        aggregateAddFields,
+        { $match: { 'serviceDetails.dockerImage': { $exists: true, $ne: null, $regex: /^my-registry-cache.com/ } } },
+        aggregateProject,
+      ]
+      )
+      .toArray()
+    assert.ok(itemsProjectionPlugin.length > 1)
+  })
+
+  await it('should have at least one item with dockerImage with subfolder plugins', async () => {
+    await sync(envsConfigMap, logger)
+
+    // list all items with dockerImage defined and serviceType plugin
+    const itemsProjectionPlugin = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME)
+      .aggregate([
+        aggregateAddFields,
+        { $match: { 'serviceDetails.dockerImage': { $exists: true, $ne: null, $regex: /^my-registry-core-plugins.com/ } } },
+        aggregateProject,
+      ]
+      )
+      .toArray()
+    assert.ok(itemsProjectionPlugin.length > 1)
+  })
+
+  await it('should have at least one item with dockerImage defined and serviceType plugin with custom registry', async () => {
+    await sync(envsConfigMap, logger)
+
+    // list all items with dockerImage defined and serviceType plugin with custom registry
+    const itemsProjectionPluginCustom = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME).aggregate([
+        aggregateAddFields,
+        { $match: { 'serviceDetails.dockerImage': { $eq: 'my-registry-core.com/acl-service:1.0.2', $exists: true, $ne: null }, 'serviceDetails.type': 'plugin' } },
+        aggregateProject,
+      ]
+      )
+      .toArray()
+    assert.equal(itemsProjectionPluginCustom.length, 2)
+  })
+
+  await it('should have no items with dockerImage starting with SHOULD_SKIP_THIS', async () => {
+    await sync(envsConfigMap, logger)
+
+    // list all items with dockerImage that should be skipped since they start with SHOULD_SKIP_THIS so it should be an empty array
+    const itemsProjectionSkipped = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME).aggregate([
+        aggregateAddFields,
+        {
+          $match: {
+            'serviceDetails.dockerImage': {
+              $exists: true,
+              $ne: null,
+              $regex: /^SHOULD_SKIP_THIS/,
+            },
+          },
+        },
+        aggregateProject,
+      ]
+      )
+      .toArray()
+    assert.equal(itemsProjectionSkipped.length, 0)
+  })
+
+  await it('should have at least one item with dockerImage starting with "nexus.mia-platform.eu/fintech"', async () => {
+    await sync(envsConfigMap, logger)
+
+    const itemsProjectionFintech = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME).aggregate([
+        aggregateAddFields,
+        {
+          $match: {
+            'serviceDetails.dockerImage': {
+              $exists: true,
+              $ne: null,
+              $regex: /^nexus.mia-platform.eu\/fintech/,
+            },
+            'serviceDetails.type': 'plugin',
+          },
+        },
+        aggregateProject,
+      ]
+      )
+      .toArray()
+    assert.ok(itemsProjectionFintech.length > 1)
+  })
+
+  await it('should have the same number of items for fast data and custom source', async () => {
+    await sync(envsConfigMap, logger)
+
+    const itemsProjectionFastData = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME).aggregate([
+        aggregateAddFields,
+        {
+          $match: {
+            'serviceDetails.dockerImage': { $exists: true, $ne: null, $regex: /^my-registry-fast-data.com/ },
+          },
+        },
+        aggregateProject,
+      ]
+      )
+      .toArray()
+
+    const itemsProjectionCustomSource = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME).aggregate([
+        aggregateAddFields,
+        {
+          $match: {
+            'serviceDetails.dockerImage': { $exists: true, $ne: null, $regex: /\/custom_source\// },
+          },
+        },
+        aggregateProject,
+      ]
+      )
+      .toArray()
+    assert.equal(itemsProjectionFastData.length, itemsProjectionCustomSource.length)
   })
 })

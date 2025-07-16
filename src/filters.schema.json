@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "dockerImageFilterList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "filter": { "type": "string" },
+          "replace": { "type": "string" }
+        },
+        "required": ["filter", "replace"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["dockerImageFilterList"],
+  "additionalProperties": false
+}

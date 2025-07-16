@@ -27,6 +27,7 @@ export const defaultItemTypesFilter = Object.keys(catalogWellKnownItems)
 const schema = {
   properties: {
     CATEGORIES_COLLECTION_NAME: { type: 'string' },
+    CONFIG_MAP_ABSOLUTE_PATH: { type: 'string' },
     DOCKER_IMAGE_REGISTRY_TO_SET: { type: 'string' },
     FILES_COLLECTION_NAME: { type: 'string' },
     FILES_SERVICE_URL: { type: 'string' },

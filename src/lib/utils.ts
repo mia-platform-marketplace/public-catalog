@@ -20,11 +20,18 @@ import { CATALOG_ITEM_NA_VERSION, catalogItemLifecycleStatusEnum } from '@mia-pl
 import type { CatalogItemManifest } from '@mia-platform/console-types'
 import semver from 'semver'
 
+import { replaceMiaPlatformDockerImageHostCustom } from './override-items-fields'
+import type { CustomFilters } from './types'
+
 export const __STATE__ = 'PUBLIC'
 export const CREATOR_ID = 'marketplace-sync'
 
 const DEFAULT_HOST_DOCKER_IMAGE = 'nexus.mia-platform.eu'
-export const replaceMiaPlatformDockerImageHost = (dockerImage: string, newHost: string): string => {
+
+const replaceMiaPlatformDockerImageHostSimple = (dockerImage: string, newHost: string | undefined): string => {
+  if (newHost === undefined || newHost === '') {
+    return dockerImage
+  }
   const [host, ...restDockerImage] = dockerImage.split('/')
 
   return host === DEFAULT_HOST_DOCKER_IMAGE
@@ -32,6 +39,12 @@ export const replaceMiaPlatformDockerImageHost = (dockerImage: string, newHost: 
     : dockerImage
 }
 
+export const replaceMiaPlatformDockerImageHost = (dockerImage: string, newHost: string | undefined, customFilters: CustomFilters | undefined): string => {
+  if (customFilters) {
+    return replaceMiaPlatformDockerImageHostCustom(dockerImage, customFilters)
+  }
+  return replaceMiaPlatformDockerImageHostSimple(dockerImage, newHost)
+}
 
 type Matcher = (item: CatalogItemManifest) => boolean
 
