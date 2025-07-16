@@ -44,9 +44,24 @@ describe('Sync script', async () => {
     TENANT_ID_TO_SET: 'mia-platform',
   }
 
+  const envsConfigMap: Env = {
+    ...envs,
+    CONFIG_MAP_ABSOLUTE_PATH: 'tests/resources/examples.filters.json',
+  }
+
   const logger = pino({ level: envs.LOG_LEVEL })
 
   let mongoClient: MongoClient
+
+  const standardProject = {
+    $project: {
+      _id: 1,
+      dockerImage: { $getField: { field: 'dockerImage', input: { $getField: { field: '$itemId', input: '$resources.services' } } } },
+      itemId: 1,
+      serviceType: { $getField: { field: 'type', input: { $getField: { field: '$itemId', input: '$resources.services' } } } },
+      type: 1,
+    },
+  }
 
   beforeEach(async () => {
     mongoClient = new MongoClient(MONGODB_URL)
@@ -169,5 +184,161 @@ describe('Sync script', async () => {
 
     assert.equal(latestPluginAfterSync.length, 1)
     assert.notEqual(latestPluginAfterSync.at(0)?.version.name, versionName)
+  })
+
+  await it('There should be at least one item with dockerImage defined and serviceType plugin', async () => {
+    await sync(envsConfigMap, logger)
+
+    // list all items with dockerImage defined and serviceType plugin
+    const itemsProjectionPlugin = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME)
+      .aggregate([
+        standardProject,
+        { $match: { dockerImage: { $exists: true, $ne: null }, serviceType: 'plugin' } },
+      ]
+      )
+      .toArray()
+    assert.ok(itemsProjectionPlugin.length > 1)
+  })
+
+  await it('There should be at least one item with dockerImage with subfolder core', async () => {
+    await sync(envsConfigMap, logger)
+
+    // list all items with dockerImage defined and serviceType plugin
+    const itemsProjectionPlugin = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME)
+      .aggregate([
+        standardProject,
+        { $match: { dockerImage: { $exists: true, $ne: null, $regex: /^my-registry-core.com/ } } },
+      ]
+      )
+      .toArray()
+    assert.ok(itemsProjectionPlugin.length > 1)
+  })
+
+  await it('There should be at least one item with dockerImage with subfolder cache', async () => {
+    await sync(envsConfigMap, logger)
+
+    // list all items with dockerImage defined and serviceType plugin
+    const itemsProjectionPlugin = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME)
+      .aggregate([
+        standardProject,
+        { $match: { dockerImage: { $exists: true, $ne: null, $regex: /^my-registry-cache.com/ } } },
+      ]
+      )
+      .toArray()
+    assert.ok(itemsProjectionPlugin.length > 1)
+  })
+
+  await it('There should be at least one item with dockerImage with subfolder plugins', async () => {
+    await sync(envsConfigMap, logger)
+
+    // list all items with dockerImage defined and serviceType plugin
+    const itemsProjectionPlugin = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME)
+      .aggregate([
+        standardProject,
+        { $match: { dockerImage: { $exists: true, $ne: null, $regex: /^my-registry-core-plugins.com/ } } },
+      ]
+      )
+      .toArray()
+    assert.ok(itemsProjectionPlugin.length > 1)
+  })
+
+  await it('There should be at least one item with dockerImage defined and serviceType plugin with custom registry', async () => {
+    await sync(envsConfigMap, logger)
+
+    // list all items with dockerImage defined and serviceType plugin with custom registry
+    const itemsProjectionPluginCustom = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME).aggregate([
+        standardProject,
+        { $match: { dockerImage: { $eq: 'my-registry-core.com/acl-service:1.0.2', $exists: true, $ne: null }, serviceType: 'plugin' } },
+      ]
+      )
+      .toArray()
+    assert.equal(itemsProjectionPluginCustom.length, 2)
+  })
+
+  await it('There should be no items with dockerImage starting with SHOULD_SKIP_THIS', async () => {
+    await sync(envsConfigMap, logger)
+
+    // list all items with dockerImage that should be skipped since they start with SHOULD_SKIP_THIS so it should be an empty array
+    const itemsProjectionSkipped = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME).aggregate([
+        standardProject,
+        {
+          $match: {
+            dockerImage: {
+              $exists: true,
+              $ne: null,
+              $regex: /^SHOULD_SKIP_THIS/,
+            },
+          },
+        },
+      ]
+      )
+      .toArray()
+    assert.equal(itemsProjectionSkipped.length, 0)
+  })
+
+  await it('There should be at least one item with dockerImage starting with "nexus.mia-platform.eu/fintech"', async () => {
+    await sync(envsConfigMap, logger)
+
+    const itemsProjectionFintech = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME).aggregate([
+        standardProject,
+        {
+          $match: {
+            dockerImage: {
+              $exists: true,
+              $ne: null,
+              $regex: /^nexus.mia-platform.eu\/fintech/,
+            },
+            serviceType: 'plugin',
+          },
+        },
+      ]
+      )
+      .toArray()
+    assert.ok(itemsProjectionFintech.length > 1)
+  })
+
+  await it('There should be the same number of items for fast data and custom source', async () => {
+    await sync(envsConfigMap, logger)
+
+    const itemsProjectionFastData = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME).aggregate([
+        standardProject,
+        {
+          $match: {
+            dockerImage: { $exists: true, $ne: null, $regex: /^my-registry-fast-data.com/ },
+          },
+        },
+      ]
+      )
+      .toArray()
+
+    const itemsProjectionCustomSource = await mongoClient
+      .db()
+      .collection(envs.ITEMS_COLLECTION_NAME).aggregate([
+        standardProject,
+        {
+          $match: {
+            dockerImage: { $exists: true, $ne: null, $regex: /\/custom_source\// },
+          },
+        },
+      ]
+      )
+      .toArray()
+    assert.equal(itemsProjectionFastData.length, itemsProjectionCustomSource.length)
   })
 })
