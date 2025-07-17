@@ -28,7 +28,13 @@ const args = parseArgs()
 const logger = pino(buildLoggerOpts(env.LOG_LEVEL, args.pretty))
 
 main(env, logger)
-  .then((metrics) => logger.info({ results: metrics }, 'Finished sync script'))
+  .then((metrics) => {
+    logger.info({ results: metrics }, 'Finished sync script')
+
+    logger.debug('Waiting 10 minutes fro debugging purposes')
+    return new Promise<void>((resolve) => setTimeout(() => resolve(), 10 * 60 * 1_000))
+  })
+  .then(() => logger.debug('Bye, bye!'))
   .catch((err: Error) => {
     logger.error({ err }, 'Unexpected error executing the script')
     process.exit(1)
