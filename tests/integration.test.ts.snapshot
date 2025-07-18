@@ -7370,6 +7370,90 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "back-kit",
           "description": "Web component library to build your frontend pages.",
+          "dockerImage": "nexus.mia-platform.eu/back-kit/bk-web-components:1.5.20",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "8080",
+              "valueType": "plain"
+            }
+          ],
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "50m",
+              "min": "30m"
+            },
+            "memoryLimits": {
+              "max": "50Mi",
+              "min": "30Mi"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": ""
+            },
+            "readiness": {
+              "path": ""
+            }
+          },
+          "defaultLogParser": "mia-nginx",
+          "defaultDocumentationPath": "",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "type": "plugin",
+    "version": {
+      "name": "1.5.20",
+      "releaseNote": "Fixed partial date format on \`bk-form-wizard\` component."
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-07-04T16:42:16.530Z",
+    "lifecycleStatus": "published",
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "back-kit.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "frontendbuilder",
+    "description": "Web component library to build your frontend pages.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/business_suite/backoffice/overview"
+    },
+    "itemId": "back-kit",
+    "name": "Back Kit",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/microfrontend-composer/back-kit",
+    "resources": {
+      "services": {
+        "back-kit": {
+          "type": "plugin",
+          "name": "back-kit",
+          "description": "Web component library to build your frontend pages.",
           "dockerImage": "nexus.mia-platform.eu/back-kit/bk-web-components:1.5.19",
           "defaultEnvironmentVariables": [
             {
@@ -7420,7 +7504,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "releaseDate": "2025-07-04T16:42:16.530Z",
     "lifecycleStatus": "published",
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -49128,7 +49211,7 @@ exports[`Sync script > should match snapshot 2`] = `
       },
       "unsecretedVariables": {
         "MFE_TOOLKIT_VERSION": {
-          "productionEnv": "1.3.6",
+          "productionEnv": "1.3.7",
           "noProductionEnv": "latest"
         },
         "BACK_KIT_SOURCE": {
@@ -49457,8 +49540,8 @@ exports[`Sync script > should match snapshot 2`] = `
       },
       "unsecretedVariables": {
         "BACK_KIT_VERSION": {
-          "productionEnv": "1.5.19",
-          "noProductionEnv": "1.5.19"
+          "productionEnv": "1.5.20",
+          "noProductionEnv": "1.5.20"
         }
       },
       "listeners": {
