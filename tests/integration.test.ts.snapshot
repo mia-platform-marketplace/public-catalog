@@ -44233,6 +44233,203 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "integration-connector-agent",
           "componentId": "integration-connector-agent",
+          "dockerImage": "nexus.mia-platform.eu/plugins/integration-connector-agent:0.4.0",
+          "defaultDocumentationPath": "",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "CONFIGURATION_PATH",
+              "value": "/configs/config.json",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "integration-connector-config",
+              "mountPath": "/configs",
+              "files": [
+                {
+                  "name": "config.json",
+                  "content": "{\\n  \\"integrations\\": []\\n}"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ],
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "port": "http"
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "port": "http"
+            }
+          }
+        }
+      }
+    },
+    "description": "The Integration Connector Agent connects to external sources and keeps changes synchronized between the source and one or more sinks.",
+    "publishOnMiaDocumentation": true,
+    "repositoryUrl": "https://github.com/mia-platform/integration-connector-agent",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/integration-connector-agent/overview"
+    },
+    "name": "Integration Connector Agent",
+    "itemId": "integration-connector-agent",
+    "version": {
+      "name": "0.4.0",
+      "releaseNote": "## Feat\\n\\n- Added support for the Mia-Platform Console Catalog sink to allow creating new Catalog items from the processed events\\n\\n## Fix:\\n\\n- uniformed cloud vendor aggregator source webhook response payload\\n- upgraded dependencies causing compile issues with custom built processors."
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-07-21T13:02:51.976Z",
+    "lifecycleStatus": "draft",
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "integration-connector-agent_logo_20250423.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "type": "plugin",
+    "categoryId": "integrations",
+    "tenantId": "mia-platform",
+    "supportedBy": "Mia-Platform",
+    "resources": {
+      "services": {
+        "integration-connector-agent": {
+          "type": "plugin",
+          "name": "integration-connector-agent",
+          "componentId": "integration-connector-agent",
+          "dockerImage": "nexus.mia-platform.eu/plugins/integration-connector-agent:0.3.0",
+          "defaultDocumentationPath": "",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "CONFIGURATION_PATH",
+              "value": "/configs/config.json",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "integration-connector-config",
+              "mountPath": "/configs",
+              "files": [
+                {
+                  "name": "config.json",
+                  "content": "{\\n  \\"integrations\\": []\\n}"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ],
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "port": "http"
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "port": "http"
+            }
+          }
+        }
+      }
+    },
+    "description": "The Integration Connector Agent connects to external sources and keeps changes synchronized between the source and one or more sinks.",
+    "publishOnMiaDocumentation": true,
+    "repositoryUrl": "https://github.com/mia-platform/integration-connector-agent",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/integration-connector-agent/overview"
+    },
+    "name": "Integration Connector Agent",
+    "itemId": "integration-connector-agent",
+    "version": {
+      "name": "0.3.0",
+      "releaseNote": "## Feat\\n\\n- added CRUD Service sink\\n- Added GitHub webhook-based source\\n- Add support to Cloud Vendor-specific sources and processors.\\n- Add support for custom built processors."
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-07-15T13:02:51.976Z",
+    "lifecycleStatus": "draft",
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "integration-connector-agent_logo_20250423.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "type": "plugin",
+    "categoryId": "integrations",
+    "tenantId": "mia-platform",
+    "supportedBy": "Mia-Platform",
+    "resources": {
+      "services": {
+        "integration-connector-agent": {
+          "type": "plugin",
+          "name": "integration-connector-agent",
+          "componentId": "integration-connector-agent",
           "dockerImage": "nexus.mia-platform.eu/plugins/integration-connector-agent:0.2.0",
           "defaultDocumentationPath": "",
           "defaultEnvironmentVariables": [
@@ -44302,6 +44499,104 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-04-03T13:02:51.976Z",
+    "lifecycleStatus": "draft",
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "integration-connector-agent_logo_20250423.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "type": "template",
+    "name": "Integration Connector Agent Processor",
+    "itemId": "integration-connector-agent-processor",
+    "categoryId": "integrations",
+    "tenantId": "mia-platform",
+    "supportedBy": "Mia-Platform",
+    "description": "The Integration Connector Agent Processor allows you to build your own processor for and connect to external sources to keep changes synchronized between the source and one or more sinks.",
+    "publishOnMiaDocumentation": true,
+    "repositoryUrl": "https://github.com/mia-platform-marketplace/integration-connector-agent-processor",
+    "documentation": {
+      "type": "markdown",
+      "url": "https://raw.githubusercontent.com/mia-platform-marketplace/integration-connector-agent-processor/refs/heads/main/README.md"
+    },
+    "version": {
+      "name": "0.1.0",
+      "releaseNote": "First version of the template, based on go1.24."
+    },
+    "visibility": {
+      "public": true
+    },
+    "resources": {
+      "services": {
+        "integration-connector-agent-processor": {
+          "type": "template",
+          "name": "integration-connector-agent-processor",
+          "componentId": "integration-connector-agent",
+          "archiveUrl": "https://github.com/mia-platform-marketplace/integration-connector-agent-processor/archive/refs/heads/main.tar.gz",
+          "defaultDocumentationPath": "",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "CONFIGURATION_PATH",
+              "value": "/configs/config.json",
+              "valueType": "plain"
+            },
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "integration-connector-config",
+              "mountPath": "/configs",
+              "files": [
+                {
+                  "name": "config.json",
+                  "content": "{\\n  \\"integrations\\": []\\n}"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ],
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "port": "http"
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "port": "http"
+            }
+          },
+          "pipelines": {
+            "gitlab-ci": {
+              "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fgo-app.gitlab-ci.yml/raw"
+            }
+          }
+        }
+      }
+    },
+    "releaseDate": "2025-07-21T13:02:51.976Z",
     "lifecycleStatus": "draft",
     "isLatest": true,
     "__STATE__": "PUBLIC",

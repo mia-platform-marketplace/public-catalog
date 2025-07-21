@@ -23,7 +23,7 @@ yarn build:script
 
 ## Change the Catalog content
 
-> ‼ **IMPORTANT NOTICE**
+> [!IMPORTANT]
 >
 > To ensure that release notes are properly formatted, changes to the Catalog content MUST be submitted through **atomic pull requests**, meaning that each pull request MUST ship a single change described in the title and in the PR label as outlined [below](#common-operations).
 >
@@ -42,7 +42,7 @@ It is also recommended to instruct you IDE to validate the manifest against its 
 - For **JSON manifests**, reference the schema in the file adding `"$schema": "../../manifest.schema.json"`.
 - For **YAML manifests**, instruct your IDE to perform the validation. For Visual Studio Code we recommend you install the [YAML extension by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml): the workspace is already configured to use the correct schema (see `/.vscode/settings.json`).
 
-> ‼ **IMPORTANT NOTICE**
+> [!IMPORTANT]
 >
 > Item types JSON schemas are built on top of well-known items schemas shipped by [`@mia-platform/console-types` lib](https://github.com/mia-platform/console-sdk/tree/main/packages/console-types/src/types/catalog/well-known-items).
 >
@@ -115,7 +115,7 @@ Below are listed some common operations you may want to perform on the catalog. 
 
 #### Add a new version to an existing item
 
-> ⚠ **Warning**
+> [!WARNING]
 >
 > This operation can be performed only for items of types supporting versioning.
 
@@ -189,7 +189,7 @@ An item is considered deprecated if all of its versions are deprecated.
 
 #### Add or edit a new category
 
-> ‼ **IMPORTANT NOTICE**
+> [!IMPORTANT]
 >
 > You cannot edit the `categoryId` of an existing category since there may be other items using it outside the ones declared here.
 
@@ -208,7 +208,7 @@ Whenever you make a change to the Catalog content remember to:
 
 ## Work with the sync script
 
-> ‼ **IMPORTANT NOTICE**
+> [!IMPORTANT]
 >
 > To ensure that release notes are properly formatted, changes to the sync script content MUST be submitted through pull requests with the title following the format `<type>(sync): <description of the changes>` and MUST have the label `sync script`.
 
@@ -222,7 +222,7 @@ To spin up the stack needed to [run the script](./README.md#running-the-script) 
 - a Mia-Platform [Crud Service](https://github.com/mia-platform/crud-service) instance, and
 - a Mia-Platform [Files Service](https://docs.mia-platform.eu/docs/runtime_suite/files-service/configuration) instance.
 
-> ⚠ **Warning**
+> [!WARNING]
 >
 > To pull the Files Service Docker image you need to be logged in the Mia-Platform private registry.
 
