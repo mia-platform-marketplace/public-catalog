@@ -1,7 +1,7 @@
 {
   "name": "public-catalog",
   "description": "Collection of manifests composing Mia-Platform public catalog.",
-  "version": "0.5.19",
+  "version": "0.5.20",
   "private": true,
   "type": "module",
   "packageManager": "yarn@4.9.1",
