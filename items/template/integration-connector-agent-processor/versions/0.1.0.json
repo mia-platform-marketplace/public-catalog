@@ -1,0 +1,89 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "type": "template",
+  "name": "Integration Connector Agent Processor",
+  "itemId": "integration-connector-agent-processor",
+  "categoryId": "integrations",
+  "tenantId": "mia-platform",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "image": {
+    "localPath": "../assets/integration-connector-agent_logo_20250423.png"
+  },
+  "description": "The Integration Connector Agent Processor allows you to build your own processor for and connect to external sources to keep changes synchronized between the source and one or more sinks.",
+  "publishOnMiaDocumentation": true,
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/integration-connector-agent-processor",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/integration-connector-agent-processor/refs/heads/main/README.md"
+  },
+  "version": {
+    "name": "0.1.0",
+    "releaseNote": "First version of the template, based on go1.24."
+  },
+  "visibility": {
+    "public": true
+  },
+  "resources": {
+    "services": {
+      "integration-connector-agent-processor": {
+        "type": "template",
+        "name": "integration-connector-agent-processor",
+        "componentId": "integration-connector-agent",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/integration-connector-agent-processor/archive/refs/heads/main.tar.gz",
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/configs/config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "integration-connector-config",
+            "mountPath": "/configs",
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\n  \"integrations\": []\n}"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "port": "http"
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "port": "http"
+          }
+        },
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fgo-app.gitlab-ci.yml/raw"
+          }
+        }
+      }
+    }
+  },
+  "releaseDate": "2025-07-21T13:02:51.976Z",
+  "lifecycleStatus": "draft"
+}
