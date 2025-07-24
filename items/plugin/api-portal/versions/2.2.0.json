@@ -59,7 +59,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "2.2.0",
     "releaseNote": "### Added\n\n- Added global select to choose which server to send requests\n- Added configurable logo in header and favicon\n- Added configurable prefix to endpoints to support multiple API Portal\n\n### Fixed\n\n- Fixed loading when search input is emptied"
@@ -68,5 +67,9 @@
     "public": true
   },
   "releaseDate": "2025-02-20T17:06:06.476Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

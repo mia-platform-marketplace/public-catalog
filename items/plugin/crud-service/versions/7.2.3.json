@@ -106,7 +106,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "7.2.3",
     "releaseNote": "## What's Changed\n* changed: CRUD Service can now be employed without assigning `dropCollection` privilege to the configured Mongo connection string\n* fix: prevent a potential memory leak to happen when calling `/export` endpoint\n* fix: corrected typo that prevented `MONGODB_MAX_IDLE_TIME_MS` environment variable value to be properly set"
@@ -115,5 +114,9 @@
     "public": true
   },
   "releaseDate": "2025-04-03T13:02:52.025Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

@@ -100,7 +100,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "0.1.1",
     "releaseNote": "## What's Changed\n* Control Plane Operator is now able to read connections details from Fast Data configuration\n"
@@ -109,5 +108,9 @@
     "public": true
   },
   "releaseDate": "2024-12-19T17:04:05.875Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

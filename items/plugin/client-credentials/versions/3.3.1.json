@@ -114,7 +114,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.3.1",
     "releaseNote": "Added:\n\n- set `lastLogin` field when a service account receives a new access token"
@@ -123,5 +122,9 @@
     "public": true
   },
   "releaseDate": "2024-12-05T17:09:02.868Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

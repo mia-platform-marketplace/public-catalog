@@ -79,7 +79,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "2.10.0",
     "releaseNote": "Added:\n\n- Add `PATCH /:filename/metadata`, to allow modification of files metadata"
@@ -88,5 +87,9 @@
     "public": true
   },
   "releaseDate": "2024-12-05T17:09:02.891Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

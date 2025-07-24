@@ -110,7 +110,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.9.0",
     "releaseNote": "### Added\nexpose provider id_token only for Microsoft provider with /provider/idtoken new endpoint"
@@ -119,5 +118,9 @@
     "public": true
   },
   "releaseDate": "2024-11-18T17:09:39.906Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

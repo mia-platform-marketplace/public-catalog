@@ -79,7 +79,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "2.10.2",
     "releaseNote": "### Added:\n\n- ci: sbom generation"
@@ -88,5 +87,9 @@
     "public": true
   },
   "releaseDate": "2024-12-19T17:04:05.876Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

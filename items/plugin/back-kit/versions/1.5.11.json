@@ -61,7 +61,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "1.5.11",
     "releaseNote": "The component bk-table now it is visible when inside bk-layout-swap"
@@ -70,5 +69,9 @@
     "public": true
   },
   "releaseDate": "2024-12-19T17:04:05.872Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

@@ -49,7 +49,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "template",
   "version": {
     "name": "1.0.0",
     "releaseNote": "-"
@@ -58,5 +57,9 @@
     "public": true
   },
   "releaseDate": "2025-04-03T13:02:51.885Z",
-  "lifecycleStatus": "archived"
+  "lifecycleStatus": "archived",
+  "itemTypeDefinitionRef": {
+    "name": "template",
+    "namespace": "mia-platform"
+  }
 }

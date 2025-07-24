@@ -106,7 +106,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "7.2.0",
     "releaseNote": "## What's Changed\n* fix: support array of object ids and $size operator by @danibix95 in https://github.com/mia-platform/crud-service/pull/376\n* fix(indexes): terminate the service logging the error when index creation fails by @danibix95 in https://github.com/mia-platform/crud-service/pull/384\n"
@@ -115,5 +114,9 @@
     "public": true
   },
   "releaseDate": "2024-10-10T16:15:06.830Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

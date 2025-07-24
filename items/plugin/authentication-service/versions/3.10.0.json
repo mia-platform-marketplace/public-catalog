@@ -110,7 +110,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.10.0",
     "releaseNote": "### Added\nintroduce permissions custom claim, which can be employed by other services to restrict the access to resources specified by the permissions granted to the user.\nBy default the list of permissions is empty."
@@ -119,5 +118,9 @@
     "public": true
   },
   "releaseDate": "2024-11-18T17:09:39.873Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

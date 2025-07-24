@@ -139,7 +139,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "2.4.0",
     "releaseNote": "Added:\n\n- support Envoy calling style by handling all paths starting with `/auth`"
@@ -148,5 +147,9 @@
     "public": true
   },
   "releaseDate": "2024-12-05T17:09:02.865Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

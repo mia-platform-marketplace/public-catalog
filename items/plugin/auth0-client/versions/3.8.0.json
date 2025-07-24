@@ -133,7 +133,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.8.0",
     "releaseNote": "### Added\n\n- add support for `prompt` and `action` query parameters set in `/authorize` endpoint"
@@ -142,5 +141,9 @@
     "public": true
   },
   "releaseDate": "2025-02-20T16:47:48.033Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

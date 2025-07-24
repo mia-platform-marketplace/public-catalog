@@ -109,7 +109,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "2.7.0",
     "releaseNote": "### Added\n\n- Added support for secrets interpolation in service config\n\n### Fixed\n\n- Errors raised by deep merge hook are now correctly logged\n"
@@ -118,5 +117,9 @@
     "public": true
   },
   "releaseDate": "2025-06-10T12:00:00.000Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }
