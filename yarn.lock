@@ -4446,9 +4446,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongodb@npm:^6.17.0":
-  version: 6.17.0
-  resolution: "mongodb@npm:6.17.0"
+"mongodb@npm:^6.18.0":
+  version: 6.18.0
+  resolution: "mongodb@npm:6.18.0"
   dependencies:
     "@mongodb-js/saslprep": "npm:^1.1.9"
     bson: "npm:^6.10.4"
@@ -4476,7 +4476,7 @@ __metadata:
       optional: true
     socks:
       optional: true
-  checksum: 10/9a1f13ce9e748aae888cfea2d3e2644af0e728fe0fca135a565b9f8f3976cc11fc0809a4808536e82d67d7e11c6f42a65311d5118a387e3849800c4ba39de859
+  checksum: 10/559bfe87bb9a4945d81380c31cc89730c4a4c806a2e6ed06086dcacabd1caee32f711427abf93627b649f189e9464b67318ba65baccc07670bb30bac74dab933
   languageName: node
   linkType: hard
 
@@ -4998,7 +4998,7 @@ __metadata:
     jsonpath-plus: "npm:^10.3.0"
     listr2: "npm:^9.0.1"
     lodash-es: "npm:^4.17.21"
-    mongodb: "npm:^6.17.0"
+    mongodb: "npm:^6.18.0"
     nock: "npm:^14.0.6"
     pino: "npm:^9.7.0"
     pino-pretty: "npm:^13.0.0"
