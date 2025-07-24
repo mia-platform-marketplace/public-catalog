@@ -156,7 +156,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.4.0",
     "releaseNote": "### Added\n\n- Added env variable ENABLE_CACHE to toggle internal cache of config and public files."
@@ -165,5 +164,9 @@
     "public": true
   },
   "releaseDate": "2025-01-16T17:17:52.670Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

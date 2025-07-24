@@ -110,7 +110,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.12.0",
     "releaseNote": "### Added\n- feat: `providerToTokenClaims` configuration allows you to propagate information from the IDP to user token. It requires adding the `providerClaims` field to the user's mongodb collection\n- feat: `useProviderGroups` configuration allows you to use the groups defined in the IDP and synchronize them within the user's mongodb collection"
@@ -119,5 +118,9 @@
     "public": true
   },
   "releaseDate": "2025-03-20T16:42:16.534Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

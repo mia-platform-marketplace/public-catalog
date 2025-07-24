@@ -44,7 +44,6 @@
     "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "1.0.0",
     "releaseNote": "## Overview\nThe first version of **Email Builder** offers a simple and intuitive solution for creating HTML email templates through a graphical interface.\n\n---\n\n## Features\n\n- **Template Creation**: Enables creating and editing HTML templates via a graphical interface using customizable components.\n- **Template Export**: Allows saving email templates in HTML and JSON formats via POST to a customizable endpoint.\n- **Predefined Templates**: Includes a collection of basic templates for common email types that can be quickly customized."
@@ -53,5 +52,9 @@
     "public": true
   },
   "releaseDate": "2025-02-20T16:47:48.020Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

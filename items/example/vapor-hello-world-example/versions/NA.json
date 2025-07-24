@@ -78,10 +78,13 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "example",
   "visibility": {
     "public": true
   },
   "releaseDate": "2021-07-15T16:31:36.237Z",
-  "lifecycleStatus": "archived"
+  "lifecycleStatus": "archived",
+  "itemTypeDefinitionRef": {
+    "name": "example",
+    "namespace": "mia-platform"
+  }
 }

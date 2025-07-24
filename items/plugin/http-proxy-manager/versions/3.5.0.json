@@ -88,7 +88,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.5.0",
     "releaseNote": "### Fixed\n\n - exposed management routes under `SERVICE_PREFIX`\n\n### Added\n\n - added `DISALLOWED_RESPONSE_CONTENT_TYPE_LIST` env to prevent specified `Content-Type` headers in the response of the target service.\n- added `ALLOWED_PROXY_TARGET_URLS` env to specify which target URLs are allowed as targetBaseUrl for a proxy."
@@ -97,5 +96,9 @@
     "public": true
   },
   "releaseDate": "2025-01-28T11:36:11.794Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

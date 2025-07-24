@@ -110,7 +110,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "template",
   "version": {
     "name": "0.4.0",
     "releaseNote": "## What's Changed\n* updated dependencies (FastAPI, Langchain, OpenAI) \n* add endpoint `POST /embeddings/generateFromFile` for embedding generation \n* add support for *Azure OpenAI provider* for embedding generation and LLM usage"
@@ -119,5 +118,9 @@
     "public": true
   },
   "releaseDate": "2025-01-16T17:17:52.663Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "template",
+    "namespace": "mia-platform"
+  }
 }

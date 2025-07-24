@@ -44,7 +44,6 @@
     "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "2.0.2",
     "releaseNote": "Upgrade dependencies, fix localization and security issues"
@@ -53,5 +52,9 @@
     "public": true
   },
   "releaseDate": "2025-03-20T16:42:16.575Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

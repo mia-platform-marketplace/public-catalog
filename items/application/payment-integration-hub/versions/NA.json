@@ -3191,10 +3191,13 @@
     "localPath": "../../../../assets/img/MIA-FinTech.png"
   },
   "tenantId": "mia-platform",
-  "type": "application",
   "visibility": {
     "public": true
   },
   "releaseDate": "2022-10-27T10:51:07.127Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "application",
+    "namespace": "mia-platform"
+  }
 }

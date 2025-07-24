@@ -107,7 +107,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "0.5.0",
     "releaseNote": "**NOTE**: Please do not use this version as contains a bug that does not allow the service to be exposed. Use v0.5.1.\n\n## First Release\nCreate your RAG Application with RAG Chatbot API, an application that allows you to generate embeddings and connect to LLMs to create a chatbot trained on the information you need.\n"
@@ -116,5 +115,9 @@
     "public": true
   },
   "releaseDate": "2025-02-06T16:53:44.931Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

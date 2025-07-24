@@ -54,7 +54,6 @@
     "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "2.9.3",
     "releaseNote": "See https://docs.mia-platform.eu/docs/runtime_suite/care-kit/changelog#293"
@@ -63,5 +62,9 @@
     "public": true
   },
   "releaseDate": "2025-03-20T16:42:16.529Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

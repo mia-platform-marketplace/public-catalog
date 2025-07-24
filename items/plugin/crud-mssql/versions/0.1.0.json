@@ -109,7 +109,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "0.1.0",
     "releaseNote": "-"
@@ -118,5 +117,9 @@
     "public": true
   },
   "releaseDate": "2025-02-20T16:47:48.027Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

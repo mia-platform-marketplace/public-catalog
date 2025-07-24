@@ -120,7 +120,6 @@
     "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "2.4.0",
     "releaseNote": "Add configuration option 'isNotificationManagerAsync' (default to false) and update Node.js to v20"
@@ -129,5 +128,9 @@
     "public": true
   },
   "releaseDate": "2025-03-20T16:42:16.527Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

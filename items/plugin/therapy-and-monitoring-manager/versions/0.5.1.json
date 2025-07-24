@@ -151,7 +151,6 @@
     "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "0.5.1",
     "releaseNote": "Update Node.js (v20), custom-plugin-lib (v7.0.0) and fastify-cron (v1.3.1), update prototype and threshold schemas, save threshold validation results"
@@ -160,5 +159,9 @@
     "public": true
   },
   "releaseDate": "2025-03-20T16:42:16.535Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

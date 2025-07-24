@@ -83,7 +83,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.8.3",
     "releaseNote": "### Fixed\n\n- Configuration `transformPaths` correctly handles situation where a path contains another (e.g., `/generate` and `/generateFromFile`)."
@@ -92,5 +91,9 @@
     "public": true
   },
   "releaseDate": "2025-01-16T17:17:52.686Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

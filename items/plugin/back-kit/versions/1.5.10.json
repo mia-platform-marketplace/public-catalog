@@ -61,7 +61,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "1.5.10",
     "releaseNote": "By by specifying `format: date` or `format: time` and adding the flag `isPartialFormat` to true in `formOptions` it is possible to use dates and time as simple string and not ISO format. Fixed query for writable views' lookup. Fixed typo in italian label on export/import delimiter option."
@@ -70,5 +69,9 @@
     "public": true
   },
   "releaseDate": "2024-12-05T17:09:02.866Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

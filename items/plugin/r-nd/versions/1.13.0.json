@@ -145,7 +145,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "1.13.0",
     "releaseNote": "This version comes with huge performance improvements in both resource consumption and evaluation time for query generation policies!\n\nAdded:\n\n- perf: prepare partial evaluation at boot for better performances\n\n- perf: use opa compiler to optimize startup"
@@ -154,5 +153,9 @@
     "public": true
   },
   "releaseDate": "2024-12-05T17:09:02.873Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }
