@@ -113,8 +113,18 @@ const buildManifestSchema = (itemData: CatalogWellKnownItemData): object => {
   set(manifest, ['properties', 'supportedBy'], supportedBySchema)
   set(manifest, ['properties', 'resources'], itemData.resourcesSchema)
   set(manifest, ['properties', 'tenantId'], { const: defaultTenant })
-  set(manifest, ['properties', 'type'], { const: itemData.type })
   set(manifest, ['properties', 'visibility'], visibilitySchema)
+
+  unset(manifest, ['properties', 'type'])
+  set(manifest, ['properties', 'itemTypeDefinitionRef'], {
+    additionalProperties: false,
+    properties: {
+      name: { const: itemData.type },
+      namespace: { const: defaultTenant },
+    },
+    required: ['name', 'namespace'],
+    type: 'object',
+  })
 
   set(manifest, ['properties', 'image'], imageSchema)
   unset(manifest, ['properties', 'imageUrl'])
@@ -122,7 +132,7 @@ const buildManifestSchema = (itemData: CatalogWellKnownItemData): object => {
   set(manifest, ['properties', 'supportedByImage'], imageSchema)
   unset(manifest, ['properties', 'supportedByImageUrl'])
 
-  if (!itemData.crd.resources.isVersioningSupported) {
+  if (!itemData.typeDefinition.spec.isVersioningSupported) {
     unset(manifest, ['properties', 'version'])
   }
 
@@ -130,6 +140,8 @@ const buildManifestSchema = (itemData: CatalogWellKnownItemData): object => {
   unset(manifest, ['properties', 'resources', '$id'])
   unset(manifest, ['properties', 'resources', '$schema'])
   unset(manifest, ['properties', 'resources', 'title'])
+
+  set(manifest, ['required'], [...manifest.required, 'itemTypeDefinitionRef'])
 
   makeContainerPortsRequired(manifest, itemData.type)
 
@@ -150,5 +162,5 @@ const main = async () => {
 }
 
 main()
-  .then(() => logger.success('CRDs synched correctly'))
-  .catch((...args) => logger.error('Error synching CRDs', ...args))
+  .then(() => logger.success('Manifest schemas synched correctly'))
+  .catch((...args) => logger.error('Error synching manifest schemas', ...args))

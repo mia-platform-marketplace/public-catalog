@@ -30,6 +30,7 @@ import { findLatestRelease, replaceMiaPlatformDockerImageHost } from './utils'
 const itemsDirPath = path.resolve(process.cwd(), 'items')
 
 const setTenantId = (ctx: SyncCtx, manifest: Manifest) => { manifest.tenantId = ctx.env.TENANT_ID_TO_SET }
+const setItdRefTenantId = (ctx: SyncCtx, manifest: Manifest) => { set(manifest, ['itemTypeDefinitionRef', 'namespace'], ctx.env.TENANT_ID_TO_SET) }
 
 const setContainerRegistry = (ctx: SyncCtx, manifest: Manifest, customFilters: CustomFilters | undefined) => {
   if (!ctx.env.DOCKER_IMAGE_REGISTRY_TO_SET && !ctx.env.CONFIG_MAP_ABSOLUTE_PATH) { return }
@@ -121,6 +122,7 @@ const collectItems = async (ctx: SyncCtx, itemTypesToCollect: string[]): Promise
 
         unset(manifest, '$schema')
         setTenantId(ctx, manifest)
+        setItdRefTenantId(ctx, manifest)
         setContainerRegistry(ctx, manifest, customFilters)
 
         releasesManifests.push({ manifest, manifestAbsPath: manifestPath })

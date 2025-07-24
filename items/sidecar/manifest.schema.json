@@ -930,8 +930,21 @@
     "tenantId": {
       "const": "mia-platform"
     },
-    "type": {
-      "const": "sidecar"
+    "itemTypeDefinitionRef": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "sidecar"
+        },
+        "namespace": {
+          "const": "mia-platform"
+        }
+      },
+      "required": [
+        "name",
+        "namespace"
+      ],
+      "type": "object"
     },
     "visibility": {
       "additionalProperties": false,
@@ -978,7 +991,6 @@
     "name",
     "itemId",
     "tenantId",
-    "type",
     "resources",
     "lifecycleStatus",
     "categoryId",
@@ -986,6 +998,7 @@
     "supportedBy",
     "supportedByImage",
     "visibility",
-    "releaseDate"
+    "releaseDate",
+    "itemTypeDefinitionRef"
   ]
 }

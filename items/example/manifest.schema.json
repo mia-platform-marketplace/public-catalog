@@ -1176,8 +1176,21 @@
     "tenantId": {
       "const": "mia-platform"
     },
-    "type": {
-      "const": "example"
+    "itemTypeDefinitionRef": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "example"
+        },
+        "namespace": {
+          "const": "mia-platform"
+        }
+      },
+      "required": [
+        "name",
+        "namespace"
+      ],
+      "type": "object"
     },
     "version": {
       "description": "Version of the item following semver",
@@ -1247,7 +1260,6 @@
     "name",
     "itemId",
     "tenantId",
-    "type",
     "resources",
     "lifecycleStatus",
     "categoryId",
@@ -1255,6 +1267,7 @@
     "supportedBy",
     "supportedByImage",
     "visibility",
-    "releaseDate"
+    "releaseDate",
+    "itemTypeDefinitionRef"
   ]
 }
