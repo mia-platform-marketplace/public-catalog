@@ -22,8 +22,8 @@ jobs:
       - name: Install
         run: yarn install --immutable
       
-      - name: Sync CRDs
-        run: yarn sync-crd
+      - name: Sync manifest schemas
+        run: yarn sync-manifest-schemas
 
       - name: Build script
         run: yarn build:script

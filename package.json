@@ -8,7 +8,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "author": "Mia Platform Core Team <core@mia-platform.eu>",
   "scripts": {
-    "sync-crd": "tsx scripts/sync-crd.ts",
+    "sync-manifest-schemas": "tsx scripts/sync-manifest-schemas.ts",
     "build:script": "tsx scripts/build-script.ts",
     "dev": "tsx --env-file=./.dev/local.env src/index.ts",
     "start": "node build/index.cjs",
@@ -20,7 +20,7 @@
     "check:license": "addlicense -c 'Mia srl' -check -s scripts/**/*.ts src/**/*.ts"
   },
   "dependencies": {
-    "@mia-platform/console-types": "^0.38.9",
+    "@mia-platform/console-types": "/Users/edoardo/Documents/github/mia-platform/console-sdk/packages/console-types",
     "env-schema": "^6.0.1",
     "json-diff": "^1.0.6",
     "mongodb": "^6.18.0",

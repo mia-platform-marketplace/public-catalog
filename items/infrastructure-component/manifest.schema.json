@@ -266,8 +266,21 @@
     "tenantId": {
       "const": "mia-platform"
     },
-    "type": {
-      "const": "infrastructure-component"
+    "itemTypeDefinitionRef": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "infrastructure-component"
+        },
+        "namespace": {
+          "const": "mia-platform"
+        }
+      },
+      "required": [
+        "name",
+        "namespace"
+      ],
+      "type": "object"
     },
     "visibility": {
       "additionalProperties": false,
@@ -314,7 +327,6 @@
     "name",
     "itemId",
     "tenantId",
-    "type",
     "resources",
     "lifecycleStatus",
     "categoryId",
@@ -322,6 +334,7 @@
     "supportedBy",
     "supportedByImage",
     "visibility",
-    "releaseDate"
+    "releaseDate",
+    "itemTypeDefinitionRef"
   ]
 }
