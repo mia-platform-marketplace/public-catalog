@@ -27,7 +27,8 @@ export type ItemTypeData = {
 
 export type ImageFileData = { localPath: string }
 
-export type Manifest = CatalogItemManifest & {
-  image: ImageFileData
-  supportedByImage: ImageFileData
+export type Manifest = Omit<CatalogItemManifest, 'imageUrl' | 'supportedByImageUrl' | 'type'> & {
+  image: { localPath: string }
+  itemTypeDefinitionRef: NonNullable<CatalogItemManifest['itemTypeDefinitionRef']>
+  supportedByImage: { localPath: string }
 }
