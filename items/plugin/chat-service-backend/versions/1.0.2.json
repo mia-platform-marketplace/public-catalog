@@ -121,7 +121,6 @@
     "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "1.0.2",
     "releaseNote": "Update Node.js to v20"
@@ -130,5 +129,9 @@
     "public": true
   },
   "releaseDate": "2025-03-20T16:42:16.589Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

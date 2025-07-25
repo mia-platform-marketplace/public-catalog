@@ -109,7 +109,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "0.0.2",
     "releaseNote": "First version after the Oracle JDBC driver became free licensed"
@@ -118,5 +117,9 @@
     "public": true
   },
   "releaseDate": "2024-12-19T17:04:05.912Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

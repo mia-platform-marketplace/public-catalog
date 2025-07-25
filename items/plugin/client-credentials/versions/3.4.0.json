@@ -114,7 +114,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.4.0",
     "releaseNote": "Added:\n\n- add support to tls connection to redis\n\n- add support to redis sentinel mode"
@@ -123,5 +122,9 @@
     "public": true
   },
   "releaseDate": "2024-12-05T17:09:02.871Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

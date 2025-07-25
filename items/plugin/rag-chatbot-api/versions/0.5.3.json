@@ -107,7 +107,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "0.5.3",
     "releaseNote": "## Changes:\n\n- Solved an error that did not allow `mdx` files to be used to generate embeddings.\n- updated several internal depedencies.\n- documentation updated"
@@ -116,5 +115,9 @@
     "public": true
   },
   "releaseDate": "2025-02-20T17:06:06.550Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

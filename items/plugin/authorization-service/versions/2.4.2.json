@@ -139,7 +139,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "2.4.2",
     "releaseNote": "Fixed:\n\n- return 401 if auth route is not found and strict mode is enabled"
@@ -148,5 +147,9 @@
     "public": true
   },
   "releaseDate": "2024-12-05T17:09:02.866Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

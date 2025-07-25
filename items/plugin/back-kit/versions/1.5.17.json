@@ -61,7 +61,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "1.5.17",
     "releaseNote": "Added possibility to validate the form content when performing a custom footer action in `bk-dynamic-form-modal` component."
@@ -70,5 +69,9 @@
     "public": true
   },
   "releaseDate": "2025-05-20T16:42:16.530Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

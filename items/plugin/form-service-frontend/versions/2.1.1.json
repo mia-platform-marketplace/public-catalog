@@ -44,7 +44,6 @@
     "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "2.1.1",
     "releaseNote": "Upgrade dependencies, add custom title to expired modal, form metadata can be edited after form is expired"
@@ -53,5 +52,9 @@
     "public": true
   },
   "releaseDate": "2025-03-20T16:42:16.532Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

@@ -88,7 +88,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.4.0",
     "releaseNote": "### Added\n\n - added `HEADERS_TO_REMAP` env to remap specified headers into other specified header key.\n- added `HEADER_BLOCK_LIST` env to prevent specified headers from being forwarded to the target URL.\n- ci: sbom generation."
@@ -97,5 +96,9 @@
     "public": true
   },
   "releaseDate": "2024-12-19T17:04:05.878Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

@@ -61,7 +61,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "1.5.9",
     "releaseNote": "Added new key `$dateNow` in handlebars to retrieve current date time in ISO format in http requests."
@@ -70,5 +69,9 @@
     "public": true
   },
   "releaseDate": "2024-11-18T17:09:39.902Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

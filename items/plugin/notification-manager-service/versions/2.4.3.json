@@ -147,7 +147,6 @@
     "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "2.4.3",
     "releaseNote": "Add optional notification messages (MongoDB view required), fix several reminder bugs related to both scheduling and aborting, fix logs potentially leaking sensitive information"
@@ -156,5 +155,9 @@
     "public": true
   },
   "releaseDate": "2025-03-20T16:42:16.533Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

@@ -31,8 +31,9 @@ export type SyncCtx = {
 }
 
 
-export type Manifest = Omit<CatalogItemManifest, 'imageUrl' | 'supportedByImageUrl'> & {
+export type Manifest = Omit<CatalogItemManifest, 'imageUrl' | 'supportedByImageUrl' | 'type'> & {
   image: { localPath: string }
+  itemTypeDefinitionRef: NonNullable<CatalogItemManifest['itemTypeDefinitionRef']>
   supportedByImage: { localPath: string }
 }
 

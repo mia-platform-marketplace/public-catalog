@@ -88,7 +88,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.4.2",
     "releaseNote": "### Fixed\n\n - patch api failure if proxy authentication is set to invalid value.\n\n - return `tokenIssuerUrl` and `tokenIssuerValidationUrl` from GET management API"
@@ -97,5 +96,9 @@
     "public": true
   },
   "releaseDate": "2025-02-06T16:53:44.959Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

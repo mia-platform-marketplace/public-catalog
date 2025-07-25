@@ -1,6 +1,5 @@
 {
   "$schema": "../../manifest.schema.json",
-  "type": "plugin",
   "categoryId": "integrations",
   "tenantId": "mia-platform",
   "supportedBy": "Mia-Platform",
@@ -85,5 +84,9 @@
     "public": true
   },
   "releaseDate": "2025-07-21T13:02:51.976Z",
-  "lifecycleStatus": "draft"
+  "lifecycleStatus": "draft",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }
