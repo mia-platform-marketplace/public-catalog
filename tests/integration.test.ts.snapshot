@@ -54935,8 +54935,8 @@ exports[`Sync script > should match snapshot 2`] = `
           "productionEnv": "nm-nm-notification-messages"
         },
         "NOTIFICATION_MANAGER_VERSION": {
-          "noProductionEnv": "2.4.3",
-          "productionEnv": "2.4.3"
+          "noProductionEnv": "2.4.4",
+          "productionEnv": "2.4.4"
         },
         "SMS_SERVICE_VERSION": {
           "noProductionEnv": "1.2.1",
