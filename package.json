@@ -1,7 +1,7 @@
 {
   "name": "public-catalog",
   "description": "Collection of manifests composing Mia-Platform public catalog.",
-  "version": "0.5.22",
+  "version": "0.5.23",
   "private": true,
   "type": "module",
   "packageManager": "yarn@4.9.1",
@@ -29,7 +29,7 @@
     "yaml": "^2.8.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.31.0",
+    "@eslint/js": "^9.32.0",
     "@stylistic/eslint-plugin-js": "^4.4.1",
     "@stylistic/eslint-plugin-ts": "^4.4.1",
     "@types/json-diff": "^1.0.3",
