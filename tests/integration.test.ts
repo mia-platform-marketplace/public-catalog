@@ -26,6 +26,7 @@ import pino from 'pino'
 import sync from '../src/lib'
 import type { FilesServiceResponse } from '../src/lib/assets'
 import { defaultItemTypesFilter, type Env } from '../src/lib/process'
+import type { DbItem } from '../src/lib/types'
 import { __STATE__ } from '../src/lib/utils'
 
 import { cleanCategorySnap, cleanFileSnap, cleanItemSnap, getFilenameFromFilesServiceReq } from './utils.test'
@@ -151,6 +152,44 @@ describe('Sync script', async () => {
     assert.ok(filesServiceScope.isDone())
   })
 
+  await it('should be idempotent on multiple runs', async () => {
+    const filesServiceScope = nock(envs.FILES_SERVICE_URL, { reqheaders: { 'content-type': (header) => header.includes('multipart/form-data') } })
+      .persist()
+      .post('/')
+      .reply(200, (_, reqBody) => {
+        const fileName = getFilenameFromFilesServiceReq(reqBody)
+
+        const res: FilesServiceResponse = {
+          file: `file-${fileName}`,
+          location: `location-${fileName}`,
+          name: fileName,
+          size: fileName?.length,
+        }
+
+        return res
+      })
+
+    const firstRunMetricsReport = await sync(envs, logger)
+
+    assert.ok(firstRunMetricsReport.categories.created.count > 0)
+    assert.equal(firstRunMetricsReport.categories.updated.count, 0)
+    assert.equal(firstRunMetricsReport.categories.errors.count, 0)
+    assert.ok(firstRunMetricsReport.items.created.count > 0)
+    assert.equal(firstRunMetricsReport.items.updated.count, 0)
+    assert.equal(firstRunMetricsReport.items.errors.count, 0)
+
+    const secondRunMetricsReport = await sync(envs, logger)
+
+    assert.equal(secondRunMetricsReport.categories.created.count, 0)
+    assert.equal(secondRunMetricsReport.categories.updated.count, 0)
+    assert.equal(secondRunMetricsReport.categories.errors.count, 0)
+    assert.equal(secondRunMetricsReport.items.created.count, 0)
+    assert.equal(secondRunMetricsReport.items.updated.count, 0)
+    assert.equal(secondRunMetricsReport.items.errors.count, 0)
+
+    assert.ok(filesServiceScope.isDone())
+  })
+
   await it('should behave correctly if the DB is not empty', async () => {
     nock(envs.FILES_SERVICE_URL, { reqheaders: { 'content-type': (header) => header.includes('multipart/form-data') } })
       .persist()
@@ -172,10 +211,13 @@ describe('Sync script', async () => {
     const itemId = 'micro-lc'
     const versionName = '2.4.2'
 
-    const mockPlugin = {
+    const mockPlugin: DbItem = {
       __STATE__,
+      createdAt: new Date(),
+      creatorId: '',
       isLatest: true,
       itemId,
+      itemTypeDefinitionRef: { name: 'plugin', namespace: envs.TENANT_ID_TO_SET },
       lifecycleStatus: 'published',
       name: 'micro-lc',
       resources: {
@@ -184,7 +226,6 @@ describe('Sync script', async () => {
         },
       },
       tenantId,
-      type: 'plugin',
       version: { name: versionName, releaseNote: '-' },
     }
 

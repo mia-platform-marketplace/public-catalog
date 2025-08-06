@@ -160,7 +160,12 @@ const syncItems = async (ctx: SyncCtx) => {
 
   let dbItems: WithId<DbItem>[]
   try {
-    const filter: Filter<DbItem> = { __STATE__: 'PUBLIC', type: { $in: itemTypesToCollect } }
+    const filter: Filter<DbItem> = {
+      __STATE__: 'PUBLIC',
+      'itemTypeDefinitionRef.name': { $in: itemTypesToCollect },
+      'itemTypeDefinitionRef.namespace': ctx.env.TENANT_ID_TO_SET,
+    }
+
     ctx.logger.debug({ filter }, 'Retrieving existing item from DB')
 
     dbItems = await itemsCollection.find(filter).toArray()

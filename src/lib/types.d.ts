@@ -55,12 +55,13 @@ export type DbItemFileData = {
   updaterId?: string
 }
 
-export type DbItem = Omit<CatalogItemManifest, 'image' | 'supportedByImage'> & {
+export type DbItem = Omit<CatalogItemManifest, 'image' | 'supportedByImage' | 'type'> & {
   __STATE__: 'PUBLIC' | 'DRAFT' | 'TRASH' | 'DELETED'
   createdAt: Date
   creatorId: string
   image?: DbItemFileData[]
   isLatest?: boolean
+  itemTypeDefinitionRef: NonNullable<CatalogItemManifest['itemTypeDefinitionRef']>
   supportedByImage?: DbItemFileData[]
 }
 
