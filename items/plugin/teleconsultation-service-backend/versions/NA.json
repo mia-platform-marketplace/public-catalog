@@ -129,10 +129,13 @@
     "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "visibility": {
     "public": true
   },
   "releaseDate": "2021-12-02T14:43:51.687Z",
-  "lifecycleStatus": "archived"
+  "lifecycleStatus": "archived",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

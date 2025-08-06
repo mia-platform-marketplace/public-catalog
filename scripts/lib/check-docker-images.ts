@@ -51,7 +51,7 @@ const expandDockerImage = (image: string, manifest: Manifest): ParsedDockerImage
 
   if (!versionPublicVariable) { return [result] }
 
-  if (manifest.type !== catalogWellKnownItems['application'].type) { return [result] }
+  if (manifest.itemTypeDefinitionRef.name !== catalogWellKnownItems['application'].type) { return [result] }
 
   const resources = manifest.resources as ICatalogApplication.Resources
 

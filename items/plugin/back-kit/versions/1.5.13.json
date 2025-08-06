@@ -61,7 +61,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "1.5.13",
     "releaseNote": "Add `method` property to `bk-import-modal` to choose which method to use for the `/import` HTTP request."
@@ -70,5 +69,9 @@
     "public": true
   },
   "releaseDate": "2025-01-16T17:17:52.669Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

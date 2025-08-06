@@ -114,7 +114,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.3.2",
     "releaseNote": "Added:\n\n- return specific error if the created client already exists"
@@ -123,5 +122,9 @@
     "public": true
   },
   "releaseDate": "2024-12-05T17:09:02.870Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

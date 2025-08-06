@@ -106,7 +106,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "6.10.4",
     "releaseNote": "## What's Changed\n* ci: introduce SBOM generation for service image\n"
@@ -115,5 +114,9 @@
     "public": true
   },
   "releaseDate": "2025-01-16T17:17:52.664Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

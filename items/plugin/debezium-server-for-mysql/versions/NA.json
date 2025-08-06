@@ -113,10 +113,13 @@
     "localPath": "../../../../assets/img/debezium.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "visibility": {
     "public": true
   },
   "releaseDate": "2023-03-30T16:19:49.295Z",
-  "lifecycleStatus": "archived"
+  "lifecycleStatus": "archived",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

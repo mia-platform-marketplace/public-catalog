@@ -88,7 +88,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.3.0",
     "releaseNote": "### Added\n- `BASE_PATH_MATCHERS`: to make it possible to fetch complex base paths when using dynamic configuration rather than taking the first segment only.\n- `DISABLE_PROXY_CACHE`: to make it possible to disable the in-memory proxy cache when using dynamic configuration."
@@ -97,5 +96,9 @@
     "public": true
   },
   "releaseDate": "2024-11-27T11:05:39.571Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

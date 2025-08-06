@@ -116,10 +116,13 @@
     "localPath": "../../../../assets/img/MIA-FinTech.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "visibility": {
     "public": true
   },
   "releaseDate": "2022-11-09T14:27:48.512Z",
-  "lifecycleStatus": "archived"
+  "lifecycleStatus": "archived",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

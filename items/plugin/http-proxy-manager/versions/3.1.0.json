@@ -83,7 +83,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.1.0",
     "releaseNote": "### Added\n* Environment variable `ADDITIONAL_HEADERS_TO_REDACT`: comma separated value of headers name to redact in logs\n### Security\n* fix: redacted sensitive headers in log\n"
@@ -92,5 +91,9 @@
     "public": true
   },
   "releaseDate": "2024-12-05T17:09:02.871Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

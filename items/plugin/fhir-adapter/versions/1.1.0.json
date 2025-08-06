@@ -132,7 +132,6 @@
     "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "1.1.0",
     "releaseNote": "Added POST /:resource/ endpoint to handle also trailing slash"
@@ -141,5 +140,9 @@
     "public": true
   },
   "releaseDate": "2025-03-20T16:42:16.531Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

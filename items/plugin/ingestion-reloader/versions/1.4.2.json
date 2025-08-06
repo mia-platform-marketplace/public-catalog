@@ -146,7 +146,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "1.4.2",
     "releaseNote": "### Build\n\n- added procedure to sign service image and generate its SBOM\n\n"
@@ -155,5 +154,9 @@
     "public": true
   },
   "releaseDate": "2025-02-06T16:53:44.928Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

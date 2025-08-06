@@ -119,7 +119,6 @@
     "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "0.1.7",
     "releaseNote": "Modified the function that generates the StudyInstanceUID because it must be less than or equal to 64 characters in length."
@@ -128,5 +127,9 @@
     "public": true
   },
   "releaseDate": "2025-03-20T16:42:16.534Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

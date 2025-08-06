@@ -83,7 +83,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.9.1",
     "releaseNote": "### Added\n\n- Added `apiPortalConfig` configurable object in the `swagger-config.json`, to specify a custom prefix, logo, or favicon for the API Portal.\n- Added GET `/api-portal/config` endpoint to retrieve the config for the API Portal, such as the prefix with which call the backend.\n\n### Updated\n\n- GET `/ui-config` endpoint returns the custom logo for the API Portal, when configured.\n"
@@ -92,5 +91,9 @@
     "public": true
   },
   "releaseDate": "2025-02-20T17:06:06.528Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

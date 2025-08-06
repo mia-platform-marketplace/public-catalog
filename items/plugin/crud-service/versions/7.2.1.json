@@ -106,7 +106,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "7.2.1",
     "releaseNote": "## What's Changed\n* fix: improve query parsing in https://github.com/mia-platform/crud-service/pull/391\n"
@@ -115,5 +114,9 @@
     "public": true
   },
   "releaseDate": "2024-10-24T16:13:01.050Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

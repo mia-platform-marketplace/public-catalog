@@ -181,7 +181,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.4.0",
     "releaseNote": "### Added\n\n- introduce `forceResume` parameter in Control Plane settings to control the service behavior in case of unsuccessful connection with Control Plane Operator\n\n### Changed\n\n- Control Plane settings `state` and `feedback` properties are now optional\n\n"
@@ -190,5 +189,9 @@
     "public": true
   },
   "releaseDate": "2025-02-20T16:47:48.035Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

@@ -117,10 +117,13 @@
     "localPath": "../../../../assets/img/debezium.png"
   },
   "tenantId": "mia-platform",
-  "type": "template",
   "visibility": {
     "public": true
   },
   "releaseDate": "2023-03-30T16:19:49.326Z",
-  "lifecycleStatus": "archived"
+  "lifecycleStatus": "archived",
+  "itemTypeDefinitionRef": {
+    "name": "template",
+    "namespace": "mia-platform"
+  }
 }

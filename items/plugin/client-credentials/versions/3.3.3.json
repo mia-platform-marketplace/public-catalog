@@ -114,7 +114,6 @@
     "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
   "version": {
     "name": "3.3.3",
     "releaseNote": "Updated:\n\n- transparently read 422 or 409 to support CRUD Service v7 new status code on duplicated entries"
@@ -123,5 +122,9 @@
     "public": true
   },
   "releaseDate": "2024-12-05T17:09:02.888Z",
-  "lifecycleStatus": "published"
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
 }

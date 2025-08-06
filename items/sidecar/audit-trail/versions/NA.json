@@ -20,7 +20,6 @@
   },
   "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/audit-trail",
-  "type": "sidecar",
   "resources": {
     "name": "audit-trail",
     "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/audit-trail:1.0.0",
@@ -43,5 +42,9 @@
     }
   },
   "releaseDate": "2025-04-03T13:02:51.888Z",
-  "lifecycleStatus": "draft"
+  "lifecycleStatus": "draft",
+  "itemTypeDefinitionRef": {
+    "name": "sidecar",
+    "namespace": "mia-platform"
+  }
 }
