@@ -1,0 +1,92 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  },
+  "categoryId": "integrations",
+  "tenantId": "mia-platform",
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "image": {
+    "localPath": "../assets/integration-connector-agent_logo_20250423.png"
+  },
+  "resources": {
+    "services": {
+      "integration-connector-agent": {
+        "type": "plugin",
+        "name": "integration-connector-agent",
+        "componentId": "integration-connector-agent",
+        "dockerImage": "nexus.mia-platform.eu/plugins/integration-connector-agent:0.5.2",
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/configs/config.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONGODB_URL",
+            "value": "{{MONGODB_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "integration-connector-config",
+            "mountPath": "/configs",
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\n  \"integrations\": []\n}"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "port": "http"
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "port": "http"
+          }
+        }
+      }
+    }
+  },
+  "description": "The Integration Connector Agent connects to external sources and keeps changes synchronized between the source and one or more sinks.",
+  "publishOnMiaDocumentation": true,
+  "repositoryUrl": "https://github.com/mia-platform/integration-connector-agent",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/integration-connector-agent/overview"
+  },
+  "name": "Integration Connector Agent",
+  "itemId": "integration-connector-agent",
+  "version": {
+    "name": "0.5.2",
+    "releaseNote": "## Feat\n\n- Azure source and Cloud Integration Aggregator processor for Azure now support Virtual Machines, Public IP Addresses, Virtual Networks, Network Interfaces, Network Security Groups and Disks."
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2025-07-21T13:02:51.976Z",
+  "lifecycleStatus": "draft"
+}
