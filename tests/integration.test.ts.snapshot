@@ -52409,6 +52409,179 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "notification-manager-service",
           "description": "The Notification Manager provides an HTTP and Kafka interface to send notifications to users through various channels, namely e-mail, SMS, push notification, voice and whatsapp.",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/notification-manager:2.4.4",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "TEMPLATES_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "EVENTS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "EVENTS_SETTINGS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "NOTIFICATIONS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "NOTIFICATIONS_SETTINGS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "NOTIFICATIONS_MESSAGES_VIEW_NAME",
+              "value": "",
+              "valueType": "plain",
+              "description": "Require MongoDB view, otherwise remove the env var"
+            }
+          ],
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "100m",
+              "min": "50m"
+            },
+            "memoryLimits": {
+              "max": "120Mi",
+              "min": "50Mi"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20,
+              "timeoutSeconds": 1,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 10,
+              "timeoutSeconds": 1,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "version": {
+      "name": "2.4.4",
+      "releaseNote": "Disable escaping newlines by default in HTML messages and add config option to enable it (\`email.escapeNewlines\`). Log warning if custom handler is not found instead of failing to start"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-07-28T10:00:00.000Z",
+    "lifecycleStatus": "published",
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "notification-manager-service_logo_20250410.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "notification",
+    "description": "The Notification Manager provides an HTTP and Kafka interface to send notifications to users through various channels, namely e-mail, SMS, push notification, voice and whatsapp.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/notification-manager/overview"
+    },
+    "itemId": "notification-manager-service",
+    "name": "Notification Manager Service",
+    "publishOnMiaDocumentation": true,
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/notification-manager",
+    "resources": {
+      "services": {
+        "notification-manager-service": {
+          "type": "plugin",
+          "name": "notification-manager-service",
+          "description": "The Notification Manager provides an HTTP and Kafka interface to send notifications to users through various channels, namely e-mail, SMS, push notification, voice and whatsapp.",
           "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/notification-manager:2.4.3",
           "defaultEnvironmentVariables": [
             {
@@ -52547,7 +52720,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -54762,8 +54934,8 @@ exports[`Sync script > should match snapshot 2`] = `
           "productionEnv": "nm-nm-notification-messages"
         },
         "NOTIFICATION_MANAGER_VERSION": {
-          "noProductionEnv": "2.4.3",
-          "productionEnv": "2.4.3"
+          "noProductionEnv": "2.4.4",
+          "productionEnv": "2.4.4"
         },
         "SMS_SERVICE_VERSION": {
           "noProductionEnv": "1.2.1",
