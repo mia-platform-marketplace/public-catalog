@@ -52534,7 +52534,10 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "supportedBy": "Mia-Care",
     "tenantId": "mia-platform",
-    "type": "plugin",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
     "version": {
       "name": "2.4.4",
       "releaseNote": "Disable escaping newlines by default in HTML messages and add config option to enable it (\`email.escapeNewlines\`). Log warning if custom handler is not found instead of failing to start"
@@ -52713,14 +52716,10 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "releaseDate": "2025-03-20T16:42:16.533Z",
     "lifecycleStatus": "published",
-<<<<<<< HEAD
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
-=======
->>>>>>> 59596f9 (Add new version)
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [

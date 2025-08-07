@@ -147,7 +147,10 @@
     "localPath": "../../../../assets/img/mia-care.png"
   },
   "tenantId": "mia-platform",
-  "type": "plugin",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  },
   "version": {
     "name": "2.4.4",
     "releaseNote": "Disable escaping newlines by default in HTML messages and add config option to enable it (`email.escapeNewlines`). Log warning if custom handler is not found instead of failing to start"
