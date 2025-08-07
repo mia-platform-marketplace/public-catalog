@@ -1,6 +1,9 @@
 {
   "$schema": "../../manifest.schema.json",
-  "type": "plugin",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  },
   "categoryId": "integrations",
   "tenantId": "mia-platform",
   "supportedBy": "Mia-Platform",

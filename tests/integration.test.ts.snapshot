@@ -44826,6 +44826,10 @@ exports[`Sync script > should match snapshot 2`] = `
     ]
   },
   {
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
     "categoryId": "integrations",
     "tenantId": "mia-platform",
     "supportedBy": "Mia-Platform",
@@ -44924,7 +44928,10 @@ exports[`Sync script > should match snapshot 2`] = `
     ]
   },
   {
-    "type": "plugin",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
     "categoryId": "integrations",
     "tenantId": "mia-platform",
     "supportedBy": "Mia-Platform",
@@ -45022,7 +45029,10 @@ exports[`Sync script > should match snapshot 2`] = `
     ]
   },
   {
-    "type": "plugin",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
     "categoryId": "integrations",
     "tenantId": "mia-platform",
     "supportedBy": "Mia-Platform",
@@ -45120,7 +45130,6 @@ exports[`Sync script > should match snapshot 2`] = `
     ]
   },
   {
-    "type": "plugin",
     "categoryId": "integrations",
     "tenantId": "mia-platform",
     "supportedBy": "Mia-Platform",
@@ -45200,14 +45209,10 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "releaseDate": "2025-07-21T13:02:51.976Z",
     "lifecycleStatus": "draft",
-<<<<<<< HEAD
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
-=======
->>>>>>> a6fe1f4 (feat(catalog): new integration connector agent versions 0.5.1 and 0.5.2)
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
