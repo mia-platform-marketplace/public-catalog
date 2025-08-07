@@ -56086,6 +56086,86 @@ exports[`Sync script > should match snapshot 2`] = `
     ]
   },
   {
+    "categoryId": "nodejs",
+    "description": "A starting template to build your Orchestrator Generator and connect it to Mia-Platform",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/console/company-configuration/providers/extensions/orchestrator-generator/overview"
+    },
+    "itemId": "orchestrator-generator-node-js-template",
+    "name": "Orchestrator Generator Node.js Template",
+    "repositoryUrl": "https://github.com/mia-platform/mia-orchestrator-generator-template",
+    "resources": {
+      "services": {
+        "orchestrator-generator-nodejs-template": {
+          "type": "template",
+          "name": "orchestrator-generator-nodejs-template",
+          "description": "A starting template to build your Orchestrator Generator and connect it to Mia-Platform",
+          "archiveUrl": "https://github.com/mia-platform/mia-orchestrator-generator-template/archive/master.tar.gz",
+          "pipelines": {
+            "gitlab-ci": {
+              "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fnode-template.gitlab-ci.yml/raw"
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "templates",
+              "mountPath": "/home/node/app/templates",
+              "usePreserve": true,
+              "files": [
+                {
+                  "name": "placeholder.hbs",
+                  "content": "Insert your template here"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "1.0.0",
+      "releaseNote": "-"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-08-07T12:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "template",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "orchestrator-generator-node-js-template_logo_20250807.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
     "categoryId": "payments",
     "description": "Payment Gateway Manager helps you connect your services with different payment gateways in an easy fashion",
     "documentation": {
@@ -83789,6 +83869,11 @@ exports[`Sync script > should match snapshot 3`] = `
   },
   {
     "name": "openai-playground-example-transparent.png",
+    "creatorId": "marketplace-sync",
+    "updaterId": "marketplace-sync"
+  },
+  {
+    "name": "orchestrator-generator-node-js-template_logo_20250807.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },
