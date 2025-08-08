@@ -36,7 +36,7 @@ type FilesErrorMetric = { count: number; data: { entity: FileEntity; error: stri
 
 export type MetricsReport = {
   categories: { created: CategoriesCreatedMetric; errors: CategoriesErrorMetric; updated: CategoriesUpdatedMetric }
-  files: { created:FilesCreatedMetric; errors: FilesErrorMetric }
+  files: { created: FilesCreatedMetric; errors: FilesErrorMetric }
   items: { created: ItemsCreatedMetric; errors: ItemsErrorMetric; patched: ItemsPatchedMetric; updated: ItemsUpdatedMetric }
 }
 

@@ -16,7 +16,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import type { LevelWithSilent, LoggerOptions, redactOptions } from 'pino'
+import type { LevelWithSilent, LoggerOptions } from 'pino'
 import { stdSerializers } from 'pino'
 
 export type LogLevel = LevelWithSilent
@@ -28,7 +28,7 @@ export const isLogLevel = (input: unknown): input is LogLevel => {
   return typeof input === 'string' && (logLevels as string[]).includes(input)
 }
 
-const redactionRules: redactOptions = {
+const redactionRules: LoggerOptions['redact'] = {
   censor: '[REDACTED]',
   paths: [
     'email', '[*].email',
