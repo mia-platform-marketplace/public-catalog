@@ -4367,9 +4367,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongodb@npm:^6.18.0":
-  version: 6.18.0
-  resolution: "mongodb@npm:6.18.0"
+"mongodb@npm:^6.19.0":
+  version: 6.19.0
+  resolution: "mongodb@npm:6.19.0"
   dependencies:
     "@mongodb-js/saslprep": "npm:^1.1.9"
     bson: "npm:^6.10.4"
@@ -4380,7 +4380,7 @@ __metadata:
     gcp-metadata: ^5.2.0
     kerberos: ^2.0.1
     mongodb-client-encryption: ">=6.0.0 <7"
-    snappy: ^7.2.2
+    snappy: ^7.3.2
     socks: ^2.7.1
   peerDependenciesMeta:
     "@aws-sdk/credential-providers":
@@ -4397,7 +4397,7 @@ __metadata:
       optional: true
     socks:
       optional: true
-  checksum: 10/559bfe87bb9a4945d81380c31cc89730c4a4c806a2e6ed06086dcacabd1caee32f711427abf93627b649f189e9464b67318ba65baccc07670bb30bac74dab933
+  checksum: 10/272bf0d50f9bae8622c2d8851eb79247396e6ea1859ff2e15f9d9a6f8baa3f7a5905d148407da1d858c4d502fe51e4d5047f695b1f5f7bc62947fb427b9ee1f5
   languageName: node
   linkType: hard
 
@@ -4925,7 +4925,7 @@ __metadata:
     jsonpath-plus: "npm:^10.3.0"
     listr2: "npm:^9.0.2"
     lodash-es: "npm:^4.17.21"
-    mongodb: "npm:^6.18.0"
+    mongodb: "npm:^6.19.0"
     nock: "npm:^14.0.10"
     pino: "npm:^9.9.0"
     pino-pretty: "npm:^13.1.1"
