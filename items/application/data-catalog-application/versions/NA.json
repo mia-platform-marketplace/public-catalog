@@ -3654,7 +3654,7 @@
             "min": "50Mi"
           }
         },
-        "dockerImage": "nexus.mia-platform.eu/data-fabric/job-runner:0.2.3",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/job-runner:0.2.5",
         "name": "job-runner",
         "tags": [
           "data-fabric"
