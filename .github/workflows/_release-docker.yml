@@ -37,13 +37,13 @@ jobs:
         show-progress: false
 
     - name: Login to DockerHub
-      uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
+      uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 # v3.5.0
       with:
         username: ${{ secrets.docker_username }}
         password: ${{ secrets.docker_token }}
 
     - name: Login to Mia-Platform registry
-      uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
+      uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 # v3.5.0
       with:
         registry: nexus.mia-platform.eu
         username: ${{ secrets.nexus_username }}
@@ -108,7 +108,7 @@ jobs:
         stop-on-processing-error: true
 
     - name: Generate SBOM
-      uses: anchore/sbom-action@7b36ad622f042cab6f59a75c2ac24ccb256e9b45 # v0.20.4
+      uses: anchore/sbom-action@da167eac915b4e86f08b264dbdbc867b61be6f0c # v0.20.5
       if: github.ref_type == 'tag'
       with:
         artifact-name: software-catalog-sync-sbom.spdx.json
