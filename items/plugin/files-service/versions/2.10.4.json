@@ -1,0 +1,95 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "files",
+  "description": "Upload, download and handle your files using MongoDB, S3 or Google Storage.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/files-service/configuration"
+  },
+  "image": {
+    "localPath": "../assets/files-service.png"
+  },
+  "itemId": "files-service",
+  "name": "Files Service",
+  "publishOnMiaDocumentation": true,
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/files-service",
+  "resources": {
+    "services": {
+      "files-service": {
+        "type": "plugin",
+        "name": "files-service",
+        "description": "Upload, download and handle your files using MongoDB, S3 or Google Storage.",
+        "dockerImage": "nexus.mia-platform.eu/plugins/files-service:2.10.4",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_URL",
+            "value": "http://crud-service/CHANGE_WITH_YOUR_CRUD_URL",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIG_FILE_PATH",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_CONFIGURATION_PATH",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_PREFIX",
+            "value": "CHANGE_WITH_YOUR_OPTIONAL_SERVICE_PREFIX",
+            "valueType": "plain"
+          },
+          {
+            "name": "PATH_PREFIX",
+            "value": "CHANGE_WITH_YOUR_OPTIONAL_PATH_PREFIX",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEADERS_TO_PROXY",
+            "value": "miauserid,miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROJECT_HOSTNAME",
+            "value": "CHANGE_WITH_YOUR_PROJECT_HOSTNAME",
+            "valueType": "plain"
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "version": {
+    "name": "2.10.4",
+    "releaseNote": "### Added:\n\n- @fastify/multipart: v7.7.3 -> v8.3.1\n\n- changed uploadFile and uploadFileBulk to use new fastify/multipart methods\n\n- removed 1 file upload limit from fastify/multipart configuration as it now would block multiple file uploads in uploadFileBulk"
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2024-07-17T00:00:00.000Z",
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
+}
