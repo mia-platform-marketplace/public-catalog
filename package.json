@@ -29,7 +29,7 @@
     "yaml": "^2.8.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.34.0",
+    "@eslint/js": "^9.35.0",
     "@stylistic/eslint-plugin": "^5.3.1",
     "@types/json-diff": "^1.0.3",
     "@types/lodash-es": "^4.17.12",
