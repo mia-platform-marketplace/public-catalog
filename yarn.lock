@@ -725,9 +725,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mia-platform/console-types@npm:^0.38.11":
-  version: 0.38.11
-  resolution: "@mia-platform/console-types@npm:0.38.11"
+"@mia-platform/console-types@npm:^0.38.12":
+  version: 0.38.12
+  resolution: "@mia-platform/console-types@npm:0.38.12"
   dependencies:
     "@types/json-schema": "npm:^7.0.9"
     json-schema-to-ts: "npm:^2.9.2"
@@ -735,7 +735,7 @@ __metadata:
   peerDependencies:
     "@fastify/swagger": ">= 8 || ^6"
     fastify: ">= 3 < 6"
-  checksum: 10/33d9d18998f89a5cd6467c84c8816fbf934d09bf5c7cdb235427e68df0413d2060feb86a000d04ff954da0cb3caea2079d4f2f825157ecacf3ddae6f36c2e745
+  checksum: 10/9d12a6c329299804a74b17d4573c8fc47f1c4f6bcb3c87c44eecba745499f734e63a39e089f14f53d4ee408c40630317fcb2bbf3e65115b348f1f9b12c552a27
   languageName: node
   linkType: hard
 
@@ -4917,7 +4917,7 @@ __metadata:
   resolution: "public-catalog@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.35.0"
-    "@mia-platform/console-types": "npm:^0.38.11"
+    "@mia-platform/console-types": "npm:^0.38.12"
     "@stylistic/eslint-plugin": "npm:^5.3.1"
     "@types/json-diff": "npm:^1.0.3"
     "@types/lodash-es": "npm:^4.17.12"
