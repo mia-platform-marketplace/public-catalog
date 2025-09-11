@@ -16,11 +16,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import type { ICatalogCrd, CatalogItemManifest, CatalogWellKnownItemsType } from '@mia-platform/console-types'
+import type { CatalogItemManifest, CatalogItemTypeDefinition, CatalogWellKnownItemsType } from '@mia-platform/console-types'
 import type { JSONSchema } from 'json-schema-to-ts'
 
 export type ItemTypeData = {
-  crd: ICatalogCrd.Item
+  itd: CatalogItemTypeDefinition
   schema: JSONSchema
   type: CatalogWellKnownItemsType
 }
