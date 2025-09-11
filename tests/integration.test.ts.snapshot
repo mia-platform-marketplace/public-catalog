@@ -77752,7 +77752,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "therapy-and-monitoring-manager",
     "name": "Therapy and Monitoring Manager",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/therapy-monitoring-manager",
     "resources": {
       "services": {
@@ -77902,8 +77901,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-<<<<<<< HEAD
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -78094,8 +78091,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-=======
->>>>>>> 254fca9 (Add tmm 1.0.0)
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [

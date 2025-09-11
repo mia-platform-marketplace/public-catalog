@@ -1,0 +1,181 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "utility",
+  "description": "The Therapy and Monitoring Manager (TMM) is a service that enables health care professionals to manage patients therapies and monitor patients health conditions, adherence and compliance to therapy.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/therapy-and-monitoring-manager/overview"
+  },
+  "image": {
+    "localPath": "../assets/therapy-and-monitoring-manager_logo_20250410.png"
+  },
+  "itemId": "therapy-and-monitoring-manager",
+  "name": "Therapy and Monitoring Manager",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/therapy-monitoring-manager",
+  "resources": {
+    "services": {
+      "therapy-and-monitoring-manager": {
+        "type": "plugin",
+        "name": "therapy-and-monitoring-manager",
+        "description": "The Therapy and Monitoring Manager (TMM) is a service that enables health care professionals to manage patients therapies and monitor patients health conditions, adherence and compliance to therapy.",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/therapy-monitoring-manager:0.3.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "trace",
+            "valueType": "plain"
+          },
+          {
+            "name": "TRUSTED_PROXIES",
+            "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERID_HEADER_KEY",
+            "value": "miauserid",
+            "valueType": "plain"
+          },
+          {
+            "name": "GROUPS_HEADER_KEY",
+            "value": "miausergroups",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENTTYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+            "value": "microservice-gateway",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_HEADER_KEY",
+            "value": "miauserproperties",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRUD_SERVICE_URL",
+            "value": "http://crud-service",
+            "valueType": "plain"
+          },
+          {
+            "name": "MONITORINGS_CRUD_NAME",
+            "value": "monitorings",
+            "valueType": "plain"
+          },
+          {
+            "name": "THERAPIES_CRUD_NAME",
+            "value": "therapies",
+            "valueType": "plain"
+          },
+          {
+            "name": "DETECTIONS_CRUD_NAME",
+            "value": "observations",
+            "valueType": "plain"
+          },
+          {
+            "name": "DETECTIONS_GRACE_PERIOD",
+            "value": "30",
+            "valueType": "plain"
+          },
+          {
+            "name": "DETECTIONS_TIME_ZONE",
+            "value": "UTC",
+            "valueType": "plain"
+          },
+          {
+            "name": "CRON_SCHEDULE",
+            "value": "0 0 * * *",
+            "valueType": "plain"
+          },
+          {
+            "name": "PROTOTYPES_CONFIG_FILE_PATH",
+            "value": "/home/config/prototypes-definition.json",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_ADHERENCE_STATUS",
+            "value": "change-me",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_ADHERENCE_TOLERANCE_FREQUENCY",
+            "value": "2",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_ADHERENCE_TOLERANCE_TIME",
+            "value": "1",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_ADHERENCE_MINIMUM_PERCENTAGE",
+            "value": "20%",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_COMPLIANCE_STATUS",
+            "value": "disabled",
+            "valueType": "plain"
+          },
+          {
+            "name": "DEFAULT_COMPLIANCE_MINIMUM_PERCENTAGE",
+            "value": "20%",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "prototypes",
+            "mountPath": "/home/config/",
+            "files": [
+              {
+                "name": "prototypes-definition.json",
+                "content": "[]"
+              }
+            ]
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "version": {
+    "name": "0.3.0",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2025-02-20T16:47:48.035Z",
+  "lifecycleStatus": "archived",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
+}
