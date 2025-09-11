@@ -77583,6 +77583,182 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "therapy-and-monitoring-manager",
           "description": "The Therapy and Monitoring Manager (TMM) is a service that enables health care professionals to manage patients therapies and monitor patients health conditions, adherence and compliance to therapy.",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/therapy-monitoring-manager:1.0.0",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "trace",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_SERVICE_URL",
+              "value": "http://crud-service",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONITORINGS_CRUD_NAME",
+              "value": "monitorings",
+              "valueType": "plain"
+            },
+            {
+              "name": "THERAPIES_CRUD_NAME",
+              "value": "therapies",
+              "valueType": "plain"
+            },
+            {
+              "name": "DETECTIONS_CRUD_NAME",
+              "value": "detections",
+              "valueType": "plain"
+            },
+            {
+              "name": "DETECTIONS_GRACE_PERIOD",
+              "value": "30",
+              "valueType": "plain"
+            },
+            {
+              "name": "DETECTIONS_TIME_ZONE",
+              "value": "UTC",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRON_SCHEDULE",
+              "value": "0 0 * * *",
+              "valueType": "plain"
+            },
+            {
+              "name": "PROTOTYPES_CONFIG_FILE_PATH",
+              "value": "/home/config/prototypes-definition.json",
+              "valueType": "plain"
+            },
+            {
+              "name": "VALIDATION_SERVICE",
+              "value": "integrated",
+              "valueType": "plain"
+            },
+            {
+              "name": "DEFAULT_ADHERENCE_STATUS",
+              "value": "disabled",
+              "valueType": "plain"
+            },
+            {
+              "name": "DEFAULT_COMPLIANCE_STATUS",
+              "value": "disabled",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultConfigMaps": [
+            {
+              "name": "prototypes",
+              "mountPath": "/home/config/",
+              "files": [
+                {
+                  "name": "prototypes-definition.json",
+                  "content": "[]"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "1.0.0",
+      "releaseNote": "Update Node.js (v22) & security patches"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-09-04T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "therapy-and-monitoring-manager_logo_20250410.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "utility",
+    "description": "The Therapy and Monitoring Manager (TMM) is a service that enables health care professionals to manage patients therapies and monitor patients health conditions, adherence and compliance to therapy.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/therapy-and-monitoring-manager/overview"
+    },
+    "itemId": "therapy-and-monitoring-manager",
+    "name": "Therapy and Monitoring Manager",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/therapy-monitoring-manager",
+    "resources": {
+      "services": {
+        "therapy-and-monitoring-manager": {
+          "type": "plugin",
+          "name": "therapy-and-monitoring-manager",
+          "description": "The Therapy and Monitoring Manager (TMM) is a service that enables health care professionals to manage patients therapies and monitor patients health conditions, adherence and compliance to therapy.",
           "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/therapy-monitoring-manager:0.5.1",
           "defaultEnvironmentVariables": [
             {
@@ -77725,7 +77901,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
