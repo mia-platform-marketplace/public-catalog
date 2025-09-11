@@ -11,7 +11,6 @@
   },
   "itemId": "jwt-token-validator",
   "name": "JWT Token Validator",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/jwt-token-validator",
   "resources": {
     "services": {

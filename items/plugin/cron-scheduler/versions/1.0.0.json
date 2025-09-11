@@ -11,7 +11,6 @@
   },
   "itemId": "cron-scheduler",
   "name": "Cron Scheduler",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/cron-scheduler",
   "resources": {
     "services": {

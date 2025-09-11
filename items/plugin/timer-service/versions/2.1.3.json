@@ -11,7 +11,6 @@
   },
   "itemId": "timer-service",
   "name": "Timer Service",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/timer-service",
   "resources": {
     "services": {

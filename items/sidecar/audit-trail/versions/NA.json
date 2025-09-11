@@ -18,7 +18,6 @@
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite_sidecars/audit-trail/overview"
   },
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/audit-trail",
   "resources": {
     "name": "audit-trail",

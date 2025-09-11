@@ -7,7 +7,6 @@
   },
   "itemId": "ai-rag-chat",
   "name": "AI RAG Chat",
-  "publishOnMiaDocumentation": false,
   "resources": {
     "services": {
       "api-gateway": {

@@ -7,7 +7,6 @@
   },
   "itemId": "user-manager-module",
   "name": "User Manager Module",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/user-manager-module",
   "resources": {
     "collections": {

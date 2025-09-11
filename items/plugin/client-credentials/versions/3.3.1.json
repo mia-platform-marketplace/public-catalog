@@ -11,7 +11,6 @@
   },
   "itemId": "client-credentials",
   "name": "Client Credentials",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/client-credentials",
   "resources": {
     "services": {

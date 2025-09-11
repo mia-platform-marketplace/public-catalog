@@ -11,7 +11,6 @@
   },
   "itemId": "therapy-and-monitoring-manager",
   "name": "Therapy and Monitoring Manager",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/therapy-monitoring-manager",
   "resources": {
     "services": {

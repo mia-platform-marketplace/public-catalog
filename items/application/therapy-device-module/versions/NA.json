@@ -7,7 +7,6 @@
   },
   "itemId": "therapy-device-module",
   "name": "Therapy Device Module",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/therapy-device-module",
   "resources": {
     "collections": {

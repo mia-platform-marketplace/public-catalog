@@ -7,7 +7,6 @@
   },
   "itemId": "notification-module",
   "name": "Notification Module",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/notification-module",
   "resources": {
     "collections": {

@@ -230,7 +230,7 @@ const assertVersionValid = async (task: Task, manifestPath: string, typeData: It
     }
 
     if (
-      typeData.crd.resources.isVersioningSupported
+      typeData.itd.spec.isVersioningSupported
         && manifest.lifecycleStatus !== catalogItemLifecycleStatusEnum.DEPRECATED
         && manifest.lifecycleStatus !== catalogItemLifecycleStatusEnum.ARCHIVED
     ) {
@@ -295,11 +295,11 @@ const computeAndValidateReleaseFilesPaths = async (itemDirPath: string, typeData
     throw new Error(`Unexpected empty directory "versions"`)
   }
 
-  if (!typeData.crd.resources.isVersioningSupported && (hasSemver || !hasNa)) {
+  if (!typeData.itd.spec.isVersioningSupported && (hasSemver || !hasNa)) {
     throw new Error(`Items of type "${typeData.type}" must have only a single "NA" file`)
   }
 
-  if (typeData.crd.resources.isVersioningSupported && !hasSemver) {
+  if (typeData.itd.spec.isVersioningSupported && !hasSemver) {
     throw new Error(`Items of type "${typeData.type}" must have at least one versioned manifest`)
   }
 
@@ -311,18 +311,14 @@ const assertItemValid = async (task: Task, itemDirPath: string, opts: Options): 
   const typeDir = path.dirname(itemDirPath)
   const itemType = path.parse(typeDir).name as CatalogWellKnownItemsType
 
-  const { crd } = catalogWellKnownItems[itemType]
-  if (!crd) {
-    throw new Error(`Could not find a Custom Resource Definition for the item's type "${itemType}"`)
+  const { typeDefinition } = catalogWellKnownItems[itemType]
+  if (!typeDefinition) {
+    throw new Error(`Could not find an Item Type Definition for the item's type "${itemType}"`)
   }
 
   const manifest = await import(path.resolve(typeDir, 'manifest.schema.json'), { with: { type: 'json' } }) as JSONSchema
 
-  const typeData: ItemTypeData = {
-    crd,
-    schema: manifest,
-    type: itemType,
-  }
+  const typeData: ItemTypeData = { itd: typeDefinition, schema: manifest, type: itemType }
 
   const manifestPaths = await computeAndValidateReleaseFilesPaths(itemDirPath, typeData)
 

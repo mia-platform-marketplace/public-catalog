@@ -11,7 +11,6 @@
   },
   "itemId": "ai-rag-template",
   "name": "AI RAG Template",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
   "resources": {
     "services": {

@@ -189,7 +189,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "acl-service",
     "name": "ACL Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/acl-service",
     "resources": {
       "services": {
@@ -298,7 +297,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "acl-service",
     "name": "ACL Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/acl-service",
     "resources": {
       "services": {
@@ -398,7 +396,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "This service allow to define and verify rules",
     "itemId": "adaptive-approval-service",
     "name": "Adaptive Approval Service",
-    "publishOnMiaDocumentation": true,
     "resources": {
       "services": {
         "adaptive-approval-service": {
@@ -500,7 +497,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "This service allow to define and verify rules",
     "itemId": "adaptive-approval-service",
     "name": "Adaptive Approval Service",
-    "publishOnMiaDocumentation": true,
     "resources": {
       "services": {
         "adaptive-approval-service": {
@@ -601,7 +597,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "ai-compliance-chat",
     "name": "AI Compliance",
-    "publishOnMiaDocumentation": true,
     "resources": {
       "collections": {
         "assistant-catalog-documents": {
@@ -1227,7 +1222,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Create a retrieval augmented generation (RAG) app, with a plugin to generate embeddings and train your LLM and a front-end template with a UI to get the chatbot ready in minutes.",
     "itemId": "ai-rag-chat",
     "name": "AI RAG Chat",
-    "publishOnMiaDocumentation": false,
     "resources": {
       "services": {
         "api-gateway": {
@@ -1560,7 +1554,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Similar to the AI RAG Chat, this application includes the API service in customizable template to create a tailored RAG application.",
     "itemId": "ai-rag-chat-template",
     "name": "AI RAG Chat Template",
-    "publishOnMiaDocumentation": false,
     "resources": {
       "services": {
         "api-gateway": {
@@ -1898,7 +1891,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "ai-rag-template",
     "name": "AI RAG Template",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
     "resources": {
       "services": {
@@ -2034,7 +2026,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "ai-rag-template",
     "name": "AI RAG Template",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
     "resources": {
       "services": {
@@ -2169,7 +2160,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "ai-rag-template",
     "name": "AI RAG Template",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
     "resources": {
       "services": {
@@ -2304,7 +2294,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "ai-rag-template",
     "name": "AI RAG Template",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
     "resources": {
       "services": {
@@ -3282,7 +3271,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "api-gateway",
     "name": "Nginx API Gateway",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/api-gateway",
     "resources": {
       "services": {
@@ -3452,7 +3440,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "api-gateway",
     "name": "Nginx API Gateway",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/api-gateway",
     "resources": {
       "services": {
@@ -3621,7 +3608,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "api-gateway",
     "name": "Nginx API Gateway",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/api-gateway",
     "resources": {
       "services": {
@@ -3786,7 +3772,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "api-portal",
     "name": "API Portal",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/api-portal/website",
     "resources": {
       "services": {
@@ -3871,7 +3856,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "api-portal",
     "name": "API Portal",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/api-portal/website",
     "resources": {
       "services": {
@@ -3955,7 +3939,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "api-portal",
     "name": "API Portal",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/api-portal/website",
     "resources": {
       "services": {
@@ -4039,7 +4022,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "api-portal",
     "name": "API Portal",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/api-portal/website",
     "resources": {
       "services": {
@@ -4123,7 +4105,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "api-portal",
     "name": "API Portal",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/api-portal/website",
     "resources": {
       "services": {
@@ -4460,7 +4441,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "itemId": "appointment-manager",
     "name": "Appointment Manager",
     "description": "Manage appointments, availabilities, slots and exceptions.",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
     "resources": {
       "services": {
@@ -4606,7 +4586,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "itemId": "appointment-manager",
     "name": "Appointment Manager",
     "description": "Manage appointments, availabilities, slots and exceptions.",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
     "resources": {
       "services": {
@@ -4751,7 +4730,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "itemId": "appointment-manager",
     "name": "Appointment Manager",
     "description": "Manage appointments, availabilities, slots and exceptions.",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
     "resources": {
       "services": {
@@ -4896,7 +4874,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "itemId": "appointment-manager",
     "name": "Appointment Manager",
     "description": "Manage appointments, availabilities, slots and exceptions.",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
     "resources": {
       "services": {
@@ -5042,7 +5019,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite_sidecars/audit-trail/overview"
     },
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/audit-trail",
     "resources": {
       "name": "audit-trail",
@@ -5098,7 +5074,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "auth0-client",
     "name": "Auth0 Client",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/auth0-client",
     "resources": {
       "services": {
@@ -5257,7 +5232,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "auth0-client",
     "name": "Auth0 Client",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/auth0-client",
     "resources": {
       "services": {
@@ -5415,7 +5389,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "auth0-client",
     "name": "Auth0 Client",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/auth0-client",
     "resources": {
       "services": {
@@ -5573,7 +5546,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "auth0-client",
     "name": "Auth0 Client",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/auth0-client",
     "resources": {
       "services": {
@@ -5721,7 +5693,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "auth0-client",
     "name": "Auth0 Client",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/auth0-client",
     "resources": {
       "services": {
@@ -5869,7 +5840,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "auth0-client",
     "name": "Auth0 Client",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/auth0-client",
     "resources": {
       "services": {
@@ -6685,7 +6655,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "authorization-service",
     "name": "Authorization Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/authorization-service",
     "resources": {
       "services": {
@@ -6850,7 +6819,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "authorization-service",
     "name": "Authorization Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/authorization-service",
     "resources": {
       "services": {
@@ -7014,7 +6982,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "authorization-service",
     "name": "Authorization Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/authorization-service",
     "resources": {
       "services": {
@@ -7178,7 +7145,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "authorization-service",
     "name": "Authorization Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/authorization-service",
     "resources": {
       "services": {
@@ -8449,7 +8415,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "This application allows to quickly setup the necessary services in order to manage appointments and availabilities.",
     "itemId": "booking-module",
     "name": "Booking Module",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/booking-module",
     "resources": {
       "collections": {
@@ -10139,7 +10104,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "bucket-storage-support-gcp",
     "name": "Bucket Storage Support - GCP",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/bucket-storage-support-application",
     "resources": {
       "services": {
@@ -10816,7 +10780,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "bucket-storage-support-s3",
     "name": "Bucket Storage Support - S3",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/bucket-storage-support-application",
     "resources": {
       "services": {
@@ -11480,7 +11443,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "care-kit",
     "name": "Care Kit",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/mia-care-web-components",
     "resources": {
       "services": {
@@ -11560,7 +11522,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "care-kit",
     "name": "Care Kit",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/mia-care-web-components",
     "resources": {
       "services": {
@@ -11639,7 +11600,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "care-kit",
     "name": "Care Kit",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/mia-care-web-components",
     "resources": {
       "services": {
@@ -11714,7 +11674,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "chat-service-backend",
     "name": "Chat Service Backend",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/chat-service-backend",
     "resources": {
       "services": {
@@ -11861,7 +11820,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "chat-service-backend",
     "name": "Chat Service Backend",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/chat-service-backend",
     "resources": {
       "services": {
@@ -12007,7 +11965,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "chat-service-backend",
     "name": "Chat Service Backend",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/chat-service-backend",
     "resources": {
       "services": {
@@ -12149,7 +12106,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "chat-service-frontend",
     "name": "Chat Service Frontend",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/chat-service-frontend",
     "resources": {
       "services": {
@@ -12219,7 +12175,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "chat-service-frontend",
     "name": "Chat Service Frontend",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/chat-service-frontend",
     "resources": {
       "services": {
@@ -12284,7 +12239,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "client-credentials",
     "name": "Client Credentials",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/client-credentials",
     "resources": {
       "services": {
@@ -12424,7 +12378,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "client-credentials",
     "name": "Client Credentials",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/client-credentials",
     "resources": {
       "services": {
@@ -12563,7 +12516,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "client-credentials",
     "name": "Client Credentials",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/client-credentials",
     "resources": {
       "services": {
@@ -12702,7 +12654,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "client-credentials",
     "name": "Client Credentials",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/client-credentials",
     "resources": {
       "services": {
@@ -12841,7 +12792,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "client-credentials",
     "name": "Client Credentials",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/client-credentials",
     "resources": {
       "services": {
@@ -12980,7 +12930,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "client-credentials",
     "name": "Client Credentials",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/client-credentials",
     "resources": {
       "services": {
@@ -13264,7 +13213,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "cron-scheduler",
     "name": "Cron Scheduler",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/cron-scheduler",
     "resources": {
       "services": {
@@ -13337,7 +13285,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "cron-scheduler",
     "name": "Cron Scheduler",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/cron-scheduler",
     "resources": {
       "services": {
@@ -14338,7 +14285,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "crud-service",
     "name": "CRUD Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/crud-service",
     "resources": {
       "services": {
@@ -14470,7 +14416,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "crud-service",
     "name": "CRUD Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/crud-service",
     "resources": {
       "services": {
@@ -14601,7 +14546,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "crud-service",
     "name": "CRUD Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/crud-service",
     "resources": {
       "services": {
@@ -14732,7 +14676,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "crud-service",
     "name": "CRUD Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/crud-service",
     "resources": {
       "services": {
@@ -14863,7 +14806,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "crud-service",
     "name": "CRUD Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/crud-service",
     "resources": {
       "services": {
@@ -14994,7 +14936,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "crud-service",
     "name": "CRUD Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/crud-service",
     "resources": {
       "services": {
@@ -15125,7 +15066,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "crud-service",
     "name": "CRUD Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/crud-service",
     "resources": {
       "services": {
@@ -15256,7 +15196,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "crud-service",
     "name": "CRUD Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/crud-service",
     "resources": {
       "services": {
@@ -15383,7 +15322,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "crud-sql-template",
     "name": "CRUD SQL Template",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform-marketplace/crud-sql-template/tree/0.1.0",
     "resources": {
       "services": {
@@ -15524,7 +15462,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "crud-sql-template",
     "name": "CRUD SQL Template",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform-marketplace/crud-sql-template/tree/0.1.0",
     "resources": {
       "services": {
@@ -15660,7 +15597,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "csv-connector",
     "name": "CSV Connector",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/csv-connector-application",
     "resources": {
       "services": {
@@ -16234,7 +16170,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "csv-connector-plugin",
     "name": "CSV Connector Plugin",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/csv-connector",
     "resources": {
       "services": {
@@ -16408,7 +16343,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "csv-connector-plugin",
     "name": "CSV Connector Plugin",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/source/csv-connector",
     "resources": {
       "services": {
@@ -16577,7 +16511,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "data-catalog",
     "name": "Data Catalog",
-    "publishOnMiaDocumentation": false,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/data-catalog",
     "resources": {
       "services": {
@@ -16638,7 +16571,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "data-catalog",
     "name": "Data Catalog",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/data-catalog",
     "resources": {
       "services": {
@@ -16694,7 +16626,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "data-catalog-agent",
     "name": "Data Catalog Agent",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/data-catalog-agent",
     "resources": {
       "services": {
@@ -16755,7 +16686,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "data-catalog-agent",
     "name": "Data Catalog Agent",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/data-catalog-agent",
     "resources": {
       "services": {
@@ -16811,7 +16741,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "data-catalog-application",
     "name": "Data Catalog",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/data-catalog-application",
     "resources": {
       "collections": {
@@ -20808,7 +20737,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "data-fabric-mongezium-cdc",
     "name": "Mongezium CDC",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/mongezium",
     "resources": {
       "services": {
@@ -24226,7 +24154,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "itemId": "device-manager",
     "name": "Device Manager",
     "description": "Collect, store and visualize patient health data from medical and wearable devices.",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/device-manager",
     "resources": {
       "services": {
@@ -24406,7 +24333,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "doctor-service",
     "name": "Doctor Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/doctor-service",
     "resources": {
       "services": {
@@ -24474,7 +24400,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "doctor-service",
     "name": "Doctor Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/doctor-service",
     "resources": {
       "services": {
@@ -24690,7 +24615,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "This application allows to quickly setup the necessary services in order to handle forms and medical reports.",
     "itemId": "ehr-module",
     "name": "EHR Module",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/ehr-module",
     "resources": {
       "collections": {
@@ -25976,7 +25900,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "email-builder",
     "name": "Email Builder",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/email-builder",
     "resources": {
       "services": {
@@ -26046,7 +25969,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "envoy-api-gateway",
     "name": "Envoy API Gateway",
-    "publishOnMiaDocumentation": false,
     "resources": {
       "services": {
         "api-gateway": {
@@ -26184,7 +26106,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "envoy-api-gateway",
     "name": "Envoy API Gateway",
-    "publishOnMiaDocumentation": false,
     "resources": {
       "services": {
         "api-gateway": {
@@ -26554,7 +26475,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "fast-data-control-plane",
     "name": "Fast Data Control Plane",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/control-plane-application",
     "resources": {
       "collections": {
@@ -29216,7 +29136,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "fast-data-control-plane-operator",
     "name": "Fast Data Control Plane Operator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/control-plane-operator-plugin",
     "resources": {
       "services": {
@@ -29342,7 +29261,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "fast-data-control-plane-operator",
     "name": "Fast Data Control Plane Operator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/control-plane-operator-plugin",
     "resources": {
       "services": {
@@ -29467,7 +29385,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "fast-data-control-plane-operator",
     "name": "Fast Data Control Plane Operator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/control-plane-operator-plugin",
     "resources": {
       "services": {
@@ -29592,7 +29509,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "fast-data-control-plane-operator",
     "name": "Fast Data Control Plane Operator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/control-plane-operator-plugin",
     "resources": {
       "services": {
@@ -31547,7 +31463,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "fast-data-monitoring",
     "name": "Fast Data Monitoring",
-    "publishOnMiaDocumentation": false,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/fast-data-monitoring-application",
     "resources": {
       "services": {
@@ -31742,7 +31657,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "fhir-adapter",
     "name": "FHIR Adapter",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-adapter",
     "resources": {
       "services": {
@@ -31900,7 +31814,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "fhir-adapter",
     "name": "FHIR Adapter",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-adapter",
     "resources": {
       "services": {
@@ -32057,7 +31970,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "fhir-adapter",
     "name": "FHIR Adapter",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-adapter",
     "resources": {
       "services": {
@@ -32214,7 +32126,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "fhir-adapter",
     "name": "FHIR Adapter",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-adapter",
     "resources": {
       "services": {
@@ -32371,7 +32282,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "fhir-adapter",
     "name": "FHIR Adapter",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-adapter",
     "resources": {
       "services": {
@@ -32528,7 +32438,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "fhir-adapter",
     "name": "FHIR Adapter",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/fhir-adapter",
     "resources": {
       "services": {
@@ -32776,7 +32685,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "file-bucket",
     "name": "File Bucket",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/file-bucket-application",
     "resources": {
       "services": {
@@ -33221,7 +33129,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "files-service",
     "name": "Files Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/files-service",
     "resources": {
       "services": {
@@ -33326,7 +33233,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "files-service",
     "name": "Files Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/files-service",
     "resources": {
       "services": {
@@ -33430,7 +33336,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "files-service",
     "name": "Files Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/files-service",
     "resources": {
       "services": {
@@ -33534,7 +33439,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "files-service",
     "name": "Files Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/files-service",
     "resources": {
       "services": {
@@ -33959,7 +33863,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "flow-manager-service",
     "name": "Flow Manager Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/flow-manager/flow-manager",
     "resources": {
       "services": {
@@ -34094,7 +33997,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "flow-manager-service",
     "name": "Flow Manager Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/flow-manager/flow-manager",
     "resources": {
       "services": {
@@ -34228,7 +34130,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "flow-manager-service",
     "name": "Flow Manager Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/flow-manager/flow-manager",
     "resources": {
       "services": {
@@ -34356,7 +34257,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
     },
-    "publishOnMiaDocumentation": true,
     "itemId": "form-service-backend",
     "name": "Form Service Backend",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-backend",
@@ -34419,7 +34319,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
     },
-    "publishOnMiaDocumentation": true,
     "itemId": "form-service-backend",
     "name": "Form Service Backend",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-backend",
@@ -34481,7 +34380,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
     },
-    "publishOnMiaDocumentation": true,
     "itemId": "form-service-backend",
     "name": "Form Service Backend",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-backend",
@@ -34539,7 +34437,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
     },
-    "publishOnMiaDocumentation": true,
     "itemId": "form-service-frontend",
     "name": "Form Service Frontend",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-frontend",
@@ -34609,7 +34506,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
     },
-    "publishOnMiaDocumentation": true,
     "itemId": "form-service-frontend",
     "name": "Form Service Frontend",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-frontend",
@@ -34678,7 +34574,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
     },
-    "publishOnMiaDocumentation": true,
     "itemId": "form-service-frontend",
     "name": "Form Service Frontend",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-frontend",
@@ -34745,7 +34640,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "function-service",
     "name": "Function Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/function-service",
     "resources": {
       "services": {
@@ -34854,7 +34748,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "function-service",
     "name": "Function Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/function-service",
     "resources": {
       "services": {
@@ -37870,7 +37763,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "identification-manager",
     "name": "Identification Manager",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/identification-manager",
     "resources": {
       "services": {
@@ -39025,7 +38917,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "ingestion-reloader",
     "name": "Ingestion Reloader",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/historical-data/ingestion-reloader",
     "resources": {
       "services": {
@@ -39197,7 +39088,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "ingestion-reloader",
     "name": "Ingestion Reloader",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/historical-data/ingestion-reloader",
     "resources": {
       "services": {
@@ -39368,7 +39258,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "ingestion-reloader",
     "name": "Ingestion Reloader",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/historical-data/ingestion-reloader",
     "resources": {
       "services": {
@@ -39535,7 +39424,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "ingestion-storer",
     "name": "Ingestion Storer",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/historical-data/ingestion-storer",
     "resources": {
       "services": {
@@ -39724,7 +39612,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "ingestion-storer",
     "name": "Ingestion Storer",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/historical-data/ingestion-storer",
     "resources": {
       "services": {
@@ -39912,7 +39799,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "ingestion-storer",
     "name": "Ingestion Storer",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/historical-data/ingestion-storer",
     "resources": {
       "services": {
@@ -40096,7 +39982,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "insurance-crud-data-model",
     "name": "Insurance CRUD Data Model",
-    "publishOnMiaDocumentation": false,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/insurance-crud-data-model-application",
     "resources": {
       "services": {
@@ -45023,7 +44908,6 @@ exports[`Sync script > should match snapshot 2`] = `
       }
     },
     "description": "The Integration Connector Agent connects to external sources and keeps changes synchronized between the source and one or more sinks.",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/integration-connector-agent",
     "documentation": {
       "type": "externalLink",
@@ -45125,7 +45009,6 @@ exports[`Sync script > should match snapshot 2`] = `
       }
     },
     "description": "The Integration Connector Agent connects to external sources and keeps changes synchronized between the source and one or more sinks.",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/integration-connector-agent",
     "documentation": {
       "type": "externalLink",
@@ -45226,7 +45109,6 @@ exports[`Sync script > should match snapshot 2`] = `
       }
     },
     "description": "The Integration Connector Agent connects to external sources and keeps changes synchronized between the source and one or more sinks.",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/integration-connector-agent",
     "documentation": {
       "type": "externalLink",
@@ -45323,7 +45205,6 @@ exports[`Sync script > should match snapshot 2`] = `
       }
     },
     "description": "The Integration Connector Agent connects to external sources and keeps changes synchronized between the source and one or more sinks.",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/integration-connector-agent",
     "documentation": {
       "type": "externalLink",
@@ -45424,7 +45305,6 @@ exports[`Sync script > should match snapshot 2`] = `
       }
     },
     "description": "The Integration Connector Agent connects to external sources and keeps changes synchronized between the source and one or more sinks.",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/integration-connector-agent",
     "documentation": {
       "type": "externalLink",
@@ -45525,7 +45405,6 @@ exports[`Sync script > should match snapshot 2`] = `
       }
     },
     "description": "The Integration Connector Agent connects to external sources and keeps changes synchronized between the source and one or more sinks.",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/integration-connector-agent",
     "documentation": {
       "type": "externalLink",
@@ -45626,7 +45505,6 @@ exports[`Sync script > should match snapshot 2`] = `
       }
     },
     "description": "The Integration Connector Agent connects to external sources and keeps changes synchronized between the source and one or more sinks.",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/integration-connector-agent",
     "documentation": {
       "type": "externalLink",
@@ -45671,7 +45549,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "tenantId": "mia-platform",
     "supportedBy": "Mia-Platform",
     "description": "The Integration Connector Agent Processor allows you to build your own processor for and connect to external sources to keep changes synchronized between the source and one or more sinks.",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform-marketplace/integration-connector-agent-processor",
     "documentation": {
       "type": "markdown",
@@ -46008,7 +45885,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "invoice-service",
     "name": "Invoice Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/plugins/invoice-service",
     "resources": {
       "services": {
@@ -46150,7 +46026,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "invoice-service",
     "name": "Invoice Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/plugins/invoice-service",
     "resources": {
       "services": {
@@ -46595,7 +46470,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "jwt-token-validator",
     "name": "JWT Token Validator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/jwt-token-validator",
     "resources": {
       "services": {
@@ -46702,7 +46576,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "jwt-token-validator",
     "name": "JWT Token Validator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/jwt-token-validator",
     "resources": {
       "services": {
@@ -46808,7 +46681,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "jwt-token-validator",
     "name": "JWT Token Validator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/jwt-token-validator",
     "resources": {
       "services": {
@@ -46910,7 +46782,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "kafka2firebase",
     "name": "Kafka2Firebase",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/kafka2firebase",
     "resources": {
       "services": {
@@ -47014,7 +46885,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "kafka2firebase",
     "name": "Kafka2Firebase",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/kafka2firebase",
     "resources": {
       "services": {
@@ -48695,7 +48565,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "mailchimp-notification-service",
     "name": "Mailchimp Notification Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mailchimp-plugin",
     "resources": {
       "services": {
@@ -48814,7 +48683,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "mailchimp-notification-service",
     "name": "Mailchimp Notification Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mailchimp-plugin",
     "resources": {
       "services": {
@@ -48928,7 +48796,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "messaging-service",
     "name": "Messaging Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/messaging-service",
     "resources": {
       "services": {
@@ -49063,7 +48930,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "messaging-service",
     "name": "Messaging Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/messaging-service",
     "resources": {
       "services": {
@@ -49197,7 +49063,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "messaging-service",
     "name": "Messaging Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/messaging-service",
     "resources": {
       "services": {
@@ -50479,7 +50344,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "microfrontend-composer-on-prem-toolkit",
     "name": "Microfrontend Composer On Prem Toolkit",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/microfrontend-composer-on-prem-toolkit-application",
     "resources": {
       "services": {
@@ -50858,7 +50722,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "microfrontend-composer-toolkit",
     "name": "Microfrontend Composer Toolkit",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/microfrontend-composer-toolkit-application",
     "resources": {
       "services": {
@@ -51182,7 +51045,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "microservice-gateway",
     "name": "Microservice Gateway",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/microservice-gateway",
     "resources": {
       "services": {
@@ -51296,7 +51158,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "microservice-gateway",
     "name": "Microservice Gateway",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/microservice-gateway",
     "resources": {
       "services": {
@@ -51405,7 +51266,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "mongo2kafka",
     "name": "Mongo2Kafka",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/mongo2kafka",
     "resources": {
       "services": {
@@ -51508,7 +51368,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "mongo2kafka",
     "name": "Mongo2Kafka",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/mongo2kafka",
     "resources": {
       "services": {
@@ -51606,7 +51465,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "mongodb-reader",
     "name": "MongoDB Reader",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/mongodb-reader",
     "resources": {
       "services": {
@@ -51710,7 +51568,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "mongodb-reader",
     "name": "MongoDB Reader",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/mongodb-reader",
     "resources": {
       "services": {
@@ -52835,7 +52692,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "notification-manager-service",
     "name": "Notification Manager Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/notification-manager",
     "resources": {
       "services": {
@@ -53008,7 +52864,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "notification-manager-service",
     "name": "Notification Manager Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/notification-manager",
     "resources": {
       "services": {
@@ -53180,7 +53035,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "notification-manager-service",
     "name": "Notification Manager Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/notification-manager",
     "resources": {
       "services": {
@@ -53346,7 +53200,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "notification-manager-service",
     "name": "Notification Manager Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/notification-manager",
     "resources": {
       "services": {
@@ -53504,7 +53357,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "This application allows to quickly setup the necessary services in order to send messages, across the most widely used notification channels (email, sms, push, voice, whatsapp).",
     "itemId": "notification-module",
     "name": "Notification Module",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/notification-module",
     "resources": {
       "collections": {
@@ -55423,7 +55275,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "o3-dicom-service",
     "name": "O3 DICOM Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/o3-dicom-service",
     "resources": {
       "services": {
@@ -55568,7 +55419,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "o3-dicom-service",
     "name": "O3 DICOM Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/o3-dicom-service",
     "resources": {
       "services": {
@@ -55712,7 +55562,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "o3-dicom-service",
     "name": "O3 DICOM Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/o3-dicom-service",
     "resources": {
       "services": {
@@ -55856,7 +55705,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "o3-dicom-service",
     "name": "O3 DICOM Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/o3-dicom-service",
     "resources": {
       "services": {
@@ -56305,7 +56153,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "payment-gateway-manager",
     "name": "Payment Gateway Manager",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/payment-gateway-manager",
     "resources": {
       "services": {
@@ -56421,7 +56268,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "payment-gateway-manager",
     "name": "Payment Gateway Manager",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/payment-gateway-manager",
     "resources": {
       "services": {
@@ -56532,7 +56378,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "payment-integration-hub",
     "name": "Payment Integration Hub",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/payment-gateway-backoffice",
     "resources": {
       "services": {
@@ -59743,7 +59588,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/pdf-service/overview"
     },
-    "publishOnMiaDocumentation": true,
     "itemId": "pdf-service",
     "name": "PDF Service",
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/pdf-service",
@@ -59850,7 +59694,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/pdf-service/overview"
     },
-    "publishOnMiaDocumentation": true,
     "itemId": "pdf-service",
     "name": "PDF Service",
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/pdf-service",
@@ -59931,7 +59774,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/pdf-service/overview"
     },
-    "publishOnMiaDocumentation": true,
     "itemId": "pdf-service",
     "name": "PDF Service",
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/pdf-service",
@@ -60010,7 +59852,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "pharma-ecommerce-backend",
     "name": "Pharma Ecommerce Backend",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/pharma-ecommerce-backend",
     "resources": {
       "services": {
@@ -60185,7 +60026,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "pharma-ecommerce-backend",
     "name": "Pharma Ecommerce Backend",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/pharma-ecommerce-backend",
     "resources": {
       "services": {
@@ -60355,7 +60195,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "projection-storer",
     "name": "Projection Storer",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/projection-storer",
     "resources": {
       "services": {
@@ -60465,7 +60304,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "projection-storer",
     "name": "Projection Storer",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/projection-storer",
     "resources": {
       "services": {
@@ -60574,7 +60412,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "projection-storer",
     "name": "Projection Storer",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/projection-storer",
     "resources": {
       "services": {
@@ -60683,7 +60520,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "projection-storer",
     "name": "Projection Storer",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/projection-storer",
     "resources": {
       "services": {
@@ -60792,7 +60628,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "projection-storer",
     "name": "Projection Storer",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/projection-storer",
     "resources": {
       "services": {
@@ -60901,7 +60736,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "projection-storer",
     "name": "Projection Storer",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/projection-storer",
     "resources": {
       "services": {
@@ -61010,7 +60844,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "projection-storer",
     "name": "Projection Storer",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/projection-storer",
     "resources": {
       "services": {
@@ -61119,7 +60952,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "projection-storer",
     "name": "Projection Storer",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/projection-storer",
     "resources": {
       "services": {
@@ -61224,7 +61056,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "push-notification-manager",
     "name": "Push Notification Manager",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/notifications-manager",
     "resources": {
       "services": {
@@ -61348,7 +61179,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "push-notification-manager",
     "name": "Push Notification Manager",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/notifications-manager",
     "resources": {
       "services": {
@@ -61467,7 +61297,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "push-notification-sender",
     "name": "Push Notification Sender",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/notifications-service",
     "resources": {
       "services": {
@@ -61576,7 +61405,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "push-notification-sender",
     "name": "Push Notification Sender",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/notifications-service",
     "resources": {
       "services": {
@@ -62607,7 +62435,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "rag-chatbot-api",
     "name": "RAG Chatbot API",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
     "resources": {
       "services": {
@@ -62740,7 +62567,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "rag-chatbot-api",
     "name": "RAG Chatbot API",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
     "resources": {
       "services": {
@@ -62872,7 +62698,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "rag-chatbot-api",
     "name": "RAG Chatbot API",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
     "resources": {
       "services": {
@@ -63004,7 +62829,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "rag-chatbot-api",
     "name": "RAG Chatbot API",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
     "resources": {
       "services": {
@@ -63564,7 +63388,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "real-time-updater",
     "name": "Real-Time Updater",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/real-time-updater",
     "resources": {
       "services": {
@@ -63841,7 +63664,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "real-time-updater",
     "name": "Real-Time Updater",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/real-time-updater",
     "resources": {
       "services": {
@@ -64118,7 +63940,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "real-time-updater",
     "name": "Real-Time Updater",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/real-time-updater",
     "resources": {
       "services": {
@@ -64396,7 +64217,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "real-time-updater",
     "name": "Real-Time Updater",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/real-time-updater",
     "resources": {
       "services": {
@@ -64673,7 +64493,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "real-time-updater",
     "name": "Real-Time Updater",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/real-time-updater",
     "resources": {
       "services": {
@@ -64950,7 +64769,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "real-time-updater",
     "name": "Real-Time Updater",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/real-time-updater",
     "resources": {
       "services": {
@@ -65227,7 +65045,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "real-time-updater",
     "name": "Real-Time Updater",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/real-time-updater",
     "resources": {
       "services": {
@@ -65691,7 +65508,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "rest2kafka-service",
     "name": "Rest2Kafka service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/rest2kafka",
     "resources": {
       "services": {
@@ -65848,7 +65664,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "rest2kafka-service",
     "name": "Rest2Kafka service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/rest2kafka",
     "resources": {
       "services": {
@@ -66125,7 +65940,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "salesforce-streaming-api-connector",
     "name": "Salesforce Streaming API Connector",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/connectors/salesforce-streaming-api-connector",
     "resources": {
       "services": {
@@ -66543,7 +66357,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "scoring-manager",
     "name": "Scoring Manager",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/scoring-manager",
     "resources": {
       "services": {
@@ -67661,7 +67474,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "secure-api-gateway",
     "name": "Secure API Gateway",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/applications/auth0-application",
     "resources": {
       "services": {
@@ -68171,7 +67983,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "ses-mail-notification-service",
     "name": "SES Mail Notification Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mail-notification-service",
     "resources": {
       "services": {
@@ -68249,7 +68060,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "ses-mail-notification-service",
     "name": "SES Mail Notification Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mail-notification-service",
     "resources": {
       "services": {
@@ -68326,7 +68136,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "ses-mail-notification-service",
     "name": "SES Mail Notification Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mail-notification-service",
     "resources": {
       "services": {
@@ -68399,7 +68208,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "single-view-creator",
     "name": "Single View Creator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
     "resources": {
       "services": {
@@ -68625,7 +68433,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "single-view-creator",
     "name": "Single View Creator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
     "resources": {
       "services": {
@@ -74153,7 +73960,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "itemId": "sms-service",
     "name": "SMS Service",
     "description": "Send SMS using Kaleyra or Twilio",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/sms-service",
     "resources": {
       "services": {
@@ -74277,7 +74083,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "itemId": "sms-service",
     "name": "SMS Service",
     "description": "Send SMS using Kaleyra or Twilio",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/sms-service",
     "resources": {
       "services": {
@@ -75009,7 +74814,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "sql-db-reader",
     "name": "SQL DB Reader",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/db-sql-reader",
     "resources": {
       "services": {
@@ -75072,7 +74876,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "sql-db-reader",
     "name": "SQL DB Reader",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/db-sql-reader",
     "resources": {
       "services": {
@@ -75130,7 +74933,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "sql-invoker",
     "name": "SQL Invoker",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/sql-invoker",
     "resources": {
       "services": {
@@ -75224,7 +75026,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "sql-invoker",
     "name": "SQL Invoker",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/sql-invoker",
     "resources": {
       "services": {
@@ -75313,7 +75114,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "swagger-aggregator",
     "name": "Swagger Aggregator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
     "resources": {
       "services": {
@@ -75422,7 +75222,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "swagger-aggregator",
     "name": "Swagger Aggregator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
     "resources": {
       "services": {
@@ -75530,7 +75329,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "swagger-aggregator",
     "name": "Swagger Aggregator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
     "resources": {
       "services": {
@@ -75638,7 +75436,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "swagger-aggregator",
     "name": "Swagger Aggregator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
     "resources": {
       "services": {
@@ -75746,7 +75543,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "swagger-aggregator",
     "name": "Swagger Aggregator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
     "resources": {
       "services": {
@@ -75854,7 +75650,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "swagger-aggregator",
     "name": "Swagger Aggregator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
     "resources": {
       "services": {
@@ -75962,7 +75757,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "swagger-aggregator",
     "name": "Swagger Aggregator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
     "resources": {
       "services": {
@@ -76055,7 +75849,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "teleconsultation-service-backend",
     "name": "Teleconsultation Service Backend",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-backend",
     "resources": {
       "services": {
@@ -76230,7 +76023,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "teleconsultation-service-backend",
     "name": "Teleconsultation Service Backend",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-backend",
     "resources": {
       "services": {
@@ -76384,7 +76176,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "teleconsultation-service-backend",
     "name": "Teleconsultation Service Backend",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-backend",
     "resources": {
       "services": {
@@ -76538,7 +76329,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "teleconsultation-service-backend",
     "name": "Teleconsultation Service Backend",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-backend",
     "resources": {
       "services": {
@@ -76689,7 +76479,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "teleconsultation-service-frontend",
     "name": "Teleconsultation Service Frontend",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-frontend",
     "resources": {
       "services": {
@@ -76759,7 +76548,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "teleconsultation-service-frontend",
     "name": "Teleconsultation Service Frontend",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-frontend",
     "resources": {
       "services": {
@@ -76828,7 +76616,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "teleconsultation-service-frontend",
     "name": "Teleconsultation Service Frontend",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-frontend",
     "resources": {
       "services": {
@@ -77134,7 +76921,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "therapy-and-monitoring-manager",
     "name": "Therapy and Monitoring Manager",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/therapy-monitoring-manager",
     "resources": {
       "services": {
@@ -77311,7 +77097,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "therapy-and-monitoring-manager",
     "name": "Therapy and Monitoring Manager",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/therapy-monitoring-manager",
     "resources": {
       "services": {
@@ -77502,7 +77287,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "therapy-and-monitoring-manager",
     "name": "Therapy and Monitoring Manager",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/therapy-monitoring-manager",
     "resources": {
       "services": {
@@ -77685,7 +77469,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "This application allows to quickly setup the necessary services in order to manage patient care plans and collect data from medical and wearable devices",
     "itemId": "therapy-device-module",
     "name": "Therapy Device Module",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/therapy-device-module",
     "resources": {
       "collections": {
@@ -79738,7 +79521,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "timer-service",
     "name": "Timer Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/timer-service",
     "resources": {
       "services": {
@@ -79882,7 +79664,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "timer-service",
     "name": "Timer Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/timer-service",
     "resources": {
       "services": {
@@ -80615,7 +80396,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "user-access-sync",
     "name": "User Access Sync",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/fintech/middleware-permissions",
     "resources": {
       "services": {
@@ -80729,7 +80509,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "user-access-sync",
     "name": "User Access Sync",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/fintech/middleware-permissions",
     "resources": {
       "services": {
@@ -80834,7 +80613,6 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "This module provides a ready-to-use system for the user management and authentication services.",
     "itemId": "user-manager-module",
     "name": "User Manager Module",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/user-manager-module",
     "resources": {
       "collections": {
@@ -82155,7 +81933,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-manager-service/overview"
     },
-    "publishOnMiaDocumentation": true,
     "itemId": "user-manager-service",
     "name": "User Manager Service",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/user-manager-service",
@@ -82312,7 +82089,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-manager-service/overview"
     },
-    "publishOnMiaDocumentation": true,
     "itemId": "user-manager-service",
     "name": "User Manager Service",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/user-manager-service",
@@ -82468,7 +82244,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-manager-service/overview"
     },
-    "publishOnMiaDocumentation": true,
     "itemId": "user-manager-service",
     "name": "User Manager Service",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/user-manager-service",

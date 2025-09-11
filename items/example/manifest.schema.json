@@ -5,6 +5,18 @@
   "title": "Manifest for items of type example",
   "type": "object",
   "properties": {
+    "annotations": {
+      "description": "Set of non-identifying key/value pairs akin to Kubernetes object annotations",
+      "type": "object",
+      "patternProperties": {
+        "^([a-zA-Z0-9][a-zA-Z0-9\\.\\-]{0,253}[\\/])?([a-zA-Z0-9][a-zA-Z0-9\\.\\-]{0,63}[a-zA-Z0-9]?)$": {
+          "type": "string",
+          "pattern": "^$|^[a-zA-Z0-9](?:[a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])?$",
+          "maxLength": 63
+        }
+      },
+      "additionalProperties": false
+    },
     "categoryId": {
       "enum": [
         "stream",
@@ -71,9 +83,38 @@
     },
     "itemId": {
       "description": "RFC-1035 compliant identifier of the item. It forms a composite PK with tenantId and, if present, version.name",
-      "minLength": 1,
+      "type": "string",
       "pattern": "^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?$",
-      "type": "string"
+      "minLength": 1,
+      "maxLength": 63
+    },
+    "itemTypeDefinitionRef": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "example"
+        },
+        "namespace": {
+          "const": "mia-platform"
+        }
+      },
+      "required": [
+        "name",
+        "namespace"
+      ],
+      "type": "object"
+    },
+    "labels": {
+      "description": "Set of identifying key/value pairs akin to Kubernetes object labels",
+      "type": "object",
+      "patternProperties": {
+        "^([a-zA-Z0-9][a-zA-Z0-9\\.\\-]{0,253}[\\/])?([a-zA-Z0-9][a-zA-Z0-9\\.\\-]{0,63}[a-zA-Z0-9]?)$": {
+          "type": "string",
+          "pattern": "^$|^[a-zA-Z0-9](?:[a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])?$",
+          "maxLength": 63
+        }
+      },
+      "additionalProperties": false
     },
     "lifecycleStatus": {
       "description": "Lifecycle status of the item",
@@ -87,6 +128,51 @@
       ],
       "type": "string"
     },
+    "links": {
+      "description": "List of external hyperlinks",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "description": "URL in standard uri format",
+            "type": "string"
+          },
+          "displayName": {
+            "description": "User friendly display name for the link",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "url"
+        ]
+      }
+    },
+    "maintainers": {
+      "description": "List of organizational entities maintaining the resource",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Display name of the entity",
+            "type": "string",
+            "minLength": 1
+          },
+          "email": {
+            "description": "Contact email of the entity",
+            "type": "string",
+            "format": "email",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      }
+    },
     "name": {
       "description": "Human-readable name of the item",
       "minLength": 1,
@@ -96,9 +182,27 @@
       "description": "Identifier of the provider used to retrieve markdown documentation content and external resources, if supported by the item type",
       "type": "string"
     },
-    "publishOnMiaDocumentation": {
-      "description": "Flag stating if the resource documentation should be published on Mia-Platform public documentation",
-      "type": "boolean"
+    "relationships": {
+      "description": "List of relationships from the current Catalog entity to any other entity (either it part of the Catalog or not)",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "description": "The receiving end of the relationships. It can be a URN-reference to another Catalog entity or an arbitrary string",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of the relationships. It can be one of the Catalog well-known relationships or an arbitrary string",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "target",
+          "type"
+        ]
+      }
     },
     "releaseDate": {
       "description": "Creation date of this item's release",
@@ -1173,24 +1277,18 @@
       ],
       "type": "string"
     },
+    "tags": {
+      "description": "List of single-valued strings",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9:+#]+(-[a-z0-9:+#]+)*$",
+        "minLength": 1,
+        "maxLength": 63
+      }
+    },
     "tenantId": {
       "const": "mia-platform"
-    },
-    "itemTypeDefinitionRef": {
-      "additionalProperties": false,
-      "properties": {
-        "name": {
-          "const": "example"
-        },
-        "namespace": {
-          "const": "mia-platform"
-        }
-      },
-      "required": [
-        "name",
-        "namespace"
-      ],
-      "type": "object"
     },
     "version": {
       "description": "Version of the item following semver",

@@ -7,7 +7,6 @@
   },
   "itemId": "booking-module",
   "name": "Booking Module",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/booking-module",
   "resources": {
     "collections": {

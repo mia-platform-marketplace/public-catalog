@@ -11,7 +11,6 @@
   "itemId": "appointment-manager",
   "name": "Appointment Manager",
   "description": "Manage appointments, availabilities, slots and exceptions.",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
   "resources": {
     "services": {

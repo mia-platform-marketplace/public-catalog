@@ -11,7 +11,6 @@
   },
   "itemId": "microfrontend-composer-toolkit",
   "name": "Microfrontend Composer Toolkit",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/microfrontend-composer-toolkit-application",
   "resources": {
     "services": {

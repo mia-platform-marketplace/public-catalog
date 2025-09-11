@@ -7,7 +7,6 @@
   },
   "itemId": "ai-rag-chat-template",
   "name": "AI RAG Chat Template",
-  "publishOnMiaDocumentation": false,
   "resources": {
     "services": {
       "api-gateway": {

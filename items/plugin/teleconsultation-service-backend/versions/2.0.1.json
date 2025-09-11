@@ -10,7 +10,6 @@
   },
   "itemId": "teleconsultation-service-backend",
   "name": "Teleconsultation Service Backend",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/teleconsultation-service-backend",
   "resources": {
     "services": {

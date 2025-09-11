@@ -11,7 +11,6 @@
   },
   "itemId": "ingestion-storer",
   "name": "Ingestion Storer",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/historical-data/ingestion-storer",
   "resources": {
     "services": {

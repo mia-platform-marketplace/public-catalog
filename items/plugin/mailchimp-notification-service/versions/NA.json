@@ -11,7 +11,6 @@
   },
   "itemId": "mailchimp-notification-service",
   "name": "Mailchimp Notification Service",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mailchimp-plugin",
   "resources": {
     "services": {
