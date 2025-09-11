@@ -11,7 +11,6 @@
   },
   "itemId": "sql-invoker",
   "name": "SQL Invoker",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/sql-invoker",
   "resources": {
     "services": {

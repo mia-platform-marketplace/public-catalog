@@ -12,7 +12,6 @@
     "localPath": "../assets/integration-connector-agent_logo_20250423.png"
   },
   "description": "The Integration Connector Agent Processor allows you to build your own processor for and connect to external sources to keep changes synchronized between the source and one or more sinks.",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://github.com/mia-platform-marketplace/integration-connector-agent-processor",
   "documentation": {
     "type": "markdown",

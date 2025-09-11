@@ -11,7 +11,6 @@
   },
   "itemId": "invoice-service",
   "name": "Invoice Service",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-fintech/marketplace/plugins/invoice-service",
   "resources": {
     "services": {

@@ -11,7 +11,6 @@
   },
   "itemId": "push-notification-sender",
   "name": "Push Notification Sender",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/notifications-service",
   "resources": {
     "services": {

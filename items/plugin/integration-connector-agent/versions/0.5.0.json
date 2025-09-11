@@ -68,7 +68,6 @@
     }
   },
   "description": "The Integration Connector Agent connects to external sources and keeps changes synchronized between the source and one or more sinks.",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://github.com/mia-platform/integration-connector-agent",
   "documentation": {
     "type": "externalLink",

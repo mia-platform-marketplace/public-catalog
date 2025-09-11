@@ -11,7 +11,6 @@
   },
   "itemId": "ai-compliance-chat",
   "name": "AI Compliance",
-  "publishOnMiaDocumentation": true,
   "resources": {
     "collections": {
       "assistant-catalog-documents": {

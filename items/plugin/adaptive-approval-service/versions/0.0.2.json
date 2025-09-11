@@ -7,7 +7,6 @@
   },
   "itemId": "adaptive-approval-service",
   "name": "Adaptive Approval Service",
-  "publishOnMiaDocumentation": true,
   "resources": {
     "services": {
       "adaptive-approval-service": {

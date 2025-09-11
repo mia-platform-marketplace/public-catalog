@@ -6,7 +6,6 @@
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
   },
-  "publishOnMiaDocumentation": true,
   "image": {
     "localPath": "../assets/form-service-frontend_logo_20250410.png"
   },

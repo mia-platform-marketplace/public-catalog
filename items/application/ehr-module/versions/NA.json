@@ -7,7 +7,6 @@
   },
   "itemId": "ehr-module",
   "name": "EHR Module",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/applications/ehr-module",
   "resources": {
     "collections": {

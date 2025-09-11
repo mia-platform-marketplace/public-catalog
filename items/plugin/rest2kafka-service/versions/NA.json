@@ -11,7 +11,6 @@
   },
   "itemId": "rest2kafka-service",
   "name": "Rest2Kafka service",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/rest2kafka",
   "resources": {
     "services": {

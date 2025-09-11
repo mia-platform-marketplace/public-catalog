@@ -6,7 +6,6 @@
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/pdf-service/overview"
   },
-  "publishOnMiaDocumentation": true,
   "image": {
     "localPath": "../assets/pdf-service_logo_20250423.png"
   },

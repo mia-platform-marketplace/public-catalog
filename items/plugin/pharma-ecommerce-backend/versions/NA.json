@@ -11,7 +11,6 @@
   },
   "itemId": "pharma-ecommerce-backend",
   "name": "Pharma Ecommerce Backend",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/pharma-ecommerce-backend",
   "resources": {
     "services": {

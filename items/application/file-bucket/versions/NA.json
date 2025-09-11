@@ -11,7 +11,6 @@
   },
   "itemId": "file-bucket",
   "name": "File Bucket",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/runtime/marketplace/file-bucket-application",
   "resources": {
     "services": {

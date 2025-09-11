@@ -11,7 +11,6 @@
   },
   "itemId": "auth0-client",
   "name": "Auth0 Client",
-  "publishOnMiaDocumentation": true,
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/auth0-client",
   "resources": {
     "services": {
