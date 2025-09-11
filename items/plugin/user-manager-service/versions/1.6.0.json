@@ -6,7 +6,6 @@
     "type": "externalLink",
     "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-manager-service/overview"
   },
-  "publishOnMiaDocumentation": true,
   "image": {
     "localPath": "../assets/user-manager-service.png"
   },

@@ -26106,7 +26106,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "envoy-api-gateway",
     "name": "Envoy API Gateway",
-    "publishOnMiaDocumentation": false,
     "resources": {
       "services": {
         "api-gateway": {
@@ -33370,7 +33369,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "files-service",
     "name": "Files Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/files-service",
     "resources": {
       "services": {
@@ -33448,7 +33446,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -33475,7 +33472,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "files-service",
     "name": "Files Service",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/files-service",
     "resources": {
       "services": {
@@ -75774,7 +75770,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "itemId": "swagger-aggregator",
     "name": "Swagger Aggregator",
-    "publishOnMiaDocumentation": true,
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
     "resources": {
       "services": {
@@ -82749,7 +82744,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "type": "externalLink",
       "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-manager-service/overview"
     },
-    "publishOnMiaDocumentation": true,
     "itemId": "user-manager-service",
     "name": "User Manager Service",
     "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/user-manager-service",
