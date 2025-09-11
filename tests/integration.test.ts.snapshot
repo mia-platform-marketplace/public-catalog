@@ -81942,6 +81942,163 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "user-manager-service",
           "description": "The User Manager Service combines the Authentication Service (e.g. Auth0 Client) and the CRUD into a unique service for user management.",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/user-manager-service:1.6.0",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "AUTH_SERVICE",
+              "value": "auth0-client",
+              "valueType": "plain"
+            },
+            {
+              "name": "UMS_CONFIG_CRUD_ENDPOINT",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERS_CRUD_ENDPOINT",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "AUTH_CONNECTION",
+              "value": "Username-Password-Authentication",
+              "valueType": "plain"
+            }
+          ],
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "50m",
+              "min": "50m"
+            },
+            "memoryLimits": {
+              "max": "70Mi",
+              "min": "50Mi"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20,
+              "timeoutSeconds": 1,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 10,
+              "timeoutSeconds": 1,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "1.6.0",
+      "releaseNote": "Upgrade to Node.JS 22 & security patches"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-09-05T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "user-manager-service.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "utility",
+    "description": "The User Manager Service combines the Authentication Service (e.g. Auth0 Client) and the CRUD into a unique service for user management.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/user-manager-service/overview"
+    },
+    "publishOnMiaDocumentation": true,
+    "itemId": "user-manager-service",
+    "name": "User Manager Service",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/user-manager-service",
+    "resources": {
+      "services": {
+        "user-manager-service": {
+          "type": "plugin",
+          "name": "user-manager-service",
+          "description": "The User Manager Service combines the Authentication Service (e.g. Auth0 Client) and the CRUD into a unique service for user management.",
           "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/user-manager-service:1.5.2",
           "defaultEnvironmentVariables": [
             {
@@ -82064,7 +82221,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
