@@ -31,8 +31,8 @@ type Category = {
 
 /** @throws Error */
 const upsertDefaultCategories = async (ctx: SyncCtx, collection: Collection<Category>) => {
-  for (const category of categoriesModule.categories) {
-    const filter: Filter<Category> = { categoryId: category.categoryId }
+  for (const [categoryId, category] of Object.entries(categoriesModule.categories)) {
+    const filter: Filter<Category> = { categoryId }
     const payload: UpdateFilter<Category> = { $set: { __STATE__, label: category.label } }
     const options: UpdateOptions = { upsert: true }
 
@@ -42,17 +42,17 @@ const upsertDefaultCategories = async (ctx: SyncCtx, collection: Collection<Cate
 
     if (!result.acknowledged) {
       const error = 'DB returned an unacknowledged result'
-      ctx.metrics.incCategoriesErrors({ entity: { categoryId: category.categoryId }, error })
+      ctx.metrics.incCategoriesErrors({ entity: { categoryId }, error })
       throw new Error(error)
     }
 
     ctx.logger.info(
       { matchedCount: result.matchedCount, modifiedCount: result.modifiedCount, upsertedCount: result.upsertedCount },
-      `Successfully upserted category "${category.categoryId}"`
+      `Successfully upserted category "${categoryId}"`
     )
 
-    if (result.upsertedCount === 1) { ctx.metrics.incCategoriesCreated({ categoryId: category.categoryId }) }
-    if (result.modifiedCount === 1) { ctx.metrics.incCategoriesUpdated({ categoryId: category.categoryId }) }
+    if (result.upsertedCount === 1) { ctx.metrics.incCategoriesCreated({ categoryId }) }
+    if (result.modifiedCount === 1) { ctx.metrics.incCategoriesUpdated({ categoryId }) }
   }
 }
 

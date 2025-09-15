@@ -5,15 +5,14 @@
   "properties": {
     "$schema": { "type": "string" },
     "categories": {
-      "type": "array",
-      "items": {
+      "type": "object",
+      "additionalProperties": {
         "type": "object",
         "properties": {
-          "categoryId": { "type": "string" },
           "label": { "type": "string" }
         },
         "additionalProperties": false,
-        "required": ["categoryId", "label"]
+        "required": ["label"]
       }
     }
   },

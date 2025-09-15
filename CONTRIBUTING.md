@@ -193,7 +193,7 @@ An item is considered deprecated if all of its versions are deprecated.
 >
 > You cannot edit the `categoryId` of an existing category since there may be other items using it outside the ones declared here.
 
-- Add the new category or edit the exiling one in `/assets/categories.json`.
+- Add the new category or edit the existing one in `/assets/categories.json`.
 - Update the manifest JSON schemas running `yarn sync-manifest-schemas`
 - Open a pull request with:
   - **title**: `feat(catalog): [add | edit] category <category-id>` (e.g., `feat(catalog): add category my-awesome-category`)
