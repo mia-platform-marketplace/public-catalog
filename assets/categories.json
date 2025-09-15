@@ -1,145 +1,110 @@
 {
   "$schema": "./schemas/categories.schema.json",
-  "categories": [
-    {
-      "categoryId": "stream",
+  "categories": {
+    "stream": {
       "label": "Add-ons - Data Stream"
     },
-    {
-      "categoryId": "business",
+    "business": {
       "label": "Add-ons - Data Visualization"
     },
-    {
-      "categoryId": "frontendbuilder",
+    "frontendbuilder": {
       "label": "Add-ons - Frontend Builders"
     },
-    {
-      "categoryId": "monitoring",
+    "monitoring": {
       "label": "Add-ons - Monitoring"
     },
-    {
-      "categoryId": "utility",
+    "utility": {
       "label": "Add-ons - Utilities"
     },
-    {
-      "categoryId": "auth",
+    "auth": {
       "label": "Core Plugins - Authentication & Authorization"
     },
-    {
-      "categoryId": "database",
+    "database": {
       "label": "Core Plugins - Database Management"
     },
-    {
-      "categoryId": "devportal",
+    "devportal": {
       "label": "Core Plugins - Dev Portal"
     },
-    {
-      "categoryId": "files",
+    "files": {
       "label": "Core Plugins - Files Management"
     },
-    {
-      "categoryId": "microfrontend",
+    "microfrontend": {
       "label": "Core Plugins - Micro Frontend"
     },
-    {
-      "categoryId": "notification",
+    "notification": {
       "label": "Core Plugins - Notifications"
     },
-    {
-      "categoryId": "orchestrators",
+    "orchestrators": {
       "label": "Core Plugins - Orchestrators"
     },
-    {
-      "categoryId": "serverless",
+    "serverless": {
       "label": "Core Plugins - Serverless"
     },
-    {
-      "categoryId": "code",
+    "code": {
       "label": "Start From Code"
     },
-    {
-      "categoryId": "dotnetcore",
+    "dotnetcore": {
       "label": "Start From Code - .NET Core"
     },
-    {
-      "categoryId": "golang",
+    "golang": {
       "label": "Start From Code - Go"
     },
-    {
-      "categoryId": "kotlin",
+    "kotlin": {
       "label": "Start From Code - Java/Kotlin"
     },
-    {
-      "categoryId": "nodejs",
+    "nodejs": {
       "label": "Start From Code - Node.js"
     },
-    {
-      "categoryId": "python",
+    "python": {
       "label": "Start From Code - Python"
     },
-    {
-      "categoryId": "rust",
+    "rust": {
       "label": "Start From Code - Rust/C/Swift"
     },
-    {
-      "categoryId": "spa",
+    "spa": {
       "label": "Start From Code - SPA - Angular/React"
     },
-    {
-      "categoryId": "insurance",
+    "insurance": {
       "label": "Add-ons - Insurance"
     },
-    {
-      "categoryId": "addgeo",
+    "addgeo": {
       "label": "Add-ons - Geolocation"
     },
-    {
-      "categoryId": "addonsecurity",
+    "addonsecurity": {
       "label": "Add-ons - Security"
     },
-    {
-      "categoryId": "payments",
+    "payments": {
       "label": "Add-ons - Payments"
     },
-    {
-      "categoryId": "fast-data",
+    "fast-data": {
       "label": "Add-ons - Fast Data"
     },
-    {
-      "categoryId": "communication",
+    "communication": {
       "label": "Add-ons - Communication"
     },
-    {
-      "categoryId": "scheduling",
+    "scheduling": {
       "label": "Add-ons - Scheduling Management"
     },
-    {
-      "categoryId": "fast-data-connectors",
+    "fast-data-connectors": {
       "label": "Add-ons - Fast Data Connectors"
     },
-    {
-      "categoryId": "idm",
+    "idm": {
       "label": "Add-ons - Identification Manager"
     },
-    {
-      "categoryId": "scoring",
+    "scoring": {
       "label": "Add-ons - Scoring Manager"
     },
-    {
-      "categoryId": "data-catalog",
+    "data-catalog": {
       "label": "Add-ons - Data Catalog"
     },
-    {
-      "categoryId": "artificial-intelligence",
+    "artificial-intelligence": {
       "label": "Artificial Intelligence"
     },
-    {
-      "categoryId": "healthcare",
+    "healthcare": {
       "label": "Healthcare"
     },
-    {
-      "categoryId": "integrations",
+    "integrations": {
       "label": "Application Integration"
     }
-  ]
+  }
 }
