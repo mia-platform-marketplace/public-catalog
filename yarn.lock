@@ -947,12 +947,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.3.2":
-  version: 24.3.2
-  resolution: "@types/node@npm:24.3.2"
+"@types/node@npm:^24.5.0":
+  version: 24.5.0
+  resolution: "@types/node@npm:24.5.0"
   dependencies:
-    undici-types: "npm:~7.10.0"
-  checksum: 10/7d2be32fd33c910bb73eb43364cc8dc86d35a40b51b366900f68cc1d96cb1fc9f23a91df7d65c35250faca81e6312ee2b97252c8178e4abf9940f9c2e9b0d398
+    undici-types: "npm:~7.12.0"
+  checksum: 10/d9fb6541d526a0f9e5f44866b9eed59a9621a506ff660ae6d52b49f0f3c007ce46384eed2f40ee03348e9e3dc848e296131adb94b85b9cf224d57acb3bd71268
   languageName: node
   linkType: hard
 
@@ -4921,7 +4921,7 @@ __metadata:
     "@stylistic/eslint-plugin": "npm:^5.3.1"
     "@types/json-diff": "npm:^1.0.3"
     "@types/lodash-es": "npm:^4.17.12"
-    "@types/node": "npm:^24.3.2"
+    "@types/node": "npm:^24.5.0"
     "@types/semver": "npm:^7.7.1"
     ajv: "npm:^8.17.1"
     ajv-formats: "npm:^3.0.1"
@@ -6025,10 +6025,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~7.10.0":
-  version: 7.10.0
-  resolution: "undici-types@npm:7.10.0"
-  checksum: 10/1f3fe777937690ab8a7a7bccabc8fdf4b3171f4899b5a384fb5f3d6b56c4b5fec2a51fbf345c9dd002ff6716fd440a37fa8fdb0e13af8eca8889f25445875ba3
+"undici-types@npm:~7.12.0":
+  version: 7.12.0
+  resolution: "undici-types@npm:7.12.0"
+  checksum: 10/4a0f927c98828f76fb0d64f356e36e5ac6e074ae4c7bec08d6de8bc36b7cf08ae27a3518fa8eb703f51c1a675241e2d07359bbce63f5575299148a270cea7e43
   languageName: node
   linkType: hard
 
