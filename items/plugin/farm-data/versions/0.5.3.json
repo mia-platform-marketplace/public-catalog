@@ -1,0 +1,106 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "fast-data",
+  "description": "Use Mia-Platform Farm Data to combine multiple Kafka change stream together and generate an aggregated record that can be transformed into a Data Product",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/<TODO>"
+  },
+  "image": {
+    "localPath": "../assets/farm-data.png"
+  },
+  "itemId": "farm-data",
+  "name": "farm-data",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/farm-data",
+  "resources": {
+    "services": {
+      "swagger-aggregator": {
+        "type": "plugin",
+        "name": "farm-data",
+        "description": "Use Mia-Platform Farm Data to combine multiple Kafka change stream together and generate an aggregated record that can be transformed into a Data Product.",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/farm-data:0.5.3",
+        "componentId": "farm-data",
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "100Mi",
+            "max": "250Mi"
+          },
+          "cpuLimits": {
+            "min": "100m",
+            "max": "1000m"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "info",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "aggregation-config",
+            "mountPath": "/home/farm_data/.df/aggregation",
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\"id\":\"<TODO>\",\"connections\":{\"cloud\":{\"type\":\"kafka\",\"config\":{\"bootstrap.servers\":{\"type\":\"file\",\"path\":\"/run/secrets/kafka/bootstrap.servers\"},\"queued.max.messages.kbytes\":\"8192\",\"queued.min.messages\":\"500\"}}},\"consumers\":{\"type\":\"kafka\",\"config\":{\"<UNIT_NAME_1>\":{\"topic\":\"<INPUT_TOPIC_1>\",\"connectionName\":\"cloud\",\"group.id\":\"<TODO>\"},\"<UNIT_NAME_2>\":{\"topic\":\"<INPUT_TOPIC_2>\",\"connectionName\":\"cloud\",\"group.id\":\"<TODO>\"}}},\"producer\":{\"type\":\"kafka\",\"config\":{\"topic\":\"<OUTPUT_TOPIC>\",\"connectionName\":\"cloud\"}},\"processor\":{\"persistence\":{\"type\":\"mongo\",\"config\":{\"url\":{\"type\":\"file\",\"path\":\"/run/secrets/mongodb/mongodb-url\"},\"database\":\"<TODO>\"}},\"internalUpdates\":{\"type\":\"kafka\",\"config\":{\"topic\":\"<INTERNAL_UPDATES_TOPIC>\",\"connectionName\":\"cloud\",\"consumer\":{\"group.id\":\"<TODO>\",\"client.id\":\"fd.internal-updates\",\"queued.max.messages.kbytes\":\"96\",\"queued.min.messages\":\"160\",\"fetch.message.max.bytes\":\"40320\"},\"compressionWindowMs\":500}},\"graph\":{\"nodes\":[{\"id\":\"<UNIT_NAME_1>\",\"edges\":{\"in\":[],\"out\":[\"<EDGE_ID_1>\"]}},{\"id\":\"<UNIT_NAME_2>\",\"edges\":{\"in\":[\"<EDGE_ID_1>\"],\"out\":[]}}],\"edges\":[{\"id\":\"<EDGE_ID_1>\",\"filter\":{\"$eq\":[{\"foreign\":[\"id\"]},{\"local\":[\"id\"]}]}}]}}}"
+              }
+            ],
+            "viewAsReadOnly": false
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 15,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 15,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "version": {
+    "name": "0.5.3",
+    "releaseNote": "## Initial Release"
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2025-09-22T10:00:00.000Z",
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
+}
