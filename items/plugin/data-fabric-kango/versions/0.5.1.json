@@ -9,17 +9,17 @@
   "image": {
     "localPath": "../assets/kango.png"
   },
-  "itemId": "kango",
+  "itemId": "data-fabric-kango",
   "name": "Kango",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/kango",
   "resources": {
     "services": {
       "swagger-aggregator": {
         "type": "plugin",
-        "name": "kango",
+        "name": "data-fabric-kango",
         "description": "Use Mia-Platform Kango to consume a stream of change events from a Kafka topic and save them onto a MongoDB collection.",
         "dockerImage": "nexus.mia-platform.eu/data-fabric/kango:0.5.1",
-        "componentId": "kango",
+        "componentId": "data-fabric-kango",
         "defaultResources": {
           "memoryLimits": {
             "min": "30Mi",
