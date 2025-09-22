@@ -9,17 +9,17 @@
   "image": {
     "localPath": "../assets/stream-processor.png"
   },
-  "itemId": "stream-processor",
+  "itemId": "data-fabric-stream-processor",
   "name": "Stream Processor",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/stream-processor",
   "resources": {
     "services": {
       "swagger-aggregator": {
         "type": "plugin",
-        "name": "stream-processor",
+        "name": "data-fabric-stream-processor",
         "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream.",
         "dockerImage": "nexus.mia-platform.eu/data-fabric/stream-processor:0.5.2",
-        "componentId": "stream-processor",
+        "componentId": "data-fabric-stream-processor",
         "defaultResources": {
           "memoryLimits": {
             "min": "20Mi",
