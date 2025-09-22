@@ -9,17 +9,17 @@
   "image": {
     "localPath": "../assets/farm-data.png"
   },
-  "itemId": "farm-data",
-  "name": "farm-data",
+  "itemId": "data-fabric-farm-data",
+  "name": "Farm Data",
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/farm-data",
   "resources": {
     "services": {
       "swagger-aggregator": {
         "type": "plugin",
-        "name": "farm-data",
+        "name": "data-fabric-farm-data",
         "description": "Use Mia-Platform Farm Data to combine multiple Kafka change stream together and generate an aggregated record that can be transformed into a Data Product.",
         "dockerImage": "nexus.mia-platform.eu/data-fabric/farm-data:0.5.3",
-        "componentId": "farm-data",
+        "componentId": "data-fabric-farm-data",
         "defaultResources": {
           "memoryLimits": {
             "min": "100Mi",
