@@ -34974,6 +34974,975 @@ exports[`Sync script > should match snapshot 2`] = `
     ]
   },
   {
+    "itemId": "full-stack-ai-agent",
+    "categoryId": "artificial-intelligence",
+    "description": "Full stack agentic application, powered by Google ADK. Includes also an user interface to allow human interaction with the agent, and a persistence layer to optionally store conversations history.",
+    "itemTypeDefinitionRef": {
+      "name": "application",
+      "namespace": "mia-platform"
+    },
+    "lifecycleStatus": "draft",
+    "name": "Full stack AI Agent",
+    "supportedBy": "Mia-Platform",
+    "providerId": "digital-platform-c-gitlab",
+    "releaseDate": "2025-09-09T07:35:22.335Z",
+    "resources": {
+      "services": {
+        "api-gateway": {
+          "componentId": "api-gateway-envoy",
+          "containerPorts": [
+            {
+              "name": "frontend",
+              "from": 8080,
+              "to": 8080
+            },
+            {
+              "name": "backoffice",
+              "from": 8081,
+              "to": 8081
+            },
+            {
+              "name": "admin",
+              "from": 9901,
+              "to": 9901
+            }
+          ],
+          "defaultAnnotations": [
+            {
+              "description": "Version of Mia-Platform used by the project",
+              "name": "mia-platform.eu/version",
+              "readOnly": true,
+              "value": "14.1.0"
+            },
+            {
+              "description": "Pino parser annotation for Fluent Bit",
+              "name": "fluentbit.io/parser",
+              "readOnly": true,
+              "value": "pino"
+            }
+          ],
+          "defaultArgs": [
+            "-c",
+            "/etc/envoy/envoy.json",
+            "-l",
+            "{{LOG_LEVEL}}",
+            "--log-format",
+            "{\\"level\\":\\"%l\\",\\"time\\":\\"%Y-%m-%dT%T.%fZ\\",\\"scope\\":\\"%n\\",\\"message\\":\\"%j\\"}",
+            "--drain-time-s",
+            "50"
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "api-gateway-envoy-config",
+              "mountPath": "/etc/envoy",
+              "files": [],
+              "viewAsReadOnly": true,
+              "link": {
+                "targetSection": "endpoints"
+              }
+            }
+          ],
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLabels": [
+            {
+              "name": "app",
+              "value": "api-gateway",
+              "description": "Name of the microservice, in the service selector",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/name",
+              "value": "api-gateway",
+              "description": "Name of the microservice",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/component",
+              "value": "custom",
+              "description": "Microservice kind, for the Console",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/part-of",
+              "value": "%PROJECT_ID%",
+              "description": "Project that own the microservice",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/managed-by",
+              "value": "mia-platform",
+              "description": "Identify who manage the service",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/stage",
+              "value": "{{STAGE_TO_DEPLOY}}",
+              "description": "Environment used for the deploy",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/tenant",
+              "value": "b933f1ef-5b8e-4adf-a346-24a3b03d13e8",
+              "description": "Tenant owner of the project",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/log-type",
+              "value": "mia-json",
+              "description": "Format of logs for the microservice",
+              "readOnly": true
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "200m",
+              "min": "150m"
+            },
+            "memoryLimits": {
+              "max": "250Mi",
+              "min": "150Mi"
+            }
+          },
+          "defaultTerminationGracePeriodSeconds": 60,
+          "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+          "dockerImage": "nexus.mia-platform.eu/cache/envoyproxy/envoy:v1.29.2",
+          "execPreStop": [
+            "bash",
+            "-c",
+            "echo -e 'POST /drain_listeners?graceful HTTP/1.1\\r\\nHost: localhost:9901\\r\\n\\r' > /dev/tcp/localhost/9901 && sleep 55s"
+          ],
+          "name": "api-gateway",
+          "tags": [
+            "custom"
+          ],
+          "type": "plugin"
+        },
+        "agent-be": {
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8000,
+              "protocol": "TCP"
+            }
+          ],
+          "defaultAnnotations": [
+            {
+              "description": "Version of Mia-Platform used by the project",
+              "name": "mia-platform.eu/version",
+              "readOnly": true,
+              "value": "14.1.0"
+            },
+            {
+              "description": "Pino parser annotation for Fluent Bit",
+              "name": "fluentbit.io/parser",
+              "readOnly": true,
+              "value": "pino"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "config",
+              "mountPath": "/app/config",
+              "files": [
+                {
+                  "content": "agents:\\n  openai_gpt_4o:\\n    model: \\"openai/gpt-4o\\"\\n    lite_llm: true\\n    description: \\"General purpose agent.\\"\\n    instructions: |\\n      You are a helpful assistant. Answer as concisely as possible.\\n  gemini_2_0_flash:\\n    model: \\"gemini-2.0-flash\\"\\n    lite_llm: false\\n    description: \\"General purpose agent.\\"\\n    instructions: |\\n      You are a helpful assistant. Answer as concisely as possible.\\n",
+                  "name": "config.yaml"
+                }
+              ],
+              "viewAsReadOnly": false,
+              "usePreserve": false,
+              "link": {}
+            },
+            {
+              "name": "tools",
+              "mountPath": "/app/agents/hub/tools",
+              "files": [
+                {
+                  "content": "def get_weather(city: str) -> dict:\\n    \\"\\"\\"Retrieves the current weather report for a specified city.\\n\\n    Returns:\\n        dict: A dictionary containing the weather information with a 'status' key ('success' or 'error') and a 'report' key with the weather details if successful, or an 'error_message' if an error occurred.\\n    \\"\\"\\"\\n    if city.lower() == \\"new york\\":\\n        return {\\"status\\": \\"success\\",\\n                \\"report\\": \\"The weather in New York is sunny with a temperature of 25 degrees Celsius (41 degrees Fahrenheit).\\"}\\n    else:\\n        return {\\"status\\": \\"error\\",\\n                \\"error_message\\": f\\"Weather information for '{city}' is not available.\\"}\\n",
+                  "name": "get_weather_example.py"
+                }
+              ],
+              "viewAsReadOnly": false,
+              "usePreserve": true,
+              "link": {}
+            }
+          ],
+          "defaultDocumentationPath": "/docs",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "OPENAI_API_KEY",
+              "value": "{{OPENAI_API_KEY}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "ROOT_AGENT_NAME",
+              "value": "openai_gpt_4o",
+              "valueType": "plain"
+            },
+            {
+              "name": "IN_MEMORY_SESSION_SERVICE",
+              "value": "TRUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONGODB_CONNECTION_STRING",
+              "value": "",
+              "valueType": "plain",
+              "description": "Connection string to connect to MongoDB for session persistence. Not needed if IN_MEMORY_SESSION_SERVICE=TRUE"
+            },
+            {
+              "name": "MONGODB_DATABASE_NAME",
+              "value": "",
+              "valueType": "plain",
+              "description": "Database name to use in MongoDB for session persistence. Not needed if IN_MEMORY_SESSION_SERVICE=TRUE"
+            }
+          ],
+          "defaultLabels": [
+            {
+              "name": "app",
+              "value": "agent-be",
+              "description": "Name of the microservice, in the service selector",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/name",
+              "value": "agent-be",
+              "description": "Name of the microservice",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/component",
+              "value": "custom",
+              "description": "Microservice kind, for the Console",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/part-of",
+              "value": "%PROJECT_ID%",
+              "description": "Project that own the microservice",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/managed-by",
+              "value": "mia-platform",
+              "description": "Identify who manage the service",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/stage",
+              "value": "{{STAGE_TO_DEPLOY}}",
+              "description": "Environment used for the deploy",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/tenant",
+              "value": "b933f1ef-5b8e-4adf-a346-24a3b03d13e8",
+              "description": "Tenant owner of the project",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/log-type",
+              "value": "mia-json",
+              "description": "Format of logs for the microservice",
+              "readOnly": true
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "1000m",
+              "min": "250m"
+            },
+            "memoryLimits": {
+              "max": "800Mi",
+              "min": "400Mi"
+            }
+          },
+          "defaultTerminationGracePeriodSeconds": 30,
+          "dockerImage": "nexus.mia-platform.eu/hub/hub-be:1.0.2",
+          "name": "agent-be",
+          "tags": [
+            "custom"
+          ],
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz"
+            },
+            "readiness": {
+              "path": "/-/ready"
+            }
+          },
+          "type": "plugin"
+        },
+        "agent-bff": {
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
+          "defaultAnnotations": [
+            {
+              "description": "Version of Mia-Platform used by the project",
+              "name": "mia-platform.eu/version",
+              "readOnly": true,
+              "value": "14.1.0"
+            },
+            {
+              "description": "Pino parser annotation for Fluent Bit",
+              "name": "fluentbit.io/parser",
+              "readOnly": true,
+              "value": "pino"
+            }
+          ],
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "CONVERSATIONS_CRUD_BASE_URL",
+              "value": "http://crud-service",
+              "valueType": "plain"
+            },
+            {
+              "name": "CONVERSATIONS_CRUD_NAME",
+              "value": "conversations",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLabels": [
+            {
+              "name": "app",
+              "value": "agent-bff",
+              "description": "Name of the microservice, in the service selector",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/name",
+              "value": "agent-bff",
+              "description": "Name of the microservice",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/component",
+              "value": "custom",
+              "description": "Microservice kind, for the Console",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/part-of",
+              "value": "%PROJECT_ID%",
+              "description": "Project that own the microservice",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/managed-by",
+              "value": "mia-platform",
+              "description": "Identify who manage the service",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/stage",
+              "value": "{{STAGE_TO_DEPLOY}}",
+              "description": "Environment used for the deploy",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/tenant",
+              "value": "b933f1ef-5b8e-4adf-a346-24a3b03d13e8",
+              "description": "Tenant owner of the project",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/log-type",
+              "value": "mia-json",
+              "description": "Format of logs for the microservice",
+              "readOnly": true
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "100m",
+              "min": "50m"
+            },
+            "memoryLimits": {
+              "max": "100Mi",
+              "min": "100Mi"
+            }
+          },
+          "defaultTerminationGracePeriodSeconds": 30,
+          "dockerImage": "nexus.mia-platform.eu/hub/hub-bff:1.1.1",
+          "name": "agent-bff",
+          "tags": [
+            "custom"
+          ],
+          "defaultProbes": {
+            "liveness": {
+              "path": "/status/alive"
+            },
+            "readiness": {
+              "path": "/status/alive"
+            }
+          },
+          "type": "plugin"
+        },
+        "agent-fe": {
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ],
+          "defaultAnnotations": [
+            {
+              "description": "Version of Mia-Platform used by the project",
+              "name": "mia-platform.eu/version",
+              "readOnly": true,
+              "value": "14.1.0"
+            },
+            {
+              "description": "Pino parser annotation for Fluent Bit",
+              "name": "fluentbit.io/parser",
+              "readOnly": true,
+              "value": "nginx"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "hub-fe-configuration",
+              "mountPath": "/usr/static/",
+              "files": [
+                {
+                  "content": "{\\n  \\"theme\\": {\\n    \\"mainFont\\": \\"Inter\\",\\n    \\"fontSize\\": \\"14px\\",\\n    \\"backgroundPrimary\\": \\"#aad1fb\\",\\n    \\"actionPrimary\\": \\"#1261e4\\",\\n    \\"actionLink\\": \\"#1261e4\\",\\n    \\"backgroundNeutral\\": \\"#cdcdcd\\"\\n  },\\n  \\"ui\\": {\\n    \\"inputPlaceholder\\": \\"Ask anything, i'm here to help you!\\"\\n  }\\n}",
+                  "name": "hub-fe-config.json"
+                }
+              ],
+              "viewAsReadOnly": false,
+              "usePreserve": true,
+              "link": {}
+            }
+          ],
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "8080",
+              "valueType": "plain"
+            },
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLabels": [
+            {
+              "name": "app",
+              "value": "agent-fe",
+              "description": "Name of the microservice, in the service selector",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/name",
+              "value": "agent-fe",
+              "description": "Name of the microservice",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/component",
+              "value": "custom",
+              "description": "Microservice kind, for the Console",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/part-of",
+              "value": "%PROJECT_ID%",
+              "description": "Project that own the microservice",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/managed-by",
+              "value": "mia-platform",
+              "description": "Identify who manage the service",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/stage",
+              "value": "{{STAGE_TO_DEPLOY}}",
+              "description": "Environment used for the deploy",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/tenant",
+              "value": "b933f1ef-5b8e-4adf-a346-24a3b03d13e8",
+              "description": "Tenant owner of the project",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/log-type",
+              "value": "mia-nginx",
+              "description": "Format of logs for the microservice",
+              "readOnly": true
+            }
+          ],
+          "defaultLogParser": "mia-nginx",
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "100m",
+              "min": "50m"
+            },
+            "memoryLimits": {
+              "max": "100Mi",
+              "min": "100Mi"
+            }
+          },
+          "defaultTerminationGracePeriodSeconds": 30,
+          "dockerImage": "nexus.mia-platform.eu/hub/hub-fe:1.1.11",
+          "name": "agent-fe",
+          "tags": [
+            "custom"
+          ],
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz"
+            },
+            "readiness": {
+              "path": "/-/ready"
+            }
+          },
+          "type": "plugin"
+        },
+        "crud-service": {
+          "componentId": "crud-service",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ],
+          "defaultAnnotations": [
+            {
+              "description": "Version of Mia-Platform used by the project",
+              "name": "mia-platform.eu/version",
+              "readOnly": true,
+              "value": "14.1.0"
+            },
+            {
+              "description": "Pino parser annotation for Fluent Bit",
+              "name": "fluentbit.io/parser",
+              "readOnly": true,
+              "value": "pino"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "crud-service-collections",
+              "mountPath": "/home/node/app/collections",
+              "files": [],
+              "viewAsReadOnly": true,
+              "link": {
+                "targetSection": "collections"
+              }
+            }
+          ],
+          "defaultDocumentationPath": "/documentation/json",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "COLLECTION_DEFINITION_FOLDER",
+              "value": "/home/node/app/collections",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_ID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+              "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "EXPOSE_METRICS",
+              "value": "false",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLabels": [
+            {
+              "name": "app",
+              "value": "crud-service",
+              "description": "Name of the microservice, in the service selector",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/name",
+              "value": "crud-service",
+              "description": "Name of the microservice",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/component",
+              "value": "custom",
+              "description": "Microservice kind, for the Console",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/part-of",
+              "value": "%PROJECT_ID%",
+              "description": "Project that own the microservice",
+              "readOnly": true
+            },
+            {
+              "name": "app.kubernetes.io/managed-by",
+              "value": "mia-platform",
+              "description": "Identify who manage the service",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/stage",
+              "value": "{{STAGE_TO_DEPLOY}}",
+              "description": "Environment used for the deploy",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/tenant",
+              "value": "b933f1ef-5b8e-4adf-a346-24a3b03d13e8",
+              "description": "Tenant owner of the project",
+              "readOnly": true
+            },
+            {
+              "name": "mia-platform.eu/log-type",
+              "value": "mia-json",
+              "description": "Format of logs for the microservice",
+              "readOnly": true
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "300m",
+              "min": "70m"
+            },
+            "memoryLimits": {
+              "max": "200Mi",
+              "min": "50Mi"
+            }
+          },
+          "defaultTerminationGracePeriodSeconds": 30,
+          "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+          "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.2.3",
+          "mapEnvVarToMountPath": {
+            "collections": {
+              "type": "folder",
+              "envName": "COLLECTION_DEFINITION_FOLDER"
+            }
+          },
+          "name": "crud-service",
+          "tags": [
+            "custom"
+          ],
+          "type": "plugin"
+        }
+      },
+      "endpoints": {
+        "/": {
+          "type": "custom",
+          "defaultBasePath": "/",
+          "defaultPathRewrite": "/",
+          "service": "agent-be",
+          "tags": [
+            "agent-be"
+          ],
+          "description": "Endpoint /",
+          "showInDocumentation": true
+        },
+        "/agent": {
+          "type": "custom",
+          "defaultBasePath": "/agent",
+          "defaultPathRewrite": "/",
+          "service": "agent-fe",
+          "tags": [
+            "agent-fe"
+          ],
+          "description": "Endpoint /agent",
+          "showInDocumentation": true
+        },
+        "/apps/hub": {
+          "type": "custom",
+          "defaultBasePath": "/apps/hub",
+          "defaultPathRewrite": "/apps/hub",
+          "service": "agent-be",
+          "tags": [
+            "agent-be"
+          ],
+          "description": "Endpoint /apps/hub",
+          "showInDocumentation": true
+        },
+        "/bff": {
+          "type": "custom",
+          "defaultBasePath": "/bff",
+          "defaultPathRewrite": "/bff",
+          "service": "agent-bff",
+          "tags": [
+            "agent-bff"
+          ],
+          "description": "Endpoint /bff",
+          "showInDocumentation": true
+        },
+        "/conversations": {
+          "type": "crud",
+          "defaultBasePath": "/conversations",
+          "defaultPathRewrite": "/conversations",
+          "collectionId": "conversations",
+          "tags": [
+            "crud"
+          ],
+          "description": "Endpoint /conversations",
+          "showInDocumentation": true
+        }
+      },
+      "collections": {
+        "conversations": {
+          "type": "collection",
+          "defaultName": "conversations",
+          "internalEndpoints": [
+            {
+              "basePath": "/conversations",
+              "defaultState": "PUBLIC"
+            }
+          ],
+          "fields": [
+            {
+              "name": "_id",
+              "type": "ObjectId",
+              "required": true,
+              "nullable": false,
+              "description": "_id"
+            },
+            {
+              "name": "creatorId",
+              "type": "string",
+              "required": true,
+              "nullable": false,
+              "description": "creatorId"
+            },
+            {
+              "name": "createdAt",
+              "type": "Date",
+              "required": true,
+              "nullable": false,
+              "description": "createdAt"
+            },
+            {
+              "name": "updaterId",
+              "type": "string",
+              "required": true,
+              "nullable": false,
+              "description": "updaterId"
+            },
+            {
+              "name": "updatedAt",
+              "type": "Date",
+              "required": true,
+              "nullable": false,
+              "description": "updatedAt"
+            },
+            {
+              "name": "__STATE__",
+              "type": "string",
+              "required": true,
+              "nullable": false,
+              "description": "__STATE__"
+            },
+            {
+              "name": "conversationName",
+              "type": "string",
+              "required": true,
+              "nullable": false,
+              "description": ""
+            },
+            {
+              "name": "status",
+              "type": "string",
+              "required": true,
+              "nullable": false,
+              "description": ""
+            },
+            {
+              "name": "messages",
+              "type": "Array_RawObject",
+              "required": false,
+              "nullable": false,
+              "description": ""
+            },
+            {
+              "name": "sessionId",
+              "type": "string",
+              "required": true,
+              "nullable": false,
+              "description": "Identifier of the Google ADK sessionId."
+            }
+          ]
+        }
+      },
+      "listeners": {
+        "frontend": {
+          "name": "frontend",
+          "port": "8080",
+          "selectedByDefault": true,
+          "description": "Default listener for frontend API",
+          "ownedBy": {
+            "componentIds": [
+              "api-gateway-envoy"
+            ]
+          }
+        }
+      }
+    },
+    "tenantId": "mia-platform",
+    "visibility": {
+      "public": true
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "full-stack-ai-agent.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
     "categoryId": "serverless",
     "description": "This service allows to map functions to endpoints to be executed without creating a fully-fledged dedicated microservice.",
     "documentation": {
@@ -84490,6 +85459,11 @@ exports[`Sync script > should match snapshot 3`] = `
   },
   {
     "name": "form-service-frontend_logo_20250410.png",
+    "creatorId": "marketplace-sync",
+    "updaterId": "marketplace-sync"
+  },
+  {
+    "name": "full-stack-ai-agent.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },
