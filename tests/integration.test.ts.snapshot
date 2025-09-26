@@ -20829,6 +20829,13 @@ exports[`Sync script > should match snapshot 2`] = `
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "kango_logo_20250926.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
     "supportedByImage": [
       {
         "name": "mia-platform-logo-2023.png",
@@ -85927,6 +85934,11 @@ exports[`Sync script > should match snapshot 3`] = `
   },
   {
     "name": "kafka2rest-service_logo_20250410.png",
+    "creatorId": "marketplace-sync",
+    "updaterId": "marketplace-sync"
+  },
+  {
+    "name": "kango_logo_20250926.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },
