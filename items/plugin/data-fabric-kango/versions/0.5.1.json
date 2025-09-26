@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/<TODO>"
   },
   "image": {
-    "localPath": "../assets/kango.png"
+    "localPath": "../assets/kango_logo_20250926.png"
   },
   "itemId": "data-fabric-kango",
   "name": "Kango",
