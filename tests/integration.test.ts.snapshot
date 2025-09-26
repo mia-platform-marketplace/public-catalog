@@ -21057,6 +21057,13 @@ exports[`Sync script > should match snapshot 2`] = `
     "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "streamProcessor_logo_20250926.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
     "supportedByImage": [
       {
         "name": "mia-platform-logo-2023.png",
@@ -86137,6 +86144,11 @@ exports[`Sync script > should match snapshot 3`] = `
   },
   {
     "name": "sql-invoker-plugin-transparent.png",
+    "creatorId": "marketplace-sync",
+    "updaterId": "marketplace-sync"
+  },
+  {
+    "name": "streamProcessor_logo_20250926.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },

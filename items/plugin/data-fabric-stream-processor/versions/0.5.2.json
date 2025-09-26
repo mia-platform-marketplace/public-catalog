@@ -7,7 +7,7 @@
     "url": "https://docs.mia-platform.eu/docs/<TODO>"
   },
   "image": {
-    "localPath": "../assets/stream-processor.png"
+    "localPath": "../assets/streamProcessor_logo_20250926.png"
   },
   "itemId": "data-fabric-stream-processor",
   "name": "Stream Processor",
