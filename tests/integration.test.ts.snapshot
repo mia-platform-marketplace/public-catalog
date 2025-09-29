@@ -20859,6 +20859,115 @@ exports[`Sync script > should match snapshot 2`] = `
         "mongezium-cdc": {
           "type": "plugin",
           "name": "data-fabric-mongezium-cdc",
+          "dockerImage": "nexus.mia-platform.eu/data-fabric/mongezium:0.4.2",
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "300m",
+              "min": "50m"
+            },
+            "memoryLimits": {
+              "max": "300Mi",
+              "min": "50Mi"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "port": "http",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 20,
+              "timeoutSeconds": 3,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "port": "http",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 20,
+              "timeoutSeconds": 3,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            },
+            "startup": {}
+          },
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "valueType": "plain",
+              "value": "info"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "mongezium-cdc-configuration",
+              "mountPath": "/home/mongezium/.df/mongezium",
+              "files": [
+                {
+                  "content": "{\\n  \\"persistence\\": {\\n    \\"url\\": \\"CHANGE_ME\\"\\n  },\\n  \\"collections\\": [],\\n  \\"stream\\": {\\n    \\"consumer\\": {\\n      \\"bootstrap.servers\\": \\"CHANGE_ME\\"\\n    },\\n    \\"producer\\": {\\n      \\"bootstrap.servers\\": \\"CHANGE_ME\\"\\n    }\\n  }\\n}\\n",
+                  "name": "config.json"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "to": 3000,
+              "from": 80,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-09-22T15:07:08.407Z",
+    "lifecycleStatus": "published",
+    "version": {
+      "name": "0.4.2",
+      "releaseNote": "## What's Changed\\n* fix: OpenTelemetry traces a new properly propagated\\n"
+    },
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "mongezium_logo_20250708.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "fast-data",
+    "description": "A CDC (Change Data Capture) plugin from MongoDB to Kafka, enabling real-time data synchronization of database collection events",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/mongezium-cdc/overview"
+    },
+    "itemId": "data-fabric-mongezium-cdc",
+    "name": "Mongezium CDC",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/mongezium",
+    "resources": {
+      "services": {
+        "mongezium-cdc": {
+          "type": "plugin",
+          "name": "data-fabric-mongezium-cdc",
           "dockerImage": "nexus.mia-platform.eu/data-fabric/mongezium:0.4.1",
           "defaultResources": {
             "cpuLimits": {
@@ -20935,7 +21044,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
