@@ -4,7 +4,7 @@
   "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream",
   "documentation": {
     "type": "externalLink",
-    "url": "https://docs.mia-platform.eu/docs/<TODO>"
+    "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/stream_processor/overview"
   },
   "image": {
     "localPath": "../assets/streamProcessor_logo_20250926.png"
