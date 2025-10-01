@@ -4,7 +4,7 @@
   "description": "A CDC (Change Data Capture) plugin from MongoDB to Kafka, enabling real-time data synchronization of database collection events",
   "documentation": {
     "type": "externalLink",
-    "url": "https://docs.mia-platform.eu/docs/runtime_suite/mongezium-cdc/overview"
+    "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/mongezium_cdc/overview"
   },
   "image": {
     "localPath": "../assets/mongezium_logo_20250708.png"
