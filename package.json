@@ -4,7 +4,7 @@
   "version": "0.7.2",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@4.9.1",
+  "packageManager": "yarn@4.10.3",
   "license": "SEE LICENSE IN LICENSE",
   "author": "Mia Platform Core Team <core@mia-platform.eu>",
   "scripts": {
