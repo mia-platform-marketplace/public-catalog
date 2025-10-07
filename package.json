@@ -55,7 +55,7 @@
     "lodash-es": "^4.17.21",
     "nock": "^14.0.10",
     "rimraf": "^6.0.1",
-    "semver": "^7.7.2",
+    "semver": "^7.7.3",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.0"
