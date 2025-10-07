@@ -4827,9 +4827,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pino@npm:^9.13.0":
-  version: 9.13.0
-  resolution: "pino@npm:9.13.0"
+"pino@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "pino@npm:10.0.0"
   dependencies:
     atomic-sleep: "npm:^1.0.0"
     on-exit-leak-free: "npm:^2.1.0"
@@ -4844,7 +4844,7 @@ __metadata:
     thread-stream: "npm:^3.0.0"
   bin:
     pino: bin.js
-  checksum: 10/deaad84f8f0b0e08386e0745fa67692377c358ddcf76b84572b236f1087ad3ef381b0e0655c82fde072c0ae46a30f88947e16b2e16c52fc397bb3b844f14dcba
+  checksum: 10/32c7da274526706a2f1ad329bd44f2e2d2f0e0484e63dc290f8fb6986ed23e97ba5f30e6a80af3fa5f30a58e70a46d40a08b5731e1dfcb6f17a465f595fa361d
   languageName: node
   linkType: hard
 
@@ -4940,7 +4940,7 @@ __metadata:
     lodash-es: "npm:^4.17.21"
     mongodb: "npm:^6.20.0"
     nock: "npm:^14.0.10"
-    pino: "npm:^9.13.0"
+    pino: "npm:^10.0.0"
     pino-pretty: "npm:^13.1.1"
     rimraf: "npm:^6.0.1"
     semver: "npm:^7.7.3"
