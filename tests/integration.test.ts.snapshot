@@ -80119,12 +80119,11 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-09-04T00:00:00.000Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -80300,6 +80299,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
+    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -85288,12 +85288,11 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-09-05T00:00:00.000Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -85449,6 +85448,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
+    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
