@@ -1,0 +1,117 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "fast-data",
+  "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/stream_processor/overview"
+  },
+  "image": {
+    "localPath": "../assets/streamProcessor_logo_20250926.png"
+  },
+  "itemId": "data-fabric-stream-processor",
+  "name": "Stream Processor",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/stream-processor",
+  "resources": {
+    "services": {
+      "swagger-aggregator": {
+        "type": "plugin",
+        "name": "data-fabric-stream-processor",
+        "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream.",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/stream-processor:0.5.3",
+        "componentId": "data-fabric-stream-processor",
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "20Mi",
+            "max": "100Mi"
+          },
+          "cpuLimits": {
+            "min": "100m",
+            "max": "800m"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "info",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "stream-processor-config",
+            "mountPath": "/home/stream_processor/.df/stream-processor",
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\n  \"consumer\": {\n    \"type\": \"kafka\",\n    \"topic\": \"<INPUT_TOPIC>\",\n    \"config\": {\n      \"client.id\": \"sp.<TODO>.consumer\",\n      \"bootstrap.servers\": {\n        \"type\": \"file\",\n        \"path\": \"/run/secrets/kafka/bootstrap.servers\"\n      },\n      \"group.id\": \"<CONSUMER_GROUP>\",\n      \"auto.offset.reset\": \"earliest\",\n      \"queued.max.messages.kbytes\": \"32840\",\n      \"queued.min.messages\": \"5000\"\n    }\n  },\n  \"producer\": {\n    \"type\": \"kafka\",\n    \"topic\": \"<OUTPUT_TOPIC>\",\n    \"config\": {\n      \"client.id\": \"sp.<TODO>.producer\",\n      \"bootstrap.servers\": {\n        \"type\": \"file\",\n        \"path\": \"/run/secrets/kafka/bootstrap.servers\"\n      },\n      \"compression.type\": \"snappy\"\n    }\n  },\n  \"processor\": {\n    \"type\": \"javascript\"\n  }\n}"
+              }
+            ],
+            "viewAsReadOnly": false
+          },
+          {
+            "name": "stream-processor-sandbox-config",
+            "mountPath": "/home/stream_processor/.df/stream-processor/processors/javascript",
+            "files": [
+              {
+                "name": "index.js",
+                "content": "export default function process({ key, payload }) {\n    /* handle tombstone event */\n    if (!payload) {\n        return [\n            { key, payload: null }\n        ]\n    }\n\n    return [\n        { key, payload }\n    ]\n}\n"
+              }
+            ],
+            "viewAsReadOnly": false
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 15,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 15,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "version": {
+    "name": "0.5.3",
+    "releaseNote": "## What's Changed\n* feat: added md5 hashing function to caches object processing function argument. This enables computing a single identifier from a complex object\n"
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2025-09-22T10:00:00.000Z",
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
+}
