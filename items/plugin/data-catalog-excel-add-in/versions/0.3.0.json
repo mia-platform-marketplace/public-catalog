@@ -86,7 +86,7 @@
         "defaultConfigMaps": [
           {
             "mountPath": "/usr/static",
-            "name": "excel-addin-config",
+            "name": "excel-add-in-config",
             "subPaths": [
               "configuration.json"
             ],
