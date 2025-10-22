@@ -21461,7 +21461,7 @@ exports[`Sync script > should match snapshot 2`] = `
           "defaultConfigMaps": [
             {
               "mountPath": "/usr/static",
-              "name": "excel-addin-config",
+              "name": "excel-add-in-config",
               "subPaths": [
                 "configuration.json"
               ],
