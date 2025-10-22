@@ -1,0 +1,117 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "data-catalog",
+  "description": "Use the Data Catalog Excel Add-in to seamlessly import Data Catalog assets into Excel spreadsheets, perform bulk metadata enrichment, and sync validated updates back to the Catalog",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/products/data_catalog/data_catalog_excel_add_in"
+  },
+  "image": {
+    "localPath": "../assets/excel-add-in_logo_20251021.png"
+  },
+  "itemId": "data-catalog-excel-add-in",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  },
+  "lifecycleStatus": "draft",
+  "name": "Data Catalog Excel Add-in",
+  "providerId": "fast-data-test-gitlab",
+  "releaseDate": "2025-10-21T14:35:49.025Z",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/data-catalog-excel-add-in",
+  "resources": {
+    "services": {
+      "data-catalog-excel-add-in": {
+        "name": "data-catalog-excel-add-in",
+        "type": "plugin",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/data-catalog-excel-add-in:0.3.0",
+        "componentId": "dc.excel-add-in",
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "5Mi",
+            "max": "15Mi"
+          },
+          "cpuLimits": {
+            "min": "5m",
+            "max": "30m"
+          }
+        },
+        "defaultProbes": {
+          "liveness": {
+            "initialDelaySeconds": 5,
+            "periodSeconds": 15,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "initialDelaySeconds": 5,
+            "periodSeconds": 15,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "info",
+            "valueType": "plain"
+          },
+          {
+            "name": "ORIGIN",
+            "value": "{{DATA_FABRIC_BASE_URL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "BASE_PATH",
+            "value": "/excel/",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/usr/static",
+            "name": "excel-addin-config",
+            "subPaths": [
+              "configuration.json"
+            ],
+            "usePreserve": true,
+            "files": [
+              {
+                "name": "condfiguration.json",
+                "content": "{\n  \"api\": {\n    \"data-catalog\": \"/api\"\n  },\n  \"auth\": {\n    \"appId\": \"<DATA_CATALOG_APP_ID>\",\n    \"providerId\": \"<PROVIDER_ID>\"\n  },\n  \"name\": \"Mia-Platform Data Catalog Excel Add-in\",\n  \"version\": \"1.0.0.0\"\n}"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "tenantId": "mia-platform",
+  "version": {
+    "name": "0.3.0",
+    "releaseNote": "## Inital release"
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "visibility": {
+    "public": true
+  }
+}
