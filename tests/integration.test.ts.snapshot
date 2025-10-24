@@ -21389,7 +21389,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "lifecycleStatus": "draft",
+    "lifecycleStatus": "published",
     "name": "Data Catalog Excel Add-in",
     "providerId": "fast-data-test-gitlab",
     "releaseDate": "2025-10-21T14:35:49.025Z",
@@ -21399,7 +21399,7 @@ exports[`Sync script > should match snapshot 2`] = `
         "data-catalog-excel-add-in": {
           "name": "data-catalog-excel-add-in",
           "type": "plugin",
-          "dockerImage": "nexus.mia-platform.eu/data-fabric/data-catalog-excel-add-in:0.3.0",
+          "dockerImage": "nexus.mia-platform.eu/data-fabric/data-catalog-excel-add-in:0.3.1",
           "componentId": "dc.excel-add-in",
           "defaultResources": {
             "memoryLimits": {
@@ -21479,7 +21479,7 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "tenantId": "mia-platform",
     "version": {
-      "name": "0.3.0",
+      "name": "0.3.1",
       "releaseNote": "## Inital release"
     },
     "supportedBy": "Mia-Platform",
