@@ -18,7 +18,7 @@
         "type": "plugin",
         "name": "back-kit",
         "description": "Web component library to build your frontend pages.",
-        "dockerImage": "nexus.mia-platform.eu/back-kit/bk-web-components:1.5.21",
+        "dockerImage": "nexus.mia-platform.eu/back-kit/bk-web-components:1.5.22",
         "defaultEnvironmentVariables": [
           {
             "name": "HTTP_PORT",
@@ -62,13 +62,13 @@
   },
   "tenantId": "mia-platform",
   "version": {
-    "name": "1.5.21",
-    "releaseNote": "Fixed table loops when switching from data tab to empty tab"
+    "name": "1.5.22",
+    "releaseNote": "Fixed editor component formatting on text paste"
   },
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-10-10T16:42:16.530Z",
+  "releaseDate": "2025-10-27T16:42:16.530Z",
   "lifecycleStatus": "published",
   "itemTypeDefinitionRef": {
     "name": "plugin",

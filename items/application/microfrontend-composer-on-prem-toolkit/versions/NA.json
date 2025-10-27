@@ -325,7 +325,7 @@
     },
     "unsecretedVariables": {
       "MFE_TOOLKIT_VERSION": {
-        "productionEnv": "1.3.8",
+        "productionEnv": "1.3.9",
         "noProductionEnv": "latest"
       },
       "BACK_KIT_SOURCE": {
