@@ -21468,7 +21468,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Use the Data Catalog Excel Add-in to seamlessly import Data Catalog assets into Excel spreadsheets, perform bulk metadata enrichment, and sync validated updates back to the Catalog",
     "documentation": {
       "type": "externalLink",
-      "url": "https://docs.mia-platform.eu/docs/products/data_catalog/data_catalog_excel_add_in"
+      "url": "https://docs.mia-platform.eu/docs/products/data_catalog/excel_add_in/overview"
     },
     "itemId": "data-catalog-excel-add-in",
     "itemTypeDefinitionRef": {
@@ -21477,7 +21477,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "lifecycleStatus": "published",
     "name": "Data Catalog Excel Add-in",
-    "providerId": "fast-data-test-gitlab",
     "releaseDate": "2025-10-21T14:35:49.025Z",
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/data-catalog-excel-add-in",
     "resources": {
@@ -21519,7 +21518,7 @@ exports[`Sync script > should match snapshot 2`] = `
               "from": 80,
               "name": "http",
               "protocol": "TCP",
-              "to": 8080
+              "to": 3000
             }
           ],
           "defaultEnvironmentVariables": [
@@ -21548,13 +21547,10 @@ exports[`Sync script > should match snapshot 2`] = `
             {
               "mountPath": "/usr/static",
               "name": "excel-add-in-config",
-              "subPaths": [
-                "configuration.json"
-              ],
               "usePreserve": true,
               "files": [
                 {
-                  "name": "condfiguration.json",
+                  "name": "configuration.json",
                   "content": "{\\n  \\"api\\": {\\n    \\"data-catalog\\": \\"/api\\"\\n  },\\n  \\"auth\\": {\\n    \\"appId\\": \\"<DATA_CATALOG_APP_ID>\\",\\n    \\"providerId\\": \\"<PROVIDER_ID>\\"\\n  },\\n  \\"name\\": \\"Mia-Platform Data Catalog Excel Add-in\\",\\n  \\"version\\": \\"1.0.0.0\\"\\n}"
                 }
               ]
@@ -21566,7 +21562,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "tenantId": "mia-platform",
     "version": {
       "name": "0.3.1",
-      "releaseNote": "## Inital release"
+      "releaseNote": "## Initial Release"
     },
     "supportedBy": "Mia-Platform",
     "visibility": {
