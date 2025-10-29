@@ -57,7 +57,7 @@
             "from": 80,
             "name": "http",
             "protocol": "TCP",
-            "to": 8080
+            "to": 3000
           }
         ],
         "defaultEnvironmentVariables": [
