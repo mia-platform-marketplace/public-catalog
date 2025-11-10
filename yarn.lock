@@ -2019,20 +2019,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv-expand@npm:10.0.0":
-  version: 10.0.0
-  resolution: "dotenv-expand@npm:10.0.0"
-  checksum: 10/b41eb278bc96b92cbf3037ca5f3d21e8845bf165dc06b6f9a0a03d278c2bd5a01c0cfbb3528ae3a60301ba1a8a9cace30e748c54b460753bc00d4c014b675597
-  languageName: node
-  linkType: hard
-
-"dotenv@npm:^17.0.0":
-  version: 17.2.3
-  resolution: "dotenv@npm:17.2.3"
-  checksum: 10/f8b78626ebfff6e44420f634773375c9651808b3e1a33df6d4cc19120968eea53e100f59f04ec35f2a20b2beb334b6aba4f24040b2f8ad61773f158ac042a636
-  languageName: node
-  linkType: hard
-
 "dreamopt@npm:~0.8.0":
   version: 0.8.0
   resolution: "dreamopt@npm:0.8.0"
@@ -2123,14 +2109,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"env-schema@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "env-schema@npm:6.1.0"
+"env-schema@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "env-schema@npm:7.0.0"
   dependencies:
     ajv: "npm:^8.12.0"
-    dotenv: "npm:^17.0.0"
-    dotenv-expand: "npm:10.0.0"
-  checksum: 10/191376921a4151b6a9706fb9ec23dffe7e1ee5ed33809486fac297e5b7b70377250164fcea3d1c99e52e04ce78a7481da3c360b356017613b50829aac2ece283
+  checksum: 10/977b9ee908360292790bdfed3cff23874c8524d5a16a9162ecf0c5ab91bf8d3d4df29f8782f021e2c69a00306ac48c7883191a963e8138cf8da331954e3576c5
   languageName: node
   linkType: hard
 
@@ -4928,7 +4912,7 @@ __metadata:
     ajv-formats: "npm:^3.0.1"
     chalk: "npm:^5.6.2"
     commander: "npm:^14.0.2"
-    env-schema: "npm:^6.1.0"
+    env-schema: "npm:^7.0.0"
     esbuild: "npm:^0.27.0"
     eslint: "npm:^9.39.1"
     eslint-config-esnext: "npm:^4.1.0"
