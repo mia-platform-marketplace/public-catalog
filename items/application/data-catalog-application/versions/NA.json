@@ -3411,7 +3411,7 @@
           }
         },
         "description": "This is the Data Catalog component for visualizing your data assets definitions and associated metadata",
-        "dockerImage": "nexus.mia-platform.eu/data-fabric/data-lineage/data-catalog-frontend:0.3.4",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/data-lineage/data-catalog-frontend:0.4.0",
         "name": "data-catalog-fe",
         "tags": [
           "data-fabric"
@@ -3921,7 +3921,7 @@
           }
         },
         "description": "Data Catalog component that allows reading your data assets definition and enrich them with ad-hoc metadata",
-        "dockerImage": "nexus.mia-platform.eu/data-fabric/open-lineage:0.3.8",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/open-lineage:0.4.0",
         "name": "open-lineage",
         "tags": [
           "data-fabric"
