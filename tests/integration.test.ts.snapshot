@@ -53996,7 +53996,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-02-20T16:47:48.025Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "deprecated",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
