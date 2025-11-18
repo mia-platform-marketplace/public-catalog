@@ -1,0 +1,154 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "auth",
+  "description": "Use this service to authorize routes to request certain resources, leveraging OpenID Connect and simple user-defined configurations",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/authorization-service/overview"
+  },
+  "image": {
+    "localPath": "../assets/authorization-service_logo_20250410.png"
+  },
+  "itemId": "authorization-service",
+  "name": "Authorization Service",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/authorization-service",
+  "resources": {
+    "services": {
+      "authorization-service": {
+        "type": "plugin",
+        "name": "authorization-service",
+        "description": "Use this service to authorize routes to request certain resources, leveraging OpenID Connect and simple user-defined configurations",
+        "dockerImage": "nexus.mia-platform.eu/core/authorization-service:3.0.0",
+        "componentId": "authorization-service",
+        "mapEnvVarToMountPath": {
+          "authorization-service-config": {
+            "type": "folder",
+            "envName": "CONFIGURATION_PATH"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "{{LOG_LEVEL}}",
+            "valueType": "plain"
+          },
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_PATH",
+            "value": "/configs",
+            "valueType": "plain"
+          },
+          {
+            "name": "CONFIGURATION_FILE_NAME",
+            "value": "auth",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_HEADER_KEY",
+            "value": "isbackoffice",
+            "valueType": "plain"
+          },
+          {
+            "name": "SERVICE_VERSION",
+            "value": "2.0.2",
+            "valueType": "plain"
+          },
+          {
+            "name": "USERINFO_URL",
+            "value": "CHANGE_WITH_YOUR_USERINFO_URL",
+            "valueType": "plain"
+          },
+          {
+            "name": "CUSTOM_USER_ID_KEY",
+            "value": "CHANGE_WITH_YOUR_CUSTOM_USER_ID_KEY",
+            "valueType": "plain"
+          },
+          {
+            "name": "HEADERS_TO_PROXY",
+            "value": "CHANGE_WITH_YOUR_HEADERS_TO_PROXY",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTHORIZATION_STRICT_MODE_ENABLED",
+            "value": "true",
+            "valueType": "plain"
+          },
+          {
+            "name": "USER_PROPERTIES_TO_PROXY",
+            "value": "CHANGE_WITH_YOUR_USER_PROPERTIES_TO_PROXY",
+            "valueType": "plain"
+          },
+          {
+            "name": "CLIENT_TYPE_HEADER_KEY",
+            "value": "client-type",
+            "valueType": "plain"
+          },
+          {
+            "name": "BACKOFFICE_USERINFO_URL",
+            "value": "CHANGE_WITH_YOUR_BACKOFFICE_USERINFO_URL",
+            "valueType": "plain"
+          },
+          {
+            "name": "CUSTOM_PERMISSIONS_KEY",
+            "value": "permissions",
+            "valueType": "plain"
+          },
+          {
+            "name": "AUTHORIZATION_HEADERS_TO_PROXY",
+            "value": "CHANGE_WITH_YOUR_AUTHORIZATION_HEADERS_TO_PROXY",
+            "valueType": "plain"
+          }
+        ],
+        "defaultResources": {
+          "memoryLimits": {
+            "max": "80Mi",
+            "min": "20Mi"
+          },
+          "cpuLimits": {
+            "max": "100m",
+            "min": "10m"
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "defaultConfigMaps": [
+          {
+            "name": "authorization-service-config",
+            "mountPath": "/configs",
+            "files": [],
+            "viewAsReadOnly": true
+          }
+        ],
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "version": {
+    "name": "3.0.0",
+    "releaseNote": "**Breaking Change**:\n\n-fixed a bug where non-defined routes used to match existing route configurations with prefix names instead of subroute configurations (e.g. `/foo-bar` used to match `/foo` authorization config, if any, or fallbacks to `/`). This causes routes to be more strictier and can fallback to parent routes only if ends with `/`."
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2024-12-05T17:09:02.866Z",
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
+}
