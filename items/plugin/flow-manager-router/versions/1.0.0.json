@@ -147,7 +147,7 @@
     "public": true
   },
   "releaseDate": "2025-02-20T16:47:48.022Z",
-  "lifecycleStatus": "published",
+  "lifecycleStatus": "deprecated",
   "itemTypeDefinitionRef": {
     "name": "plugin",
     "namespace": "mia-platform"
