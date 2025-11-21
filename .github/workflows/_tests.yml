@@ -2,11 +2,6 @@ name: Test
 
 on:
   workflow_call:
-    secrets:
-      harbor_username:
-        required: true
-      harbor_token:
-        required: true
 
 jobs:
   checks:
@@ -32,15 +27,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Login to Mia-Platform Harbor registry
-        uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3.6.0
-        with:
-          registry: registry.mia-platform.eu
-          username: ${{ secrets.harbor_username }}
-          password: ${{ secrets.harbor_token }}
-
       - name: start MongoDB instance
-        run: docker run --rm --name mongo -p 27017:27017 -d registry.mia-platform.eu/proxy-cache/mongo:${{ matrix.mongodb-version }}
+        run: docker run --rm --name mongo -p 27017:27017 -d mongo:${{ matrix.mongodb-version }}
       
       - name: Run tests
         run: yarn test
