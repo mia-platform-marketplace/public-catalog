@@ -18,7 +18,7 @@
         "type": "plugin",
         "name": "data-fabric-stream-processor",
         "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream.",
-        "dockerImage": "nexus.mia-platform.eu/data-fabric/stream-processor:0.5.3",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/stream-processor:0.5.4",
         "componentId": "data-fabric-stream-processor",
         "defaultResources": {
           "memoryLimits": {
@@ -102,13 +102,13 @@
   },
   "tenantId": "mia-platform",
   "version": {
-    "name": "0.5.3",
-    "releaseNote": "## What's Changed\n* feat: added md5 hashing function to caches object processing function argument. This enables computing a single identifier from a complex object\n"
+    "name": "0.5.4",
+    "releaseNote": "## What's Changed\n* Add dlq for processing errors. Allow connection grouping in config file.\n"
   },
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-09-22T10:00:00.000Z",
+  "releaseDate": "2025-11-21T10:00:00.000Z",
   "lifecycleStatus": "published",
   "itemTypeDefinitionRef": {
     "name": "plugin",
