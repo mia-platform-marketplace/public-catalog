@@ -48,7 +48,7 @@
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-typescript-sort-keys": "^3.3.0",
     "eslint-visitor-keys": "^5.0.0",
-    "file-type": "^21.2.0",
+    "file-type": "^21.3.0",
     "json-schema-to-ts": "^3.1.1",
     "jsonpath-plus": "^10.3.0",
     "listr2": "^9.0.5",
