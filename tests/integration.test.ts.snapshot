@@ -1305,7 +1305,7 @@ exports[`Sync script > should match snapshot 2`] = `
         "rag-chatbot-api": {
           "type": "plugin",
           "name": "rag-chatbot-api",
-          "dockerImage": "nexus.mia-platform.eu/plugins/rag-chatbot-api:0.5.3",
+          "dockerImage": "nexus.mia-platform.eu/plugins/rag-chatbot-api:0.6.0",
           "tags": [
             "artificial-intelligence"
           ],
@@ -1392,7 +1392,7 @@ exports[`Sync script > should match snapshot 2`] = `
         "ai-rag-template-chat": {
           "type": "template",
           "name": "ai-rag-template-chat",
-          "archiveUrl": "https://github.com/mia-platform/ai-rag-template-chat/archive/refs/tags/v0.0.3.tar.gz",
+          "archiveUrl": "https://api.github.com/repos/mia-platform/ai-rag-template-chat/tarball/v0.0.3",
           "pipelines": {
             "gitlab-ci": {
               "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Freact-app-vitest.gitlab-ci.yml/raw"
@@ -1637,7 +1637,7 @@ exports[`Sync script > should match snapshot 2`] = `
         "ai-rag-template": {
           "type": "template",
           "name": "ai-rag-template",
-          "archiveUrl": "https://github.com/mia-platform/ai-rag-template/archive/refs/tags/v0.5.3.tar.gz",
+          "archiveUrl": "https://api.github.com/repos/mia-platform/ai-rag-template/tarball/v0.6.0",
           "defaultResources": {
             "cpuLimits": {
               "min": "100m",
@@ -1725,7 +1725,7 @@ exports[`Sync script > should match snapshot 2`] = `
         "ai-rag-template-chat": {
           "type": "template",
           "name": "ai-rag-template-chat",
-          "archiveUrl": "https://github.com/mia-platform/ai-rag-template-chat/archive/refs/tags/v0.0.3.tar.gz",
+          "archiveUrl": "https://api.github.com/repos/mia-platform/ai-rag-template-chat/tarball/v0.0.3",
           "pipelines": {
             "gitlab-ci": {
               "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Freact-app-vitest.gitlab-ci.yml/raw"
@@ -1897,6 +1897,141 @@ exports[`Sync script > should match snapshot 2`] = `
         "ai-rag-template": {
           "type": "template",
           "name": "ai-rag-template",
+          "archiveUrl": "https://api.github.com/repos/mia-platform/ai-rag-template/tarball/v0.6.0",
+          "defaultResources": {
+            "cpuLimits": {
+              "min": "100m",
+              "max": "100m"
+            },
+            "memoryLimits": {
+              "min": "250Mi",
+              "max": "400Mi"
+            }
+          },
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "INFO",
+              "valueType": "plain"
+            },
+            {
+              "name": "CONFIGURATION_PATH",
+              "value": "/config/configuration.json",
+              "valueType": "plain"
+            },
+            {
+              "name": "PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONGODB_CLUSTER_URI",
+              "value": "<YOUR_MONGODB_CONNECTION_STRING>",
+              "valueType": "plain"
+            },
+            {
+              "name": "EMBEDDINGS_API_KEY",
+              "value": "<YOUR_OPENAI_API_KEY>",
+              "valueType": "plain"
+            },
+            {
+              "name": "LLM_API_KEY",
+              "value": "<YOUR_OPENAI_API_KEY>",
+              "valueType": "plain"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "assistant-config",
+              "mountPath": "/config",
+              "files": [
+                {
+                  "name": "configuration.json",
+                  "content": "{\\n  \\"llm\\": {\\n    \\"name\\": \\"<YOUR_MODEL_NAME>\\"\\n  },\\n  \\"embeddings\\": {\\n    \\"name\\": \\"<YOUR_EMBEDDING_NAME>\\"\\n  },\\n  \\"vectorStore\\": {\\n    \\"dbName\\": \\"<YOUR_DATABASE_NAME>\\",\\n    \\"collectionName\\": \\"<YOUR_COLLECTION_NAME>\\",\\n    \\"indexName\\": \\"<YOUR_INDEX_NAME>\\",\\n    \\"relevanceScoreFn\\": \\"<YOUR_DISTANCE_FUNCTION>\\",\\n    \\"embeddingKey\\": \\"<YOUR_EMBEDDING_KEY>\\",\\n    \\"textKey\\": \\"<YOUR_TEXT_KEY>\\",\\n    \\"maxDocumentsToRetrieve\\": 3\\n  }\\n}\\n"
+                }
+              ]
+            }
+          ],
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 15,
+              "timeoutSeconds": 3,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 10,
+              "periodSeconds": 10,
+              "timeoutSeconds": 3,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
+          "pipelines": {
+            "gitlab-ci": {
+              "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Fpython-hello-world-ci.yml/raw"
+            }
+          }
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "0.6.0",
+      "releaseNote": "## What's new:\\n\\n* Now using Python 3.13, uv as a package manager and ruff as a linter\\n* updated several internal depedencies"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-02-06T16:53:44.926Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "template",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "ai-rag-template_logo_20250423.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "artificial-intelligence",
+    "description": "Use this Python template to create a RAG chatbot server",
+    "documentation": {
+      "type": "markdown",
+      "url": "https://raw.githubusercontent.com/mia-platform/ai-rag-template/main/README.md"
+    },
+    "itemId": "ai-rag-template",
+    "name": "AI RAG Template",
+    "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
+    "resources": {
+      "services": {
+        "ai-rag-template": {
+          "type": "template",
+          "name": "ai-rag-template",
           "archiveUrl": "https://github.com/mia-platform/ai-rag-template/archive/refs/tags/v0.5.3.tar.gz",
           "defaultResources": {
             "cpuLimits": {
@@ -1999,7 +2134,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "template",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -65946,6 +66080,138 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "rag-chatbot-api",
           "description": "Application with useful APIs to generate embeddings and chat with a RAG chatbot.",
+          "dockerImage": "nexus.mia-platform.eu/plugins/rag-chatbot-api:0.6.0",
+          "componentId": "rag-chatbot-api",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "INFO",
+              "valueType": "plain"
+            },
+            {
+              "name": "CONFIGURATION_PATH",
+              "value": "/config/configuration.json",
+              "valueType": "plain"
+            },
+            {
+              "name": "PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONGODB_CLUSTER_URI",
+              "value": "<YOUR_MONGODB_CONNECTION_STRING>",
+              "valueType": "plain"
+            },
+            {
+              "name": "EMBEDDINGS_API_KEY",
+              "value": "<YOUR_OPENAI_API_KEY>",
+              "valueType": "plain"
+            },
+            {
+              "name": "LLM_API_KEY",
+              "value": "<YOUR_OPENAI_API_KEY>",
+              "valueType": "plain"
+            }
+          ],
+          "defaultResources": {
+            "cpuLimits": {
+              "min": "100m",
+              "max": "100m"
+            },
+            "memoryLimits": {
+              "min": "250Mi",
+              "max": "400Mi"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 15,
+              "timeoutSeconds": 3,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 10,
+              "periodSeconds": 10,
+              "timeoutSeconds": 3,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultConfigMaps": [
+            {
+              "name": "assistant-config",
+              "mountPath": "/config",
+              "files": [
+                {
+                  "name": "configuration.json",
+                  "content": "{\\n  \\"llm\\": {\\n    \\"name\\": \\"<YOUR_MODEL_NAME>\\"\\n  },\\n  \\"embeddings\\": {\\n    \\"name\\": \\"<YOUR_EMBEDDING_NAME>\\"\\n  },\\n  \\"vectorStore\\": {\\n    \\"dbName\\": \\"<YOUR_DATABASE_NAME>\\",\\n    \\"collectionName\\": \\"<YOUR_COLLECTION_NAME>\\",\\n    \\"indexName\\": \\"<YOUR_INDEX_NAME>\\",\\n    \\"relevanceScoreFn\\": \\"<YOUR_DISTANCE_FUNCTION>\\",\\n    \\"embeddingKey\\": \\"<YOUR_EMBEDDING_KEY>\\",\\n    \\"textKey\\": \\"<YOUR_TEXT_KEY>\\",\\n    \\"maxDocumentsToRetrieve\\": 3\\n  }\\n}\\n"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "0.6.0",
+      "releaseNote": "## What's new:\\n\\n* Now using Python 3.13, uv as a package manager and ruff as a linter\\n* updated several internal depedencies"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-02-20T17:06:06.550Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "rag-chatbot-api.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "artificial-intelligence",
+    "description": "Application with useful APIs to generate embeddings and chat with a RAG chatbot.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/rag-chatbot-api/overview_and_usage"
+    },
+    "itemId": "rag-chatbot-api",
+    "name": "RAG Chatbot API",
+    "repositoryUrl": "https://github.com/mia-platform/ai-rag-template",
+    "resources": {
+      "services": {
+        "rag-chatbot-api": {
+          "type": "plugin",
+          "name": "rag-chatbot-api",
+          "description": "Application with useful APIs to generate embeddings and chat with a RAG chatbot.",
           "dockerImage": "nexus.mia-platform.eu/plugins/rag-chatbot-api:0.5.3",
           "componentId": "rag-chatbot-api",
           "defaultEnvironmentVariables": [
@@ -66044,7 +66310,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [

@@ -90,7 +90,7 @@
       "ai-rag-template": {
         "type": "template",
         "name": "ai-rag-template",
-        "archiveUrl": "https://github.com/mia-platform/ai-rag-template/archive/refs/tags/v0.5.3.tar.gz",
+        "archiveUrl": "https://api.github.com/repos/mia-platform/ai-rag-template/tarball/v0.6.0",
         "defaultResources": {
           "cpuLimits": {
             "min": "100m",
@@ -178,7 +178,7 @@
       "ai-rag-template-chat": {
         "type": "template",
         "name": "ai-rag-template-chat",
-        "archiveUrl": "https://github.com/mia-platform/ai-rag-template-chat/archive/refs/tags/v0.0.3.tar.gz",
+        "archiveUrl": "https://api.github.com/repos/mia-platform/ai-rag-template-chat/tarball/v0.0.3",
         "pipelines": {
           "gitlab-ci": {
             "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Freact-app-vitest.gitlab-ci.yml/raw"
