@@ -28956,6 +28956,143 @@ exports[`Sync script > should match snapshot 2`] = `
           "name": "api-gateway",
           "type": "plugin",
           "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+          "dockerImage": "nexus.mia-platform.eu/cache/envoyproxy/envoy:v1.36.2",
+          "componentId": "api-gateway-envoy",
+          "defaultDocumentationPath": "",
+          "defaultArgs": [
+            "-c",
+            "/etc/envoy/envoy.json",
+            "-l",
+            "{{LOG_LEVEL}}",
+            "--log-format",
+            "{\\"level\\":\\"%l\\",\\"time\\":\\"%Y-%m-%dT%T.%fZ\\",\\"scope\\":\\"%n\\",\\"message\\":\\"%j\\"}",
+            "--drain-time-s",
+            "50"
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultEnvironmentVariables": [],
+          "defaultResources": {
+            "memoryLimits": {
+              "max": "250Mi",
+              "min": "150Mi"
+            },
+            "cpuLimits": {
+              "min": "150m",
+              "max": "200m"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "port": "frontend",
+              "path": "/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20
+            },
+            "readiness": {
+              "port": "frontend",
+              "path": "/healthz",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 10
+            }
+          },
+          "containerPorts": [
+            {
+              "name": "frontend",
+              "from": 8080,
+              "to": 8080
+            },
+            {
+              "name": "backoffice",
+              "from": 8081,
+              "to": 8081
+            },
+            {
+              "name": "admin",
+              "from": 9901,
+              "to": 9901
+            }
+          ],
+          "execPreStop": [
+            "bash",
+            "-c",
+            "echo -e 'POST /drain_listeners?graceful HTTP/1.1\\r\\nHost: localhost:9901\\r\\n\\r' > /dev/tcp/localhost/9901 && sleep 55s"
+          ],
+          "defaultTerminationGracePeriodSeconds": 60,
+          "defaultConfigMaps": [
+            {
+              "name": "api-gateway-envoy-config",
+              "mountPath": "/etc/envoy",
+              "files": [],
+              "viewAsReadOnly": true,
+              "link": {
+                "targetSection": "endpoints"
+              }
+            }
+          ]
+        }
+      },
+      "listeners": {
+        "frontend": {
+          "name": "frontend",
+          "port": "8080",
+          "selectedByDefault": true,
+          "description": "Default listener for frontend API",
+          "ownedBy": {
+            "componentIds": [
+              "api-gateway-envoy"
+            ]
+          }
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "1.36.2",
+      "releaseNote": "-"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-01-21T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "envoy-api-gateway_logo_20250410.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "orchestrators",
+    "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/envoy-api-gateway/overview"
+    },
+    "itemId": "envoy-api-gateway",
+    "name": "Envoy API Gateway",
+    "resources": {
+      "services": {
+        "api-gateway": {
+          "name": "api-gateway",
+          "type": "plugin",
+          "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
           "dockerImage": "nexus.mia-platform.eu/cache/envoyproxy/envoy:v1.32.1",
           "componentId": "api-gateway-envoy",
           "defaultDocumentationPath": "",
@@ -29060,7 +29197,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
