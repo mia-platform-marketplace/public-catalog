@@ -40573,7 +40573,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-01-28T11:36:11.794Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
@@ -40687,7 +40687,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-02-06T16:53:44.928Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
@@ -40800,7 +40800,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-02-06T16:53:44.927Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
@@ -40913,7 +40913,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-02-06T16:53:44.959Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
@@ -41026,7 +41026,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-12-11T12:00:59.270Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
@@ -41139,7 +41139,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-12-19T17:04:05.878Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
@@ -41252,7 +41252,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-12-02T11:23:45.727Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
@@ -41365,7 +41365,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-11-27T14:35:10.700Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
@@ -41478,7 +41478,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-11-27T14:35:10.700Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
@@ -41591,7 +41591,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-11-27T11:05:39.571Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
@@ -41704,7 +41704,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-12-19T17:04:05.877Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
@@ -41812,7 +41812,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2024-12-05T17:09:02.871Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
@@ -41920,7 +41920,7 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-02-20T16:47:48.022Z",
-    "lifecycleStatus": "published",
+    "lifecycleStatus": "archived",
     "itemTypeDefinitionRef": {
       "name": "plugin",
       "namespace": "mia-platform"
