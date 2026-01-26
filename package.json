@@ -51,7 +51,7 @@
     "file-type": "^21.3.0",
     "json-schema-to-ts": "^3.1.1",
     "jsonpath-plus": "^10.3.0",
-    "listr2": "^10.0.0",
+    "listr2": "^10.1.0",
     "lodash-es": "^4.17.23",
     "nock": "^14.0.10",
     "rimraf": "^6.1.2",
