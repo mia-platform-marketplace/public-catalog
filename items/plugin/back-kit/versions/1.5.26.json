@@ -18,7 +18,7 @@
         "type": "plugin",
         "name": "back-kit",
         "description": "Web component library to build your frontend pages.",
-        "dockerImage": "nexus.mia-platform.eu/back-kit/bk-web-components:1.5.25",
+        "dockerImage": "nexus.mia-platform.eu/back-kit/bk-web-components:1.5.26",
         "defaultEnvironmentVariables": [
           {
             "name": "HTTP_PORT",
@@ -62,8 +62,8 @@
   },
   "tenantId": "mia-platform",
   "version": {
-    "name": "1.5.25",
-    "releaseNote": "Fixed `isPartialDate` date output in bk-form-wizard component"
+    "name": "1.5.26",
+    "releaseNote": "Added support for tables in editor."
   },
   "visibility": {
     "public": true
