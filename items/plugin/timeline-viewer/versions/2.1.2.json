@@ -1,0 +1,56 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "business",
+  "description": "Visualize events on a timeline",
+  "image": {
+    "localPath": "../assets/timeline-viewer.png"
+  },
+  "itemId": "timeline-viewer",
+  "name": "Timeline Viewer",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/backoffice/timeline",
+  "resources": {
+    "services": {
+      "timeline-viewer": {
+        "type": "plugin",
+        "name": "timeline-viewer",
+        "description": "Visualize events on a timeline",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/timeline:2.1.2",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "version": {
+    "name": "2.1.2",
+    "releaseNote": "Fix security vulnerabilities"
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2025-02-20T16:47:48.036Z",
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
+}
