@@ -23829,6 +23829,71 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "data-visualization",
           "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
+          "dockerImage": "nexus.mia-platform.eu/backoffice/data-visualization:1.8.5",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "8080",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-nginx",
+          "defaultDocumentationPath": "",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "1.8.5",
+      "releaseNote": "-"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-02-20T16:47:48.016Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "data-visualization.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "business",
+    "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
+    "itemId": "data-visualization",
+    "name": "Data Visualization",
+    "resources": {
+      "services": {
+        "data-visualization": {
+          "type": "plugin",
+          "name": "data-visualization",
+          "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
           "dockerImage": "nexus.mia-platform.eu/backoffice/data-visualization:1.8.2",
           "defaultEnvironmentVariables": [
             {
@@ -23865,7 +23930,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [

@@ -1,0 +1,55 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "business",
+  "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
+  "image": {
+    "localPath": "../assets/data-visualization.png"
+  },
+  "itemId": "data-visualization",
+  "name": "Data Visualization",
+  "resources": {
+    "services": {
+      "data-visualization": {
+        "type": "plugin",
+        "name": "data-visualization",
+        "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/data-visualization:1.8.5",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "defaultDocumentationPath": "",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "version": {
+    "name": "1.8.5",
+    "releaseNote": "-"
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2025-02-20T16:47:48.016Z",
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
+}
