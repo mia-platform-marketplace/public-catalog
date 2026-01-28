@@ -23854,7 +23854,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "tenantId": "mia-platform",
     "version": {
       "name": "1.8.5",
-      "releaseNote": "-"
+      "releaseNote": "Fix security vulnerabilities"
     },
     "visibility": {
       "public": true
