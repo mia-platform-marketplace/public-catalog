@@ -4,7 +4,7 @@
   "description": "Use Mia-Platform Kango to consume a stream of change events from a Kafka topic and save them onto a MongoDB collection",
   "documentation": {
     "type": "externalLink",
-    "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/kango/overview"
+    "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/kango/overview"
   },
   "image": {
     "localPath": "../assets/kango_logo_20250926.png"
