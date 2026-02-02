@@ -14,7 +14,7 @@
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/kango",
   "resources": {
     "services": {
-      "swagger-aggregator": {
+      "kango": {
         "type": "plugin",
         "name": "data-fabric-kango",
         "description": "Use Mia-Platform Kango to consume a stream of change events from a Kafka topic and save them onto a MongoDB collection.",
