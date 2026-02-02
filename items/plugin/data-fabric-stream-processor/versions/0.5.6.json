@@ -14,7 +14,7 @@
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/stream-processor",
   "resources": {
     "services": {
-      "swagger-aggregator": {
+      "stream-processor": {
         "type": "plugin",
         "name": "data-fabric-stream-processor",
         "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream.",

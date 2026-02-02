@@ -23199,7 +23199,134 @@ exports[`Sync script > should match snapshot 2`] = `
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/stream-processor",
     "resources": {
       "services": {
-        "swagger-aggregator": {
+        "stream-processor": {
+          "type": "plugin",
+          "name": "data-fabric-stream-processor",
+          "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream.",
+          "dockerImage": "nexus.mia-platform.eu/data-fabric/stream-processor:0.6.0",
+          "componentId": "data-fabric-stream-processor",
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "20Mi",
+              "max": "100Mi"
+            },
+            "cpuLimits": {
+              "min": "100m",
+              "max": "800m"
+            }
+          },
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "LOG_LEVEL",
+              "value": "info",
+              "valueType": "plain"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "stream-processor-config",
+              "mountPath": "/home/stream_processor/.df/stream-processor",
+              "files": [
+                {
+                  "name": "config.json",
+                  "content": "{\\n  \\"$schema\\": \\"https://cdn.mia-platform.eu/runtime/platform/data-fabric/stream-processor/v0.5.6/stream-processor.schema.json\\",\\n  \\"connections\\": {\\n    \\"kafka\\": {\\n      \\"type\\": \\"kafka\\",\\n      \\"config\\": {\\n        \\"bootstrap.servers\\": {\\n          \\"type\\": \\"file\\",\\n          \\"path\\": \\"/run/secrets/kafka/bootstrap.servers\\"\\n        }\\n      }\\n    }\\n  },\\n  \\"consumer\\": {\\n    \\"type\\": \\"kafka\\",\\n    \\"topic\\": \\"<INPUT_TOPIC>\\",\\n    \\"config\\": {\\n      \\"client.id\\": \\"sp.<TODO>.consumer\\",\\n      \\"group.id\\": \\"<CONSUMER_GROUP>\\",\\n      \\"auto.offset.reset\\": \\"earliest\\",\\n      \\"queued.max.messages.kbytes\\": \\"32840\\",\\n      \\"queued.min.messages\\": \\"5000\\"\\n    }\\n  },\\n  \\"producer\\": {\\n    \\"type\\": \\"kafka\\",\\n    \\"topic\\": \\"<OUTPUT_TOPIC>\\",\\n    \\"config\\": {\\n      \\"client.id\\": \\"sp.<TODO>.producer\\",\\n      \\"compression.type\\": \\"snappy\\"\\n    }\\n  },\\n  \\"processor\\": {\\n    \\"type\\": \\"javascript\\"\\n  }\\n}"
+                }
+              ],
+              "viewAsReadOnly": false
+            },
+            {
+              "name": "stream-processor-sandbox-config",
+              "mountPath": "/home/stream_processor/.df/stream-processor/processors/javascript",
+              "files": [
+                {
+                  "name": "index.js",
+                  "content": "export default function process({ key, payload }) {\\n    /* handle tombstone event */\\n    if (!payload) {\\n        return [\\n            { key, payload: null }\\n        ]\\n    }\\n\\n    return [\\n        { key, payload }\\n    ]\\n}\\n"
+                }
+              ],
+              "viewAsReadOnly": false
+            }
+          ],
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 15,
+              "timeoutSeconds": 5,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 15,
+              "timeoutSeconds": 5,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "0.6.0",
+      "releaseNote": "## Added\\n\\n* Add ci for v branches\\n* Remove hard fail on console.log buffer exceeded\\n* Use of piper Control Plane logic\\n\\n## BREAKING\\n\\n* Stabilize cache hash and add script to compute it in JS"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-02-02T10:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "streamProcessor_logo_20250926.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "fast-data",
+    "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/stream_processor/overview"
+    },
+    "itemId": "data-fabric-stream-processor",
+    "name": "Stream Processor",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/stream-processor",
+    "resources": {
+      "services": {
+        "stream-processor": {
           "type": "plugin",
           "name": "data-fabric-stream-processor",
           "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream.",
@@ -23296,7 +23423,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -23326,7 +23452,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/stream-processor",
     "resources": {
       "services": {
-        "swagger-aggregator": {
+        "stream-processor": {
           "type": "plugin",
           "name": "data-fabric-stream-processor",
           "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream.",

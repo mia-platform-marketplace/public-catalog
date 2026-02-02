@@ -18,7 +18,7 @@
         "type": "plugin",
         "name": "data-fabric-stream-processor",
         "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream.",
-        "dockerImage": "nexus.mia-platform.eu/data-fabric/stream-processor:0.5.5",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/stream-processor:0.6.0",
         "componentId": "data-fabric-stream-processor",
         "defaultResources": {
           "memoryLimits": {
@@ -49,7 +49,7 @@
             "files": [
               {
                 "name": "config.json",
-                "content": "{\n  \"consumer\": {\n    \"type\": \"kafka\",\n    \"topic\": \"<INPUT_TOPIC>\",\n    \"config\": {\n      \"client.id\": \"sp.<TODO>.consumer\",\n      \"bootstrap.servers\": {\n        \"type\": \"file\",\n        \"path\": \"/run/secrets/kafka/bootstrap.servers\"\n      },\n      \"group.id\": \"<CONSUMER_GROUP>\",\n      \"auto.offset.reset\": \"earliest\",\n      \"queued.max.messages.kbytes\": \"32840\",\n      \"queued.min.messages\": \"5000\"\n    }\n  },\n  \"producer\": {\n    \"type\": \"kafka\",\n    \"topic\": \"<OUTPUT_TOPIC>\",\n    \"config\": {\n      \"client.id\": \"sp.<TODO>.producer\",\n      \"bootstrap.servers\": {\n        \"type\": \"file\",\n        \"path\": \"/run/secrets/kafka/bootstrap.servers\"\n      },\n      \"compression.type\": \"snappy\"\n    }\n  },\n  \"processor\": {\n    \"type\": \"javascript\"\n  }\n}"
+                "content": "{\n  \"$schema\": \"https://cdn.mia-platform.eu/runtime/platform/data-fabric/stream-processor/v0.5.6/stream-processor.schema.json\",\n  \"connections\": {\n    \"kafka\": {\n      \"type\": \"kafka\",\n      \"config\": {\n        \"bootstrap.servers\": {\n          \"type\": \"file\",\n          \"path\": \"/run/secrets/kafka/bootstrap.servers\"\n        }\n      }\n    }\n  },\n  \"consumer\": {\n    \"type\": \"kafka\",\n    \"topic\": \"<INPUT_TOPIC>\",\n    \"config\": {\n      \"client.id\": \"sp.<TODO>.consumer\",\n      \"group.id\": \"<CONSUMER_GROUP>\",\n      \"auto.offset.reset\": \"earliest\",\n      \"queued.max.messages.kbytes\": \"32840\",\n      \"queued.min.messages\": \"5000\"\n    }\n  },\n  \"producer\": {\n    \"type\": \"kafka\",\n    \"topic\": \"<OUTPUT_TOPIC>\",\n    \"config\": {\n      \"client.id\": \"sp.<TODO>.producer\",\n      \"compression.type\": \"snappy\"\n    }\n  },\n  \"processor\": {\n    \"type\": \"javascript\"\n  }\n}"
               }
             ],
             "viewAsReadOnly": false
@@ -102,13 +102,13 @@
   },
   "tenantId": "mia-platform",
   "version": {
-    "name": "0.5.5",
-    "releaseNote": "## What's Changed\n* Add get-only mode for HTTP cache\n* Support for Farm Data as external cache\n* Support for the configuration file schema is now exported in CDN\n* Updated internal dependencies"
+    "name": "0.6.0",
+    "releaseNote": "## Added\n\n* Add ci for v branches\n* Remove hard fail on console.log buffer exceeded\n* Use of piper Control Plane logic\n\n## BREAKING\n\n* Stabilize cache hash and add script to compute it in JS"
   },
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-09-22T10:00:00.000Z",
+  "releaseDate": "2026-02-02T10:00:00.000Z",
   "lifecycleStatus": "published",
   "itemTypeDefinitionRef": {
     "name": "plugin",
