@@ -22268,7 +22268,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Use Mia-Platform Farm Data to combine multiple Kafka change stream together and generate an aggregated record that can be transformed into a Data Product",
     "documentation": {
       "type": "externalLink",
-      "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/farm_data/overview"
+      "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/farm_data/overview"
     },
     "itemId": "data-fabric-farm-data",
     "name": "Farm Data",
@@ -22384,7 +22384,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Use Mia-Platform Farm Data to combine multiple Kafka change stream together and generate an aggregated record that can be transformed into a Data Product",
     "documentation": {
       "type": "externalLink",
-      "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/farm_data/overview"
+      "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/farm_data/overview"
     },
     "itemId": "data-fabric-farm-data",
     "name": "Farm Data",
@@ -22499,7 +22499,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Use Mia-Platform Farm Data to combine multiple Kafka change stream together and generate an aggregated record that can be transformed into a Data Product",
     "documentation": {
       "type": "externalLink",
-      "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/farm_data/overview"
+      "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/farm_data/overview"
     },
     "itemId": "data-fabric-farm-data",
     "name": "Farm Data",
@@ -22614,7 +22614,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Use Mia-Platform Farm Data to combine multiple Kafka change stream together and generate an aggregated record that can be transformed into a Data Product",
     "documentation": {
       "type": "externalLink",
-      "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/farm_data/overview"
+      "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/farm_data/overview"
     },
     "itemId": "data-fabric-farm-data",
     "name": "Farm Data",
