@@ -14,7 +14,7 @@
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/farm-data",
   "resources": {
     "services": {
-      "swagger-aggregator": {
+      "farm-data": {
         "type": "plugin",
         "name": "data-fabric-farm-data",
         "description": "Use Mia-Platform Farm Data to combine multiple Kafka change stream together and generate an aggregated record that can be transformed into a Data Product.",

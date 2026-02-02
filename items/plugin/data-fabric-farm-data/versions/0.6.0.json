@@ -1,0 +1,106 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "fast-data",
+  "description": "Use Mia-Platform Farm Data to combine multiple Kafka change stream together and generate an aggregated record that can be transformed into a Data Product",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/farm_data/overview"
+  },
+  "image": {
+    "localPath": "../assets/farmData_logo_20250926.png"
+  },
+  "itemId": "data-fabric-farm-data",
+  "name": "Farm Data",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/farm-data",
+  "resources": {
+    "services": {
+      "farm-data": {
+        "type": "plugin",
+        "name": "data-fabric-farm-data",
+        "description": "Use Mia-Platform Farm Data to combine multiple Kafka change stream together and generate an aggregated record that can be transformed into a Data Product.",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/farm-data:0.6.0",
+        "componentId": "data-fabric-farm-data",
+        "defaultResources": {
+          "memoryLimits": {
+            "min": "100Mi",
+            "max": "250Mi"
+          },
+          "cpuLimits": {
+            "min": "100m",
+            "max": "1000m"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "3000",
+            "valueType": "plain"
+          },
+          {
+            "name": "LOG_LEVEL",
+            "value": "info",
+            "valueType": "plain"
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "name": "aggregation-config",
+            "mountPath": "/home/farm_data/.df/aggregation",
+            "files": [
+              {
+                "name": "config.json",
+                "content": "{\n  \"$schema\": \"https://cdn.mia-platform.eu/runtime/platform/data-fabric/farm-data/v0.6.0/farm-data.schema.json\",\n  \"id\": \"<FARM_DATA_ID>\",\n  \"connections\": {\n    \"kafka\": {\n      \"type\": \"kafka\",\n      \"config\": {\n        \"bootstrap.servers\": {\n          \"type\": \"file\",\n          \"path\": \"/run/secrets/kafka/bootstrap.servers\"\n        },\n        \"queued.max.messages.kbytes\": \"8192\",\n        \"queued.min.messages\": \"500\"\n      }\n    },\n    \"mongo\": {\n      \"type\": \"mongodb\",\n      \"config\": {\n        \"url\": {\n          \"type\": \"file\",\n          \"path\": \"/run/secrets/mongodb/mongodb-url\"\n        }\n      }\n    }\n  },\n  \"consumers\": {\n    \"type\": \"kafka\",\n    \"config\": {\n      \"<UNIT_NAME_1>\": {\n        \"topic\": \"<INPUT_TOPIC_1>\",\n        \"connectionName\": \"kafka\",\n        \"group.id\": \"<TODO>\"\n      },\n      \"<UNIT_NAME_2>\": {\n        \"topic\": \"<INPUT_TOPIC_2>\",\n        \"connectionName\": \"kafka\",\n        \"group.id\": \"<TODO>\"\n      }\n    }\n  },\n  \"producer\": {\n    \"type\": \"kafka\",\n    \"config\": {\n      \"topic\": \"<OUTPUT_TOPIC>\",\n      \"connectionName\": \"kafka\"\n    }\n  },\n  \"processor\": {\n    \"persistence\": {\n      \"type\": \"mongo\",\n      \"config\": {\n        \"connectionName\": \"mongo\",\n        \"database\": \"<TODO>\"\n      }\n    },\n    \"internalUpdates\": {\n      \"type\": \"kafka\",\n      \"config\": {\n        \"topic\": \"<INTERNAL_UPDATES_TOPIC>\",\n        \"connectionName\": \"kafka\",\n        \"consumer\": {\n          \"group.id\": \"<TODO>\",\n          \"client.id\": \"fd.internal-updates\",\n          \"queued.max.messages.kbytes\": \"96\",\n          \"queued.min.messages\": \"160\",\n          \"fetch.message.max.bytes\": \"40320\"\n        },\n        \"compressionWindowMs\": 500\n      }\n    },\n    \"graph\": {\n      \"nodes\": [\n        {\n          \"id\": \"<UNIT_NAME_1>\",\n          \"edges\": {\n            \"in\": [],\n            \"out\": [\n              \"<EDGE_ID_1>\"\n            ]\n          }\n        },\n        {\n          \"id\": \"<UNIT_NAME_2>\",\n          \"edges\": {\n            \"in\": [\n              \"<EDGE_ID_1>\"\n            ],\n            \"out\": []\n          }\n        }\n      ],\n      \"edges\": [\n        {\n          \"id\": \"<EDGE_ID_1>\",\n          \"filter\": {\n            \"$eq\": [\n              {\n                \"foreign\": [\n                  \"id\"\n                ]\n              },\n              {\n                \"local\": [\n                  \"id\"\n                ]\n              }\n            ]\n          }\n        }\n      ]\n    }\n  }\n}\n"
+              }
+            ],
+            "viewAsReadOnly": false
+          }
+        ],
+        "defaultProbes": {
+          "liveness": {
+            "path": "/-/healthz",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 15,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          },
+          "readiness": {
+            "path": "/-/ready",
+            "initialDelaySeconds": 5,
+            "periodSeconds": 15,
+            "timeoutSeconds": 5,
+            "successThreshold": 1,
+            "failureThreshold": 3
+          }
+        },
+        "defaultLogParser": "mia-json",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 3000,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "version": {
+    "name": "0.6.0",
+    "releaseNote": "## Added\n\n* Add cmake\n* Add protobuf dep\n* Add libclang\n* Add check and test deps\n* Add schema push\n* Index generation at startup\n* Connection definition is now required in persistence\n* Connections in persistence\n* Use of piper Control Plane logic\n\n## Fixed\n\n* Avoid duplicate index generation\n* Append \"value.\" at every field in MongoDB autogenerated index\n* Updated farm data collection referenced during index generation\n\n## Removed\n\n* Remove deps from rust-base images"
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2026-02-02T10:00:00.000Z",
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
+}
