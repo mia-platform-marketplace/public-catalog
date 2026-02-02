@@ -23278,7 +23278,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream",
     "documentation": {
       "type": "externalLink",
-      "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/stream_processor/overview"
+      "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/stream_processor/overview"
     },
     "itemId": "data-fabric-stream-processor",
     "name": "Stream Processor",
@@ -23405,7 +23405,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream",
     "documentation": {
       "type": "externalLink",
-      "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/stream_processor/overview"
+      "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/stream_processor/overview"
     },
     "itemId": "data-fabric-stream-processor",
     "name": "Stream Processor",
@@ -23531,7 +23531,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream",
     "documentation": {
       "type": "externalLink",
-      "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/stream_processor/overview"
+      "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/stream_processor/overview"
     },
     "itemId": "data-fabric-stream-processor",
     "name": "Stream Processor",
@@ -23657,7 +23657,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream",
     "documentation": {
       "type": "externalLink",
-      "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/stream_processor/overview"
+      "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/stream_processor/overview"
     },
     "itemId": "data-fabric-stream-processor",
     "name": "Stream Processor",
@@ -23783,7 +23783,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream",
     "documentation": {
       "type": "externalLink",
-      "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/stream_processor/overview"
+      "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/stream_processor/overview"
     },
     "itemId": "data-fabric-stream-processor",
     "name": "Stream Processor",
@@ -23909,7 +23909,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Use Mia-Platform Stream Processor to transform events of an input Kafka stream into the ones of a Kafka stream",
     "documentation": {
       "type": "externalLink",
-      "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/stream_processor/overview"
+      "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/stream_processor/overview"
     },
     "itemId": "data-fabric-stream-processor",
     "name": "Stream Processor",
