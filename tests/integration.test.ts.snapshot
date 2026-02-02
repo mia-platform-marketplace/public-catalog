@@ -8213,7 +8213,94 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "back-kit",
           "description": "Web component library to build your frontend pages.",
-          "dockerImage": "nexus.mia-platform.eu/back-kit/bk-web-components:1.5.24",
+          "dockerImage": "nexus.mia-platform.eu/back-kit/bk-web-components:1.5.26",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "8080",
+              "valueType": "plain"
+            }
+          ],
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "50m",
+              "min": "30m"
+            },
+            "memoryLimits": {
+              "max": "50Mi",
+              "min": "30Mi"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": ""
+            },
+            "readiness": {
+              "path": ""
+            }
+          },
+          "defaultLogParser": "mia-nginx",
+          "defaultDocumentationPath": "",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "1.5.26",
+      "releaseNote": "Added support for tables in editor."
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-10-27T16:42:16.530Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "back-kit.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "frontendbuilder",
+    "description": "Web component library to build your frontend pages.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/business_suite/backoffice/overview"
+    },
+    "itemId": "back-kit",
+    "name": "Back Kit",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/microfrontend-composer/back-kit",
+    "resources": {
+      "services": {
+        "back-kit": {
+          "type": "plugin",
+          "name": "back-kit",
+          "description": "Web component library to build your frontend pages.",
+          "dockerImage": "nexus.mia-platform.eu/back-kit/bk-web-components:1.5.25",
           "defaultEnvironmentVariables": [
             {
               "name": "HTTP_PORT",
@@ -8266,7 +8353,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -23234,7 +23320,7 @@ exports[`Sync script > should match snapshot 2`] = `
               "files": [
                 {
                   "name": "config.json",
-                  "content": "{\\n  \\"$schema\\": \\"https://cdn.mia-platform.eu/runtime/platform/data-fabric/stream-processor/v0.5.6/stream-processor.schema.json\\",\\n  \\"connections\\": {\\n    \\"kafka\\": {\\n      \\"type\\": \\"kafka\\",\\n      \\"config\\": {\\n        \\"bootstrap.servers\\": {\\n          \\"type\\": \\"file\\",\\n          \\"path\\": \\"/run/secrets/kafka/bootstrap.servers\\"\\n        }\\n      }\\n    }\\n  },\\n  \\"consumer\\": {\\n    \\"type\\": \\"kafka\\",\\n    \\"topic\\": \\"<INPUT_TOPIC>\\",\\n    \\"config\\": {\\n      \\"client.id\\": \\"sp.<TODO>.consumer\\",\\n      \\"group.id\\": \\"<CONSUMER_GROUP>\\",\\n      \\"auto.offset.reset\\": \\"earliest\\",\\n      \\"queued.max.messages.kbytes\\": \\"32840\\",\\n      \\"queued.min.messages\\": \\"5000\\"\\n    }\\n  },\\n  \\"producer\\": {\\n    \\"type\\": \\"kafka\\",\\n    \\"topic\\": \\"<OUTPUT_TOPIC>\\",\\n    \\"config\\": {\\n      \\"client.id\\": \\"sp.<TODO>.producer\\",\\n      \\"compression.type\\": \\"snappy\\"\\n    }\\n  },\\n  \\"processor\\": {\\n    \\"type\\": \\"javascript\\"\\n  }\\n}"
+                  "content": "{\\n    \\"$schema\\": \\"https://cdn.mia-platform.eu/runtime/platform/data-fabric/stream-processor/v0.6.0/stream-processor.schema.json\\",\\n    \\"connections\\": {\\n        \\"kafka\\": {\\n            \\"type\\": \\"kafka\\",\\n            \\"config\\": {\\n                \\"bootstrap.servers\\": {\\n                    \\"type\\": \\"file\\",\\n                    \\"path\\": \\"/run/secrets/kafka/bootstrap.servers\\"\\n                }\\n            }\\n        }\\n    },\\n    \\"consumer\\": {\\n        \\"type\\": \\"kafka\\",\\n        \\"topic\\": \\"<INPUT_TOPIC>\\",\\n        \\"connectionName\\": \\"kafka\\",\\n        \\"config\\": {\\n            \\"client.id\\": \\"sp.<TODO>.consumer\\",\\n            \\"group.id\\": \\"<CONSUMER_GROUP>\\",\\n            \\"auto.offset.reset\\": \\"earliest\\",\\n            \\"queued.max.messages.kbytes\\": \\"32840\\",\\n            \\"queued.min.messages\\": \\"5000\\"\\n        }\\n    },\\n    \\"producer\\": {\\n        \\"type\\": \\"kafka\\",\\n        \\"topic\\": \\"<OUTPUT_TOPIC>\\",\\n        \\"connectionName\\": \\"kafka\\",\\n        \\"config\\": {\\n            \\"client.id\\": \\"sp.<TODO>.producer\\",\\n            \\"compression.type\\": \\"snappy\\"\\n        }\\n    },\\n    \\"processor\\": {\\n        \\"type\\": \\"javascript\\"\\n    }\\n}"
                 }
               ],
               "viewAsReadOnly": false
@@ -23955,6 +24041,71 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "data-visualization",
           "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
+          "dockerImage": "nexus.mia-platform.eu/backoffice/data-visualization:1.8.5",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "8080",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-nginx",
+          "defaultDocumentationPath": "",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "1.8.5",
+      "releaseNote": "Fix security vulnerabilities"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-02-20T16:47:48.016Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "data-visualization.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "business",
+    "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
+    "itemId": "data-visualization",
+    "name": "Data Visualization",
+    "resources": {
+      "services": {
+        "data-visualization": {
+          "type": "plugin",
+          "name": "data-visualization",
+          "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
           "dockerImage": "nexus.mia-platform.eu/backoffice/data-visualization:1.8.2",
           "defaultEnvironmentVariables": [
             {
@@ -23991,7 +24142,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -55212,7 +55362,7 @@ exports[`Sync script > should match snapshot 2`] = `
       },
       "unsecretedVariables": {
         "MFE_TOOLKIT_VERSION": {
-          "productionEnv": "1.3.11",
+          "productionEnv": "1.3.12",
           "noProductionEnv": "latest"
         },
         "BACK_KIT_SOURCE": {
@@ -55543,8 +55693,8 @@ exports[`Sync script > should match snapshot 2`] = `
       },
       "unsecretedVariables": {
         "BACK_KIT_VERSION": {
-          "productionEnv": "1.5.25",
-          "noProductionEnv": "1.5.25"
+          "productionEnv": "1.5.26",
+          "noProductionEnv": "1.5.26"
         }
       },
       "listeners": {
@@ -84776,6 +84926,72 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "timeline-viewer",
           "description": "Visualize events on a timeline",
+          "dockerImage": "nexus.mia-platform.eu/backoffice/timeline:2.1.2",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "8080",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-nginx",
+          "defaultDocumentationPath": "",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "2.1.2",
+      "releaseNote": "Fix security vulnerabilities"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-02-20T16:47:48.036Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "timeline-viewer.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "business",
+    "description": "Visualize events on a timeline",
+    "itemId": "timeline-viewer",
+    "name": "Timeline Viewer",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/backoffice/timeline",
+    "resources": {
+      "services": {
+        "timeline-viewer": {
+          "type": "plugin",
+          "name": "timeline-viewer",
+          "description": "Visualize events on a timeline",
           "dockerImage": "nexus.mia-platform.eu/backoffice/timeline:2.1.0",
           "defaultEnvironmentVariables": [
             {
@@ -84812,7 +85028,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
