@@ -33773,7 +33773,7 @@ exports[`Sync script > should match snapshot 2`] = `
               "min": "15Mi"
             }
           },
-          "dockerImage": "nexus.mia-platform.eu/data-fabric/piper:0.1.0-mongodb",
+          "dockerImage": "nexus.mia-platform.eu/data-fabric/piper:0.1.1-mongodb",
           "name": "control-plane",
           "tags": [
             "control-plane"
