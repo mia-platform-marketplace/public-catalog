@@ -13,7 +13,7 @@
         "type": "plugin",
         "name": "data-visualization",
         "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
-        "dockerImage": "nexus.mia-platform.eu/backoffice/data-visualization:1.8.5",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/data-visualization:1.8.6",
         "defaultEnvironmentVariables": [
           {
             "name": "HTTP_PORT",
@@ -40,13 +40,13 @@
   },
   "tenantId": "mia-platform",
   "version": {
-    "name": "1.8.5",
+    "name": "1.8.6",
     "releaseNote": "Fix security vulnerabilities"
   },
   "visibility": {
     "public": true
   },
-  "releaseDate": "2026-01-28T16:47:48.016Z",
+  "releaseDate": "2026-01-30T16:47:48.016Z",
   "lifecycleStatus": "published",
   "itemTypeDefinitionRef": {
     "name": "plugin",

@@ -1,19 +1,20 @@
 {
   "$schema": "../../manifest.schema.json",
   "categoryId": "business",
-  "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
+  "description": "Visualize events on a timeline",
   "image": {
-    "localPath": "../assets/data-visualization.png"
+    "localPath": "../assets/timeline-viewer.png"
   },
-  "itemId": "data-visualization",
-  "name": "Data Visualization",
+  "itemId": "timeline-viewer",
+  "name": "Timeline Viewer",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/platform/backoffice/timeline",
   "resources": {
     "services": {
-      "data-visualization": {
+      "timeline-viewer": {
         "type": "plugin",
-        "name": "data-visualization",
-        "description": "A customizable frontend to display your data in beautiful dashboards. Use it with Data Visualization Backend.",
-        "dockerImage": "nexus.mia-platform.eu/backoffice/data-visualization:1.8.5",
+        "name": "timeline-viewer",
+        "description": "Visualize events on a timeline",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/timeline:2.1.3",
         "defaultEnvironmentVariables": [
           {
             "name": "HTTP_PORT",
@@ -40,13 +41,13 @@
   },
   "tenantId": "mia-platform",
   "version": {
-    "name": "1.8.5",
+    "name": "2.1.3",
     "releaseNote": "Fix security vulnerabilities"
   },
   "visibility": {
     "public": true
   },
-  "releaseDate": "2026-01-28T16:47:48.016Z",
+  "releaseDate": "2026-01-28T16:47:48.036Z",
   "lifecycleStatus": "published",
   "itemTypeDefinitionRef": {
     "name": "plugin",
