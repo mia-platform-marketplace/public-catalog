@@ -1,0 +1,304 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "fast-data",
+  "description": "Use this application to set up a Control Plane for the runtime management of Fast Data v2",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/runtime_management/overview"
+  },
+  "image": {
+    "localPath": "../assets/fast-data-control-plane.png"
+  },
+  "itemId": "fast-data-control-plane-v2",
+  "name": "Fast Data Control Plane v2",
+  "repositoryUrl": "",
+  "resources": {
+    "endpoints": {
+      "/api": {
+        "acl": "false",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/api",
+        "defaultPathRewrite": "/api",
+        "description": "Endpoint control plane /api",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "public": true,
+        "secreted": false,
+        "service": "control-plane",
+        "showInDocumentation": true,
+        "tags": [
+          "control-plane"
+        ],
+        "type": "custom"
+      },
+      "/": {
+        "acl": "true",
+        "allowUnknownRequestContentType": false,
+        "allowUnknownResponseContentType": false,
+        "backofficeAcl": {
+          "inherited": true
+        },
+        "defaultBasePath": "/",
+        "defaultPathRewrite": "/",
+        "description": "Endpoint control plane fe",
+        "forceMicroserviceGatewayProxy": false,
+        "listeners": {
+          "frontend": true
+        },
+        "options": {
+          "iframePolicy": "all"
+        },
+        "public": true,
+        "secreted": false,
+        "service": "control-plane-fe",
+        "showInDocumentation": false,
+        "tags": [
+          "control-plane-fe"
+        ],
+        "type": "custom"
+      }
+    },
+    "listeners": {
+      "frontend": {
+        "description": "Default listener for frontend API",
+        "name": "frontend",
+        "ownedBy": {
+          "componentIds": [
+            "api-gateway-envoy"
+          ]
+        },
+        "port": "8080",
+        "selectedByDefault": true
+      }
+    },
+    "services": {
+      "api-gateway": {
+        "componentId": "api-gateway-envoy",
+        "containerPorts": [
+          {
+            "from": 8080,
+            "name": "frontend",
+            "to": 8080
+          },
+          {
+            "from": 8081,
+            "name": "backoffice",
+            "to": 8081
+          },
+          {
+            "from": 9901,
+            "name": "admin",
+            "to": 9901
+          },
+          {
+            "from": 50051,
+            "name": "grpc",
+            "to": 50051
+          }
+        ],
+        "defaultArgs": [
+          "-c",
+          "/etc/envoy/envoy.json",
+          "-l",
+          "{{LOG_LEVEL}}",
+          "--log-format",
+          "{\"level\":\"%l\",\"time\":\"%Y-%m-%dT%T.%fZ\",\"scope\":\"%n\",\"message\":\"%j\"}",
+          "--drain-time-s",
+          "50"
+        ],
+        "defaultConfigMaps": [
+          {
+            "files": [],
+            "link": {
+              "targetSection": "endpoints"
+            },
+            "mountPath": "/etc/envoy",
+            "name": "api-gateway-envoy-config",
+            "viewAsReadOnly": true
+          }
+        ],
+        "defaultDocumentationPath": "",
+        "defaultEnvironmentVariables": [],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 15,
+            "path": "/healthz",
+            "periodSeconds": 20,
+            "port": "frontend",
+            "timeoutSeconds": 1
+          },
+          "readiness": {
+            "failureThreshold": 3,
+            "initialDelaySeconds": 5,
+            "path": "/healthz",
+            "periodSeconds": 10,
+            "port": "frontend",
+            "successThreshold": 1,
+            "timeoutSeconds": 1
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "200m",
+            "min": "100m"
+          },
+          "memoryLimits": {
+            "max": "100Mi",
+            "min": "30Mi"
+          }
+        },
+        "description": "Envoy API Gateway to route requests to the correct service and verify the need of authentication",
+        "dockerImage": "nexus.mia-platform.eu/cache/envoyproxy/envoy:v1.36.2",
+        "execPreStop": [
+          "bash",
+          "-c",
+          "echo -e 'POST /drain_listeners?graceful HTTP/1.1\r\nHost: localhost:9901\r\n\r' > /dev/tcp/localhost/9901 && sleep 55s"
+        ],
+        "name": "api-gateway",
+        "tags": [
+          "custom"
+        ],
+        "type": "plugin"
+      },
+      "control-plane": {
+        "componentId": "fast-data-control-plane",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 3000
+          },
+          {
+            "from": 50051,
+            "name": "grpc",
+            "protocol": "TCP",
+            "to": 50051
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/home/piper/.config/piper",
+            "name": "piper-configuration",
+            "files": [
+              {
+                "content": "{\n  \"$schema\": \"https://cdn.mia-platform.eu/runtime/platform/data-fabric/piper/v0.1.0/piper.schema.json\",\n  \"connections\": {\n    \"mongo\": {\n      \"type\": \"mongodb\",\n      \"config\": {\n        \"url\": {\n          \"type\": \"file\",\n          \"path\": \"/run/secrets/mongodb/mongodb-url\"\n        }\n      }\n    }\n  },\n  \"state\": {\n    \"connectionName\": \"mongo\"\n  },\n  \"servers\": {\n    \"rest\": {\n      \"apiPrefix\": \"/api\"\n    }\n  }\n}",
+                "name": "config.json"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "info",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "port": "http"
+          },
+          "readiness": {
+            "port": "http"
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "150m",
+            "min": "50m"
+          },
+          "memoryLimits": {
+            "max": "80Mi",
+            "min": "15Mi"
+          }
+        },
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/piper:0.1.0-mongodb",
+        "name": "control-plane",
+        "tags": [
+          "control-plane"
+        ],
+        "type": "plugin"
+      },
+      "control-plane-fe": {
+        "componentId": "fast-data-control-plane-fe",
+        "containerPorts": [
+          {
+            "from": 80,
+            "name": "http",
+            "protocol": "TCP",
+            "to": 8080
+          }
+        ],
+        "defaultConfigMaps": [
+          {
+            "mountPath": "/usr/static",
+            "name": "control-plane-frontend-static",
+            "subPaths": [
+              "configuration.json"
+            ],
+            "usePreserve": true,
+            "files": [
+              {
+                "content": "{\n    \"api\": {\n        \"control-plane\": \"/api\"\n    }\n}",
+                "name": "configuration.json"
+              }
+            ]
+          }
+        ],
+        "defaultEnvironmentVariables": [],
+        "defaultLogParser": "mia-json",
+        "defaultProbes": {
+          "liveness": {
+            "port": "http"
+          },
+          "readiness": {
+            "port": "http"
+          },
+          "startup": {}
+        },
+        "defaultResources": {
+          "cpuLimits": {
+            "max": "100m",
+            "min": "20m"
+          },
+          "memoryLimits": {
+            "max": "60Mi",
+            "min": "15Mi"
+          }
+        },
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/piper-frontend:0.1.0",
+        "name": "control-plane-fe",
+        "tags": [
+          "control-plane"
+        ],
+        "type": "plugin"
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2026-02-02T17:32:50.569Z",
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "application",
+    "namespace": "mia-platform"
+  }
+}
