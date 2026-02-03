@@ -22729,14 +22729,130 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Use Mia-Platform Kango to consume a stream of change events from a Kafka topic and save them onto a MongoDB collection",
     "documentation": {
       "type": "externalLink",
-      "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/kango/overview"
+      "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/kango/overview"
     },
     "itemId": "data-fabric-kango",
     "name": "Kango",
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/kango",
     "resources": {
       "services": {
-        "swagger-aggregator": {
+        "kango": {
+          "type": "plugin",
+          "name": "data-fabric-kango",
+          "description": "Use Mia-Platform Kango to consume a stream of change events from a Kafka topic and save them onto a MongoDB collection.",
+          "dockerImage": "nexus.mia-platform.eu/data-fabric/kango:0.6.0",
+          "componentId": "data-fabric-kango",
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "30Mi",
+              "max": "90Mi"
+            },
+            "cpuLimits": {
+              "min": "25m",
+              "max": "300m"
+            }
+          },
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "LOG_LEVEL",
+              "value": "info",
+              "valueType": "plain"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "kango-config",
+              "mountPath": "/home/kango/.df/kango",
+              "files": [
+                {
+                  "name": "config.json",
+                  "content": "{\\n  \\"$schema\\": \\"https://cdn.mia-platform.eu/runtime/platform/data-fabric/kango/v0.6.0/kango.schema.json\\",\\n  \\"connections\\": {\\n    \\"kafka\\": {\\n      \\"type\\": \\"kafka\\",\\n      \\"config\\": {\\n        \\"bootstrap.servers\\": {\\n          \\"type\\": \\"file\\",\\n          \\"path\\": \\"/run/secrets/kafka/bootstrap.servers\\"\\n        }\\n      }\\n    },\\n    \\"mongodb\\": {\\n      \\"type\\": \\"mongodb\\",\\n      \\"config\\": {\\n        \\"url\\": {\\n          \\"type\\": \\"file\\",\\n          \\"path\\": \\"/run/secrets/mongodb/mongodb-url\\"\\n        }\\n      }\\n    }\\n  },\\n  \\"consumer\\": {\\n    \\"type\\": \\"kafka\\",\\n    \\"connectionName\\": \\"kafka\\",\\n    \\"topic\\": \\"<INPUT_TOPIC>\\",\\n    \\"config\\": {\\n      \\"group.id\\": \\"<TODO>\\",\\n      \\"auto.offset.reset\\": \\"earliest\\",\\n      \\"queued.max.messages.kbytes\\": \\"32840\\",\\n      \\"queued.min.messages\\": \\"5000\\"\\n    }\\n  },\\n  \\"persistence\\": {\\n    \\"connectionName\\": \\"mongodb\\",\\n    \\"database\\": \\"<DATABASE_NAME>\\",\\n    \\"collection\\": \\"<COLLECTION_NAME>\\"\\n  }\\n}\\n"
+                }
+              ],
+              "viewAsReadOnly": false
+            }
+          ],
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 15,
+              "timeoutSeconds": 5,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 15,
+              "timeoutSeconds": 5,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "0.6.0",
+      "releaseNote": "## BREAKING\\n\\n* Added\\n  * Add zlib in tests\\n  * Use of piper Control Plane logic\\n  * Connections required in config"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-02-02T10:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "kango_logo_20250926.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "fast-data",
+    "description": "Use Mia-Platform Kango to consume a stream of change events from a Kafka topic and save them onto a MongoDB collection",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/kango/overview"
+    },
+    "itemId": "data-fabric-kango",
+    "name": "Kango",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/kango",
+    "resources": {
+      "services": {
+        "kango": {
           "type": "plugin",
           "name": "data-fabric-kango",
           "description": "Use Mia-Platform Kango to consume a stream of change events from a Kafka topic and save them onto a MongoDB collection.",
@@ -22822,7 +22938,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -22845,14 +22960,14 @@ exports[`Sync script > should match snapshot 2`] = `
     "description": "Use Mia-Platform Kango to consume a stream of change events from a Kafka topic and save them onto a MongoDB collection",
     "documentation": {
       "type": "externalLink",
-      "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/kango/overview"
+      "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/kango/overview"
     },
     "itemId": "data-fabric-kango",
     "name": "Kango",
     "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/kango",
     "resources": {
       "services": {
-        "swagger-aggregator": {
+        "kango": {
           "type": "plugin",
           "name": "data-fabric-kango",
           "description": "Use Mia-Platform Kango to consume a stream of change events from a Kafka topic and save them onto a MongoDB collection.",
