@@ -17,7 +17,7 @@
       "mongezium-cdc": {
         "type": "plugin",
         "name": "data-fabric-mongezium-cdc",
-        "dockerImage": "nexus.mia-platform.eu/data-fabric/mongezium:0.4.0",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/mongezium:0.5.0",
         "defaultResources": {
           "cpuLimits": {
             "max": "300m",
@@ -61,7 +61,7 @@
             "mountPath": "/home/mongezium/.df/mongezium",
             "files": [
               {
-                "content": "{\n  \"persistence\": {\n    \"url\": \"CHANGE_ME\"\n  },\n  \"collections\": [],\n  \"stream\": {\n    \"consumer\": {\n      \"bootstrap.servers\": \"CHANGE_ME\"\n    },\n    \"producer\": {\n      \"bootstrap.servers\": \"CHANGE_ME\"\n    }\n  }\n}\n",
+                "content": "{\n  \"$schema\": \"https://cdn.mia-platform.eu/runtime/platform/data-fabric/mongezium/v0.5.0/mongezium.schema.json\",\n  \"connections\": {\n    \"mongo\": {\n      \"type\": \"mongodb\",\n      \"config\": {\n        \"url\": {\n          \"type\": \"file\",\n          \"path\": \"/run/secrets/mongodb/mongodb-url\"\n        }\n      }\n    },\n    \"kafka\": {\n      \"type\": \"kafka\",\n      \"config\": {\n        \"bootstrap.servers\": {\n          \"type\": \"file\",\n          \"path\": \"/run/secrets/kafka/bootstrap.servers\"\n        }\n      }\n    }\n  },\n  \"persistence\": {\n    \"connectionName\": \"mongo\"\n  },\n  \"collections\": [\n    {\n      \"topic\": \"<OUTPUT_TOPIC>\",\n      \"snapshot\": \"when_needed\",\n      \"namespace\": \"<DATABASE_NAME>.<COLLECTION_NAME>\"\n    }\n  ],\n  \"stream\": {\n    \"consumer\": {\n      \"connectionName\": \"kafka\",\n      \"group.id\": \"<CONSUMER_GROUP>\"\n    },\n    \"producer\": {\n      \"connectionName\": \"kafka\"\n    }\n  }\n}\n",
                 "name": "config.json"
               }
             ]
@@ -86,11 +86,11 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2025-07-08T16:15:06.843Z",
+  "releaseDate": "2026-02-02T15:07:08.407Z",
   "lifecycleStatus": "published",
   "version": {
-    "name": "0.4.0",
-    "releaseNote": "Initial release"
+    "name": "0.5.0",
+    "releaseNote": "## BREAKING\n\n* Use of connection in config\n\n## Fixed\n\n* Update gitlab-ci.yml file to not publish docker image from branch build"
   },
   "itemTypeDefinitionRef": {
     "name": "plugin",
