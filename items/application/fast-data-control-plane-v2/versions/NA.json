@@ -191,7 +191,7 @@
             "name": "piper-configuration",
             "files": [
               {
-                "content": "{\n  \"$schema\": \"https://cdn.mia-platform.eu/runtime/platform/data-fabric/piper/v0.1.0/piper.schema.json\",\n  \"connections\": {\n    \"mongo\": {\n      \"type\": \"mongodb\",\n      \"config\": {\n        \"url\": {\n          \"type\": \"file\",\n          \"path\": \"/run/secrets/mongodb/mongodb-url\"\n        }\n      }\n    }\n  },\n  \"state\": {\n    \"connectionName\": \"mongo\"\n  },\n  \"servers\": {\n    \"rest\": {\n      \"apiPrefix\": \"/api\"\n    }\n  }\n}",
+                "content": "{\n  \"$schema\": \"https://cdn.mia-platform.eu/runtime/platform/data-fabric/piper/v0.1.1/piper.schema.json\",\n  \"connections\": {\n    \"mongo\": {\n      \"type\": \"mongodb\",\n      \"config\": {\n        \"url\": {\n          \"type\": \"file\",\n          \"path\": \"/run/secrets/mongodb/mongodb-url\"\n        }\n      }\n    }\n  },\n  \"state\": {\n    \"connectionName\": \"mongo\"\n  },\n  \"servers\": {\n    \"rest\": {\n      \"apiPrefix\": \"/api\"\n    }\n  }\n}",
                 "name": "config.json"
               }
             ]
