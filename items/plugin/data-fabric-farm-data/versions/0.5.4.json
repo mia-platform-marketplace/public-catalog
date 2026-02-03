@@ -4,7 +4,7 @@
   "description": "Use Mia-Platform Farm Data to combine multiple Kafka change stream together and generate an aggregated record that can be transformed into a Data Product",
   "documentation": {
     "type": "externalLink",
-    "url": "https://docs.mia-platform.eu/docs/products/fast_data/fast_data_engine_v2/farm_data/overview"
+    "url": "https://docs.mia-platform.eu/docs/products/fast_data_v2/farm_data/overview"
   },
   "image": {
     "localPath": "../assets/farmData_logo_20250926.png"
@@ -14,7 +14,7 @@
   "repositoryUrl": "https://git.tools.mia-platform.eu/platform/data-fabric/farm-data",
   "resources": {
     "services": {
-      "swagger-aggregator": {
+      "farm-data": {
         "type": "plugin",
         "name": "data-fabric-farm-data",
         "description": "Use Mia-Platform Farm Data to combine multiple Kafka change stream together and generate an aggregated record that can be transformed into a Data Product.",
