@@ -50,7 +50,7 @@
     "eslint-visitor-keys": "^5.0.0",
     "file-type": "^21.3.0",
     "json-schema-to-ts": "^3.1.1",
-    "jsonpath-plus": "^10.3.0",
+    "jsonpath-plus": "^10.4.0",
     "listr2": "^10.1.0",
     "lodash-es": "^4.17.23",
     "nock": "^14.0.10",
