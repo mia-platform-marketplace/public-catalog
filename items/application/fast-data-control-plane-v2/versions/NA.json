@@ -257,7 +257,13 @@
             ]
           }
         ],
-        "defaultEnvironmentVariables": [],
+        "defaultEnvironmentVariables": [
+          {
+            "name": "LOG_LEVEL",
+            "value": "info",
+            "valueType": "plain"
+          }
+        ],
         "defaultLogParser": "mia-json",
         "defaultProbes": {
           "liveness": {

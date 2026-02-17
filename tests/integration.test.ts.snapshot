@@ -33806,7 +33806,13 @@ exports[`Sync script > should match snapshot 2`] = `
               ]
             }
           ],
-          "defaultEnvironmentVariables": [],
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "info",
+              "valueType": "plain"
+            }
+          ],
           "defaultLogParser": "mia-json",
           "defaultProbes": {
             "liveness": {
