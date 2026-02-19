@@ -92,7 +92,7 @@
   "tenantId": "mia-platform",
   "version": {
     "name": "0.6.1",
-    "releaseNote": "## Fixed\n\n* Fixed control plane startup behaviour to resume\n*  explicit error on missing SERVICE_NAME missing var\n\n"
+    "releaseNote": "## Fixed\n\n* Fixed control plane startup behaviour to resume\n*  explicit error on missing SERVICE_NAME missing var"
   },
   "visibility": {
     "public": true
