@@ -2775,6 +2775,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-visitor-keys@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "eslint-visitor-keys@npm:5.0.1"
+  checksum: 10/f9cc1a57b75e0ef949545cac33d01e8367e302de4c1483266ed4d8646ee5c306376660196bbb38b004e767b7043d1e661cb4336b49eff634a1bbe75c1db709ec
+  languageName: node
+  linkType: hard
+
 "eslint@npm:^6.8.0":
   version: 6.8.0
   resolution: "eslint@npm:6.8.0"
@@ -4979,7 +4986,7 @@ __metadata:
     eslint-plugin-n: "npm:^17.24.0"
     eslint-plugin-sort-keys-fix: "npm:^1.1.2"
     eslint-plugin-typescript-sort-keys: "npm:^3.3.0"
-    eslint-visitor-keys: "npm:^5.0.0"
+    eslint-visitor-keys: "npm:^5.0.1"
     file-type: "npm:^21.3.0"
     json-diff: "npm:^1.0.6"
     json-schema-to-ts: "npm:^3.1.1"
