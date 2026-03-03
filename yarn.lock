@@ -1907,7 +1907,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colorette@npm:^2.0.20, colorette@npm:^2.0.7":
+"colorette@npm:^2.0.7":
   version: 2.0.20
   resolution: "colorette@npm:2.0.20"
   checksum: 10/0b8de48bfa5d10afc160b8eaa2b9938f34a892530b2f7d7897e0458d9535a066e3998b49da9d21161c78225b272df19ae3a64d6df28b4c9734c0e55bbd02406f
@@ -2963,10 +2963,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eventemitter3@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "eventemitter3@npm:5.0.1"
-  checksum: 10/ac6423ec31124629c84c7077eed1e6987f6d66c31cf43c6fcbf6c87791d56317ce808d9ead483652436df171b526fc7220eccdc9f3225df334e81582c3cf7dd5
+"eventemitter3@npm:^5.0.4":
+  version: 5.0.4
+  resolution: "eventemitter3@npm:5.0.4"
+  checksum: 10/54f5c8c543650d65f92d03dbef1bb73a682a920490c44699ad8f863a6b19bbca42fb7409aa09ca09cb98a44149d9a7bc1dffd55ca88a740bd928c7be0ad666a0
   languageName: node
   linkType: hard
 
@@ -4183,17 +4183,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"listr2@npm:^10.1.2":
-  version: 10.1.2
-  resolution: "listr2@npm:10.1.2"
+"listr2@npm:^10.2.1":
+  version: 10.2.1
+  resolution: "listr2@npm:10.2.1"
   dependencies:
     cli-truncate: "npm:^5.2.0"
-    colorette: "npm:^2.0.20"
-    eventemitter3: "npm:^5.0.1"
-    log-update: "npm:^6"
+    eventemitter3: "npm:^5.0.4"
+    log-update: "npm:^6.1.0"
     rfdc: "npm:^1.4.1"
     wrap-ansi: "npm:^10.0.0"
-  checksum: 10/325528a48b5c493d15401a5f9c36445f2c58f7dab5b92e6d57c0bc78b900073ddc572afd4d373d7b3015bbccf5008254d4fece0d59df91d7cbdf7656ef1d7ef8
+  checksum: 10/19f6356e6e2b56d6d3be30e3cf3ac511a8c081b5dac75c3c1e26cf52e07a7c59b63c1380862f3df2807b2284f8fa00864527777b6fcdb07be4c3f116947dee0d
   languageName: node
   linkType: hard
 
@@ -4227,7 +4226,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"log-update@npm:^6":
+"log-update@npm:^6.1.0":
   version: 6.1.0
   resolution: "log-update@npm:6.1.0"
   dependencies:
@@ -5023,7 +5022,7 @@ __metadata:
     json-diff: "npm:^1.0.6"
     json-schema-to-ts: "npm:^3.1.1"
     jsonpath-plus: "npm:^10.4.0"
-    listr2: "npm:^10.1.2"
+    listr2: "npm:^10.2.1"
     lodash-es: "npm:^4.17.23"
     mongodb: "npm:^7.1.0"
     nock: "npm:^14.0.11"
