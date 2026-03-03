@@ -284,7 +284,7 @@
             "min": "15Mi"
           }
         },
-        "dockerImage": "nexus.mia-platform.eu/data-fabric/piper-frontend:0.1.2",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/piper-frontend:0.1.3",
         "name": "control-plane-fe",
         "tags": [
           "control-plane"
