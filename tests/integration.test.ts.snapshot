@@ -74115,6 +74115,83 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "ses-mail-notification-service",
           "description": "Send custom email using an Amazon SES.",
+          "dockerImage": "nexus.mia-platform.eu/plugins/ses-mail-notification-service:3.5.1",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "SES_SECRET",
+              "value": "CHANGE_WITH_YOUR_SES_SECRET",
+              "valueType": "plain"
+            },
+            {
+              "name": "SES_KEY",
+              "value": "CHANGE_WITH_YOUR_SES_KEY",
+              "valueType": "plain"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "3.5.1",
+      "releaseNote": "Updated main libraries to latest."
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-02-20T16:47:48.028Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "ses-mail-notification-service.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "notification",
+    "description": "Send custom email using an Amazon SES.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/ses-mail-notification-service/configuration"
+    },
+    "itemId": "ses-mail-notification-service",
+    "name": "SES Mail Notification Service",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/mail-notification-service",
+    "resources": {
+      "services": {
+        "ses-mail-notification-service": {
+          "type": "plugin",
+          "name": "ses-mail-notification-service",
+          "description": "Send custom email using an Amazon SES.",
           "dockerImage": "nexus.mia-platform.eu/plugins/ses-mail-notification-service:3.5.0",
           "containerPorts": [
             {
@@ -74158,7 +74235,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -80740,6 +80816,103 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "smtp-mail-notification-service",
           "description": "Send custom email using configured SMTP server",
+          "dockerImage": "nexus.mia-platform.eu/plugins/smtp-mail-notification-service:3.5.1",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HOST",
+              "value": "CHANGE_WITH_YOUR_HOST",
+              "valueType": "plain"
+            },
+            {
+              "name": "PORT",
+              "value": "CHANGE_WITH_YOUR_PORT",
+              "valueType": "plain"
+            },
+            {
+              "name": "AUTH_TYPE",
+              "value": "CHANGE_WITH_YOUR_AUTH_TYPE",
+              "valueType": "plain"
+            },
+            {
+              "name": "AUTH_USER",
+              "value": "CHANGE_WITH_YOUR_AUTH_USER",
+              "valueType": "plain"
+            },
+            {
+              "name": "AUTH_PASS",
+              "value": "CHANGE_WITH_YOUR_SECRET_AUTH_PASS",
+              "valueType": "plain"
+            },
+            {
+              "name": "TLS_SECURE",
+              "value": "CHANGE_WITH_YOUR_OPTIONAL_TLS_SECURE",
+              "valueType": "plain"
+            },
+            {
+              "name": "TLS_IGNORE",
+              "value": "CHANGE_WITH_YOUR_OPTIONAL_TLS_IGNORE",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "CHANGE_WITH_YOUR_OPTIONAL_TRUSTED_PROXIES",
+              "valueType": "plain"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "3.5.1",
+      "releaseNote": "Updated main libraries to latest."
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-02-20T16:47:48.031Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "smtp-mail-notification-service.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "notification",
+    "description": "Send custom email using configured SMTP server",
+    "itemId": "smtp-mail-notification-service",
+    "name": "SMTP Mail Notification Service",
+    "resources": {
+      "services": {
+        "smtp-mail-notification-service": {
+          "type": "plugin",
+          "name": "smtp-mail-notification-service",
+          "description": "Send custom email using configured SMTP server",
           "dockerImage": "nexus.mia-platform.eu/plugins/smtp-mail-notification-service:3.5.0",
           "containerPorts": [
             {
@@ -80808,7 +80981,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
