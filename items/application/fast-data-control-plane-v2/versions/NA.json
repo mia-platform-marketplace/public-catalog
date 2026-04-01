@@ -224,7 +224,7 @@
             "min": "15Mi"
           }
         },
-        "dockerImage": "nexus.mia-platform.eu/data-fabric/piper:0.1.1-mongodb",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/piper:0.2.0-mongodb",
         "name": "control-plane",
         "tags": [
           "control-plane"
@@ -284,7 +284,7 @@
             "min": "15Mi"
           }
         },
-        "dockerImage": "nexus.mia-platform.eu/data-fabric/piper-frontend:0.1.3",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/piper-frontend:0.2.0",
         "name": "control-plane-fe",
         "tags": [
           "control-plane"
@@ -301,7 +301,7 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2026-02-02T17:32:50.569Z",
+  "releaseDate": "2026-04-02T17:32:50.569Z",
   "lifecycleStatus": "published",
   "itemTypeDefinitionRef": {
     "name": "application",
