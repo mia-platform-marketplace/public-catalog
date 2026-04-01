@@ -22963,6 +22963,16 @@ exports[`Sync script > should match snapshot 2`] = `
               "name": "LOG_LEVEL",
               "value": "info",
               "valueType": "plain"
+            },
+            {
+              "name": "SERVICE_NAME",
+              "valueType": "downwardAPI",
+              "fieldPath": "metadata.labels['app.kubernetes.io/name']"
+            },
+            {
+              "name": "POD_NAME",
+              "valueType": "downwardAPI",
+              "fieldPath": "metadata.name"
             }
           ],
           "defaultConfigMaps": [
