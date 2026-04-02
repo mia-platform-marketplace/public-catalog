@@ -21577,7 +21577,7 @@ exports[`Sync script > should match snapshot 2`] = `
             }
           },
           "description": "Backend for frontend communication proxy for Data Catalog services and other applications",
-          "dockerImage": "nexus.mia-platform.eu/data-fabric/fabric-bff:0.3.4",
+          "dockerImage": "nexus.mia-platform.eu/data-fabric/fabric-bff:0.4.0",
           "name": "fabric-bff",
           "tags": [
             "data-fabric"
