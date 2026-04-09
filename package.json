@@ -20,7 +20,7 @@
     "check:license": "addlicense -c 'Mia srl' -check -s scripts/**/*.ts src/**/*.ts"
   },
   "dependencies": {
-    "@mia-platform/console-types": "^0.39.4",
+    "@mia-platform/console-types": "^0.40.0",
     "env-schema": "^7.0.0",
     "json-diff": "^1.0.6",
     "mongodb": "^7.1.1",
