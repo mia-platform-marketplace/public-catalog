@@ -22451,7 +22451,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "releaseDate": "2026-04-20T10:00:00.000Z",
+    "releaseDate": "2026-04-22T10:00:00.000Z",
     "lifecycleStatus": "published",
     "itemTypeDefinitionRef": {
       "name": "plugin",
