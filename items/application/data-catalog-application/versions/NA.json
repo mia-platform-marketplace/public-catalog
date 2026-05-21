@@ -3921,7 +3921,7 @@
           }
         },
         "description": "Data Catalog component that allows reading your data assets definition and enrich them with ad-hoc metadata",
-        "dockerImage": "nexus.mia-platform.eu/data-fabric/open-lineage:0.5.0",
+        "dockerImage": "nexus.mia-platform.eu/data-fabric/open-lineage:0.5.1",
         "name": "open-lineage",
         "tags": [
           "data-fabric"
@@ -3976,7 +3976,7 @@
   "visibility": {
     "public": true
   },
-  "releaseDate": "2026-05-06T16:15:06.843Z",
+  "releaseDate": "2026-05-21T16:15:06.843Z",
   "lifecycleStatus": "published",
   "itemTypeDefinitionRef": {
     "name": "application",
