@@ -4581,6 +4581,151 @@ exports[`Sync script > should match snapshot 2`] = `
         "appointment-manager": {
           "type": "plugin",
           "name": "appointment-manager",
+          "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager:2.6.0",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "info",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_SERVICE_NAME",
+              "value": "crud-service",
+              "valueType": "plain"
+            },
+            {
+              "name": "APPOINTMENTS_CRUD_NAME",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "CONFIGURATION_PATH",
+              "value": "/home/node/app/appointment-manager/config.json",
+              "valueType": "plain"
+            },
+            {
+              "name": "RESOURCE_ID_FIELD_NAME",
+              "value": "CHANGE VALUE",
+              "valueType": "plain"
+            },
+            {
+              "name": "DEFAULT_TIME_ZONE",
+              "value": "Europe/Rome",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultConfigMaps": [
+            {
+              "name": "appointment-manager",
+              "mountPath": "/home/node/app/appointment-manager",
+              "files": [
+                {
+                  "name": "config.json",
+                  "content": "{\\n\\"users\\": {},\\n\\"channels\\": [],\\n\\"isTeleconsultationAvailable\\": false,\\n\\"isMessagingAvailable\\": false,\\n\\"isNotificationManagerAvailable\\": false,\\n\\"isTimerAvailable\\": false,\\n\\"isUserAvailable\\": false,\\n\\"isFlexibleSlotAvailable\\": false,\\n\\"isParticipantStatusAvailable\\": false\\n}"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "2.6.0",
+      "releaseNote": "Appointment \`isFlagged\` is now set to \`false\` when the appointment or the exception causing it to be flagged is modified."
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-06-04T10:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "appointment-manager.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "utility",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/appointment-manager/overview"
+    },
+    "itemId": "appointment-manager",
+    "name": "Appointment Manager",
+    "description": "Manage appointments, availabilities, slots and exceptions.",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/appointment-manager",
+    "resources": {
+      "services": {
+        "appointment-manager": {
+          "type": "plugin",
+          "name": "appointment-manager",
           "dockerImage": "nexus.mia-platform.eu/plugins/appointment-manager:2.5.0",
           "defaultEnvironmentVariables": [
             {
@@ -4693,7 +4838,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -31053,6 +31197,75 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "email-builder",
           "description": "Build and manage custom html email templates.",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/email-builder:1.1.0",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "8080",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-nginx",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "1.1.0",
+      "releaseNote": "Added multilingual support via the \`lang\` parameter (supporting \`en\` and \`it\`) and enhanced preset management with the \`presetsEndpoint\` parameter to load custom configurations and \`hideDefaultPresets\` to hide the defaults. Fixed an issue with \`X-Frame-Options\` headers to ensure better security and iframe compatibility."
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-06-04T10:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "email-builder.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "notification",
+    "description": "Build and manage custom html email templates.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/email-builder/overview"
+    },
+    "itemId": "email-builder",
+    "name": "Email Builder",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/email-builder",
+    "resources": {
+      "services": {
+        "email-builder": {
+          "type": "plugin",
+          "name": "email-builder",
+          "description": "Build and manage custom html email templates.",
           "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/email-builder:1.0.0",
           "defaultEnvironmentVariables": [
             {
@@ -31088,7 +31301,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -59736,6 +59948,349 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "notification-manager-service",
           "description": "The Notification Manager provides an HTTP and Kafka interface to send notifications to users through various channels, namely e-mail, SMS, push notification, voice and whatsapp.",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/notification-manager:2.6.0",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "TEMPLATES_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "EVENTS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "EVENTS_SETTINGS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "NOTIFICATIONS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "NOTIFICATIONS_SETTINGS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "NOTIFICATIONS_MESSAGES_VIEW_NAME",
+              "value": "",
+              "valueType": "plain",
+              "description": "Require MongoDB view, otherwise remove the env var"
+            }
+          ],
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "100m",
+              "min": "50m"
+            },
+            "memoryLimits": {
+              "max": "120Mi",
+              "min": "50Mi"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20,
+              "timeoutSeconds": 1,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 10,
+              "timeoutSeconds": 1,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "version": {
+      "name": "2.6.0",
+      "releaseNote": "Add support for multiple device tokens per user via \`deviceTokens\` field for sending push notifications to multiple devices."
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-06-04T10:00:00.000Z",
+    "lifecycleStatus": "published",
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "notification-manager-service_logo_20250410.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "notification",
+    "description": "The Notification Manager provides an HTTP and Kafka interface to send notifications to users through various channels, namely e-mail, SMS, push notification, voice and whatsapp.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/notification-manager/overview"
+    },
+    "itemId": "notification-manager-service",
+    "name": "Notification Manager Service",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/notification-manager",
+    "resources": {
+      "services": {
+        "notification-manager-service": {
+          "type": "plugin",
+          "name": "notification-manager-service",
+          "description": "The Notification Manager provides an HTTP and Kafka interface to send notifications to users through various channels, namely e-mail, SMS, push notification, voice and whatsapp.",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/notification-manager:2.5.0",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "TEMPLATES_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "EVENTS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "EVENTS_SETTINGS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "NOTIFICATIONS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "NOTIFICATIONS_SETTINGS_CRUD_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "NOTIFICATIONS_MESSAGES_VIEW_NAME",
+              "value": "",
+              "valueType": "plain",
+              "description": "Require MongoDB view, otherwise remove the env var"
+            }
+          ],
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "100m",
+              "min": "50m"
+            },
+            "memoryLimits": {
+              "max": "120Mi",
+              "min": "50Mi"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20,
+              "timeoutSeconds": 1,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 10,
+              "timeoutSeconds": 1,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "version": {
+      "name": "2.5.0",
+      "releaseNote": "Added support to multiple Firebase credentials to send push notifications to multiple apps."
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2025-11-24T10:00:00.000Z",
+    "lifecycleStatus": "published",
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "notification-manager-service_logo_20250410.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "notification",
+    "description": "The Notification Manager provides an HTTP and Kafka interface to send notifications to users through various channels, namely e-mail, SMS, push notification, voice and whatsapp.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/notification-manager/overview"
+    },
+    "itemId": "notification-manager-service",
+    "name": "Notification Manager Service",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/notification-manager",
+    "resources": {
+      "services": {
+        "notification-manager-service": {
+          "type": "plugin",
+          "name": "notification-manager-service",
+          "description": "The Notification Manager provides an HTTP and Kafka interface to send notifications to users through various channels, namely e-mail, SMS, push notification, voice and whatsapp.",
           "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/notification-manager:2.4.4",
           "defaultEnvironmentVariables": [
             {
@@ -59874,7 +60429,6 @@ exports[`Sync script > should match snapshot 2`] = `
     },
     "releaseDate": "2025-07-28T10:00:00.000Z",
     "lifecycleStatus": "published",
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [

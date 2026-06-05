@@ -1,0 +1,59 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "notification",
+  "description": "Build and manage custom html email templates.",
+  "documentation": {
+    "type": "externalLink",
+    "url": "https://docs.mia-platform.eu/docs/runtime_suite/email-builder/overview"
+  },
+  "image": {
+    "localPath": "../assets/email-builder.png"
+  },
+  "itemId": "email-builder",
+  "name": "Email Builder",
+  "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/email-builder",
+  "resources": {
+    "services": {
+      "email-builder": {
+        "type": "plugin",
+        "name": "email-builder",
+        "description": "Build and manage custom html email templates.",
+        "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/email-builder:1.1.0",
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Care",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-care.png"
+  },
+  "tenantId": "mia-platform",
+  "version": {
+    "name": "1.1.0",
+    "releaseNote": "Added multilingual support via the `lang` parameter (supporting `en` and `it`) and enhanced preset management with the `presetsEndpoint` parameter to load custom configurations and `hideDefaultPresets` to hide the defaults. Fixed an issue with `X-Frame-Options` headers to ensure better security and iframe compatibility."
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2026-06-04T10:00:00.000Z",
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "plugin",
+    "namespace": "mia-platform"
+  }
+}
