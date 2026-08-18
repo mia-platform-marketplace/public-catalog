@@ -21904,7 +21904,7 @@ exports[`Sync script > should match snapshot 2`] = `
               "min": "50Mi"
             }
           },
-          "dockerImage": "nexus.mia-platform.eu/data-fabric/job-runner:0.3.0",
+          "dockerImage": "nexus.mia-platform.eu/data-fabric/job-runner:0.3.1",
           "name": "job-runner",
           "tags": [
             "data-fabric"
@@ -22224,7 +22224,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "visibility": {
       "public": true
     },
-    "releaseDate": "2026-05-21T16:15:06.843Z",
+    "releaseDate": "2026-08-27T16:15:06.843Z",
     "lifecycleStatus": "published",
     "itemTypeDefinitionRef": {
       "name": "application",
