@@ -1,0 +1,64 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "categoryId": "spa",
+  "description": "Use this template to start a new React Frontend with Mia Flow",
+  "documentation": {
+    "type": "markdown",
+    "url": "https://raw.githubusercontent.com/mia-platform-marketplace/react-vanilla-template/main/README.md"
+  },
+  "image": {
+    "localPath": "../assets/mia-flow-react-template.png"
+  },
+  "itemId": "mia-flow-react-template",
+  "name": "Mia Flow React Template",
+  "repositoryUrl": "https://github.com/mia-platform-marketplace/react-vanilla-template",
+  "resources": {
+    "services": {
+      "mia-flow-react-template": {
+        "type": "template",
+        "name": "mia-flow-react-template",
+        "description": "Use this template to start a new React Frontend with Mia Flow",
+        "archiveUrl": "https://github.com/mia-platform-marketplace/react-vanilla-template/archive/refs/tags/0.0.11.tar.gz",
+        "pipelines": {
+          "gitlab-ci": {
+            "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Freact-app-vitest.gitlab-ci.yml/raw"
+          }
+        },
+        "defaultEnvironmentVariables": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080",
+            "valueType": "plain"
+          }
+        ],
+        "defaultLogParser": "mia-nginx",
+        "containerPorts": [
+          {
+            "name": "http",
+            "from": 80,
+            "to": 8080,
+            "protocol": "TCP"
+          }
+        ]
+      }
+    }
+  },
+  "supportedBy": "Mia-Platform",
+  "supportedByImage": {
+    "localPath": "../../../../assets/img/mia-platform-logo-2023.png"
+  },
+  "tenantId": "mia-platform",
+  "version": {
+    "name": "0.0.11",
+    "releaseNote": "simpler"
+  },
+  "visibility": {
+    "public": true
+  },
+  "releaseDate": "2026-01-10T17:40:05.743Z",
+  "lifecycleStatus": "published",
+  "itemTypeDefinitionRef": {
+    "name": "template",
+    "namespace": "mia-platform"
+  }
+}
