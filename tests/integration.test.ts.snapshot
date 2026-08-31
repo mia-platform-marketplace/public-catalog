@@ -57796,6 +57796,80 @@ exports[`Sync script > should match snapshot 2`] = `
     ]
   },
   {
+    "categoryId": "spa",
+    "description": "Use this template to start a new React Frontend with Mia Flow",
+    "documentation": {
+      "type": "markdown",
+      "url": "https://raw.githubusercontent.com/mia-platform-marketplace/react-vanilla-template/main/README.md"
+    },
+    "itemId": "mia-flow-react-template",
+    "name": "Mia Flow React Template",
+    "repositoryUrl": "https://github.com/mia-platform-marketplace/react-vanilla-template",
+    "resources": {
+      "services": {
+        "mia-flow-react-template": {
+          "type": "template",
+          "name": "mia-flow-react-template",
+          "description": "Use this template to start a new React Frontend with Mia Flow",
+          "archiveUrl": "https://github.com/mia-platform-marketplace/react-vanilla-template/archive/refs/tags/0.0.11.tar.gz",
+          "pipelines": {
+            "gitlab-ci": {
+              "path": "/projects/platform%2Fpipelines-templates/repository/files/console-pipeline%2Freact-app-vitest.gitlab-ci.yml/raw"
+            }
+          },
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "8080",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-nginx",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "0.0.11",
+      "releaseNote": "simpler"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-01-10T17:40:05.743Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "template",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "mia-flow-react-template.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
     "categoryId": "microfrontend",
     "description": "micro-lc enables you to create applications composed by micro-frontends integrated at runtime.",
     "documentation": {
@@ -94122,6 +94196,11 @@ exports[`Sync script > should match snapshot 3`] = `
   },
   {
     "name": "mia-care.png",
+    "creatorId": "marketplace-sync",
+    "updaterId": "marketplace-sync"
+  },
+  {
+    "name": "mia-flow-react-template.png",
     "creatorId": "marketplace-sync",
     "updaterId": "marketplace-sync"
   },
