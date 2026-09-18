@@ -19929,6 +19929,614 @@ exports[`Sync script > should match snapshot 2`] = `
                 "inherited": true
               },
               "verb": "POST"
+            },
+            "PATCH/columns/:dataset-id/:field-name/terms": {
+              "id": "PATCH/columns/:dataset-id/:field-name/terms",
+              "path": "/columns/:dataset-id/:field-name/terms",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"update:metadata-assets\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "PATCH",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "PATCH/sors/:dataset-id/terms": {
+              "id": "PATCH/sors/:dataset-id/terms",
+              "path": "/sors/:dataset-id/terms",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"update:metadata-assets\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "PATCH",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "PATCH/tables/:dataset-id/terms": {
+              "id": "PATCH/tables/:dataset-id/terms",
+              "path": "/tables/:dataset-id/terms",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"update:metadata-assets\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "PATCH",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "GET/glossary/terms/export": {
+              "id": "GET/glossary/terms/export",
+              "verb": "GET",
+              "path": "/glossary/terms/export",
+              "public": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"read:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "rateLimit": {
+                "inherited": true
+              },
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": []
+            },
+            "POST/glossary/terms/export/init": {
+              "id": "POST/glossary/terms/export/init",
+              "verb": "POST",
+              "path": "/glossary/terms/export/init",
+              "public": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"read:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "rateLimit": {
+                "inherited": true
+              },
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": []
+            },
+            "GET/glossary/terms/lookup": {
+              "id": "GET/glossary/terms/lookup",
+              "path": "/glossary/terms/lookup",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"read:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "GET",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "PATCH/glossary/terms/items/:id/term-type": {
+              "id": "PATCH/glossary/terms/items/:id/term-type",
+              "path": "/glossary/terms/items/:id/term-type",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"admin:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "PATCH",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "PATCH/glossary/terms/items/:id/name": {
+              "id": "PATCH/glossary/terms/items/:id/name",
+              "path": "/glossary/terms/items/:id/name",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"admin:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "PATCH",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "DELETE/glossary/terms/items/:id": {
+              "id": "DELETE/glossary/terms/items/:id",
+              "path": "/glossary/terms/items/:id",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"admin:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "DELETE",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "POST/glossary/terms/items": {
+              "id": "POST/glossary/terms/items",
+              "path": "/glossary/terms/items",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"admin:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "POST",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "PATCH/glossary/terms/items/:id/related-terms": {
+              "id": "PATCH/glossary/terms/items/:id/related-terms",
+              "path": "/glossary/terms/items/:id/related-terms",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"admin:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "PATCH",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "DELETE/glossary/terms/items/:id/custom-properties/:name": {
+              "id": "DELETE/glossary/terms/items/:id/custom-properties/:name",
+              "path": "/glossary/terms/items/:id/custom-properties/:name",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"admin:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "DELETE",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "PATCH/glossary/terms/items/:id/custom-properties/:name": {
+              "id": "PATCH/glossary/terms/items/:id/custom-properties/:name",
+              "path": "/glossary/terms/items/:id/custom-properties/:name",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"admin:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "PATCH",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "POST/glossary/terms/items/:id/custom-properties/:name": {
+              "id": "POST/glossary/terms/items/:id/custom-properties/:name",
+              "path": "/glossary/terms/items/:id/custom-properties/:name",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"admin:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "POST",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "PATCH/glossary/terms/items/:id/tags": {
+              "id": "PATCH/glossary/terms/items/:id/tags",
+              "path": "/glossary/terms/items/:id/tags",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"admin:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "PATCH",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "PATCH/glossary/terms/items/:id/description": {
+              "id": "PATCH/glossary/terms/items/:id/description",
+              "path": "/glossary/terms/items/:id/description",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"admin:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "PATCH",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "GET/glossary/term-types/search": {
+              "id": "GET/glossary/term-types/search",
+              "path": "/glossary/term-types/search",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"read:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "GET",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "GET/glossary/terms/items/:id": {
+              "id": "GET/glossary/terms/items/:id",
+              "path": "/glossary/terms/items/:id",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"read:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "GET",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
+            },
+            "GET/glossary/terms/search": {
+              "id": "GET/glossary/terms/search",
+              "path": "/glossary/terms/search",
+              "public": {
+                "inherited": true
+              },
+              "showInDocumentation": {
+                "inherited": true
+              },
+              "secreted": {
+                "inherited": true
+              },
+              "acl": {
+                "inherited": false,
+                "value": "permissions[\\"read:glossary\\"]"
+              },
+              "backofficeAcl": {
+                "inherited": true
+              },
+              "verb": "GET",
+              "allowUnknownRequestContentType": {
+                "inherited": true
+              },
+              "allowUnknownResponseContentType": {
+                "inherited": true
+              },
+              "preDecorators": [],
+              "postDecorators": [],
+              "rateLimit": {
+                "inherited": true
+              }
             }
           },
           "secreted": false,
