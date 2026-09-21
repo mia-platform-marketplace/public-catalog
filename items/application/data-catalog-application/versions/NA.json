@@ -1405,6 +1405,614 @@
               "inherited": true
             },
             "verb": "POST"
+          },
+          "PATCH/columns/:dataset-id/:field-name/terms": {
+            "id": "PATCH/columns/:dataset-id/:field-name/terms",
+            "path": "/columns/:dataset-id/:field-name/terms",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "PATCH",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "PATCH/sors/:dataset-id/terms": {
+            "id": "PATCH/sors/:dataset-id/terms",
+            "path": "/sors/:dataset-id/terms",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "PATCH",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "PATCH/tables/:dataset-id/terms": {
+            "id": "PATCH/tables/:dataset-id/terms",
+            "path": "/tables/:dataset-id/terms",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"update:metadata-assets\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "PATCH",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "GET/glossary/terms/export": {
+            "id": "GET/glossary/terms/export",
+            "verb": "GET",
+            "path": "/glossary/terms/export",
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "rateLimit": {
+              "inherited": true
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": []
+          },
+          "POST/glossary/terms/export/init": {
+            "id": "POST/glossary/terms/export/init",
+            "verb": "POST",
+            "path": "/glossary/terms/export/init",
+            "public": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "rateLimit": {
+              "inherited": true
+            },
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": []
+          },
+          "GET/glossary/terms/lookup": {
+            "id": "GET/glossary/terms/lookup",
+            "path": "/glossary/terms/lookup",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "GET",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "PATCH/glossary/terms/items/:id/term-type": {
+            "id": "PATCH/glossary/terms/items/:id/term-type",
+            "path": "/glossary/terms/items/:id/term-type",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "PATCH",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "PATCH/glossary/terms/items/:id/name": {
+            "id": "PATCH/glossary/terms/items/:id/name",
+            "path": "/glossary/terms/items/:id/name",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "PATCH",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "DELETE/glossary/terms/items/:id": {
+            "id": "DELETE/glossary/terms/items/:id",
+            "path": "/glossary/terms/items/:id",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "DELETE",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "POST/glossary/terms/items": {
+            "id": "POST/glossary/terms/items",
+            "path": "/glossary/terms/items",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "POST",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "PATCH/glossary/terms/items/:id/related-terms": {
+            "id": "PATCH/glossary/terms/items/:id/related-terms",
+            "path": "/glossary/terms/items/:id/related-terms",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "PATCH",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "DELETE/glossary/terms/items/:id/custom-properties/:name": {
+            "id": "DELETE/glossary/terms/items/:id/custom-properties/:name",
+            "path": "/glossary/terms/items/:id/custom-properties/:name",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "DELETE",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "PATCH/glossary/terms/items/:id/custom-properties/:name": {
+            "id": "PATCH/glossary/terms/items/:id/custom-properties/:name",
+            "path": "/glossary/terms/items/:id/custom-properties/:name",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "PATCH",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "POST/glossary/terms/items/:id/custom-properties/:name": {
+            "id": "POST/glossary/terms/items/:id/custom-properties/:name",
+            "path": "/glossary/terms/items/:id/custom-properties/:name",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "POST",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "PATCH/glossary/terms/items/:id/tags": {
+            "id": "PATCH/glossary/terms/items/:id/tags",
+            "path": "/glossary/terms/items/:id/tags",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "PATCH",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "PATCH/glossary/terms/items/:id/description": {
+            "id": "PATCH/glossary/terms/items/:id/description",
+            "path": "/glossary/terms/items/:id/description",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"admin:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "PATCH",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "GET/glossary/term-types/search": {
+            "id": "GET/glossary/term-types/search",
+            "path": "/glossary/term-types/search",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "GET",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "GET/glossary/terms/items/:id": {
+            "id": "GET/glossary/terms/items/:id",
+            "path": "/glossary/terms/items/:id",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "GET",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
+          },
+          "GET/glossary/terms/search": {
+            "id": "GET/glossary/terms/search",
+            "path": "/glossary/terms/search",
+            "public": {
+              "inherited": true
+            },
+            "showInDocumentation": {
+              "inherited": true
+            },
+            "secreted": {
+              "inherited": true
+            },
+            "acl": {
+              "inherited": false,
+              "value": "permissions[\"read:glossary\"]"
+            },
+            "backofficeAcl": {
+              "inherited": true
+            },
+            "verb": "GET",
+            "allowUnknownRequestContentType": {
+              "inherited": true
+            },
+            "allowUnknownResponseContentType": {
+              "inherited": true
+            },
+            "preDecorators": [],
+            "postDecorators": [],
+            "rateLimit": {
+              "inherited": true
+            }
           }
         },
         "secreted": false,
@@ -3092,7 +3700,7 @@
             "viewAsReadOnly": true,
             "files": [
               {
-                "content": "{\n  \"/web-login\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/authorize\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/oauth/token\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/logout\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/refreshtoken\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/userinfo\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/apps\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": true\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/micro-lc-configurations\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/mgmt\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/mgmt/users\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions || \\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/export\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/:id\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/count\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"\\\"read:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/bulk\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/upsert-one\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/:id/state\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/v2/authz/users/state\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"\\\"update:users\\\" in permissions\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"false\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/bulk-actions\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:bulk-action\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/assets/search\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/assets/search-parents\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/tags/search\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/tags/count\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/tags/items\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/sors/:dataset-id\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/sors/:dataset-id/custom-properties/:name\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/sors/:dataset-id/description\": {\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/sors/:dataset-id/tags\": {\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/tables/:dataset-id\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/tables/:dataset-id/custom-properties/:name\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/tables/:dataset-id/description\": {\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/tables/:dataset-id/tags\": {\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/columns/:dataset-id/:field-name\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/columns/:dataset-id/:field-name/custom-properties/:name\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/columns/:dataset-id/:field-name/description\": {\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/columns/:dataset-id/:field-name/tags\": {\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/metadata-registry/search\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/metadata-registry/count\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/metadata-registry/items\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/metadata-registry/items/:name\": {\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"PATCH\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"DELETE\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"update:metadata-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/data-catalog\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/data-catalog/configuration\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/data-catalog/.well-known/openid-configuration\": {\n    \"ALL\": {\n      \"authorization\": {\n        \"expression\": \"true\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  },\n  \"/api/data-catalog/assets/export\": {\n    \"POST\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    },\n    \"GET\": {\n      \"authorization\": {\n        \"expression\": \"permissions[\\\"read:data-assets\\\"]\",\n        \"public\": false\n      },\n      \"backofficeAuthorization\": {\n        \"expression\": \"isBackoffice && groups.admin\",\n        \"public\": false\n      }\n    }\n  }\n}",
+                "content": "{\"/api/openapi\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":true},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/openapi/raw\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":true},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/documentations/api-portal\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/control_plane_fabric.RuntimeManagement\":{\"ALL\":{\"authorization\":{\"expression\":\"clientType == \\\"control_plane_operator\\\"\",\"public\":true},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/grpc.reflection.v1.ServerReflection\":{\"ALL\":{\"authorization\":{\"expression\":\"clientType == \\\"control_plane_operator\\\"\",\"public\":true},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/backend/projects\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/web-login\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":true},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/authorize\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":true},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/oauth/token\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":true},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/logout\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/refreshtoken\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/userinfo\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/apps\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":true},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/micro-lc-configurations\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/mgmt\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/mgmt/users\":{\"GET\":{\"authorization\":{\"expression\":\"\\\"read:users\\\" in permissions || \\\"update:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/authz/users\":{\"GET\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"POST\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"DELETE\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PUT\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/authz/users/export\":{\"GET\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/authz/users/:id\":{\"GET\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"DELETE\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/authz/users/count\":{\"GET\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/authz/users/bulk\":{\"POST\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/authz/users/upsert-one\":{\"POST\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/authz/users/:id/state\":{\"POST\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/authz/users/state\":{\"POST\":{\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/v2/authz/users/\":{\"GET\":{\"authorization\":{\"expression\":\"\\\"read:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"POST\":{\"authorization\":{\"expression\":\"\\\"update:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"DELETE\":{\"authorization\":{\"expression\":\"\\\"update:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"authorization\":{\"expression\":\"\\\"update:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/v2/authz/users/export\":{\"GET\":{\"authorization\":{\"expression\":\"\\\"read:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/v2/authz/users/:id\":{\"GET\":{\"authorization\":{\"expression\":\"\\\"read:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"DELETE\":{\"authorization\":{\"expression\":\"\\\"update:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"authorization\":{\"expression\":\"\\\"update:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/v2/authz/users/count\":{\"GET\":{\"authorization\":{\"expression\":\"\\\"read:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/v2/authz/users/bulk\":{\"POST\":{\"authorization\":{\"expression\":\"\\\"update:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"authorization\":{\"expression\":\"\\\"update:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/v2/authz/users/upsert-one\":{\"POST\":{\"authorization\":{\"expression\":\"\\\"update:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/v2/authz/users/:id/state\":{\"POST\":{\"authorization\":{\"expression\":\"\\\"update:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/v2/authz/users/state\":{\"POST\":{\"authorization\":{\"expression\":\"\\\"update:users\\\" in permissions\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/grpc.reflection.v1alpha.ServerReflection\":{\"ALL\":{\"authorization\":{\"expression\":\"clientType == \\\"control_plane_operator\\\"\",\"public\":true},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/echo\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/fast-data\":{\"ALL\":{\"authorization\":{\"expression\":\"permissions[\\\"read:pipelines\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/fast-data/runtimes/namespaces/usage\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:pipelines\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/fast-data/connections/items\":{\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"read:pipelines\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"DELETE\":{\"authorization\":{\"expression\":\"permissions[\\\"read:pipelines\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:pipelines\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/fast-data/connections/items/:id\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"read:pipelines\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/fast-data/control\":{\"HEAD\":{\"authorization\":{\"expression\":\"permissions[\\\"control:pipelines\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"control:pipelines\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/fast-data/feedback\":{\"HEAD\":{\"authorization\":{\"expression\":\"permissions[\\\"read:pipelines\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:pipelines\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/fast-data/runtimes/stats\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:pipelines\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/fast-data/runtimes/items/:id/pipelines\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:pipelines\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/fast-data/runtimes/items/:id\":{\"DELETE\":{\"authorization\":{\"expression\":\"permissions[\\\"update:runtimes\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:runtimes\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:pipelines\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/fast-data/runtimes/items\":{\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"update:runtimes\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:pipelines\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog\":{\"ALL\":{\"authorization\":{\"expression\":\"false\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/glossary/terms/export\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/glossary/terms/export/init\":{\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"read:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/glossary/terms/lookup\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/glossary/terms/items/:id/term-type\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/glossary/terms/items/:id/name\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/glossary/terms/items/:id\":{\"DELETE\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/glossary/terms/items\":{\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/glossary/terms/items/:id/related-terms\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/glossary/terms/items/:id/custom-properties/:name\":{\"DELETE\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/glossary/terms/items/:id/tags\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/glossary/terms/items/:id/description\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/columns/:dataset-id/:field-name/terms\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/sors/:dataset-id/terms\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/tables/:dataset-id/terms\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/glossary/term-types/search\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/glossary/terms/search\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:glossary\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/assets/lookup\":{\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/assets/export/init\":{\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/assets/export\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/bulk-actions\":{\"HEAD\":{\"authorization\":{\"expression\":\"permissions[\\\"update:bulk-action\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"update:bulk-action\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/tags/search\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/metadata-registry/search\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/assets/search-parents\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/assets/search\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/tags/count\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/tags/items\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/sors/:dataset-id\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/sors/:dataset-id/custom-properties/:name\":{\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"DELETE\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/sors/:dataset-id/description\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/sors/:dataset-id/tags\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/tables/:dataset-id\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/tables/:dataset-id/custom-properties/:name\":{\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"DELETE\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/tables/:dataset-id/description\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/tables/:dataset-id/tags\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/columns/:dataset-id/:field-name\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/columns/:dataset-id/:field-name/custom-properties/:name\":{\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"DELETE\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/columns/:dataset-id/:field-name/description\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/columns/:dataset-id/:field-name/tags\":{\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/metadata-registry/count\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/metadata-registry/items\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/data-catalog/metadata-registry/items/:name\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"DELETE\":{\"authorization\":{\"expression\":\"permissions[\\\"update:metadata-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/data-catalog\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/control-plane\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/data-catalog/configuration\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/control-plane/configuration\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/control-plane/.well-known/oidc-configuration\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/data-catalog/.well-known/oidc-configuration\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/control_plane_intercomm.ControlPlane\":{\"ALL\":{\"authorization\":{\"expression\":\"clientType == \\\"control_plane_operator\\\"\",\"public\":true},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/open-lineage\":{\"ALL\":{\"authorization\":{\"expression\":\"false\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/open-lineage/jobs/from/system/:id/direction/:direction\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/open-lineage/jobs/from/dataset/:id/direction/:direction\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/open-lineage/jobs/items/:id\":{\"DELETE\":{\"authorization\":{\"expression\":\"permissions[\\\"update:lineage\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:lineage\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/open-lineage/jobs/items\":{\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"update:lineage\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/open-lineage/datasets/items/:id\":{\"DELETE\":{\"authorization\":{\"expression\":\"permissions[\\\"update:lineage\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"update:lineage\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/open-lineage/datasets/items\":{\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"update:lineage\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/open-lineage/facets/storage/items/:id\":{\"DELETE\":{\"authorization\":{\"expression\":\"permissions[\\\"update:lineage\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"read:data-assets\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/job-runner\":{\"ALL\":{\"authorization\":{\"expression\":\"false\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/job-runner/items\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/job-runner/feedback\":{\"HEAD\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/job-runner/agent/abort\":{\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/job-runner/secret-names\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/job-runner/agent/sync\":{\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/job-runner/agent/dsn\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/job-runner/agent/drivers\":{\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/connections\":{\"ALL\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/connections/items/:id\":{\"DELETE\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"PATCH\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/connections/items\":{\"POST\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}},\"GET\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/ui/job-runner\":{\"ALL\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:producers\\\"] || permissions[\\\"admin:connections\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/api/database-mgmt\":{\"ALL\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:database-mgmt\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/database-mgmt\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/database-mgmt/configuration\":{\"ALL\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:database-mgmt\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/database-mgmt/swagger\":{\"ALL\":{\"authorization\":{\"expression\":\"permissions[\\\"admin:database-mgmt\\\"]\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/sandbox\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":false},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/excel\":{\"ALL\":{\"authorization\":{\"expression\":\"true\",\"public\":true},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/control_plane_fabric.v1alpha.RuntimeManagement\":{\"ALL\":{\"authorization\":{\"expression\":\"clientType == \\\"control_plane_operator\\\"\",\"public\":true},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}},\"/control_plane_fabric.v1alpha1.RuntimeManagement\":{\"ALL\":{\"authorization\":{\"expression\":\"clientType == \\\"control_plane_operator\\\"\",\"public\":true},\"backofficeAuthorization\":{\"expression\":\"isBackoffice && groups.admin\",\"public\":false}}}}",
                 "name": "auth.json"
               }
             ]
