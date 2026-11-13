@@ -34513,6 +34513,127 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "export-service",
           "description": "This service helps you manage Excel, CSV or JSON export from other services using jsonl.",
+          "dockerImage": "nexus.mia-platform.eu/core/export-service:2.1.0",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            }
+          ],
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "350m",
+              "min": "30m"
+            },
+            "memoryLimits": {
+              "max": "300Mi",
+              "min": "150Mi"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "initialDelaySeconds": 40,
+              "periodSeconds": 15,
+              "timeoutSeconds": 1,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "2.1.0",
+      "releaseNote": "### Fixed\\n\\n- Fixed vulnerability issues"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-13T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "export-service_logo_20250410.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "database",
+    "description": "This service helps you manage Excel, CSV or JSON export from other services using jsonl.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/export-service/overview"
+    },
+    "itemId": "export-service",
+    "name": "Export Service",
+    "resources": {
+      "services": {
+        "export-service": {
+          "type": "plugin",
+          "name": "export-service",
+          "description": "This service helps you manage Excel, CSV or JSON export from other services using jsonl.",
           "dockerImage": "nexus.mia-platform.eu/core/export-service:2.0.2",
           "defaultEnvironmentVariables": [
             {
@@ -34601,7 +34722,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -41849,6 +41969,110 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "files-service",
           "description": "Upload, download and handle your files using MongoDB, S3 or Google Storage.",
+          "dockerImage": "nexus.mia-platform.eu/plugins/files-service:2.10.6",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_URL",
+              "value": "http://crud-service/CHANGE_WITH_YOUR_CRUD_URL",
+              "valueType": "plain"
+            },
+            {
+              "name": "CONFIG_FILE_PATH",
+              "value": "CHANGE_WITH_YOUR_CUSTOM_CONFIGURATION_PATH",
+              "valueType": "plain"
+            },
+            {
+              "name": "SERVICE_PREFIX",
+              "value": "CHANGE_WITH_YOUR_OPTIONAL_SERVICE_PREFIX",
+              "valueType": "plain"
+            },
+            {
+              "name": "PATH_PREFIX",
+              "value": "CHANGE_WITH_YOUR_OPTIONAL_PATH_PREFIX",
+              "valueType": "plain"
+            },
+            {
+              "name": "HEADERS_TO_PROXY",
+              "value": "miauserid,miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "PROJECT_HOSTNAME",
+              "value": "CHANGE_WITH_YOUR_PROJECT_HOSTNAME",
+              "valueType": "plain"
+            }
+          ],
+          "defaultDocumentationPath": "",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "2.10.6",
+      "releaseNote": "### Fixed\\n\\n- Fixed vulnerability issues"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-13T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "files-service.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "files",
+    "description": "Upload, download and handle your files using MongoDB, S3 or Google Storage.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/files-service/configuration"
+    },
+    "itemId": "files-service",
+    "name": "Files Service",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/plugins/files-service",
+    "resources": {
+      "services": {
+        "files-service": {
+          "type": "plugin",
+          "name": "files-service",
+          "description": "Upload, download and handle your files using MongoDB, S3 or Google Storage.",
           "dockerImage": "nexus.mia-platform.eu/plugins/files-service:2.10.4",
           "defaultEnvironmentVariables": [
             {
@@ -41919,7 +42143,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -74658,6 +74881,283 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "real-time-updater",
           "description": "Consumes Kafka messages in order to keep the Fast Data projection collections up to date with the connected system.",
+          "dockerImage": "nexus.mia-platform.eu/fast-data/real-time-updater:7.11.3",
+          "componentId": "realtime-updater",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "USE_AUTOMATIC_STRATEGIES",
+              "value": "true",
+              "valueType": "plain"
+            },
+            {
+              "name": "LOGGING_UNMAPPED_FIELDS",
+              "value": "false",
+              "valueType": "plain"
+            },
+            {
+              "name": "USE_POS_AS_COUNTER",
+              "value": "false",
+              "valueType": "plain"
+            },
+            {
+              "name": "PROJECTIONS_CHANGES_ENABLED",
+              "value": "false",
+              "valueType": "plain"
+            },
+            {
+              "name": "PROJECTIONS_DATABASE_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "PROJECTIONS_CHANGES_COLLECTION_NAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "GENERATE_KAFKA_PROJECTION_UPDATES",
+              "value": "true",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_BROKERS",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_GROUP_ID",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_SASL_USERNAME",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_SASL_PASSWORD",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_SASL_MECHANISM",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "CA_CERT_PATH",
+              "value": "",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_MESSAGE_ADAPTER",
+              "value": "basic",
+              "readOnly": true,
+              "managedBy": "fast-data",
+              "valueType": "plain"
+            },
+            {
+              "name": "INVARIANT_TOPIC_MAP",
+              "value": "",
+              "readOnly": true,
+              "managedBy": "fast-data",
+              "valueType": "plain"
+            },
+            {
+              "name": "SYSTEM_OF_RECORDS",
+              "value": "",
+              "readOnly": true,
+              "managedBy": "fast-data",
+              "valueType": "plain"
+            },
+            {
+              "name": "CAST_FUNCTIONS_FOLDER",
+              "value": "/home/node/app/configurations/castFunctionsFolder",
+              "readOnly": true,
+              "managedBy": "fast-data",
+              "valueType": "plain"
+            },
+            {
+              "name": "MAP_TABLE_FOLDER",
+              "value": "/home/node/app/configurations/mapTableFolder",
+              "readOnly": true,
+              "managedBy": "fast-data",
+              "valueType": "plain"
+            },
+            {
+              "name": "STRATEGIES_FOLDER",
+              "value": "/home/node/app/configurations/strategies",
+              "readOnly": true,
+              "managedBy": "fast-data",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_ADAPTER_FOLDER",
+              "value": "/home/node/app/configurations/kafkaAdapterFolder",
+              "readOnly": true,
+              "managedBy": "fast-data",
+              "valueType": "plain"
+            },
+            {
+              "name": "ER_SCHEMA_FOLDER",
+              "value": "/home/node/app/erSchema",
+              "readOnly": true,
+              "managedBy": "fast-data",
+              "valueType": "plain"
+            },
+            {
+              "name": "PROJECTION_CHANGES_SCHEMA_FOLDER",
+              "value": "/home/node/app/projectionChangesSchema",
+              "readOnly": true,
+              "managedBy": "fast-data",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_PROJECTION_UPDATES_FOLDER",
+              "value": "/home/node/app/kafkaProjectionUpdates",
+              "readOnly": true,
+              "managedBy": "fast-data",
+              "valueType": "plain"
+            }
+          ],
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "80Mi",
+              "max": "250Mi"
+            },
+            "cpuLimits": {
+              "min": "40m",
+              "max": "250m"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20,
+              "timeoutSeconds": 1,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 10,
+              "timeoutSeconds": 1,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "7.11.3",
+      "releaseNote": "### Fixed\\n\\n- Fixed vulnerability issues"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-13T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "real-time-updater_logo_20250410.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "fast-data",
+    "description": "Consumes Kafka messages in order to keep the Fast Data projection collections up to date with the connected system.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/fast_data/realtime_updater"
+    },
+    "itemId": "real-time-updater",
+    "name": "Real-Time Updater",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/real-time-updater",
+    "resources": {
+      "services": {
+        "real-time-updater": {
+          "type": "plugin",
+          "name": "real-time-updater",
+          "description": "Consumes Kafka messages in order to keep the Fast Data projection collections up to date with the connected system.",
           "dockerImage": "nexus.mia-platform.eu/fast-data/real-time-updater:7.11.2",
           "componentId": "realtime-updater",
           "defaultEnvironmentVariables": [
@@ -74901,7 +75401,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -79002,6 +79501,231 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "single-view-creator",
           "description": "This is a plugin to be used for creating a manual Single View Creator for your Fast Data",
+          "dockerImage": "nexus.mia-platform.eu/fast-data/single-view-creator-plugin:6.8.2",
+          "componentId": "single-view-creator",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "CONFIGURATION_FOLDER",
+              "value": "/home/node/app/configuration",
+              "valueType": "plain",
+              "description": "Folder where configuration files are mounted"
+            },
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain",
+              "description": "Level to use for logging"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "TYPE",
+              "value": "CHANGE_WITH_TYPE",
+              "valueType": "plain",
+              "description": "Identifies the type of projection changes that need to be read. It should be the same as the Single View name you want to update."
+            },
+            {
+              "name": "PROJECTIONS_MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain",
+              "description": "MongoDB connection string where projections are stored. Must be a valid uri"
+            },
+            {
+              "name": "PROJECTIONS_DATABASE",
+              "value": "{{MONGODB_NAME}}",
+              "valueType": "plain",
+              "description": "The db from where projections are read."
+            },
+            {
+              "name": "PROJECTIONS_CHANGES_DATABASE",
+              "value": "{{MONGODB_NAME}}",
+              "valueType": "plain",
+              "description": "The db from where projections changes are read."
+            },
+            {
+              "name": "PROJECTIONS_CHANGES_COLLECTION",
+              "value": "CHANGE_WITH_PROJECTIONS_CHANGES_COLLECTION",
+              "valueType": "plain",
+              "description": "if you have set a custom projection change collection name from advanced, then set its name. Otherwise, it is \`fd-pc-SYSTEM_ID\` where \`SYSTEM_ID\` is the id of the System of Records this single view creator is responsible for."
+            },
+            {
+              "name": "SINGLE_VIEWS_MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain",
+              "description": "MongoDB connection string where single view must be stored. Must be a valid uri"
+            },
+            {
+              "name": "SINGLE_VIEWS_DATABASE",
+              "value": "{{MONGODB_NAME}}",
+              "valueType": "plain",
+              "description": "The db from where single views are written."
+            },
+            {
+              "name": "SINGLE_VIEWS_COLLECTION",
+              "value": "CHANGE_WITH_SINGLE_VIEWS_COLLECTION",
+              "valueType": "plain",
+              "description": "It must be equals to the Single View name the service is in charge of keeping updated."
+            },
+            {
+              "name": "SINGLE_VIEWS_PORTFOLIO_ORIGIN",
+              "value": "CHANGE_WITH_SINGLE_VIEWS_PORTFOLIO_ORIGIN",
+              "valueType": "plain",
+              "description": "should be equals to the \`SYSTEM_ID\` you have set in \`PROJECTIONS_CHANGES_COLLECTION\`"
+            },
+            {
+              "name": "SINGLE_VIEWS_ERRORS_COLLECTION",
+              "value": "CHANGE_WITH_SINGLE_VIEWS_ERRORS_COLLECTION",
+              "valueType": "plain",
+              "description": "Name of a MongoDB CRUD you want to use as collection for single view errors."
+            }
+          ],
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "100Mi",
+              "max": "300Mi"
+            },
+            "cpuLimits": {
+              "min": "120m",
+              "max": "600m"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20,
+              "timeoutSeconds": 5,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 10,
+              "timeoutSeconds": 5,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "defaultConfigMaps": [
+            {
+              "name": "configuration",
+              "mountPath": "/home/node/app/configuration",
+              "files": [
+                {
+                  "name": "singleViewKey.js",
+                  "content": "'use strict'\\nconst { get } = require('lodash')\\n\\n// ref: https://docs.mia-platform.eu/docs/fast_data/configure_single_view_creator#single-view-key-extractor\\nmodule.exports = function singleViewKeyGenerator(logger, projectionChangeIdentifier) {\\n    logger.debug({ identifier: projectionChangeIdentifier }, 'singleViewKeyGenerator identifier')\\n\\n    // get the single view id from the identifier\\n    const IDENTIFIER_KEY = 'UNIQUE_ID'\\n    const myId = get(projectionChangeIdentifier, IDENTIFIER_KEY, null)\\n\\n    logger.debug({ myId }, 'single view key')\\n    return {\\n    myId,\\n    }\\n}\\n                            \\n"
+                },
+                {
+                  "name": "pipeline.js",
+                  "content": "'use strict'\\nconst { propOr } = require('ramda')\\n\\nconst PROJECTIONS_NAMES = {\\nMY_PROJECTION: 'my-projection-name',\\n}\\n\\n// ref: https://docs.mia-platform.eu/docs/fast_data/configure_single_view_creator#aggregator\\nmodule.exports = (mongoDb) => {\\n    return async(logger, projectionChangeIdentifier) => {\\n        const uniqueId = propOr(null, 'UNIQUE_ID', projectionChangeIdentifier)\\n        logger.debug({ uniqueId }, 'pipeline document received')\\n\\n        // retrieve data from all projections you need for your single view\\n        const projectionCollection = mongoDb.collection(PROJECTIONS_NAMES.MY_PROJECTION)\\n        const projectionDataById = await projectionCollection.findOne({ UNIQUE_ID: uniqueId, __STATE__: 'PUBLIC' }) \\n        if (!projectionDataById) {\\n        logger.debug({ UNIQUE_ID: uniqueId }, 'single view public data not found')\\n        return []\\n        }\\n        const singleViewData = projectionDataById\\n        logger.debug({ singleViewData }, 'single view retrieved data')\\n\\n        return [\\n            singleViewData,\\n        ]\\n    }\\n}\\n              \\n              \\n"
+                },
+                {
+                  "name": "mapper.js",
+                  "content": "\\n'use strict'\\n// ref: https://docs.mia-platform.eu/docs/fast_data/configure_single_view_creator#mapping\\nmodule.exports = (logger, singleViewData) => {\\n    const { UNIQUE_ID, NAME } = singleViewData\\n    const singleView = {\\n    myId: UNIQUE_ID,\\n    name: NAME,\\n    }\\n    // be aware not to log sensitive data\\n    logger.debug({ singleView }, 'mapper')\\n    return singleView\\n}\\n\\n"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "6.8.2",
+      "releaseNote": "### Fixed\\n\\n- Fixed vulnerability issues"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-13T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "single-view-creator.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "fast-data",
+    "description": "This is a plugin to be used for creating a manual Single View Creator for your Fast Data",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/single-view-creator/configuration"
+    },
+    "itemId": "single-view-creator",
+    "name": "Single View Creator",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
+    "resources": {
+      "services": {
+        "single-view-creator": {
+          "type": "plugin",
+          "name": "single-view-creator",
+          "description": "This is a plugin to be used for creating a manual Single View Creator for your Fast Data",
           "dockerImage": "nexus.mia-platform.eu/fast-data/single-view-creator-plugin:6.7.2",
           "componentId": "single-view-creator",
           "defaultEnvironmentVariables": [
@@ -79193,7 +79917,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -79952,6 +80675,297 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "single-view-creator-low-code-kafka",
           "description": "Create your Single Views leveraging the power of configuration files instead of writing all the code on your own!",
+          "dockerImage": "nexus.mia-platform.eu/fast-data/single-view-creator-plugin:6.8.2",
+          "componentId": "single-view-creator-low-code",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain",
+              "description": "Level to use for logging"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "TYPE",
+              "value": "CHANGE_WITH_TYPE",
+              "valueType": "plain",
+              "description": "Identifies the type of projection changes that need to be read. It should be the same as the Single View name you want to update."
+            },
+            {
+              "name": "PROJECTIONS_MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain",
+              "description": "MongoDB connection string where projections are stored. Must be a valid uri"
+            },
+            {
+              "name": "PROJECTIONS_DATABASE",
+              "value": "{{MONGODB_NAME}}",
+              "valueType": "plain",
+              "description": "The db from where projections are read."
+            },
+            {
+              "name": "SINGLE_VIEWS_MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain",
+              "description": "MongoDB connection string where single view must be stored. Must be a valid uri"
+            },
+            {
+              "name": "SINGLE_VIEWS_DATABASE",
+              "value": "{{MONGODB_NAME}}",
+              "valueType": "plain",
+              "description": "The db from where single views are written."
+            },
+            {
+              "name": "SINGLE_VIEWS_COLLECTION",
+              "value": "CHANGE_WITH_SINGLE_VIEWS_COLLECTION",
+              "valueType": "plain",
+              "description": "It must be equal to the Single View name the service is in charge of."
+            },
+            {
+              "name": "SINGLE_VIEWS_PORTFOLIO_ORIGIN",
+              "value": "CHANGE_WITH_SINGLE_VIEWS_PORTFOLIO_ORIGIN",
+              "valueType": "plain",
+              "description": "An identifier for the Kafka client to be able to debug and track the requests. If this Single View Creator is responsible for handling only one system, we suggest to use the \`SYSTEM_ID\` specified in the Real Time Updater service."
+            },
+            {
+              "name": "SINGLE_VIEWS_ERRORS_COLLECTION",
+              "value": "CHANGE_WITH_SINGLE_VIEWS_ERRORS_COLLECTION",
+              "valueType": "plain",
+              "description": "Name of a MongoDB CRUD you want to use as collection for single view errors."
+            },
+            {
+              "name": "USE_AUTOMATIC",
+              "value": "true",
+              "valueType": "plain",
+              "description": "wheather to use the low code architecture for the Single View Creator service or not"
+            },
+            {
+              "name": "ER_SCHEMA_FOLDER",
+              "value": "/home/node/app/erSchema",
+              "valueType": "plain",
+              "description": "the path to the ER Schema folder, e.g. \`/home/node/app/erSchema\`"
+            },
+            {
+              "name": "AGGREGATION_FOLDER",
+              "value": "/home/node/app/aggregation",
+              "valueType": "plain",
+              "description": "the path to the Aggregation folder, e.g. \`/home/node/app/aggregation\`"
+            },
+            {
+              "name": "CONFIGURATION_FOLDER",
+              "value": "/home/node/app/configuration",
+              "valueType": "plain",
+              "description": "Folder where configuration files are mounted"
+            },
+            {
+              "name": "PROJECTIONS_CHANGES_SOURCE",
+              "value": "KAFKA",
+              "valueType": "plain",
+              "description": "Tells the plugin the source where projection changes are read."
+            },
+            {
+              "name": "KAFKA_PROJECTION_CHANGES_TOPICS",
+              "value": "CHANGE_WITH_TRIGGER_TOPIC",
+              "valueType": "plain",
+              "description": "The name of topic that will receive trigger messages."
+            },
+            {
+              "name": "KAFKA_BROKERS_LIST",
+              "value": "CHANGE WITH YOUR KAFKA BROKERS",
+              "valueType": "plain",
+              "description": "Comma separated list of kafka brokers"
+            },
+            {
+              "name": "KAFKA_CLIENT_ID",
+              "value": "CHANGE WITH YOUR KAFKA CLIENT ID",
+              "valueType": "plain",
+              "description": "Kafka identifier."
+            },
+            {
+              "name": "KAFKA_GROUP_ID",
+              "value": "CHANGE WITH YOUR KAFKA CONSUMER GROUP",
+              "valueType": "plain",
+              "description": "Kafka consumer group for trigger messages."
+            },
+            {
+              "name": "KAFKA_SASL_USERNAME",
+              "value": "CHANGE WITH YOUR KAFKA USER",
+              "valueType": "plain",
+              "description": "Kafka authentication user"
+            },
+            {
+              "name": "KAFKA_SASL_PASSWORD",
+              "value": "CHANGE WITH YOUR KAFKA PASSWORD",
+              "valueType": "plain",
+              "description": "Kafka authentication password"
+            },
+            {
+              "name": "KAFKA_SASL_MECHANISM",
+              "value": "CHANGE WITH YOUR KAFKA MECHANISM",
+              "valueType": "plain",
+              "description": "Kafka authentication mechanism"
+            }
+          ],
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "100Mi",
+              "max": "300Mi"
+            },
+            "cpuLimits": {
+              "min": "120m",
+              "max": "600m"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20,
+              "timeoutSeconds": 5,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 10,
+              "timeoutSeconds": 5,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "defaultConfigMaps": [
+            {
+              "name": "aggregation",
+              "mountPath": "/home/node/app/aggregation",
+              "files": [
+                {
+                  "content": "{\\n  \\"version\\": \\"1.3.0\\",\\n  \\"config\\": {\\n      \\"SV_CONFIG\\": {\\n          \\"dependencies\\": {},\\n          \\"mapping\\": {}\\n      }\\n  }\\n}",
+                  "name": "aggregation.json"
+                }
+              ]
+            },
+            {
+              "name": "configuration",
+              "mountPath": "/home/node/app/configuration",
+              "files": [
+                {
+                  "content": "{\\n    \\"version\\": \\"1.0.0\\",\\n    \\"config\\": {}\\n}",
+                  "name": "singleViewKey.json"
+                }
+              ]
+            },
+            {
+              "name": "erschema",
+              "mountPath": "/home/node/app/erSchema",
+              "files": [
+                {
+                  "content": "{\\n    \\"version\\": \\"1.0.0\\",\\n    \\"config\\": {}\\n}",
+                  "name": "erSchema.json"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "6.8.2",
+      "releaseNote": "### Fixed\\n\\n- Fixed vulnerability issues"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-13T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "single-view-creator-low-code-kafka.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "fast-data",
+    "description": "Create your Single Views leveraging the power of configuration files instead of writing all the code on your own!",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/single-view-creator/configuration"
+    },
+    "itemId": "single-view-creator-low-code-kafka",
+    "name": "Single View Creator Low Code - Kafka",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
+    "resources": {
+      "services": {
+        "single-view-creator-low-code-kafka": {
+          "type": "plugin",
+          "name": "single-view-creator-low-code-kafka",
+          "description": "Create your Single Views leveraging the power of configuration files instead of writing all the code on your own!",
           "dockerImage": "nexus.mia-platform.eu/fast-data/single-view-creator-plugin:6.8.1",
           "componentId": "single-view-creator-low-code",
           "defaultEnvironmentVariables": [
@@ -80209,7 +81223,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -81689,6 +82702,273 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "single-view-creator-low-code-mongodb",
           "description": "Create your Single Views leveraging the power of configuration files instead of writing all the code on your own!",
+          "dockerImage": "nexus.mia-platform.eu/fast-data/single-view-creator-plugin:6.8.2",
+          "componentId": "single-view-creator-low-code",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain",
+              "description": "Level to use for logging"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "TYPE",
+              "value": "CHANGE_WITH_TYPE",
+              "valueType": "plain",
+              "description": "Identifies the type of projection changes that need to be read. It should be the same as the Single View name you want to update."
+            },
+            {
+              "name": "PROJECTIONS_MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain",
+              "description": "MongoDB connection string where projections are stored. Must be a valid uri"
+            },
+            {
+              "name": "PROJECTIONS_DATABASE",
+              "value": "{{MONGODB_NAME}}",
+              "valueType": "plain",
+              "description": "The db from where projections are read."
+            },
+            {
+              "name": "SINGLE_VIEWS_MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain",
+              "description": "MongoDB connection string where single view must be stored. Must be a valid uri"
+            },
+            {
+              "name": "SINGLE_VIEWS_DATABASE",
+              "value": "{{MONGODB_NAME}}",
+              "valueType": "plain",
+              "description": "The db from where single views are written."
+            },
+            {
+              "name": "SINGLE_VIEWS_COLLECTION",
+              "value": "CHANGE_WITH_SINGLE_VIEWS_COLLECTION",
+              "valueType": "plain",
+              "description": "It must be equal to the Single View name the service is in charge of."
+            },
+            {
+              "name": "SINGLE_VIEWS_PORTFOLIO_ORIGIN",
+              "value": "CHANGE_WITH_SINGLE_VIEWS_PORTFOLIO_ORIGIN",
+              "valueType": "plain",
+              "description": "An identifier for the Kafka client to be able to debug and track the requests. If this Single View Creator is responsible for handling only one system, we suggest to use the \`SYSTEM_ID\` specified in the Real Time Updater service."
+            },
+            {
+              "name": "SINGLE_VIEWS_ERRORS_COLLECTION",
+              "value": "CHANGE_WITH_SINGLE_VIEWS_ERRORS_COLLECTION",
+              "valueType": "plain",
+              "description": "Name of a MongoDB CRUD you want to use as collection for single view errors."
+            },
+            {
+              "name": "USE_AUTOMATIC",
+              "value": "true",
+              "valueType": "plain",
+              "description": "wheather to use the low code architecture for the Single View Creator service or not"
+            },
+            {
+              "name": "ER_SCHEMA_FOLDER",
+              "value": "/home/node/app/erSchema",
+              "valueType": "plain",
+              "description": "the path to the ER Schema folder, e.g. \`/home/node/app/erSchema\`"
+            },
+            {
+              "name": "AGGREGATION_FOLDER",
+              "value": "/home/node/app/aggregation",
+              "valueType": "plain",
+              "description": "the path to the Aggregation folder, e.g. \`/home/node/app/aggregation\`"
+            },
+            {
+              "name": "CONFIGURATION_FOLDER",
+              "value": "/home/node/app/configuration",
+              "valueType": "plain",
+              "description": "Folder where configuration files are mounted"
+            },
+            {
+              "name": "PROJECTIONS_CHANGES_SOURCE",
+              "value": "MONGO",
+              "valueType": "plain",
+              "description": "Tells the plugin the source where projection changes are read."
+            },
+            {
+              "name": "PROJECTIONS_CHANGES_DATABASE",
+              "value": "{{MONGODB_NAME}}",
+              "valueType": "plain",
+              "description": "The db from where projections changes are read."
+            },
+            {
+              "name": "PROJECTIONS_CHANGES_COLLECTION",
+              "value": "CHANGE_WITH_PROJECTIONS_CHANGES_COLLECTION",
+              "valueType": "plain",
+              "description": "if you have set a custom projection change collection name from advanced, then set its name. Otherwise, it is \`fd-pc-SYSTEM_ID\` where \`SYSTEM_ID\` is the id of the System of Records this single view creator is responsible for."
+            },
+            {
+              "name": "SCHEDULING_TIME",
+              "value": "60000",
+              "valueType": "plain",
+              "description": "a quantity of time in milliseconds, every X milliseconds the service wake up and check if there are some projections changes in NEW state to work on."
+            }
+          ],
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "100Mi",
+              "max": "300Mi"
+            },
+            "cpuLimits": {
+              "min": "120m",
+              "max": "600m"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20,
+              "timeoutSeconds": 5,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 10,
+              "timeoutSeconds": 5,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "defaultConfigMaps": [
+            {
+              "name": "aggregation",
+              "mountPath": "/home/node/app/aggregation",
+              "files": [
+                {
+                  "content": "{\\n  \\"version\\": \\"1.3.0\\",\\n  \\"config\\": {\\n      \\"SV_CONFIG\\": {\\n          \\"dependencies\\": {},\\n          \\"mapping\\": {}\\n      }\\n  }\\n}",
+                  "name": "aggregation.json"
+                }
+              ]
+            },
+            {
+              "name": "configuration",
+              "mountPath": "/home/node/app/configuration",
+              "files": [
+                {
+                  "content": "{\\n    \\"version\\": \\"1.0.0\\",\\n    \\"config\\": {}\\n}",
+                  "name": "singleViewKey.json"
+                }
+              ]
+            },
+            {
+              "name": "erschema",
+              "mountPath": "/home/node/app/erSchema",
+              "files": [
+                {
+                  "content": "{\\n    \\"version\\": \\"1.0.0\\",\\n    \\"config\\": {}\\n}",
+                  "name": "erSchema.json"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "6.8.2",
+      "releaseNote": "### Fixed\\n\\n- Fixed vulnerability issues"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-13T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "single-view-creator-low-code-mongodb.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "fast-data",
+    "description": "Create your Single Views leveraging the power of configuration files instead of writing all the code on your own!",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/single-view-creator/configuration"
+    },
+    "itemId": "single-view-creator-low-code-mongodb",
+    "name": "Single View Creator Low Code - MongoDB",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-creator-template",
+    "resources": {
+      "services": {
+        "single-view-creator-low-code-mongodb": {
+          "type": "plugin",
+          "name": "single-view-creator-low-code-mongodb",
+          "description": "Create your Single Views leveraging the power of configuration files instead of writing all the code on your own!",
           "dockerImage": "nexus.mia-platform.eu/fast-data/single-view-creator-plugin:6.8.1",
           "componentId": "single-view-creator-low-code",
           "defaultEnvironmentVariables": [
@@ -81922,7 +83202,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -86622,6 +87901,114 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "swagger-aggregator",
           "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
+          "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.7",
+          "componentId": "swagger-aggregator",
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "150Mi",
+              "max": "300Mi"
+            },
+            "cpuLimits": {
+              "min": "150m",
+              "max": "300m"
+            }
+          },
+          "mapEnvVarToMountPath": {
+            "swagger-aggregator-config": {
+              "type": "file",
+              "envName": "CONFIG_FILE_PATH"
+            }
+          },
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "CONFIG_FILE_PATH",
+              "value": "/home/node/app/configs/config.json",
+              "valueType": "plain"
+            }
+          ],
+          "defaultConfigMaps": [
+            {
+              "name": "swagger-aggregator-config",
+              "mountPath": "/home/node/app/configs",
+              "files": [],
+              "viewAsReadOnly": true
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "3.9.7",
+      "releaseNote": "### Fixed\\n\\n- Fixed vulnerability issues"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-13T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "swagger-aggregator.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "devportal",
+    "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/swagger-aggregator/overview"
+    },
+    "itemId": "swagger-aggregator",
+    "name": "Swagger Aggregator",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/swagger-aggregator",
+    "resources": {
+      "services": {
+        "swagger-aggregator": {
+          "type": "plugin",
+          "name": "swagger-aggregator",
+          "description": "Use Mia-Platform core Swagger Aggregator to aggregate the individual swaggers of all the microservices indicated in the configuration file.",
           "dockerImage": "nexus.mia-platform.eu/core/swagger-aggregator:3.9.6",
           "componentId": "swagger-aggregator",
           "defaultResources": {
@@ -86696,7 +88083,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -91441,6 +92827,149 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "timer-service",
           "description": "The Timer Service allows scheduling of timers that perform custom actions upon expiry.",
+          "dockerImage": "nexus.mia-platform.eu/core/timer-service:2.1.5",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_SERVICE_NAME",
+              "value": "crud-service",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_PATH",
+              "value": "CHANGE_WITH_YOUR_CRUD_PATH",
+              "valueType": "plain"
+            },
+            {
+              "name": "POLL_INTERVAL_MS",
+              "value": "30000",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_BROKERS",
+              "value": "CHANGE_WITH_YOUR_KAFKA_BROKERS",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_LOG_LEVEL",
+              "value": "CHANGE_WITH_YOUR_KAFKA_LOG_LEVEL",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_SASL_MECHANISM",
+              "value": "CHANGE_WITH_YOUR_KAFKA_SASL_MECHANISM",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_SASL_USERNAME",
+              "value": "CHANGE_WITH_YOUR_KAFKA_SASL_USERNAME",
+              "valueType": "plain"
+            },
+            {
+              "name": "KAFKA_SASL_PASSWORD",
+              "value": "CHANGE_WITH_YOUR_SECRET_KAFKA_SASL_PSW",
+              "valueType": "plain"
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "2.1.5",
+      "releaseNote": "### Fixed\\n\\n- Fixed vulnerability issues"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-13T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "timer-service.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "orchestrators",
+    "description": "The Timer Service allows scheduling of timers that perform custom actions upon expiry.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/timer-service/overview"
+    },
+    "itemId": "timer-service",
+    "name": "Timer Service",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/core/timer-service",
+    "resources": {
+      "services": {
+        "timer-service": {
+          "type": "plugin",
+          "name": "timer-service",
+          "description": "The Timer Service allows scheduling of timers that perform custom actions upon expiry.",
           "dockerImage": "nexus.mia-platform.eu/core/timer-service:2.1.3",
           "defaultEnvironmentVariables": [
             {
@@ -91550,7 +93079,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
