@@ -80,7 +80,7 @@
   "tenantId": "mia-platform",
   "version": {
     "name": "2.10.6",
-    "releaseNote": "### Fixed\n\n- Fixed vulnerability issues"
+    "releaseNote": "### Fixed\n\n- Updated Node.js to fix CVE-2026-111497"
   },
   "visibility": {
     "public": true
