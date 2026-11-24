@@ -16228,6 +16228,267 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "crud-service",
           "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+          "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.4.0",
+          "componentId": "crud-service",
+          "mapEnvVarToMountPath": {
+            "collections": {
+              "type": "folder",
+              "envName": "COLLECTION_DEFINITION_FOLDER"
+            }
+          },
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "COLLECTION_DEFINITION_FOLDER",
+              "value": "/home/node/app/collections",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_ID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+              "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "EXPOSE_METRICS",
+              "value": "false",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain"
+            }
+          ],
+          "defaultResources": {
+            "memoryLimits": {
+              "max": "300Mi",
+              "min": "70Mi"
+            },
+            "cpuLimits": {
+              "max": "400m",
+              "min": "100m"
+            }
+          },
+          "defaultConfigMaps": [
+            {
+              "name": "crud-service-collections",
+              "mountPath": "/home/node/app/collections",
+              "files": [],
+              "viewAsReadOnly": true,
+              "link": {
+                "targetSection": "collections"
+              }
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "7.4.0",
+      "releaseNote": "### Changed\\n\\n- updated NodeJS to v26, \`.nvmrc\`, devcontainer and \`engines\` field now require Node.js \`>=24\`\\n- unit tests now runs with \`node:test\`, replacing \`tap\`\\n\\n### Dependencies\\n\\n- updated libraries to run GitHub workflows for code quality, tests, release"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-24T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "crud-service_logo_20250410.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "database",
+    "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/crud-service/overview_and_usage"
+    },
+    "itemId": "crud-service",
+    "name": "CRUD Service",
+    "repositoryUrl": "https://github.com/mia-platform/crud-service",
+    "resources": {
+      "services": {
+        "crud-service": {
+          "type": "plugin",
+          "name": "crud-service",
+          "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+          "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.3.0",
+          "componentId": "crud-service",
+          "mapEnvVarToMountPath": {
+            "collections": {
+              "type": "folder",
+              "envName": "COLLECTION_DEFINITION_FOLDER"
+            }
+          },
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "COLLECTION_DEFINITION_FOLDER",
+              "value": "/home/node/app/collections",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_ID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+              "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "EXPOSE_METRICS",
+              "value": "false",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain"
+            }
+          ],
+          "defaultResources": {
+            "memoryLimits": {
+              "max": "300Mi",
+              "min": "70Mi"
+            },
+            "cpuLimits": {
+              "max": "400m",
+              "min": "100m"
+            }
+          },
+          "defaultConfigMaps": [
+            {
+              "name": "crud-service-collections",
+              "mountPath": "/home/node/app/collections",
+              "files": [],
+              "viewAsReadOnly": true,
+              "link": {
+                "targetSection": "collections"
+              }
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "7.3.0",
+      "releaseNote": "### Changed\\n\\n- updated NodeJS to v24: Docker images, \`.nvmrc\`, devcontainer and \`engines\` field now require Node.js \`>=24\`\\n- updated the suggested MongoDB version in the README to \`mongo:8.2\`\\n\\n### Dependencies\\n\\n- updated \`@mia-platform/lc39\` to \`v9.1.3\`\\n- updated \`fastify\` to \`v5.12.7\`, \`@fastify/env\` to \`v7.0.1\`, \`@fastify/mongodb\` to \`v9.0.2\`, \`@fastify/multipart\` to \`v10.1.5\` and \`fastify-plugin\` to \`v6.0.1\`\\n- updated \`curlimages/curl\` to \`8.23.0\` in Docker image\\n- updated \`tap\` to \`v21.8.0\`\\n- updated \`@fastify/busboy\` to \`v3.2.3\`\\n- updated \`proxy-addr\` to \`v2.0.8\`\\n- updated \`js-yaml\` to \`v4.1.1\`\\n- updated \`actions/setup-node\` to \`v6.0.0\`, \`github/codeql-action\` to \`v4.31.2\` and \`sigstore/cosign-installer\` to \`v4.0.0\` in GitHub workflows\\n- updated \`csv-parse\` to \`v7.0.3\`\\n- updated \`@faker-js/faker\` to \`v10.6.0\`\\n- updated \`csv-stringify\` to \`v6.9.0\`, \`jsonpath-plus\` to \`v10.4.0\`, \`p-limit\` to \`v7.3.3\`, \`pino\` to \`v9.14.0\` and \`xlsx-write-stream\` to \`v1.0.4\`\\n- updated \`fast-json-stringify\` peer dependency to \`v6.4.0\` and \`mongodb\` peer dependency to \`v6.21.0\`\\n- updated dev dependencies \`@eslint/js\` to \`v9.39.5\`, \`commander\` to \`v14.0.3\`, \`eslint\` to \`v9.39.5\`, \`eslint-plugin-n\` to \`v17.24.0\` and \`globals\` to \`v16.5.0\`\\n- updated transitive dependencies within their existing semver ranges, including the OpenTelemetry packages pulled in by \`@mia-platform/lc39\`"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-24T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "crud-service_logo_20250410.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "database",
+    "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/crud-service/overview_and_usage"
+    },
+    "itemId": "crud-service",
+    "name": "CRUD Service",
+    "repositoryUrl": "https://github.com/mia-platform/crud-service",
+    "resources": {
+      "services": {
+        "crud-service": {
+          "type": "plugin",
+          "name": "crud-service",
+          "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
           "dockerImage": "nexus.mia-platform.eu/core/crud-service:7.2.7",
           "componentId": "crud-service",
           "mapEnvVarToMountPath": {
@@ -16325,7 +16586,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -17231,6 +17491,136 @@ exports[`Sync script > should match snapshot 2`] = `
       "public": true
     },
     "releaseDate": "2025-02-20T16:47:48.014Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "crud-service_logo_20250410.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "database",
+    "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/crud-service/overview_and_usage"
+    },
+    "itemId": "crud-service",
+    "name": "CRUD Service",
+    "repositoryUrl": "https://github.com/mia-platform/crud-service",
+    "resources": {
+      "services": {
+        "crud-service": {
+          "type": "plugin",
+          "name": "crud-service",
+          "description": "Use Mia-Platform core Crud Service to manage different instances of the service.",
+          "dockerImage": "nexus.mia-platform.eu/core/crud-service:6.10.6",
+          "componentId": "crud-service",
+          "mapEnvVarToMountPath": {
+            "collections": {
+              "type": "folder",
+              "envName": "COLLECTION_DEFINITION_FOLDER"
+            }
+          },
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "COLLECTION_DEFINITION_FOLDER",
+              "value": "/home/node/app/collections",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_ID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_LIMIT_CONSTRAINT_ENABLED",
+              "value": "{{CRUD_LIMIT_CONSTRAINT_ENABLED}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "EXPOSE_METRICS",
+              "value": "false",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain"
+            }
+          ],
+          "defaultResources": {
+            "memoryLimits": {
+              "max": "300Mi",
+              "min": "70Mi"
+            },
+            "cpuLimits": {
+              "max": "400m",
+              "min": "100m"
+            }
+          },
+          "defaultConfigMaps": [
+            {
+              "name": "crud-service-collections",
+              "mountPath": "/home/node/app/collections",
+              "files": [],
+              "viewAsReadOnly": true,
+              "link": {
+                "targetSection": "collections"
+              }
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "6.10.6",
+      "releaseNote": "### Fixed\\n\\n- upgrade NodeJS version in Docker image to v22.23.4 to fix CVE-2026-111497\\n- upgrade \`prebuild-install\` to v7.1.3 to fix \`mongodb-client-encryption\` installation on Node.js with N-API v10\\n- use the MongoDB crypt_shared library set in \`CRYPT_SHARED_LIB_PATH\` and create views without auto-encryption, to allow service start with CSFLE enabled"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-24T00:00:00.000Z",
     "lifecycleStatus": "published",
     "itemTypeDefinitionRef": {
       "name": "plugin",
@@ -42638,7 +43028,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "tenantId": "mia-platform",
     "version": {
       "name": "2.10.6",
-      "releaseNote": "### Fixed\\n\\n- Fixed vulnerability issues"
+      "releaseNote": "### Fixed\\n\\n- Updated Node.js to fix CVE-2026-111497"
     },
     "visibility": {
       "public": true
@@ -60783,6 +61173,188 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "micro-lc-middleware",
           "description": "Backend service responsible for serving micro-lc configuration files, applying some useful parsing logic before returning their content.",
+          "dockerImage": "nexus.mia-platform.eu/microlc/middleware:3.4.2",
+          "componentId": "backoffice-backend",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            }
+          ],
+          "defaultResources": {
+            "cpuLimits": {
+              "max": "100m",
+              "min": "20m"
+            },
+            "memoryLimits": {
+              "max": "150Mi",
+              "min": "60Mi"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20,
+              "timeoutSeconds": 5,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 5,
+              "periodSeconds": 10,
+              "timeoutSeconds": 5,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "defaultDocumentationPath": "",
+          "defaultConfigMaps": [
+            {
+              "name": "micro-lc-static-files",
+              "mountPath": "/usr/static/public",
+              "viewAsReadOnly": true,
+              "files": [
+                {
+                  "content": "<!DOCTYPE html>\\n<html lang=\\"en\\">\\n\\n<head>\\n  <base href=\\"/mfe-application/\\" target=\\"_blank\\" />\\n\\n  <title>Microfrontend composer</title>\\n\\n  <link rel=\\"icon\\" type=\\"image/png\\" href=\\"https://www.mia-platform.eu/static/img/favicon/apple-icon-60x60.png\\" />\\n  <link rel=\\"stylesheet\\" nonce=\\"**CSP_NONCE**\\" href=\\"./assets/style.css\\" />\\n\\n  <script\\n    type=\\"module\\"\\n    nonce=\\"**CSP_NONCE**\\"\\n    src=\\"https://cdn.mia-platform.eu/backoffice/bk-web-components/latest/dist/bk-loading-animation.esm.js\\"\\n  ></script>\\n\\n  <script\\n    type=\\"module\\"\\n    nonce=\\"**CSP_NONCE**\\"\\n    src=\\"https://cdn.mia-platform.eu/micro-lc/orchestrator/2.4.2/dist/micro-lc.production.js\\"\\n  ></script>\\n</head>\\n\\n<body>\\n  <bk-loading-animation primary-color=\\"#1890ff\\">\\n    <micro-lc config-src=\\"/micro-lc-configurations/config.json\\" fallback-language=\\"en\\"></micro-lc>\\n  </bk-loading-animation>\\n</body>\\n\\n</html>\\n",
+                  "name": "index.html"
+                }
+              ]
+            },
+            {
+              "name": "micro-lc-configurations",
+              "mountPath": "/usr/static/configurations",
+              "viewAsReadOnly": true,
+              "files": [
+                {
+                  "content": "{\\n  \\"applications\\": {\\n    \\"home\\": {\\n      \\"config\\": {\\n        \\"content\\": {\\n          \\"attributes\\": {\\n            \\"style\\": \\"width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; row-gap: 24px\\"\\n          },\\n          \\"content\\": [\\n            {\\n              \\"content\\": \\"Welcome to your new frontend! 👋\\",\\n              \\"tag\\": \\"span\\"\\n            },\\n            {\\n              \\"attributes\\": {\\n                \\"href\\": \\"https://docs.mia-platform.eu/docs/microfrontend-composer/overview\\",\\n                \\"target\\": \\"_blank\\"\\n              },\\n              \\"content\\": \\"Get started with the official documentation!\\",\\n              \\"tag\\": \\"a\\"\\n            }\\n          ],\\n          \\"tag\\": \\"div\\"\\n        }\\n      },\\n      \\"integrationMode\\": \\"compose\\",\\n      \\"route\\": \\"./home\\"\\n    }\\n  },\\n  \\"layout\\": {\\n    \\"content\\": [\\n      {\\n        \\"properties\\": {\\n          \\"logo\\": {\\n            \\"altText\\": \\"Change me\\",\\n            \\"url\\": \\"https://www.mia-platform.eu/static/img/logo.svg\\"\\n          },\\n          \\"menuItems\\": [\\n            {\\n              \\"icon\\": {\\n                \\"library\\": \\"@ant-design/icons-svg\\",\\n                \\"selector\\": \\"HomeOutlined\\"\\n              },\\n              \\"id\\": \\"home\\",\\n              \\"label\\": \\"Home\\",\\n              \\"type\\": \\"application\\"\\n            }\\n          ],\\n          \\"mode\\": \\"fixedSideBar\\"\\n        },\\n        \\"tag\\": \\"bk-layout\\"\\n      },\\n      {\\n        \\"properties\\": {\\n          \\"primaryColor\\": \\"#1890ff\\",\\n          \\"varsPrefix\\": [\\n            \\"micro-lc\\",\\n            \\"microlc\\",\\n            \\"back-kit\\",\\n            \\"ant\\"\\n          ]\\n        },\\n        \\"tag\\": \\"bk-antd-theme-manager\\"\\n      }\\n    ],\\n    \\"sources\\": [\\n      \\"https://cdn.mia-platform.eu/backoffice/bk-web-components/latest/dist/bk-web-components.esm.js\\"\\n    ]\\n  },\\n  \\"settings\\": {\\n    \\"defaultUrl\\": \\"./home\\"\\n  },\\n  \\"version\\": 2\\n}\\n",
+                  "name": "config.json"
+                }
+              ]
+            },
+            {
+              "name": "micro-lc-server-configuration",
+              "mountPath": "/usr/src/app/config",
+              "viewAsReadOnly": true,
+              "files": [
+                {
+                  "content": "{\\n  \\"publicHeadersMap\\": {\\n    \\"/public/index.html\\": {\\n      \\"content-security-policy\\": [\\n        [\\n          \\"script-src 'nonce-**CSP_NONCE**' 'strict-dynamic' 'unsafe-eval'\\",\\n          \\"style-src 'self' 'unsafe-inline'\\",\\n          \\"img-src 'self' https:\\",\\n          \\"object-src 'none'\\",\\n          \\"font-src 'self'\\",\\n          \\"worker-src 'self' blob:\\",\\n          \\"base-uri 'self'\\"\\n        ]\\n      ],\\n      \\"link\\": [\\n        \\"</mfe-application/assets/style.css>; rel=preload; as=style; nonce=**CSP_NONCE**\\",\\n        \\"<https://cdn.mia-platform.eu/micro-lc/orchestrator/2.4.2/dist/micro-lc.production.js>; rel=modulepreload; as=script; nonce=**CSP_NONCE**\\",\\n        \\"<https://cdn.mia-platform.eu/micro-lc/orchestrator/2.4.2/dist/assets/composer.js>; rel=preload; as=fetch; crossorigin\\",\\n        \\"<https://cdn.mia-platform.eu/backoffice/bk-web-components/latest/dist/bk-web-components.esm.js>; rel=preload; as=fetch; crossorigin\\",\\n        \\"<https://cdn.mia-platform.eu/backoffice/bk-web-components/latest/dist/bk-loading-animation.esm.js; rel=preload; as=fetch; crossorigin\\"\\n      ]\\n    }\\n  }\\n}\\n",
+                  "name": "config.json"
+                }
+              ]
+            },
+            {
+              "name": "micro-lc-assets",
+              "mountPath": "/usr/static/public/assets",
+              "files": [
+                {
+                  "content": "html,\\nbody {\\n  position: relative;\\n  width: 100%;\\n  height: 100%;\\n  margin: 0;\\n  padding: 0;\\n  overflow: hidden;\\n}\\n",
+                  "name": "style.css"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "3.4.2",
+      "releaseNote": "### Fixed\\n\\n- Updated \`github.com/andybalholm/brotli\` to \`v1.2.7\` to fix CVE-2026-111497"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-24T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "micro-lc-middleware.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "microfrontend",
+    "description": "Backend service responsible for serving micro-lc configuration files, applying some useful parsing logic before returning their content.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://micro-lc.io/add-ons/backend/middleware"
+    },
+    "itemId": "micro-lc-middleware",
+    "name": "micro-lc Middleware",
+    "repositoryUrl": "https://github.com/micro-lc/middleware",
+    "resources": {
+      "services": {
+        "micro-lc-middleware": {
+          "type": "plugin",
+          "name": "micro-lc-middleware",
+          "description": "Backend service responsible for serving micro-lc configuration files, applying some useful parsing logic before returning their content.",
           "dockerImage": "nexus.mia-platform.eu/microlc/middleware:3.4.0",
           "componentId": "backoffice-backend",
           "defaultEnvironmentVariables": [
@@ -60931,7 +61503,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -61558,7 +62129,7 @@ exports[`Sync script > should match snapshot 2`] = `
       },
       "unsecretedVariables": {
         "MFE_TOOLKIT_VERSION": {
-          "productionEnv": "1.3.13",
+          "productionEnv": "1.3.14",
           "noProductionEnv": "latest"
         },
         "BACK_KIT_SOURCE": {
@@ -80291,7 +80862,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "tenantId": "mia-platform",
     "version": {
       "name": "6.8.2",
-      "releaseNote": "### Fixed\\n\\n- Fixed vulnerability issues"
+      "releaseNote": "### Fixed\\n\\n- Updated Node.js to fix CVE-2026-111497"
     },
     "visibility": {
       "public": true
@@ -81531,7 +82102,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "tenantId": "mia-platform",
     "version": {
       "name": "6.8.2",
-      "releaseNote": "### Fixed\\n\\n- Fixed vulnerability issues"
+      "releaseNote": "### Fixed\\n\\n- Updated Node.js to fix CVE-2026-111497"
     },
     "visibility": {
       "public": true
@@ -83534,7 +84105,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "tenantId": "mia-platform",
     "version": {
       "name": "6.8.2",
-      "releaseNote": "### Fixed\\n\\n- Fixed vulnerability issues"
+      "releaseNote": "### Fixed\\n\\n- Updated Node.js to fix CVE-2026-111497"
     },
     "visibility": {
       "public": true
@@ -85171,6 +85742,213 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "single-view-trigger-generator",
           "description": "Keep your Real Time Updater lightning-fast by using the Single View Trigger Generator: this service will take care of executing strategies and produce projection changes, so that your Real Time Updater can live up to its name and always keep the Projections up to date in near real time.",
+          "dockerImage": "nexus.mia-platform.eu/fast-data/single-view-trigger-generator-plugin:3.5.3",
+          "componentId": "single-view-trigger-generator",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "{{LOG_LEVEL}}",
+              "valueType": "plain",
+              "description": "Level to use for logging; to choose from: error, fatal, warn, info, debug, trace, silent"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain",
+              "description": "MongoDB URL where the projections are stored"
+            },
+            {
+              "name": "MONGODB_NAME",
+              "value": "{{MONGODB_NAME}}",
+              "valueType": "plain",
+              "description": "MongoDB Database name where the projections are stored"
+            },
+            {
+              "name": "EVENT_STORE_TARGET",
+              "value": "CHANGE_WITH_YOUR_EVENT_STORE_TARGET",
+              "valueType": "plain",
+              "description": "Kafka topic to send the \`sv-trigger\` messages or MongoDB collection to save the \`pc\` records"
+            },
+            {
+              "name": "SINGLE_VIEW_NAME",
+              "value": "",
+              "valueType": "plain",
+              "description": "The name of the Single View",
+              "readOnly": true,
+              "managedBy": "fast-data"
+            },
+            {
+              "name": "EVENT_STORE_CONFIG_PATH",
+              "value": "/home/node/app/eventStoreConfig/eventStoreConfig.json",
+              "valueType": "plain",
+              "description": "Path to the Event Store Config file"
+            },
+            {
+              "name": "ER_SCHEMA_FOLDER",
+              "value": "/home/node/app/erSchema",
+              "valueType": "plain",
+              "description": "Path to the ER Schema folder",
+              "readOnly": true,
+              "managedBy": "fast-data"
+            },
+            {
+              "name": "PROJECTION_CHANGES_SCHEMA_FOLDER",
+              "value": "/home/node/app/projectionChangesSchema",
+              "valueType": "plain",
+              "description": "Path to the Projection Changes Schema folder",
+              "readOnly": true,
+              "managedBy": "fast-data"
+            },
+            {
+              "name": "KAFKA_PROJECTION_UPDATES_FOLDER",
+              "value": "/home/node/app/kafkaProjectionUpdates",
+              "valueType": "plain",
+              "description": "Path to the folder that contains the file kafkaProjectionUpdates.json",
+              "readOnly": true,
+              "managedBy": "fast-data"
+            }
+          ],
+          "defaultResources": {
+            "memoryLimits": {
+              "min": "120Mi",
+              "max": "360Mi"
+            },
+            "cpuLimits": {
+              "min": "100m",
+              "max": "600m"
+            }
+          },
+          "defaultProbes": {
+            "liveness": {
+              "path": "/-/healthz",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 20,
+              "timeoutSeconds": 5,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            },
+            "readiness": {
+              "path": "/-/ready",
+              "initialDelaySeconds": 15,
+              "periodSeconds": 10,
+              "timeoutSeconds": 5,
+              "successThreshold": 1,
+              "failureThreshold": 3
+            }
+          },
+          "defaultLogParser": "mia-json",
+          "defaultConfigMaps": [
+            {
+              "name": "event-store-config",
+              "mountPath": "/home/node/app/eventStoreConfig",
+              "files": [
+                {
+                  "content": "{\\n  \\"consumer\\": {\\n    \\"kafka\\": {\\n      \\"brokers\\": \\"my-broker:9092\\",\\n      \\"clientId\\": \\"client-id\\",\\n      \\"consumerGroupId\\": \\"group-id\\",\\n      \\"consumeFromBeginning\\": true,\\n      \\"logLevel\\": \\"WARN\\"\\n    }\\n  },\\n  \\"producer\\": {\\n    \\"kafka\\": {\\n      \\"brokers\\": \\"my-broker:9092\\",\\n      \\"clientId\\": \\"client-id\\",\\n      \\"logLevel\\": \\"WARN\\"\\n    }\\n  }\\n}\\n",
+                  "name": "eventStoreConfig.json"
+                }
+              ]
+            }
+          ],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "3.5.3",
+      "releaseNote": "### Fixed\\n\\n- Updated Node.js to fix CVE-2026-111497"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-24T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "single-view-trigger-generator.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "fast-data",
+    "description": "Keep your Real Time Updater lightning-fast by using the Single View Trigger Generator: this service will take care of executing strategies and produce projection changes, so that your Real Time Updater can live up to its name and always keep the Projections up to date in near real time.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/fast_data/configuration/single_view_trigger_generator"
+    },
+    "itemId": "single-view-trigger-generator",
+    "name": "Single View Trigger Generator",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/platform/fast-data/single-view-trigger-generator-service",
+    "resources": {
+      "services": {
+        "single-view-trigger-generator": {
+          "type": "plugin",
+          "name": "single-view-trigger-generator",
+          "description": "Keep your Real Time Updater lightning-fast by using the Single View Trigger Generator: this service will take care of executing strategies and produce projection changes, so that your Real Time Updater can live up to its name and always keep the Projections up to date in near real time.",
           "dockerImage": "nexus.mia-platform.eu/fast-data/single-view-trigger-generator-plugin:3.5.2",
           "componentId": "single-view-trigger-generator",
           "defaultEnvironmentVariables": [
@@ -85344,7 +86122,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -87497,6 +88274,103 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "smtp-mail-notification-service",
           "description": "Send custom email using configured SMTP server",
+          "dockerImage": "nexus.mia-platform.eu/plugins/smtp-mail-notification-service:3.5.2",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000
+            }
+          ],
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HOST",
+              "value": "CHANGE_WITH_YOUR_HOST",
+              "valueType": "plain"
+            },
+            {
+              "name": "PORT",
+              "value": "CHANGE_WITH_YOUR_PORT",
+              "valueType": "plain"
+            },
+            {
+              "name": "AUTH_TYPE",
+              "value": "CHANGE_WITH_YOUR_AUTH_TYPE",
+              "valueType": "plain"
+            },
+            {
+              "name": "AUTH_USER",
+              "value": "CHANGE_WITH_YOUR_AUTH_USER",
+              "valueType": "plain"
+            },
+            {
+              "name": "AUTH_PASS",
+              "value": "CHANGE_WITH_YOUR_SECRET_AUTH_PASS",
+              "valueType": "plain"
+            },
+            {
+              "name": "TLS_SECURE",
+              "value": "CHANGE_WITH_YOUR_OPTIONAL_TLS_SECURE",
+              "valueType": "plain"
+            },
+            {
+              "name": "TLS_IGNORE",
+              "value": "CHANGE_WITH_YOUR_OPTIONAL_TLS_IGNORE",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "CHANGE_WITH_YOUR_OPTIONAL_TRUSTED_PROXIES",
+              "valueType": "plain"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Platform",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "3.5.2",
+      "releaseNote": "### Fixed\\n\\n- Updated Node.js to fix CVE-2026-111497"
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-24T00:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "smtp-mail-notification-service.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-platform-logo-2023.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "notification",
+    "description": "Send custom email using configured SMTP server",
+    "itemId": "smtp-mail-notification-service",
+    "name": "SMTP Mail Notification Service",
+    "resources": {
+      "services": {
+        "smtp-mail-notification-service": {
+          "type": "plugin",
+          "name": "smtp-mail-notification-service",
+          "description": "Send custom email using configured SMTP server",
           "dockerImage": "nexus.mia-platform.eu/plugins/smtp-mail-notification-service:3.5.1",
           "containerPorts": [
             {
@@ -87565,7 +88439,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
@@ -88574,7 +89447,7 @@ exports[`Sync script > should match snapshot 2`] = `
     "tenantId": "mia-platform",
     "version": {
       "name": "3.9.7",
-      "releaseNote": "### Fixed\\n\\n- Fixed vulnerability issues"
+      "releaseNote": "### Fixed\\n\\n- Updated Node.js to fix CVE-2026-111497"
     },
     "visibility": {
       "public": true
