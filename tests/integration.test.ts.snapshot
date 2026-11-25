@@ -44730,6 +44730,68 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "form-service-backend",
           "description": "This is a backend for frontend to be used for building and managing forms.",
+          "dockerImage": "nexus.mia-platform.eu/backoffice/form-service-backend:2.1.2",
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "2.1.2",
+      "releaseNote": "Fixed all critical and high vulnerabilities reported by the image scanner: base image updated to \`node:24-alpine\`, \`@mia-platform/custom-plugin-lib\` updated to v8 (Fastify 5), npm and yarn removed from the final image. Breaking change: Node.js 22 or later is required. The image resolves to a Node.js version fixed for CVE-2026-111497."
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-03T10:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "form-service-backend_logo_20250410.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "frontendbuilder",
+    "description": "This is a backend for frontend to be used for building and managing forms.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/form-service-backend/overview"
+    },
+    "itemId": "form-service-backend",
+    "name": "Form Service Backend",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/form-service-backend",
+    "resources": {
+      "services": {
+        "form-service-backend": {
+          "type": "plugin",
+          "name": "form-service-backend",
+          "description": "This is a backend for frontend to be used for building and managing forms.",
           "dockerImage": "nexus.mia-platform.eu/backoffice/form-service-backend:2.1.1",
           "defaultLogParser": "mia-json",
           "containerPorts": [
@@ -44758,7 +44820,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
