@@ -33233,6 +33233,185 @@ exports[`Sync script > should match snapshot 2`] = `
         "device-manager": {
           "type": "plugin",
           "name": "device-manager",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/device-manager:1.0.1",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "LOG_LEVEL",
+              "value": "info",
+              "valueType": "plain"
+            },
+            {
+              "name": "TRUSTED_PROXIES",
+              "value": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+              "valueType": "plain"
+            },
+            {
+              "name": "HTTP_PORT",
+              "value": "3000",
+              "valueType": "plain"
+            },
+            {
+              "name": "USERID_HEADER_KEY",
+              "value": "miauserid",
+              "valueType": "plain"
+            },
+            {
+              "name": "GROUPS_HEADER_KEY",
+              "value": "miausergroups",
+              "valueType": "plain"
+            },
+            {
+              "name": "CLIENTTYPE_HEADER_KEY",
+              "value": "client-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "BACKOFFICE_HEADER_KEY",
+              "value": "isbackoffice",
+              "valueType": "plain"
+            },
+            {
+              "name": "MICROSERVICE_GATEWAY_SERVICE_NAME",
+              "value": "microservice-gateway",
+              "valueType": "plain"
+            },
+            {
+              "name": "USER_PROPERTIES_HEADER_KEY",
+              "value": "miauserproperties",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_SERVICE_URL",
+              "value": "http://crud-service",
+              "valueType": "plain"
+            },
+            {
+              "name": "TMM_SERVICE_URL",
+              "value": "http://therapy-monitoring-manager",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_DEVICES_ENDPOINT",
+              "value": "/tdm-dm-devices",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_HEALTH_DATA_ENDPOINT",
+              "value": "/tdm-dm-health-data",
+              "valueType": "plain"
+            },
+            {
+              "name": "CRUD_HEALTH_DATA_TYPE_ENDPOINT",
+              "value": "/tdm-dm-health-data-type",
+              "valueType": "plain"
+            },
+            {
+              "name": "TMM_MONITORINGS_ENDPOINT",
+              "value": "/monitorings",
+              "valueType": "plain"
+            },
+            {
+              "name": "TMM_DETECTIONS_ENDPOINT",
+              "value": "/detections",
+              "valueType": "plain"
+            },
+            {
+              "name": "TMM_PROTOTYPES_ENDPOINT",
+              "value": "/prototypes",
+              "valueType": "plain"
+            },
+            {
+              "name": "MEDISANTE_PROVIDER",
+              "value": "medisante",
+              "valueType": "plain"
+            },
+            {
+              "name": "HEALTHKIT_PROVIDER",
+              "value": "healthkit",
+              "valueType": "plain"
+            },
+            {
+              "name": "STANDARD_JSON_MEDISANTE",
+              "value": "medisante-standard-json",
+              "valueType": "plain"
+            },
+            {
+              "name": "STANDARD_JSON_HEALTHKIT",
+              "value": "healthkit-standard-json",
+              "valueType": "plain"
+            },
+            {
+              "name": "MONGODB_URL",
+              "value": "{{MONGODB_URL}}",
+              "valueType": "plain"
+            },
+            {
+              "name": "DATA_ACQUISITION_JOB_COLLECTION",
+              "value": "tdm_dm_data_acquisition_jobs",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "defaultConfigMaps": [],
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 3000,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "1.0.1",
+      "releaseNote": "Fixed CVE-2026-111497 (Node.js Brotli decoder) by replacing the end-of-life Node.js 20 runtime with Node.js 22. The minimum supported Node.js version is now 22."
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-09T10:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "device-manager_logo_20250410.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "utility",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/device-manager/overview"
+    },
+    "itemId": "device-manager",
+    "name": "Device Manager",
+    "description": "Collect, store and visualize patient health data from medical and wearable devices.",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/device-manager",
+    "resources": {
+      "services": {
+        "device-manager": {
+          "type": "plugin",
+          "name": "device-manager",
           "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/device-manager:1.0.0",
           "defaultEnvironmentVariables": [
             {
@@ -33379,7 +33558,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
