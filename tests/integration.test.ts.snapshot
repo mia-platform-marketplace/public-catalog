@@ -13917,6 +13917,75 @@ exports[`Sync script > should match snapshot 2`] = `
           "type": "plugin",
           "name": "chat-service-frontend",
           "description": "The Chat Service Frontend is a Mia-Platform plugin that uses the Stream React Library to provide a custom micro-frontend to chat with users registered on a target application.",
+          "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/chat-service-frontend:1.8.1",
+          "defaultEnvironmentVariables": [
+            {
+              "name": "HTTP_PORT",
+              "value": "8080",
+              "valueType": "plain"
+            }
+          ],
+          "defaultLogParser": "mia-json",
+          "containerPorts": [
+            {
+              "name": "http",
+              "from": 80,
+              "to": 8080,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "supportedBy": "Mia-Care",
+    "tenantId": "mia-platform",
+    "version": {
+      "name": "1.8.1",
+      "releaseNote": "The build toolchain moved from the end-of-life Node.js 14 to Node.js 22 (CVE-2026-111497), the nginx base image was updated to \`nginx:stable-alpine\` with Alpine upgrades, and patched \`axios\`, \`form-data\`, \`jsonwebtoken\`, \`jws\` and \`lodash\` are now enforced."
+    },
+    "visibility": {
+      "public": true
+    },
+    "releaseDate": "2026-11-09T10:00:00.000Z",
+    "lifecycleStatus": "published",
+    "itemTypeDefinitionRef": {
+      "name": "plugin",
+      "namespace": "mia-platform"
+    },
+    "isLatest": true,
+    "__STATE__": "PUBLIC",
+    "creatorId": "marketplace-sync",
+    "image": [
+      {
+        "name": "chat-service-frontend_logo_2025-04-23.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ],
+    "supportedByImage": [
+      {
+        "name": "mia-care.png",
+        "creatorId": "marketplace-sync",
+        "updaterId": "marketplace-sync"
+      }
+    ]
+  },
+  {
+    "categoryId": "utility",
+    "description": "The Chat Service Frontend is a Mia-Platform plugin that uses the Stream React Library to provide a custom micro-frontend to chat with users registered on a target application.",
+    "documentation": {
+      "type": "externalLink",
+      "url": "https://docs.mia-platform.eu/docs/runtime_suite/chat-service-frontend/overview"
+    },
+    "itemId": "chat-service-frontend",
+    "name": "Chat Service Frontend",
+    "repositoryUrl": "https://git.tools.mia-platform.eu/mia-care/platform/plugins/chat-service-frontend",
+    "resources": {
+      "services": {
+        "chat-service-frontend": {
+          "type": "plugin",
+          "name": "chat-service-frontend",
+          "description": "The Chat Service Frontend is a Mia-Platform plugin that uses the Stream React Library to provide a custom micro-frontend to chat with users registered on a target application.",
           "dockerImage": "nexus.mia-platform.eu/mia-care/plugins/chat-service-frontend:1.0.1",
           "defaultEnvironmentVariables": [
             {
@@ -13952,7 +14021,6 @@ exports[`Sync script > should match snapshot 2`] = `
       "name": "plugin",
       "namespace": "mia-platform"
     },
-    "isLatest": true,
     "__STATE__": "PUBLIC",
     "creatorId": "marketplace-sync",
     "image": [
