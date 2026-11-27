@@ -84,7 +84,7 @@
   "tenantId": "mia-platform",
   "version": {
     "name": "2.3.4",
-    "releaseNote": "## Security\n\n- fix CVE\n"
+    "releaseNote": "### Fixed\n\n- Fixed vulnerability issues"
   },
   "visibility": {
     "public": true
