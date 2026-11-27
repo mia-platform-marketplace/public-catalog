@@ -119,7 +119,7 @@
       "oauth-login-site": {
         "type": "plugin",
         "description": "",
-        "dockerImage": "nexus.mia-platform.eu/backoffice/login-site:8.1.2",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/login-site:8.1.5",
         "name": "oauth-login-site",
         "componentId": "oauth-login-site",
         "defaultDocumentationPath": "/documentation/json",

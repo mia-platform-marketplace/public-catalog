@@ -2445,7 +2445,7 @@
           }
         },
         "description": "Frontend supporting authentication flow",
-        "dockerImage": "nexus.mia-platform.eu/backoffice/login-site:8.1.2",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/login-site:8.1.5",
         "name": "login-site",
         "type": "plugin"
       },
