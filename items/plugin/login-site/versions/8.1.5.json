@@ -18,7 +18,7 @@
         "type": "plugin",
         "name": "login-site",
         "description": "Frontend supporting authentication flow.",
-        "dockerImage": "nexus.mia-platform.eu/backoffice/login-site:8.1.4",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/login-site:8.1.5",
         "defaultEnvironmentVariables": [
           {
             "name": "HTTP_PORT",
@@ -64,7 +64,7 @@
   },
   "tenantId": "mia-platform",
   "version": {
-    "name": "8.1.4",
+    "name": "8.1.5",
     "releaseNote": "### Fixed\n\n- Fixed vulnerability issues"
   },
   "visibility": {
