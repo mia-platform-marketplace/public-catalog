@@ -283,7 +283,7 @@
         "type": "plugin",
         "name": "control-plane-login-site",
         "description": "Control Plane Frontend employed to support authentication flow",
-        "dockerImage": "nexus.mia-platform.eu/backoffice/login-site:8.1.4",
+        "dockerImage": "nexus.mia-platform.eu/backoffice/login-site:8.1.5",
         "componentId": "oauth-login-site",
         "containerPorts": [
           {
